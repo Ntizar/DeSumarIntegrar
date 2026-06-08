@@ -7,36 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
-    11|.header{background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.container{max-width:900px;margin:0 auto;padding:1.5rem}
-    15|.intro-box{background:linear-gradient(135deg,var(--verde-claro),var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #10b981}
-    16|.intro-box h2{color:#10b981;margin-bottom:.8rem}
-    17|.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
-    18|.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-    19|.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#10b981}
-    20|.session-card .num{font-size:.8rem;color:#10b981;font-weight:700;margin-bottom:.3rem}
-    21|.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
-    22|.session-card p{font-size:.85rem;color:#64748b}
-    23|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    24|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    25|.nav a:hover{background:var(--azul-claro)}
-    26|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    27|.summary{background:var(--verde-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    28|.summary h3{color:#10b981;margin-bottom:.8rem}
-    29|.summary ul{list-style:none;padding:0}
-    30|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    31|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    32|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    33|.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#10b981;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--verde-claro);transition:all .2s}
-    34|.back-link:hover{transform:translateX(-4px)}
-    35|@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
-    36|</style>
+     7|<link rel="stylesheet" href="estilo.css">
     37|</head>
     38|<body>
     39|<div class="container">
