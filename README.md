@@ -14,9 +14,9 @@ Un curso digital completo, interactivo y en castellano que cubre **todo el itine
 
 | Nivel | Volumen | Sesiones | Estado |
 |-------|---------|----------|--------|
-| 🧸 1º Primaria | S01 | 10 sesiones | ✅ Completo |
-| 🧸 2º Primaria | S02 | 7 sesiones | ✅ Completo |
-| 🧸 3º Primaria | S03 | 6 sesiones | ✅ Completo |
+| 🧸 1º Primaria | S01 | 10 sesiones detalladas + 4 sesiones resumen | ✅ Completo |
+| 🧸 2º Primaria | S02 | 7 sesiones detalladas + 7 sesiones resumen | ✅ Completo |
+| 🧸 3º Primaria | S03 | 6 sesiones detalladas + 1 sesión resumen | ✅ Completo |
 | 🧸 4º Primaria | S04 | 8 sesiones | ✅ Completo |
 | 📊 Estadística (4º+) | S04+ | 10 sesiones | ✅ Completo |
 | 🧸 5º Primaria | S05 | 6 sesiones | ✅ Completo |
@@ -31,7 +31,7 @@ Un curso digital completo, interactivo y en castellano que cubre **todo el itine
 
 | Métrica | Valor |
 |---------|-------|
-| Archivos HTML | 82 |
+| Archivos HTML | 107 |
 | Líneas de código | ~21.000 |
 | Ejercicios interactivos | 400+ |
 | Ejemplos resueltos | 800+ |
@@ -88,9 +88,12 @@ matematicas/
 ├── MEGA-PLAN.md            ← Documento rector de producción
 ├── generate_all.py         ← Generador de sesiones (4º Primaria+)
 │
-├── s01-1primaria.html      ← 1º Primaria (10 sesiones)
-├── s02-2primaria.html      ← 2º Primaria (7 sesiones)
-├── s03-3primaria.html      ← 3º Primaria (6 sesiones)
+├── s01-1primaria-index.html ← 1º Primaria (índice con 10 sesiones detalladas)
+├── s01-1primaria.html      ← 1º Primaria (sesiones resumen 1-4)
+├── s02-2primaria-index.html ← 2º Primaria (índice con 7 sesiones detalladas)
+├── s02-2primaria.html      ← 2º Primaria (sesiones resumen 1-7)
+├── s03-3primaria-index.html ← 3º Primaria (índice con 6 sesiones detalladas)
+├── s03-3primaria.html      ← 3º Primaria (módulo general)
 ├── s04-4primaria.html      ← 4º Primaria (8 sesiones)
 ├── s04-estadistica-inicio.html ← Estadística (10 sesiones)
 ├── s05-5primaria.html      ← 5º Primaria (6 sesiones)

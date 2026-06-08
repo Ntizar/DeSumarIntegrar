@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔢 1º Primaria — Sesión 1: Aprender a Sumar | Matemáticas</title>
+<title>➗ 2º Primaria — Sesión 4: Dividir 2 Cifras | Matemáticas</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -51,6 +51,10 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .feedback.incorrect{color:var(--rojo)}
 .emoji-big{font-size:2rem;text-align:center;margin:1rem 0}
 .big-number{font-size:3rem;font-weight:800;text-align:center;color:var(--azul);margin:1rem 0}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -63,8 +67,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-  <h1>🔢 1º Primaria — Sesión 1: Aprender a Sumar</h1>
-  <p>Sumar es juntar cosas. ¡Vamos a contar juntos!</p>
+  <h1>➗ 2º Primaria — Sesión 4: Dividir 2 Cifras</h1>
+  <p>Divisiones entre 2 cifras</p>
   <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
@@ -74,115 +78,81 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 <div class="box box-teoria">
 <strong>Aprenderás a:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Sumar números del 1 al 20</li>
-<li>Visualizar sumas con objetos</li>
-<li>Resolver sumas con llevadas</li>
+<li>Dividir un número de 3 cifras entre uno de 2 cifras</li>
+<li>Repartir en grupos más grandes</li>
+<li>Encontrar el cociente y el resto</li>
 </ul>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Para qué sirve sumar?</h2>
+<h2 class="chapter-title">🌍 ¿Para qué sirve?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Juguetes</strong>
-<p>Si tienes 3 juguetes y te regalan 2 más... ¡ahora tienes 5!</p>
-<p>Sumar es <strong>juntar cosas</strong>. Es lo que haces cuando quieres saber cuántos juguetes, caramelos o amigos tienes en total.</p>
+<strong>💡 Caso real: 120 caramelos entre 4 niños</strong>
+<p>Si tienes 120 caramelos y quieres repartirlos entre 4 niños, ¿cuántos le tocan a cada uno?</p>
+<p>120 ÷ 4 = <strong>30</strong> caramelos cada uno.</p>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Sumar es Juntar</h2>
-<p>Cuando sumamos, juntamos grupos de cosas:</p>
-
-<div class="emoji-big">🍎🍎🍎 + 🍎🍎 = 🍎🍎🍎🍎🍎</div>
-<div class="big-number">3 + 2 = 5</div>
-
-<div class="chart-container">
-<h3>🎮 ¡Practica sumando!</h3>
-<p class="chart-desc">Haz clic en "Nueva suma" para practicar. Cuenta los objetos y escribe el resultado.</p>
-<canvas id="canvas-sumar" class="chart-canvas"></canvas>
-<div class="chart-controls">
-<button onclick="nuevaSuma()">🎲 Nueva suma</button>
-<button onclick="verificarSuma()">✅ Comprobar</button>
-</div>
-<div class="exercise-input" style="margin-top:1rem">
-<input type="number" id="respuesta-suma" placeholder="?" min="0" max="30">
-<span id="feedback-suma" style="font-size:1.2rem;font-weight:600"></span>
-</div>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">2️⃣ Sumar con Llevadas</h2>
-<p>A veces la suma es más grande que 10. ¡Entonces hacemos una "llevada"!</p>
+<h2 class="chapter-title">1️⃣ Dividir entre 2 Cifras</h2>
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo:</strong>
-<p style="margin-top:.5rem">8 + 5 = ?</p>
-<p style="margin-top:.5rem">Contamos: 8, 9, 10... ¡llegamos a 10! Nos quedan 3 más.</p>
-<p style="margin-top:.5rem">8 + 5 = <strong>13</strong></p>
+<p style="margin-top:.5rem">120 ÷ 4</p>
+<p style="margin-top:.5rem">12 ÷ 4 = 3</p>
+<p style="margin-top:.5rem">0 ÷ 4 = 0</p>
+<p style="margin-top:.5rem">Resultado: <strong>30</strong></p>
 </div>
 
 <div class="chart-container">
-<h3>🎮 Sumar con llevadas</h3>
-<p class="chart-desc">Visualiza cómo al llegar a 10, agrupamos en una decena.</p>
-<canvas id="canvas-llevadas" class="chart-canvas"></canvas>
+<h3>🎮 ¡Practica divisiones!</h3>
+<canvas id="canvas-div2" class="chart-canvas"></canvas>
 <div class="chart-controls">
-<button onclick="nuevaLlevada()">🎲 Nueva suma con llevadas</button>
+<button onclick="nuevaDiv2()">🎲 Nueva división</button>
+<button onclick="verificarDiv2()">✅ Comprobar</button>
+</div>
+<div class="exercise-input" style="margin-top:1rem">
+<input type="number" id="respuesta-div2" placeholder="?" min="0" max="999">
+<span id="feedback-div2" style="font-size:1.2rem;font-weight:600"></span>
 </div>
 </div>
 </div>
 
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
-
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 4 + 3 = ?</p>
-<div class="exercise-input">
-<input type="number" id="e1" placeholder="?">
-<button onclick="checkE(1, 7)">Comprobar</button>
-</div>
+<p><strong>Ejercicio 1:</strong> 120 ÷ 4 = ?</p>
+<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 30)">Comprobar</button></div>
 <div class="feedback" id="e1-fb"></div>
 </div>
-
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 7 + 6 = ?</p>
-<div class="exercise-input">
-<input type="number" id="e2" placeholder="?">
-<button onclick="checkE(2, 13)">Comprobar</button>
-</div>
+<p><strong>Ejercicio 2:</strong> 150 ÷ 5 = ?</p>
+<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 30)">Comprobar</button></div>
 <div class="feedback" id="e2-fb"></div>
 </div>
-
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 9 + 8 = ?</p>
-<div class="exercise-input">
-<input type="number" id="e3" placeholder="?">
-<button onclick="checkE(3, 17)">Comprobar</button>
-</div>
+<p><strong>Ejercicio 3:</strong> 200 ÷ 8 = ?</p>
+<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 25)">Comprobar</button></div>
 <div class="feedback" id="e3-fb"></div>
 </div>
 </div>
 
-<div style="text-align:center;margin:1rem 0"><a href="s01-1-contar-0-10.html" style="display:inline-block;background:#2563eb;color:#fff;padding:0.8rem 2rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.1rem">📖 Ver todas las sesiones detalladas de 1º Primaria →</a></div>
-
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
-<li>Sumar es juntar cosas</li>
-<li>3 + 2 = 5 (contamos todos juntos)</li>
-<li>A veces necesitamos una "llevada" cuando pasamos de 10</li>
-<li>8 + 5 = 13 (llegamos a 10 y nos sobran 3)</li>
+<li>Dividir entre 2 cifras es repartir en grupos más grandes</li>
+<li>120 ÷ 4 = 30</li>
+<li>La división es lo contrario de multiplicar</li>
 </ul>
 </div>
 
 <div class="nav">
-  <a style="color:#94a3b8">← Empieza aquí</a>
-  <a href="s01-2primaria.html">Siguiente →</a>
+  <a href="s02-3primaria.html">← Anterior</a>
+  <a href="s02-5primaria.html">Siguiente →</a>
 </div>
 </div>
 <div class="footer">Hecho con ❤️ por David Antizar</div>
-
 <script>
 window.addEventListener('scroll', () => {
   const winScroll = document.documentElement.scrollTop;
@@ -193,104 +163,41 @@ window.addEventListener('scroll', () => {
 </script>
 
 <script>
-const emojis = ['🍎','🍊','🍋','🍇','🍓','🌟','🎈','🐱','🐶','🦋'];
-
-function nuevaSuma() {
-  const a = Math.floor(Math.random() * 9) + 1;
-  const b = Math.floor(Math.random() * 9) + 1;
-  const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-  const canvas = document.getElementById('canvas-sumar');
+function nuevaDiv2() {
+  const b = Math.floor(Math.random() * 8) + 2;
+  const result = Math.floor(Math.random() * 30) + 5;
+  const a = b * result;
+  const canvas = document.getElementById('canvas-div2');
   const ctx = canvas.getContext('2d');
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
   ctx.fillStyle = '#fff';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.font = '28px serif';
+  ctx.font = 'bold 36px monospace';
   ctx.fillStyle = '#2563eb';
-  let x = 20, y = 60;
-  for (let i = 0; i < a; i++) {
-    ctx.fillText(emoji, x, y);
-    x += 35;
-    if (x > canvas.width - 40) { x = 20; y += 40; }
-  }
-  ctx.font = 'bold 32px sans-serif';
-  ctx.fillStyle = '#f97316';
-  ctx.fillText('+', canvas.width / 2 - 15, 60);
-  x = canvas.width - a * 35 - 50;
-  y = 60;
-  for (let i = 0; i < b; i++) {
-    ctx.fillText(emoji, x, y);
-    x += 35;
-    if (x > canvas.width - 40) { x = 20; y += 40; }
-  }
-  ctx.font = 'bold 24px sans-serif';
-  ctx.fillStyle = '#10b981';
-  ctx.fillText(a + ' + ' + b + ' = ?', canvas.width / 2 - 50, canvas.height - 40);
-  window._sumaA = a;
-  window._sumaB = b;
-  document.getElementById('respuesta-suma').value = '';
-  document.getElementById('feedback-suma').textContent = '';
+  ctx.fillText(a + ' ÷ ' + b + ' = ?', canvas.width / 2 - 80, canvas.height / 2);
+  window._div2A = a;
+  window._div2B = b;
+  document.getElementById('respuesta-div2').value = '';
+  document.getElementById('feedback-div2').textContent = '';
 }
 
-function verificarSuma() {
-  const a = window._sumaA || 3;
-  const b = window._sumaB || 2;
-  const resp = parseInt(document.getElementById('respuesta-suma').value);
-  const fb = document.getElementById('feedback-suma');
-  if (resp === a + b) {
+function verificarDiv2() {
+  const a = window._div2A || 120;
+  const b = window._div2B || 4;
+  const resp = parseInt(document.getElementById('respuesta-div2').value);
+  const fb = document.getElementById('feedback-div2');
+  if (resp === a / b) {
     fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
     fb.style.color = '#10b981';
   } else {
-    fb.textContent = '❌ ¡Casi! ' + a + ' + ' + b + ' = ' + (a + b);
+    fb.textContent = '❌ ¡Casi! ' + a + ' ÷ ' + b + ' = ' + (a / b);
     fb.style.color = '#ef4444';
   }
 }
-
-function nuevaLlevada() {
-  const a = Math.floor(Math.random() * 5) + 6;
-  const b = Math.floor(Math.random() * 5) + 4;
-  const canvas = document.getElementById('canvas-llevadas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  ctx.fillStyle = '#fff';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.font = '24px serif';
-  let x = 20, y = 60;
-  for (let i = 0; i < a; i++) {
-    ctx.fillStyle = '#2563eb';
-    ctx.fillText('🔵', x, y);
-    x += 30;
-  }
-  ctx.font = 'bold 28px sans-serif';
-  ctx.fillStyle = '#f97316';
-  ctx.fillText('+', canvas.width / 2 - 15, 60);
-  x = canvas.width - a * 30 - 40;
-  for (let i = 0; i < b; i++) {
-    ctx.fillStyle = '#f97316';
-    ctx.fillText('🟠', x, y);
-    x += 30;
-  }
-  ctx.font = 'bold 22px sans-serif';
-  ctx.fillStyle = '#10b981';
-  ctx.fillText(a + ' + ' + b + ' = ' + (a + b), canvas.width / 2 - 60, canvas.height - 40);
-}
-
-function checkE(num, respuesta) {
-  const input = document.getElementById('e' + num).value;
-  const fb = document.getElementById('e' + num + '-fb');
-  const val = parseInt(input);
-  if (val === respuesta) {
-    fb.className = 'feedback correct';
-    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
-  } else {
-    fb.className = 'feedback incorrect';
-    fb.textContent = '❌ Inténtalo de nuevo.';
-  }
-}
-
+''' + checkE_func() + '''
 document.addEventListener('DOMContentLoaded', () => {
-  nuevaSuma();
+  nuevaDiv2();
 });
 </script>
 </body>

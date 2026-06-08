@@ -1,204 +1,207 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📊 ESO1.7: Estadística y Probabilidad — 1º ESO — ¡Analizar datos!</title>
-<style>
-:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
-.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.8rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:1rem}
-.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
-.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
-.chapter{margin-bottom:2.5rem}
-.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
-.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
-.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
-.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
-.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-.box-idea{background:var(--pura-claro);border-color:var(--pura)}
-.box strong{display:block;margin-bottom:.3rem}
-.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-.interactive button:hover{background:#1d4ed8}
-.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-.result.ok{background:var(--verde-claro);color:#065f46}
-.result.fail{background:var(--rojo-claro);color:#991b1b}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
-.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-.solution.show{display:block}
-.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
-.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-.nav a:hover{background:var(--azul-claro)}
-.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-.summary h3{color:var(--azul);margin-bottom:.8rem}
-.summary ul{list-style:none;padding:0}
-.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-</style>
-</head>
-<body>
-  <div style="padding: 0.75rem 1.5rem;">
-    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
-  </div>
-<header class="header">
-<h1>📊 ESO1.7: Estadística y Probabilidad</h1>
-<p>1º ESO — ¡Analizar datos!</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-</header>
-<main class="container">
-<section class="chapter">
-<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-<div class="box box-idea">
-<strong>💡 Idea clave</strong>
-La media (promedio) = suma ÷ cantidad. La moda = dato más frecuente. La probabilidad = casos favorables / casos posibles.
-</div>
-<p>En esta sesión aprenderás a:</p>
-<ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Calcular media, moda, mediana</li><li>Interpretar gráficos</li><li>Calcular probabilidad</li>
-</ul>
-</section>
-<section class="chapter">
-<h2 class="chapter-title">1️⃣ Estadística y probabilidad básica</h2>
-<div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Media = suma ÷ cantidad. Moda = dato más frecuente. Probabilidad = casos favorables / casos posibles.
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-Notas: 7, 8, 6, 9, 5 → Media = 35÷5 = 7
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-Colores: rojo(5), azul(3), verde(5) → Moda = rojo y verde
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-Lanzar dado: P(sacar 3) = 1/6
-</div>
-</section>
-<section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Calcula estadística!</h2>
-<div class="interactive">
-<h3>Selecciona la respuesta correcta:</h3>
-<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="eso1statsDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso1statsButtons"></div></div>
-<div class="result" id="interactiveResult"></div>
-</div>
-</section>
-<section class="chapter">
-<h2 class="chapter-title">📝 Ejercicios</h2>
-<div class="exercises">
-<div class="exercise">
-<p>Media de 4, 6, 8, 10, 12:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-</div>
-</div>
-<div class="exercise">
-<p>Moda de 2, 3, 3, 4, 5, 5, 5:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
-</div>
-</div>
-<div class="exercise">
-<p>P(sacar cara en moneda):</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
-</div>
-</div>
-<div class="exercise">
-<p>P(sacar 6 en dado):</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
-</div>
-</div>
-<div class="exercise">
-<p>Media de 10, 20, 30:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">20</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-</div>
-</div>
-
-</div>
-</section>
-<div class="summary">
-<h3>📋 Resumen de lo aprendido</h3>
-<ul>
-<li><li>Media = suma ÷ cantidad</li></li><li><li>Moda = dato más frecuente</li></li><li><li>Probabilidad = fav / posibles</li></li><li><li>¡Ya sabes estadística y probabilidad! 🎉</li>
-</ul>
-</div>
-<div class="nav">
-<a href="eso1-5-intro-algebra.html">← Anterior</a>
-<a href="eso1-1-numeros-enteros.html">Ir a 1º ESO →</a>
-</div>
-</main>
-<footer class="footer">
-Hecho con ❤️ por David Antizar
-</footer>
-<script>
-function newQuiz() {
-  const data = [{"q": "Media de 4, 6, 8, 10, 12:", "opts": ["8", "10", "6"], "correct": 0}, {"q": "Moda de 2, 3, 3, 4, 5, 5, 5:", "opts": ["5", "3", "2"], "correct": 0}, {"q": "P(sacar cara en moneda):", "opts": ["1/2", "1/3", "1/4"], "correct": 0}, {"q": "P(sacar 6 en dado):", "opts": ["1/6", "1/5", "1/4"], "correct": 0}, {"q": "Media de 10, 20, 30:", "opts": ["20", "30", "10"], "correct": 0}];
-  const item = data[Math.floor(Math.random()*data.length)];
-  document.getElementById('eso1statsDisplay').textContent = item.q;
-  const opts = item.opts;
-  const buttons = document.getElementById('eso1statsButtons');
-  buttons.innerHTML = '';
-  opts.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-btn';
-    btn.textContent = opt;
-    btn.onclick = function() {
-      if(i === item.correct) {
-        this.classList.add('correct');
-        document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-      } else {
-        this.classList.add('wrong');
-        document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-      }
-    };
-    buttons.appendChild(btn);
-  });
-  document.getElementById('interactiveResult').textContent = '';
-}
-newQuiz();
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-
-window.onscroll = function(){
-  var h = document.documentElement;
-  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width = p+'%';
-};
-</script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="es">
+     3|<head>
+     4|<meta charset="UTF-8">
+     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|<title>📊 ESO1.7: Estadística y Probabilidad — 1º ESO — ¡Analizar datos!</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
+     7|<style>
+     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+     9|*{margin:0;padding:0;box-sizing:border-box}
+    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+    11|.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
+    13|.header p{opacity:.9;font-size:1rem}
+    14|.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+    15|.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+    16|.container{max-width:800px;margin:0 auto;padding:1.5rem}
+    17|.chapter{margin-bottom:2.5rem}
+    18|.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+    19|.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+    20|.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+    21|.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+    22|.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+    23|.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+    24|.box strong{display:block;margin-bottom:.3rem}
+    25|.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    26|.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+    27|.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+    28|.interactive button:hover{background:#1d4ed8}
+    29|.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+    30|.result.ok{background:var(--verde-claro);color:#065f46}
+    31|.result.fail{background:var(--rojo-claro);color:#991b1b}
+    32|.exercises{margin:1.5rem 0}
+    33|.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+    34|.exercise p{font-weight:600;margin-bottom:.5rem}
+    35|.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+    36|.solution.show{display:block}
+    37|.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+    38|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+    39|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+    40|.nav a:hover{background:var(--azul-claro)}
+    41|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+    42|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+    43|.summary h3{color:var(--azul);margin-bottom:.8rem}
+    44|.summary ul{list-style:none;padding:0}
+    45|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+    46|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+    47|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+    48|.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+    49|.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+    50|.quiz-btn:hover{background:var(--azul-claro)}
+    51|.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+    52|.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+    53|</style>
+    54|</head>
+    55|<body>
+    56|  <div style="padding: 0.75rem 1.5rem;">
+    57|    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+    58|  </div>
+    59|<header class="header">
+    60|<h1>📊 ESO1.7: Estadística y Probabilidad</h1>
+    61|<p>1º ESO — ¡Analizar datos!</p>
+    62|<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+    63|</header>
+    64|<main class="container">
+    65|<section class="chapter">
+    66|<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+    67|<div class="box box-idea">
+    68|<strong>💡 Idea clave</strong>
+    69|La media (promedio) = suma ÷ cantidad. La moda = dato más frecuente. La probabilidad = casos favorables / casos posibles.
+    70|</div>
+    71|<p>En esta sesión aprenderás a:</p>
+    72|<ul style="margin:.8rem 0 1rem 1.5rem">
+    73|<li>Calcular media, moda, mediana</li><li>Interpretar gráficos</li><li>Calcular probabilidad</li>
+    74|</ul>
+    75|</section>
+    76|<section class="chapter">
+    77|<h2 class="chapter-title">1️⃣ Estadística y probabilidad básica</h2>
+    78|<div class="box box-teoria">
+    79|<strong>📖 Teoría</strong>
+    80|Media = suma ÷ cantidad. Moda = dato más frecuente. Probabilidad = casos favorables / casos posibles.
+    81|</div>
+    82|<div class="box box-ejemplo">
+    83|<strong>🔍 Ejemplo 1</strong>
+    84|Notas: 7, 8, 6, 9, 5 → Media = 35÷5 = 7
+    85|</div>
+    86|<div class="box box-ejemplo">
+    87|<strong>🔍 Ejemplo 2</strong>
+    88|Colores: rojo(5), azul(3), verde(5) → Moda = rojo y verde
+    89|</div>
+    90|<div class="box box-ejemplo">
+    91|<strong>🔍 Ejemplo 3</strong>
+    92|Lanzar dado: P(sacar 3) = 1/6
+    93|</div>
+    94|</section>
+    95|<section class="chapter">
+    96|<h2 class="chapter-title">2️⃣ ¡Calcula estadística!</h2>
+    97|<div class="interactive">
+    98|<h3>Selecciona la respuesta correcta:</h3>
+    99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="eso1statsDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso1statsButtons"></div></div>
+   100|<div class="result" id="interactiveResult"></div>
+   101|</div>
+   102|</section>
+   103|<section class="chapter">
+   104|<h2 class="chapter-title">📝 Ejercicios</h2>
+   105|<div class="exercises">
+   106|<div class="exercise">
+   107|<p>Media de 4, 6, 8, 10, 12:</p>
+   108|<div class="quiz-options">
+   109|<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
+   110|<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+   111|<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+   112|</div>
+   113|</div>
+   114|<div class="exercise">
+   115|<p>Moda de 2, 3, 3, 4, 5, 5, 5:</p>
+   116|<div class="quiz-options">
+   117|<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+   118|<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
+   119|<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+   120|</div>
+   121|</div>
+   122|<div class="exercise">
+   123|<p>P(sacar cara en moneda):</p>
+   124|<div class="quiz-options">
+   125|<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
+   126|<button class="quiz-btn" onclick="checkExercise(this, false)">1/3</button>
+   127|<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
+   128|</div>
+   129|</div>
+   130|<div class="exercise">
+   131|<p>P(sacar 6 en dado):</p>
+   132|<div class="quiz-options">
+   133|<button class="quiz-btn" onclick="checkExercise(this, true)">1/6</button>
+   134|<button class="quiz-btn" onclick="checkExercise(this, false)">1/5</button>
+   135|<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
+   136|</div>
+   137|</div>
+   138|<div class="exercise">
+   139|<p>Media de 10, 20, 30:</p>
+   140|<div class="quiz-options">
+   141|<button class="quiz-btn" onclick="checkExercise(this, true)">20</button>
+   142|<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
+   143|<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+   144|</div>
+   145|</div>
+   146|
+   147|</div>
+   148|</section>
+   149|<div class="summary">
+   150|<h3>📋 Resumen de lo aprendido</h3>
+   151|<ul>
+   152|<li><li>Media = suma ÷ cantidad</li></li><li><li>Moda = dato más frecuente</li></li><li><li>Probabilidad = fav / posibles</li></li><li><li>¡Ya sabes estadística y probabilidad! 🎉</li>
+   153|</ul>
+   154|</div>
+   155|<div class="nav">
+   156|<a href="eso1-5-intro-algebra.html">← Anterior</a>
+   157|<a href="eso1-1-numeros-enteros.html">Ir a 1º ESO →</a>
+   158|</div>
+   159|</main>
+   160|<footer class="footer">
+   161|Hecho con ❤️ por David Antizar
+   162|</footer>
+   163|<script>
+   164|function newQuiz() {
+   165|  const data = [{"q": "Media de 4, 6, 8, 10, 12:", "opts": ["8", "10", "6"], "correct": 0}, {"q": "Moda de 2, 3, 3, 4, 5, 5, 5:", "opts": ["5", "3", "2"], "correct": 0}, {"q": "P(sacar cara en moneda):", "opts": ["1/2", "1/3", "1/4"], "correct": 0}, {"q": "P(sacar 6 en dado):", "opts": ["1/6", "1/5", "1/4"], "correct": 0}, {"q": "Media de 10, 20, 30:", "opts": ["20", "30", "10"], "correct": 0}];
+   166|  const item = data[Math.floor(Math.random()*data.length)];
+   167|  document.getElementById('eso1statsDisplay').textContent = item.q;
+   168|  const opts = item.opts;
+   169|  const buttons = document.getElementById('eso1statsButtons');
+   170|  buttons.innerHTML = '';
+   171|  opts.forEach((opt, i) => {
+   172|    const btn = document.createElement('button');
+   173|    btn.className = 'quiz-btn';
+   174|    btn.textContent = opt;
+   175|    btn.onclick = function() {
+   176|      if(i === item.correct) {
+   177|        this.classList.add('correct');
+   178|        document.getElementById('interactiveResult').className = 'result ok';
+   179|        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
+   180|      } else {
+   181|        this.classList.add('wrong');
+   182|        document.getElementById('interactiveResult').className = 'result fail';
+   183|        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+   184|      }
+   185|    };
+   186|    buttons.appendChild(btn);
+   187|  });
+   188|  document.getElementById('interactiveResult').textContent = '';
+   189|}
+   190|newQuiz();
+   191|function checkExercise(btn, correct) {
+   192|  const parent = btn.parentElement;
+   193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+   194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+   195|}
+   196|
+   197|window.onscroll = function(){
+   198|  var h = document.documentElement;
+   199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+   200|  document.getElementById('progress').style.width = p+'%';
+   201|};
+   202|</script>
+   203|</body>
+   204|</html>

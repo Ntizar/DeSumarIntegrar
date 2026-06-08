@@ -3,684 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2º Primaria — Matemáticas Divertidas</title>
+<title>➖ 2º Primaria — Sesión 2: Restar con 3 Cifras | Matemáticas</title>
 <style>
-:root{--azul:#2563eb;--naranja:#f97316;--exito:#10b981;--error:#ef4444;--fondo:#ffffff;--texto:#1e293b;--gris:#64748b;--borde:#e2e8f0}
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:#f8fafc;color:var(--texto);min-height:100vh}
-.header{background:linear-gradient(135deg,var(--azul),#7c3aed);color:#fff;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.header h1{font-size:1.2rem;font-weight:700}
-.layout{display:flex;min-height:calc(100vh - 52px)}
-.sidebar{width:220px;background:#fff;border-right:1px solid var(--borde);padding:.8rem 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;flex-shrink:0}
-.sidebar a{display:flex;align-items:center;gap:.5rem;padding:.55rem 1.2rem;color:#475569;text-decoration:none;font-size:.88rem;transition:all .15s;border-right:3px solid transparent}
-.sidebar a:hover{background:#f1f5f9;color:var(--azul)}
-.sidebar a.active{background:#eff6ff;color:var(--azul);border-right-color:var(--azul);font-weight:600}
-.sidebar a .emoji{font-size:1rem}
-.main{flex:1;padding:1.5rem 2rem;max-width:860px}
-.chapter{display:none}
-.chapter.active{display:block}
-.card{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:1.5rem;margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.card h2{font-size:1.4rem;color:var(--azul);margin-bottom:.8rem}
-.card h3{font-size:1.1rem;color:#334155;margin:.8rem 0 .4rem}
-.teoria{border-left:4px solid var(--azul);background:#f0f7ff;padding:.8rem 1rem;border-radius:0 8px 8px 0;line-height:1.6}
-.ejemplo{border-left:4px solid var(--naranja);background:#fff7ed;padding:.8rem 1rem;border-radius:0 8px 8px 0;margin:.5rem 0;line-height:1.6}
-.resumen{border-left:4px solid var(--exito);background:#f0fdf4;padding:.8rem 1rem;border-radius:0 8px 8px 0}
-.big-num{font-size:2.8rem;font-weight:800;color:var(--azul);text-align:center;margin:.5rem 0}
-.emoji-big{font-size:2.5rem;display:block;text-align:center;margin:.5rem 0}
-.canvas-box{text-align:center;margin:1rem 0}
-canvas{border:2px solid var(--borde);border-radius:10px;background:#fff;max-width:100%}
-.btn{display:inline-block;padding:.5rem 1.2rem;border-radius:8px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .15s;margin:.2rem}
-.btn-primary{background:var(--azul);color:#fff}
-.btn-primary:hover{background:#1d4ed8}
-.btn-secondary{background:var(--naranja);color:#fff}
-.btn-secondary:hover{background:#ea580c}
-.btn-success{background:var(--exito);color:#fff}
-.btn:active{transform:scale(.97)}
-.feedback{font-size:1rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
-.feedback.ok{color:var(--exito)}
-.feedback.ko{color:var(--error)}
-.nav-buttons{display:flex;justify-content:space-between;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--borde)}
-.nav-buttons .btn{min-width:120px}
-.slider-box{display:flex;align-items:center;gap:.8rem;margin:1rem 0;flex-wrap:wrap;justify-content:center}
-.slider-box input[type=range]{width:180px;accent-color:var(--azul)}
-.slider-box .val{font-size:1.4rem;font-weight:700;color:var(--azul);min-width:3ch;text-align:center}
-.step{padding:.4rem 0;border-bottom:1px dashed #e2e8f0}
-.step:last-child{border-bottom:none}
-.step-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--azul);color:#fff;font-weight:700;font-size:.8rem;margin-right:.5rem}
-.footer{text-align:center;padding:1.5rem;color:var(--gris);font-size:.85rem;border-top:1px solid var(--borde);margin-top:2rem}
-.footer a{color:var(--azul);text-decoration:none}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
-@media(max-width:768px){
-  .sidebar{position:fixed;left:-240px;top:52px;height:calc(100vh - 52px);z-index:99;transition:left .3s;box-shadow:4px 0 20px rgba(0,0,0,.1)}
-  .sidebar.open{left:0}
-  .hamburger{display:block}
-  .main{padding:1rem}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-canvas{width:100%;height:300px;border-radius:8px;background:#fff;border:1px solid #e2e8f0}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600;font-size:1rem}
+.feedback{font-size:1.1rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
+.emoji-big{font-size:2rem;text-align:center;margin:1rem 0}
+.big-number{font-size:3rem;font-weight:800;text-align:center;color:var(--azul);margin:1rem 0}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .chart-canvas{height:250px}
 }
 </style>
 </head>
 <body>
-  <div style="padding: 1rem 2rem;">
-    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border-radius: 12px; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3);">← Volver al índice</a>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
-
 <div class="header">
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <h1>🎒 Matemáticas — 2º Primaria</h1>
-  <span style="font-size:.85rem;opacity:.8">David Antizar</span>
+  <h1>➖ 2º Primaria — Sesión 2: Restar con 3 Cifras</h1>
+  <p>Restas grandes: hasta 999</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
+<div class="container">
 
-<div class="layout">
-<nav class="sidebar" id="sidebar">
-  <a href="#" class="active" onclick="return showChapter(0)"><span class="emoji">➕</span> Sumas con llevadas</a>
-  <a href="#" onclick="return showChapter(1)"><span class="emoji">➖</span> Restas con llevadas</a>
-  <a href="#" onclick="return showChapter(2)"><span class="emoji">✖️</span> Multiplicar</a>
-  <a href="#" onclick="return showChapter(3)"><span class="emoji">🎮</span> Tablas</a>
-  <a href="#" onclick="return showChapter(4)"><span class="emoji">📏</span> Medidas</a>
-  <a href="#" onclick="return showChapter(5)"><span class="emoji">💰</span> El dinero</a>
-</nav>
-
-<main class="main">
-
-<!-- CAP 1: SUMAS CON LLEVADAS -->
-<div class="chapter active" id="ch0">
-<div class="card">
-<h2>➕ Sumas con Llevadas</h2>
-<div class="teoria">
-<p><strong>¡Superhéroe de las llevadas al rescate!</strong> 🦸</p>
-<p>Cuando sumamos y el resultado es <strong>10 o más</strong>, tenemos que <strong>llevar</strong> una decena a la siguiente columna.</p>
-<p>Es como cuando tienes 10 caramelos y haces un montón de 10. ¡El montón se lleva a la columna de al lado!</p>
-</div>
-</div>
-
-<div class="card">
-<h3>📝 Ejemplo: 27 + 15</h3>
-<div class="ejemplo">
-<div class="step"><span class="step-num">1</span> Colocamos los números en columnas: unidades con unidades, decenas con decenas.</div>
-<div class="step"><span class="step-num">2</span> Sumamos las unidades: 7 + 5 = <strong>12</strong>. ¡Son más de 10! Escribimos 2 y <strong>llevamos 1</strong>.</div>
-<div class="step"><span class="step-num">3</span> Sumamos las decenas: 2 + 1 + <strong>la que llevamos (1)</strong> = <strong>4</strong>.</div>
-<div class="step"><span class="step-num">4</span> Resultado: <strong>27 + 15 = 42</strong> ✅</div>
-</div>
-</div>
-
-<div class="card">
-<h3>🎮 ¡Practica las llevadas!</h3>
-<div class="canvas-box">
-<canvas id="carryCanvas" width="400" height="180"></canvas>
-</div>
-<div class="slider-box">
-<label>Número 1:</label>
-<input type="range" id="carryA" min="10" max="89" value="27" oninput="updateCarry()">
-<span class="val" id="carryADisplay">27</span>
-<label>+</label>
-<input type="range" id="carryB" min="10" max="89" value="15" oninput="updateCarry()">
-<span class="val" id="carryBDisplay">15</span>
-</div>
-<div class="feedback" id="carryFeedback">27 + 15 = 42</div>
-<button class="btn btn-primary" onclick="randomCarry()">🎲 Nueva suma</button>
-</div>
-
-<div class="card">
-<h3>🧮 Mini ejercicio</h3>
-<p>¿Cuánto es <strong>38 + 25</strong>?</p>
-<button class="btn btn-primary" onclick="checkCarry(53)">53</button>
-<button class="btn btn-secondary" onclick="checkCarry(63)">63</button>
-<button class="btn btn-secondary" onclick="checkCarry(55)">55</button>
-<div class="feedback" id="carryQuizFeedback"></div>
-</div>
-
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>Cuando la suma de unidades da 10 o más, llevamos 1 a las decenas</li>
-<li>La llevada es como un superhéroe que ayuda 🦸</li>
-<li>¡Practicar llevadas es fácil con estos trucos!</li>
+<div class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-teoria">
+<strong>Aprenderás a:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Restar números de 3 cifras</li>
+<li>Hacer préstamos (pedir prestado al siguiente grupo)</li>
+<li>Resolver restas grandes con confianza</li>
 </ul>
 </div>
 </div>
-</div>
 
-<!-- CAP 2: RESTAS CON LLEVADAS -->
-<div class="chapter" id="ch1">
-<div class="card">
-<h2>➖ Restas con Llevadas</h2>
-<div class="teoria">
-<p><strong>¡Pedir prestado como un amigo!</strong> 🤝</p>
-<p>Cuando restamos y la unidad de arriba es <strong>más pequeña</strong> que la de abajo, tenemos que <strong>pedir prestado</strong> a la decena.</p>
-<p>Es como cuando necesitas 7 caramelos pero solo tienes 3, y le pides 10 a tu amigo de al lado.</p>
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Para qué sirve?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Calcular el cambio</strong>
+<p>Tienes 500€ y compras algo que cuesta 237€. ¿Cuánto te devuelven?</p>
+<p>500 - 237 = <strong>263€</strong></p>
 </div>
 </div>
 
-<div class="card">
-<h3>📝 Ejemplo: 43 − 18</h3>
-<div class="ejemplo">
-<div class="step"><span class="step-num">1</span> Colocamos los números: 43 − 18.</div>
-<div class="step"><span class="step-num">2</span> Unidades: 3 − 8 no se puede. <strong>Pedimos prestado</strong> 1 decena (que vale 10 unidades).</div>
-<div class="step"><span class="step-num">3</span> Ahora tenemos 13 − 8 = <strong>5</strong>. Y en decenas nos queda 3 − 1 = <strong>2</strong>.</div>
-<div class="step"><span class="step-num">4</span> Resultado: <strong>43 − 18 = 25</strong> ✅</div>
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Restar 3 Cifras</h2>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">500 - 237</p>
+<p style="margin-top:.5rem">Unidades: 0 - 7 → no puedo, pido prestado → 10 - 7 = 3</p>
+<p style="margin-top:.5rem">Decenas: 9 - 3 = 6 (pedí prestado, ahora tengo 9)</p>
+<p style="margin-top:.5rem">Centenas: 4 - 2 = 2 (pedí prestado, ahora tengo 4)</p>
+<p style="margin-top:.5rem">Resultado: <strong>263</strong></p>
+</div>
+
+<div class="chart-container">
+<h3>🎮 ¡Practica restas de 3 cifras!</h3>
+<p class="chart-desc">Haz clic en "Nueva resta" y resuelve.</p>
+<canvas id="canvas-resta3" class="chart-canvas"></canvas>
+<div class="chart-controls">
+<button onclick="nuevaResta3()">🎲 Nueva resta</button>
+<button onclick="verificarResta3()">✅ Comprobar</button>
+</div>
+<div class="exercise-input" style="margin-top:1rem">
+<input type="number" id="respuesta-resta3" placeholder="?" min="0" max="999">
+<span id="feedback-resta3" style="font-size:1.2rem;font-weight:600"></span>
+</div>
 </div>
 </div>
 
-<div class="card">
-<h3>🎮 ¡Practica las restas!</h3>
-<div class="canvas-box">
-<canvas id="borrowCanvas" width="400" height="180"></canvas>
+<div class="chapter">
+<h2 class="chapter-title">🧠 Ejercicios</h2>
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> 743 - 256 = ?</p>
+<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 487)">Comprobar</button></div>
+<div class="feedback" id="e1-fb"></div>
 </div>
-<div class="slider-box">
-<label>Número 1:</label>
-<input type="range" id="borrowA" min="20" max="99" value="43" oninput="updateBorrow()">
-<span class="val" id="borrowADisplay">43</span>
-<label>−</label>
-<input type="range" id="borrowB" min="10" max="19" value="18" oninput="updateBorrow()">
-<span class="val" id="borrowBDisplay">18</span>
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> 600 - 347 = ?</p>
+<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 253)">Comprobar</button></div>
+<div class="feedback" id="e2-fb"></div>
 </div>
-<div class="feedback" id="borrowFeedback">43 − 18 = 25</div>
-<button class="btn btn-primary" onclick="randomBorrow()">🎲 Nueva resta</button>
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> 912 - 456 = ?</p>
+<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 456)">Comprobar</button></div>
+<div class="feedback" id="e3-fb"></div>
 </div>
-
-<div class="card">
-<h3>🧮 Mini ejercicio</h3>
-<p>¿Cuánto es <strong>52 − 27</strong>?</p>
-<button class="btn btn-primary" onclick="checkBorrow(25)">25</button>
-<button class="btn btn-secondary" onclick="checkBorrow(35)">35</button>
-<button class="btn btn-secondary" onclick="checkBorrow(15)">15</button>
-<div class="feedback" id="borrowQuizFeedback"></div>
 </div>
 
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>Cuando no podemos restar, pedimos prestado a la decena</li>
-<li>Una decena prestada vale 10 unidades</li>
-<li>¡Es como pedir ayuda a un amigo! 🤝</li>
+<div class="summary">
+<h3>📋 Lo que aprendiste</h3>
+<ul>
+<li>Restamos de derecha a izquierda</li>
+<li>Si no puedo restar, pido prestado al siguiente grupo</li>
+<li>500 - 237 = 263 (con varios préstamos)</li>
 </ul>
 </div>
-</div>
-</div>
 
-<!-- CAP 3: MULTIPLICAR -->
-<div class="chapter" id="ch2">
-<div class="card">
-<h2>✖️ ¡Vamos a Multiplicar!</h2>
-<div class="teoria">
-<p><strong>Multiplicar es sumar varias veces lo mismo.</strong> 🎯</p>
-<p>Si tienes <strong>3 grupos de 2 manzanas</strong>, en vez de sumar 2+2+2, puedes hacer <strong>3 × 2 = 6</strong>.</p>
-<p>¡Es un atajo para no tener que sumar tantas veces!</p>
+<div class="nav">
+  <a href="s02-1primaria.html">← Anterior</a>
+  <a href="s02-3primaria.html">Siguiente →</a>
 </div>
 </div>
-
-<div class="card">
-<h3>📝 Ejemplos</h3>
-<div class="ejemplo">
-<p><strong>Ejemplo 1:</strong> 2 × 3 = 2 + 2 + 2 = <strong>6</strong> 🍎🍎 + 🍎🍎 + 🍎🍎</p>
-</div>
-<div class="ejemplo">
-<p><strong>Ejemplo 2:</strong> 5 × 2 = 5 + 5 = <strong>10</strong> 🖐️🖐️</p>
-</div>
-<div class="ejemplo">
-<p><strong>Ejemplo 3:</strong> 4 × 3 = 4 + 4 + 4 = <strong>12</strong> 🍪🍪🍪🍪 + 🍪🍪🍪🍪 + 🍪🍪🍪🍪</p>
-</div>
-</div>
-
-<div class="card">
-<h3>🎮 ¡Multiplica con puntos!</h3>
-<div class="canvas-box">
-<canvas id="multCanvas" width="400" height="200"></canvas>
-</div>
-<div class="slider-box">
-<label>Filas:</label>
-<input type="range" id="multRows" min="1" max="6" value="3" oninput="updateMult()">
-<span class="val" id="multRowsDisplay">3</span>
-<label>×</label>
-<input type="range" id="multCols" min="1" max="6" value="4" oninput="updateMult()">
-<span class="val" id="multColsDisplay">4</span>
-<label>=</label>
-<span class="val" id="multResult" style="color:var(--naranja)">12</span>
-</div>
-<div class="feedback" id="multFeedback">3 × 4 = 12 puntos</div>
-</div>
-
-<div class="card">
-<h3>🧮 Mini ejercicio</h3>
-<p>¿Cuánto es <strong>2 × 6</strong>?</p>
-<button class="btn btn-primary" onclick="checkMult(8)">8</button>
-<button class="btn btn-secondary" onclick="checkMult(12)">12</button>
-<button class="btn btn-secondary" onclick="checkMult(10)">10</button>
-<div class="feedback" id="multQuizFeedback"></div>
-</div>
-
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>Multiplicar es sumar varias veces el mismo número</li>
-<li>El signo × significa "veces"</li>
-<li>¡Es un atajo para no sumar tanto! 🏃</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- CAP 4: TABLAS -->
-<div class="chapter" id="ch3">
-<div class="card">
-<h2>🎮 ¡Las Tablas de Multiplicar!</h2>
-<div class="teoria">
-<p>Las <strong>tablas de multiplicar</strong> son como la tabla periódica de las mates. ¡Te ayudan a multiplicar muy rápido! 🚀</p>
-<p>Vamos a aprender las del <strong>2, 5 y 10</strong> que son las más fáciles.</p>
-</div>
-</div>
-
-<div class="card">
-<h3>📝 Tabla del 2</h3>
-<div class="ejemplo">
-<p>2 × 1 = 2 &nbsp;|&nbsp; 2 × 2 = 4 &nbsp;|&nbsp; 2 × 3 = 6 &nbsp;|&nbsp; 2 × 4 = 8 &nbsp;|&nbsp; 2 × 5 = 10</p>
-<p>2 × 6 = 12 | 2 × 7 = 14 | 2 × 8 = 16 | 2 × 9 = 18 | 2 × 10 = 20</p>
-<p><strong>Truco:</strong> ¡La tabla del 2 es contar de 2 en 2! 🏃</p>
-</div>
-</div>
-
-<div class="card">
-<h3>📝 Tabla del 5</h3>
-<div class="ejemplo">
-<p>5 × 1 = 5 &nbsp;|&nbsp; 5 × 2 = 10 | 5 × 3 = 15 | 5 × 4 = 20 | 5 × 5 = 25</p>
-<p>5 × 6 = 30 | 5 × 7 = 35 | 5 × 8 = 40 | 5 × 9 = 45 | 5 × 10 = 50</p>
-<p><strong>Truco:</strong> ¡La tabla del 5 siempre termina en 0 o 5! 🔢</p>
-</div>
-</div>
-
-<div class="card">
-<h3>📝 Tabla del 10</h3>
-<div class="ejemplo">
-<p>10 × 1 = 10 | 10 × 2 = 20 | 10 × 3 = 30 | 10 × 4 = 40 | 10 × 5 = 50</p>
-<p>10 × 6 = 60 | 10 × 7 = 70 | 10 × 8 = 80 | 10 × 9 = 90 | 10 × 10 = 100</p>
-<p><strong>Truco:</strong> ¡Solo añade un 0 al número! 10 × 7 = 70 🎯</p>
-</div>
-</div>
-
-<div class="card">
-<h3>🎮 ¡Pon a prueba tus tablas!</h3>
-<p>¿Cuánto es...?</p>
-<div class="feedback" id="tableQuestion" style="font-size:1.3rem">2 × 3 = ?</div>
-<div class="feedback" id="tableFeedback"></div>
-<div id="tableButtons"></div>
-<button class="btn btn-primary" onclick="newTableQuestion()">🎲 Nueva pregunta</button>
-</div>
-
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>La tabla del 2 es contar de 2 en 2</li>
-<li>La tabla del 5 termina en 0 o 5</li>
-<li>La tabla del 10 solo añade un 0</li>
-<li>¡Practica y las memorizarás! 🧠</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- CAP 5: MEDIDAS -->
-<div class="chapter" id="ch4">
-<div class="card">
-<h2>📏 Medidas de Longitud y Peso</h2>
-<div class="teoria">
-<p>¿Cuánto mides? ¿Cuánto pesa tu mochila? 🎒</p>
-<p>Para medir usamos <strong>unidades</strong> especiales:</p>
-<p>📏 <strong>Longitud:</strong> metro (m) y centímetro (cm)</p>
-<p>⚖️ <strong>Peso:</strong> kilogramo (kg) y gramo (g)</p>
-</div>
-</div>
-
-<div class="card">
-<h3>📏 La regla virtual</h3>
-<p>Mueve el slider para medir diferentes objetos:</p>
-<div class="canvas-box">
-<canvas id="rulerCanvas" width="400" height="200"></canvas>
-</div>
-<div class="slider-box">
-<label>Objeto:</label>
-<input type="range" id="rulerSlider" min="1" max="5" value="1" oninput="updateRuler()">
-<span class="val" id="rulerName">Lápiz</span>
-</div>
-<div class="feedback" id="rulerFeedback">📏 El lápiz mide 15 cm</div>
-</div>
-
-<div class="card">
-<h3>⚖️ ¿Pesado o ligero?</h3>
-<div class="ejemplo">
-<p><strong>1 kilogramo (kg)</strong> ≈ una bolsa de arroz 🍚</p>
-<p><strong>1 gramo (g)</strong> ≈ un clip 📎</p>
-<p><strong>Relación:</strong> 1 kg = 1000 g</p>
-</div>
-<div class="teoria">
-<p>🐘 Elefante: 5000 kg &nbsp;|&nbsp; 🐱 Gato: 4 kg &nbsp;|&nbsp; 🐭 Ratón: 20 g</p>
-</div>
-</div>
-
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>El metro (m) mide longitudes</li>
-<li>El centímetro (cm) es más pequeño que el metro</li>
-<li>El kilogramo (kg) mide peso</li>
-<li>1 kg = 1000 gramos</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- CAP 6: DINERO -->
-<div class="chapter" id="ch5">
-<div class="card">
-<h2>💰 ¡El Dinero!</h2>
-<div class="teoria">
-<p>¿Sabes contar dinero? ¡Es muy útil para comprar! 🛒</p>
-<p>En España usamos <strong>euros (€)</strong> y <strong>céntimos (¢)</strong>.</p>
-<p><strong>1 euro = 100 céntimos</strong></p>
-</div>
-</div>
-
-<div class="card">
-<h3>🪙 Monedas y billetes</h3>
-<div class="ejemplo">
-<p><strong>Monedas:</strong> 1¢, 2¢, 5¢, 10¢, 20¢, 50¢, 1€, 2€</p>
-<p><strong>Billetes:</strong> 5€, 10€, 20€, 50€, 100€, 200€, 500€</p>
-</div>
-</div>
-
-<div class="card">
-<h3>🎮 ¡La tienda!</h3>
-<p>Tienes <strong>10€</strong> para gastar en la tienda. ¿Cuánto te sobra?</p>
-<div class="canvas-box">
-<canvas id="shopCanvas" width="400" height="200"></canvas>
-</div>
-<div class="slider-box">
-<label>Producto:</label>
-<select id="shopSelect" onchange="updateShop()" style="padding:.4rem;border-radius:6px;border:1px solid var(--borde);font-size:1rem">
-<option value="3">🍎 Manzanas — 3€</option>
-<option value="5">📚 Libro — 5€</option>
-<option value="2">🧸 Peluche — 2€</option>
-<option value="7">🎮 Videojuego — 7€</option>
-<option value="1">🍪 Galletas — 1€</option>
-</select>
-</div>
-<div class="feedback" id="shopFeedback">💰 Gastas 3€. Te sobran 7€</div>
-</div>
-
-<div class="card">
-<h3>🧮 Mini ejercicio</h3>
-<p>Si tienes <strong>2 monedas de 2€</strong> y <strong>3 monedas de 1€</strong>, ¿cuánto dinero tienes?</p>
-<button class="btn btn-primary" onclick="checkMoney(5)">5€</button>
-<button class="btn btn-secondary" onclick="checkMoney(7)">7€</button>
-<button class="btn btn-secondary" onclick="checkMoney(6)">6€</button>
-<div class="feedback" id="moneyQuizFeedback"></div>
-</div>
-
-<div class="card">
-<div class="resumen">
-<h3>📋 ¿Qué hemos aprendido?</h3>
-<ul style="padding-left:1.2rem;line-height:1.8">
-<li>1 euro = 100 céntimos</li>
-<li>Sabemos sumar dinero para comprar</li>
-<li>Sabemos calcular el cambio</li>
-<li>¡Ya podemos ir a la tienda solos! 🛍️</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- NAVEGACIÓN -->
-<div class="nav-buttons">
-<button class="btn btn-primary" id="prevBtn" onclick="prevChapter()" style="visibility:hidden">← Anterior</button>
-<span id="chapterIndicator" style="color:var(--gris);font-size:.9rem;align-self:center">Capítulo 1 de 6</span>
-<button class="btn btn-primary" id="nextBtn" onclick="nextChapter()">Siguiente →</button>
-</div>
-
-</main>
-</div>
-
-<div class="footer">
-  <p>Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a></p>
-  <p style="font-size:.8rem;margin-top:.3rem">Curso de Matemáticas — Volumen 2: 2º Primaria</p>
-</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+<script>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+</script>
 
 <script>
-// === NAVEGACIÓN ===
-let currentChapter = 0;
-const totalChapters = 6;
-
-function showChapter(n) {
-  if (n < 0 || n >= totalChapters) return false;
-  currentChapter = n;
-  document.querySelectorAll('.chapter').forEach((c, i) => c.classList.toggle('active', i === n));
-  document.querySelectorAll('.sidebar a').forEach((a, i) => a.classList.toggle('active', i === n));
-  document.getElementById('prevBtn').style.visibility = n === 0 ? 'hidden' : 'visible';
-  document.getElementById('nextBtn').textContent = n === totalChapters - 1 ? '🎉 Terminar' : 'Siguiente →';
-  document.getElementById('chapterIndicator').textContent = 'Capítulo ' + (n + 1) + ' de ' + totalChapters;
-  if (n === 0) updateCarry();
-  if (n === 1) updateBorrow();
-  if (n === 2) updateMult();
-  if (n === 3) newTableQuestion();
-  if (n === 4) updateRuler();
-  if (n === 5) updateShop();
-  document.getElementById('sidebar').classList.remove('open');
-  return false;
-}
-function nextChapter() { if (currentChapter < totalChapters - 1) showChapter(currentChapter + 1); }
-function prevChapter() { if (currentChapter > 0) showChapter(currentChapter - 1); }
-function toggleMenu() { document.getElementById('sidebar').classList.toggle('open'); }
-
-// === CAP 1: LLEVADAS ===
-function updateCarry() {
-  const a = parseInt(document.getElementById('carryA').value);
-  const b = parseInt(document.getElementById('carryB').value);
-  document.getElementById('carryADisplay').textContent = a;
-  document.getElementById('carryBDisplay').textContent = b;
-  const r = a + b;
-  document.getElementById('carryFeedback').textContent = a + ' + ' + b + ' = ' + r;
-  const c = document.getElementById('carryCanvas');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0, 0, 400, 180);
-  ctx.font = '36px sans-serif';
-  ctx.fillStyle = '#2563eb';
-  ctx.fillText(a + ' + ' + b + ' = ' + r, 60, 70);
-  ctx.font = '18px sans-serif';
-  ctx.fillStyle = '#64748b';
-  const da = Math.floor(a / 10), ua = a % 10;
-  const db = Math.floor(b / 10), ub = b % 10;
-  const sumU = ua + ub;
-  ctx.fillText('Unidades: ' + ua + ' + ' + ub + ' = ' + sumU + (sumU >= 10 ? ' → ¡llevamos 1!' : ''), 40, 120);
-  ctx.fillText('Decenas: ' + da + ' + ' + db + (sumU >= 10 ? ' + 1 (llevada)' : '') + ' = ' + (da + db + (sumU >= 10 ? 1 : 0)), 40, 150);
-}
-function randomCarry() {
-  document.getElementById('carryA').value = Math.floor(Math.random() * 70) + 10;
-  document.getElementById('carryB').value = Math.floor(Math.random() * 70) + 10;
-  updateCarry();
-}
-function checkCarry(n) {
-  const fb = document.getElementById('carryQuizFeedback');
-  if (n === 63) { fb.textContent = '✅ ¡Correcto! 38 + 25 = 63'; fb.className = 'feedback ok'; }
-  else { fb.textContent = '❌ ¡Casi! 38 + 25 = 63, no ' + n; fb.className = 'feedback ko'; }
-}
-
-// === CAP 2: RESTAS CON LLEVADAS ===
-function updateBorrow() {
-  let a = parseInt(document.getElementById('borrowA').value);
-  let b = parseInt(document.getElementById('borrowB').value);
-  if (b >= a) { b = a - 1; document.getElementById('borrowB').value = b; }
-  document.getElementById('borrowADisplay').textContent = a;
-  document.getElementById('borrowBDisplay').textContent = b;
-  const r = a - b;
-  document.getElementById('borrowFeedback').textContent = a + ' − ' + b + ' = ' + r;
-  const c = document.getElementById('borrowCanvas');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0, 0, 400, 180);
-  ctx.font = '36px sans-serif';
-  ctx.fillStyle = '#2563eb';
-  ctx.fillText(a + ' − ' + b + ' = ' + r, 60, 70);
-  ctx.font = '18px sans-serif';
-  ctx.fillStyle = '#64748b';
-  const ua = a % 10, ub = b % 10;
-  if (ua < ub) {
-    ctx.fillText('Unidades: ' + ua + ' − ' + ub + ' → ¡pedimos prestado!', 40, 120);
-    ctx.fillText('Ahora tenemos ' + (ua + 10) + ' − ' + ub + ' = ' + (ua + 10 - ub), 40, 150);
-  } else {
-    ctx.fillText('Unidades: ' + ua + ' − ' + ub + ' = ' + (ua - ub) + ' (sin llevar)', 40, 120);
-  }
-}
-function randomBorrow() {
-  const a = Math.floor(Math.random() * 70) + 20;
-  const b = Math.floor(Math.random() * (a - 10)) + 10;
-  document.getElementById('borrowA').value = a;
-  document.getElementById('borrowB').value = b;
-  updateBorrow();
-}
-function checkBorrow(n) {
-  const fb = document.getElementById('borrowQuizFeedback');
-  if (n === 25) { fb.textContent = '✅ ¡Correcto! 52 − 27 = 25'; fb.className = 'feedback ok'; }
-  else { fb.textContent = '❌ ¡Casi! 52 − 27 = 25, no ' + n; fb.className = 'feedback ko'; }
-}
-
-// === CAP 3: MULTIPLICAR ===
-function updateMult() {
-  const r = parseInt(document.getElementById('multRows').value);
-  const c = parseInt(document.getElementById('multCols').value);
-  document.getElementById('multRowsDisplay').textContent = r;
-  document.getElementById('multColsDisplay').textContent = c;
-  document.getElementById('multResult').textContent = r * c;
-  document.getElementById('multFeedback').textContent = r + ' × ' + c + ' = ' + (r * c) + ' puntos';
-  const canvas = document.getElementById('multCanvas');
-  if (!canvas) return;
+function nuevaResta3() {
+  const b = Math.floor(Math.random() * 400) + 100;
+  const a = b + Math.floor(Math.random() * 400) + 100;
+  const canvas = document.getElementById('canvas-resta3');
   const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, 400, 200);
-  const colors = ['#2563eb','#f97316','#10b981','#ef4444','#8b5cf6','#f59e0b'];
-  const size = 22;
-  const startX = (400 - c * (size + 6)) / 2;
-  const startY = (200 - r * (size + 6)) / 2;
-  for (let i = 0; i < r; i++) {
-    for (let j = 0; j < c; j++) {
-      ctx.beginPath();
-      ctx.arc(startX + j * (size + 6) + size / 2, startY + i * (size + 6) + size / 2, size / 2 - 2, 0, Math.PI * 2);
-      ctx.fillStyle = colors[(i + j) % colors.length];
-      ctx.globalAlpha = 0.5;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      ctx.strokeStyle = colors[(i + j) % colors.length];
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-  }
-}
-function checkMult(n) {
-  const fb = document.getElementById('multQuizFeedback');
-  if (n === 12) { fb.textContent = '✅ ¡Correcto! 2 × 6 = 12'; fb.className = 'feedback ok'; }
-  else { fb.textContent = '❌ ¡Casi! 2 × 6 = 12, no ' + n; fb.className = 'feedback ko'; }
-}
-
-// === CAP 4: TABLAS ===
-let currentTable = { a: 2, b: 3 };
-function newTableQuestion() {
-  const tables = [2, 5, 10];
-  const a = tables[Math.floor(Math.random() * tables.length)];
-  const b = Math.floor(Math.random() * 9) + 1;
-  currentTable = { a, b };
-  document.getElementById('tableQuestion').textContent = a + ' × ' + b + ' = ?';
-  document.getElementById('tableFeedback').textContent = '';
-  document.getElementById('tableFeedback').className = 'feedback';
-  const btns = document.getElementById('tableButtons');
-  const correct = a * b;
-  const opts = [correct];
-  while (opts.length < 4) {
-    const r = correct + Math.floor(Math.random() * 10) - 5;
-    if (r > 0 && !opts.includes(r)) opts.push(r);
-  }
-  opts.sort(() => Math.random() - 0.5);
-  btns.innerHTML = opts.map(o => '<button class="btn ' + (o === correct ? 'btn-primary' : 'btn-secondary') + '" onclick="checkTable(' + o + ')">' + o + '</button>').join('');
-}
-function checkTable(n) {
-  const fb = document.getElementById('tableFeedback');
-  if (n === currentTable.a * currentTable.b) {
-    fb.textContent = '✅ ¡Correcto! ' + currentTable.a + ' × ' + currentTable.b + ' = ' + n + ' 🎉';
-    fb.className = 'feedback ok';
-  } else {
-    fb.textContent = '❌ ¡Casi! ' + currentTable.a + ' × ' + currentTable.b + ' = ' + (currentTable.a * currentTable.b) + ', no ' + n;
-    fb.className = 'feedback ko';
-  }
-}
-
-// === CAP 5: MEDIDAS ===
-const objects = [
-  { name: 'Lápiz', cm: 15, emoji: '✏️' },
-  { name: 'Regla', cm: 30, emoji: '📏' },
-  { name: 'Libro', cm: 21, emoji: '📚' },
-  { name: 'Mesa', cm: 120, emoji: '🪑' },
-  { name: 'Puerta', cm: 200, emoji: '🚪' }
-];
-function updateRuler() {
-  const idx = parseInt(document.getElementById('rulerSlider').value) - 1;
-  const obj = objects[idx];
-  document.getElementById('rulerName').textContent = obj.name;
-  document.getElementById('rulerFeedback').textContent = '📏 ' + obj.emoji + ' El ' + obj.name.toLowerCase() + ' mide ' + obj.cm + ' cm';
-  const c = document.getElementById('rulerCanvas');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0, 0, 400, 200);
-  const w = Math.min(obj.cm * 1.5, 350);
-  ctx.fillStyle = '#f97316';
-  ctx.globalAlpha = 0.2;
-  ctx.fillRect(30, 60, w, 40);
-  ctx.globalAlpha = 1;
-  ctx.strokeStyle = '#f97316';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(30, 60, w, 40);
-  ctx.fillStyle = '#64748b';
-  ctx.font = '14px sans-serif';
-  ctx.fillText('0', 25, 130);
-  ctx.fillText(obj.cm + ' cm', w + 25, 130);
-  for (let i = 0; i <= obj.cm; i += 5) {
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillRect(30 + i * 1.5, 105, 1, 8);
-    if (i % 10 === 0) {
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '10px sans-serif';
-      ctx.fillText(i, 28 + i * 1.5, 120);
-    }
-  }
-  ctx.font = '28px sans-serif';
-  ctx.fillText(obj.emoji, w + 40, 90);
-}
-
-// === CAP 6: DINERO ===
-function updateShop() {
-  const price = parseInt(document.getElementById('shopSelect').value);
-  const change = 10 - price;
-  document.getElementById('shopFeedback').textContent = '💰 Gastas ' + price + '€. Te sobran ' + change + '€';
-  const c = document.getElementById('shopCanvas');
-  if (!c) return;
-  const ctx = c.getContext('2d');
-  ctx.clearRect(0, 0, 400, 200);
-  ctx.font = '24px sans-serif';
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = 'bold 36px monospace';
   ctx.fillStyle = '#2563eb';
-  ctx.fillText('💰 Tienes: 10€', 30, 50);
-  ctx.fillStyle = '#f97316';
-  ctx.fillText('🛒 Precio: ' + price + '€', 30, 90);
+  ctx.fillText(a.toString().padStart(3, ' '), 60, 80);
+  ctx.fillStyle = '#ef4444';
+  ctx.fillText('-', 30, 80);
+  ctx.fillStyle = '#2563eb';
+  ctx.fillText(b.toString().padStart(3, ' '), 60, 130);
+  ctx.strokeStyle = '#1e293b';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(30, 145);
+  ctx.lineTo(canvas.width - 30, 145);
+  ctx.stroke();
+  ctx.font = 'bold 36px monospace';
   ctx.fillStyle = '#10b981';
-  ctx.fillText('🔄 Cambio: ' + change + '€', 30, 130);
-  ctx.font = '40px sans-serif';
-  ctx.fillText('💶', 300, 100);
-}
-function checkMoney(n) {
-  const fb = document.getElementById('moneyQuizFeedback');
-  if (n === 7) { fb.textContent = '✅ ¡Correcto! 2×2€ + 3×1€ = 4€ + 3€ = 7€'; fb.className = 'feedback ok'; }
-  else { fb.textContent = '❌ ¡Casi! 2×2€ + 3×1€ = 4€ + 3€ = 7€, no ' + n + '€'; fb.className = 'feedback ko'; }
+  ctx.fillText('?', 60, 195);
+  ctx.font = '18px sans-serif';
+  ctx.fillStyle = '#64748b';
+  ctx.fillText(a + ' - ' + b + ' = ?', canvas.width / 2 - 50, canvas.height - 40);
+  window._resta3A = a;
+  window._resta3B = b;
+  document.getElementById('respuesta-resta3').value = '';
+  document.getElementById('feedback-resta3').textContent = '';
 }
 
-showChapter(0);
+function verificarResta3() {
+  const a = window._resta3A || 500;
+  const b = window._resta3B || 237;
+  const resp = parseInt(document.getElementById('respuesta-resta3').value);
+  const fb = document.getElementById('feedback-resta3');
+  if (resp === a - b) {
+    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
+    fb.style.color = '#10b981';
+  } else {
+    fb.textContent = '❌ ¡Casi! ' + a + ' - ' + b + ' = ' + (a - b);
+    fb.style.color = '#ef4444';
+  }
+}
+''' + checkE_func() + '''
+document.addEventListener('DOMContentLoaded', () => {
+  nuevaResta3();
+});
 </script>
 </body>
 </html>
