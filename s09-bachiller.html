@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bachiller — Curso de Matemáticas</title>
+  <style>
+    :root {
+      --primary: #10b981;
+      --secondary: #f97316;
+      --bg: #ffffff;
+      --text: #1e293b;
+      --glass: rgba(255,255,255,0.7);
+      --glass-border: rgba(255,255,255,0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #10b981, var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      transform: translateX(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .sessions-list {
+      list-style: none;
+    }
+    .sessions-list li {
+      margin-bottom: 0.75rem;
+    }
+    .sessions-list a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+    .sessions-list a:hover {
+      transform: translateX(8px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border-color: #10b981;
+    }
+    .sessions-list .num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #10b981;
+      min-width: 40px;
+    }
+    .sessions-list .name {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .sessions-list .arrow {
+      margin-left: auto;
+      color: #94a3b8;
+      font-size: 1.2rem;
+    }
+    .stats {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .stat {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+    }
+    .stat .value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #10b981;
+    }
+    .stat .label {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 0.25rem;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    .footer a { color: #10b981; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>∫ Bachiller</h1>
+    <p>Límites, derivadas, integrales, probabilidad avanzada.</p>
+  </div>
+
+  <div class="container">
+    <a href="INDEX.html" class="back-link">← Volver al índice</a>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="value">10</div>
+        <div class="label">Sesiones</div>
+      </div>
+      <div class="stat">
+        <div class="value">100%</div>
+        <div class="label">Completado</div>
+      </div>
+      <div class="stat">
+        <div class="value">📚</div>
+        <div class="label">Interactivo</div>
+      </div>
+    </div>
+
+    <ul class="sessions-list">
+      <li>
+        <a href="s09-1-bachiller-limites.html">
+          <span class="num">01</span>
+          <span class="name">S09 1 Bachiller Limites</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-10-bachiller-repaso.html">
+          <span class="num">02</span>
+          <span class="name">S09 10 Bachiller Repaso</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-2-bachiller-continuidad-derivadas.html">
+          <span class="num">03</span>
+          <span class="name">S09 2 Bachiller Continuidad Derivadas</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-3-bachiller-reglas-derivacion.html">
+          <span class="num">04</span>
+          <span class="name">S09 3 Bachiller Reglas Derivacion</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-4-bachiller-aplicaciones-derivadas.html">
+          <span class="num">05</span>
+          <span class="name">S09 4 Bachiller Aplicaciones Derivadas</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-5-bachiller-integrales-indefinidas.html">
+          <span class="num">06</span>
+          <span class="name">S09 5 Bachiller Integrales Indefinidas</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-6-bachiller-integrales-definidas.html">
+          <span class="num">07</span>
+          <span class="name">S09 6 Bachiller Integrales Definidas</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-7-bachiller-aplicaciones-integrales.html">
+          <span class="num">08</span>
+          <span class="name">S09 7 Bachiller Aplicaciones Integrales</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-8-bachiller-probabilidad-avanzada.html">
+          <span class="num">09</span>
+          <span class="name">S09 8 Bachiller Probabilidad Avanzada</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="s09-9-bachiller-distribuciones-combinadas.html">
+          <span class="num">10</span>
+          <span class="name">S09 9 Bachiller Distribuciones Combinadas</span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a>
+  </div>
+</body>
+</html>

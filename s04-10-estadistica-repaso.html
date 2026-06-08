@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 10 — Repaso y problemas integrados | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 10</h1>
+<p>Repaso y problemas integrados</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Esta sesión final</h2>
+<div class="box box-teoria">
+<strong>En esta sesión integraremos todos los conceptos aprendidos en 10 problemas de ingeniería que combinan múltiples temas.</strong>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 1: Estadística Descriptiva Completa</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>Un ingeniero mide la resistencia a tracción (MPa) de 10 muestras de acero:</p>
+<p style="margin-top:.5rem;font-family:monospace">420, 435, 410, 445, 430, 425, 440, 415, 450, 432</p>
+<p><strong>a)</strong> Calcular media, mediana, moda, rango, varianza y desviación típica.</p>
+<p><strong>b)</strong> Interpretar los resultados en contexto de ingeniería.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem"><strong>x̄</strong> = (420+435+410+445+430+425+440+415+450+432)/10 = 4302/10 = <strong>430.2 MPa</strong></p>
+<p style="margin-top:.5rem">Ordenados: 410, 415, 420, 425, 430, <strong>432, 435</strong>, 440, 445, 450</p>
+<p style="margin-top:.5rem"><strong>Md</strong> = (432+435)/2 = <strong>433.5 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>Moda:</strong> no hay (todos distintos)</p>
+<p style="margin-top:.5rem"><strong>Rango:</strong> 450 − 410 = <strong>40 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>s²</strong> = Σ(xᵢ−430.2)²/9 = (408.04+14.44+492.84+299.24+14.44+5.76+190.44+231.04+449.44+4.84)/9 = 2160.5/9 = <strong>240.06 MPa²</strong></p>
+<p style="margin-top:.5rem"><strong>s</strong> = √240.06 = <strong>15.49 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>CV</strong> = (15.49/430.2) × 100 = <strong>3.6%</strong> → dispersión baja, proceso consistente</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 2: Probabilidad Binomial</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>Una línea de producción tiene un defecto del 3%. Se inspeccionan 50 piezas.</p>
+<p><strong>a)</strong> ¿Probabilidad de que exactamente 2 sean defectuosas?</p>
+<p><strong>b)</strong> ¿Probabilidad de que como máximo 1 sea defectuosa?</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem">n = 50, p = 0.03, X ~ B(50, 0.03)</p>
+<p style="margin-top:.5rem"><strong>a)</strong> P(X=2) = C(50,2) × (0.03)² × (0.97)⁴⁸ = 1225 × 0.0009 × 0.2303 = <strong>0.2540</strong></p>
+<p style="margin-top:.5rem"><strong>b)</strong> P(X ≤ 1) = P(X=0) + P(X=1)</p>
+<p style="margin-top:.5rem">P(X=0) = (0.97)⁵⁰ = 0.2181</p>
+<p style="margin-top:.5rem">P(X=1) = 50 × 0.03 × (0.97)⁴⁹ = 1.5 × 0.2248 = 0.3372</p>
+<p style="margin-top:.5rem">P(X ≤ 1) = 0.2181 + 0.3372 = <strong>0.5553</strong></p>
+<p>55.53% de probabilidad de encontrar como máximo 1 defectuoso.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 3: Distribución Normal</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>La resistencia del concreto sigue N(35, 5) MPa. Las especificaciones exigen al menos 28 MPa.</p>
+<p><strong>a)</strong> ¿Qué porcentaje cumple las especificaciones?</p>
+<p><strong>b)</strong> ¿Qué resistencia mínima se exigiría para que solo el 5% no cumpla?</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem"><strong>a)</strong> z = (28 − 35)/5 = −1.4</p>
+<p style="margin-top:.5rem">P(X ≥ 28) = P(Z ≥ −1.4) = P(Z ≤ 1.4) = <strong>0.9192</strong></p>
+<p>El 91.92% del concreto cumple las especificaciones.</p>
+<p style="margin-top:.5rem"><strong>b)</strong> Queremos x₀ tal que P(X < x₀) = 0.05</p>
+<p style="margin-top:.5rem">z₀.₀₅ = −1.645</p>
+<p style="margin-top:.5rem">x₀ = μ + z₀ · σ = 35 + (−1.645) × 5 = 35 − 8.225 = <strong>26.78 MPa</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 4: Intervalo de Confianza</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>Se miden las longitudes de 25 pernos: x̄ = 10.2 mm, s = 0.3 mm.</p>
+<p><strong>a)</strong> Calcular IC al 95% para la media.</p>
+<p><strong>b)</strong> ¿Qué tamaño de muestra se necesita para que el IC tenga un margen de error de ±0.1 mm?</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem"><strong>a)</strong> n = 25, σ desconocida → usar t con gl = 24</p>
+<p style="margin-top:.5rem">t₀.₀₂₅,₂₄ = 2.064</p>
+<p style="margin-top:.5rem">IC = 10.2 ± 2.064 × (0.3/√25) = 10.2 ± 2.064 × 0.06 = 10.2 ± 0.124</p>
+<p style="margin-top:.5rem"><strong>IC al 95%: [10.076, 10.324] mm</strong></p>
+<p style="margin-top:.5rem"><strong>b)</strong> n = (z₀.₀₂₅ × s / E)² = (1.96 × 0.3 / 0.1)² = (5.88)² = 34.57 → <strong>35 pernos</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 5: Contraste de Hipótesis</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>Un fabricante afirma que sus cables tienen resistencia media de 500 MPa. Se sabe que σ = 30 MPa. Se toma una muestra de n = 36 y x̄ = 492 MPa. ¿Hay evidencia al 5% de que la resistencia es menor a 500 MPa?</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem"><strong>H₀:</strong> μ = 500 MPa &nbsp;&nbsp; <strong>H₁:</strong> μ < 500 MPa (unilateral izquierdo)</p>
+<p style="margin-top:.5rem">z = (492 − 500) / (30/√36) = −8 / 5 = <strong>−1.60</strong></p>
+<p style="margin-top:.5rem">z crítico (α = 0.05, unilateral) = −1.645</p>
+<p style="margin-top:.5rem">−1.60 > −1.645 → <strong>No rechazamos H₀</strong></p>
+<p>No hay evidencia estadística al 5% de que la resistencia sea menor a 500 MPa. El resultado no es suficientemente significativo.</p>
+<p style="margin-top:.5rem"><strong>P valor:</strong> P(Z < −1.60) = 0.0548 → p = 0.0548 > 0.05 → no significativo</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">Problema 6: Correlación y Regresión</h2>
+<div class="box box-ejemplo">
+<strong>💡 Contexto:</strong>
+<p>Se estudia la relación entre temperatura de curado (°C) y resistencia del concreto (MPa):</p>
+<table>
+<tr><th>T (°C)</th><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td><td>45</td></tr>
+<tr><th>R (MPa)</th><td>25</td><td>30</td><td>35</td><td>38</td><td>42</td><td>45</td></tr>
+</table>
+<p><strong>a)</strong> Calcular r y R²</p>
+<p><strong>b)</strong> Obtener la recta de regresión</p>
+<p><strong>c)</strong> Predecir resistencia a 32°C</p>
+</div>
+
+<div class="box box-teoria">
+<strong>✅ Solución:</strong>
+<p style="margin-top:.5rem">x̄ = 32.5, ȳ = 35.83</p>
+<p style="margin-top:.5rem">b = Σ(xᵢ−x̄)(yᵢ−ȳ) / Σ(xᵢ−x̄)² = 312.5 / 175 = <strong>1.786</strong></p>
+<p style="margin-top:.5rem">a = 35.83 − 1.786 × 32.5 = <strong>−22.07</strong></p>
+<p style="margin-top:.5rem"><strong>Recta: R = −22.07 + 1.786T</strong></p>
+<p style="margin-top:.5rem">r = 312.5 / √(175 × 213.83) = 312.5 / 193.5 = <strong>0.989</strong></p>
+<p style="margin-top:.5rem">R² = 0.989² = <strong>0.978</strong> → el 97.8% de la variabilidad se explica por la temperatura</p>
+<p style="margin-top:.5rem">Predicción a 32°C: R = −22.07 + 1.786 × 32 = <strong>34.87 MPa</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Quiz Final</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Si r = 0.95 y R² = 0.90, ¿qué significa?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">El 90% de la variabilidad de y se explica por x</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La correlación es débil</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El 95% de los datos están bien ajustados</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No hay relación</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Si p = 0.003 y α = 0.01, ¿qué decisión tomamos?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazamos H₀</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazamos H₀</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No hay suficiente información</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Necesitamos más datos</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> Si X ~ N(100, 15), ¿cuál es la probabilidad de que X esté entre 85 y 115?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">50%</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">68%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">95%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">99.7%</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> En una binomial B(20, 0.1), ¿cuál es la varianza?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">2.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1.8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.9</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>5.</strong> Un IC al 99% será siempre más ancho que un IC al 95% (mismos datos). ¿Verdadero o falso?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Falso</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de todo el curso</h3>
+<ul>
+<li><strong>Sesión 1:</strong> Conceptos básicos — población, muestra, variables, escalas</li>
+<li><strong>Sesión 2:</strong> Distribuciones de frecuencia — tablas, histogramas, polígonos</li>
+<li><strong>Sesión 3:</strong> Tendencia central — media, mediana, moda, ponderada</li>
+<li><strong>Sesión 4:</strong> Dispersión — rango, varianza, desviación típica, CV, IQR</li>
+<li><strong>Sesión 5:</strong> Probabilidad discreta — binomial, Poisson, esperanza, varianza</li>
+<li><strong>Sesión 6:</strong> Probabilidad continua — normal, normalización, tabla z</li>
+<li><strong>Sesión 7:</strong> Correlación y regresión — r, R², mínimos cuadrados</li>
+<li><strong>Sesión 8:</strong> Muestreo y estimación — TCL, IC, tamaño de muestra</li>
+<li><strong>Sesión 9:</strong> Contrastes — H₀, H₁, α, β, valor p, z y t</li>
+<li><strong>Sesión 10:</strong> Repaso integrador — problemas que combinan todo</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-1-estadistica-conceptos-basicos.html">← Anterior</a>
+<a href="#" class="disabled">🎓 ¡Curso completado!</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 3 — Medidas de tendencia central | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 3</h1>
+<p>Medidas de tendencia central</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Calcular y aplicar la media aritmética, mediana y moda</li>
+<li>Calcular la media ponderada (fundamental en ingeniería)</li>
+<li>Seleccionar la medida de tendencia central más apropiada</li>
+<li>Calcular la media, mediana y moda para datos agrupados</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Media Aritmética</h2>
+<p>La <strong>media aritmética</strong> (promedio) es la medida de tendencia central más utilizada. Representa el "centro de gravedad" de los datos.</p>
+
+<div class="formula">
+x̄ = (Σ x<sub>i</sub>) / N = (x₁ + x₂ + ... + x<sub>N</sub>) / N
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Un ingeniero mide la resistencia a compresión (MPa) de 8 probetas de concreto:</p>
+<p style="margin-top:.5rem;font-family:monospace">32.1, 28.5, 35.2, 30.8, 29.7, 33.4, 31.0, 27.6</p>
+<p style="margin-top:.5rem"><strong>x̄</strong> = (32.1 + 28.5 + 35.2 + 30.8 + 29.7 + 33.4 + 31.0 + 27.6) / 8 = 248.3 / 8 = <strong>31.04 MPa</strong></p>
+</div>
+
+<h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Media ponderada</h3>
+<p>Cuando cada dato tiene un <strong>peso</strong> diferente (muy común en ingeniería):</p>
+
+<div class="formula">
+x̄<sub>w</sub> = (Σ w<sub>i</sub> · x<sub>i</sub>) / (Σ w<sub>i</sub>)
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Ejemplo: Media ponderada de materiales en un compuesto</strong>
+<p>Un composite tiene: 60% fibra de carbono (E = 230 GPa), 40% resina epoxi (E = 3.5 GPa)</p>
+<p style="margin-top:.5rem"><strong>E<sub>compuesto</sub></strong> = (0.60 × 230 + 0.40 × 3.5) / (0.60 + 0.40) = 138 + 1.4 = <strong>139.4 GPa</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Mediana</h2>
+<p>La <strong>mediana</strong> (Md) es el valor que divide los datos ordenados en dos mitades iguales. Es robusta frente a valores extremos (outliers).</p>
+
+<div class="box box-teoria">
+<strong>📌 Cómo calcular la mediana:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li>Ordenar los datos de menor a mayor</li>
+<li>Si N es <strong>impar</strong>: Md = valor central (posición (N+1)/2)</li>
+<li>Si N es <strong>par</strong>: Md = promedio de los dos valores centrales (posiciones N/2 y N/2+1)</li>
+</ol>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">Datos: 12, 8, 15, 3, 21, 9, 17</p>
+<p>Ordenados: 3, 8, 9, <strong>12</strong>, 15, 17, 21</p>
+<p>N = 7 (impar), posición = (7+1)/2 = 4 → <strong>Md = 12</strong></p>
+</div>
+
+<div class="box box-idea">
+<strong>🔑 ¿Cuándo usar mediana en lugar de media?</strong>
+<p>Cuando hay valores extremos (outliers). Por ejemplo, si mides la vida útil de 1000 bombillas y 999 duran ~1000 horas pero una dura 10 horas, la media se ve afectada pero la mediana no.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Moda</h2>
+<p>La <strong>moda</strong> (Mo) es el valor que más se repite (mayor frecuencia). Puede haber múltiples modas o no haber moda.</p>
+
+<table>
+<tr><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr>
+<tr><td><strong>Unimodal</strong></td><td>Una sola moda</td><td>2, 3, 3, 5, 7 → Mo = 3</td></tr>
+<tr><td><strong>Bimodal</strong></td><td>Dos modas</td><td>1, 2, 2, 4, 5, 5 → Mo = 2 y 5</td></tr>
+<tr><td><strong>Multimodal</strong></td><td>Más de dos modas</td><td>1, 1, 3, 3, 5, 5 → Mo = 1, 3, 5</td></tr>
+<tr><td><strong>Amodal</strong></td><td>No hay moda</td><td>1, 2, 3, 4, 5 → todos iguales</td></tr>
+</table>
+
+<div class="box box-ejemplo">
+<strong>💡 Aplicación en ingeniería:</strong>
+<p>Un ingeniero de calidad registra los diámetros (mm) de 20 pernos: 10.1, 10.0, 9.9, 10.0, 10.2, 10.0, 9.8, 10.0, 10.1, 10.0, 9.9, 10.0, 10.3, 10.0, 9.9, 10.0, 10.1, 10.0, 9.8, 10.0</p>
+<p><strong>Mo = 10.0 mm</strong> (aparece 8 veces) → indica que el diámetro nominal del perno es 10 mm y la máquina está bien calibrada.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Comparación: Media vs Mediana vs Moda</h2>
+<table>
+<tr><th>Medida</th><th>Ventaja</th><th>Desventaja</th><th>Mejor cuando...</th></tr>
+<tr><td><strong>Media</strong></td><td>Usa todos los datos; única para cálculos posteriores</td><td>Sensible a outliers</td><td>Datos simétricos, sin valores extremos</td></tr>
+<tr><td><strong>Mediana</strong></td><td>Robusta frente a outliers</td><td>No usa todos los datos</td><td>Datos asimétricos o con valores extremos</td></tr>
+<tr><td><strong>Moda</strong></td><td>Útil para variables cualitativas</td><td>Puede no existir o haber varias</td><td>Variables categóricas o discretas</td></tr>
+</table>
+
+<div class="box box-teoria">
+<strong>📌 Relación en distribuciones simétricas:</strong>
+<p style="margin-top:.5rem">Media ≈ Mediana ≈ Moda</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 En distribuciones asimétricas:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Asimetría positiva</strong> (cola derecha): Media > Mediana > Moda</li>
+<li><strong>Asimetría negativa</strong> (cola izquierda): Media < Mediana < Moda</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">5️⃣ Media y Mediana para Datos Agrupados</h2>
+<p>Cuando los datos están agrupados en clases, se usa el <strong>punto medio</strong> de cada clase como representante:</p>
+
+<div class="formula">
+x̄ = Σ(m<sub>i</sub> · n<sub>i</sub>) / Σn<sub>i</sub> &nbsp;&nbsp; donde m<sub>i</sub> = punto medio de la clase i
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Mediana para datos agrupados:</strong>
+<p style="margin-top:.5rem">1. Encontrar la clase mediana (donde N<sub>i</sub> ≥ N/2)</p>
+<p style="margin-top:.5rem">2. Md = L<sub>i</sub> + ((N/2 − N<sub>i-1</sub>) / n<sub>i</sub>) · a<sub>i</sub></p>
+<p style="margin-top:.5rem">donde L<sub>i</sub> = límite inferior de la clase mediana, a<sub>i</sub> = anchura de clase</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Las tensiones de rotura (MPa) de 7 cables son: 520, 535, 510, 545, 530, 525, 540. ¿Cuál es la media?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">530 MPa</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">525 MPa</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">535 MPa</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">540 MPa</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> ¿Cuál es la mediana de: 15, 22, 8, 31, 19, 45, 12?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">22</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">19</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> ¿Cuál es la moda de: 2.5, 3.1, 2.5, 4.0, 2.5, 3.8, 4.2?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">3.1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">2.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3.8</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> En una distribución con asimetría positiva, ¿qué relación es correcta?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Media < Mediana < Moda</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Media > Mediana > Moda</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Media = Mediana = Moda</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No hay relación</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><strong>Media</strong> (x̄): suma de todos los datos dividida por N. Sensible a valores extremos</li>
+<li><strong>Media ponderada</strong>: cada dato se multiplica por su peso. Muy usada en ingeniería (composites, mezclas)</li>
+<li><strong>Mediana</strong> (Md): valor central de datos ordenados. Robusta frente a outliers</li>
+<li><strong>Moda</strong> (Mo): valor más frecuente. Útil para variables cualitativas</li>
+<li>En distribuciones simétricas: Media ≈ Mediana ≈ Moda</li>
+<li>En asimetría positiva: Media > Mediana > Moda</li>
+<li>Para datos agrupados: se usa el punto medio de cada clase</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-2-estadistica-distribuciones-frecuencia.html">← Anterior</a>
+<a href="s04-4-estadistica-dispersion.html">Siguiente: Medidas de dispersión →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bachiller - Sesion 4: Aplicaciones de derivadas</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>Bachillerato - Sesion 4</h1>
+<p>Aplicaciones de derivadas</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">1. Derivada como Tasa de Cambio</h2>
+<div class="box box-teoria">
+<strong>La derivada mide como cambia una cantidad respecto a otra:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Si s(t) = posicion, s'(t) = velocidad</li>
+<li>Si v(t) = velocidad, v'(t) = aceleracion</li>
+<li>Si C(x) = coste, C'(x) = coste marginal</li>
+<li>Si P(t) = poblacion, P'(t) = tasa de crecimiento</li>
+</ul>
+</div>
+</div>
+<div class="chapter">
+<h2 class="chapter-title">2. Recta Tangente y Normal</h2>
+<div class="box box-teoria">
+<strong>Ecuacion de la recta tangente a f en x=a:</strong>
+<div class="formula">y - f(a) = f'(a)(x - a)</div>
+</div>
+<div class="box box-ejemplo">
+<strong>Ejemplo:</strong>
+<p style="margin-top:.5rem">f(x) = x^2 en x = 3</p>
+<p style="margin-top:.5rem">f(3) = 9, f'(x) = 2x, f'(3) = 6</p>
+<p style="margin-top:.5rem">Recta tangente: y - 9 = 6(x - 3) --> y = 6x - 9</p>
+</div>
+</div>
+<div class="chapter">
+<h2 class="chapter-title">3. Maximos y Minimos (Optimizacion)</h2>
+<div class="box box-teoria">
+<strong>Para encontrar maximos y minimos de f(x) en [a,b]:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li>Calcular f'(x) e igualar a 0 --> puntos criticos</li>
+<li>Evaluar f en puntos criticos y en extremos del intervalo</li>
+<li>El mayor es maximo, el menor es minimo</li>
+</ol>
+</div>
+<div class="box box-idea">
+<strong>Segunda derivada:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Si f''(c) > 0 --> minimo en c (concavidad hacia arriba)</li>
+<li>Si f''(c) < 0 --> maximo en c (concavidad hacia abajo)</li>
+<li>Si f''(c) = 0 --> prueba inconcluyente</li>
+</ul>
+</div>
+<div class="box box-ejemplo">
+<strong>Ejemplo de optimizacion:</strong>
+<p style="margin-top:.5rem">Un jardinero tiene 100m de valla para hacer un jardin rectangular. Cual es el area maxima?</p>
+<p style="margin-top:.5rem">Perimetro: 2x + 2y = 100 --> y = 50 - x</p>
+<p style="margin-top:.5rem">Area: A = x(50-x) = 50x - x^2</p>
+<p style="margin-top:.5rem">A'(x) = 50 - 2x = 0 --> x = 25</p>
+<p style="margin-top:.5rem">A''(25) = -2 < 0 --> maximo</p>
+<p style="margin-top:.5rem">Area maxima = 25 * 25 = <strong>625 m^2</strong> (cuadrado)</p>
+</div>
+</div>
+<div class="chapter">
+<h2 class="chapter-title">4. Teoremas Fundamentales</h2>
+<div class="box box-teoria">
+<strong>Teorema de Rolle:</strong>
+<p style="margin-top:.5rem">Si f es continua en [a,b], derivable en (a,b) y f(a)=f(b), existe c en (a,b) tal que f'(c)=0.</p>
+</div>
+<div class="box box-teoria">
+<strong>Teorema del Valor Medio (Lagrange):</strong>
+<p style="margin-top:.5rem">Si f es continua en [a,b] y derivable en (a,b), existe c en (a,b) tal que:</p>
+<div class="formula">f'(c) = (f(b) - f(a)) / (b - a)</div>
+<p>La pendiente de la tangente en c es igual a la pendiente de la secante que une (a,f(a)) y (b,f(b)).</p>
+</div>
+<div class="box box-ejemplo">
+<strong>Ejemplo TVM:</strong>
+<p style="margin-top:.5rem">Un coche recorre 200 km en 2 horas. Por el TVM, en algun instante la velocidad fue exactamente 100 km/h.</p>
+</div>
+</div>
+<div class="chapter">
+<h2 class="chapter-title">5. Regla de L'Hopital</h2>
+<div class="box box-teoria">
+<strong>Cuando tienes una indeterminacion 0/0 o inf/inf:</strong>
+<div class="formula">lim f(x)/g(x) = lim f'(x)/g'(x)</div>
+<p>Aplicable cuando el limite original es indeterminado.</p>
+</div>
+<div class="box box-ejemplo">
+<strong>Ejemplo:</strong>
+<p style="margin-top:.5rem">lim(x->0) sin(x)/x = lim(x->0) cos(x)/1 = 1</p>
+</div>
+<div class="box box-ejemplo">
+<strong>Ejemplo:</strong>
+<p style="margin-top:.5rem">lim(x->0) (e^x - 1 - x)/x^2 = lim(x->0) (e^x - 1)/(2x) = lim(x->0) e^x/2 = 1/2</p>
+</div>
+</div>
+<div class="chapter">
+<h2 class="chapter-title">Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Recta tangente a f(x)=x^3 en x=1. Pendiente:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
+</div>
+</div>
+<div class="exercise">
+<p><strong>2.</strong> Maximo de f(x) = -x^2 + 4x en R:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">2 en x=1</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">4 en x=2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4 en x=0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No tiene maximo</button>
+</div>
+</div>
+<div class="exercise">
+<p><strong>3.</strong> lim(x->0) (1-cos(x))/x = ? (L'Hopital):</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">-1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">inf</button>
+</div>
+</div>
+</div>
+</div>
+<div class="summary">
+<h3>Resumen</h3>
+<ul><li>La derivada mide tasas de cambio instantaneas</li>
+<li>Recta tangente: y - f(a) = f'(a)(x - a)</li>
+<li>Maximos/minimos: f'(c)=0 y se usa f'' para clasificar</li>
+<li>Teorema del Valor Medio: existe c con f'(c)=(f(b)-f(a))/(b-a)</li>
+<li>Regla de L'Hopital: resuelve 0/0 o inf/inf derivando num y den</li>
+<li>Optimizacion: maximizar area, minimizar coste, etc.</li></ul>
+</div>
+<div class="nav">
+<a href="s09-3-bachiller-reglas-derivacion.html">Anterior</a>
+<a href="s09-5-bachiller-integrales-indefinidas.html">Siguiente</a>
+</div>
+</div>
+<div class="footer">Hecho con corazon por David Antizar</div>
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

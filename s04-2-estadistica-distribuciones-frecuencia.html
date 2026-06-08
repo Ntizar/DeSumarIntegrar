@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 2 — Distribuciones de frecuencia | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+canvas{max-width:100%;margin:1rem 0}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 2</h1>
+<p>Distribuciones de frecuencia</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Construir tablas de frecuencia para datos agrupados y no agrupados</li>
+<li>Calcular frecuencias absolutas, relativas, acumuladas y relativas acumuladas</li>
+<li>Construir histogramas y polígonos de frecuencia</li>
+<li>Interpretar distribuciones de frecuencia en contextos de ingeniería</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es una Distribución de Frecuencia?</h2>
+<p>Una <strong>distribución de frecuencia</strong> es una tabla que muestra cómo se distribuyen los valores de una variable en diferentes clases o categorías. Es la herramienta fundamental para organizar datos.</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Un ingeniero de calidad mide la resistencia a la tracción (en MPa) de 20 muestras de acero y obtiene estos valores:</p>
+<p style="margin-top:.5rem;font-family:monospace;font-size:.9rem">420, 435, 410, 445, 430, 425, 440, 415, 450, 432, 428, 438, 442, 418, 436, 422, 448, 433, 427, 441</p>
+<p style="margin-top:.5rem">¿Cómo organizar estos 20 valores para entender la distribución?</p>
+</div>
+
+<h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Conceptos clave:</h3>
+<table>
+<tr><th>Término</th><th>Símbolo</th><th>Definición</th></tr>
+<tr><td><strong>Frecuencia absoluta</strong></td><td>n<sub>i</sub></td><td>Número de veces que aparece un valor o clase</td></tr>
+<tr><td><strong>Frecuencia relativa</strong></td><td>f<sub>i</sub></td><td>Proporción del total: f<sub>i</sub> = n<sub>i</sub> / N</td></tr>
+<tr><td><strong>Frecuencia acumulada</strong></td><td>N<sub>i</sub></td><td>Suma de frecuencias absolutas hasta la clase i</td></tr>
+<tr><td><strong>Frecuencia relativa acumulada</strong></td><td>F<sub>i</sub></td><td>Suma de frecuencias relativas hasta la clase i</td></tr>
+</table>
+
+<div class="formula">
+f<sub>i</sub> = n<sub>i</sub> / N &nbsp;&nbsp;&nbsp; F<sub>i</sub> = Σ(n<sub>j</sub> / N) para j ≤ i &nbsp;&nbsp;&nbsp; N<sub>i</sub> = Σn<sub>j</sub> para j ≤ i
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Tabla de Frecuencia: Datos No Agrupados</h2>
+<p>Cuando la variable es discreta o tiene pocos valores distintos, se usa una tabla con cada valor individual:</p>
+
+<div class="box box-teoria">
+<strong>📌 Ejemplo: Número de defectos en 15 piezas</strong>
+<p style="margin-top:.5rem;font-family:monospace">0, 1, 2, 0, 3, 1, 0, 2, 1, 0, 1, 2, 0, 1, 3</p>
+</div>
+
+<table>
+<tr><th>Defectos (x<sub>i</sub>)</th><th>n<sub>i</sub></th><th>f<sub>i</sub></th><th>N<sub>i</sub></th><th>F<sub>i</sub></th></tr>
+<tr><td>0</td><td>5</td><td>0.333</td><td>5</td><td>0.333</td></tr>
+<tr><td>1</td><td>5</td><td>0.333</td><td>10</td><td>0.667</td></tr>
+<tr><td>2</td><td>3</td><td>0.200</td><td>13</td><td>0.867</td></tr>
+<tr><td>3</td><td>2</td><td>0.133</td><td>15</td><td>1.000</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>15</strong></td><td><strong>1.000</strong></td><td>—</td><td>—</td></tr>
+</table>
+
+<div class="box box-idea">
+<strong>🔑 Verificación:</strong>
+<p>La suma de todas las frecuencias absolutas debe ser N (15). La suma de todas las frecuencias relativas debe ser 1.000 (o 100%).</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Tabla de Frecuencia: Datos Agrupados</h2>
+<p>Cuando la variable es continua o tiene muchos valores distintos, se agrupan en <strong>clases</strong>:</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo: Resistencia a la tracción de 20 muestras de acero (MPa)</strong>
+<p style="margin-top:.5rem;font-family:monospace;font-size:.9rem">420, 435, 410, 445, 430, 425, 440, 415, 450, 432, 428, 438, 442, 418, 436, 422, 448, 433, 427, 441</p>
+</div>
+
+<p><strong>Paso 1:</strong> Calcular el rango = Máximo − Mínimo = 450 − 410 = 40 MPa</p>
+<p><strong>Paso 2:</strong> Elegir número de clases k. Regla de Sturges: k = 1 + 3.322 · log₁₀(N) = 1 + 3.322 · log₁₀(20) ≈ 5.3 → <strong>5 clases</strong></p>
+<p><strong>Paso 3:</strong> Anchura de clase = Rango / k = 40 / 5 = 8 MPa</p>
+
+<table>
+<tr><th>Clase</th><th>Intervalo</th><th>n<sub>i</sub></th><th>f<sub>i</sub></th><th>N<sub>i</sub></th><th>F<sub>i</sub></th></tr>
+<tr><td>1</td><td>[410, 418)</td><td>3</td><td>0.150</td><td>3</td><td>0.150</td></tr>
+<tr><td>2</td><td>[418, 426)</td><td>4</td><td>0.200</td><td>7</td><td>0.350</td></tr>
+<tr><td>3</td><td>[426, 434)</td><td>5</td><td>0.250</td><td>12</td><td>0.600</td></tr>
+<tr><td>4</td><td>[434, 442)</td><td>5</td><td>0.250</td><td>17</td><td>0.850</td></tr>
+<tr><td>5</td><td>[442, 450]</td><td>3</td><td>0.150</td><td>20</td><td>1.000</td></tr>
+<tr><td><strong>Total</strong></td><td>—</td><td><strong>20</strong></td><td><strong>1.000</strong></td><td>—</td><td>—</td></tr>
+</table>
+
+<div class="box box-teoria">
+<strong>📌 Regla para intervalos:</strong>
+<p>[a, b) → incluye el límite inferior (a), excluye el superior (b). La última clase incluye ambos extremos: [a, b].</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Histogramas y Polígonos de Frecuencia</h2>
+<h3 style="color:var(--naranja);margin:1rem 0 .5rem">Histograma</h3>
+<p>Gráfico de barras donde:</p>
+<ul style="padding-left:1.2rem;margin:.5rem 0">
+<li>El <strong>eje X</strong> muestra las clases (intervalos)</li>
+<li>El <strong>eje Y</strong> muestra la frecuencia absoluta (o relativa)</li>
+<li>Las barras <strong>se tocan</strong> (porque la variable es continua)</li>
+<li>El área de cada barra es proporcional a la frecuencia</li>
+</ul>
+
+<h3 style="color:var(--naranja);margin:1rem 0 .5rem">Polígono de Frecuencia</h3>
+<p>Se obtiene uniendo con líneas los <strong>puntos medios</strong> de la parte superior de cada barra del histograma. Muestra la forma de la distribución de forma más clara.</p>
+
+<div class="interactive">
+<h3>🔧 Construye tu histograma interactivo</h3>
+<p>Introduce las frecuencias de cada clase y observa cómo cambia el histograma:</p>
+<div style="margin:1rem 0">
+<label>Frecuencia Clase 1: <input type="number" id="f1" value="3" min="0" style="width:60px"> &nbsp;&nbsp;
+Frecuencia Clase 2: <input type="number" id="f2" value="5" min="0" style="width:60px"> &nbsp;&nbsp;
+Frecuencia Clase 3: <input type="number" id="f3" value="8" min="0" style="width:60px"> &nbsp;&nbsp;
+Frecuencia Clase 4: <input type="number" id="f4" value="6" min="0" style="width:60px"> &nbsp;&nbsp;
+Frecuencia Clase 5: <input type="number" id="f5" value="2" min="0" style="width:60px"></label>
+<br><br>
+<button onclick="drawHistogram()">📊 Dibujar Histograma</button>
+</div>
+<canvas id="histCanvas" width="600" height="300" style="border:1px solid #e2e8f0;border-radius:8px"></canvas>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">5️⃣ Formas de las Distribuciones</h2>
+<p>La forma de una distribución de frecuencia nos da información valiosa:</p>
+
+<table>
+<tr><th>Forma</th><th>Descripción</th><th>Ejemplo en ingeniería</th></tr>
+<tr><td><strong>Simetría</strong></td><td>La distribución es igual en ambos lados de la media</td><td>Dimensiones de piezas fabricadas con buena maquinaria</td></tr>
+<tr><td><strong>Asimetría positiva</strong></td><td>Cola larga hacia la derecha (valores altos)</td><td>Vida útil de componentes (muchos duran poco, algunos mucho)</td></tr>
+<tr><td><strong>Asimetría negativa</strong></td><td>Cola larga hacia la izquierda (valores bajos)</td><td>Resistencia del concreto (la mayoría es alta, algunos baja)</td></tr>
+<tr><td><strong>Unimodal</strong></td><td>Una sola moda (pico)</td><td>Distribución normal típica</td></tr>
+<tr><td><strong>Bimodal</strong></td><td>Dos picos</td><td>Datos de dos máquinas diferentes mezclados</td></tr>
+</table>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Si una clase tiene frecuencia absoluta 12 y el total de datos es 60, ¿cuál es su frecuencia relativa?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.12</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0.20</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5.0</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> ¿Cuántas clases sugeriría la regla de Sturges para N = 100 datos?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> En un histograma, ¿qué representa el área de cada barra?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">La frecuencia de la clase</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La media de la clase</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El ancho de la clase</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El número total de datos</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Una <strong>distribución de frecuencia</strong> organiza datos en clases con sus frecuencias</li>
+<li><strong>Frecuencia absoluta</strong> (n<sub>i</sub>): conteo; <strong>relativa</strong> (f<sub>i</sub>): proporción; <strong>acumulada</strong> (N<sub>i</sub>): suma acumulada</li>
+<li>Regla de Sturges: k = 1 + 3.322 · log₁₀(N) para elegir número de clases</li>
+<li>El <strong>histograma</strong> muestra la distribución con barras adyacentes; el <strong>polígono</strong> une los puntos medios</li>
+<li>La forma de la distribución (simétrica, asimétrica, bimodal) da pistas sobre el proceso</li>
+<li>En ingeniería, las distribuciones de frecuencia son el primer paso del análisis de calidad</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-10-estadistica-repaso.html">← Anterior</a>
+<a href="s04-3-estadistica-tendencia-central.html">Siguiente: Medidas de tendencia central →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+function drawHistogram() {
+  var canvas = document.getElementById('histCanvas');
+  var ctx = canvas.getContext('2d');
+  var freqs = [
+    parseInt(document.getElementById('f1').value) || 0,
+    parseInt(document.getElementById('f2').value) || 0,
+    parseInt(document.getElementById('f3').value) || 0,
+    parseInt(document.getElementById('f4').value) || 0,
+    parseInt(document.getElementById('f5').value) || 0
+  ];
+  var maxF = Math.max(...freqs, 1);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var barWidth = 100;
+  var gap = 20;
+  var startX = 50;
+  var baseY = 250;
+  var scale = (baseY - 30) / maxF;
+  for (var i = 0; i < 5; i++) {
+    var barH = freqs[i] * scale;
+    var x = startX + i * (barWidth + gap);
+    ctx.fillStyle = '#2563eb';
+    ctx.fillRect(x, baseY - barH, barWidth, barH);
+    ctx.fillStyle = '#1e293b';
+    ctx.font = '14px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText('C' + (i+1), x + barWidth/2, baseY + 20);
+    ctx.fillText(freqs[i], x + barWidth/2, baseY - barH - 8);
+  }
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(40, 20);
+  ctx.lineTo(40, 260);
+  ctx.lineTo(580, 260);
+  ctx.stroke();
+  ctx.fillStyle = '#64748b';
+  ctx.font = '12px Inter';
+  ctx.fillText('Clase', 310, 285);
+  ctx.save();
+  ctx.translate(15, 140);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('Frecuencia', 0, 0);
+  ctx.restore();
+}
+drawHistogram();
+</script>
+</body>
+</html>

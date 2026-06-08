@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 5 — Distribuciones de probabilidad discretas | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 5</h1>
+<p>Distribuciones de probabilidad discretas</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Entender el concepto de variable aleatoria y distribución de probabilidad</li>
+<li>Aplicar la distribución binomial en problemas de ingeniería</li>
+<li>Aplicar la distribución de Poisson para eventos raros</li>
+<li>Calcular esperanza matemática y varianza de variables aleatorias</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Variables Aleatorias y Distribuciones de Probabilidad</h2>
+<p>Una <strong>variable aleatoria discreta</strong> es una variable que puede tomar solo un número contable de valores. Su <strong>distribución de probabilidad</strong> asigna a cada valor su probabilidad de ocurrencia.</p>
+
+<div class="box box-teoria">
+<strong>📌 Propiedades fundamentales:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>0 ≤ P(X = x<sub>i</sub>) ≤ 1 para todo i</li>
+<li>Σ P(X = x<sub>i</sub>) = 1 (la suma de todas las probabilidades es 1)</li>
+</ul>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p>Se lanzan 3 monedas. Sea X = número de caras.</p>
+<table>
+<tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th></tr>
+<tr><td>P(X=x)</td><td>1/8</td><td>3/8</td><td>3/8</td><td>1/8</td></tr>
+</table>
+<p>Verificación: 1/8 + 3/8 + 3/8 + 1/8 = 1 ✓</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Esperanza Matemática y Varianza</h2>
+<div class="formula">
+E[X] = μ = Σ x<sub>i</sub> · P(X = x<sub>i</sub>)
+</div>
+
+<div class="formula">
+Var(X) = σ² = Σ (x<sub>i</sub> − μ)² · P(X = x<sub>i</sub>)
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Para el ejemplo anterior (3 monedas):</strong>
+<p style="margin-top:.5rem">μ = 0·(1/8) + 1·(3/8) + 2·(3/8) + 3·(1/8) = 0 + 0.375 + 0.75 + 0.375 = <strong>1.5</strong></p>
+<p style="margin-top:.5rem">σ² = (0−1.5)²·(1/8) + (1−1.5)²·(3/8) + (2−1.5)²·(3/8) + (3−1.5)²·(1/8)</p>
+<p style="margin-top:.5rem">σ² = 2.25·(1/8) + 0.25·(3/8) + 0.25·(3/8) + 2.25·(1/8) = 0.281 + 0.094 + 0.094 + 0.281 = <strong>0.75</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Distribución Binomial</h2>
+<p>La <strong>distribución binomial</strong> modela el número de éxitos en n ensayos independientes, cada uno con probabilidad p de éxito.</p>
+
+<div class="formula">
+P(X = k) = C(n,k) · p<sup>k</sup> · (1−p)<sup>n−k</sup>
+</div>
+<p>donde C(n,k) = n! / (k! · (n−k)!) es el coeficiente binomial.</p>
+
+<div class="box box-teoria">
+<strong>📌 Condiciones para usar la binomial:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Número fijo de ensayos (n)</li>
+<li>Cada ensayo tiene dos resultados: éxito o fracaso</li>
+<li>Probabilidad de éxito (p) constante en cada ensayo</li>
+<li>Ensayos independientes entre sí</li>
+</ul>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería de calidad:</strong>
+<p>Una fábrica produce tornillos con un defecto del 5% (p = 0.05). Si se inspeccionan 20 tornillos al azar, ¿cuál es la probabilidad de encontrar exactamente 2 defectuosos?</p>
+<p style="margin-top:.5rem">n = 20, k = 2, p = 0.05</p>
+<p style="margin-top:.5rem">P(X=2) = C(20,2) · (0.05)² · (0.95)¹⁸ = 190 · 0.0025 · 0.3972 = <strong>0.1887</strong></p>
+<p>Es decir, hay un 18.87% de probabilidad de encontrar exactamente 2 defectuosos.</p>
+</div>
+
+<div class="box box-idea">
+<strong>🔑 Propiedades de la binomial:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Esperanza: E[X] = n · p</li>
+<li>Varianza: Var(X) = n · p · (1−p)</li>
+<li>Para el ejemplo: E[X] = 20 × 0.05 = 1 defectuoso esperado</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Distribución de Poisson</h2>
+<p>La <strong>distribución de Poisson</strong> modela el número de eventos raros que ocurren en un intervalo de tiempo o espacio.</p>
+
+<div class="formula">
+P(X = k) = (λ<sup>k</sup> · e<sup>−λ</sup>) / k!
+</div>
+<p>donde λ = número medio de eventos por intervalo (λ > 0).</p>
+
+<div class="box box-teoria">
+<strong>📌 Cuándo usar Poisson:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Eventos raros (p pequeña) con muchas oportunidades (n grande)</li>
+<li>Se cumple que λ = n · p (y n es grande, p es pequeña)</li>
+<li>Los eventos ocurren de forma independiente</li>
+</ul>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Un servidor web recibe de media λ = 3 errores por hora. ¿Cuál es la probabilidad de que en la próxima hora no haya errores?</p>
+<p style="margin-top:.5rem">P(X=0) = (3⁰ · e<sup>−3</sup>) / 0! = 1 · 0.0498 / 1 = <strong>0.0498</strong></p>
+<p>Solo un 4.98% de probabilidad de que no haya errores en la próxima hora.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Propiedades de Poisson:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Esperanza: E[X] = λ</li>
+<li>Varianza: Var(X) = λ</li>
+<li>¡En Poisson, la media y la varianza son iguales!</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">5️⃣ Comparación: Binomial vs Poisson</h2>
+<table>
+<tr><th>Característica</th><th>Binomial</th><th>Poisson</th></tr>
+<tr><td><strong>Tipo de variable</strong></td><td>Número de éxitos en n ensayos</td><td>Número de eventos en un intervalo</td></tr>
+<tr><td><strong>Parámetros</strong></td><td>n, p</td><td>λ</td></tr>
+<tr><td><strong>Soporte</strong></td><td>k = 0, 1, 2, ..., n</td><td>k = 0, 1, 2, 3, ... (infinito)</td></tr>
+<tr><td><strong>Esperanza</strong></td><td>np</td><td>λ</td></tr>
+<tr><td><strong>Varianza</strong></td><td>np(1−p)</td><td>λ</td></tr>
+<tr><td><strong>Ejemplo en ingeniería</strong></td><td>Defectos en n piezas</td><td>Fallos por hora en un sistema</td></tr>
+</table>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Una máquina produce piezas con un 2% de defectuosidad. Si se inspeccionan 50 piezas, ¿cuál es la probabilidad de que exactamente 3 sean defectuosas? (Usar binomial)</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">~0.147</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">~0.020</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">~0.500</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">~0.980</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Un router recibe de media λ = 5 paquetes corruptos por minuto. ¿Cuál es la probabilidad de que en un minuto no llegue ninguno corrupto? (Usar Poisson)</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.0067</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0.0067</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.5000</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5.0000</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> En una distribución binomial con n=10 y p=0.3, ¿cuál es la esperanza?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> En una distribución de Poisson, ¿qué relación hay entre la media y la varianza?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Son iguales</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La varianza es el doble de la media</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La media es el doble de la varianza</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No hay relación</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Una <strong>variable aleatoria discreta</strong> toma valores contables; su distribución asigna probabilidad a cada valor</li>
+<li><strong>Esperanza</strong> (μ): valor esperado; <strong>Varianza</strong> (σ²): dispersión alrededor de la media</li>
+<li><strong>Binomial</strong>: B(n,p) — número de éxitos en n ensayos. E[X]=np, Var(X)=np(1−p)</li>
+<li><strong>Poisson</strong>: P(λ) — número de eventos en un intervalo. E[X]=λ, Var(X)=λ</li>
+<li>La binomial se usa para defectos en n piezas; la Poisson para fallos por tiempo/espacio</li>
+<li>Cuando n es grande y p es pequeña, la binomial se aproxima a la Poisson con λ = np</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-4-estadistica-dispersion.html">← Anterior</a>
+<a href="s04-6-estadistica-distribuciones-continuas.html">Siguiente: Distribuciones continuas →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

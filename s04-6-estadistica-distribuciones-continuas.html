@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 6 — Distribuciones continuas (normal) | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 6</h1>
+<p>Distribuciones continuas: la Normal</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Entender la distribución normal y sus propiedades</li>
+<li>Normalizar variables (puntuaciones z)</li>
+<li>Calcular probabilidades usando la tabla de la normal estándar</li>
+<li>Aplicar la normal a problemas de ingeniería (control de calidad, tolerancias)</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ La Distribución Normal</h2>
+<p>La <strong>distribución normal</strong> (o gaussiana) es la distribución de probabilidad continua más importante en ingeniería. Muchos fenómenos naturales e industriales siguen (o se aproximan a) esta distribución.</p>
+
+<div class="formula">
+f(x) = (1 / (σ√(2π))) · e<sup>−(x−μ)²/(2σ²)</sup>
+</div>
+
+<p>Se define por dos parámetros:</p>
+<ul style="padding-left:1.2rem;margin:.5rem 0">
+<li><strong>μ</strong> (media): centra la distribución en el eje X</li>
+<li><strong>σ</strong> (desviación típica): controla la dispersión/ancho</li>
+</ul>
+
+<div class="box box-teoria">
+<strong>📌 Propiedades clave:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Simétrica respecto a μ (media = mediana = moda)</li>
+<li>Forma de campana</li>
+<li>Se extiende de −∞ a +∞</li>
+<li>La área total bajo la curva = 1</li>
+<li>68% del área entre μ−σ y μ+σ; 95% entre μ−2σ y μ+2σ; 99.7% entre μ−3σ y μ+3σ</li>
+</ul>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplos en ingeniería:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Dimensiones de piezas fabricadas (variación aleatoria del proceso)</li>
+<li>Resistencia a compresión del concreto</li>
+<li>Tensiones en componentes estructurales bajo cargas aleatorias</li>
+<li>Tiempo de fallo de componentes electrónicos</li>
+<li>Errores de medición (ruido)</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Normal Estándar y Puntuación z</h2>
+<p>La <strong>normal estándar</strong> N(0, 1) tiene μ = 0 y σ = 1. Cualquier normal se puede transformar a la estándar usando la <strong>puntuación z</strong>:</p>
+
+<div class="formula">
+z = (x − μ) / σ
+</div>
+
+<p>Esto nos dice cuántas desviaciones típicas está el valor x de la media μ.</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en control de calidad:</strong>
+<p>El diámetro de un eje sigue N(50 mm, 0.5 mm). Las especificaciones son 50 ± 1.5 mm.</p>
+<p style="margin-top:.5rem"><strong>Límite superior:</strong> z = (51.5 − 50) / 0.5 = 3.0</p>
+<p style="margin-top:.5rem"><strong>Límite inferior:</strong> z = (48.5 − 50) / 0.5 = −3.0</p>
+<p>El 99.7% de los ejes estarán dentro de especificación (regla 68-95-99.7). Solo un 0.3% fuera.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Usando la Tabla de la Normal Estándar</h2>
+<p>La tabla de la normal estándar da P(Z ≤ z) para diferentes valores de z. Es la probabilidad acumulada hasta z.</p>
+
+<div class="box box-teoria">
+<strong>📌 Probabilidades clave (valores de z memorizables):</strong>
+<table>
+<tr><th>z</th><th>P(Z ≤ z)</th><th>Significado</th></tr>
+<tr><td>−3.00</td><td>0.0013</td><td>0.13% por debajo</td></tr>
+<tr><td>−2.00</td><td>0.0228</td><td>2.28% por debajo</td></tr>
+<tr><td>−1.96</td><td>0.0250</td><td>2.5% por debajo (95% bilateral)</td></tr>
+<tr><td>−1.645</td><td>0.0500</td><td>5% por debajo (90% bilateral)</td></tr>
+<tr><td>0.00</td><td>0.5000</td><td>50% (la mitad)</td></tr>
+<tr><td>+1.645</td><td>0.9500</td><td>95% por debajo</td></tr>
+<tr><td>+1.96</td><td>0.9750</td><td>97.5% por debajo</td></tr>
+<tr><td>+2.00</td><td>0.9772</td><td>97.72% por debajo</td></tr>
+<tr><td>+3.00</td><td>0.9987</td><td>99.87% por debajo</td></tr>
+</table>
+</div>
+
+<div class="box box-idea">
+<strong>🔑 Reglas rápidas para calcular probabilidades:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>P(Z ≤ z) = valor directo de la tabla</li>
+<li>P(Z ≥ z) = 1 − P(Z ≤ z)</li>
+<li>P(a ≤ Z ≤ b) = P(Z ≤ b) − P(Z ≤ a)</li>
+<li>Por simetría: P(Z ≤ −z) = P(Z ≥ z) = 1 − P(Z ≤ z)</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Ejemplo Completo en Ingeniería</h2>
+<div class="box box-ejemplo">
+<strong>💡 Problema: Vida útil de un cojinete</strong>
+<p style="margin-top:.5rem">La vida útil (en miles de horas) de un tipo de cojinete sigue una distribución N(5, 1.5).</p>
+<p style="margin-top:.5rem"><strong>a) ¿Probabilidad de que dure más de 6000 horas?</strong></p>
+<p style="margin-top:.5rem">z = (6 − 5) / 1.5 = 0.667</p>
+<p style="margin-top:.5rem">P(X > 6) = P(Z > 0.667) = 1 − P(Z ≤ 0.667) = 1 − 0.7475 = <strong>0.2525</strong></p>
+<p style="margin-top:.5rem">25.25% de cojinetes durarán más de 6000 horas.</p>
+</div>
+
+<div class="box box-ejemplo">
+<p style="margin-top:.5rem"><strong>b) ¿Probabilidad de que dure entre 4000 y 6000 horas?</strong></p>
+<p style="margin-top:.5rem">z₁ = (4 − 5) / 1.5 = −0.667 → P(Z ≤ −0.667) = 0.2525</p>
+<p style="margin-top:.5rem">z₂ = (6 − 5) / 1.5 = 0.667 → P(Z ≤ 0.667) = 0.7475</p>
+<p style="margin-top:.5rem">P(4 < X < 6) = 0.7475 − 0.2525 = <strong>0.4950</strong></p>
+<p>49.5% de cojinetes durarán entre 4000 y 6000 horas.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">5️⃣ Distribución Chi-Cuadrado y t de Student</h2>
+<p>Además de la normal, hay otras distribuciones continuas fundamentales en ingeniería:</p>
+
+<table>
+<tr><th>Distribución</th><th>Uso en ingeniería</th><th>Parámetros</th></tr>
+<tr><td><strong>Chi-cuadrado (χ²)</strong></td><td>Contrastes de varianza, bondad de ajuste</td><td>gl (grados de libertad)</td></tr>
+<tr><td><strong>t de Student</strong></td><td>Intervalos de confianza y contrastes con muestras pequeñas</td><td>gl (grados de libertad)</td></tr>
+<tr><td><strong>F de Fisher</strong></td><td>Comparar varianzas, ANOVA</td><td>gl₁, gl₂</td></tr>
+</table>
+
+<div class="box box-teoria">
+<strong>📌 Relación con la normal:</strong>
+<p style="margin-top:.5rem">Cuando la muestra es grande (n > 30), la t de Student se aproxima a la normal estándar. Por eso en muestras grandes usamos z en lugar de t.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Un proceso tiene X ~ N(100, 5). ¿Cuál es la puntuación z de x = 110?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">2.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1.5</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Si X ~ N(50, 8), ¿qué porcentaje de valores estará entre 42 y 58?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">50%</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">68%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">95%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">99.7%</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> P(Z ≤ 1.96) = 0.975. ¿Cuál es P(Z > 1.96)?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.975</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0.025</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.500</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.050</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> En control de calidad, si un proceso sigue N(μ, σ) y las especificaciones son μ ± 3σ, ¿qué porcentaje de piezas estará fuera de especificación?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">5%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1%</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0.27%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.01%</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>La <strong>distribución normal</strong> N(μ, σ) es la más importante en ingeniería: simétrica, campana, definida por media y desviación típica</li>
+<li><strong>Puntuación z</strong> = (x − μ) / σ: transforma cualquier normal en la estándar N(0,1)</li>
+<li>La <strong>tabla de la normal estándar</strong> da P(Z ≤ z) para cualquier z</li>
+<li>Regla 68-95-99.7: ~68% en μ±σ, ~95% en μ±2σ, ~99.7% en μ±3σ</li>
+<li>Aplicaciones: control de calidad, tolerancias, vida útil, errores de medición</li>
+<li>Otras distribuciones continuas: χ², t de Student, F — fundamentales para contrastes e intervalos</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-5-estadistica-distribuciones-discretas.html">← Anterior</a>
+<a href="s04-7-estadistica-correlacion-regresion.html">Siguiente: Correlación y regresión →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

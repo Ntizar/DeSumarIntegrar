@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bachiller — Sesión 2: Continuidad y derivadas | Matemáticas</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📐 Bachillerato — Sesión 2</h1>
+<p>Continuidad y derivadas</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Definir y verificar la continuidad de una función en un punto</li>
+<li>Clasificar tipos de discontinuidad</li>
+<li>Entender la derivada como tasa de cambio instantánea</li>
+<li>Calcular derivadas usando la definición por límites</li>
+<li>Interpretar geométricamente la derivada como pendiente de la tangente</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Continuidad en un Punto</h2>
+<p>Una función es <strong>continua</strong> en un punto si no tiene "saltos" ni "huecos" en ese punto.</p>
+
+<div class="box box-teoria">
+<strong>📌 Tres condiciones para ser continuo en x = a:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li>f(a) está definido (el punto existe)</li>
+<li>lim(x→a) f(x) existe (los límites laterales son iguales)</li>
+<li>lim(x→a) f(x) = f(a) (el límite coincide con el valor)</li>
+</ol>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">f(x) = x² en x = 3</p>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>f(3) = 9 ✓</li>
+<li>lim(x→3) x² = 9 ✓</li>
+<li>9 = 9 ✓ → <strong>Es continua</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Tipos de Discontinuidad</h2>
+
+<table>
+<tr><th>Tipo</th><th>Descripción</th><th>Ejemplo</th></tr>
+<tr><td><strong>Evitable</strong></td><td>El límite existe pero no coincide con f(a) o f(a) no está definido</td><td>f(x) = (x²−1)/(x−1) en x=1</td></tr>
+<tr><td><strong>De saltos</strong></td><td>Los límites laterales existen pero son distintos</td><td>Función escalón</td></tr>
+<tr><td><strong>Esencial</strong></td><td>Al menos un límite lateral es ∞ o no existe</td><td>f(x) = 1/x en x=0</td></tr>
+</table>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo de discontinuidad evitable:</strong>
+<p style="margin-top:.5rem">f(x) = (x² − 1)/(x − 1) en x = 1</p>
+<p style="margin-top:.5rem">lim(x→1) (x+1)(x−1)/(x−1) = lim(x→1) (x+1) = 2</p>
+<p style="margin-top:.5rem">Pero f(1) no está definido → discontinuidad evitable (podemos "repararla" definiendo f(1) = 2)</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ ¿Qué es la Derivada?</h2>
+<p>La <strong>derivada</strong> mide cómo cambia una función de forma instantánea. Es la tasa de cambio en un punto.</p>
+
+<div class="formula">
+f'(a) = lim(h→0) [f(a+h) − f(a)] / h
+</div>
+
+<p>Geométricamente, f'(a) es la <strong>pendiente de la recta tangente</strong> a la curva en x = a.</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Interpretación física:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Si s(t) = posición, entonces s'(t) = <strong>velocidad</strong></li>
+<li>Si v(t) = velocidad, entonces v'(t) = <strong>aceleración</strong></li>
+<li>Si C(x) = coste, entonces C'(x) = <strong>coste marginal</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Derivada por Definición — Ejemplos</h2>
+
+<div class="box box-teoria">
+<strong>📌 Ejemplo 1: f(x) = x²</strong>
+<p style="margin-top:.5rem">f'(x) = lim(h→0) [(x+h)² − x²]/h = lim(h→0) [x² + 2xh + h² − x²]/h = lim(h→0) [2xh + h²]/h = lim(h→0) (2x + h) = <strong>2x</strong></p>
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Ejemplo 2: f(x) = 3x³ − 2x + 1</strong>
+<p style="margin-top:.5rem">f'(x) = lim(h→0) [3(x+h)³ − 2(x+h) + 1 − (3x³ − 2x + 1)]/h</p>
+<p style="margin-top:.5rem">= lim(h→0) [3(3x²h + 3xh² + h³) − 2h]/h</p>
+<p style="margin-top:.5rem">= lim(h→0) [9x² + 9xh + 3h² − 2] = <strong>9x² − 2</strong></p>
+</div>
+
+<div class="box box-idea">
+<strong>🔑 Nota:</strong>
+<p>Calcular derivadas por definición es tedioso. Por eso existen las <strong>reglas de derivación</strong> que veremos en la próxima sesión. Pero es importante entender que la derivada nace del concepto de límite.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">5️⃣ Función Derivada</h2>
+<p>La <strong>función derivada</strong> f'(x) asigna a cada punto x la pendiente de la tangente en ese punto.</p>
+
+<div class="box box-teoria">
+<strong>📌 Notación:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>f'(x) — notación de Lagrange</li>
+<li>dy/dx — notación de Leibniz</li>
+<li>d/dx [f(x)] — notación del operador</li>
+<li>∂f/∂x — derivada parcial (la veremos en universidad)</li>
+</ul>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">f(x) = x³ → f'(x) = 3x²</p>
+<p style="margin-top:.5rem">En x = 2: f(2) = 8, f'(2) = 12</p>
+<p>La recta tangente a y = x³ en x = 2 tiene pendiente 12 y pasa por (2, 8).</p>
+<p style="margin-top:.5rem">Ecuación: y − 8 = 12(x − 2) → <strong>y = 12x − 16</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> ¿Es f(x) = (x² − 4)/(x − 2) continua en x = 2?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Sí, es continua</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">No, tiene una discontinuidad evitable</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No, tiene una discontinuidad de saltos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No, tiene una discontinuidad esencial</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Si f(x) = x³, ¿cuál es f'(3)?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">27</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">81</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> Geométricamente, la derivada en un punto representa:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">El área bajo la curva</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">La pendiente de la recta tangente</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La distancia al origen</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El valor máximo de la función</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> lim(h→0) [(x+h) − x]/h = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">h</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">x</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Una función es <strong>continua</strong> en x = a si: existe f(a), existe el límite, y coinciden</li>
+<li><strong>Discontinuidad evitable:</strong> el límite existe pero no coincide con f(a)</li>
+<li><strong>Discontinuidad de saltos:</strong> límites laterales distintos</li>
+<li><strong>Discontinuidad esencial:</strong> al menos un límite lateral es ∞</li>
+<li>La <strong>derivada</strong> f'(a) = lim(h→0) [f(a+h) − f(a)]/h mide la tasa de cambio instantánea</li>
+<li>Geométricamente, f'(a) = pendiente de la tangente en x = a</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s09-10-bachiller-repaso.html">← Anterior</a>
+<a href="s09-3-bachiller-reglas-derivacion.html">Siguiente: Reglas de derivación →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

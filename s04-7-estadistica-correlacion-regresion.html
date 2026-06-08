@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 7 — Correlación y regresión | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 7</h1>
+<p>Correlación y regresión</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Calcular e interpretar el coeficiente de correlación de Pearson</li>
+<li>Construir la recta de regresión por mínimos cuadrados</li>
+<li>Interpretar R² (coeficiente de determinación)</li>
+<li>Aplicar correlación y regresión a problemas de ingeniería</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es la Correlación?</h2>
+<p>La <strong>correlación</strong> mide la fuerza y dirección de la relación lineal entre dos variables. En ingeniería, es fundamental para entender cómo se relacionan las variables de un proceso.</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>¿Se relacionan la temperatura de curado y la resistencia del concreto?</li>
+<li>¿Hay correlación entre el espesor de una pintura y su resistencia a la corrosión?</li>
+<li>¿Cómo se relaciona la velocidad de corte con la vida de la herramienta?</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Coeficiente de Correlación de Pearson (r)</h2>
+<div class="formula">
+r = Σ(x<sub>i</sub> − x̄)(y<sub>i</sub> − ȳ) / √[Σ(x<sub>i</sub> − x̄)² · Σ(y<sub>i</sub> − ȳ)²]
+</div>
+
+<p>El coeficiente r varía entre −1 y +1:</p>
+
+<table>
+<tr><th>Valor de r</th><th>Interpretación</th><th>Gráfico</th></tr>
+<tr><td>r = +1</td><td>Correlación positiva perfecta</td><td>Puntos en una recta ascendente</td></tr>
+<tr><td>r = +0.7 a +1</td><td>Correlación positiva fuerte</td><td>Puntos en nube estrecha ascendente</td></tr>
+<tr><td>r = +0.3 a +0.7</td><td>Correlación positiva moderada</td><td>Puntos en nube moderada ascendente</td></tr>
+<tr><td>r = 0</td><td>Sin correlación lineal</td><td>Nube de puntos sin dirección</td></tr>
+<tr><td>r = −0.3 a −0.7</td><td>Correlación negativa moderada</td><td>Nube moderada descendente</td></tr>
+<tr><td>r = −0.7 a −1</td><td>Correlación negativa fuerte</td><td>Nube estrecha descendente</td></tr>
+<tr><td>r = −1</td><td>Correlación negativa perfecta</td><td>Puntos en una recta descendente</td></tr>
+</table>
+
+<div class="box box-idea">
+<strong>🔑 ¡Cuidado!</strong>
+<p><strong>Correlación ≠ Causalidad.</strong> Dos variables pueden estar correlacionadas sin que una cause la otra. Por ejemplo, las ventas de helado y los ahogamientos están correlacionados positivamente, pero la causa común es el verano (temperatura alta).</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Regresión Lineal por Mínimos Cuadrados</h2>
+<p>La <strong>regresión lineal</strong> ajusta una recta a los datos para predecir una variable (y) a partir de otra (x).</p>
+
+<div class="formula">
+y = a + b·x
+</div>
+
+<div class="formula">
+b = Σ(x<sub>i</sub> − x̄)(y<sub>i</sub> − ȳ) / Σ(x<sub>i</sub> − x̄)² &nbsp;&nbsp; (pendiente)
+</div>
+
+<div class="formula">
+a = ȳ − b·x̄ &nbsp;&nbsp; (ordenada en el origen)
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Se mide la resistencia del concreto (y, MPa) a diferentes edades (x, días):</p>
+<table>
+<tr><th>x (días)</th><td>7</td><td>14</td><td>21</td><td>28</td><td>56</td></tr>
+<tr><th>y (MPa)</th><td>25</td><td>32</td><td>37</td><td>41</td><td>46</td></tr>
+</table>
+<p style="margin-top:.5rem">x̄ = 21.2, ȳ = 36.2</p>
+<p style="margin-top:.5rem">b = Σ(xᵢ−21.2)(yᵢ−36.2) / Σ(xᵢ−21.2)² = 442.8 / 1312.8 = <strong>0.337</strong></p>
+<p style="margin-top:.5rem">a = 36.2 − 0.337 × 21.2 = <strong>29.05</strong></p>
+<p style="margin-top:.5rem"><strong>Recta de regresión: y = 29.05 + 0.337x</strong></p>
+<p>Para predecir resistencia a 100 días: y = 29.05 + 0.337 × 100 = <strong>62.75 MPa</strong></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Coeficiente de Determinación (R²)</h2>
+<p>El <strong>R²</strong> indica qué proporción de la variabilidad de y se explica por la regresión con x.</p>
+
+<div class="formula">
+R² = r² = (coeficiente de correlación)²
+</div>
+
+<div class="box box-teoria">
+<strong>📌 Interpretación de R²:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>R² = 0.90 → el 90% de la variabilidad de y se explica por x</li>
+<li>R² = 0.50 → el 50% se explica por x (el 50% restante es por otros factores o aleatoriedad)</li>
+<li>R² = 0.10 → solo el 10% se explica por x → la regresión no es buena</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Si r = 0.85, ¿cuál es la interpretación?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Correlación positiva fuerte</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Correlación negativa fuerte</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Sin correlación</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Correlación perfecta</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Si R² = 0.64, ¿qué porcentaje de la variabilidad se explica?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">640%</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">64%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">32%</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">80%</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> En la recta y = 5 + 2x, ¿qué significa la pendiente b = 2?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Por cada unidad que aumenta x, y aumenta 2 unidades en promedio</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">y siempre vale 2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">x siempre vale 2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La correlación es 2</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> ¿Cuál es la diferencia entre correlación y regresión?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Son lo mismo</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">La correlación mide la relación; la regresión permite predecir valores</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La correlación es para variables cualitativas</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">La regresión solo funciona con r = 1</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><strong>Correlación (r):</strong> mide fuerza y dirección de la relación lineal (−1 a +1)</li>
+<li><strong>Regresión lineal:</strong> y = a + bx. La pendiente b indica cuánto cambia y por cada unidad de x</li>
+<li><strong>R²:</strong> proporción de variabilidad explicada. R² = 0.80 → 80% explicado</li>
+<li>¡Correlación ≠ causalidad! Siempre buscar explicación causal</li>
+<li>Aplicaciones: predecir resistencia del concreto, vida de herramientas, calidad de materiales</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-6-estadistica-distribuciones-continuas.html">← Anterior</a>
+<a href="s04-8-estadistica-muestreo-estimacion.html">Siguiente: Muestreo y estimación →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

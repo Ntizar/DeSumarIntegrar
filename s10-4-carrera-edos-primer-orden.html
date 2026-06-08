@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrera - Sesion 4: EDOs primer orden</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>1 Carrera - Sesion 4</h1>
+<p>EDOs primer orden</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter"><h2 class="chapter-title">1. Conceptos Basicos</h2><div class="box box-teoria"><strong>EDO:</strong> ecuacion que relaciona una funcion y sus derivadas.</div><div class="box box-teoria"><strong>Orden:</strong> mayor derivada que aparece. Ejemplo: y'' + y = 0 es de 2 orden.</div><div class="box box-teoria"><strong>Solucion general:</strong> familia de funciones con constantes arbitrarias. <strong>Solucion particular:</strong> se fija la constante con condiciones iniciales.</div></div>
+<div class="chapter"><h2 class="chapter-title">2. Variables Separables</h2><div class="box box-teoria"><strong>Forma:</strong> dy/dx = g(x)*h(y)</div><div class="formula">int dy/h(y) = int g(x) dx</div></div><div class="box box-ejemplo"><strong>Ejemplo:</strong> dy/dx = 2x*y</p><p style="margin-top:.5rem">dy/y = 2x dx</p><p style="margin-top:.5rem">ln|y| = x^2 + C</p><p style="margin-top:.5rem">y = C*e^(x^2)</p></div></div>
+<div class="chapter"><h2 class="chapter-title">3. EDO Lineal de Primer Orden</h2><div class="box box-teoria"><strong>Forma estandar:</strong><div class="formula">dy/dx + P(x)*y = Q(x)</div></div><div class="box box-teoria"><strong>Factor integrante:</strong><div class="formula">mu(x) = e^(int P(x) dx)</div><div class="formula">d/dx [mu*y] = mu*Q(x)</div><div class="formula">y = (1/mu) * int mu*Q dx</div></div><div class="box box-ejemplo"><strong>Ejemplo:</strong> y' + 2y = 4x</p><p style="margin-top:.5rem">mu = e^(2x)</p><p style="margin-top:.5rem">d/dx [e^(2x)*y] = 4x*e^(2x)</p><p style="margin-top:.5rem">e^(2x)*y = 2x*e^(2x) - e^(2x) + C</p><p style="margin-top:.5rem">y = 2x - 1 + C*e^(-2x)</p></div></div>
+<div class="chapter"><h2 class="chapter-title">4. EDO Exactas</h2><div class="box box-teoria"><strong>Forma:</strong> M(x,y)dx + N(x,y)dy = 0</div><div class="box box-teoria"><strong>Condicion de exactitud:</strong> dM/dy = dN/dx</div><div class="box box-teoria"><strong>Solucion:</strong> existe F(x,y) tal que dF = M dx + N dy, la solucion es F(x,y) = C</div></div><div class="box box-ejemplo"><strong>Ejemplo:</strong> 2xy dx + (x^2+1) dy = 0</p><p style="margin-top:.5rem">M_y = 2x, N_x = 2x --> exacta</p><p style="margin-top:.5rem">F = int 2xy dx = x^2*y + h(y)</p><p style="margin-top:.5rem">F_y = x^2 + h'(y) = x^2 + 1 --> h' = 1 --> h = y</p><p style="margin-top:.5rem">Solucion: x^2*y + y = C --> y(x^2+1) = C</p></div></div>
+<div class="chapter"><h2 class="chapter-title">5. Aplicaciones en Ingenieria</h2><div class="box box-teoria"><strong>Enfriamiento de Newton:</strong> dT/dt = -k(T - T_ambient)</div><div class="box box-teoria"><strong>Crecimiento poblacional:</strong> dP/dt = k*P --> P(t) = P_0*e^(kt)</div><div class="box box-teoria"><strong>Circuito RC:</strong> R*C*dV/dt + V = V_0</div><div class="box box-teoria"><strong>Mezclas:</strong> dA/dt = tasa_entrada - tasa_salida</div></div>
+<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> dy/dx = 3x^2. y(0) = 1. y(1) = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">2</button><button class="quiz-btn" onclick="checkExercise(this, false)">1</button><button class="quiz-btn" onclick="checkExercise(this, false)">3</button><button class="quiz-btn" onclick="checkExercise(this, false)">0</button></div></div><div class="exercise"><p><strong>2.</strong> dy/dx + y = 0, y(0)=5. y(x) = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">5*e^(-x)</button><button class="quiz-btn" onclick="checkExercise(this, false)">e^(-x)</button><button class="quiz-btn" onclick="checkExercise(this, false)">5*e^x</button><button class="quiz-btn" onclick="checkExercise(this, false)">5-x</button></div></div><div class="exercise"><p><strong>3.</strong> dy/dx = x+y, y(0)=0. Es separable?</p><div class="quiz-btn" onclick="checkExercise(this, false)">Si</button><button class="quiz-btn" onclick="checkExercise(this, true)">No (pero es lineal)</button></div></div></div></div>
+<div class="summary"><h3>Resumen</h3><ul><li>EDO: ecuacion con derivadas de una funcion</li>
+<li>Variables separables: dy/h(y) = g(x) dx</li>
+<li>Lineal 1 orden: dy/dx + P*y = Q, factor integrante e^(int P)</li>
+<li>Exactas: M dx + N dy = 0, condicion M_y = N_x</li>
+<li>Aplicaciones: enfriamiento, poblacion, circuitos, mezclas</li>
+</ul></div>
+<div class="nav"><a href="s10-3-carrera-integrales-multiples.html">Anterior</a>
+<a href="s10-5-carrera-edos-segundo-orden.html">Siguiente</a>
+</div></div>
+<div class="footer">Hecho con corazon por David Antizar</div>
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() { var h = document.documentElement; var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100; document.getElementById('progress').style.width = p+'%'; };
+</script>
+</body></html>

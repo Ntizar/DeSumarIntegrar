@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧩 S04.8: Problemas de 1 Paso — 4º Primaria — ¡Resolver problemas!</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>🧩 S04.8: Problemas de 1 Paso</h1>
+<p>4º Primaria — ¡Resolver problemas!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Para resolver un problema: leer, entender, elegir la operación, calcular y comprobar.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender el enunciado de un problema</li><li>Elegir la operación correcta</li><li>Resolver problemas de 1 paso</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Cómo resolver problemas</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Paso 1: Leer el problema. Paso 2: Identificar datos y lo que pide. Paso 3: Elegir operación (suma, resta, mult, div). Paso 4: Calcular. Paso 5: Comprobar.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+Tengo 24 caramelos y reparto 3 a cada amigo. ¿Cuántos amigos?<br>24 ÷ 3 = 8 amigos ✅
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+Cada cuaderno cuesta 3€. Si compro 7, ¿cuánto pago?<br>7 × 3 = 21€ ✅
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+Una caja tiene 12 botellas. Si tengo 5 cajas, ¿cuántas botellas?<br>5 × 12 = 60 botellas ✅
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Resuelve problemas!</h2>
+<div class="interactive">
+<h3>Lee el problema y selecciona la respuesta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="probDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="probButtons"></div></div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p>Tengo 36 cromos y pego 6 por página. ¿Cuántas páginas necesito?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+</div>
+</div>
+<div class="exercise">
+<p>Un tren recorre 80 km/h. ¿Cuánto recorre en 3 horas?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">240 km</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">83 km</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">200 km</button>
+</div>
+</div>
+<div class="exercise">
+<p>Reparto 48 galletas entre 8 niños. ¿Cuántas cada uno?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">56</button>
+</div>
+</div>
+<div class="exercise">
+<p>Cada libro cuesta 5€. ¿Cuánto cuestan 9 libros?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">45€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">40€</button>
+</div>
+</div>
+<div class="exercise">
+<p>Un paquete tiene 24 tornillos. ¿Cuántos hay en 6 paquetes?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">144</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">48</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>Leer y entender el problema</li></li><li><li>Elegir la operación</li></li><li><li>Calcular y comprobar</li></li><li><li>¡Ya sabes resolver problemas! 🎉</li>
+</ul>
+</div>
+<div class="nav">
+<a href="s04-7-capacidades.html">← Anterior</a>
+<a href="#">Siguiente: 5º Primaria →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+
+function newProb() {
+  const probs = [
+    {q:'Tengo 36 cromos y pego 6 por página. ¿Cuántas páginas?', a:6},
+    {q:'Tren 80 km/h. ¿Cuánto en 3 horas?', a:240},
+    {q:'Reparto 48 galletas entre 8 niños. ¿Cuántas cada uno?', a:6},
+    {q:'Cada libro 5€. ¿Cuánto cuestan 9?', a:45},
+    {q:'Paquete 24 tornillos. ¿Cuántos en 6 paquetes?', a:144},
+    {q:'Cada caja 12 huevos. ¿Cuántos en 8 cajas?', a:96},
+    {q:'Un libro 8 páginas diarias. ¿Cuántas en 5 días?', a:40}
+  ];
+  const p = probs[Math.floor(Math.random()*probs.length)];
+  document.getElementById('probDisplay').textContent = p.q;
+  const opts = [p.a, p.a+1, p.a-1, p.a+10].filter((v,i,a)=>a.indexOf(v)===i&&v>0);
+  const buttons = document.getElementById('probButtons');
+  buttons.innerHTML = '';
+  opts.sort(()=>Math.random()-0.5);
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(opt === p.a) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! La respuesta es ' + p.a;
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + p.a;
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+newProb();
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

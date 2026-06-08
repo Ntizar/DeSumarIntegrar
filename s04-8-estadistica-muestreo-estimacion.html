@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión 8 — Muestreo y estimación | Estadística para Ingeniería</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.6rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:.95rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+<h1>📊 Estadística para Ingeniería — Sesión 8</h1>
+<p>Muestreo y estimación</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos de esta sesión</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Entender los tipos de muestreo y cuándo usar cada uno</li>
+<li>Calcular intervalos de confianza para la media</li>
+<li>Calcular el tamaño de muestra necesario</li>
+<li>Aplicar la distribución t de Student para muestras pequeñas</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Tipos de Muestreo</h2>
+<p>El <strong>muestreo</strong> es el proceso de seleccionar una muestra representativa de una población. La calidad del muestreo determina la calidad de las conclusiones.</p>
+
+<table>
+<tr><th>Tipo</th><th>Cómo se hace</th><th>Ventaja</th><th>Desventaja</th></tr>
+<tr><td><strong>Aleatorio simple</strong></td><td>Cada individuo tiene la misma probabilidad de ser seleccionado</td><td>Simple, representativo</td><td>Necesita lista completa de la población</td></tr>
+<tr><td><strong>Estratificado</strong></td><td>Se divide en estratos y se muestrea cada estrato</td><td>Garantiza representación de subgrupos</td><td>Requiere conocer la estructura de la población</td></tr>
+<tr><td><strong>Por conglomerados</strong></td><td>Se seleccionan grupos (conglomerados) al azar</td><td>Económico cuando la población está dispersa</td><td>Menos preciso que el aleatorio simple</td></tr>
+<tr><td><strong>Consciente (por juicio)</strong></td><td>El investigador elige según criterio</td><td>Rápido y económico</td><td>Sesgado, no representativo</td></tr>
+</table>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Para inspeccionar la calidad de un lote de 10,000 tornillos:</p>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Aleatorio simple:</strong> numerar los 10,000 y usar generador de aleatorios</li>
+<li><strong>Estratificado:</strong> separar por turno de producción (mañana/tarde/noche) y muestrear de cada turno</li>
+<li><strong>Por conglomerados:</strong> seleccionar 10 cajas al azar de las 100 y medir todos los tornillos de esas cajas</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Teorema Central del Límite</h2>
+<p>Este teorema es la base de toda la inferencia estadística:</p>
+
+<div class="box box-teoria">
+<strong>📌 Teorema Central del Límite:</strong>
+<p style="margin-top:.5rem">Si tomamos muestras aleatorias de tamaño n de cualquier población con media μ y desviación σ, la distribución de las medias muestrales se aproxima a una normal N(μ, σ/√n) cuando n es grande (n ≥ 30).</p>
+</div>
+
+<div class="box box-idea">
+<strong>🔑 Consecuencias prácticas:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Las medias muestrales se distribuyen normalmente, aunque la población no lo sea</li>
+<li>La desviación típica de las medias muestrales (error estándar) = σ/√n</li>
+<li>A mayor n, menor dispersión de las medias → estimaciones más precisas</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Intervalo de Confianza para la Media</h2>
+<p>Un <strong>intervalo de confianza</strong> (IC) es un rango de valores que probablemente contiene el parámetro poblacional desconocido.</p>
+
+<div class="formula">
+IC = x̄ ± z<sub>α/2</sub> · (σ/√n) &nbsp;&nbsp; (si σ es conocida y n ≥ 30)
+</div>
+
+<div class="formula">
+IC = x̄ ± t<sub>α/2, n-1</sub> · (s/√n) &nbsp;&nbsp; (si σ es desconocida o n < 30)
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo en ingeniería:</strong>
+<p>Se mide la resistencia de 36 probetas de concreto. x̄ = 32.5 MPa, s = 4.2 MPa. Calcular IC al 95%.</p>
+<p style="margin-top:.5rem">n = 36 ≥ 30, usamos z: z<sub>0.025</sub> = 1.96</p>
+<p style="margin-top:.5rem">Error estándar = s/√n = 4.2/√36 = 4.2/6 = 0.7</p>
+<p style="margin-top:.5rem">IC = 32.5 ± 1.96 × 0.7 = 32.5 ± 1.372</p>
+<p style="margin-top:.5rem"><strong>IC al 95%: [31.13, 33.87] MPa</strong></p>
+<p>Estamos 95% seguros de que la resistencia media real del lote está entre 31.13 y 33.87 MPa.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Tamaño de Muestra</h2>
+<p>¿Cuántas mediciones necesitamos para obtener un intervalo de confianza con un margen de error deseado?</p>
+
+<div class="formula">
+n = (z<sub>α/2</sub> · σ / E)²
+</div>
+<p>donde E es el margen de error deseado.</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p>Queremos estimar la resistencia media del concreto con un margen de error de ±0.5 MPa al 95%. Sabemos que σ ≈ 4.2 MPa.</p>
+<p style="margin-top:.5rem">n = (1.96 × 4.2 / 0.5)² = (16.464)² = 271.1 → <strong>272 probetas</strong></p>
+<p>¡Necesitamos 272 probetas! Esto muestra por qué a veces usamos muestras más pequeñas y aceptamos mayor margen de error.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p><strong>1.</strong> Si tomamos muestras de n = 100 de una población con σ = 10, ¿cuál es el error estándar de la media?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">1.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0.1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">100.0</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>2.</strong> Un IC al 95% para la media es [48.5, 51.5]. ¿Cuál es la estimación puntual (x̄)?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">50.0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">48.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">51.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2.5</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>3.</strong> ¿Qué pasa con el tamaño del IC cuando aumenta el nivel de confianza del 95% al 99%?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Se hace más pequeño</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Se hace más grande</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No cambia</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Depende de la muestra</button>
+</div>
+</div>
+
+<div class="exercise">
+<p><strong>4.</strong> ¿Cuándo usamos t de Student en lugar de z?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Cuando n > 30</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Cuando σ es desconocida o n < 30</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Cuando la población es normal</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Nunca, siempre usamos z</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><strong>Muestreo aleatorio:</strong> cada individuo tiene igual probabilidad. Tipos: simple, estratificado, por conglomerados</li>
+<li><strong>Teorema Central del Límite:</strong> las medias muestrales se distribuyen como N(μ, σ/√n) para n grande</li>
+<li><strong>Error estándar:</strong> σ/√n (o s/√n). Disminuye con √n → más datos = más precisión</li>
+<li><strong>IC para la media:</strong> x̄ ± z · (σ/√n) o x̄ ± t · (s/√n)</li>
+<li><strong>Tamaño de muestra:</strong> n = (z · σ / E)². Mayor precisión (E pequeño) → más datos necesarios</li>
+<li>IC al 95%: z = 1.96. IC al 99%: z = 2.576. Mayor confianza → intervalo más ancho</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s04-7-estadistica-correlacion-regresion.html">← Anterior</a>
+<a href="s04-9-estadistica-hipotesis.html">Siguiente: Contrastes de hipótesis →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+window.onscroll = function() {
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📐 S05.5: Áreas y Perímetros — 5º Primaria — ¡Figuras compuestas!</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>📐 S05.5: Áreas y Perímetros</h1>
+<p>5º Primaria — ¡Figuras compuestas!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Las figuras compuestas se dividen en figuras simples. Calculamos área y perímetro por partes.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Calcular área de figuras compuestas</li><li>Calcular perímetro de figuras compuestas</li><li>Descomponer figuras</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Figuras compuestas</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Una figura compuesta se divide en figuras simples. Área total = suma de áreas. Perímetro = suma de lados exteriores.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+L forma: cuadrado 4×4 + rectángulo 2×4 = 16 + 8 = 24 cm²
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+Rectángulo con cuadrado recortado: 10×6 - 2×2 = 60 - 4 = 56 cm²
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+Triángulo + rectángulo: (6×4)/2 + 6×3 = 12 + 18 = 30 cm²
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Calcula áreas compuestas!</h2>
+<div class="interactive">
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="compAreaDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="compAreaButtons"></div></div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p>Cuadrado 5×5 + rectángulo 3×5: área total?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">40</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+</div>
+</div>
+<div class="exercise">
+<p>Rectángulo 10×8 con cuadrado 2×2 recortado:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">76</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">80</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">78</button>
+</div>
+</div>
+<div class="exercise">
+<p>Triángulo base 6 altura 4: área?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+<div class="exercise">
+<p>Cuadrado lado 3: perímetro?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+</div>
+</div>
+<div class="exercise">
+<p>Rectángulo 7×4: área?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">28</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>Dividir figuras compuestas</li></li><li><li>Sumar áreas de figuras simples</li></li><li><li>Perímetro = lados exteriores</li></li><li><li>¡Ya sabes figuras compuestas! 🎉</li>
+</ul>
+</div>
+<div class="nav">
+<a href="s05-3-mult-decimales.html">← Anterior</a>
+<a href="s05-7-porcentajes.html">Siguiente: Volumen →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+function newQuiz() {
+  const data = [{"q": "Cuadrado 5\u00d75 + rect\u00e1ngulo 3\u00d75: \u00e1rea total?", "opts": ["40", "25", "15"], "correct": 0}, {"q": "Rect\u00e1ngulo 10\u00d78 con cuadrado 2\u00d72 recortado:", "opts": ["76", "80", "78"], "correct": 0}, {"q": "Tri\u00e1ngulo base 6 altura 4: \u00e1rea?", "opts": ["12", "24", "10"], "correct": 0}, {"q": "Cuadrado lado 3: per\u00edmetro?", "opts": ["12", "9", "6"], "correct": 0}, {"q": "Rect\u00e1ngulo 7\u00d74: \u00e1rea?", "opts": ["28", "11", "24"], "correct": 0}];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('compAreaDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('compAreaButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(i === item.correct) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+newQuiz();
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>
