@@ -1,242 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1º Carrera — Curso de Matemáticas</title>
-  <style>
-    :root {
-      --primary: #6366f1;
-      --secondary: #f97316;
-      --bg: #ffffff;
-      --text: #1e293b;
-      --glass: rgba(255,255,255,0.7);
-      --glass-border: rgba(255,255,255,0.3);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
-      min-height: 100vh;
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--text);
-    }
-    .hero {
-      text-align: center;
-      padding: 3rem 2rem 2rem;
-      position: relative;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #6366f1, var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem 4rem;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #6366f1;
-      text-decoration: none;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      transform: translateX(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .sessions-list {
-      list-style: none;
-    }
-    .sessions-list li {
-      margin-bottom: 0.75rem;
-    }
-    .sessions-list a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.3s ease;
-    }
-    .sessions-list a:hover {
-      transform: translateX(8px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      border-color: #6366f1;
-    }
-    .sessions-list .num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #6366f1;
-      min-width: 40px;
-    }
-    .sessions-list .name {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    .sessions-list .arrow {
-      margin-left: auto;
-      color: #94a3b8;
-      font-size: 1.2rem;
-    }
-    .stats {
-      display: flex;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    .stat {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      flex: 1;
-      min-width: 120px;
-    }
-    .stat .value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #6366f1;
-    }
-    .stat .label {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-top: 0.25rem;
-    }
-    .footer {
-      text-align: center;
-      padding: 2rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-    .footer a { color: #6366f1; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1º Carrera — Curso de Matemáticas</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,#e0e7ff,var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #6366f1}
+.intro-box h2{color:#6366f1;margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#6366f1}
+.session-card .num{font-size:.8rem;color:#6366f1;font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#6366f1;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#6366f1;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:#e0e7ff;transition:all .2s}
+.back-link:hover{transform:translateX(-4px)}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+</style>
 </head>
 <body>
-  <div class="hero">
-    <h1>🎓 1º Carrera</h1>
-    <p>Cálculo multivariable, álgebra lineal, EDOs y transformaciones lineales.</p>
-  </div>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
 
-  <div class="container">
-    <a href="INDEX.html" class="back-link">← Volver al índice</a>
+<div class="header">
+<h1>🏛️ 1º Carrera</h1>
+<p>Cálculo multivariable, álgebra lineal, EDOs y transformaciones lineales</p>
+</div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="value">10</div>
-        <div class="label">Sesiones</div>
-      </div>
-      <div class="stat">
-        <div class="value">100%</div>
-        <div class="label">Completado</div>
-      </div>
-      <div class="stat">
-        <div class="value">📚</div>
-        <div class="label">Interactivo</div>
-      </div>
-    </div>
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en 1º de Carrera?</h2>
+<p>La universidad es otro nivel. Aquí las matemáticas dejan de ser números y se convierten en estructuras abstractas. El cálculo multivariable extiende las derivadas e integrales a funciones de varias variables. El álgebra lineal estudia espacios vectoriales y transformaciones. Las EDOs modelan fenómenos físicos reales.</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Límites y continuidad en varias variables</li>
+<li>Derivadas parciales y gradiente</li>
+<li>Integrales múltiples: dobles y triples</li>
+<li>Espacios vectoriales y transformaciones lineales</li>
+<li>Ecuaciones diferenciales ordinarias de primer y segundo orden</li>
+<li>Series de Fourier y autovalores</li>
+</ul>
+</div>
 
-    <ul class="sessions-list">
-      <li>
-        <a href="s10-1-carrera-limites-multivariable.html">
-          <span class="num">01</span>
-          <span class="name">S10 1 Carrera Limites Multivariable</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-10-carrera-repaso.html">
-          <span class="num">02</span>
-          <span class="name">S10 10 Carrera Repaso</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-2-carrera-derivadas-parciales.html">
-          <span class="num">03</span>
-          <span class="name">S10 2 Carrera Derivadas Parciales</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-3-carrera-integrales-multiples.html">
-          <span class="num">04</span>
-          <span class="name">S10 3 Carrera Integrales Multiples</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-4-carrera-edos-primer-orden.html">
-          <span class="num">05</span>
-          <span class="name">S10 4 Carrera Edos Primer Orden</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-5-carrera-edos-segundo-orden.html">
-          <span class="num">06</span>
-          <span class="name">S10 5 Carrera Edos Segundo Orden</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-6-carrera-series-fourier.html">
-          <span class="num">07</span>
-          <span class="name">S10 6 Carrera Series Fourier</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-7-carrera-espacios-vectoriales.html">
-          <span class="num">08</span>
-          <span class="name">S10 7 Carrera Espacios Vectoriales</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-8-carrera-autovalores.html">
-          <span class="num">09</span>
-          <span class="name">S10 8 Carrera Autovalores</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s10-9-carrera-transformaciones-lineales.html">
-          <span class="num">10</span>
-          <span class="name">S10 9 Carrera Transformaciones Lineales</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<h2 style="margin:2rem 0 1rem;color:#6366f1">📚 10 Sesiones de 1º Carrera</h2>
 
-  <div class="footer">
-    Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a>
-  </div>
+<div class="sessions-grid">
+<a class="session-card" href="s10-1-carrera-limites-multivariable.html">
+<div class="num">Sesión 1</div>
+<h3>📐 Límites Multivariable</h3>
+<p>Límites en R²: trayectorias, coordenadas polares y continuidad.</p>
+</a>
+
+<a class="session-card" href="s10-2-carrera-derivadas-parciales.html">
+<div class="num">Sesión 2</div>
+<h3>📈 Derivadas Parciales</h3>
+<p>Derivar respecto a una variable manteniendo las demás fijas. El gradiente.</p>
+</a>
+
+<a class="session-card" href="s10-3-carrera-integrales-multiples.html">
+<div class="num">Sesión 3</div>
+<h3>∫ Integrales Múltiples</h3>
+<p>Integrales dobles y triples: calcular volúmenes y masas.</p>
+</a>
+
+<a class="session-card" href="s10-4-carrera-edos-primer-orden.html">
+<div class="num">Sesión 4</div>
+<h3>🔢 EDOs de Primer Orden</h3>
+<p>Ecuaciones separables, lineales y exactas. Modelado de crecimiento.</p>
+</a>
+
+<a class="session-card" href="s10-5-carrera-edos-segundo-orden.html">
+<div class="num">Sesión 5</div>
+<h3>🔢 EDOs de Segundo Orden</h3>
+<p>Ecuaciones lineales con coeficientes constantes. Oscilaciones.</p>
+</a>
+
+<a class="session-card" href="s10-6-carrera-series-fourier.html">
+<div class="num">Sesión 6</div>
+<h3>🔔 Series de Fourier</h3>
+<p>Descomponer funciones periódicas en senos y cosenos.</p>
+</a>
+
+<a class="session-card" href="s10-7-carrera-espacios-vectoriales.html">
+<div class="num">Sesión 7</div>
+<h3>📐 Espacios Vectoriales</h3>
+<p>Vectores, bases, dimensión y subespacios.</p>
+</a>
+
+<a class="session-card" href="s10-8-carrera-autovalores.html">
+<div class="num">Sesión 8</div>
+<h3>🔢 Autovalores y Autovectores</h3>
+<p>La esencia de una matriz: sus eigenvalores y eigenvectores.</p>
+</a>
+
+<a class="session-card" href="s10-9-carrera-transformaciones-lineales.html">
+<div class="num">Sesión 9</div>
+<h3>🔄 Transformaciones Lineales</h3>
+<p>Mapeos que preservan suma y producto por escalar. Rotaciones, escalados.</p>
+</a>
+
+<a class="session-card" href="s10-10-carrera-repaso.html">
+<div class="num">Sesión 10</div>
+<h3>🎓 Repaso Integrador</h3>
+<p>Problemas que combinan todo: cálculo, álgebra lineal y EDOs.</p>
+</a>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Límites en R²: el límite existe si es el mismo en todas las trayectorias</li>
+<li>Derivadas parciales: ∂f/∂x mide cómo cambia f cuando solo x varía</li>
+<li>El gradiente: vector que apunta en la dirección de máximo crecimiento</li>
+<li>Integrales dobles y triples: calcular volúmenes y masas</li>
+<li>EDOs: ecuaciones que relacionan una función con sus derivadas</li>
+<li>Series de Fourier: toda función periódica es suma de senos y cosenos</li>
+<li>Espacios vectoriales: la estructura más fundamental del álgebra</li>
+<li>Autovalores: los "números propios" de una matriz</li>
+<li>Transformaciones lineales: rotaciones, escalados, proyecciones</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s09-bachiller.html">← Bachillerato</a>
+<a class="disabled">Siguiente</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
 </body>
 </html>

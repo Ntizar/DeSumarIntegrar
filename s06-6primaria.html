@@ -1,214 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6º Primaria — Curso de Matemáticas</title>
-  <style>
-    :root {
-      --primary: #f97316;
-      --secondary: #f97316;
-      --bg: #ffffff;
-      --text: #1e293b;
-      --glass: rgba(255,255,255,0.7);
-      --glass-border: rgba(255,255,255,0.3);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
-      min-height: 100vh;
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--text);
-    }
-    .hero {
-      text-align: center;
-      padding: 3rem 2rem 2rem;
-      position: relative;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #f97316, var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem 4rem;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #f97316;
-      text-decoration: none;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      transform: translateX(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .sessions-list {
-      list-style: none;
-    }
-    .sessions-list li {
-      margin-bottom: 0.75rem;
-    }
-    .sessions-list a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.3s ease;
-    }
-    .sessions-list a:hover {
-      transform: translateX(8px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      border-color: #f97316;
-    }
-    .sessions-list .num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #f97316;
-      min-width: 40px;
-    }
-    .sessions-list .name {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    .sessions-list .arrow {
-      margin-left: auto;
-      color: #94a3b8;
-      font-size: 1.2rem;
-    }
-    .stats {
-      display: flex;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    .stat {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      flex: 1;
-      min-width: 120px;
-    }
-    .stat .value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #f97316;
-    }
-    .stat .label {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-top: 0.25rem;
-    }
-    .footer {
-      text-align: center;
-      padding: 2rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-    .footer a { color: #f97316; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6º Primaria — Curso de Matemáticas</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--naranja),#ea580c);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,var(--naranja-claro),var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid var(--naranja)}
+.intro-box h2{color:var(--naranja);margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:var(--naranja)}
+.session-card .num{font-size:.8rem;color:var(--naranja);font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--naranja-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--naranja);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--naranja);text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--naranja-claro);transition:all .2s}
+.back-link:hover{transform:translateX(-4px)}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+</style>
 </head>
 <body>
-  <div class="hero">
-    <h1>🎯 6º Primaria</h1>
-    <p>Números negativos, potencias, ecuaciones y preparación para la ESO.</p>
-  </div>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
 
-  <div class="container">
-    <a href="INDEX.html" class="back-link">← Volver al índice</a>
+<div class="header">
+<h1>📐 6º Primaria</h1>
+<p>Números negativos, potencias, fracciones, proporcionalidad y álgebra introductoria</p>
+</div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="value">6</div>
-        <div class="label">Sesiones</div>
-      </div>
-      <div class="stat">
-        <div class="value">100%</div>
-        <div class="label">Completado</div>
-      </div>
-      <div class="stat">
-        <div class="value">📚</div>
-        <div class="label">Interactivo</div>
-      </div>
-    </div>
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en 6º Primaria?</h2>
+<p>6º Primaria es el último curso de primaria y el más importante para la transición a la ESO. Aquí introducimos los números negativos, las potencias y las raíces, y empezamos a trabajar con letras en matemáticas (álgebra básica).</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Operar con números negativos</li>
+<li>Entender potencias y raíces cuadradas</li>
+<li>Operar con fracciones (sumar, restar, multiplicar, dividir)</li>
+<li>Aplicar la proporcionalidad y la regla de tres</li>
+<li>Calcular áreas de figuras compuestas</li>
+<li>Introducción al álgebra: expresiones con letras</li>
+<li>Repaso general de toda la primaria</li>
+</ul>
+</div>
 
-    <ul class="sessions-list">
-      <li>
-        <a href="s06-1-operaciones-grandes.html">
-          <span class="num">01</span>
-          <span class="name">S06 1 Operaciones Grandes</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s06-10-repasos-primaria.html">
-          <span class="num">02</span>
-          <span class="name">S06 10 Repasos Primaria</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s06-3-fracciones-operar.html">
-          <span class="num">03</span>
-          <span class="name">S06 3 Fracciones Operar</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s06-5-proporcionalidad.html">
-          <span class="num">04</span>
-          <span class="name">S06 5 Proporcionalidad</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s06-7-areas-compuestas.html">
-          <span class="num">05</span>
-          <span class="name">S06 7 Areas Compuestas</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="s06-9-intro-algebra.html">
-          <span class="num">06</span>
-          <span class="name">S06 9 Intro Algebra</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<h2 style="margin:2rem 0 1rem;color:var(--naranja)">📚 Sesiones de 6º Primaria</h2>
 
-  <div class="footer">
-    Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a>
-  </div>
+<div class="sessions-grid">
+<a class="session-card" href="s06-1-operaciones-grandes.html">
+<div class="num">Sesión 1</div>
+<h3>🔢 Operaciones con Números Grandes</h3>
+<p>Multiplicar y dividir con números de hasta 6 cifras. ¡Ya somos unos crack!</p>
+</a>
+
+<a class="session-card" href="s06-3-fracciones-operar.html">
+<div class="num">Sesión 3</div>
+<h3>➗ Operar con Fracciones</h3>
+<p>Sumar, restar, multiplicar y dividir fracciones. ¡Todo en un solo sitio!</p>
+</a>
+
+<a class="session-card" href="s06-5-proporcionalidad.html">
+<div class="num">Sesión 5</div>
+<h3>⚖️ Proporcionalidad</h3>
+<p>Regla de tres directa e inversa. ¿Cuánto tardan 3 obreros en hacer lo que 6 hacen en 2 días?</p>
+</a>
+
+<a class="session-card" href="s06-7-areas-compuestas.html">
+<div class="num">Sesión 7</div>
+<h3>📐 Áreas Compuestas</h3>
+<p>Figuras complejas: descomponer, calcular y sumar. ¡Como un rompecabezas!</p>
+</a>
+
+<a class="session-card" href="s06-9-intro-algebra.html">
+<div class="num">Sesión 9</div>
+<h3>🔤 Introducción al Álgebra</h3>
+<p>¿Qué es una ecuación? x + 5 = 12. ¡Descubrir el valor de x es como ser un detective!</p>
+</a>
+
+<a class="session-card" href="s06-10-repasos-primaria.html">
+<div class="num">Sesión 10</div>
+<h3>🎓 Repaso de Primaria</h3>
+<p>Todo lo aprendido en primaria en un solo repaso. ¡Preparados para la ESO!</p>
+</a>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Los números negativos: por debajo de cero también hay números</li>
+<li>Potencias: multiplicar un número por sí mismo varias veces. Raíces: la operación inversa</li>
+<li>Fracciones: sumar y restar con distinto denominador (mínimo común múltiplo)</li>
+<li>Proporcionalidad: si algo se duplica, todo se duplica</li>
+<li>Áreas de figuras compuestas: descomponer en figuras simples</li>
+<li>Álgebra: las letras son números desconocidos que podemos descubrir</li>
+<li>¡Ya estás preparado para la ESO!</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s05-5primaria.html">← 5º Primaria</a>
+<a href="s07-1eso.html">1º ESO →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
 </body>
 </html>

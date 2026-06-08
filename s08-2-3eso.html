@@ -1,207 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2º-3º ESO — Curso de Matemáticas</title>
-  <style>
-    :root {
-      --primary: #06b6d4;
-      --secondary: #f97316;
-      --bg: #ffffff;
-      --text: #1e293b;
-      --glass: rgba(255,255,255,0.7);
-      --glass-border: rgba(255,255,255,0.3);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
-      min-height: 100vh;
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--text);
-    }
-    .hero {
-      text-align: center;
-      padding: 3rem 2rem 2rem;
-      position: relative;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #06b6d4, var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem 4rem;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #06b6d4;
-      text-decoration: none;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      transform: translateX(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .sessions-list {
-      list-style: none;
-    }
-    .sessions-list li {
-      margin-bottom: 0.75rem;
-    }
-    .sessions-list a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.3s ease;
-    }
-    .sessions-list a:hover {
-      transform: translateX(8px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      border-color: #06b6d4;
-    }
-    .sessions-list .num {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #06b6d4;
-      min-width: 40px;
-    }
-    .sessions-list .name {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-    .sessions-list .arrow {
-      margin-left: auto;
-      color: #94a3b8;
-      font-size: 1.2rem;
-    }
-    .stats {
-      display: flex;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    .stat {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      flex: 1;
-      min-width: 120px;
-    }
-    .stat .value {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #06b6d4;
-    }
-    .stat .label {
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-top: 0.25rem;
-    }
-    .footer {
-      text-align: center;
-      padding: 2rem;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-    .footer a { color: #06b6d4; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2º-3º ESO — Curso de Matemáticas</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,var(--azul-claro),#cffafe);border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #06b6d4}
+.intro-box h2{color:#06b6d4;margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#06b6d4}
+.session-card .num{font-size:.8rem;color:#06b6d4;font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#06b6d4;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#06b6d4;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--azul-claro);transition:all .2s}
+.back-link:hover{transform:translateX(-4px)}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+</style>
 </head>
 <body>
-  <div class="hero">
-    <h1>📈 2º-3º ESO</h1>
-    <p>Ecuaciones de segundo grado, funciones, trigonometría y sistemas.</p>
-  </div>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
 
-  <div class="container">
-    <a href="INDEX.html" class="back-link">← Volver al índice</a>
+<div class="header">
+<h1>📐 2º-3º ESO</h1>
+<p>Ecuaciones de segundo grado, funciones, trigonometría y sistemas de ecuaciones</p>
+</div>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="value">5</div>
-        <div class="label">Sesiones</div>
-      </div>
-      <div class="stat">
-        <div class="value">100%</div>
-        <div class="label">Completado</div>
-      </div>
-      <div class="stat">
-        <div class="value">📚</div>
-        <div class="label">Interactivo</div>
-      </div>
-    </div>
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en 2º-3º ESO?</h2>
+<p>En 2º y 3º de ESO las matemáticas se ponen serias: ecuaciones de segundo grado, funciones que puedes graficar, trigonometría con senos y cosenos, y sistemas de ecuaciones. Todo esto es la base para el bachillerato.</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Resolver ecuaciones de segundo grado con la fórmula general</li>
+<li>Entender qué es una función y sus tipos (lineal, cuadrática, etc.)</li>
+<li>Trigonometría: seno, coseno y tangente</li>
+<li>Sistemas de ecuaciones: resolver dos ecuaciones con dos incógnitas</li>
+<li>Estadística y probabilidad más avanzada</li>
+</ul>
+</div>
 
-    <ul class="sessions-list">
-      <li>
-        <a href="eso2-1-ecuaciones-1grado.html">
-          <span class="num">01</span>
-          <span class="name">Eso2 1 Ecuaciones 1Grado</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="eso2-3-teorema-tales.html">
-          <span class="num">02</span>
-          <span class="name">Eso2 3 Teorema Tales</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="eso2-5-funciones-intro.html">
-          <span class="num">03</span>
-          <span class="name">Eso2 5 Funciones Intro</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="eso2-7-circunferencia-circulo.html">
-          <span class="num">04</span>
-          <span class="name">Eso2 7 Circunferencia Circulo</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-      <li>
-        <a href="eso2-9-probabilidad.html">
-          <span class="num">05</span>
-          <span class="name">Eso2 9 Probabilidad</span>
-          <span class="arrow">→</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<h2 style="margin:2rem 0 1rem;color:#06b6d4">📚 Sesiones de 2º-3º ESO</h2>
 
-  <div class="footer">
-    Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a>
-  </div>
+<div class="sessions-grid">
+<a class="session-card" href="eso2-1-ecuaciones-1grado.html">
+<div class="num">Sesión 1</div>
+<h3>🔤 Ecuaciones de 1º Grado</h3>
+<p>Repaso avanzado: ecuaciones con paréntesis, fracciones y problemas.</p>
+</a>
+
+<a class="session-card" href="eso2-3-teorema-tales.html">
+<div class="num">Sesión 3</div>
+<h3>📏 Teorema de Tales</h3>
+<p>Proporcionalidad en geometría: segmentos proporcionales y semejanza.</p>
+</a>
+
+<a class="session-card" href="eso2-5-funciones-intro.html">
+<div class="num">Sesión 5</div>
+<h3>📈 Introducción a las Funciones</h3>
+<p>Qué es una función, dominio, rango, gráficos y tipos de funciones.</p>
+</a>
+
+<a class="session-card" href="eso2-7-circunferencia-circulo.html">
+<div class="num">Sesión 7</div>
+<h3>⭕ Circunferencia y Círculo</h3>
+<p>Perímetro y área del círculo, sectores circulares y arcos.</p>
+</a>
+
+<a class="session-card" href="eso2-9-probabilidad.html">
+<div class="num">Sesión 9</div>
+<h3>🎲 Probabilidad</h3>
+<p>Regla de Laplace, probabilidad condicionada y eventos independientes.</p>
+</a>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Ecuaciones de 1º grado: ax + b = 0 → x = -b/a</li>
+<li>Ecuaciones de 2º grado: ax² + bx + c = 0 → fórmula general</li>
+<li>Las funciones: una relación que asigna a cada x un único y</li>
+<li>Función lineal (y = mx+n), cuadrática (y = ax²+bx+c)</li>
+<li>Trigonometría: seno, coseno y tangente en triángulos rectángulos</li>
+<li>El teorema de Tales: proporcionalidad en figuras semejantes</li>
+<li>La circunferencia: C = 2πr, el círculo: A = πr²</li>
+<li>Probabilidad: P(A) = casos favorables / casos posibles</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s07-1eso.html">← 1º ESO</a>
+<a href="s09-bachiller.html">Bachiller →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
 </body>
 </html>
