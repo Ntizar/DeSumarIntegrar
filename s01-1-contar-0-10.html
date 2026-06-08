@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S01.1: Contar del 0 al 10 — 1º Primaria</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-problema{background:var(--verde-claro);border-color:var(--verde)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:var(--gris);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:var(--gris);border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid var(--gris);border-bottom:1px solid var(--gris)}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid var(--gris);margin-top:2rem}
+.numbers-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+.num-btn{width:52px;height:52px;border-radius:12px;border:2px solid var(--azul);background:#fff;font-size:1.4rem;font-weight:700;color:var(--azul);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.num-btn:hover{background:var(--azul);color:#fff;transform:scale(1.1)}
+.num-btn.active{background:var(--azul);color:#fff;transform:scale(1.15)}
+.num-display{text-align:center;margin:1.5rem 0}
+.num-big{font-size:5rem;font-weight:800;color:var(--azul);line-height:1}
+.num-word{font-size:1.5rem;color:var(--naranja);font-weight:600;margin-top:.3rem}
+.num-objects{font-size:2rem;margin:.8rem 0;min-height:3rem;text-align:center;letter-spacing:.2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.counting-game{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin:1rem 0;font-size:2.5rem}
+.counting-item{cursor:pointer;transition:all .2s;padding:.2rem}
+.counting-item:hover{transform:scale(1.2)}
+.counting-item.counted{opacity:.2;transform:scale(.8)}
+</style>
+</head>
+<body>
+
+<header class="header">
+<h1>🔢 S01.1: Contar del 0 al 10</h1>
+<p>1º Primaria — Matemáticas Divertidas</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+
+<main class="container">
+
+<!-- INTRO -->
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Los números nos dicen <b>cuántas cosas</b> hay. ¡Hoy vamos a aprender a contar del 0 al 10!
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Reconocer los números del 0 al 10</li>
+<li>Contar objetos</li>
+<li>Leer y escribir los números</li>
+<li>Jugar con los números</li>
+</ul>
+</section>
+
+<!-- TEMA 1: LOS NÚMEROS -->
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Conoce los números del 0 al 10</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Los números son como palabras especiales que nos dicen <b>cómo son las cosas</b>. ¡1, 2, 3... son mágicos!
+</div>
+
+<p>Haz clic en cada número para verlo en grande:</p>
+
+<div class="numbers-row" id="numbersRow"></div>
+
+<div class="num-display" id="numDisplay">
+<div class="num-big" id="numBig">0</div>
+<div class="num-word" id="numWord">cero</div>
+<div class="num-objects" id="numObjects"></div>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo</strong>
+El número <b>3</b> se escribe así: <b>3</b><br>
+Se lee: <b>tres</b><br>
+Y representa: 🍎🍎🍎 (¡tres manzanas!)
+</div>
+</section>
+
+<!-- TEMA 2: CONTAR OBJETOS -->
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Vamos a Contar!</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Contar es <b>señalar cada cosa una sola vez</b> y decir el número que le toca. ¡Empieza siempre por el 1!
+</div>
+
+<div class="interactive">
+<h3>🎮 Juego: ¡Cuenta las frutas!</h3>
+<p>Haz clic en cada fruta para contarlas. ¡Di el número en voz alta!</p>
+<div class="counting-game" id="countingGame"></div>
+<div class="num-display">
+<div class="num-big" id="countDisplay">0</div>
+<div class="num-word" id="countWord">frutas contadas</div>
+</div>
+<button onclick="resetCounting()">🔄 Empezar otra vez</button>
+</div>
+</section>
+
+<!-- TEMA 3: ORDENAR NÚMEROS -->
+<section class="chapter">
+<h2 class="chapter-title">3️⃣ ¿Qué número viene después?</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Los números están en <b>orden</b>: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.<br>
+Cada número es <b>uno más</b> que el anterior. ¡El 5 viene después del 4!
+</div>
+
+<div class="interactive">
+<h3>🧪 ¿Qué número sigue?</h3>
+<p>Mira la secuencia y elige el número que falta:</p>
+<div class="num-display">
+<div class="num-big" id="seqDisplay" style="font-size:2.5rem">1, 2, ?, 4</div>
+</div>
+<div class="quiz-options" id="seqOptions"></div>
+<div class="result" id="seqResult"></div>
+<button onclick="newSequence()" style="margin-top:1rem">➡️ Nueva secuencia</button>
+</div>
+</section>
+
+<!-- TEMA 4: EJERCICIOS -->
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. ¿Cuántos 🍎 hay? 🍎🍎🍎🍎</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, 1, false)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, 1, true)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, 1, false)">5</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>2. ¿Qué número viene después del 7?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, 2, false)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, 2, true)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, 2, false)">9</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>3. ¿Cuántos ⭐ hay? ⭐⭐⭐⭐⭐⭐⭐</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, 3, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, 3, false)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, 3, true)">7</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>4. ¿Qué número viene antes del 3?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, 4, true)">2</button>
+<button class="quiz-btn" onclick="checkExercise(this, 4, false)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, 4, false)">1</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>5. Escribe en orden: 0, 5, ___, 7</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, 5, false)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, 5, true)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, 5, false)">8</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- RESUMEN -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Los números del 0 al 10 son: <b>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</b></li>
+<li>Contar es señalar cada cosa una sola vez</li>
+<li>Cada número viene después del anterior</li>
+<li>El 0 significa "nada" o "ninguno"</li>
+<li>¡Ya sabes contar! 🎉</li>
+</ul>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="nav">
+<a href="#" class="disabled">← Anterior</a>
+<a href="s01-2-contar-10-100.html">Siguiente: Contar del 10 al 100 →</a>
+</div>
+
+</main>
+
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+
+<script>
+// === NÚMEROS ===
+const numWords = ['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];
+const numEmojis = ['','🍎','🍎🍎','🍎🍎🍎','🍎🍎🍎🍎','🍎🍎🍎🍎🍎','🍎🍎🍎🍎🍎🍎','🍎🍎🍎🍎🍎🍎🍎','🍎🍎🍎🍎🍎🍎🍎🍎','🍎🍎🍎🍎🍎🍎🍎🍎🍎','🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎'];
+
+const row = document.getElementById('numbersRow');
+for(let i=0;i<=10;i++){
+  const btn = document.createElement('button');
+  btn.className = 'num-btn';
+  btn.textContent = i;
+  btn.onclick = () => showNumber(i);
+  row.appendChild(btn);
+}
+showNumber(0);
+
+function showNumber(n){
+  document.getElementById('numBig').textContent = n;
+  document.getElementById('numWord').textContent = numWords[n];
+  document.getElementById('numObjects').textContent = numEmojis[n] || '';
+  document.querySelectorAll('.num-btn').forEach((b,i) => b.classList.toggle('active', i===n));
+}
+
+// === CONTAR FRUTAS ===
+const fruits = ['🍎','🍌','🍊','🍇','🍓','🍑','🫐','🍍'];
+const countGame = document.getElementById('countingGame');
+let countNum = 0;
+for(let i=0;i<10;i++){
+  const span = document.createElement('span');
+  span.className = 'counting-item';
+  span.textContent = fruits[i % fruits.length];
+  span.onclick = function(){
+    if(this.classList.contains('counted')) return;
+    this.classList.add('counted');
+    countNum++;
+    document.getElementById('countDisplay').textContent = countNum;
+    document.getElementById('countWord').textContent = numWords[countNum];
+    if(countNum===10){
+      document.getElementById('countWord').textContent = '🌟 ¡PERFECTO! ¡Contaste 10!';
+    }
+  };
+  countGame.appendChild(span);
+}
+
+function resetCounting(){
+  countNum = 0;
+  document.getElementById('countDisplay').textContent = '0';
+  document.getElementById('countWord').textContent = 'frutas contadas';
+  document.querySelectorAll('.counting-item').forEach(o => o.classList.remove('counted'));
+}
+
+// === SECUENCIAS ===
+const seqAnswers = [
+  {seq:'0, 1, ?, 3', answer:2, opts:[1,2,4]},
+  {seq:'3, 4, 5, ?', answer:6, opts:[5,6,7]},
+  {seq:'?, 8, 9, 10', answer:7, opts:[6,7,8]},
+  {seq:'1, 3, ?, 5', answer:4, opts:[2,4,6]},
+  {seq:'6, ?, 8, 9', answer:7, opts:[5,7,10]},
+  {seq:'?, 2, 3, 4', answer:1, opts:[0,1,5]},
+  {seq:'7, 8, ?, 10', answer:9, opts:[8,9,11]},
+  {seq:'0, 2, ?, 4', answer:3, opts:[1,3,5]},
+];
+let currentSeq = 0;
+
+function newSequence(){
+  currentSeq = Math.floor(Math.random()*seqAnswers.length);
+  const s = seqAnswers[currentSeq];
+  document.getElementById('seqDisplay').textContent = s.seq;
+  const optsDiv = document.getElementById('seqOptions');
+  optsDiv.innerHTML = '';
+  s.opts.forEach(o => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = o;
+    btn.onclick = function(){
+      if(o === s.answer){
+        this.classList.add('correct');
+        document.getElementById('seqResult').className = 'result ok';
+        document.getElementById('seqResult').textContent = '✅ ¡Correcto! El número que falta es '+s.answer;
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('seqResult').className = 'result fail';
+        document.getElementById('seqResult').textContent = '❌ ¡Casi! El número que falta es '+s.answer;
+      }
+    };
+    optsDiv.appendChild(btn);
+  });
+  document.getElementById('seqResult').textContent = '';
+}
+newSequence();
+
+// === EJERCICIOS ===
+function checkExercise(btn, ex, correct){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    parent.querySelectorAll('.quiz-btn').forEach(b => {
+      if(b !== btn) b.style.opacity = '0.5';
+    });
+  }
+}
+
+// === PROGRESO ===
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

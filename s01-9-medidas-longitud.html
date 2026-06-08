@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📏 S01.9: Medidas — Longitud — 1º Primaria — Midiendo el mundo</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+<header class="header">
+<h1>📏 S01.9: Medidas — Longitud</h1>
+<p>1º Primaria — Midiendo el mundo</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+La <b>longitud</b> es lo larga que es algo. Para medirla, usamos una regla o una cinta métrica.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender qué es la longitud</li><li>Medir objetos con una regla</li><li>Comparar longitudes</li><li>Usar centímetros (cm)</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es la longitud?</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+La longitud es lo <b>larga</b> o <b>corta</b> que es algo. Usamos una <b>regla</b> para medirla. La unidad más pequeña es el <b>centímetro (cm)</b>.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+📏 Un lápiz = ~18 cm<br>📱 Un móvil = ~15 cm<br>📖 Un libro = ~25 cm
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+👟 Un zapato = ~25 cm<br>🚪 Una puerta = ~200 cm (2 metros)<br>🛏️ Una cama = ~200 cm
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+🐜 Una hormiga = ~0.5 cm<br>🐱 Un gato = ~40 cm<br>🐘 Un elefante = ~300 cm
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Mide con la pantalla!</h2>
+<div class="interactive">
+<h3>Mueve el slider para ver cómo cambia la longitud. ¿Puedes medir objetos de tu alrededor?</h3>
+<div style="text-align:center;margin:1rem 0">
+<div class="slider-box" style="display:flex;align-items:center;gap:.8rem;justify-content:center">
+<label>Longitud:</label>
+<input type="range" id="lengthSlider" min="1" max="30" value="10" oninput="updateLength()" style="width:200px;accent-color:var(--azul)">
+<span class="val" id="lengthVal" style="font-size:1.4rem;font-weight:700;color:var(--azul)">10</span>
+<span style="font-size:1.2rem;font-weight:600">cm</span>
+</div>
+<div style="margin:1rem 0" id="lengthBar" style="height:40px;background:var(--azul-claro);border-radius:8px;overflow:hidden"></div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. ¿Qué unidad usamos para medir longitud?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Centímetros (cm)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Kilogramos (kg)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Litros (l)</button>
+</div>
+</div>
+<div class="exercise">
+<p>2. ¿Qué es más largo: un lápiz de 18cm o un bolígrafo de 15cm?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">El lápiz</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El bolígrafo</button>
+</div>
+</div>
+<div class="exercise">
+<p>3. ¿Cuántos cm tiene aproximadamente tu mano?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">50 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">15 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1 cm</button>
+</div>
+</div>
+<div class="exercise">
+<p>4. ¿Qué es más corto: una goma de 3cm o un rotulador de 15cm?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">La goma</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">El rotulador</button>
+</div>
+</div>
+<div class="exercise">
+<p>5. Si tienes dos palos: uno de 10cm y otro de 12cm... ¿cuánto mide el más largo?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">10 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">22 cm</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>La longitud es lo larga o corta que es algo</li></li><li><li>Medimos con centímetros (cm)</li></li><li><li>Una regla nos ayuda a medir</li></li><li><li>Podemos comparar longitudes sin regla</li></li><li><li>¡Ya sabes medir! 🎉</li></li>
+</ul>
+</div>
+<div class="nav">
+<a href="s01-8-medidas-tamano-peso.html">← Anterior: Tamaño y peso</a>
+<a href="s01-10-patrones.html">Siguiente: Patrones →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+
+function updateLength() {
+  const n = parseInt(document.getElementById('lengthSlider').value);
+  document.getElementById('lengthVal').textContent = n;
+  const bar = document.getElementById('lengthBar');
+  bar.innerHTML = '';
+  const colors = ['#2563eb','#f97316','#10b981','#8b5cf6','#ec4899'];
+  for(let i = 0; i < n; i++) {
+    const seg = document.createElement('div');
+    seg.style.cssText = 'display:inline-block;width:20px;height:40px;background:' + colors[i % colors.length] + ';margin:0 1px;border-radius:3px;vertical-align:middle';
+    bar.appendChild(seg);
+  }
+}
+updateLength();
+
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

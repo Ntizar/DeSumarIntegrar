@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 S03.6: Estadística Básica — 3º Primaria — ¡Recopilar y analizar datos!</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+<header class="header">
+<h1>📊 S03.6: Estadística Básica</h1>
+<p>3º Primaria — ¡Recopilar y analizar datos!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+La <b>estadística</b> nos ayuda a recopilar datos y sacar conclusiones. ¡Usamos gráficos para ver la información más fácil!
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender qué es una encuesta</li><li>Crear tablas de datos</li><li>Interpretar gráficos de barras</li><li>Calcular la media (promedio)</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es la estadística?</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+La estadística es <b>recopilar datos</b> y analizarlos. Por ejemplo: ¿cuántos hermanos tiene cada alumno de la clase? Hacemos una encuesta, contamos y creamos un gráfico.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+<b>Encuesta: ¿Qué fruta prefieres?</b><br>🍎 Manzana: 8 alumnos<br>🍌 Plátano: 5 alumnos<br>🍊 Naranja: 10 alumnos<br>🍇 Uva: 4 alumnos
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+<b>Gráfico de barras:</b><br>Se dibuja una barra por cada fruta, la altura = número de alumnos.<br>¡Así se ve qué fruta es la más popular!
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+<b>Media (promedio):</b><br>Notas: 7, 8, 6, 9, 5<br>Media = (7+8+6+9+5) ÷ 5 = 35 ÷ 5 = <b>7</b>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Haz tu encuesta!</h2>
+<div class="interactive">
+<h3>Registra tus colores favoritos y mira el gráfico:</h3>
+<div style="text-align:center;margin:1rem 0">
+<div style="display:flex;gap:.5rem;justify-content:center;margin:1rem 0">
+<button onclick="addVote('rojo')" style="padding:.5rem 1rem;border-radius:6px;border:2px solid #ef4444;background:#fff;cursor:pointer;font-weight:600">🔴 Rojo</button>
+<button onclick="addVote('azul')" style="padding:.5rem 1rem;border-radius:6px;border:2px solid #2563eb;background:#fff;cursor:pointer;font-weight:600">🔵 Azul</button>
+<button onclick="addVote('verde')" style="padding:.5rem 1rem;border-radius:6px;border:2px solid #10b981;background:#fff;cursor:pointer;font-weight:600">🟢 Verde</button>
+<button onclick="addVote('amarillo')" style="padding:.5rem 1rem;border-radius:6px;border:2px solid #eab308;background:#fff;cursor:pointer;font-weight:600">🟡 Amarillo</button>
+</div>
+<canvas id="barChart" width="300" height="200" style="margin:1rem auto;display:block"></canvas>
+<div id="statsDisplay" style="font-size:1rem;color:var(--gris);margin:1rem 0"></div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. Si 8 alumnos prefieren manzana, 5 plátano y 7 naranja... ¿cuántos alumnos hay en total?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">20</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25</button>
+</div>
+</div>
+<div class="exercise">
+<p>2. ¿Qué es la media de 4, 6, 8, 10?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+<div class="exercise">
+<p>3. ¿Qué gráfico usamos para mostrar datos?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Gráfico de barras</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Gráfico circular</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Gráfico de líneas</button>
+</div>
+</div>
+<div class="exercise">
+<p>4. Si en una encuesta 12 personas prefieren verano y 3 prefieren invierno... ¿cuál es la más popular?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Verano</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Invierno</button>
+</div>
+</div>
+<div class="exercise">
+<p>5. La media de 3, 3, 3, 3 es...</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>La estadística recopila y analiza datos</li></li><li><li>Las encuestas nos dan información</li></li><li><li>Los gráficos de barras muestran los datos visualmente</li></li><li><li>La media = suma ÷ cantidad</li></li><li><li>¡Ya sabes estadística básica! 🎉</li></li>
+</ul>
+</div>
+<div class="nav">
+<a href="s03-5-perimetro.html">← Anterior: Perímetro</a>
+<a href="#">🎉 ¡Has terminado S03!</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+
+const votes = {rojo:0,azul:0,verde:0,amarillo:0};
+const colors = {rojo:'#ef4444',azul:'#2563eb',verde:'#10b981',amarillo:'#eab308'};
+const labels = {rojo:'🔴 Rojo',azul:'🔵 Azul',verde:'🟢 Verde',amarillo:'🟡 Amarillo'};
+const canvas = document.getElementById('barChart');
+const ctx = canvas.getContext('2d');
+
+function addVote(color) {
+  votes[color]++;
+  drawChart();
+}
+
+function drawChart() {
+  ctx.clearRect(0, 0, 300, 200);
+  const maxVote = Math.max(...Object.values(votes), 1);
+  const barWidth = 50;
+  const gap = 20;
+  const startX = 30;
+  const chartHeight = 150;
+  const labels = Object.keys(votes);
+  labels.forEach((color, i) => {
+    const x = startX + i * (barWidth + gap);
+    const barHeight = (votes[color] / maxVote) * chartHeight;
+    const y = chartHeight + 20 - barHeight;
+    ctx.fillStyle = colors[color];
+    ctx.fillRect(x, y, barWidth, barHeight);
+    ctx.fillStyle = '#1e293b';
+    ctx.font = '12px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText(labels[color], x + barWidth/2, chartHeight + 35);
+    ctx.fillText(votes[color], x + barWidth/2, y - 5);
+  });
+  const total = Object.values(votes).reduce((a,b) => a+b, 0);
+  document.getElementById('statsDisplay').textContent =
+    'Total votos: ' + total + ' | ' +
+    (total > 0 ? 'Más popular: ' + labels[Object.keys(votes).reduce((a,b) => votes[a] > votes[b] ? a : b)] : 'Haz clic en un color');
+}
+drawChart();
+
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

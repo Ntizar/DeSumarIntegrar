@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Matemáticas — De Primaria a 1º de Carrera</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #f97316;
+      --success: #10b981;
+      --error: #ef4444;
+      --bg: #ffffff;
+      --text: #1e293b;
+      --glass: rgba(255,255,255,0.7);
+      --glass-border: rgba(255,255,255,0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #f0f9ff 0%, #fff7ed 100%);
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(37,99,235,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(249,115,22,0.08) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -20px) rotate(1deg); }
+      66% { transform: translate(-20px, 10px) rotate(-1deg); }
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      position: relative;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(37,99,235,0.12);
+    }
+    .card .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .card .level {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .level-primary { background: #dbeafe; color: #1d4ed8; }
+    .level-eso { background: #fed7aa; color: #c2410c; }
+    .level-bach { background: #d1fae5; color: #059669; }
+    .level-uni { background: #e0e7ff; color: #4338ca; }
+    .card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+    .card .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .card .topic-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.08);
+      color: var(--primary);
+    }
+    .card .status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+    }
+    .status-pending { background: #fef3c7; color: #d97706; }
+    .status-ready { background: #d1fae5; color: #059669; }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    .footer a { color: var(--primary); text-decoration: none; }
+    .progress-section {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .progress-bar {
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 999px;
+      transition: width 1s ease;
+      width: 0%;
+    }
+    .progress-stats {
+      display: flex;
+      justify-content: space-between;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge">🎓 10 volúmenes · 11 cursos · 100% interactivo</div>
+    <h1>📐 Curso de Matemáticas</h1>
+    <p>De 1º de Primaria a 1º de Carrera. Teoría, ejemplos, problemas resueltos paso a paso y gráficos interactivos. Todo en castellano.</p>
+  </div>
+
+  <div class="container">
+    <div class="progress-section">
+      <h3 style="margin:0 0 0.5rem; color:var(--text);">📊 Progreso del curso</h3>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-stats">
+        <span id="completedCount">0</span>
+        <span>de 10 volúmenes completados</span>
+      </div>
+    </div>
+
+    <div class="grid" id="courseGrid">
+      <!-- Las tarjetas se generan con JS -->
+    </div>
+  </div>
+
+  <div class="footer">
+    Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a>
+  </div>
+
+  <script>
+    const sessions = [
+      { id: 1, title: '1º Primaria', file: 's01-1primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Contar', 'Sumar', 'Restar', 'Figuras', 'Medidas'], desc: 'Los números son divertidos. Aprende a contar, sumar y restar con juegos y animales.', status: 'ready' },
+      { id: 2, title: '2º Primaria', file: 's02-2primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Llevadas', 'Multiplicar', 'Tablas', 'Dinero'], desc: 'Sumas con llevadas, multiplicación y las primeras tablas. ¡A jugar con los números!', status: 'ready' },
+      { id: 3, title: '3º Primaria', file: 's03-3primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Dividir', 'Fracciones', 'Perímetro', 'Estadística'], desc: 'Multiplicación a dos cifras, división, fracciones con pizza y mucho más.', status: 'pending' },
+      { id: 4, title: '4º Primaria', file: 's04-4primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Fracciones', 'Decimales', 'Porcentajes', 'Áreas'], desc: 'Fracciones equivalentes, decimales, porcentajes y áreas de figuras.', status: 'pending' },
+      { id: 5, title: '5º Primaria', file: 's05-5primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Proporcionalidad', 'Regla de 3', 'Estadística', 'Probabilidad'], desc: 'Proporciones, regla de tres, estadística básica y probabilidad con dados.', status: 'pending' },
+      { id: 6, title: '6º Primaria', file: 's06-6primaria.html', level: 'primary', levelLabel: 'Primaria', topics: ['Negativos', 'Potencias', 'Ecuaciones', 'Ángulos'], desc: 'Números negativos, potencias, ecuaciones y preparación para la ESO.', status: 'pending' },
+      { id: 7, title: '1º ESO', file: 's07-1eso.html', level: 'eso', levelLabel: 'ESO', topics: ['Enteros', 'Álgebra', 'Ecuaciones', 'Porcentajes'], desc: 'Números enteros, álgebra formal, ecuaciones de primer grado y potencias.', status: 'pending' },
+      { id: 8, title: '2º-3º ESO', file: 's08-2-3eso.html', level: 'eso', levelLabel: 'ESO', topics: ['Ecuaciones 2º', 'Funciones', 'Trigonometría', 'Sistemas'], desc: 'Ecuaciones de segundo grado, funciones, trigonometría y sistemas.', status: 'pending' },
+      { id: 9, title: 'Bachiller', file: 's09-bachiller.html', level: 'bach', levelLabel: 'Bachiller', topics: ['Límites', 'Derivadas', 'Integrales', 'Probabilidad'], desc: 'Límites, derivadas, integrales, probabilidad avanzada y distribución normal.', status: 'pending' },
+      { id: 10, title: '1º Carrera', file: 's10-1carrera.html', level: 'uni', levelLabel: 'Universidad', topics: ['Multivariable', 'Álgebra Lineal', 'EDOs', 'Gradiente'], desc: 'Cálculo multivariable, álgebra lineal, EDOs y transformaciones lineales.', status: 'pending' }
+    ];
+
+    function renderGrid() {
+      const grid = document.getElementById('courseGrid');
+      let completed = 0;
+      grid.innerHTML = sessions.map(s => {
+        const isReady = s.status === 'ready';
+        if (isReady) completed++;
+        const statusClass = isReady ? 'status-ready' : 'status-pending';
+        const statusText = isReady ? '✅ Listo' : '⏳ Pendiente';
+        const levelClass = 'level-' + s.level;
+        const linkContent = isReady ? `<a href="${s.file}">` : '';
+        const linkClose = isReady ? '</a>' : '';
+        return `
+          <div class="card">
+            ${linkContent}
+            <div class="number">${String(s.id).padStart(2, '0')}</div>
+            <h3>${s.title}</h3>
+            <span class="level ${levelClass}">${s.levelLabel}</span>
+            <span class="status ${statusClass}">${statusText}</span>
+            <p>${s.desc}</p>
+            <div class="topics">
+              ${s.topics.map(t => `<span class="topic-tag">${t}</span>`).join('')}
+            </div>
+            ${linkClose}
+          </div>
+        `;
+      }).join('');
+      document.getElementById('completedCount').textContent = completed;
+      document.getElementById('progressFill').style.width = (completed / 10 * 100) + '%';
+    }
+
+    renderGrid();
+  </script>
+</body>
+</html>

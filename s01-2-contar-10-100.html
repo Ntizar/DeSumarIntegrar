@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S01.2: Contar del 10 al 100 — 1º Primaria</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.count-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin:1.5rem 0}
+.count-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;border:2px solid #e2e8f0;background:#fff}
+.count-cell:hover{background:var(--azul-claro);border-color:var(--azul);transform:scale(1.1)}
+.count-cell.highlight-ten{background:#dbeafe;border-color:var(--azul)}
+.count-cell.highlight-twenty{background:#fef3c7;border-color:var(--naranja)}
+.count-display{text-align:center;margin:1.5rem 0}
+.count-big{font-size:4rem;font-weight:800;color:var(--azul);line-height:1}
+.count-word{font-size:1.3rem;color:var(--naranja);font-weight:600;margin-top:.3rem}
+.count-objects{font-size:1.8rem;margin:.8rem 0;min-height:3rem;text-align:center;letter-spacing:.15rem}
+.slider-box{display:flex;align-items:center;gap:.8rem;margin:1rem 0;flex-wrap:wrap;justify-content:center}
+.slider-box input[type=range]{width:200px;accent-color:var(--azul)}
+.slider-box .val{font-size:1.4rem;font-weight:700;color:var(--azul);min-width:3ch;text-align:center}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+
+<header class="header">
+<h1>🔢 S01.2: Contar del 10 al 100</h1>
+<p>1º Primaria — ¡Los números se hacen grandes!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+
+<main class="container">
+
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Los números no se paran en el 10. ¡Hay muchos más! Hoy vamos a contar de 10 en 10 y de 1 en 1 hasta el 100.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Contar de 10 en 10: 10, 20, 30... hasta 100</li>
+<li>Contar de 1 en 1 entre decenas</li>
+<li>Leer números de dos cifras</li>
+<li>Entender las decenas y las unidades</li>
+</ul>
+</section>
+
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ ¡Contar de 10 en 10!</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Contar de <b>10 en 10</b> es como dar saltos grandes: 10, 20, 30, 40... ¡cada vez sumamos 10!
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo</strong>
+Si tienes 10 caramelos y te dan 10 más... ¡tienes 20! 🍬🍬<br>
+10 + 10 = 20<br>
+20 + 10 = 30<br>
+30 + 10 = 40<br>
+¡Y así hasta 100!
+</div>
+
+<div class="interactive">
+<h3>🎮 ¡Salta de 10 en 10!</h3>
+<div class="slider-box">
+<label>Número actual:</label>
+<input type="range" id="countSlider" min="0" max="100" step="10" value="0" oninput="updateCount()">
+<span class="val" id="countVal">0</span>
+</div>
+<div class="count-display">
+<div class="count-big" id="countBig">0</div>
+<div class="count-word" id="countWord">cero</div>
+<div class="count-objects" id="countObjects"></div>
+</div>
+</div>
+</section>
+
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ La tabla del 1 al 100</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Mira todos los números juntos. Fíjate que:
+<ul style="margin:.5rem 0 0 1.5rem">
+<li>Los números que terminan en <b>0</b> son las <b>decenas</b> (10, 20, 30...)</li>
+<li>Cada fila tiene <b>10 números</b></li>
+<li>Los números van <b>de izquierda a derecha</b></li>
+</ul>
+</div>
+
+<p>Haz clic en cualquier número para verlo en grande 👇</p>
+
+<div class="count-grid" id="countGrid"></div>
+
+<div class="count-display" id="selectedDisplay">
+<div class="count-big" id="selectedBig">—</div>
+<div class="count-word" id="selectedWord">Haz clic en un número</div>
+<div class="count-objects" id="selectedObjects"></div>
+</div>
+
+<div class="box box-idea">
+<strong>💡 Truco</strong>
+Para leer un número como <b>37</b>: piensa en las decenas primero → <b>3 decenas</b> (30) + <b>7 unidades</b> = treinta y siete.
+</div>
+</section>
+
+<section class="chapter">
+<h2 class="chapter-title">3️⃣ Decenas y unidades</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Cada número de dos cifras tiene:
+<ul style="margin:.5rem 0 0 1.5rem">
+<li><b>La decena</b> (el primer número): cuántos grupos de 10 hay</li>
+<li><b>La unidad</b> (el segundo número): cuántos sobran</li>
+</ul>
+Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
+</div>
+
+<div class="interactive">
+<h3>🧪 Descompón el número</h3>
+<p>¿Cuántas decenas y unidades tiene este número?</p>
+<div class="count-display">
+<div class="count-big" id="decompNumber">36</div>
+</div>
+<div style="text-align:center;margin:1rem 0">
+<label style="font-weight:600">Decenas: </label>
+<input type="number" id="decompDec" min="0" max="9" style="width:60px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1.1rem">
+<label style="font-weight:600;margin-left:1rem">Unidades: </label>
+<input type="number" id="decompUni" min="0" max="9" style="width:60px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1.1rem">
+</div>
+<button onclick="checkDecomposition()">Comprobar</button>
+<div class="result" id="decompResult"></div>
+<button onclick="newDecomposition()" style="margin-top:.5rem">➡️ Otro número</button>
+</div>
+</section>
+
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. ¿Qué número viene después del 50? (de 10 en 10)</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">40</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">60</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">70</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>2. ¿Cuántas decenas tiene el 73?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">73</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>3. ¿Cuántas unidades tiene el 85?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">85</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>4. Completa: 20, 30, 40, ___, 60</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">50</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">45</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">70</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>5. ¿Qué número es 6 decenas + 2 unidades?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">26</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">62</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">602</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Contar de 10 en 10: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100</li>
+<li>Contar de 1 en 1: cada número es uno más que el anterior</li>
+<li>Los números de dos cifras tienen decenas y unidades</li>
+<li>El primer dígito son las decenas, el segundo las unidades</li>
+<li>¡Ya sabes contar hasta 100! 🎉</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s01-1-contar-0-10.html">← Anterior: Contar 0-10</a>
+<a href="s01-3-sumar-hasta-10.html">Siguiente: Sumar hasta 10 →</a>
+</div>
+
+</main>
+
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+
+<script>
+const numWords = ['cero','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez',
+'once','doce','trece','catorce','quince','dieciséis','diecisiete','dieciocho','diecinueve','veinte',
+'veintiuno','veintidós','veintitrés','veinticuatro','veinticinco','veintiséis','veintisiete','veintiocho','veintinueve','treinta',
+'treinta y uno','treinta y dos','treinta y tres','treinta y cuatro','treinta y cinco','treinta y seis','treinta y siete','treinta y ocho','treinta y nueve','cuarenta',
+'cuarenta y uno','cuarenta y dos','cuarenta y tres','cuarenta y cuatro','cuarenta y cinco','cuarenta y seis','cuarenta y siete','cuarenta y ocho','cuarenta y nueve','cincuenta',
+'cincuenta y uno','cincuenta y dos','cincuenta y tres','cincuenta y cuatro','cincuenta y cinco','cincuenta y seis','cincuenta y siete','cincuenta y ocho','cincuenta y nueve','sesenta',
+'sesenta y uno','sesenta y dos','sesenta y tres','sesenta y cuatro','sesenta y cinco','sesenta y seis','sesenta y siete','sesenta y ocho','sesenta y nueve','setenta',
+'setenta y uno','setenta y dos','setenta y tres','setenta y cuatro','setenta y cinco','setenta y seis','setenta y siete','setenta y ocho','setenta y nueve','ochenta',
+'ochenta y uno','ochenta y dos','ochenta y tres','ochenta y cuatro','ochenta y cinco','ochenta y seis','ochenta y siete','ochenta y ocho','ochenta y nueve','noventa',
+'noventa y uno','noventa y dos','noventa y tres','noventa y cuatro','noventa y cinco','noventa y seis','noventa y siete','noventa y ocho','noventa y nueve','cien'];
+
+// === CONTAR DE 10 EN 10 ===
+function updateCount(){
+  const v = parseInt(document.getElementById('countSlider').value);
+  document.getElementById('countVal').textContent = v;
+  document.getElementById('countBig').textContent = v;
+  document.getElementById('countWord').textContent = numWords[v];
+  const bundles = Math.floor(v/10);
+  document.getElementById('countObjects').textContent = '📦'.repeat(bundles);
+}
+updateCount();
+
+// === TABLA 1-100 ===
+const grid = document.getElementById('countGrid');
+for(let i=1;i<=100;i++){
+  const cell = document.createElement('div');
+  cell.className = 'count-cell';
+  cell.textContent = i;
+  if(i%10===0) cell.classList.add('highlight-ten');
+  if(i===20) cell.classList.add('highlight-twenty');
+  cell.onclick = () => selectNumber(i);
+  grid.appendChild(cell);
+}
+
+function selectNumber(n){
+  document.getElementById('selectedBig').textContent = n;
+  document.getElementById('selectedWord').textContent = numWords[n];
+  const decenas = Math.floor(n/10);
+  const unidades = n%10;
+  document.getElementById('selectedObjects').textContent = '📦'.repeat(decenas) + '•'.repeat(unidades);
+}
+
+// === DESCOMPOSICIÓN ===
+let currentDecomp = {};
+function newDecomposition(){
+  const d = Math.floor(Math.random()*9)+1;
+  const u = Math.floor(Math.random()*10);
+  currentDecomp = {num: d*10+u, decenas: d, unidades: u};
+  document.getElementById('decompNumber').textContent = currentDecomp.num;
+  document.getElementById('decompDec').value = '';
+  document.getElementById('decompUni').value = '';
+  document.getElementById('decompResult').textContent = '';
+}
+newDecomposition();
+
+function checkDecomposition(){
+  const d = parseInt(document.getElementById('decompDec').value);
+  const u = parseInt(document.getElementById('decompUni').value);
+  const r = document.getElementById('decompResult');
+  if(d===currentDecomp.decenas && u===currentDecomp.unidades){
+    r.className='result ok';
+    r.textContent='✅ ¡Correcto! '+currentDecomp.num+' = '+d+' decenas + '+u+' unidades';
+  } else {
+    r.className='result fail';
+    r.textContent='❌ '+currentDecomp.num+' tiene '+currentDecomp.decenas+' decenas y '+currentDecomp.unidades+' unidades';
+  }
+}
+
+// === EJERCICIOS ===
+function checkExercise(btn, correct){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
+// === PROGRESO ===
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

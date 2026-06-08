@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✖️ S02.4: Tablas del 1 al 5 — 2º Primaria — ¡Memoriza las tablas!</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+<header class="header">
+<h1>✖️ S02.4: Tablas del 1 al 5</h1>
+<p>2º Primaria — ¡Memoriza las tablas!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Las <b>tablas de multiplicar</b> son como canciones: cuanto más las repitas, mejor las recuerdas. ¡Vamos a aprender las del 1 al 5!
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Memorizar la tabla del 1</li><li>Memorizar la tabla del 2</li><li>Memorizar la tabla del 3</li><li>Memorizar la tabla del 4</li><li>Memorizar la tabla del 5</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Las tablas del 1 al 5</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Cada tabla es una <b>secuencia</b>. La tabla del 2: 2, 4, 6, 8, 10... ¡cada vez sumamos 2! Fíjate en los patrones.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+<b>Tabla del 1:</b> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10<br>¡El 1 por cualquier número es el mismo número!
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+<b>Tabla del 2:</b> 2, 4, 6, 8, 10, 12, 14, 16, 18, 20<br>¡Es como contar de 2 en 2! Son todos los pares.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+<b>Tabla del 5:</b> 5, 10, 15, 20, 25, 30, 35, 40, 45, 50<br>¡Siempre termina en 0 o 5! ¡Fácil de recordar!
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Practica las tablas!</h2>
+<div class="interactive">
+<h3>Elige una tabla y practica:</h3>
+<div style="text-align:center;margin:1rem 0">
+<div style="display:flex;gap:.5rem;justify-content:center;margin:1rem 0">
+<button onclick="selectTable(1)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">Tabla 1</button>
+<button onclick="selectTable(2)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">Tabla 2</button>
+<button onclick="selectTable(3)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">Tabla 3</button>
+<button onclick="selectTable(4)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">Tabla 4</button>
+<button onclick="selectTable(5)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">Tabla 5</button>
+</div>
+<div id="tableDisplay" style="font-size:1.2rem;font-weight:600;margin:1rem 0"></div>
+<div id="tableQuiz" style="margin:1rem 0"></div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. ¿Cuánto es 3 × 4?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+</div>
+</div>
+<div class="exercise">
+<p>2. ¿Cuánto es 5 × 6?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">30</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">35</button>
+</div>
+</div>
+<div class="exercise">
+<p>3. ¿Cuánto es 2 × 8?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">16</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18</button>
+</div>
+</div>
+<div class="exercise">
+<p>4. ¿Cuánto es 4 × 5?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">20</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25</button>
+</div>
+</div>
+<div class="exercise">
+<p>5. ¿Cuánto es 1 × 9?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>La tabla del 1: el número es el mismo</li></li><li><li>La tabla del 2: contar de 2 en 2</li></li><li><li>La tabla del 5: siempre termina en 0 o 5</li></li><li><li>La tabla del 3 y 4: ¡practica hasta memorizarlas!</li></li><li><li>¡Ya sabes las tablas del 1 al 5! 🎉</li></li>
+</ul>
+</div>
+<div class="nav">
+<a href="s02-3-intro-multiplicacion.html">← Anterior: Intro multiplicación</a>
+<a href="s02-5-tablas-6-9.html">Siguiente: Tablas 6-9 →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+
+let currentTable = 0;
+
+function selectTable(n) {
+  currentTable = n;
+  const display = document.getElementById('tableDisplay');
+  let seq = '';
+  for(let i = 1; i <= 10; i++) {
+    seq += n + ' × ' + i + ' = ' + (n*i);
+    if(i < 10) seq += ' | ';
+  }
+  display.innerHTML = seq;
+  newQuiz();
+}
+
+function newQuiz() {
+  const n = currentTable || Math.floor(Math.random()*5)+1;
+  const m = Math.floor(Math.random()*10)+1;
+  const quizAnswer = n * m;
+  const quiz = document.getElementById('tableQuiz');
+  quiz.innerHTML = '<p style="font-size:1.3rem;font-weight:700;margin-bottom:1rem">' + n + ' × ' + m + ' = ?</p>';
+  const opts = [quizAnswer, quizAnswer + n, quizAnswer - n, quizAnswer + 1].filter((v,i,a) => a.indexOf(v) === i && v > 0);
+  opts.sort(() => Math.random() - 0.5);
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(opt === quizAnswer) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + n + ' × ' + m + ' = ' + quizAnswer;
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + quizAnswer;
+      }
+    };
+    quiz.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+
+selectTable(2);
+
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

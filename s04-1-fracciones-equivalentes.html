@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matemáticas — S04.1: Fracciones Equivalentes | 4º Primaria</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--fondo:#ffffff;--texto:#1e293b;--verde:#10b981;--rojo:#ef4444;--gris:#94a3b8;--gris-claro:#f1f5f9;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-problema{background:var(--verde-claro);border-color:var(--verde)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.fraction{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .3rem;font-weight:600}
+.fraction .num{border-bottom:2px solid var(--texto);padding:0 .4rem .1rem}
+.fraction .den{padding:.1rem .4rem 0}
+.visual{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1.5rem 0}
+.visual-piece{width:120px;height:120px;border:2px solid var(--azul);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;text-align:center;background:var(--azul-claro);position:relative;overflow:hidden}
+.visual-piece canvas{width:100%;height:100%}
+.interactive{background:var(--gris-claro);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive input{width:60px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem;font-weight:600}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-top:.8rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:var(--gris-claro);border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid var(--gris-claro);border-bottom:1px solid var(--gris-claro)}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid var(--gris-claro);margin-top:2rem}
+.equation{font-size:1.3rem;text-align:center;margin:1rem 0;font-weight:600;color:var(--azul)}
+.step{padding:.5rem 0;padding-left:1.5rem;position:relative}
+.step::before{content:attr(data-step);position:absolute;left:0;font-weight:bold;color:var(--naranja)}
+@media(max-width:600px){.header h1{font-size:1.4rem}.container{padding:1rem}.visual-piece{width:90px;height:90px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<h1>📐 S04.1: Fracciones Equivalentes</h1>
+<p>4º Primaria — Matemáticas</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+
+<main class="container">
+
+<!-- INTRO -->
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Dos fracciones son <b>equivalentes</b> cuando representan la misma cantidad, aunque se escriban diferente. ¡Como dos personas diferentes con el mismo nombre!
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Reconocer fracciones equivalentes</li>
+<li>Crear fracciones equivalentes</li>
+<li>Simplificar fracciones</li>
+<li>Usar fracciones equivalentes en problemas reales</li>
+</ul>
+</section>
+
+<!-- TEMA 1: QUÉ SON -->
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué son las fracciones equivalentes?</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Dos fracciones son equivalentes si representan la misma parte del todo. Para comprobarlo, multiplicamos en cruz: si el resultado es el mismo, ¡son equivalentes!
+</div>
+
+<p>Mira estos ejemplos:</p>
+
+<div class="equation">
+<span class="fraction"><span class="num">1</span><span class="den">2</span></span> =
+<span class="fraction"><span class="num">2</span><span class="den">4</span></span> =
+<span class="fraction"><span class="num">4</span><span class="den">8</span></span>
+</div>
+
+<p>¿Cómo comprobamos que son equivalentes? <b>Multiplicamos en cruz:</b></p>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+¿Son <span class="fraction"><span class="num">1</span><span class="den">2</span></span> y <span class="fraction"><span class="num">2</span><span class="den">4</span></span> equivalentes?<br><br>
+Multiplicamos en cruz:<br>
+1 × 4 = <b>4</b><br>
+2 × 2 = <b>4</b><br>
+¡4 = 4! Son equivalentes ✅
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+¿Son <span class="fraction"><span class="num">3</span><span class="den">4</span></span> y <span class="fraction"><span class="num">6</span><span class="den">8</span></span> equivalentes?<br><br>
+Multiplicamos en cruz:<br>
+3 × 8 = <b>24</b><br>
+4 × 6 = <b>24</b><br>
+¡24 = 24! Son equivalentes ✅
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+¿Son <span class="fraction"><span class="num">2</span><span class="den">3</span></span> y <span class="fraction"><span class="num">3</span><span class="den">5</span></span> equivalentes?<br><br>
+Multiplicamos en cruz:<br>
+2 × 5 = <b>10</b><br>
+3 × 3 = <b>9</b><br>
+10 ≠ 9. <b>No</b> son equivalentes ❌
+</div>
+
+<div class="box box-idea">
+<strong>💡 Truco</strong>
+Multiplicar en cruz es como un "apretón de manos": si los dos productos son iguales, las fracciones se llevan bien → son equivalentes.
+</div>
+</section>
+
+<!-- TEMA 2: CREAR EQUIVALENTES -->
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¿Cómo crear fracciones equivalentes?</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Para crear una fracción equivalente, <b>multiplicamos o dividimos</b> el numerador y el denominador por el <b>mismo número</b>. ¡El resultado es la misma cantidad!
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 4</strong>
+Crea una fracción equivalente a <span class="fraction"><span class="num">2</span><span class="den">3</span></span> multiplicando por 4:<br><br>
+2 × 4 = <b>8</b> (numerador)<br>
+3 × 4 = <b>12</b> (denominador)<br><br>
+<span class="fraction"><span class="num">2</span><span class="den">3</span></span> = <span class="fraction"><span class="num">8</span><span class="den">12</span></span> ✅
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 5</strong>
+Crea una fracción equivalente a <span class="fraction"><span class="num">5</span><span class="den">6</span></span> multiplicando por 3:<br><br>
+5 × 3 = <b>15</b><br>
+6 × 3 = <b>18</b><br><br>
+<span class="fraction"><span class="num">5</span><span class="den">6</span></span> = <span class="fraction"><span class="num">15</span><span class="den">18</span></span> ✅
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 6 — Dividir</strong>
+Simplifica <span class="fraction"><span class="num">6</span><span class="den">8</span></span> dividiendo por 2:<br><br>
+6 ÷ 2 = <b>3</b><br>
+8 ÷ 2 = <b>4</b><br><br>
+<span class="fraction"><span class="num">6</span><span class="den">8</span></span> = <span class="fraction"><span class="num">3</span><span class="den">4</span></span> ✅
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error frecuente</strong>
+No puedes sumar o restar al numerador y denominador. Solo puedes <b>multiplicar o dividir</b> ambos por el mismo número.<br><br>
+❌ <span class="fraction"><span class="num">1</span><span class="den">2</span></span> ≠ <span class="fraction"><span class="num">1+1</span><span class="den">2+1</span></span> (eso sería <span class="fraction"><span class="num">2</span><span class="den">3</span></span>, ¡que NO es lo mismo!)
+</div>
+</section>
+
+<!-- TEMA 3: SIMPLIFICAR -->
+<section class="chapter">
+<h2 class="chapter-title">3️⃣ Simplificar fracciones</h2>
+
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+Simplificar una fracción es encontrar su forma más sencilla: divides numerador y denominador por el <b>mismo número</b> hasta que no puedas más. La fracción resultante es equivalente pero más fácil de leer.
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 7</strong>
+Simplifica <span class="fraction"><span class="num">8</span><span class="den">12</span></span>:<br><br>
+Paso 1: Dividimos por 2 → <span class="fraction"><span class="num">4</span><span class="den">6</span></span><br>
+Paso 2: Dividimos por 2 otra vez → <span class="fraction"><span class="num">2</span><span class="den">3</span></span><br><br>
+No podemos dividir más (2 y 3 no tienen divisor común).<br>
+<span class="fraction"><span class="num">8</span><span class="den">12</span></span> simplificada es <span class="fraction"><span class="num">2</span><span class="den">3</span></span> ✅
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 8</strong>
+Simplifica <span class="fraction"><span class="num">15</span><span class="den">25</span></span>:<br><br>
+Paso 1: Dividimos por 5 → <span class="fraction"><span class="num">3</span><span class="den">5</span></span><br><br>
+3 y 5 no tienen divisor común (salvo el 1).<br>
+<span class="fraction"><span class="num">15</span><span class="den">25</span></span> simplificada es <span class="fraction"><span class="num">3</span><span class="den">5</span></span> ✅
+</div>
+
+<div class="box box-idea">
+<strong>💡 Consejo</strong>
+Si el numerador y el denominador terminan en 0, 2, 4, 6, 8, puedes dividir entre 2. Si terminan en 0 o 5, puedes dividir entre 5. ¡Ahorra tiempo!
+</div>
+</section>
+
+<!-- INTERACTIVO 1 -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 ¡Practica tú!</h2>
+
+<div class="interactive">
+<h3>🧪 Comprobador de equivalencia</h3>
+<p>Escribe dos fracciones y comprueba si son equivalentes:</p>
+<div style="display:flex;align-items:center;gap:.5rem;margin:1rem 0;flex-wrap:wrap">
+<span>Fracción 1:</span>
+<input type="number" id="n1" min="1" max="99" value="1"> /
+<input type="number" id="d1" min="1" max="99" value="2">
+<span style="margin:0 .5rem">vs</span>
+<span>Fracción 2:</span>
+<input type="number" id="n2" min="1" max="99" value="2"> /
+<input type="number" id="d2" min="1" max="99" value="4">
+</div>
+<button onclick="checkEquivalent()">Comprobar</button>
+<div class="result" id="result1"></div>
+</div>
+
+<div class="interactive">
+<h3>🧪 Creador de equivalentes</h3>
+<p>Escribe una fracción y un número. Te diré su equivalente:</p>
+<div style="display:flex;align-items:center;gap:.5rem;margin:1rem 0;flex-wrap:wrap">
+<span>Fracción:</span>
+<input type="number" id="n3" min="1" max="99" value="2"> /
+<input type="number" id="d3" min="1" max="99" value="3">
+<span>× </span>
+<input type="number" id="multi" min="2" max="20" value="4">
+</div>
+<button onclick="createEquivalent()">Crear equivalente</button>
+<div class="result" id="result2"></div>
+</div>
+
+<div class="interactive">
+<h3>🧪 Simplificador</h3>
+<p>Escribe una fracción y la simplificaremos:</p>
+<div style="display:flex;align-items:center;gap:.5rem;margin:1rem 0;flex-wrap:wrap">
+<span>Fracción:</span>
+<input type="number" id="n4" min="1" max="99" value="8"> /
+<input type="number" id="d4" min="1" max="99" value="12">
+</div>
+<button onclick="simplifyFraction()">Simplificar</button>
+<div class="result" id="result3"></div>
+</div>
+</section>
+
+<!-- EJERCICIOS -->
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. ¿Son equivalentes <span class="fraction"><span class="num">3</span><span class="den">5</span></span> y <span class="fraction"><span class="num">9</span><span class="den">15</span></span>?</p>
+<button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver solución</button>
+<div class="solution">
+3 × 15 = 45 | 5 × 9 = 45. ¡45 = 45! → <b>Sí, son equivalentes</b> ✅
+</div>
+</div>
+
+<div class="exercise">
+<p>2. Crea una fracción equivalente a <span class="fraction"><span class="num">4</span><span class="den">7</span></span> multiplicando por 5.</p>
+<button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver solución</button>
+<div class="solution">
+4 × 5 = 20 | 7 × 5 = 35 → <span class="fraction"><span class="num">20</span><span class="den">35</span></span> ✅
+</div>
+</div>
+
+<div class="exercise">
+<p>3. Simplifica <span class="fraction"><span class="num">10</span><span class="den">15</span></span>.</p>
+<button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver solución</button>
+<div class="solution">
+10 ÷ 5 = 2 | 15 ÷ 5 = 3 → <span class="fraction"><span class="num">2</span><span class="den">3</span></span> ✅
+</div>
+</div>
+
+<div class="exercise">
+<p>4. Simplifica <span class="fraction"><span class="num">18</span><span class="den">24</span></span>.</p>
+<button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver solución</button>
+<div class="solution">
+18 ÷ 6 = 3 | 24 ÷ 6 = 4 → <span class="fraction"><span class="num">3</span><span class="den">4</span></span> ✅
+</div>
+</div>
+
+<div class="exercise">
+<p>5. ¿Son equivalentes <span class="fraction"><span class="num">5</span><span class="den">6</span></span> y <span class="fraction"><span class="num">10</span><span class="den">11</span></span>?</p>
+<button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('show')">Ver solución</button>
+<div class="solution">
+5 × 11 = 55 | 6 × 10 = 60. 55 ≠ 60 → <b>No son equivalentes</b> ❌
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- RESUMEN -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Dos fracciones son <b>equivalentes</b> si representan la misma cantidad</li>
+<li>Para comprobarlo: <b>multiplicamos en cruz</b> — si los productos son iguales, son equivalentes</li>
+<li>Para crear una equivalente: <b>multiplica o divide</b> numerador y denominador por el mismo número</li>
+<li><b>Simplificar</b> es dividir numerador y denominador por su divisor común hasta que no se pueda más</li>
+<li>Nunca sumes ni restes al numerador y denominador para crear equivalentes</li>
+</ul>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="nav">
+<a href="index.html" class="disabled">← Anterior</a>
+<a href="s04-2-suma-resta-fracciones.html">Siguiente: Suma y resta de fracciones →</a>
+</div>
+
+</main>
+
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+
+<script>
+function checkEquivalent(){
+var n1=parseInt(document.getElementById('n1').value),
+d1=parseInt(document.getElementById('d1').value),
+n2=parseInt(document.getElementById('n2').value),
+d2=parseInt(document.getElementById('d2').value),
+r=document.getElementById('result1');
+if(d1===0||d2===0){r.className='result fail';r.textContent='⚠️ El denominador no puede ser 0';return}
+var c1=n1*d2,c2=n2*d1;
+if(c1===c2){r.className='result ok';r.innerHTML='✅ ¡Son equivalentes! '+n1+'×'+d2+' = '+c1+' = '+n2+'×'+d2+' = '+c2}
+else{r.className='result fail';r.innerHTML='❌ No son equivalentes. '+n1+'×'+d2+' = '+c1+' ≠ '+c2+' = '+n2+'×'+d1}
+}
+function createEquivalent(){
+var n=parseInt(document.getElementById('n3').value),
+d=parseInt(document.getElementById('d3').value),
+m=parseInt(document.getElementById('multi').value),
+r=document.getElementById('result2');
+r.className='result ok';
+r.innerHTML='📐 <span class="fraction"><span class="num">'+n+'</span><span class="den">'+d+'</span></span> × '+m+' = <span class="fraction"><span class="num">'+(n*m)+'</span><span class="den">'+(d*m)+'</span></span> ✅'
+}
+function simplifyFraction(){
+var n=parseInt(document.getElementById('n4').value),
+d=parseInt(document.getElementById('d4').value),
+r=document.getElementById('result3');
+function mcd(a,b){return b===0?a:mcd(b,a%b)}
+var g=mcd(n,d);
+r.className='result ok';
+r.innerHTML='📐 Dividimos por '+g+' → <span class="fraction"><span class="num">'+(n/g)+'</span><span class="den">'+(d/g)+'</span></span> ✅'
+}
+window.onscroll=function(){
+var h=document.documentElement,
+p=(window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+document.getElementById('progress').style.width=p+'%';
+};
+</script>
+</body>
+</html>

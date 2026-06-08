@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💰 S02.7: Dinero — 2º Primaria — ¡Compras y cambios!</title>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+</style>
+</head>
+<body>
+<header class="header">
+<h1>💰 S02.7: Dinero</h1>
+<p>2º Primaria — ¡Compras y cambios!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+El dinero nos ayuda a <b>comprar</b> cosas. Aprendemos a contar monedas, sumar precios y hacer cambios.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Reconocer monedas y billetes</li><li>Sumar cantidades de dinero</li><li>Hacer cambios</li><li>Resolver problemas de compras</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Monedas y billetes</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Los billetes van de 5€ a 500€.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+<b>Monedas:</b><br>1¢, 2¢, 5¢, 10¢, 20¢, 50¢, 1€, 2€
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+<b>Billetes:</b><br>5€, 10€, 20€, 50€, 100€, 200€
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+<b>Ejemplo de compra:</b><br>Pago con 5€ un lápiz de 2€ + un cuaderno de 1€.<br>Cambio: 5 − 3 = <b>2€</b>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Simulador de compras!</h2>
+<div class="interactive">
+<h3>Compra los objetos y calcula el cambio:</h3>
+<div style="text-align:center;margin:1rem 0">
+<div id="shopItems" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0"></div>
+<p style="font-size:1.2rem;font-weight:700;margin:1rem 0" id="totalDisplay">Total: 0€</p>
+<div id="paymentSection" style="margin:1rem 0">
+<p style="font-weight:600;margin-bottom:.5rem">¿Con cuánto pagas?</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="payButtons"></div>
+</div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p>1. Si tienes 2 monedas de 50 céntimos, ¿cuánto tienes?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">25€</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2€</button>
+</div>
+</div>
+<div class="exercise">
+<p>2. Un lápiz cuesta 80 céntimos. Pagas con 1€. ¿Cuánto te devuelven?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">20 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">80 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10 céntimos</button>
+</div>
+</div>
+<div class="exercise">
+<p>3. ¿Cuántas monedas de 20 céntimos necesitas para hacer 1€?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+<div class="exercise">
+<p>4. Si un helado cuesta 1€50 y tienes 2€, ¿cuánto te sobra?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">50 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25 céntimos</button>
+</div>
+</div>
+<div class="exercise">
+<p>5. ¿Cuánto cuesta un lápiz (80¢) + un cuaderno (€1)?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">€1.50</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">€1.80</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">€2</button>
+</div>
+</div>
+
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li><li>Las monedas van de 1¢ a 2€</li></li><li><li>Los billetes van de 5€ a 500€</li></li><li><li>1€ = 100 céntimos</li></li><li><li>Para hacer cambio: pago − precio = cambio</li></li><li><li>¡Ya sabes manejar dinero! 🎉</li></li>
+</ul>
+</div>
+<div class="nav">
+<a href="s02-6-longitud-peso.html">← Anterior: Longitud y peso</a>
+<a href="s03-1-mult-dos-cifras.html">Siguiente: Mult 2 cifras →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+
+const items = [
+  {emoji:'✏️', name:'Lápiz', price:0.80},
+  {emoji:'📓', name:'Cuaderno', price:1.50},
+  {emoji:'🎒', name:'Mochila', price:15},
+  {emoji:'🖍️', name:'Caja lápices', price:3.50},
+  {emoji:'📐', name:'Escuadra', price:1.20}
+];
+let selectedItems = [];
+let total = 0;
+
+function initShop() {
+  const shop = document.getElementById('shopItems');
+  items.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.style.cssText = 'text-align:center;padding:.8rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:all .2s';
+    div.innerHTML = '<p style="font-size:2rem">' + item.emoji + '</p><p style="font-weight:600">' + item.name + '</p><p style="color:var(--azul);font-weight:700">€' + item.price.toFixed(2) + '</p>';
+    div.onclick = function() {
+      if(selectedItems.includes(i)) {
+        selectedItems = selectedItems.filter(x => x !== i);
+        this.style.borderColor = '#e2e8f0';
+      } else {
+        selectedItems.push(i);
+        this.style.borderColor = 'var(--azul)';
+      }
+      total = selectedItems.reduce((sum, idx) => sum + items[idx].price, 0);
+      document.getElementById('totalDisplay').textContent = 'Total: €' + total.toFixed(2);
+    };
+    shop.appendChild(div);
+  });
+  const payBtns = document.getElementById('payButtons');
+  [1, 2, 5, 10, 20].forEach(amount => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = '€' + amount;
+    btn.onclick = function() {
+      if(total === 0) {
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ Primero selecciona algo para comprar.';
+        return;
+      }
+      const change = amount - total;
+      if(change < 0) {
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ No tienes suficiente dinero. Te faltan €' + Math.abs(change).toFixed(2);
+      } else if(change === 0) {
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Exacto! No te sobra nada.';
+      } else {
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! Tu cambio es €' + change.toFixed(2);
+      }
+    };
+    payBtns.appendChild(btn);
+  });
+}
+initShop();
+
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>
