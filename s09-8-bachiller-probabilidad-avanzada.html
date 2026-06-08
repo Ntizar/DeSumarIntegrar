@@ -3,27 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bachiller - Sesion 8: Probabilidad avanzada</title>
+<title>🎲 Bachillerato — Sesión 8: Probabilidad Avanzada | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
 .header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
 .chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
 .box-teoria{background:var(--azul-claro);border-color:var(--azul)}
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -32,18 +37,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
@@ -51,33 +76,117 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>Bachillerato - Sesion 8</h1>
-<p>Probabilidad avanzada</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>🎲 Bachillerato — Sesión 8: Probabilidad Avanzada</h1>
+  <p>Bayes, combinaciones y permutaciones</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
-<div class="chapter"><h2 class="chapter-title">1. Probabilidad Condicional</h2><div class="box box-teoria"><strong>Probabilidad condicional:</strong><div class="formula">P(A|B) = P(A int B) / P(B)</div><p>Probabilidad de A sabiendo que B ha ocurrido.</p></div><div class="box box-ejemplo"><strong>Ejemplo:</strong><p style="margin-top:.5rem">En una clase: 60% chicas, 40% llevan lentes. 25% son chicas que llevan lentes.</p><p style="margin-top:.5rem">P(lentes|chica) = 0.25/0.60 = 0.417</p></div></div>
-<div class="chapter"><h2 class="chapter-title">2. Teorema de Bayes</h2><div class="box box-teoria"><strong>Teorema de Bayes:</strong><div class="formula">P(A_i|B) = P(B|A_i)*P(A_i) / sum[P(B|A_j)*P(A_j)]</div></div><div class="box box-teoria"><strong>Regla de la probabilidad total:</strong><div class="formula">P(B) = sum P(B|A_i)*P(A_i)</div></div><div class="box box-ejemplo"><strong>Ejemplo clasico:</strong><p style="margin-top:.5rem">Una enfermedad afecta al 1% de la poblacion. Un test da positivo en el 95% de casos con enfermedad y negativo en el 90% de sanos.</p><p style="margin-top:.5rem">P(enferma|positivo) = 0.95*0.01 / (0.95*0.01 + 0.10*0.99) = 0.0095/0.1085 = 0.0875</p><p>Solo un 8.75% de positivos reales tienen la enfermedad. Esto se llama la paradoja de los falsos positivos.</p></div></div>
-<div class="chapter"><h2 class="chapter-title">3. Variable Aleatoria y Esperanza</h2><div class="box box-teoria"><strong>Esperanza (valor esperado):</strong><div class="formula">E[X] = sum x_i * P(X = x_i) (discreta)</div><div class="formula">E[X] = int x*f(x) dx (continua)</div></div><div class="box box-teoria"><strong>Varianza:</strong><div class="formula">Var(X) = E[X^2] - (E[X])^2</div></div><div class="box box-teoria"><strong>Propiedades:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>E[aX + b] = a*E[X] + b</li><li>Var(aX + b) = a^2 * Var(X)</li><li>Si X, Y independientes: Var(X+Y) = Var(X) + Var(Y)</li></ul></div></div>
-<div class="chapter"><h2 class="chapter-title">4. Distribuciones Clave</h2><table><tr><th>Distribucion</th><th>P(X=k)</th><th>E[X]</th><th>Var(X)</th><th>Cuando usar</th></tr><tr><td>Binomial B(n,p)</td><td>C(n,k)*p^k*(1-p)^(n-k)</td><td>np</td><td>np(1-p)</td><td>n ensayos, 2 resultados</td></tr><tr><td>Poisson(lambda)</td><td>e^(-lambda)*lambda^k/k!</td><td>lambda</td><td>lambda</td><td>eventos en tiempo/espacio</td></tr><tr><td>Normal N(m,sig^2)</td><td>f(x) = (1/sig*sqrt(2pi))*e^(-(x-m)^2/(2*sig^2))</td><td>m</td><td>sig^2</td><td>fenomenos naturales</td></tr><tr><td>Uniforme U(a,b)</td><td>1/(b-a) en [a,b]</td><td>(a+b)/2</td><td>(b-a)^2/12</td><td>resultado equiprobable</td></tr><tr><td>Exponencial(lambda)</td><td>lambda*e^(-lambda*x), x>=0</td><td>1/lambda</td><td>1/lambda^2</td><td>tiempo entre eventos</td></tr></table></div>
-<div class="chapter"><h2 class="chapter-title">5. Aplicaciones en Ingenieria</h2><div class="box box-ejemplo"><strong>Ejemplo Binomial:</strong><p style="margin-top:.5rem">Una maquina produce piezas defectuosas con probabilidad 0.02. En un lote de 200, cual es la probabilidad de que exactamente 5 sean defectuosas?</p><p style="margin-top:.5rem">P(X=5) = C(200,5) * 0.02^5 * 0.98^195 ~ 0.088</p></div><div class="box box-ejemplo"><strong>Ejemplo Poisson:</strong><p style="margin-top:.5rem">Un router recibe un promedio de 3 fallos/hora. Probabilidad de 0 fallos en 1 hora?</p><p style="margin-top:.5rem">P(X=0) = e^(-3)*3^0/0! = e^(-3) ~ 0.0498</p></div><div class="box box-ejemplo"><strong>Ejemplo Normal:</strong><p style="margin-top:.5rem">La resistencia de un cable es N(100, 4) ohmios. Probabilidad de que un cable aleatorio tenga resistencia entre 97 y 103?</p><p style="margin-top:.5rem">Z1 = (97-100)/2 = -1.5, Z2 = (103-100)/2 = 1.5</p><p style="margin-top:.5rem">P(-1.5 < Z < 1.5) = 0.9332 - 0.0668 = 0.8664</p></div></div>
-<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> P(A)=0.4, P(B)=0.5, P(A int B)=0.2. P(A|B) = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">0.4</button><button class="quiz-btn" onclick="checkExercise(this, false)">0.5</button><button class="quiz-btn" onclick="checkExercise(this, false)">0.2</button><button class="quiz-btn" onclick="checkExercise(this, false)">0.8</button></div></div><div class="exercise"><p><strong>2.</strong> Si X ~ B(10, 0.3), E[X] = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">3</button><button class="quiz-btn" onclick="checkExercise(this, false)">10</button><button class="quiz-btn" onclick="checkExercise(this, false)">0.3</button><button class="quiz-btn" onclick="checkExercise(this, false)">7</button></div></div><div class="exercise"><p><strong>3.</strong> Var(3X + 2) si Var(X) = 4:</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, false)">14</button><button class="quiz-btn" onclick="checkExercise(this, true)">36</button><button class="quiz-btn" onclick="checkExercise(this, false)">12</button><button class="quiz-btn" onclick="checkExercise(this, false)">50</button></div></div></div></div>
-<div class="summary"><h3>Resumen</h3><ul><li>Probabilidad condicional: P(A|B) = P(A int B)/P(B)</li>
-<li>Teorema de Bayes: actualiza probabilidades con nueva informacion</li>
-<li>Esperanza: E[X] = sum x*P(x), Var(X) = E[X^2] - E[X]^2</li>
-<li>Distribuciones: Binomial, Poisson, Normal, Uniforme, Exponencial</li>
-<li>Aplicaciones ingenieria: control calidad, fiabilidad, mediciones</li>
-</ul></div>
-<div class="nav"><a href="s09-7-bachiller-aplicaciones-integrales.html">Anterior</a>
-<a href="s09-9-bachiller-distribuciones-combinadas.html">Siguiente</a>
-</div></div>
-<div class="footer">Hecho con corazon por David Antizar</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Aplicar el teorema de Bayes</li>
+<li>Calcular combinaciones y permutaciones</li>
+<li>Resolver problemas de probabilidad condicionada</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro Bayes?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Diagnóstico médico</strong>
+<p>Una enfermedad afecta al 1% de la población. Un test tiene 95% de sensibilidad (detecta la enfermedad si la tienes) y 90% de especificidad (da negativo si no la tienes).</p>
+<p>Si el test es positivo, ¿cuál es la probabilidad real de que tengas la enfermedad?</p>
+<p>¡Bayes! $P(D|+) = \frac{P(+|D) \cdot P(D)}{P(+|D) \cdot P(D) + P(+|\neg D) \cdot P(\neg D)} = \frac{0.95 \times 0.01}{0.95 \times 0.01 + 0.10 \times 0.99} \approx \mathbf{8.8\%}$</p>
+<p>¡Solo un 8.8%! Aunque el test sea "95% preciso", la probabilidad real es mucho menor por la baja prevalencia.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Teorema de Bayes</h2>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+</div>
+
+<!-- GRÁFICO: Bayes -->
+<div class="chart-container">
+<h3>📊 Visualización del teorema de Bayes</h3>
+<p class="chart-desc">El test parece bueno, pero la probabilidad real de tener la enfermedad es baja.</p>
+<div id="plot-bayes" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Combinatoria</h2>
+
+<div class="box box-teoria">
+<strong>📌 Permutaciones:</strong> $P(n,k) = \frac{n!}{(n-k)!}$ (el orden importa)
+<strong>📌 Combinaciones:</strong> $C(n,k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}$ (el orden no importa)
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> ¿Cuántas formas hay de elegir 3 personas de un grupo de 10?</p>
+<p style="font-size:.85rem;color:#64748b">$C(10,3) = \frac{10!}{3! \cdot 7!}$</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkExercise(1, 120)">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> En un barajado de 52 cartas, ¿cuál es la probabilidad de sacar un as?</p>
+<div class="exercise-input">
+<input type="number" id="e2" placeholder="?" step="any">
+<button onclick="checkExercise(2, 4/52)">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que aprendiste</h3>
+<ul>
+<li>Bayes: $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$</li>
+<li>La probabilidad posterior depende de la prevalencia (prior)</li>
+<li>Permutaciones: orden importa → $P(n,k) = \frac{n!}{(n-k)!}$</li>
+<li>Combinaciones: orden no importa → $C(n,k) = \frac{n!}{k!(n-k)!}$</li>
+<li>Aplicaciones: diagnóstico médico, IA, finanzas, ingeniería</li>
+</ul>
+</div>
+
+<div class="nav">
+  <a href="s09-7-bachiller-aplicaciones-integrales.html">← Anterior</a>
+  <a href="s09-9-bachiller-distribuciones-combinadas.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() { var h = document.documentElement; var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100; document.getElementById('progress').style.width = p+'%'; };
-</script>
-</body></html>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+});
+<\/script>
+</body>
+</html>

@@ -3,81 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrera - Sesion 7: Espacios vectoriales</title>
+<title>📐 1º Carrera — Sesión 7: Espacios Vectoriales | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
-.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
-.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.chapter-title{font-size:1.3rem;color:#6366f1;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid #e0e7ff}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
-.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-teoria{background:#e0e7ff;border-color:#6366f1}
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
 .nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary{background:#e0e7ff;border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#6366f1;margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:#6366f1;margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:#6366f1;color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#4f46e5}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:#6366f1}
+.exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
-table th{background:var(--azul-claro);font-weight:600}
+table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
   <div style="padding: 0.75rem 1.5rem;">
-    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #6366f1; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>1 Carrera - Sesion 7</h1>
-<p>Algebra lineal: espacios vectoriales</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>📐 1º Carrera — Sesión 7: Espacios Vectoriales</h1>
+  <p>Vectores, bases, dimensión y subespacios</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
-<div class="chapter"><h2 class="chapter-title">1. Definicion y Axiomas</h2><div class="box box-teoria"><strong>Un espacio vectorial V sobre R es un conjunto con:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>Suma de vectores: u+v en V</li><li>Multiplicacion por escalar: a*v en V</li></ul><div class="box box-teoria"><strong>Axiomas:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>Conmutativa, asociativa de la suma</li><li>Elemento neutro 0 y opuesto -v</li><li>Distributiva, asociativa escalar, 1*v=v</li></ul></div></div>
-<div class="chapter"><h2 class="chapter-title">2. Subespacios</h2><div class="box box-teoria"><strong>Un subespacio W de V debe:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>Contener el vector cero</li><li>Cerrar bajo suma: u,v en W --> u+v en W</li><li>Cerrar bajo escalar: v en W, a en R --> a*v en W</li></ul></div><div class="box box-ejemplo"><strong>Ejemplo:</strong> El plano z=0 es subespacio de R^3.</div><div class="box box-ejemplo"><strong>No es subespacio:</strong> El plano x+y=1 (no contiene el origen).</div></div>
-<div class="chapter"><h2 class="chapter-title">3. Base y Dimension</h2><div class="box box-teoria"><strong>Base:</strong> conjunto linealmente independiente que genera todo el espacio.</div><div class="box box-teoria"><strong>Dimension:</strong> numero de vectores en la base (invariante).</div><div class="box box-teoria"><strong>Ejemplos:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>R^n: dimension n, base estandar e1,...,en</li><li>P_n (polinomios grado<=n): dimension n+1, base {1, x, x^2, ..., x^n}</li><li>M_2x2 (matrices 2x2): dimension 4</li></ul></div></div>
-<div class="chapter"><h2 class="chapter-title">4. Independencia Lineal</h2><div class="box box-teoria"><strong>v1,...,vn son linealmente independientes si:</strong><div class="formula">a1*v1 + ... + an*vn = 0 --> a1=...=an=0</div></div><div class="box box-teoria"><strong>Metodo:</strong> formar matriz con vectores como columnas, calcular rango.</div></div>
-<div class="chapter"><h2 class="chapter-title">5. Aplicaciones en Ingenieria</h2><div class="box box-teoria"><strong>Circuitos:</strong> corrientes en nodos --> espacio de soluciones de ecuaciones lineales.</div><div class="box box-teoria"><strong>Optimizacion:</strong> espacios de parametros en modelos.</div><div class="box box-teoria"><strong>ML:</strong> datos como vectores en R^n, espacios de caracteristicas.</div></div>
-<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> Dimension de P_3 (polinomios grado<=3):</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">4</button><button class="quiz-btn" onclick="checkExercise(this, false)">3</button><button class="quiz-btn" onclick="checkExercise(this, false)">5</button><button class="quiz-btn" onclick="checkExercise(this, false)">infinita</button></div></div><div class="exercise"><p><strong>2.</strong> (1,0), (0,1), (1,1) en R^2 son:</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">dependientes</button><button class="quiz-btn" onclick="checkExercise(this, false)">independientes</button><button class="quiz-btn" onclick="checkExercise(this, false)">una base de R^3</button><button class="quiz-btn" onclick="checkExercise(this, false)">ninguna</button></div></div><div class="exercise"><p><strong>3.</strong> El conjunto {(x,y,z) : x+2y-z=0} es subespacio de R^3?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">Si</button><button class="quiz-btn" onclick="checkExercise(this, false)">No</button></div></div></div></div>
-<div class="summary"><h3>Resumen</h3><ul><li>Espacio vectorial: conjunto con suma y producto escalar (8 axiomas)</li>
-<li>Subespacio: contiene 0, cerrado bajo suma y escalar</li>
-<li>Base: LI que genera todo el espacio</li>
-<li>Dimension: numero de vectores en la base</li>
-<li>Aplicaciones: circuitos, optimizacion, ML</li>
-</ul></div>
-<div class="nav"><a href="s10-6-carrera-series-fourier.html">Anterior</a>
-<a href="s10-8-carrera-autovalores.html">Siguiente</a>
-</div></div>
-<div class="footer">Hecho con corazon por David Antizar</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Entender qué es un espacio vectorial</li>
+<li>Identificar bases y dimensión</li>
+<li>Trabajar con subespacios</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro espacios vectoriales?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Machine Learning</strong>
+<p>En machine learning, cada dato es un vector en un espacio de muchas dimensiones. Clasificar datos es encontrar un plano (hiperplano) que los separe.</p>
+<p>¡Google Maps usa espacios vectoriales para encontrar rutas!</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Espacios Vectoriales</h2>
+
+<div class="box box-teoria">
+<strong>📌 Un espacio vectorial es un conjunto donde puedes:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Sumar vectores</li>
+<li>Multiplicar por escalares</li>
+<li>Y se cumplen 8 axiomas (asociatividad, conmutatividad, elemento neutro, etc.)</li>
+</ul>
+</div>
+
+<!-- GRÁFICO: Espacio vectorial -->
+<div class="chart-container">
+<h3>📊 Bases en R²: {(1,0), (0,1)} vs {(1,1), (1,-1)}</h3>
+<p class="chart-desc">Observa cómo diferentes bases generan el mismo espacio.</p>
+<div id="plot-base" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> ¿Cuál es la dimensión de R³?</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkExercise(1, 3)">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen</h3>
+<ul>
+<li>Un espacio vectorial permite sumar vectores y multiplicar por escalares</li>
+<li>Una base es un conjunto de vectores linealmente independientes que generan el espacio</li>
+<li>La dimensión es el número de vectores en cualquier base</li>
+<li>Aplicaciones: machine learning, gráficos 3D, física, ingeniería</li>
+</ul>
+</div>
+
+<div class="nav">
+  <a href="s10-6-carrera-series-fourier.html">← Anterior</a>
+  <a href="s10-8-carrera-autovalores.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() { var h = document.documentElement; var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100; document.getElementById('progress').style.width = p+'%'; };
-</script>
-</body></html>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+});
+<\/script>
+</body>
+</html>

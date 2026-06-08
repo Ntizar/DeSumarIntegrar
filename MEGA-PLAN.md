@@ -1,447 +1,311 @@
-# MEGA PLAN MAESTRO — Sistema Global del Curso Completo de Matemáticas
+# 📐 MEGA-PLAN: Matemáticas Paso a Paso
 
-**Cobertura:** Primaria → 1º de carrera  
-**Idioma:** Castellano  
-**Tema visual:** Solo modo claro  
-**Propósito:** Documento rector único para planificar, generar, revisar y auditar todo el ecosistema del curso.
+## Filosofía del Proyecto
 
----
+**DeSumarIntegrar** es un curso completo de matemáticas diseñado para que **cualquiera pueda aprender a su ritmo**, desde sumar números hasta cálculo multivariable. Cada concepto se explica con:
 
-## 1. Finalidad del sistema
-
-Este documento define el sistema global de producción del curso completo de matemáticas, desde 1º de Primaria hasta 1º de carrera. Su función es asegurar coherencia pedagógica, consistencia visual, calidad técnica, progresión curricular y uniformidad en la experiencia del estudiante.
-
-Todas las sesiones, páginas y recursos del curso deberán ajustarse a este plan. Ninguna sesión podrá diseñarse, redactarse o maquetarse fuera de este marco sin una justificación explícita.
+1. **Intuición primero** — "¿Para qué sirve esto en la vida real?"
+2. **Ejemplos visuales** — gráficos interactivos, animaciones, ejercicios
+3. **Notación formal** — LaTeX bonito para las fórmulas
+4. **Práctica** — ejercicios interactivos con feedback inmediato
+5. **Casos de uso reales** — "¿Dónde encuentro esto fuera del aula?"
 
 ---
 
-## 2. Objetivo general
+## 🗺️ Mapa Completo del Conocimiento
 
-Construir un curso digital integral de matemáticas, dividido por etapas educativas, que combine:
+### NIVEL 1: Primeros Pasos (1º-3º Primaria) — "Aprender a contar"
 
-- Explicación clara y adaptada a la edad.
-- Rigor creciente a medida que avanza el nivel.
-- Ejemplos resueltos paso a paso.
-- Problemas propuestos con solución explicada.
-- Interactividad útil, no decorativa.
-- Diseño visual coherente en todas las sesiones.
-- Navegación clara entre bloques, capítulos y niveles.
-- Preparación progresiva para el siguiente tramo formativo.
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Sumar | s01-1primaria | Sumar hasta 20 con objetos | Contar juguetes, monedas |
+| 2 | Restar | s01-2primaria | Restar hasta 20 | "Si tengo 5 galletas y como 2, ¿cuántas quedan?" |
+| 3 | Sumar 2 cifras | s01-3primaria | Sumar 25 + 13 con llevadas | Sumar precios en una tienda |
+| 4 | Restar 2 cifras | s01-4primaria | Restar 45 - 17 con llevadas | Calcular cambio |
+| 5 | Multiplicar | s01-5primaria | Multiplicar como sumar varias veces | "3 cajas con 4 manzanas cada una" |
+| 6 | Dividir | s01-6primaria | Dividir en partes iguales | Repartir caramelos entre amigos |
+| 7 | Patrones | s01-7primaria | Secuencias y patrones numéricos | Reconocer patrones en la naturaleza |
+| 8 | Medidas: tamaño y peso | s01-8primaria | cm, m, kg, g | Medir la mesa, pesar la fruta |
+| 9 | Medidas: longitud | s01-9primaria | Convertir entre cm y m | ¿Cuántos metros mide mi habitación? |
+| 10 | Figuras | s01-10primaria | Cuadrado, rectángulo, triángulo | ¿Qué formas tiene mi habitación? |
 
----
-
-## 3. Principios rectores del proyecto
-
-### 3.1 Coherencia curricular
-Cada sesión debe conectar con la anterior y preparar la siguiente. El contenido no puede sentirse aislado ni repetitivo sin intención didáctica.
-
-### 3.2 Progresión real de dificultad
-La dificultad debe crecer de forma gradual en lenguaje, abstracción, símbolos, número de pasos y profundidad conceptual.
-
-### 3.3 Comprensión antes que memorización
-No basta con enseñar procedimientos. Cada capítulo debe responder también a:
-- **Qué** se hace.
-- **Cómo** se hace.
-- **Por qué** funciona.
-- **Cuándo** se usa.
-- **Qué errores** suelen cometerse.
-
-### 3.4 Interactividad con propósito
-Todo elemento interactivo debe ayudar a comprender una idea matemática. No se incluirán juegos, animaciones o efectos que no aporten aprendizaje.
-
-### 3.5 Sistema único de diseño
-Todo el curso debe parecer parte del mismo producto: misma lógica visual, misma jerarquía, mismas cajas didácticas, misma navegación y mismos criterios de accesibilidad.
-
-### 3.6 Claridad técnica
-HTML semántico, estructura accesible y diseño responsive. Contraste visual mínimo WCAG AA.
+**Caso de uso global:** "Voy al supermercado con mi mamá y tengo que sumar los precios de 3 productos."
 
 ---
 
-## 4. Arquitectura global del curso
+### NIVEL 2: Creciendo (2º Primaria) — "Números más grandes"
 
-| Sesión | Nivel | Enfoque principal | Función pedagógica |
-|--------|-------|-------------------|---------------------|
-|| S01.1 | 1º Primaria | Contar 0-10 | Iniciación numérica |
-|| S01.2 | 1º Primaria | Contar 10-100 | Ampliación numérica |
-|| S01.3 | 1º Primaria | Sumar hasta 10 | Suma básica |
-|| S01.4 | 1º Primaria | Sumar hasta 20 | Suma avanzada |
-|| S01.5 | 1º Primaria | Restar hasta 10 | Resta básica |
-|| S01.6 | 1º Primaria | Restar hasta 20 | Resta avanzada |
-|| S01.7 | 1º Primaria | Figuras básicas | Geometría inicial |
-|| S01.8 | 1º Primaria | Medidas: tamaño/peso | Comparación |
-|| S01.9 | 1º Primaria | Medidas: longitud | Medición |
-|| S01.10 | 1º Primaria | Patrones | Secuencias |
-|| S02.1 | 2º Primaria | Sumas con llevadas | Operaciones |
-|| S02.2 | 2º Primaria | Restas con llevadas | Operaciones |
-|| S02.3 | 2º Primaria | Introducción multiplicación | Multiplicación |
-|| S02.4 | 2º Primaria | Tablas 1-5 | Tablas |
-|| S02.5 | 2º Primaria | Tablas 6-9 | Tablas |
-|| S02.6 | 2º Primaria | Longitud y peso | Medidas |
-|| S02.7 | 2º Primaria | Dinero | Aplicación |
-|| S03.1 | 3º Primaria | Multiplicación 2 cifras | Multiplicación |
-|| S03.2 | 3º Primaria | División | División |
-|| S03.3 | 3º Primaria | Introducción fracciones | Fracciones |
-|| S03.4 | 3º Primaria | Comparación fracciones | Fracciones |
-|| S03.5 | 3º Primaria | Perímetro | Geometría |
-|| S03.6 | 3º Primaria | Estadística inicial | Estadística |
-| S04 | 4º Primaria | Fracciones, decimales, porcentajes, áreas | Relación entre representaciones |
-| S05 | 5º Primaria | Proporcionalidad, regla de tres, estadística, probabilidad básica | Pensamiento relacional |
-| S06 | 6º Primaria | Negativos, potencias, raíces, ecuaciones intro, geometría básica | Transición a ESO |
-| S07 | 1º ESO | Enteros, potencias, raíces, álgebra, ecuaciones de 1er grado | Formalización algebraica |
-| S08 | 2º-3º ESO | 2º grado, sistemas, funciones, trigonometría, estadística | Modelización y representación |
-| S09 | 4º ESO / Bachiller | Límites, derivadas, integrales, probabilidad avanzada | Base preuniversitaria |
-| S10 | 1º Carrera | Multivariable, álgebra lineal, EDOs | Nivel universitario inicial |
-| S11 | Auditoría | Revisión integral del sistema | Control de calidad final |
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Sumar 3 cifras | s02-1primaria | Sumar hasta 999 | Sumar puntos en un videojuego |
+| 2 | Restar 3 cifras | s02-2primaria | Restar hasta 999 | Calcular cuánto dinero me queda |
+| 3 | Multiplicar 2 cifras | s02-3primaria | Multiplicar 23 × 4 | 23 paquetes con 4 lápices cada uno |
+| 4 | Dividir 2 cifras | s02-4primaria | Dividir entre 2 cifras | Repartir 120 caramelos entre 4 niños |
+| 5 | Fracciones intro | s02-5primaria | Mitades, tercios, cuartos | Cortar una pizza en partes iguales |
+| 6 | Longitud y peso | s02-6primaria | Medir con regla y báscula | Medir mi altura, pesar mi mochila |
+| 7 | Dinero | s02-7primaria | Euros y céntimos, calcular cambio | Comprar un helado con 5€ |
+
+**Caso de uso global:** "Tengo 12€ de paga semanal. Quiero comprar 3 cosas de 3€ cada una. ¿Me sobra dinero?"
 
 ---
 
-## 5. Modelo de producción
+### NIVEL 3: Pensando más (3º Primaria) — "Operaciones serias"
 
-Cada sesión debe producir una unidad HTML completa, autónoma y navegable, pero integrada en el ecosistema general del curso.
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Multiplicar | s03-1primaria | Tablas del 2 al 10 | Calcular cuántas patas tienen 7 perros |
+| 2 | Dividir | s03-2primaria | División exacta e inexacta | Repartir 25 chocolates entre 4 amigos |
+| 3 | Fracciones | s03-3primaria | Leer, escribir, comparar fracciones | ¿Quién comió más pizza: 1/3 o 1/4? |
+| 4 | Comparar números | s03-4primaria | Mayor que, menor que, igual | Ordenar precios de mayor a menor |
+| 5 | Perímetro | s03-5primaria | Calcular perímetro de figuras | Cuánta valla necesito para mi jardín |
+| 6 | Estadística | s03-6primaria | Recoger datos, hacer gráficos | ¿Cuántos hermanos tienen mis compañeros? |
 
-### 5.1 Cada sesión debe incluir
-- Encabezado con identidad del curso.
-- Resumen inicial de la sesión.
-- Navegación lateral o índice de capítulos.
-- Capítulos estructurados de forma uniforme.
-- Navegación entre capítulos.
-- Navegación hacia la sesión anterior y siguiente.
-- Indicador de progreso dentro de la sesión.
-- Pie de página con cierre y continuidad.
-
-### 5.2 Cada capítulo debe incluir
-- Teoría.
-- Ejemplos resueltos.
-- Problemas propuestos.
-- Actividad interactiva.
-- Visualización o gráfico interactivo, cuando el tema lo requiera.
-- Resumen final del capítulo.
-
-### 5.3 Criterio de densidad
-No todos los capítulos deben tener la misma longitud, pero sí la misma lógica interna. Los temas centrales pueden extenderse más; los de repaso o transición pueden ser más breves.
+**Caso de uso global:** "Mi abuela tiene un jardín rectangular de 5m × 3m. ¿Cuántos metros de valla necesita?"
 
 ---
 
-## 6. Sistema visual unificado
+### NIVEL 4: Fracciones y Decimales (4º Primaria) — "El mundo se hace más complejo"
 
-### 6.1 Paleta oficial
-- **Azul principal:** `#2563eb`
-- **Naranja secundario:** `#f97316`
-- **Fondo general:** `#ffffff`
-- **Texto principal:** `#1e293b`
-- **Verde éxito:** `#10b981`
-- **Rojo error/alerta:** `#ef4444`
-- **Púrpura informativo:** tono claro y moderado para curiosidades
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Fracciones equivalentes | s04-1primaria | 1/2 = 2/4 = 3/6 | ¿Son iguales dos trozos de pizza diferentes? |
+| 2 | Multiplicar por 3 cifras | s04-2primaria | Multiplicar 234 × 5 | Calcular el precio de 234 caramelos a 5€ |
+| 3 | División entre 2 cifras | s04-3primaria | Dividir 456 ÷ 12 | Repartir 456€ entre 12 amigos |
+| 4 | Fracciones equivalentes (práctica) | s04-4primaria | Simplificar fracciones | Simplificar 8/12 a 2/3 |
+| 5 | Decimales intro | s04-5primaria | Décimas, centésimas, milésimas | 1.5 metros = 1 metro y 50 centímetros |
+| 6 | Áreas | s04-6primaria | Área de cuadrado y rectángulo | ¿Cuántos metros cuadrados tiene mi habitación? |
+| 7 | Capacidades | s04-7primaria | Litros y mililitros | Una botella de 1.5L = 1500ml |
+| 8 | Problemas de 1 paso | s04-8primaria | Resolver problemas con una operación | El problema final que lo une todo |
 
-### 6.2 Sistema visual
-- Estética limpia, luminosa y pedagógica.
-- Uso consistente de Aurora Design System.
-- Fondo blanco o blanco roto.
-- Acentos visuales controlados, sin sobrecarga.
-- Glass effect solo si mejora jerarquía y legibilidad.
-- Gradientes suaves azul → naranja solo en zonas destacadas.
-
-### 6.3 Tipografía
-- Títulos: fuente principal de Aurora.
-- Texto base: Inter, Segoe UI, system-ui, sans-serif.
-- Código/fórmulas: monospace solo cuando sea necesario.
-
-### 6.4 Jerarquía visual obligatoria
-1. Título de sesión.
-2. Título de capítulo.
-3. Subtítulo de bloque.
-4. Texto explicativo.
-5. Elementos de apoyo.
-6. Interacción o ejercicio.
-7. Resumen y cierre.
+**Caso de uso global:** "Necesito pintar una pared de 4m × 3m. Cada bote de pintura cubre 6m². ¿Cuántos botes necesito?"
 
 ---
 
-## 7. Componentes didácticos estándar
+### NIVEL 5: Proporcionalidad (5º Primaria) — "Relaciones entre cantidades"
 
-| Componente | Fondo | Borde izquierdo | Uso |
-|------------|-------|-----------------|-----|
-| Caja de teoría | Azul muy claro | Azul `#2563eb` | Explicación progresiva |
-| Caja de ejemplo | Naranja muy claro | Naranja `#f97316` | Caso concreto resuelto |
-| Caja de problema resuelto | Verde claro | Verde `#10b981` | Solución paso a paso |
-| Caja de error frecuente | Rojo muy claro | Rojo `#ef4444` | Confusiones típicas |
-| Caja de idea clave | Púrpura claro | Púrpura | Intuición importante |
-| Resumen de capítulo | — | — | Fórmulas + checklist |
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Sumar decimales | s05-1primaria | 2.5 + 3.75 | Sumar distancias en kilómetros |
+| 2 | Restar decimales | s05-2primaria | 5.0 - 2.35 | Calcular el cambio exacto |
+| 3 | Multiplicar decimales | s05-3primaria | 2.5 × 3.2 | Calcular el área de un terreno |
+| 4 | Dividir decimales | s05-4primaria | 12.5 ÷ 2.5 | Repartir 12.5L entre 2.5 personas |
+| 5 | Áreas y perímetros | s05-5primaria | Figuras compuestas | Calcular el área de mi habitación con un armario |
+| 6 | Porcentajes intro | s05-6primaria | 10%, 25%, 50% | Un descuento del 20% en una camiseta de 30€ |
+| 7 | Porcentajes avanzados | s05-7primaria | Calcular cualquier porcentaje | IVA del 21% sobre 100€ |
+| 8 | Estadística | s05-8primaria | Media, moda, mediana | ¿Cuál es la nota media de la clase? |
+| 9 | Tiempo y calendarios | s05-9primaria | Horas, minutos, segundos, años | ¿Cuánto dura una película de 2h 15min? |
+| 10 | Probabilidad intro | s05-10primaria | Probabilidad básica | ¿Cuál es la probabilidad de sacar un 6 en un dado? |
 
----
-
-## 8. Estructura pedagógica obligatoria por capítulo
-
-### 8.1 Teoría
-- Empezar desde una intuición.
-- Ir de lo concreto a lo abstracto.
-- Adaptar el lenguaje a la edad.
-- Explicar símbolos nuevos antes de usarlos.
-- Incluir la pregunta "por qué funciona".
-
-### 8.2 Ejemplos resueltos
-- Mínimo 3 por concepto nuevo.
-- Dificultad progresiva.
-- Enunciado claro.
-- Bloque "Pensemos un momento...".
-- Resolución paso a paso.
-- Verificación del resultado.
-- Mini ejercicio de comprobación inmediata.
-
-### 8.3 Problemas propuestos
-- Mínimo 5 por capítulo.
-- Máximo recomendado: 10.
-- Ordenados de menor a mayor dificultad.
-- Con solución desplegable (explicada, no solo resultado).
-
-### 8.4 Interactividad
-Toda actividad interactiva debe servir para:
-- Manipular una representación.
-- Observar un cambio en tiempo real.
-- Comprobar un resultado.
-- Explorar patrones.
-- Corregir errores.
-- Relacionar operación con imagen o situación.
-
-### 8.5 Visualización
-Gráficos o visualizaciones cuando aporten comprensión real: fracciones, funciones, trigonometría, estadística, derivadas, integrales, superficies y vectores.
-
-### 8.6 Cierre
-- Ideas clave.
-- Fórmulas esenciales.
-- Errores a evitar.
-- Preparación del siguiente bloque.
+**Caso de uso global:** "Una camiseta cuesta 40€ y tiene un 25% de descuento. ¿Cuánto pago?"
 
 ---
 
-## 9. Tono por etapa formativa
+### NIVEL 6: Preparación ESO (6º Primaria) — "El salto a lo abstracto"
 
-| Etapa | Tono |
-|-------|------|
-| 1º-2º Primaria | Lenguaje muy simple, frases cortas, apoyo visual, contextos de juego |
-| 3º-4º Primaria | Lenguaje claro, símbolos graduales, problemas cotidianos |
-| 5º-6º Primaria | Más formal pero cercano, datos reales, preparación ESO |
-| 1º-2º ESO | Profesor joven y claro, álgebra, gráficas, tecnología |
-| 3º-4º ESO / Bachiller | Riguroso, aplicaciones reales, historia y ciencia |
-| 1º Carrera | Académico pero pedagógico, precisión + intuición |
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Operaciones grandes | s06-1primaria | Multiplicar y dividir con 6 cifras | Calcular el presupuesto de una obra |
+| 2 | Números negativos | s06-2primaria | Por debajo de cero | Temperatura bajo cero, deudas |
+| 3 | Fracciones operar | s06-3primaria | Sumar, restar, multiplicar, dividir fracciones | Recetas: 1/2 taza + 1/3 taza |
+| 4 | Potencias y raíces | s06-4primaria | 2³ = 8, √16 = 4 | Área de un cuadrado de lado 5m = 25m² |
+| 5 | Proporcionalidad | s06-5primaria | Regla de tres directa e inversa | Si 3 obreros hacen un trabajo en 6 días, ¿cuántos obreros en 2 días? |
+| 6 | Áreas compuestas | s06-6primaria | Figuras complejas | Calcular el área de un terreno irregular |
+| 7 | Introducción al álgebra | s06-7primaria | x + 5 = 12, encontrar x | "Pienso un número, le sumo 5 y obtengo 12. ¿Cuál es?" |
+| 8 | Ecuaciones simples | s06-8primaria | Resolver ecuaciones de 1 paso | Traducir problemas a ecuaciones |
+| 9 | Ángulos | s06-9primaria | Medir ángulos con transportador | Construir con LEGO, arquitectura |
+| 10 | Repaso de primaria | s06-10primaria | Todo lo aprendido | El examen final de primaria |
 
----
-
-## 10. Temario detallado por sesión
-
-### S01 — 1º Primaria (dividido en 10 sub-sesiones)
-**S01.1** — Contar del 0 al 10 (con objetos visuales, escritura de números)
-**S01.2** — Contar del 10 al 100 (de 10 en 10, de 2 en 2, lectura de números)
-**S01.3** — Sumar hasta 10 (juntar objetos, recta numérica visual)
-**S01.4** — Sumar hasta 20 (sumas con resultado mayor, estrategia de contar a partir)
-**S01.5** — Restar hasta 10 (quitar objetos, recta numérica hacia atrás)
-**S01.6** — Restar hasta 20 (restas con resultado mayor, relación suma-resta)
-**S01.7** — Figuras básicas (círculo, cuadrado, triángulo, rectángulo — propiedades, contar lados/vértices)
-**S01.8** — Medidas: grande/pequeño, pesado/ligero (comparación directa, vocabulario)
-**S01.9** — Medidas: largo/corto, ordenar por longitud (uso de regla, comparación)
-**S01.10** — Patrones y secuencias (colores, formas, números — completar, crear, predecir)
-
-### S02 — 2º Primaria (dividido en 7 sub-sesiones)
-**S02.1** — Sumas con llevadas (unidades → decenas, paso a paso visual)
-**S02.2** — Restas con llevadas (pedir prestado, paso a paso visual)
-**S02.3** — Introducción a la multiplicación (suma repetida, agrupación visual)
-**S02.4** — Tablas de multiplicar del 1 al 5 (patrones, trucos, práctica interactiva)
-**S02.5** — Tablas de multiplicar del 6 al 9 (patrones, trucos, práctica interactiva)
-**S02.6** — Longitud y peso (cm, m, kg, g — medir objetos reales)
-**S02.7** — Dinero (monedas y billetes, sumar precios, hacer cambios)
-
-### S03 — 3º Primaria (dividido en 6 sub-sesiones)
-**S03.1** — Multiplicación de dos cifras (multiplicar por 10, 11, 12 — método visual)
-**S03.2** — División exacta y con resto (repartir en grupos, división como operación inversa)
-**S03.3** — Introducción a las fracciones (mitad, tercio, cuarto — representación visual)
-**S03.4** — Comparación y orden de fracciones (misma base, mismo numerador, recta numérica)
-**S03.5** — Perímetro (sumar lados, figuras regulares e irregulares)
-**S03.6** — Introducción a la estadística (recoger datos, gráficos de barras, moda)
-
-### S04 — 4º Primaria (dividido en 6 sub-sesiones)
-**S04.1** — Fracciones equivalentes y simplificación
-**S04.2** — Suma y resta de fracciones (mismo y distinto denominador)
-**S04.3** — Multiplicación y división de fracciones
-**S04.4** — Decimales: lectura, escritura, operaciones
-**S04.5** — Porcentajes: cálculo y aplicaciones
-**S04.6** — Áreas de figuras planas (rectángulo, triángulo, cuadrado, rombo)
-
-### S05 — 5º Primaria
-**Capítulos:** Proporcionalidad directa, regla de tres, razones y proporciones, estadística descriptiva, probabilidad básica, repaso general.
-
-### S06 — 6º Primaria
-**Capítulos:** Números negativos, operaciones con negativos, potencias y raíces, introducción a ecuaciones, ángulos y triángulos, preparación para ESO.
-
-### S07 — 1º ESO
-**Capítulos:** Números enteros, potencias con exponente entero, raíces cuadradas, introducción al álgebra, ecuaciones de primer grado, proporcionalidad y porcentajes avanzados.
-
-### S08 — 2º-3º ESO
-**Capítulos:** Ecuaciones de segundo grado, sistemas de ecuaciones, concepto de función, función lineal y cuadrática, trigonometría inicial, estadística y probabilidad.
-
-### S09 — 4º ESO / Bachiller
-**Capítulos:** Límites y continuidad, derivadas: concepto y reglas, aplicaciones de derivadas, integrales: concepto, técnicas de integración, probabilidad avanzada.
-
-### S10 — 1º Carrera
-**Capítulos:** Límites en varias variables, derivadas parciales y gradiente, integrales múltiples, espacios vectoriales, transformaciones lineales, EDOs elementales.
-
-### S11 — Auditoría final
-**Bloques:** Coherencia pedagógica, cobertura curricular, calidad de ejemplos, funcionamiento técnico, consistencia visual, navegación y accesibilidad.
+**Caso de uso global:** "Piensa un número. Lo multiplico por 3, le resto 4 y obtengo 11. ¿Cuál es el número?" → 3x - 4 = 11 → x = 5
 
 ---
 
-## 11. Requisitos técnicos globales
+### NIVEL 7: ESO 1º — "El álgebra se pone seria"
 
-### 11.1 HTML
-- `<!DOCTYPE html>`, `lang="es"`, `meta charset="UTF-8"`, `meta viewport`
-- Uso correcto de `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Números enteros | s07-1primaria | ℤ = {..., -2, -1, 0, 1, 2, ...} | Temperatura, altitud, deudas |
+| 2 | Operaciones con enteros | s07-2primaria | Sumar, restar, multiplicar, dividir con signos | (-5) × (-3) = +15 |
+| 3 | Proporcionalidad | s07-3primaria | Razones, proporciones, porcentajes | Mapas: escala 1:100000 |
+| 4 | Introducción al álgebra | s07-4primaria | Expresiones algebraicas, monomios | Simplificar 3x + 2x = 5x |
+| 5 | Ecuaciones de 1º grado | s07-5primaria | ax + b = c → x = (c-b)/a | "El doble de mi edad menos 4 es 20. ¿Cuántos años tengo?" |
+| 6 | Sistemas de ecuaciones | s07-6primaria | Dos ecuaciones con dos incógnitas | "Tengo gallinas y conejos. En total 10 cabezas y 28 patas." |
+| 7 | Estadística y probabilidad | s07-7primaria | Gráficos, media, probabilidad | Encuestas, predicciones |
 
-### 11.2 CSS
-- Aurora CDN obligatorio.
-- `body class="nz"`.
-- Variables CSS para colores base.
-- Layout con Flexbox y Grid.
-- Solo modo claro.
-- Contraste WCAG AA.
-
-### 11.3 JavaScript
-- Solo Vanilla JS.
-- Funciones modulares.
-- Canvas o SVG cuando aporten valor real.
-
-### 11.4 Responsive
-- Mobile-first.
-- Sidebar colapsable en móvil.
-- Gráficos escalables.
-- Sin desbordes horizontales.
-
-### 11.5 Accesibilidad
-- Jerarquía correcta de encabezados.
-- Navegación por teclado.
-- Contraste mínimo AA.
-- Etiquetas descriptivas.
+**Caso de uso global:** "Dos amigos compran juntos 5 pizzas. Uno come el doble que el otro. ¿Cuántas pizzas come cada uno?" → x + 2x = 5 → x = 5/3
 
 ---
 
-## 12. Navegación y experiencia de usuario
+### NIVEL 8: ESO 2º-3º — "Funciones y trigonometría"
 
-Cada sesión debe incluir:
-- Enlace al índice general.
-- Índice interno de capítulos.
-- Botones capítulo anterior/siguiente.
-- Enlace a sesión anterior/siguiente.
-- Barra de progreso.
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Ecuaciones 1º grado avanzadas | s08-1primaria | Ecuaciones con paréntesis y fracciones | Problemas más complejos |
+| 2 | Ecuaciones 2º grado | s08-2primaria | Fórmula general: x = (-b ± √(b²-4ac)) / 2a | Calcular el tiempo que tarda una pelota en tocar el suelo |
+| 3 | Teorema de Tales | s08-3primaria | Proporcionalidad en geometría | Calcular la altura de un edificio sin subir a él |
+| 4 | Funciones intro | s08-4primaria | Qué es una función, dominio, rango, gráficos | Velocidad vs tiempo, precio vs cantidad |
+| 5 | Funciones lineales | s08-5primaria | y = mx + n, pendiente, intercepto | Tarifas de taxi: 3€ base + 1.5€/km |
+| 6 | Funciones cuadráticas | s08-6primaria | y = ax² + bx + c, parábolas | Trayectoria de un balón, diseño de puentes |
+| 7 | Circunferencia y círculo | s08-7primaria | C = 2πr, A = πr² | Calcular el perímetro de una pista de atletismo |
+| 8 | Trigonometría | s08-8primaria | Seno, coseno, tangente | Construir una escalera con el ángulo correcto |
+| 9 | Probabilidad avanzada | s08-9primaria | Combinatoria, probabilidad condicionada | ¿Cuál es la probabilidad de sacar 2 ases seguidos? |
 
-La navegación nunca debe competir visualmente con el contenido principal.
-
----
-
-## 13. Checklist de calidad por sesión
-
-- [ ] Teoría clara y adaptada al nivel
-- [ ] Terminología apropiada a la etapa
-- [ ] Mínimo 3 ejemplos por concepto nuevo importante
-- [ ] Mínimo 5 problemas propuestos por capítulo
-- [ ] Soluciones explicadas
-- [ ] Mínimo 2 interacciones útiles por sesión
-- [ ] Visualizaciones correctas cuando el tema lo exija
-- [ ] Resumen final de fórmulas e ideas
-- [ ] Navegación funcional
-- [ ] Responsive correcto
-- [ ] Sin errores de JavaScript
-- [ ] Todo en castellano
-- [ ] Estilo visual consistente
-- [ ] Atribución: Hecho con ❤️ por David Antizar
+**Caso de uso global:** "Una pelota se lanza al aire. Su altura sigue h(t) = -5t² + 20t. ¿A qué altura máxima llega y cuándo cae al suelo?"
 
 ---
 
-## 14. Criterios de aceptación
+### NIVEL 9: Bachillerato — "El cálculo: matemáticas de cambio"
 
-Una sesión no se da por finalizada si falla en:
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Límites | s09-1primaria | lim(x→a) f(x), continuidad | ¿Qué pasa cuando algo crece sin parar? |
+| 2 | Continuidad y derivadas | s09-2primaria | Funciones continuas, concepto de derivada | Velocidad instantánea = derivada de la posición |
+| 3 | Reglas de derivación | s09-3primaria | Suma, producto, cociente, cadena | Derivar cualquier función |
+| 4 | Aplicaciones de derivadas | s09-4primaria | Máximos, mínimos, crecimiento, optimización | Maximizar beneficios, minimizar costes |
+| 5 | Integrales indefinidas | s09-5primaria | ∫f(x)dx = F(x) + C | La operación inversa de derivar |
+| 6 | Integrales definidas | s09-6primaria | ∫ₐᵇ f(x)dx = F(b) - F(a) | Calcular áreas bajo curvas |
+| 7 | Aplicaciones de integrales | s09-7primaria | Volúmenes de revolución, trabajo | Calcular el volumen de una botella |
+| 8 | Probabilidad avanzada | s09-8primaria | Bayes, combinaciones, permutaciones | Diagnóstico médico: ¿tengo la enfermedad si el test es positivo? |
+| 9 | Distribuciones combinadas | s09-9primaria | Binomial, Poisson, normal | ¿Cuántas veces saldrá cara al lanzar una moneda 100 veces? |
+| 10 | Repaso integrador | s09-10primaria | Todo lo aprendido | Problemas que combinan límites, derivadas, integrales |
 
-**Pedagogía:** contenido no adaptado, saltos bruscos, símbolos sin introducción, ejemplos sin razonamiento.
-
-**Técnica:** botones que no responden, soluciones ocultas fallan, canvas no se actualizan, diseño roto en móvil, navegación inconsistente.
-
-**Diseño:** no respeta la paleta, jerarquía visual cambiante, cajas didácticas inconsistentes, exceso de ruido visual.
-
----
-
-## 15. Estructura de archivos
-
-```
-/root/workspace/matematicas/
-├── MEGA-PLAN.md
-├── index.html
-├── s01-1-contar-0-10.html
-├── s01-2-contar-10-100.html
-├── s01-3-sumar-hasta-10.html
-├── s01-4-sumar-hasta-20.html
-├── s01-5-restar-hasta-10.html
-├── s01-6-restar-hasta-20.html
-├── s01-7-figuras-basicas.html
-├── s01-8-medidas-tamaño-peso.html
-├── s01-9-medidas-longitud.html
-├── s01-10-patrones.html
-├── s02-1-sumas-llevadas.html
-├── s02-2-restas-llevadas.html
-├── s02-3-intro-multiplicacion.html
-├── s02-4-tablas-1-5.html
-├── s02-5-tablas-6-9.html
-├── s02-6-longitud-peso.html
-├── s02-7-dinero.html
-├── s03-1-mult-dos-cifras.html
-├── s03-2-division.html
-├── s03-3-intro-fracciones.html
-├── s03-4-comparar-fracciones.html
-├── s03-5-perimetro.html
-├── s03-6-estadistica.html
-├── s04-1-fracciones-equivalentes.html
-├── s04-2-suma-resta-fracciones.html
-├── s04-3-mult-div-fracciones.html
-├── s04-4-decimales.html
-├── s04-5-porcentajes.html
-├── s04-6-areas.html
-├── s05-5primaria.html
-├── s06-6primaria.html
-├── s07-1eso.html
-├── s08-2-3eso.html
-├── s09-4eso-bachiller.html
-├── s10-1carrera.html
-└── s11-auditoria.html
-```
+**Caso de uso global:** "Una empresa quiere minimizar el coste de producción. El coste es C(x) = x³ - 6x² + 15x. ¿Cuántas unidades debe producir?" → C'(x) = 0 → x = 2
 
 ---
 
-## 16. Secuencia de ejecución
+### NIVEL 10: Universidad 1º — "Matemáticas del mundo real"
 
-**Fase 1 — Base del sistema:** página principal, navegación global, sistema visual, plantilla base.
+| # | Tema | Sesión | ¿Qué se aprende? | Caso de uso real |
+|---|------|--------|------------------|------------------|
+| 1 | Límites multivariable | s10-1primaria | Límites en R², trayectorias | ¿Qué pasa cuando dos variables cambian a la vez? |
+| 2 | Derivadas parciales | s10-2primaria | ∂f/∂x, ∂f/∂y, gradiente | Optimización con múltiples variables |
+| 3 | Integrales múltiples | s10-3primaria | Dobles y triples | Calcular volúmenes de objetos 3D |
+| 4 | EDOs primer orden | s10-4primaria | Separables, lineales, exactas | Crecimiento poblacional, enfriamiento de Newton |
+| 5 | EDOs segundo orden | s10-5primaria | Lineales con coef. constantes | Oscilaciones, resortes, circuitos RLC |
+| 6 | Series de Fourier | s10-6primaria | Descomponer funciones en senos/cosenos | Compresión de audio, procesamiento de señales |
+| 7 | Espacios vectoriales | s10-7primaria | Vectores, bases, dimensión | Gráficos 3D, machine learning |
+| 8 | Autovalores | s10-8primaria | Eigenvalores y eigenvectores | Google PageRank, análisis de datos |
+| 9 | Transformaciones lineales | s10-9primaria | Rotaciones, escalados, proyecciones | Gráficos por ordenador, compresión de imágenes |
+| 10 | Repaso integrador | s10-10primaria | Todo lo aprendido | Problemas que combinan cálculo, álgebra lineal, EDOs |
 
-**Fase 2 — Producción curricular:** S01 a S10 en orden, revisando diseño, claridad, interactividad, responsive y consistencia.
-
-**Fase 3 — Auditoría:** S11, detección de errores, corrección, congelación de versión maestra.
-
----
-
-## 17. Normas de no desviación
-
-Queda explícitamente fuera del sistema:
-- Modo oscuro.
-- Estética recargada o experimental.
-- Interactividad sin valor didáctico.
-- Lenguaje técnico no explicado.
-- Páginas incoherentes con el nivel.
-- Capítulos sin práctica ni cierre.
-- Diseño inconsistente entre sesiones.
+**Caso de uso global:** "Un resorte se estira y suelta. Su movimiento sigue x'' + 4x = 0. ¿Cómo se mueve el resorte a lo largo del tiempo?" → x(t) = A·cos(2t) + B·sen(2t)
 
 ---
 
-## 18. Definición final del producto
+## 📊 Estadística y Probabilidad (Transversal)
 
-Un sistema educativo digital **unificado, progresivo, navegable, visualmente coherente y técnicamente estable**, capaz de acompañar al estudiante desde las matemáticas elementales hasta el inicio universitario.
+Esta sección se puede estudiar en cualquier momento, desde 4º Primaria hasta Bachiller:
+
+| Nivel | Tema | Sesión | ¿Qué se aprende? |
+|-------|------|--------|------------------|
+| 4º Primaria | Conceptos básicos | s04-1primaria | Población, muestra, variables |
+| 4º Primaria | Distribuciones | s04-2primaria | Tablas de frecuencia, gráficos |
+| 4º Primaria | Tendencia central | s04-3primaria | Media, mediana, moda |
+| 4º Primaria | Dispersión | s04-4primaria | Rango, varianza, desviación típica |
+| 5º Primaria | Estadística avanzada | s05-8primaria | Gráficos, interpretación |
+| 6º Primaria | Probabilidad intro | s06-9primaria | Regla de Laplace |
+| ESO | Probabilidad | s08-9primaria | Combinatoria, condicionada |
+| Bachiller | Probabilidad avanzada | s09-8primaria | Bayes, distribuciones |
+| Bachiller | Distribuciones | s09-9primaria | Binomial, Poisson, normal |
+| Bachiller | Hipótesis | s04-9primaria | Contraste de hipótesis |
 
 ---
 
-**Versión:** 2.0  
-**Fecha:** 2026-06-08  
-**Estado:** Documento maestro de producción  
-**Autoría:** Hecho con ❤️ por David Antizar
+## 🎯 Principios de Diseño Pedagógico
+
+### 1. Intuición antes de formalismo
+Cada concepto empieza con un ejemplo de la vida real. No se introduce una fórmula sin antes entender qué significa.
+
+### 2. Visualización siempre
+Cada concepto importante tiene un gráfico interactivo. No se habla de una función sin mostrar su gráfica. No se habla de una integral sin mostrar el área bajo la curva.
+
+### 3. Práctica con feedback inmediato
+Ejercicios interactivos donde el usuario escribe la respuesta y recibe feedback al instante. No se puede avanzar sin practicar.
+
+### 4. Progresión suave
+Cada sesión construye sobre la anterior. No se salta de sumar a derivar sin pasar por todos los pasos intermedios.
+
+### 5. Conexiones entre niveles
+Cuando se introduce algo nuevo, se recuerda lo aprendido antes. "Esto es como cuando aprendiste a sumar, pero ahora con letras."
+
+### 6. Casos de uso reales
+Cada concepto tiene un ejemplo de "¿Dónde encuentro esto en la vida real?" para que el estudiante entienda por qué le importa.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+- **KaTeX** (CDN) → Fórmulas LaTeX bonitas en el navegador
+- **Plotly.js** (CDN) → Gráficos interactivos (líneas,散点, histogramas, 3D)
+- **CSS puro** → Sin frameworks, rápido y ligero
+- **Vanilla JS** → Sin dependencias, funciona offline
+- **Responsive** → Funciona en móvil, tablet y escritorio
+
+---
+
+## 📋 Plan de Implementación por Fases
+
+### Fase 1: Plantilla base
+- KaTeX + Plotly.js en todas las sesiones
+- Progreso scroll
+- Clases de cajas (teoría, ejemplo, error, idea, éxito)
+- Ejercicios interactivos con inputs
+- Tablas estilizadas
+- Responsive
+
+### Fase 2: Primarias (s01-s03)
+- Sumar, restar, multiplicar, dividir con visualización
+- Canvas para contar objetos
+- Ejercicios con emojis
+- Sin LaTeX necesario (texto simple)
+
+### Fase 3: 4º Primaria
+- Fracciones con gráficos visuales
+- Decimales con recta numérica interactiva
+- Porcentajes con barras de progreso
+- Áreas con gráficos interactivos
+
+### Fase 4: 5º-6º Primaria
+- Proporcionalidad con gráficos de líneas
+- Álgebra intro con ejercicios interactivos
+- Números negativos con recta numérica
+- Potencias y raíces con visualizaciones
+
+### Fase 5: ESO
+- Ecuaciones con gráficos de funciones
+- Funciones con Plotly interactivo
+- Trigonometría con gráficos de seno/coseno
+- Sistemas de ecuaciones con intersecciones
+
+### Fase 6: Bachiller
+- **Límites**: gráficos de funciones con zoom
+- **Derivadas**: visualización de la pendiente en cada punto
+- **Integrales**: área bajo la curva con relleno
+- **Probabilidad**: histogramas y distribuciones interactivas
+
+### Fase 7: Carrera
+- **Multivariable**: gráficos 3D con Plotly
+- **Álgebra lineal**: transformaciones visuales
+- **EDOs**: soluciones con animaciones
+- **Fourier**: descomposición de señales
+
+### Fase 8: INDEX.html
+- Actualizado con todo el plan
+- Navegación clara entre niveles
+- Indicador de progreso del curso
+
+---
+
+## 🚀 Criterio de "Hecho"
+
+Una sesión está "hecha" cuando:
+
+1. ✅ Tiene KaTeX para fórmulas LaTeX
+2. ✅ Tiene al menos 1 gráfico interactivo con Plotly.js
+3. ✅ Tiene al menos 3 ejercicios interactivos con feedback
+4. ✅ Tiene un caso de uso real explicado
+5. ✅ Tiene resumen final con los puntos clave
+6. ✅ Tiene navegación Anterior/Siguiente
+7. ✅ Tiene atribución "Hecho con ❤️ por David Antizar"
+8. ✅ Funciona en móvil y escritorio
+9. ✅ El contenido matemático es correcto y claro
+10. ✅ La intuición viene antes que la fórmula

@@ -3,81 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrera - Sesion 3: Integrales multiples</title>
+<title>∫ 1º Carrera — Sesión 3: Integrales Múltiples | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
-.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
-.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.chapter-title{font-size:1.3rem;color:#6366f1;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid #e0e7ff}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
-.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-teoria{background:#e0e7ff;border-color:#6366f1}
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
 .nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary{background:#e0e7ff;border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#6366f1;margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:#6366f1;margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:#6366f1;color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#4f46e5}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:#6366f1}
+.exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
-table th{background:var(--azul-claro);font-weight:600}
+table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
   <div style="padding: 0.75rem 1.5rem;">
-    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #6366f1; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>1 Carrera - Sesion 3</h1>
-<p>Integrales multiples</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>∫ 1º Carrera — Sesión 3: Integrales Múltiples</h1>
+  <p>Integrales dobles y triples: calcular volúmenes y masas</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
-<div class="chapter"><h2 class="chapter-title">1. Integral Doble</h2><div class="box box-teoria"><strong>Integral doble sobre region R:</strong><div class="formula">int int_R f(x,y) dA</div><p>Calcula volumen bajo z=f(x,y) sobre R.</p></div><div class="box box-teoria"><strong>Teorema de Fubini:</strong><div class="formula">int_a^b int_c^d f(x,y) dy dx = int_c^d int_a^b f(x,y) dx dy</div></div></div>
-<div class="chapter"><h2 class="chapter-title">2. Calculo de Integrales Dobles</h2><div class="box box-teoria"><strong>Region tipo I (vertical):</strong> a <= x <= b, g1(x) <= y <= g2(x)</div><div class="formula">int int_R f dA = int_a^b int_{g1(x)}^{g2(x)} f(x,y) dy dx</div></div><div class="box box-teoria"><strong>Region tipo II (horizontal):</strong> c <= y <= d, h1(y) <= x <= h2(y)</div><div class="formula">int int_R f dA = int_c^d int_{h1(y)}^{h2(y)} f(x,y) dx dy</div></div><div class="box box-ejemplo"><strong>Ejemplo:</strong> int_0^1 int_0^2 (x + y) dy dx</p><p style="margin-top:.5rem">= int_0^1 [xy + y^2/2]_0^2 dx = int_0^1 (2x + 2) dx = [x^2 + 2x]_0^1 = 3</p></div></div>
-<div class="chapter"><h2 class="chapter-title">3. Cambio de Variable</h2><div class="box box-teoria"><strong>Jacobiano:</strong><div class="formula">J = det(d(x,y)/d(u,v)) = |x_u  x_v| / |y_u  y_v|</div></div><div class="box box-teoria"><strong>Formula:</strong><div class="formula">int int_R f(x,y) dx dy = int int_S f(x(u,v), y(u,v)) * |J| du dv</div></div><div class="box box-teoria"><strong>Coordenadas polares:</strong> dx dy = r dr dtheta</div><div class="formula">int int_R f(x,y) dx dy = int int_S f(r cos t, r sin t) * r dr dt</div></div></div>
-<div class="chapter"><h2 class="chapter-title">4. Triple Integral</h2><div class="box box-teoria"><strong>Volume en R^3:</strong><div class="formula">int int int_R f(x,y,z) dV</div></div><div class="box box-teoria"><strong>Coordenadas cilindricas:</strong> x=r cos t, y=r sin t, z=z</div><div class="formula">dV = r dr dt dz</div></div><div class="box box-teoria"><strong>Coordenadas esfericas:</strong> x=r sin p cos t, y=r sin p sin t, z=r cos p</div><div class="formula">dV = r^2 sin p dr dt dp</div></div></div>
-<div class="chapter"><h2 class="chapter-title">5. Aplicaciones</h2><div class="box box-teoria"><strong>Masa:</strong> M = int int_R r(x,y) dA</div><div class="box box-teoria"><strong>Centro de masas:</strong> x_bar = M_y/M, y_bar = M_x/M</div><div class="box box-teoria"><strong>Probabilidad conjunta:</strong> P((X,Y) en R) = int int_R f(x,y) dx dy</div><div class="box box-ejemplo"><strong>Ejemplo:</strong> Calcular volumen del cilindro x^2+y^2<=4, 0<=z<=3</p><p style="margin-top:.5rem">V = int_0^{2pi} int_0^2 3r dr dt = 2pi * 3 * 2 = 12pi</p></div></div>
-<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> int_0^1 int_0^1 (x+y) dy dx = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">1</button><button class="quiz-btn" onclick="checkExercise(this, false)">2</button><button class="quiz-btn" onclick="checkExercise(this, false)">1/2</button><button class="quiz-btn" onclick="checkExercise(this, false)">3</button></div></div><div class="exercise"><p><strong>2.</strong> Jacobiano de coordenadas polares:</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">r</button><button class="quiz-btn" onclick="checkExercise(this, false)">1</button><button class="quiz-btn" onclick="checkExercise(this, false)">r^2</button><button class="quiz-btn" onclick="checkExercise(this, false)">2pi*r</button></div></div><div class="exercise"><p><strong>3.</strong> int_0^{2pi} int_0^1 r dr dt = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">pi</button><button class="quiz-btn" onclick="checkExercise(this, false)">2pi</button><button class="quiz-btn" onclick="checkExercise(this, false)">pi/2</button><button class="quiz-btn" onclick="checkExercise(this, false)">1</button></div></div></div></div>
-<div class="summary"><h3>Resumen</h3><ul><li>Integral doble: Fubini permite calcular por iteradas</li>
-<li>Cambio de variable: Jacobiano |J|</li>
-<li>Coordenadas polares: dx dy = r dr dt</li>
-<li>Triple integral y coordenadas cilindricas/esfericas</li>
-<li>Aplicaciones: volumen, masa, probabilidad conjunta</li>
-</ul></div>
-<div class="nav"><a href="s10-2-carrera-derivadas-parciales.html">Anterior</a>
-<a href="s10-4-carrera-edos-primer-orden.html">Siguiente</a>
-</div></div>
-<div class="footer">Hecho con corazon por David Antizar</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Calcular integrales dobles y triples</li>
+<li>Interpretar la integral doble como un volumen</li>
+<li>Aplicar el teorema de Fubini</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro integrales múltiples?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Masa de una placa</strong>
+<p>Si una placa tiene densidad variable $\rho(x,y)$, su masa total es $M = \iint_D \rho(x,y)\,dA$.</p>
+<p>¡Es exactamente lo mismo que sumar todas las masas elementales!</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Integrales Dobles</h2>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$\iint_D f(x,y)\,dA = \int_a^b \int_c^d f(x,y)\,dy\,dx$$
+</div>
+
+<!-- GRÁFICO: Integral doble -->
+<div class="chart-container">
+<h3>📊 La integral doble calcula el volumen bajo una superficie</h3>
+<p class="chart-desc">Observa cómo el volumen bajo $z = x^2 + y^2$ sobre un cuadrado.</p>
+<div id="plot-doble" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> Calcula $\int_0^1 \int_0^2 (x + y)\,dy\,dx$</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?" step="any">
+<button onclick="checkExercise(1, 3)">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen</h3>
+<ul>
+<li>La integral doble calcula volúmenes: $V = \iint_D f(x,y)\,dA$</li>
+<li>Fubini: integrar una variable a la vez</li>
+<li>La integral triple calcula masas y volúmenes 3D</li>
+<li>Aplicaciones: física, ingeniería, probabilidad multivariable</li>
+</ul>
+</div>
+
+<div class="nav">
+  <a href="s10-2-carrera-derivadas-parciales.html">← Anterior</a>
+  <a href="s10-4-carrera-edos-primer-orden.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() { var h = document.documentElement; var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100; document.getElementById('progress').style.width = p+'%'; };
-</script>
-</body></html>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+});
+<\/script>
+</body>
+</html>

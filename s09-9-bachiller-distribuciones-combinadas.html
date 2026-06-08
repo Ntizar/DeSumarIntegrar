@@ -3,27 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bachiller - Sesion 9: Distribuciones combinadas</title>
+<title>📊 Bachillerato — Sesión 9: Distribuciones Combinadas | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
 .header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
 .chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
 .box-teoria{background:var(--azul-claro);border-color:var(--azul)}
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -32,18 +37,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
@@ -51,33 +76,115 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>Bachillerato - Sesion 9</h1>
-<p>Distribuciones combinadas</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>📊 Bachillerato — Sesión 9: Distribuciones Combinadas</h1>
+  <p>Binomial, Poisson y distribución normal</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
-<div class="chapter"><h2 class="chapter-title">1. Variables Aleatorias Conjuntas</h2><div class="box box-teoria"><strong>Distribucion conjunta de X e Y:</strong><div class="formula">P(X=x, Y=y) = p(x,y)</div><p>Tabla de probabilidades conjuntas.</p></div><div class="box box-teoria"><strong>Funcion de densidad conjunta (continua):</strong><div class="formula">P((X,Y) en A) = int int_A f(x,y) dx dy</div></div></div>
-<div class="chapter"><h2 class="chapter-title">2. Independencia</h2><div class="box box-teoria"><strong>X e Y son independientes si:</strong><div class="formula">P(X int Y) = P(X) * P(Y)</div><p>o f(x,y) = f_X(x) * f_Y(y)</p></div><div class="box box-teoria"><strong>Propiedad clave:</strong><p>Si X, Y independientes: E[XY] = E[X]*E[Y] y Var(X+Y) = Var(X) + Var(Y)</p></div></div>
-<div class="chapter"><h2 class="chapter-title">3. Covarianza y Correlacion</h2><div class="box box-teoria"><strong>Covarianza:</strong><div class="formula">Cov(X,Y) = E[XY] - E[X]*E[Y]</div></div><div class="box box-teoria"><strong>Coeficiente de correlacion:</strong><div class="formula">rho = Cov(X,Y) / (sigma_X * sigma_Y)</div><p>rho en [-1, 1]. rho=0 = sin correlacion lineal (no necesariamente independientes).</p></div><div class="box box-ejemplo"><strong>Ejemplo:</strong><p style="margin-top:.5rem">X = rendimiento de activo A, Y = rendimiento de activo B</p><p style="margin-top:.5rem">rho = 0.8 --> alta correlacion positiva (se mueven juntos)</p><p style="margin-top:.5rem">rho = -0.3 --> correlacion negativa debil</p><p style="margin-top:.5rem">rho = 0 --> sin correlacion lineal</p></div></div>
-<div class="chapter"><h2 class="chapter-title">4. Combinacion de Variables</h2><div class="box box-teoria"><strong>Suma de variables:</strong><div class="formula">E[X+Y] = E[X] + E[Y]</div><div class="formula">Var(X+Y) = Var(X) + Var(Y) + 2*Cov(X,Y)</div></div><div class="box box-teoria"><strong>Si X, Y independientes:</strong><div class="formula">Var(X+Y) = Var(X) + Var(Y)</div></div><div class="box box-ejemplo"><strong>Ejemplo portafolio:</strong><p style="margin-top:.5rem">Invertir en 2 activos: X ~ N(10%, 4%), Y ~ N(8%, 9%)</p><p style="margin-top:.5rem">Portafolio 50/50: Z = 0.5X + 0.5Y</p><p style="margin-top:.5rem">E[Z] = 0.5*10 + 0.5*8 = 9%</p><p style="margin-top:.5rem">Var(Z) = 0.25*4 + 0.25*9 = 3.25 (si independientes)</p><p style="margin-top:.5rem">sigma_Z = sqrt(3.25) ~ 1.8%</p></div></div>
-<div class="chapter"><h2 class="chapter-title">5. Distribuciones Notables Combinadas</h2><table><tr><th>Combinacion</th><th>Resultado</th></tr><tr><td>X, Y ~ N(m,s^2) independientes</td><td>X+Y ~ N(m_X+m_Y, s_X^2+s_Y^2)</td></tr><tr><td>X ~ B(n1,p), Y ~ B(n2,p) indep.</td><td>X+Y ~ B(n1+n2, p)</td></tr><tr><td>X ~ Pois(l1), Y ~ Pois(l2) indep.</td><td>X+Y ~ Pois(l1+l2)</td></tr><tr><td>X ~ Exp(l)</td><td>a*X ~ Exp(l/a)</td></tr></table></div>
-<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> Si X, Y indep, E[X]=3, E[Y]=5, E[XY] = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">15</button><button class="quiz-btn" onclick="checkExercise(this, false)">8</button><button class="quiz-btn" onclick="checkExercise(this, false)">2</button><button class="quiz-btn" onclick="checkExercise(this, false)">11</button></div></div><div class="exercise"><p><strong>2.</strong> Cov(X,Y) = 4, sigma_X=2, sigma_Y=3. rho = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">2/3</button><button class="quiz-btn" onclick="checkExercise(this, false)">4</button><button class="quiz-btn" onclick="checkExercise(this, false)">1</button><button class="quiz-btn" onclick="checkExercise(this, false)">6</button></div></div><div class="exercise"><p><strong>3.</strong> X ~ Pois(3), Y ~ Pois(5) independientes. X+Y ~ ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">Pois(8)</button><button class="quiz-btn" onclick="checkExercise(this, false)">Pois(2)</button><button class="quiz-btn" onclick="checkExercise(this, false)">Pois(15)</button><button class="quiz-btn" onclick="checkExercise(this, false)">B(8, p)</button></div></div></div></div>
-<div class="summary"><h3>Resumen</h3><ul><li>Variables conjuntas: p(x,y) y f(x,y)</li>
-<li>Independencia: P(A int B) = P(A)*P(B)</li>
-<li>Covarianza y correlacion: rho = Cov/(s_X*s_Y)</li>
-<li>Suma de variables: Var(X+Y) = Var(X)+Var(Y)+2Cov(X,Y)</li>
-<li>Combinaciones notables: Normal+Normal=Normal, Poisson+Poisson=Poisson</li>
-</ul></div>
-<div class="nav"><a href="s09-8-bachiller-probabilidad-avanzada.html">Anterior</a>
-<a href="s09-bachiller.html">Siguiente</a>
-</div></div>
-<div class="footer">Hecho con corazon por David Antizar</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Identificar cuándo usar cada distribución</li>
+<li>Calcular probabilidades con la binomial, Poisson y normal</li>
+<li>Entender la relación entre las tres distribuciones</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro estas distribuciones?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Control de calidad</strong>
+<p>Una fábrica produce tornillos con un 2% de defectuosos. Si seleccionas 100 tornillos, ¿cuántos esperarías que sean defectuosos?</p>
+<p>Binomial: $X \sim B(100, 0.02)$ → Espera $np = 2$ defectuosos.</p>
+<p>¿Y si la fábrica produce 1000 tornillos al día? Poisson: $X \sim P(\lambda = 20)$ defectuosos/día.</p>
+<p>¿Y si quieres saber la probabilidad de que entre 18 y 22 sean defectuosos? Normal: $X \sim N(20, \sqrt{19.6})$.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Las Tres Distribuciones</h2>
+
+<div class="box box-teoria">
+<strong>📌 Distribución Binomial $B(n, p)$:</strong>
+<p style="margin-top:.5rem">Número de éxitos en $n$ ensayos independientes con probabilidad $p$.</p>
+$$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+<p style="margin-top:.5rem"><strong>Distribución de Poisson $P(\lambda)$:</strong></p>
+$$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
+<p style="margin-top:.5rem"><strong>Distribución Normal $N(\mu, \sigma)$:</strong></p>
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+</div>
+
+<!-- GRÁFICO: Tres distribuciones -->
+<div class="chart-container">
+<h3>📊 Binomial, Poisson y Normal comparadas</h3>
+<p class="chart-desc">Observa cómo la normal se aproxima a la binomial cuando $n$ es grande.</p>
+<div id="plot-distribuciones" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> Si lanzas una moneda 10 veces, ¿cuál es la probabilidad de obtener exactamente 6 caras?</p>
+<p style="font-size:.85rem;color:#64748b">$P(X=6) = \binom{10}{6} (0.5)^6 (0.5)^4$</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?" step="0.001">
+<button onclick="checkExercise(1, 0.205)">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> En una ciudad llegan 3 llamadas al 911 por hora en promedio. ¿Cuál es la probabilidad de que en una hora lleguen exactamente 5?</p>
+<p style="font-size:.85rem;color:#64748b">Poisson con $\lambda = 3$</p>
+<div class="exercise-input">
+<input type="number" id="e2" placeholder="?" step="0.001">
+<button onclick="checkExercise(2, 0.1008)">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que aprendiste</h3>
+<ul>
+<li>Binomial: éxitos en $n$ ensayos → $B(n,p)$</li>
+<li>Poisson: eventos raros en un intervalo → $P(\lambda)$</li>
+<li>Normal: la campana de Gauss → $N(\mu, \sigma)$</li>
+<li>La normal aproxima a la binomial cuando $n$ es grande</li>
+<li>Aplicaciones: control de calidad, telecomunicaciones, finanzas, ciencia</li>
+</ul>
+</div>
+
+<div class="nav">
+  <a href="s09-8-bachiller-probabilidad-avanzada.html">← Anterior</a>
+  <a href="s09-10-bachiller-repaso.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() { var h = document.documentElement; var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100; document.getElementById('progress').style.width = p+'%'; };
-</script>
-</body></html>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+});
+<\/script>
+</body>
+</html>

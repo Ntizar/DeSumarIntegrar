@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bachiller - Sesion 3: Reglas de derivacion | Matematicas</title>
+<title>📝 Bachillerato — Sesión 3: Reglas de Derivación | Matemáticas</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+
+<!-- Plotly.js -->
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
-:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7;--morado-claro:#f3e8ff}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
 .header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
 .chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
@@ -21,17 +30,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-.interactive button:hover{background:#1d4ed8}
-.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-.result.ok{background:var(--verde-claro);color:#065f46}
-.result.fail{background:var(--rojo-claro);color:#991b1b}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -40,18 +40,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
@@ -59,219 +79,176 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>Bachillerato - Sesion 3</h1>
-<p>Reglas de derivacion</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>📝 Bachillerato — Sesión 3: Reglas de Derivación</h1>
+  <p>Suma, producto, cociente y la regla de la cadena</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
+
 <div class="chapter">
-<h2 class="chapter-title">Objetivos</h2>
+<h2 class="chapter-title">🎯 Objetivos</h2>
 <div class="box box-teoria">
-<strong>Al final de esta sesion seras capaz de:</strong>
+<strong>Al final de esta sesión serás capaz de:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Aplicar las reglas basicas de derivacion (suma, producto, cociente)</li>
-<li>Derivar funciones compuestas usando la regla de la cadena</li>
-<li>Derivar funciones exponenciales, logaritmicas y trigonometricas</li>
-<li>Calcular derivadas de orden superior</li>
+<li>Derivar sumas, restas, productos y cocientes</li>
+<li>Aplicar la regla de la cadena</li>
+<li>Derivar funciones compuestas con confianza</li>
+<li>Derivar funciones trigonométricas, exponenciales y logarítmicas</li>
 </ul>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">1. Reglas Basicas de Derivacion</h2>
-
-<div class="box box-teoria">
-<strong>Reglas fundamentales:</strong>
-<table>
-<tr><th>Funcion</th><th>Derivada</th></tr>
-<tr><td>f(x) = c (constante)</td><td>f'(x) = 0</td></tr>
-<tr><td>f(x) = x^n</td><td>f'(x) = n * x^(n-1) (regla de la potencia)</td></tr>
-<tr><td>f(x) = c * g(x)</td><td>f'(x) = c * g'(x) (constante por funcion)</td></tr>
-<tr><td>f(x) = g(x) + h(x)</td><td>f'(x) = g'(x) + h'(x) (suma)</td></tr>
-<tr><td>f(x) = g(x) - h(x)</td><td>f'(x) = g'(x) - h'(x) (resta)</td></tr>
-<tr><td>f(x) = g(x) * h(x)</td><td>f'(x) = g'(x) * h(x) + g(x) * h'(x) (producto)</td></tr>
-<tr><td>f(x) = g(x) / h(x)</td><td>f'(x) = [g'(x) * h(x) - g(x) * h'(x)] / h(x)^2 (cociente)</td></tr>
-</table>
+<h2 class="chapter-title">🌍 ¿Dónde encuentro las reglas de derivación?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Optimización de recursos</strong>
+<p>Una fábrica quiere maximizar sus beneficios. El beneficio depende de la cantidad producida: $B(x) = -x^2 + 20x - 50$. ¿Cuántas unidades debe producir?</p>
+<p>La respuesta está en derivar: $B'(x) = -2x + 20 = 0$ → $x = 10$ unidades.</p>
+</div>
 </div>
 
-<div class="box box-ejemplo">
-<strong>Ejemplos:</strong>
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Reglas Básicas de Derivación</h2>
+
+<div class="box box-teoria">
+<strong>📌 Reglas fundamentales:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>f(x) = 3x^4 --> f'(x) = 12x^3</li>
-<li>f(x) = 2x^3 - 5x^2 + 3x - 7 --> f'(x) = 6x^2 - 10x + 3</li>
-<li>f(x) = x^2 * e^x --> f'(x) = 2x*e^x + x^2*e^x = e^x(2x + x^2)</li>
-</ul>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">2. Regla de la Cadena</h2>
-<p>La regla de la cadena permite derivar funciones compuestas: f(g(x)).</p>
-
-<div class="formula">
-d/dx [f(g(x))] = f'(g(x)) * g'(x)
-</div>
-
-<div class="box box-teoria">
-<strong>Pasos para aplicar la regla de la cadena:</strong>
-<ol style="padding-left:1.2rem;margin-top:.5rem">
-<li>Identificar la funcion exterior f(u) y la interior u = g(x)</li>
-<li>Derivar la exterior respecto a u: f'(u)</li>
-<li>Derivar la interior respecto a x: g'(x)</li>
-<li>Multiplicar: f'(g(x)) * g'(x)</li>
-</ol>
-</div>
-
-<div class="box box-ejemplo">
-<strong>Ejemplo 1:</strong>
-<p style="margin-top:.5rem">f(x) = (3x + 1)^5</p>
-<p style="margin-top:.5rem">Funcion exterior: u^5 --> derivada: 5u^4</p>
-<p style="margin-top:.5rem">Funcion interior: 3x + 1 --> derivada: 3</p>
-<p style="margin-top:.5rem">f'(x) = 5(3x + 1)^4 * 3 = 15(3x + 1)^4</p>
-</div>
-
-<div class="box box-ejemplo">
-<strong>Ejemplo 2:</strong>
-<p style="margin-top:.5rem">f(x) = sin(x^2)</p>
-<p style="margin-top:.5rem">f'(x) = cos(x^2) * 2x = 2x*cos(x^2)</p>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">3. Derivadas de Funciones Especiales</h2>
-
-<h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Exponenciales y Logaritmos</h3>
-<table>
-<tr><th>Funcion</th><th>Derivada</th></tr>
-<tr><td>f(x) = e^x</td><td>f'(x) = e^x</td></tr>
-<tr><td>f(x) = a^x</td><td>f'(x) = a^x * ln(a)</td></tr>
-<tr><td>f(x) = ln(x)</td><td>f'(x) = 1/x</td></tr>
-<tr><td>f(x) = log_a(x)</td><td>f'(x) = 1/(x * ln(a))</td></tr>
-<tr><td>f(x) = ln(g(x))</td><td>f'(x) = g'(x)/g(x)</td></tr>
-</table>
-
-<h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Trigonometricas</h3>
-<table>
-<tr><th>Funcion</th><th>Derivada</th></tr>
-<tr><td>f(x) = sin(x)</td><td>f'(x) = cos(x)</td></tr>
-<tr><td>f(x) = cos(x)</td><td>f'(x) = -sin(x)</td></tr>
-<tr><td>f(x) = tan(x)</td><td>f'(x) = sec^2(x) = 1/cos^2(x)</td></tr>
-<tr><td>f(x) = arcsin(x)</td><td>f'(x) = 1/sqrt(1-x^2)</td></tr>
-</table>
-
-<div class="box box-ejemplo">
-<strong>Ejemplo:</strong>
-<p style="margin-top:.5rem">f(x) = e^x * sin(x)</p>
-<p style="margin-top:.5rem">Usamos producto: f'(x) = e^x * sin(x) + e^x * cos(x) = e^x(sin(x) + cos(x))</p>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">4. Derivadas de Orden Superior</h2>
-<p>Podemos derivar varias veces. La segunda derivada f''(x) es la derivada de f'(x).</p>
-
-<div class="box box-teoria">
-<strong>Interpretacion fisica:</strong>
-<ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>s(t) --> posicion</li>
-<li>s'(t) = v(t) --> velocidad (1a derivada)</li>
-<li>s''(t) = a(t) --> aceleracion (2a derivada)</li>
-<li>s'''(t) --> jerk (3a derivada, cambio de aceleracion)</li>
+<li><strong>Constante:</strong> $\frac{d}{dx}[c] = 0$</li>
+<li><strong>Potencia:</strong> $\frac{d}{dx}[x^n] = nx^{n-1}$</li>
+<li><strong>Suma:</strong> $\frac{d}{dx}[f + g] = f' + g'$</li>
+<li><strong>Producto:</strong> $\frac{d}{dx}[f \cdot g] = f'g + fg'$</li>
+<li><strong>Cociente:</strong> $\frac{d}{dx}\left[\frac{f}{g}\right] = \frac{f'g - fg'}{g^2}$</li>
+<li><strong>Constante × función:</strong> $\frac{d}{dx}[c \cdot f] = c \cdot f'$</li>
 </ul>
 </div>
 
-<div class="box box-ejemplo">
-<strong>Ejemplo:</strong>
-<p style="margin-top:.5rem">f(x) = x^4 - 3x^3 + 2x^2 - x + 5</p>
-<p style="margin-top:.5rem">f'(x) = 4x^3 - 9x^2 + 4x - 1</p>
-<p style="margin-top:.5rem">f''(x) = 12x^2 - 18x + 4</p>
-<p style="margin-top:.5rem">f'''(x) = 24x - 18</p>
-<p style="margin-top:.5rem">f^(4)(x) = 24</p>
+<!-- GRÁFICO: Regla de la potencia -->
+<div class="chart-container">
+<h3>📊 Visualiza la regla de la potencia: $f(x) = x^n$ y su derivada</h3>
+<p class="chart-desc">Observa cómo la derivada de $x^n$ es $nx^{n-1}$. Cambia el valor de $n$.</p>
+<div id="plot-regla-potencia" class="chart-plot"></div>
+<div class="chart-controls">
+<button onclick="setPotencia(1)">n=1 (constante)</button>
+<button onclick="setPotencia(2)">n=2 (parábola)</button>
+<button onclick="setPotencia(3)">n=3 (cúbica)</button>
+<button onclick="setPotencia(-1)">n=-1 (hipérbola)</button>
+</div>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">Ejercicios</h2>
-<div class="exercises">
-<div class="exercise">
-<p><strong>1.</strong> f(x) = 5x^3 - 2x^2 + 7x - 3. Cual es f'(x)?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">15x^2 - 4x + 7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">15x^2 - 4x + 3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5x^2 - 2x + 7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">15x^3 - 2x^2 + 7x</button>
+<h2 class="chapter-title">2️⃣ Regla de la Cadena</h2>
+<p>La regla de la cadena es la más importante. Se usa cuando una función está "dentro" de otra.</p>
+
+<div class="box box-teoria">
+<strong>📌 Regla de la cadena:</strong>
+$$\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$$
+<p style="margin-top:.5rem">O en notación más intuitiva: si $y = f(u)$ y $u = g(x)$, entonces:</p>
+$$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">Derivar $f(x) = (3x + 1)^5$</p>
+<p style="margin-top:.5rem">Identificamos: $f(u) = u^5$ donde $u = 3x + 1$</p>
+<p style="margin-top:.5rem">$f'(u) = 5u^4$ y $u' = 3$</p>
+<p style="margin-top:.5rem">$$f'(x) = 5(3x+1)^4 \cdot 3 = 15(3x+1)^4$$</p>
 </div>
 </div>
 
-<div class="exercise">
-<p><strong>2.</strong> f(x) = (2x + 1)^3. Cual es f'(x)?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">3(2x + 1)^2</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">6(2x + 1)^2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3(2x + 1)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6(2x + 1)^3</button>
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Derivadas de Funciones Especiales</h2>
+
+<div class="box box-teoria">
+<strong>📌 Derivadas que debes saber:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>$\frac{d}{dx}[\sin(x)] = \cos(x)$</li>
+<li>$\frac{d}{dx}[\cos(x)] = -\sin(x)$</li>
+<li>$\frac{d}{dx}[e^x] = e^x$ (¡la única función que es su propia derivada!)</li>
+<li>$\frac{d}{dx}[\ln(x)] = \frac{1}{x}$</li>
+<li>$\frac{d}{dx}[a^x] = a^x \ln(a)$</li>
+</ul>
+</div>
+
+<!-- GRÁFICO: Derivadas trigonométricas -->
+<div class="chart-container">
+<h3>📊 Derivadas de funciones trigonométricas</h3>
+<p class="chart-desc">Observa que la derivada de $\sin(x)$ es $\cos(x)$, y la derivada de $\cos(x)$ es $-\sin(x)$.</p>
+<div id="plot-trig" class="chart-plot"></div>
 </div>
 </div>
 
+<div class="chapter">
+<h2 class="chapter-title">4️⃣ Ejercicios Interactivos</h2>
+
 <div class="exercise">
-<p><strong>3.</strong> f(x) = ln(x^2 + 1). Cual es f'(x)?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/(x^2 + 1)</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">2x/(x^2 + 1)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/(x^2 + 1)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">ln(2x)/(x^2 + 1)</button>
+<p><strong>Ejercicio 1:</strong> Deriva $f(x) = 3x^2 + 2x - 5$</p>
+<p style="font-size:.85rem;color:#64748b">Aplica la regla de la potencia a cada término.</p>
+<div class="exercise-input">
+<input type="text" id="e1" placeholder="f'(x) = " style="width:200px">
+<button onclick="checkE1()">Comprobar</button>
 </div>
+<div class="feedback" id="e1-fb"></div>
 </div>
 
 <div class="exercise">
-<p><strong>4.</strong> f(x) = sin(3x). Cual es f'(x)?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">cos(3x)</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">3cos(3x)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3sin(3x)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">-3cos(3x)</button>
+<p><strong>Ejercicio 2:</strong> Deriva $f(x) = (2x + 3)^4$ usando la regla de la cadena.</p>
+<p style="font-size:.85rem;color:#64748b">$f'(x) = 4(2x+3)^3 \cdot 2 = ?$</p>
+<div class="exercise-input">
+<input type="text" id="e2" placeholder="f'(x) = " style="width:200px">
+<button onclick="checkE2()">Comprobar</button>
 </div>
+<div class="feedback" id="e2-fb"></div>
 </div>
+
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> ¿Cuál es la derivada de $e^x$?</p>
+<div class="exercise-input">
+<input type="text" id="e3" placeholder="f'(x) = " style="width:200px">
+<button onclick="checkE3()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
 </div>
 </div>
 
 <div class="summary">
-<h3>Resumen de lo aprendido</h3>
+<h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li><strong>Regla de la potencia:</strong> d/dx [x^n] = n * x^(n-1)</li>
-<li><strong>Producto:</strong> (gh)' = g'h + gh'</li>
-<li><strong>Cociente:</strong> (g/h)' = (g'h - gh')/h^2</li>
-<li><strong>Regla de la cadena:</strong> d/dx [f(g(x))] = f'(g(x)) * g'(x)</li>
-<li><strong>Exponenciales:</strong> d/dx [e^x] = e^x, d/dx [a^x] = a^x * ln(a)</li>
-<li><strong>Logaritmos:</strong> d/dx [ln(x)] = 1/x</li>
-<li><strong>Trigonometricas:</strong> d/dx [sin(x)] = cos(x), d/dx [cos(x)] = -sin(x)</li>
-<li>La <strong>segunda derivada</strong> f'' mide la concavidad o la aceleracion</li>
+<li>Potencia: $\frac{d}{dx}[x^n] = nx^{n-1}$</li>
+<li>Suma: derivar cada término por separado</li>
+<li>Producto: $(fg)' = f'g + fg'$</li>
+<li>Cociente: $\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}$</li>
+<li>Regla de la cadena: $\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$</li>
+<li>$\frac{d}{dx}[e^x] = e^x$ — ¡la única función que es su propia derivada!</li>
+<li>$\frac{d}{dx}[\sin(x)] = \cos(x)$ y $\frac{d}{dx}[\cos(x)] = -\sin(x)$</li>
+<li>$\frac{d}{dx}[\ln(x)] = \frac{1}{x}$</li>
 </ul>
 </div>
 
 <div class="nav">
-<a href="s09-2-bachiller-continuidad-derivadas.html">Anterior: Continuidad y derivadas</a>
-<a href="s09-4-bachiller-aplicaciones-derivadas.html">Siguiente: Aplicaciones de derivadas</a>
+  <a href="s09-2-bachiller-continuidad-derivadas.html" style="color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px">← 2 continuidad-derivadas.html</a>
+  <a href="s09-4-bachiller-aplicaciones-derivadas.html">4 aplicaciones-derivadas →</a>
 </div>
 </div>
-
-<div class="footer">Hecho con corazon por David Antizar</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
 
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
   });
-  if(correct) { btn.classList.add('correct'); }
-  else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() {
-  var h = document.documentElement;
-  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width = p+'%';
-};
-</script>
+});
+<\/script>
 </body>
 </html>

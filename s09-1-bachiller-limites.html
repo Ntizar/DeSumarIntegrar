@@ -4,16 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bachiller — Sesión 1: Límites de funciones | Matemáticas</title>
+
+<!-- KaTeX para fórmulas LaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<!-- Plotly.js para gráficos interactivos -->
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
 <style>
-:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7;--morado-claro:#f3e8ff}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
 .header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
 .chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
@@ -21,17 +30,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-.interactive button:hover{background:#1d4ed8}
-.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-.result.ok{background:var(--verde-claro);color:#065f46}
-.result.fail{background:var(--rojo-claro);color:#991b1b}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -42,17 +42,46 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+/* KaTeX */
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+
+/* Gráficos interactivos */
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+
+/* Ejercicios interactivos */
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
+
+/* Tablas */
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
-.badge{display:inline-block;background:var(--naranja-claro);color:var(--naranja);padding:.2rem .6rem;border-radius:999px;font-size:.75rem;font-weight:600;margin-right:.5rem}
+
+/* Responsive */
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
@@ -60,11 +89,13 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>📐 Bachillerato — Sesión 1</h1>
-<p>Límites de funciones</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>📐 Bachillerato — Sesión 1: Límites de funciones</h1>
+  <p>¿Hacia dónde va una función cuando x se acerca a un valor?</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
+
+<!-- OBJETIVOS -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 Objetivos</h2>
 <div class="box box-teoria">
@@ -72,56 +103,93 @@ table tr:nth-child(even){background:#f8fafc}
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>Entender el concepto intuitivo de límite</li>
 <li>Calcular límites por sustitución directa</li>
-<li>Resolver indeterminaciones del tipo 0/0 factorizando</li>
-<li>Resolver indeterminaciones del tipo ∞/∞ dividiendo por la mayor potencia</li>
+<li>Resolver indeterminaciones del tipo $0/0$ factorizando</li>
+<li>Resolver indeterminaciones del tipo $\infty/\infty$ dividiendo por la mayor potencia</li>
 <li>Calcular límites laterales y determinar continuidad</li>
-<li>Conocer los límites notables y el número e</li>
+<li>Conocer los límites notables y el número $e$</li>
 </ul>
 </div>
 </div>
 
+<!-- CASO DE USO REAL -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ ¿Qué es un Límite?</h2>
-<p>El <strong>límite</strong> de una función f(x) cuando x tiende a a es el valor al que se acerca f(x) cuando x se aproxima a a (sin necesidad de llegar a a).</p>
-
-<div class="formula">
-lim(x→a) f(x) = L
+<h2 class="chapter-title">🌍 ¿Dónde encuentro los límites en la vida real?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Velocidad instantánea</strong>
+<p>Imagina que conduces. Tu velocímetro te muestra la <strong>velocidad en cada instante</strong>. ¿Cómo se calcula algo que cambia en cada momento?</p>
+<p>La velocidad instantánea es exactamente un límite: es la distancia recorrida dividida entre el tiempo, cuando el tiempo tiende a cero.</p>
+<p>$$v = \lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t}$$</p>
+<p>¡Eso es un límite! Y esa es exactamente la derivada, que es la base del cálculo.</p>
+</div>
 </div>
 
-<p>Significa: "cuando x se acerca a a, f(x) se acerca a L".</p>
+<!-- ¿QUÉ ES UN LÍMITE? -->
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es un Límite?</h2>
+<p>El <strong>límite</strong> de una función $f(x)$ cuando $x$ tiende a $a$ es el valor al que se acerca $f(x)$ cuando $x$ se aproxima a $a$ (sin necesidad de llegar a $a$).</p>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$\lim_{x \to a} f(x) = L$$
+</div>
+
+<p>Significa: "cuando $x$ se acerca a $a$, $f(x)$ se acerca a $L$".</p>
 
 <div class="box box-ejemplo">
 <strong>💡 Intuición:</strong>
 <p>Imagina que caminas hacia un poste. Puedes acercarte cada vez más, pero no necesitas llegar al poste para ver a qué distancia estás. El límite es "hacia dónde vas".</p>
 </div>
 
+<!-- GRÁFICO INTERACTIVO: Visualizar un límite -->
+<div class="chart-container">
+<h3>📊 Visualiza un límite: $f(x) = \frac{x^2 - 4}{x - 2}$ cuando $x \to 2$</h3>
+<p class="chart-desc">Mueve el slider para acercarte a $x = 2$. Observa hacia dónde se acerca $f(x)$.</p>
+<div id="plot-limite" class="chart-plot"></div>
+<div class="chart-controls">
+<button onclick="setLimitValue(1)">x = 1</button>
+<button onclick="setLimitValue(1.5)">x = 1.5</button>
+<button onclick="setLimitValue(1.9)">x = 1.9</button>
+<button onclick="setLimitValue(1.99)">x = 1.99</button>
+<button onclick="setLimitValue(1.999)">x = 1.999</button>
+<button onclick="setLimitValue(2.001)">x = 2.001</button>
+<button onclick="setLimitValue(2.1)">x = 2.1</button>
+<button onclick="setLimitValue(3)">x = 3</button>
+</div>
+<p style="margin-top:.8rem;font-weight:600" id="limite-result">Haz clic en un botón para ver el valor</p>
+</div>
+
 <h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Límites laterales</h3>
-<p>Podemos acercarnos por la izquierda (x → a⁻) o por la derecha (x → a⁺):</p>
+<p>Podemos acercarnos por la izquierda ($x \to a^-$) o por la derecha ($x \to a^+$):</p>
 <ul style="padding-left:1.2rem;margin:.5rem 0">
-<li><strong>lim(x→a⁻) f(x)</strong> = límite por la izquierda (x &lt; a)</li>
-<li><strong>lim(x→a⁺) f(x)</strong> = límite por la derecha (x &gt; a)</li>
+<li><strong>$\lim_{x \to a^-} f(x)$</strong> = límite por la izquierda ($x < a$)</li>
+<li><strong>$\lim_{x \to a^+} f(x)$</strong> = límite por la derecha ($x > a$)</li>
 </ul>
 
 <div class="box box-teoria">
 <strong>📌 Condición de existencia:</strong>
 <p style="margin-top:.5rem">El límite existe si y solo si los límites laterales existen y son iguales:</p>
-<div class="formula">
-lim(x→a) f(x) existe ⇔ lim(x→a⁻) f(x) = lim(x→a⁺) f(x)
-</div>
+$$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x)$$
 </div>
 </div>
 
+<!-- SUSTITUCIÓN DIRECTA -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Cálculo de Límites por Sustitución Directa</h2>
+<h2 class="chapter-title">2️⃣ Cálculo por Sustitución Directa</h2>
 <p>Para funciones continuas (polinomios, exponenciales, logaritmos, trigonométricas), basta con sustituir:</p>
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplos:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>lim(x→2) (x² + 3x) = 4 + 6 = <strong>10</strong></li>
-<li>lim(x→0) sin(x)/x = <strong>1</strong> (límite notable)</li>
-<li>lim(x→∞) (x² + 1)/(x² + x) = <strong>1</strong> (dividimos por x²)</li>
+<li>$\lim_{x \to 2} (x^2 + 3x) = 4 + 6 = \mathbf{10}$</li>
+<li>$\lim_{x \to 0} \frac{\sin(x)}{x} = \mathbf{1}$ (límite notable)</li>
+<li>$\lim_{x \to \infty} \frac{x^2 + 1}{x^2 + x} = \mathbf{1}$ (dividimos por $x^2$)</li>
 </ul>
+</div>
+
+<!-- GRÁFICO: Función continua -->
+<div class="chart-container">
+<h3>📊 Función continua: $f(x) = x^2 + 3x$</h3>
+<p class="chart-desc">Observa que la función no tiene saltos. El límite cuando $x \to 2$ es simplemente $f(2) = 10$.</p>
+<div id="plot-continua" class="chart-plot"></div>
 </div>
 
 <h3 style="color:var(--naranja);margin:1.5rem 0 .8rem">Indeterminaciones</h3>
@@ -129,158 +197,421 @@ lim(x→a) f(x) existe ⇔ lim(x→a⁻) f(x) = lim(x→a⁺) f(x)
 
 <table>
 <tr><th>Indeterminación</th><th>Cuándo aparece</th><th>Cómo resolver</th></tr>
-<tr><td><strong>0/0</strong></td><td> numerador → 0 y denominador → 0</td><td>Factorizar, racionalizar, simplificar</td></tr>
-<tr><td><strong>∞/∞</strong></td><td> numerador → ∞ y denominador → ∞</td><td>Dividir por la mayor potencia</td></tr>
-<tr><td><strong>0 · ∞</strong></td><td> un factor → 0 y otro → ∞</td><td>Reescribir como fracción</td></tr>
-<tr><td><strong>∞ − ∞</strong></td><td> resta de infinitos</td><td>Operar algebraicamente</td></tr>
-<tr><td><strong>1^∞, 0⁰, ∞⁰</strong></td><td> potencias indeterminadas</td><td>Usar logaritmos o límites notables</td></tr>
+<tr><td><strong>$0/0$</strong></td><td> numerador → 0 y denominador → 0</td><td>Factorizar, racionalizar, simplificar</td></tr>
+<tr><td><strong>$\infty/\infty$</strong></td><td> numerador → ∞ y denominador → ∞</td><td>Dividir por la mayor potencia</td></tr>
+<tr><td><strong>$0 \cdot \infty$</strong></td><td> un factor → 0 y otro → ∞</td><td>Reescribir como fracción</td></tr>
+<tr><td><strong>$\infty - \infty$</strong></td><td> resta de infinitos</td><td>Operar algebraicamente</td></tr>
+<tr><td><strong>$1^\infty, 0^0, \infty^0$</strong></td><td> potencias indeterminadas</td><td>Usar logaritmos o límites notables</td></tr>
 </table>
 </div>
 
+<!-- INDETERMINACIÓN 0/0 -->
 <div class="chapter">
-<h2 class="chapter-title">3️⃣ Indeterminación 0/0 — Factorización</h2>
-<p>Cuando al sustituir obtenemos 0/0, factorizamos numerador y denominador y simplificamos.</p>
+<h2 class="chapter-title">3️⃣ Indeterminación $0/0$ — Factorización</h2>
+<p>Cuando al sustituir obtenemos $0/0$, factorizamos numerador y denominador y simplificamos.</p>
 
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo:</strong>
-<p style="margin-top:.5rem">lim(x→2) (x² − 4)/(x − 2)</p>
-<p style="margin-top:.5rem">Sustituyendo: (4 − 4)/(2 − 2) = 0/0 → indeterminación</p>
-<p style="margin-top:.5rem">Factorizamos: (x+2)(x−2)/(x−2) = x + 2</p>
-<p style="margin-top:.5rem">lim(x→2) (x + 2) = <strong>4</strong></p>
+<strong>💡 Ejemplo 1:</strong>
+<p style="margin-top:.5rem">$$\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$$</p>
+<p style="margin-top:.5rem">Sustituyendo: $\frac{4 - 4}{2 - 2} = \frac{0}{0}$ → indeterminación</p>
+<p style="margin-top:.5rem">Factorizamos: $\frac{(x+2)(x-2)}{(x-2)} = x + 2$</p>
+<p style="margin-top:.5rem">$$\lim_{x \to 2} (x + 2) = \mathbf{4}$$</p>
 </div>
 
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo con cuadrática:</strong>
-<p style="margin-top:.5rem">lim(x→3) (x² − 5x + 6)/(x² − 9)</p>
-<p style="margin-top:.5rem">Factorizamos: (x−2)(x−3)/[(x−3)(x+3)] = (x−2)/(x+3)</p>
-<p style="margin-top:.5rem">lim(x→3) (x−2)/(x+3) = 1/6 = <strong>1/6</strong></p>
+<strong>💡 Ejemplo 2:</strong>
+<p style="margin-top:.5rem">$$\lim_{x \to 3} \frac{x^2 - 5x + 6}{x^2 - 9}$$</p>
+<p style="margin-top:.5rem">Factorizamos: $\frac{(x-2)(x-3)}{(x-3)(x+3)} = \frac{x-2}{x+3}$</p>
+<p style="margin-top:.5rem">$$\lim_{x \to 3} \frac{x-2}{x+3} = \frac{1}{6} = \mathbf{\frac{1}{6}}$$</p>
+</div>
+
+<!-- GRÁFICO: 0/0 con hueco -->
+<div class="chart-container">
+<h3>📊 Gráfico de $\frac{x^2 - 4}{x - 2}$: ¡Hay un hueco en $x = 2$!</h3>
+<p class="chart-desc">La función no está definida en $x = 2$ (división entre cero), pero el límite sí existe. El hueco está en $(2, 4)$.</p>
+<div id="plot-hueco" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- INDETERMINACIÓN ∞/∞ -->
 <div class="chapter">
-<h2 class="chapter-title">4️⃣ Indeterminación ∞/∞ — Dividir por la Mayor Potencia</h2>
-<p>Cuando x → ∞, dividimos numerador y denominador por la mayor potencia de x.</p>
+<h2 class="chapter-title">4️⃣ Indeterminación $\infty/\infty$ — Dividir por la Mayor Potencia</h2>
+<p>Cuando $x \to \infty$, dividimos numerador y denominador por la mayor potencia de $x$.</p>
 
 <div class="box box-teoria">
 <strong>📌 Regla general para racionales:</strong>
-<p style="margin-top:.5rem">lim(x→∞) P(x)/Q(x), donde P y Q son polinomios:</p>
+<p style="margin-top:.5rem">$$\lim_{x \to \infty} \frac{P(x)}{Q(x)}, \text{ donde } P \text{ y } Q \text{ son polinomios:}$$</p>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Si grado(P) &gt; grado(Q) → el límite es <strong>∞</strong> (o −∞)</li>
-<li>Si grado(P) = grado(Q) → el límite es la <strong>razón de los coeficientes principales</strong></li>
-<li>Si grado(P) &lt; grado(Q) → el límite es <strong>0</strong></li>
+<li>Si grado($P$) > grado($Q$) → el límite es <strong>$\infty$</strong> (o $-\infty$)</li>
+<li>Si grado($P$) = grado($Q$) → el límite es la <strong>razón de los coeficientes principales</strong></li>
+<li>Si grado($P$) < grado($Q$) → el límite es <strong>$0$</strong></li>
 </ul>
 </div>
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplos:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>lim(x→∞) (3x² + 2x)/(5x² − 1) = 3/5 (mismo grado)</li>
-<li>lim(x→∞) (2x³ + x)/(x² + 1) = ∞ (numerador de mayor grado)</li>
-<li>lim(x→∞) (x + 1)/(x² + 3x) = 0 (denominador de mayor grado)</li>
+<li>$\lim_{x \to \infty} \frac{3x^2 + 2x}{5x^2 - 1} = \frac{3}{5}$ (mismo grado)</li>
+<li>$\lim_{x \to \infty} \frac{2x^3 + x}{x^2 + 1} = \infty$ (numerador de mayor grado)</li>
+<li>$\lim_{x \to \infty} \frac{x + 1}{x^2 + 3x} = 0$ (denominador de mayor grado)</li>
 </ul>
 </div>
+
+<!-- GRÁFICO: ∞/∞ -->
+<div class="chart-container">
+<h3>📊 Gráfico de $\frac{3x^2 + 2x}{5x^2 - 1}$ cuando $x \to \infty$</h3>
+<p class="chart-desc">Observa cómo la función se acerca a la recta $y = 3/5 = 0.6$. ¡Esa es la asíntota horizontal!</p>
+<div id="plot-asintota" class="chart-plot"></div>
+</div>
 </div>
 
+<!-- LÍMITES NOTABLES -->
 <div class="chapter">
 <h2 class="chapter-title">5️⃣ Límites Notables</h2>
-<p>Estos límites fundamentales aparecen constantemente:</p>
+<p>Estos límites aparecen constantemente y merece la memoria:</p>
 
-<table>
-<tr><th>Límite</th><th>Valor</th><th>Aplicación</th></tr>
-<tr><td>lim(x→0) sin(x)/x</td><td>1</td><td>Derivadas de trigonométricas</td></tr>
-<tr><td>lim(x→0) (eˣ − 1)/x</td><td>1</td><td>Derivadas de exponenciales</td></tr>
-<tr><td>lim(x→0) ln(1+x)/x</td><td>1</td><td>Derivadas de logaritmos</td></tr>
-<tr><td>lim(x→∞) (1 + 1/x)ˣ</td><td>e ≈ 2.71828</td><td>Crecimiento exponencial</td></tr>
-<tr><td>lim(x→0) (1 + x)¹/ˣ</td><td>e</td><td>Definición alternativa de e</td></tr>
-<tr><td>lim(x→∞) (1 + a/x)ˣ</td><td>eᵃ</td><td>Generalización</td></tr>
-</table>
+<div class="box box-teoria">
+<strong>📌 Los 3 límites notables más importantes:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>$$\lim_{x \to 0} \frac{\sin(x)}{x} = 1$$</li>
+<li>$$\lim_{x \to 0} \frac{e^x - 1}{x} = 1$$</li>
+<li>$$\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e \approx 2.71828$$</li>
+</ul>
+</div>
 
-<div class="box box-idea">
-<strong>🔑 El número e:</strong>
-<p style="margin-top:.5rem">e ≈ 2.718281828... es la base de los logaritmos naturales y aparece en crecimiento continuo (interés compuesto, desintegración radiactiva, crecimiento poblacional).</p>
+<!-- GRÁFICO: límites notables -->
+<div class="chart-container">
+<h3>📊 Visualización del límite notable $\frac{\sin(x)}{x}$ cuando $x \to 0$</h3>
+<p class="chart-desc">Aunque la función no está definida en $x = 0$, el límite es exactamente 1. Observa cómo se acerca a 1.</p>
+<div id="plot-sin" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- EJERCICIOS INTERACTIVOS -->
 <div class="chapter">
-<h2 class="chapter-title">📝 Ejercicios</h2>
-<div class="exercises">
+<h2 class="chapter-title">🧠 Ejercicios Interactivos</h2>
+
 <div class="exercise">
-<p><strong>1.</strong> lim(x→3) (x² − 9)/(x − 3) = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<p><strong>Ejercicio 1:</strong> Calcula $\lim_{x \to 3} (x^2 + 2x)$</p>
+<p style="font-size:.85rem;color:#64748b">Sustituye $x = 3$ directamente.</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?" step="any">
+<button onclick="checkExercise(1, 15)">Comprobar</button>
 </div>
+<div class="feedback" id="e1-fb"></div>
 </div>
 
 <div class="exercise">
-<p><strong>2.</strong> lim(x→∞) (5x² + 3)/(2x² − 1) = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">5/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">∞</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3/−1</button>
+<p><strong>Ejercicio 2:</strong> Calcula $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$</p>
+<p style="font-size:.85rem;color:#64748b">Factoriza el numerador: $x^2 - 4 = (x+2)(x-2)$</p>
+<div class="exercise-input">
+<input type="number" id="e2" placeholder="?" step="any">
+<button onclick="checkExercise(2, 4)">Comprobar</button>
 </div>
-</div>
-
-<div class="exercise">
-<p><strong>3.</strong> lim(x→0) (eˣ − 1)/x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">1</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">e</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">∞</button>
-</div>
+<div class="feedback" id="e2-fb"></div>
 </div>
 
 <div class="exercise">
-<p><strong>4.</strong> lim(x→2) (x² − 5)/(x − 2) = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/0 (no existe)</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">∞ (no es indeterminación 0/0)</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
+<p><strong>Ejercicio 3:</strong> Calcula $\lim_{x \to \infty} \frac{5x^2 + 3x}{2x^2 - 1}$</p>
+<p style="font-size:.85rem;color:#64748b">Divide por $x^2$: $\frac{5 + 3/x}{2 - 1/x^2}$</p>
+<div class="exercise-input">
+<input type="text" id="e3" placeholder="fracción o decimal">
+<button onclick="checkExercise3()">Comprobar</button>
 </div>
+<div class="feedback" id="e3-fb"></div>
 </div>
+
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> ¿Cuál es el valor de $e$ (número de Euler) redondeado a 3 decimales?</p>
+<div class="exercise-input">
+<input type="number" id="e4" placeholder="?" step="0.001">
+<button onclick="checkExercise4()">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
 </div>
 </div>
 
+<!-- RESUMEN -->
 <div class="summary">
-<h3>📋 Resumen de lo aprendido</h3>
+<h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li>El <strong>límite</strong> es el valor al que se acerca f(x) cuando x → a</li>
-<li>Los <strong>límites laterales</strong> (izquierda y derecha) deben ser iguales para que el límite exista</li>
-<li><strong>Sustitución directa</strong> funciona para funciones continuas</li>
-<li><strong>0/0:</strong> factorizar y simplificar</li>
-<li><strong>∞/∞:</strong> dividir por la mayor potencia de x</li>
-<li><strong>Límites notables:</strong> sin(x)/x → 1, (eˣ − 1)/x → 1, (1 + 1/x)ˣ → e</li>
+<li>Un límite describe hacia dónde va una función cuando $x$ se acerca a un valor</li>
+<li>$\lim_{x \to a} f(x) = L$ significa que $f(x)$ se acerca a $L$ cuando $x$ se acerca a $a$</li>
+<li>Para funciones continuas: sustitución directa</li>
+<li>Para $0/0$: factorizar y simplificar</li>
+<li>Para $\infty/\infty$: dividir por la mayor potencia</li>
+<li>Los límites laterales deben ser iguales para que el límite exista</li>
+<li>Los límites notables: $\frac{\sin(x)}{x} \to 1$, $\frac{e^x-1}{x} \to 1$, $(1+\frac{1}{x})^x \to e$</li>
+<li>El límite es la base de la derivada y la integral</li>
 </ul>
 </div>
 
 <div class="nav">
-<a href="#">← Anterior</a>
-<a href="s09-10-bachiller-repaso.html">Siguiente: Continuidad y derivadas →</a>
+<a class="disabled">← Anterior (esta es la primera sesión)</a>
+<a href="s09-2-bachiller-continuidad-derivadas.html">Continuidad y derivadas →</a>
 </div>
 </div>
-
 <div class="footer">Hecho con ❤️ por David Antizar</div>
 
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
+// === Progreso scroll ===
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+// === Renderizar KaTeX ===
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
   });
-  if(correct) { btn.classList.add('correct'); }
-  else { btn.classList.add('wrong'); }
+});
+
+// === Gráfico 1: Límite con hueco ===
+function plotLimiteHueco() {
+  const x = [];
+  const y = [];
+  for (let i = -100; i <= 100; i++) {
+    const xi = -3 + i * 0.06;
+    if (Math.abs(xi - 2) > 0.05) {
+      x.push(xi);
+      y.push((xi * xi - 4) / (xi - 2));
+    }
+  }
+  const trace = {
+    x: x, y: y,
+    mode: 'lines',
+    line: {color: '#2563eb', width: 3},
+    name: 'f(x) = (x²-4)/(x-2)'
+  };
+  const layout = {
+    margin: {t: 10, r: 10, b: 40, l: 40},
+    xaxis: {title: 'x', range: [-2, 5]},
+    yaxis: {title: 'f(x)', range: [-2, 8]},
+    shapes: [{
+      type: 'circle', xref: 'x', yref: 'y',
+      x0: 2, y0: 4, xsizemode: 'pixel', ysizemode: 'pixel',
+      xsize: 8, ysize: 8,
+      fillcolor: 'white', line: {width: 3, color: '#ef4444'}
+    }],
+    annotations: [{
+      x: 2, y: 4.5, text: 'Hueco (2, 4)',
+      showarrow: true, arrowhead: 2, arrowsize: 1,
+      arrowcolor: '#ef4444', ax: 40, ay: -30
+    }],
+    showlegend: false
+  };
+  Plotly.newPlot('plot-hueco', [trace], layout, {responsive: true});
 }
-window.onscroll = function() {
-  var h = document.documentElement;
-  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width = p+'%';
-};
+
+// === Gráfico 2: Función continua ===
+function plotContinua() {
+  const x = [];
+  const y = [];
+  for (let i = -10; i <= 10; i++) {
+    const xi = -3 + i * 0.6;
+    x.push(xi);
+    y.push(xi * xi + 3 * xi);
+  }
+  const trace = {
+    x: x, y: y,
+    mode: 'lines',
+    line: {color: '#10b981', width: 3},
+    name: 'f(x) = x² + 3x'
+  };
+  const layout = {
+    margin: {t: 10, r: 10, b: 40, l: 40},
+    xaxis: {title: 'x', range: [-3, 4]},
+    yaxis: {title: 'f(x)', range: [-3, 15]},
+    shapes: [{
+      type: 'circle', xref: 'x', yref: 'y',
+      x0: 2, y0: 10, xsizemode: 'pixel', ysizemode: 'pixel',
+      xsize: 8, ysize: 8,
+      fillcolor: '#10b981', line: {width: 3, color: '#10b981'}
+    }],
+    annotations: [{
+      x: 2, y: 12, text: 'f(2) = 10',
+      showarrow: true, arrowhead: 2, arrowsize: 1,
+      arrowcolor: '#10b981', ax: 40, ay: -20
+    }],
+    showlegend: false
+  };
+  Plotly.newPlot('plot-continua', [trace], layout, {responsive: true});
+}
+
+// === Gráfico 3: Asíntota ===
+function plotAsintota() {
+  const x = [];
+  const y = [];
+  for (let i = -200; i <= 200; i++) {
+    const xi = -10 + i * 0.1;
+    if (Math.abs(5 * xi * xi - 1) > 0.1) {
+      x.push(xi);
+      y.push((3 * xi * xi + 2 * xi) / (5 * xi * xi - 1));
+    }
+  }
+  const trace = {
+    x: x, y: y,
+    mode: 'lines',
+    line: {color: '#f97316', width: 3},
+    name: 'f(x) = (3x²+2x)/(5x²-1)'
+  };
+  const layout = {
+    margin: {t: 10, r: 10, b: 40, l: 40},
+    xaxis: {title: 'x', range: [-10, 10]},
+    yaxis: {title: 'f(x)', range: [-2, 2]},
+    shapes: [{
+      type: 'line', x0: -10, y0: 0.6, x1: 10, y1: 0.6,
+      line: {color: '#ef4444', width: 2, dash: 'dash'}
+    }],
+    annotations: [{
+      x: 8, y: 0.65, text: 'y = 3/5 = 0.6 (asíntota)',
+      showarrow: false, font: {color: '#ef4444'}
+    }],
+    showlegend: false
+  };
+  Plotly.newPlot('plot-asintota', [trace], layout, {responsive: true});
+}
+
+// === Gráfico 4: sin(x)/x ===
+function plotSin() {
+  const x = [];
+  const y = [];
+  for (let i = -200; i <= 200; i++) {
+    const xi = -6.28 + i * 0.0628;
+    if (Math.abs(xi) > 0.02) {
+      x.push(xi);
+      y.push(Math.sin(xi) / xi);
+    }
+  }
+  const trace = {
+    x: x, y: y,
+    mode: 'lines',
+    line: {color: '#a855f7', width: 3},
+    name: 'f(x) = sin(x)/x'
+  };
+  const layout = {
+    margin: {t: 10, r: 10, b: 40, l: 40},
+    xaxis: {title: 'x', range: [-6.28, 6.28]},
+    yaxis: {title: 'f(x)', range: [-0.5, 1.5]},
+    shapes: [{
+      type: 'circle', xref: 'x', yref: 'y',
+      x0: 0, y0: 1, xsizemode: 'pixel', ysizemode: 'pixel',
+      xsize: 8, ysize: 8,
+      fillcolor: 'white', line: {width: 3, color: '#a855f7'}
+    }],
+    annotations: [{
+      x: 0.5, y: 1.15, text: 'lim = 1',
+      showarrow: true, arrowhead: 2, arrowsize: 1,
+      arrowcolor: '#a855f7', ax: -30, ay: -20
+    }],
+    showlegend: false
+  };
+  Plotly.newPlot('plot-sin', [trace], layout, {responsive: true});
+}
+
+// === Gráfico 5: Límite interactivo ===
+let currentLimitX = 1;
+function setLimitValue(val) {
+  currentLimitX = val;
+  const fVal = (val * val - 4) / (val - 2);
+  document.getElementById('limite-result').innerHTML =
+    `Cuando <b>x = ${val}</b>, f(x) = <b>${fVal.toFixed(4)}</b>`;
+
+  // Actualizar gráfico
+  const x = [];
+  const y = [];
+  for (let i = -100; i <= 100; i++) {
+    const xi = -3 + i * 0.06;
+    if (Math.abs(xi - 2) > 0.05) {
+      x.push(xi);
+      y.push((xi * xi - 4) / (xi - 2));
+    }
+  }
+  const trace = {
+    x: x, y: y,
+    mode: 'lines',
+    line: {color: '#2563eb', width: 3},
+    name: 'f(x)'
+  };
+  const tracePoint = {
+    x: [val],
+    y: [fVal],
+    mode: 'markers',
+    marker: {color: '#f97316', size: 12, symbol: 'circle'},
+    name: `x = ${val}`
+  };
+  const layout = {
+    margin: {t: 10, r: 10, b: 40, l: 40},
+    xaxis: {title: 'x', range: [-2, 5]},
+    yaxis: {title: 'f(x)', range: [-2, 8]},
+    shapes: [{
+      type: 'circle', xref: 'x', yref: 'y',
+      x0: 2, y0: 4, xsizemode: 'pixel', ysizemode: 'pixel',
+      xsize: 8, ysize: 8,
+      fillcolor: 'white', line: {width: 3, color: '#ef4444'}
+    }],
+    annotations: [{
+      x: 2, y: 4.5, text: 'Hueco (2, 4)',
+      showarrow: true, arrowhead: 2, arrowsize: 1,
+      arrowcolor: '#ef4444', ax: 40, ay: -30
+    }],
+    showlegend: false
+  };
+  Plotly.newPlot('plot-limite', [trace, tracePoint], layout, {responsive: true});
+}
+
+// === Ejercicios ===
+function checkExercise(num, respuesta) {
+  const input = document.getElementById('e' + num).value;
+  const fb = document.getElementById('e' + num + '-fb');
+  const val = parseFloat(input);
+  if (val === respuesta) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = `❌ Incorrecto. Inténtalo de nuevo.`;
+  }
+}
+
+function checkExercise3() {
+  const input = document.getElementById('e3').value.trim().toLowerCase();
+  const fb = document.getElementById('e3-fb');
+  if (input === '5/2' || input === '2.5' || input === '5/2.0') {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 5/2 = 2.5';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Incorrecto. Pista: divide coeficientes principales: 5/2';
+  }
+}
+
+function checkExercise4() {
+  const input = document.getElementById('e4').value.trim();
+  const fb = document.getElementById('e4-fb');
+  if (Math.abs(parseFloat(input) - 2.718) < 0.001) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! e ≈ 2.718';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Incorrecto. Pista: e ≈ 2.71828...';
+  }
+}
+
+// === Inicializar gráficos ===
+document.addEventListener('DOMContentLoaded', () => {
+  plotLimiteHueco();
+  plotContinua();
+  plotAsintota();
+  plotSin();
+});
 </script>
 </body>
 </html>

@@ -3,17 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bachiller - Sesion 5: Integrales indefinidas</title>
+<title>∫ Bachillerato — Sesión 5: Integrales Indefinidas | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"><\/script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"><\/script>
+
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7}
 .header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.6rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:.95rem}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
 .progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
 .progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-.container{max-width:800px;margin:0 auto;padding:1.5rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
 .chapter{margin-bottom:2.5rem}
 .chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
 .box{padding:1rem 1.2rem;border-radius:8px;margin:1rem 0;border-left:4px solid}
@@ -21,10 +27,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -33,18 +37,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--fondo
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"check";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
-.formula{background:#f1f5f9;padding:.8rem 1.2rem;border-radius:8px;font-family:monospace;font-size:1.1rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
 </style>
 </head>
 <body>
@@ -52,48 +76,143 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-<h1>Bachillerato - Sesion 5</h1>
-<p>Integrales indefinidas</p>
-<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+  <h1>∫ Bachillerato — Sesión 5: Integrales Indefinidas</h1>
+  <p>La operación inversa de derivar</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
-<div class="chapter"><h2 class="chapter-title">1. Que es una Integral</h2><div class="box box-teoria"><strong>La integral es la operacion inversa de la derivada:</strong><p style="margin-top:.5rem">Si F'(x) = f(x), entonces F(x) es una primitiva de f(x).</p><div class="formula">int f(x) dx = F(x) + C</div><p>C es la constante de integracion.</p></div></div>
-<div class="chapter"><h2 class="chapter-title">2. Integrales Inmediatas</h2><table><tr><th>Funcion</th><th>Integral</th></tr><tr><td>int x^n dx (n != -1)</td><td>x^(n+1)/(n+1) + C</td></tr><tr><td>int 1/x dx</td><td>ln|x| + C</td></tr><tr><td>int e^x dx</td><td>e^x + C</td></tr><tr><td>int a^x dx</td><td>a^x/ln(a) + C</td></tr><tr><td>int cos(x) dx</td><td>sin(x) + C</td></tr><tr><td>int sin(x) dx</td><td>-cos(x) + C</td></tr><tr><td>int sec^2(x) dx</td><td>tan(x) + C</td></tr><tr><td>int 1/(1+x^2) dx</td><td>arctan(x) + C</td></tr></table></div>
-<div class="chapter"><h2 class="chapter-title">3. Integracion por Sustitucion</h2><div class="box box-teoria"><strong>Si u = g(x), du = g'(x)dx:</strong><div class="formula">int f(g(x)) * g'(x) dx = int f(u) du</div></div><div class="box box-ejemplo"><strong>Ejemplo:</strong><p style="margin-top:.5rem">int 2x * cos(x^2) dx</p><p style="margin-top:.5rem">u = x^2, du = 2x dx</p><p style="margin-top:.5rem">int cos(u) du = sin(u) + C = sin(x^2) + C</p></div></div>
-<div class="chapter"><h2 class="chapter-title">4. Integracion por Partes</h2><div class="box box-teoria"><strong>Formula:</strong><div class="formula">int u dv = u*v - int v du</div><p>Regla LIATE para elegir u: Logaritmicas, Inversas trig, Algebraicas, Trigonomtricas, Exponenciales</p></div><div class="box box-ejemplo"><strong>Ejemplo:</strong><p style="margin-top:.5rem">int x * e^x dx</p><p style="margin-top:.5rem">u = x, dv = e^x dx --> du = dx, v = e^x</p><p style="margin-top:.5rem">= x*e^x - int e^x dx = e^x(x-1) + C</p></div></div>
-<div class="chapter"><h2 class="chapter-title">5. Aplicaciones</h2><div class="box box-teoria"><strong>Cinematica:</strong><ul style="padding-left:1.2rem;margin-top:.5rem"><li>v(t) = s'(t) --> s(t) = int v(t) dt</li><li>a(t) = v'(t) --> v(t) = int a(t) dt</li></ul></div><div class="box box-ejemplo"><strong>Ejemplo:</strong><p style="margin-top:.5rem">g = 9.8 m/s^2, cae desde reposo a 100m</p><p style="margin-top:.5rem">v(t) = 9.8t, s(t) = 100 - 4.9t^2</p><p style="margin-top:.5rem">Toca suelo: t = sqrt(100/4.9) ~ 4.52 s</p></div></div>
-<div class="chapter"><h2 class="chapter-title">Ejercicios</h2><div class="exercises"><div class="exercise"><p><strong>1.</strong> int (3x^2 + 2x - 5) dx = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">x^3 + x^2 - 5x + C</button><button class="quiz-btn" onclick="checkExercise(this, false)">6x + 2 + C</button><button class="quiz-btn" onclick="checkExercise(this, false)">3x^3 + x^2 - 5x + C</button></div></div><div class="exercise"><p><strong>2.</strong> int x * e^(x^2) dx = ?</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, false)">e^(x^2) + C</button><button class="quiz-btn" onclick="checkExercise(this, true)">e^(x^2)/2 + C</button><button class="quiz-btn" onclick="checkExercise(this, false)">x^2*e^(x^2)/2 + C</button></div></div><div class="exercise"><p><strong>3.</strong> int x * ln(x) dx = ? (por partes):</p><div class="quiz-options"><button class="quiz-btn" onclick="checkExercise(this, true)">x^2*ln(x)/2 - x^2/4 + C</button><button class="quiz-btn" onclick="checkExercise(this, false)">x^2*ln(x) + C</button><button class="quiz-btn" onclick="checkExercise(this, false)">ln(x)^2/2 + C</button></div></div></div></div>
-<div class="summary">
-<h3>Resumen</h3>
-<ul><li>La integral es la operacion inversa de la derivada</li>
-<li>int x^n dx = x^(n+1)/(n+1) + C</li>
-<li>Integracion por sustitucion: u = g(x)</li>
-<li>Integracion por partes: int u dv = uv - int v du</li>
-<li>Con primitivas se resuelven problemas cinematicos</li>
-<li>Constante de integracion C siempre</li>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Entender la integral como la operación inversa de la derivada</li>
+<li>Calcular integrales básicas</li>
+<li>Aplicar técnicas de integración: sustitución y partes</li>
+<li>Entender la constante de integración $+C$</li>
 </ul>
 </div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro las integrales?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: De la velocidad a la distancia</strong>
+<p>Si sabes tu velocidad en cada instante $v(t)$, ¿cómo calculas la distancia recorrida?</p>
+<p>¡La distancia es la integral de la velocidad! $d = \int v(t)\,dt$</p>
+<p>Es exactamente lo contrario de derivar: si derivas la distancia obtienes la velocidad, y si integras la velocidad obtienes la distancia.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es una Integral Indefinida?</h2>
+<p>La integral indefinida es la <strong>operación inversa de derivar</strong>.</p>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
+</div>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">Si $\frac{d}{dx}[x^3] = 3x^2$, entonces $\int 3x^2\,dx = x^3 + C$</p>
+</div>
+
+<!-- GRÁFICO: Integral como operación inversa -->
+<div class="chart-container">
+<h3>📊 Derivar e integrar son operaciones inversas</h3>
+<p class="chart-desc">Observa cómo integrar $3x^2$ te devuelve $x^3$ (más una constante).</p>
+<div id="plot-integral" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Integrales Básicas</h2>
+
+<div class="box box-teoria">
+<strong>📌 Tabla de integrales básicas:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>$\int x^n\,dx = \frac{x^{n+1}}{n+1} + C$ (para $n \neq -1$)</li>
+<li>$\int \frac{1}{x}\,dx = \ln|x| + C$</li>
+<li>$\int e^x\,dx = e^x + C$</li>
+<li>$\int \sin(x)\,dx = -\cos(x) + C$</li>
+<li>$\int \cos(x)\,dx = \sin(x) + C$</li>
+<li>$\int \frac{1}{1+x^2}\,dx = \arctan(x) + C$</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> Calcula $\int 4x^3\,dx$</p>
+<div class="exercise-input">
+<input type="text" id="e1" placeholder="F(x) = " style="width:200px">
+<button onclick="checkE1()">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> Calcula $\int \cos(x)\,dx$</p>
+<div class="exercise-input">
+<input type="text" id="e2" placeholder="F(x) = " style="width:200px">
+<button onclick="checkE2()">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> ¿Por qué siempre se añade $+C$ en las integrales indefinidas?</p>
+<div class="exercise-input">
+<select id="e3" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
+<option value="">— Elige —</option>
+<option value="a">Porque la derivada de una constante es 0</option>
+<option value="b">Porque es un requisito matemático</option>
+<option value="c">Porque el profesor lo dice</option>
+</select>
+<button onclick="checkE3()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que aprendiste</h3>
+<ul>
+<li>La integral indefinida es la operación inversa de derivar</li>
+<li>$\int f(x)\,dx = F(x) + C$ donde $F'(x) = f(x)$</li>
+<li>Siempre se añade $+C$ porque la derivada de una constante es 0</li>
+<li>Integrales básicas: potencia, $1/x$, $e^x$, $\sin(x)$, $\cos(x)$</li>
+<li>Las integrales defindas se verán en la siguiente sesión</li>
+</ul>
+</div>
+
 <div class="nav">
-<a href="s09-4-bachiller-aplicaciones-derivadas.html">Anterior</a>
-<a href="s09-6-bachiller-integrales-definidas.html">Siguiente</a>
+  <a href="s09-4-bachiller-aplicaciones-derivadas.html">← Anterior</a>
+  <a href="s09-6-bachiller-integrales-definidas.html">Siguiente →</a>
 </div>
 </div>
-<div class="footer">Hecho con corazon por David Antizar</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
 <script>
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
   });
-  if(correct) { btn.classList.add('correct'); }
-  else { btn.classList.add('wrong'); }
-}
-window.onscroll = function() {
-  var h = document.documentElement;
-  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress').style.width = p+'%';
-};
-</script>
+});
+<\/script>
 </body>
 </html>
