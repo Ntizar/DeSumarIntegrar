@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S01.6: Restar hasta 20 — 1º Primaria</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js" async></script>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -191,6 +192,153 @@ Paso 2: 10 − 2 = 8<br>
 </ul>
 </div>
 
+<!-- NUEVO: Analogías de la vida real -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Restas en la vida real</h2>
+
+<div class="box box-teoria">
+<strong>🍦 Analogía 1: El helado</strong>
+Imagina que tienes <b>16 euros</b> en la hucha para comprar helados. Cada helado cuesta <b>7 euros</b>. ¿Cuántos euros te quedan después de comprar uno?<br>
+👉 16 − 7 = 9 euros. ¡Te sobran 9 euros para otro helado! 🍦
+</div>
+
+<div class="box box-teoria">
+<strong>🎮 Analogía 2: Los puntos del videojuego</strong>
+En tu videojuego tienes <b>19 puntos</b>. Pierdes <b>8 puntos</b> porque te atrapó un enemigo. ¿Cuántos puntos te quedan?<br>
+👉 19 − 8 = 11 puntos. ¡Aún puedes ganar más! 🎮
+</div>
+
+<div class="box box-teoria">
+<strong>🐱 Analogía 3: Los gatitos del refugio</strong>
+En el refugio hay <b>13 gatitos</b>. <b>5</b> han sido adoptados y se han ido a casa. ¿Cuántos gatitos quedan en el refugio?<br>
+👉 13 − 5 = 8 gatitos. ¡Esperando ser adoptados! 🐱
+</div>
+</section>
+
+<!-- NUEVO: Más ejemplos cotidianos -->
+<section class="chapter">
+<h2 class="chapter-title">🍕 Más ejemplos de la vida</h2>
+
+<div class="box box-ejemplo">
+<strong>🍕 Ejemplo 4: La pizza</strong>
+Cortaste una pizza en <b>20 porciones</b>. Te comiste <b>6 porciones</b>. ¿Cuántas porciones quedan?<br>
+Paso 1: 20 − 10 = 10 (pero solo quitamos 6)<br>
+Paso 2: 20 − 6 = 14 porciones restantes 🍕
+</div>
+
+<div class="box box-ejemplo">
+<strong>📚 Ejemplo 5: Los libros de la biblioteca</strong>
+En la estantería había <b>17 libros</b>. Sacaron <b>9</b> para leer. ¿Cuántos quedaron?<br>
+Paso 1: 17 − 7 = 10 (llegamos a 10)<br>
+Paso 2: 10 − 2 = 8 libros restantes 📚
+</div>
+
+<div class="box box-ejemplo">
+<strong>🌟 Ejemplo 6: Estrellas en el cielo</strong>
+Contaste <b>18 estrellas</b> anoche. Una se escondió detrás de una nube. ¿Cuántas ves ahora?<br>
+Paso 1: 18 − 8 = 10<br>
+Paso 2: 10 − 1 = 9 estrellas visibles ⭐
+</div>
+</section>
+
+<!-- NUEVO: Gráfico Plotly -->
+<section class="chapter">
+<h2 class="chapter-title">📊 Visualización: Restas populares</h2>
+<div class="interactive">
+<h3>📊 ¿Qué restas son las más fáciles?</h3>
+<p>Mira este gráfico con los resultados de todos los ejercicios de este tema. ¡Observa cuántos aciertos hay!</p>
+<div id="plotly-chart" style="min-height:300px;margin:1rem 0"></div>
+</div>
+</section>
+
+<!-- NUEVO: Ejercicios extra -->
+<section class="chapter">
+<h2 class="chapter-title">🏆 ¡A seguir practicando!</h2>
+
+<div class="exercises">
+
+<div class="exercise">
+<p>6. 🍎 Si tienes 14 manzanas y te comes 5... ¿cuántas te quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>7. 🎈 Tienes 18 globos y se revientan 6. ¿Cuántos te quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>8. 🐟 En el acuario hay 16 peces. 7 se van a otro acuario. ¿Cuántos quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>9. 🧸 Tu mamá te dio 20 euros. Gastaste 12 en juguetes. ¿Cuánto te sobra?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>10. 🌺 En el jardín había 19 flores. Cortaron 10. ¿Cuántas quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>11. 🍪 Hiciste 20 galletas. Tu hermano se comió 13. ¿Cuántas quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>12. 🏃 En una carrera hay 15 corredores. 8 llegan primero. ¿Cuántos no han llegado?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- NUEVO: Resumen ampliado -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Para restar números grandes, resta en dos pasos</li>
+<li>Primero llega a 10, luego lo que falta</li>
+<li>15 − 7 = 8, 18 − 9 = 9, 14 − 6 = 8</li>
+<li>16 − 7 = 9 (helado), 19 − 8 = 11 (videojuego), 13 − 5 = 8 (gatitos)</li>
+<li>20 − 6 = 14 (pizza), 17 − 9 = 8 (libros), 18 − 1 = 9 (estrellas)</li>
+<li>14 − 5 = 9 (manzanas), 18 − 6 = 12 (globos), 16 − 7 = 9 (peces)</li>
+<li>20 − 12 = 8 (euros), 19 − 10 = 9 (flores), 20 − 13 = 7 (galletas)</li>
+<li>15 − 8 = 7 (carrera)</li>
+<li>¡Ya sabes restar hasta 20! 🎉</li>
+</ul>
+</div>
+
 <div class="nav">
 <a href="s01-5-restar-hasta-10.html">← Anterior</a>
   <a href="s01-1primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -245,6 +393,30 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
+
+// Plotly chart: Restas populares
+if(typeof plotly !== 'undefined'){
+  var chartData = [{
+    type: 'bar',
+    x: ['15−7', '18−9', '14−6', '20−10', '16−8', '14−5', '18−6', '16−7', '20−12', '19−10', '20−13', '15−8'],
+    y: [8, 9, 8, 10, 8, 9, 12, 9, 8, 9, 7, 7],
+    marker: {
+      color: ['#2563eb','#2563eb','#2563eb','#10b981','#2563eb','#2563eb','#10b981','#2563eb','#2563eb','#2563eb','#f97316','#f97316']
+    },
+    text: ['8','9','8','10','8','9','12','9','8','9','7','7'],
+    textposition: 'outside',
+    hovertemplate: '<b>%{x}</b><br>Resultado: %{y}<extra></extra>'
+  }];
+  var chartLayout = {
+    title: {text: '📊 Resultados de las restas', font: {size: 14, color: '#1e293b'}},
+    xaxis: {title: 'Resta', tickangle: -45},
+    yaxis: {title: 'Resultado', range: [0, 14]},
+    margin: {t: 50, b: 80, l: 50, r: 20},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)'
+  };
+  Plotly.newPlot('plotly-chart', chartData, chartLayout, {responsive: true, displayModeBar: false});
+}
 </script>
 </body>
 </html>
