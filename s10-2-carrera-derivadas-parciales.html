@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -167,7 +168,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Superficie f(x,y) = x² + y²
   const x = [], y = [], z = [];
   for (let i = -2; i <= 2; i += 0.3) {
@@ -194,6 +194,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('2xy') && v.includes('3y') && (v.includes('+') || v.includes('2xy+3y²') || v.includes('2xy+3y^2'))) { fb.textContent = '¡Correcto! ∂f/∂x = 2xy + 3y² 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. ∂f/∂x = 2xy + 3y² (deriva respecto a x, y es constante)'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

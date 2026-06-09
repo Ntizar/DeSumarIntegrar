@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -167,7 +168,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Transformación: rotación + escalado
   const theta = Math.PI / 4;
   const sx = 1.5, sy = 0.8;
@@ -193,6 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const sel = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!sel || !fb) return;
+  if (sel.value === 'a') { fb.textContent = '¡Correcto! Rotar 90° es lineal: respeta suma y multiplicación por escalar 🎉'; fb.className = 'feedback correct'; }
+  else if (sel.value === 'b') { fb.textContent = 'Incorrecto. Sumar (1,1) no es lineal porque T(0) ≠ 0'; fb.className = 'feedback incorrect'; }
+  else if (sel.value === 'c') { fb.textContent = 'Incorrecto. Elevar al cuadrado no es lineal: (a+b)² ≠ a² + b²'; fb.className = 'feedback incorrect'; }
+  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

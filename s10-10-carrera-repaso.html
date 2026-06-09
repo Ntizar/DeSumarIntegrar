@@ -163,6 +163,31 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '');
+  if (v.includes('2x') && v.includes('2y')) { fb.textContent = '¡Correcto! ∇f = (2x, 2y) 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. ∇f = (∂f/∂x, ∂f/∂y) = (2x, 2y)'; fb.className = 'feedback incorrect'; }
+}
+function checkE2() {
+  const input = document.getElementById('e2');
+  const fb = document.getElementById('e2-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('cos') && v.includes('sin') && v.includes('a') && v.includes('b')) { fb.textContent = '¡Correcto! y = A·cos(x) + B·sin(x) 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Ecuación característica: r²+1=0 → r=±i. Solución: y = A·cos(x) + B·sin(x)'; fb.className = 'feedback incorrect'; }
+}
+function checkE3() {
+  const input = document.getElementById('e3');
+  const fb = document.getElementById('e3-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '');
+  if ((v.includes('4') && v.includes('2')) || v === '4,2' || v === '4 y 2' || v === '2 y 4' || v === '4, 2' || v === '2, 4') { fb.textContent = '¡Correcto! Autovalores: 4 y 2 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Para matriz diagonal, autovalores = diagonal: 4 y 2'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

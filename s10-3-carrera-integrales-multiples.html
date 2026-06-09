@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -158,7 +159,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Volumen bajo f(x,y) = 4 - x² - y²
   const x = [], y = [], z = [];
   for (let i = -1.5; i <= 1.5; i += 0.2) {
@@ -185,6 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkExercise(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  const value = parseFloat(input.value);
+  
+  if (isNaN(value)) {
+    feedback.textContent = 'Introduce un número';
+    feedback.className = 'feedback incorrect';
+    return;
+  }
+  
+  if (Math.abs(value - correct) < 0.01) {
+    feedback.textContent = '¡Correcto! 🎉';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = 'Incorrecto. La respuesta es ' + correct;
+    feedback.className = 'feedback incorrect';
+  }
+}
 });
 </script>
 </body>

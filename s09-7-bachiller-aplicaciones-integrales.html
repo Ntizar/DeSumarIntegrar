@@ -170,6 +170,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = parseFloat(input.value);
+  if (isNaN(v)) { fb.textContent = 'Introduce un número'; fb.className = 'feedback incorrect'; return; }
+  if (Math.abs(v - 8.38) < 0.5 || Math.abs(v - 8.3776) < 0.1 || Math.abs(v - 2.67*Math.PI) < 0.5) { fb.textContent = '¡Correcto! V ≈ 8.38 unidades³ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. V = π∫₀² (x)² dx = π·[x³/3]₀² = 8π/3 ≈ 8.38'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

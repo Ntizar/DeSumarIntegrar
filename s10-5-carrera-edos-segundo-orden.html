@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -161,7 +162,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Oscilador armónico: x'' + ω²x = 0
   const t = Array.from({length: 200}, (_, i) => i * 0.05);
   const omega = 2;
@@ -188,6 +188,16 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('c1') && v.includes('e') && v.includes('2x') && v.includes('c2') && v.includes('-2x')) { fb.textContent = '¡Correcto! y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
+  else if (v.includes('c1') && v.includes('c2') && v.includes('e')) { fb.textContent = '¡Correcto! La forma general es y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Ecuación característica: r²-4=0 → r=±2. Solución: y = C₁e²ˣ + C₂e⁻²ˣ'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

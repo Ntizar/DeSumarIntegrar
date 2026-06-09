@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -159,7 +160,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Visualización de autovalores
   const trace1 = {
     x: [1, 2, 3, 4, 5], y: [3, 1, 4, 1, 5],
@@ -181,6 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '');
+  if ((v.includes('2') && v.includes('3')) || v === '2,3' || v === '2 y 3' || v === '2, 3') { fb.textContent = '¡Correcto! Los autovalores son 2 y 3 (diagonal de la matriz diagonal) 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Para una matriz diagonal, los autovalores son los elementos de la diagonal: 2 y 3'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

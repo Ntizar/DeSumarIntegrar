@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -159,7 +160,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Soluciones de dy/dx = -2y
   const t = Array.from({length: 100}, (_, i) => i * 0.05);
   const traces = [0.5, 1, 2, -1].map((y0, idx) => ({
@@ -180,6 +180,26 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkExercise(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  const value = parseFloat(input.value);
+  
+  if (isNaN(value)) {
+    feedback.textContent = 'Introduce un número';
+    feedback.className = 'feedback incorrect';
+    return;
+  }
+  
+  if (Math.abs(value - correct) < 0.01) {
+    feedback.textContent = '¡Correcto! 🎉';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = 'Incorrecto. La respuesta es ' + correct;
+    feedback.className = 'feedback incorrect';
+  }
+}
 });
 </script>
 </body>

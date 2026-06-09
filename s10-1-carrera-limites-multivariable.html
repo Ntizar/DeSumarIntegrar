@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -162,7 +163,6 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
   // Trayectorias hacia el origen
   const t = Array.from({length: 100}, (_, i) => i / 50);
   const trace1 = {
@@ -192,6 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const sel = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!sel || !fb) return;
+  if (sel.value === 'no') { fb.textContent = '¡Correcto! Si las trayectorias dan valores diferentes, el límite NO existe 🎉'; fb.className = 'feedback correct'; }
+  else if (sel.value === 'si') { fb.textContent = 'Incorrecto. Para que exista el límite, debe ser el mismo por TODAS las trayectorias'; fb.className = 'feedback incorrect'; }
+  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>

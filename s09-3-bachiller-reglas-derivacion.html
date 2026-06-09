@@ -249,6 +249,50 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v === '6x+2' || v === '6x + 2' || v === '2+6x') { fb.textContent = '¡Correcto! f'(x) = 6x + 2 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Usando la regla de la potencia: f'(x) = 6x + 2'; fb.className = 'feedback incorrect'; }
+}
+function checkE2() {
+  const input = document.getElementById('e2');
+  const fb = document.getElementById('e2-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('8') && v.includes('2x+3') && v.includes('3')) { fb.textContent = '¡Correcto! f'(x) = 8(2x+3)³ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Regla de la cadena: f'(x) = 8(2x+3)³'; fb.className = 'feedback incorrect'; }
+}
+function checkE3() {
+  const input = document.getElementById('e3');
+  const fb = document.getElementById('e3-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v === 'e^x' || v === 'ex' || v === 'eˣ') { fb.textContent = '¡Correcto! La derivada de eˣ es eˣ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. d/dx(eˣ) = eˣ (una de las propiedades más elegantes)'; fb.className = 'feedback incorrect'; }
+}
+
+function setPotencia(n) {
+  const xs = Array.from({length: 100}, (_, i) => -3 + i * 0.06);
+  let ys, derivYs, label;
+  if (n === -1) {
+    ys = xs.filter(x => Math.abs(x) > 0.1).map(x => 1/x);
+    derivYs = xs.filter(x => Math.abs(x) > 0.1).map(x => -1/(x*x));
+    label = 'f(x) = 1/x';
+  } else {
+    ys = xs.map(x => Math.pow(x, n));
+    derivYs = xs.map(x => n * Math.pow(x, n-1));
+    label = 'f(x) = x^' + n;
+  }
+  const validXs = n === -1 ? xs.filter(x => Math.abs(x) > 0.1) : xs;
+  Plotly.newPlot('plot-regla-potencia', [
+    {x: validXs, y: ys, mode: 'lines', name: label, line: {color: '#6366f1', width: 2}},
+    {x: validXs, y: derivYs, mode: 'lines', name: 'f\'(x) = ' + n + 'x^' + (n-1), line: {color: '#f97316', width: 2, dash: 'dash'}}
+  ], {title: 'Potencia n=' + n + ' y su derivada', xaxis: {title: 'x'}, yaxis: {title: 'y'}, plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'}, {responsive: true});
+}
 });
 </script>
 </body>

@@ -216,6 +216,16 @@ function verificarResta3() {
 ''' + checkE_func() + '''
 document.addEventListener('DOMContentLoaded', () => {
   nuevaResta3();
+
+function checkE(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (!input || !feedback) return;
+  const value = parseFloat(input.value);
+  if (isNaN(value)) { feedback.textContent = 'Introduce un número'; feedback.className = 'feedback incorrect'; return; }
+  if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
+  else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
+}
 });
 </script>
 </body>
