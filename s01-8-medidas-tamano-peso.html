@@ -76,8 +76,12 @@ Medir es <b>comparar</b>. Para saber qué es más grande, más pesado o más lar
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Comparar por tamaño</h2>
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Para comparar el tamaño, miramos qué ocupa más espacio. Un elefante es <b>más grande</b> que un gato. Una hormiga es <b>más pequeña</b> que un perro.
+<strong>📖 ¿QUÉ ES MEDIR?</strong>
+1. <b>¿Qué es?</b> Medir es comparar: ver qué es más grande, más pequeño, más pesado o más ligero.
+2. <b>¿Para qué sirve?</b> Para saber si cabe tu juguetе en la mochila, si tu mochila pesa demasiado, o si la pizza es suficiente para todos.
+3. <b>¿Cómo se hace?</b> Miras dos cosas y dices: "A es más grande que B" o "A pesa lo mismo que B".
+4. <b>⚠️ Error común:</b> ¡No confundas tamaño con peso! Una pelota de globo es GRANDE pero LIGERA. Una canica es PEQUEÑA pero PESADA.
+</div>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -93,14 +97,25 @@ Para comparar el tamaño, miramos qué ocupa más espacio. Un elefante es <b>má
 </div>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Ordena las cosas!</h2>
-<div class="interactive">
-<h3>Haz clic en los objetos en orden de menor a mayor tamaño:</h3>
-<div style="text-align:center;margin:1rem 0">
-<p style="font-size:1.1rem;font-weight:600;margin-bottom:1rem" id="orderQuestion">Ordena de menor a mayor:</p>
-<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0" id="orderItems"></div>
+<h2 class="chapter-title">2️⃣ Comparar por peso</h2>
+<div class="box box-teoria">
+<strong>📖 PESADO vs LIGERO</strong>
+Algunas cosas son grandes pero ligeras, y otras pequeñas pero pesadas. ¡No siempre coinciden!
 </div>
-<div class="result" id="interactiveResult"></div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo</strong>
+🎈 Globo = GRANDE pero LIGERO<br>🪨 Piedra = PEQUEÑA pero PESADA<br>🧱 Ladrillo = MEDIANO y PESADO
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">3️⃣ ¡Ordena por peso!</h2>
+<div class="interactive">
+<h3>Haz clic en los objetos en orden de más ligero a más pesado:</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.1rem;font-weight:600;margin-bottom:1rem" id="weightQuestion">Ordena de más ligero a más pesado:</p>
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0" id="weightItems"></div>
+</div>
+<div class="result" id="weightResult"></div>
 </div>
 </section>
 <section class="chapter">
@@ -143,12 +158,60 @@ Para comparar el tamaño, miramos qué ocupa más espacio. Un elefante es <b>má
 </div>
 </div>
 
+<div class="exercise">
+<p>6. <b>Completa el hueco:</b></p>
+<p>Una pelota de fútbol es ______ que una pelota de ping-pong. ⚽🏓</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">más grande</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">más pequeña</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>7. <b>¿Verdadero o falso?</b></p>
+<p>Una pelota de globo inflado es más grande PERO más ligera que una canica. 🎈🔵</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Falso</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>8. <b>Problema del mercado:</b></p>
+<p>En la frutería ves dos melones. El melón A pesa 3 kg y el melón B pesa 1 kg. ¿Cuál es más pesado?</p>
+<p>🍈 Melón A = 3 kg &nbsp; vs &nbsp; 🍈 Melón B = 1 kg</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Melón A</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Melón B</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>9. <b>Ordena de más ligero a más pesado:</b></p>
+<p>¿Cuál es el orden correcto? 🪶 pluma &nbsp; 📱 móvil &nbsp; 📚 libro</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkOrden(this, ['pluma','movil','libro'])">Pluma → Móvil → Libro</button>
+<button class="quiz-btn" onclick="checkOrden(this, ['libro','movil','pluma'])">Libro → Móvil → Pluma</button>
+<button class="quiz-btn" onclick="checkOrden(this, ['pluma','libro','movil'])">Pluma → Libro → Móvil</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>10. <b>Problema de la mochila:</b></p>
+<p>Tienes que llevar a clase: un libro (500g), una merienda (300g) y una pelota (200g). Tu mochila vacía pesa 400g. ¿Cuánto pesa todo junto?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">800 g</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1400 g</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1800 g</button>
+</div>
+</div>
+
 </div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Comparar es ver qué es más grande, más pequeño, más pesado o más ligero</li></li><li><li>Un elefante es más grande que un gato</li></li><li><li>Una pluma es más ligera que una piedra</li></li><li><li>Podemos ordenar objetos de menor a mayor</li></li><li><li>¡Ya sabes comparar! 🎉</li></li>
+<li><li>Medir es comparar: más grande, más pequeño, más pesado, más ligero</li></li><li><li>Tamaño y peso no siempre van juntos (globo grande pero ligero, canica pequeña pero pesada)</li></li><li><li>Podemos ordenar objetos de menor a mayor tamaño y de más ligero a más pesado</li></li><li><li>En la vida real medimos todo: mochilas, frutas, juguetes</li></li><li><li>¡Ya sabes comparar cosas! 🎉</li></li>
 </ul>
 </div>
 <div class="nav">
@@ -204,6 +267,49 @@ shuffled.forEach((s,i) => {
   items.appendChild(div);
 });
 
+// Weight ordering interactive exercise
+const weights = [
+  {emoji:'🪶', weight:1, label:'Pluma'},
+  {emoji:'📱', weight:3, label:'Móvil'},
+  {emoji:'📚', weight:5, label:'Libro'},
+  {emoji:'👟', weight:4, label:'Zapato'},
+  {emoji:'🧸', weight:2, label:'Peluche'}
+];
+let weightCount = 0;
+const wItems = document.getElementById('weightItems');
+const wShuffled = [...weights].sort(() => Math.random()-0.5);
+wShuffled.forEach((w,i) => {
+  const div = document.createElement('div');
+  div.className = 'quiz-btn';
+  div.style.fontSize = (w.weight * 22) + 'px';
+  div.textContent = w.emoji;
+  div.dataset.weight = w.weight;
+  div.onclick = function() {
+    if(this.classList.contains('picked')) return;
+    this.classList.add('picked');
+    this.style.opacity = '0.3';
+    weightCount++;
+    if(weightCount === weights.length) {
+      const sorted = Array.from(document.querySelectorAll('#weightItems .quiz-btn.picked')).map(el => parseInt(el.dataset.weight));
+      const isCorrect = sorted.every((v,i) => i === 0 || v >= sorted[i-1]);
+      const r = document.getElementById('weightResult');
+      if(isCorrect) {
+        r.className = 'result ok';
+        r.textContent = '🌟 ¡Bravo! Los ordenaste de más ligero a más pesado.';
+      } else {
+        r.className = 'result fail';
+        r.textContent = '❌ ¡Casi! Inténtalo otra vez, de más ligero a más pesado.';
+        document.querySelectorAll('#weightItems .quiz-btn.picked').forEach(el => {
+          el.classList.remove('picked');
+          el.style.opacity = '1';
+        });
+        weightCount = 0;
+      }
+    }
+  };
+  wItems.appendChild(div);
+});
+
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => {
@@ -212,6 +318,35 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+function checkOrden(btn, correctOrder) {
+  const parent = btn.parentElement;
+  const answers = {
+    'pluma-movil-libro': ['pluma','movil','libro'],
+    'libro-movil-pluma': ['libro','movil','pluma'],
+    'pluma-libro-movil': ['pluma','libro','movil']
+  };
+  // Find which button was clicked and determine its order
+  const btns = parent.querySelectorAll('.quiz-btn');
+  const isCorrect = btn.textContent.includes('Pluma → Móvil → Libro');
+
+  btns.forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+
+  if(isCorrect) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    // Highlight correct
+    btns.forEach(b => {
+      if(b.textContent.includes('Pluma → Móvil → Libro')) {
+        b.classList.add('correct');
+      }
+    });
+  }
 }
 
 window.onscroll = function(){
