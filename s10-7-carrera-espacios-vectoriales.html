@@ -193,26 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Gráfico de bases en R²
-const trace1 = {
-  x: [0, 1, 0, 0], y: [0, 0, 1, 0],
-  mode: 'lines+markers', name: 'Base canónica {(1,0), (0,1)}',
-  line: {color: '#2563eb', width: 3},
-  marker: {size: 10}
-};
-const trace2 = {
-  x: [0, 1, 1, 0], y: [0, 1, -1, 0],
-  mode: 'lines+markers', name: 'Base alternativa {(1,1), (1,-1)}',
-  line: {color: '#f97316', width: 3},
-  marker: {size: 10}
-};
-Plotly.newPlot('plot-base', [trace1, trace2], {
-  title: 'Dos bases que generan R²',
-  xaxis: {title: 'x', range: [-1.5, 2], gridcolor: '#e2e8f0'},
-  yaxis: {title: 'y', range: [-1.5, 2], gridcolor: '#e2e8f0'},
-  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
-  legend: {x: 0.02, y: 0.98}
-}, {responsive: true
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);
   const feedback = document.getElementById('e' + num + '-fb');
@@ -232,7 +212,6 @@ function checkExercise(num, correct) {
     feedback.className = 'feedback incorrect';
   }
 }
-});
 </script>
 </body>
 </html>
