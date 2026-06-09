@@ -50,6 +50,33 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-answer{padding:.4rem .8rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:80px;text-align:center}
+.input-answer:focus{outline:none;border-color:var(--naranja)}
+.vf-options{display:flex;gap:1rem;justify-content:center;margin:1rem 0}
+.vf-btn{padding:.6rem 2rem;border-radius:8px;border:2px solid;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.vf-btn.true-btn{border-color:var(--verde);color:var(--verde);background:#fff}
+.vf-btn.false-btn{border-color:var(--rojo);color:var(--rojo);background:#fff}
+.vf-btn:hover{opacity:.8}
+.vf-btn.correct{background:var(--verde);color:#fff}
+.vf-btn.wrong{background:var(--rojo);color:#fff}
+.sort-container{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin:1rem 0}
+.sort-item{padding:.6rem 1rem;border:2px solid var(--azul);border-radius:8px;background:#fff;cursor:pointer;font-size:1rem;user-select:none;transition:all .2s}
+.sort-item.selected{background:var(--azul);color:#fff}
+.sort-item.correct-order{border-color:var(--verde);background:var(--verde-claro)}
+.sort-item.wrong-order{border-color:var(--rojo);background:var(--rojo-claro)}
+.number-line{display:flex;align-items:flex-end;gap:0;margin:1.5rem auto;max-width:600px;height:120px}
+.nl-tick{display:flex;flex-direction:column;align-items:center;flex:1}
+.nl-bar{width:100%;background:var(--azul);border-radius:4px 4px 0 0;min-height:4px;transition:height .3s}
+.nl-label{font-size:.75rem;color:var(--gris);margin-top:4px;text-align:center}
+.nl-icon{font-size:1.2rem;margin-bottom:2px}
+.nl-zero{background:var(--naranja)!important}
+.nl-zero .nl-label{color:var(--naranja);font-weight:600}
+.check-btn{background:var(--naranja);color:#fff;border:none;padding:.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-top:.5rem}
+.check-btn:hover{background:#ea580c}
+.fill-blank-input{border:none;border-bottom:2px solid var(--azul);font-size:1rem;width:60px;text-align:center;padding:.2rem .5rem;color:var(--azul);font-weight:700}
+.fill-blank-input:focus{outline:none;border-bottom-color:var(--naranja)}
+.fill-blank-input.correct-input{border-bottom-color:var(--verde);color:var(--verde)}
+.fill-blank-input.wrong-input{border-bottom-color:var(--rojo);color:var(--rojo)}
 </style>
 </head>
 <body>
@@ -108,10 +135,59 @@ La longitud es lo <b>larga</b> o <b>corta</b> que es algo. Usamos una <b>regla</
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<!-- NUEVA SECCIÓN: Línea numérica visual con objetos -->
+<section class="chapter">
+<h2 class="chapter-title">📊 Mira la longitud de objetos</h2>
+<div class="interactive">
+<h3>📐 Línea de longitudes — ¿Cuál ves más largo?</h3>
+<p style="margin-bottom:1rem;font-size:.95rem">Observa las barras de colores. Cada barra mide lo que dice debajo.</p>
+<div class="number-line" id="numberLine">
+<div class="nl-tick">
+<span class="nl-icon">🐜</span>
+<div class="nl-bar nl-zero" style="height:4px"></div>
+<span class="nl-label">0.5 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">📎</span>
+<div class="nl-bar nl-zero" style="height:10px"></div>
+<span class="nl-label">3 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">📱</span>
+<div class="nl-bar nl-zero" style="height:50px"></div>
+<span class="nl-label">15 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">📏</span>
+<div class="nl-bar nl-zero" style="height:60px"></div>
+<span class="nl-label">18 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">👟</span>
+<div class="nl-bar nl-zero" style="height:83px"></div>
+<span class="nl-label">25 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">📖</span>
+<div class="nl-bar nl-zero" style="height:83px"></div>
+<span class="nl-label">25 cm</span>
+</div>
+<div class="nl-tick">
+<span class="nl-icon">🚪</span>
+<div class="nl-bar nl-zero" style="height:117px"></div>
+<span class="nl-label">35 cm</span>
+</div>
+</div>
+<p style="margin-top:.8rem;font-size:.9rem;color:var(--gris)">💡 La barra más alta = el objeto más largo</p>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- E1: Quiz original (ya existente) -->
 <div class="exercise">
 <p>1. ¿Qué unidad usamos para medir longitud?</p>
 <div class="quiz-options">
@@ -120,6 +196,8 @@ La longitud es lo <b>larga</b> o <b>corta</b> que es algo. Usamos una <b>regla</
 <button class="quiz-btn" onclick="checkExercise(this, false)">Litros (l)</button>
 </div>
 </div>
+
+<!-- E2: Quiz original (ya existente) -->
 <div class="exercise">
 <p>2. ¿Qué es más largo: un lápiz de 18cm o un bolígrafo de 15cm?</p>
 <div class="quiz-options">
@@ -127,36 +205,114 @@ La longitud es lo <b>larga</b> o <b>corta</b> que es algo. Usamos una <b>regla</
 <button class="quiz-btn" onclick="checkExercise(this, false)">El bolígrafo</button>
 </div>
 </div>
+
+<!-- E3: Completar hueco — NUEVO TIPO -->
 <div class="exercise">
-<p>3. ¿Cuántos cm tiene aproximadamente tu mano?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">50 cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">15 cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1 cm</button>
+<p>3. 📝 Completa el hueco: Un lápiz mide aproximadamente ___ cm.</p>
+<div style="display:flex;align-items:center;gap:.5rem;justify-content:center;margin:.8rem 0">
+<input type="number" class="fill-blank-input" id="fill1" placeholder="?">
+<span>cm</span>
+<button class="check-btn" onclick="checkFill1()">Comprobar</button>
 </div>
+<div class="result" id="fill1Result"></div>
 </div>
+
+<!-- E4: Verdadero/Falso — NUEVO TIPO -->
 <div class="exercise">
-<p>4. ¿Qué es más corto: una goma de 3cm o un rotulador de 15cm?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">La goma</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">El rotulador</button>
+<p>4. ✅❌ Verdadero o Falso: Un elefante mide más que una hormiga.</p>
+<div class="vf-options">
+<button class="vf-btn true-btn" onclick="checkVF(this, true, true)">✅ Verdadero</button>
+<button class="vf-btn false-btn" onclick="checkVF(this, true, false)">❌ Falso</button>
 </div>
+<div class="result" id="vf1Result"></div>
 </div>
+
+<!-- E5: Problema contextualizado — NUEVO TIPO -->
 <div class="exercise">
-<p>5. Si tienes dos palos: uno de 10cm y otro de 12cm... ¿cuánto mide el más largo?</p>
+<p>5. 🧩 Problema: La María tiene un rotulador de 15 cm y una goma de 3 cm. ¿Cuántos centímetros mide más el rotulador que la goma?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">10 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18 cm</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">12 cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">22 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10 cm</button>
+</div>
+</div>
+
+<!-- E6: Ordenar — NUEVO TIPO -->
+<div class="exercise">
+<p>6. 🔢 Ordena estos objetos de <b>más corto</b> a <b>más largo</b>. Pulsa en cada uno en el orden correcto:</p>
+<p style="font-size:.9rem;color:var(--gris);margin-bottom:.5rem">Primer paso: elige el más corto. Segundo paso: el siguiente. Tercer paso: el más largo.</p>
+<div class="sort-container" id="sort1">
+<div class="sort-item" data-value="15" data-order="3" onclick="selectSort(this, 'sort1')">📱 Móvil (15 cm)</div>
+<div class="sort-item" data-value="3" data-order="1" onclick="selectSort(this, 'sort1')">📎 Clip (3 cm)</div>
+<div class="sort-item" data-value="25" data-order="2" onclick="selectSort(this, 'sort1')">👟 Zapato (25 cm)</div>
+</div>
+<div style="text-align:center;margin-top:.8rem">
+<button class="check-btn" onclick="checkSort('sort1')">¿Orden correcto?</button>
+<button class="check-btn" style="background:var(--azul)" onclick="resetSort('sort1')">Reintentar</button>
+</div>
+<div class="result" id="sort1Result" style="text-align:center"></div>
+</div>
+
+<!-- E7: Completar hueco con estimación — NUEVO TIPO -->
+<div class="exercise">
+<p>7. 🏠 <b>Caso real:</b> Mides tu salón con la cinta métrica y mide 4 metros. ¿Cuántos centímetros son?</p>
+<div style="display:flex;align-items:center;gap:.5rem;justify-content:center;margin:.8rem 0">
+<input type="number" class="fill-blank-input" id="fill2" placeholder="?">
+<span>cm</span>
+<button class="check-btn" onclick="checkFill2()">Comprobar</button>
+</div>
+<div class="result" id="fill2Result"></div>
+</div>
+
+<!-- E8: Verdadero/Falso error común — NUEVO TIPO -->
+<div class="exercise">
+<p>8. ✅❌ Verdadero o Falso: Si un lápiz mide 18 cm y un rotulador 15 cm, el rotulador es más largo.</p>
+<div class="vf-options">
+<button class="vf-btn true-btn" onclick="checkVF(this, false, true)">✅ Verdadero</button>
+<button class="vf-btn false-btn" onclick="checkVF(this, false, false)">❌ Falso</button>
+</div>
+<div class="result" id="vf2Result"></div>
+</div>
+
+<!-- E9: Problema contextualizado diferente — NUEVO TIPO -->
+<div class="exercise">
+<p>9. 🧩 Problema: En la mochila de Pedro hay 3 lápices. Cada uno mide 18 cm. Si los pones uno detrás del otro, ¿cuántos cm miden en total?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">21 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">36 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">54 cm</button>
+</div>
+</div>
+
+<!-- E10: Quiz visual — NUEVO TIPO -->
+<div class="exercise">
+<p>10. 👀 Mira tu mano abierta. ¿Cuántos centímetros crees que mide?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">50 cm (¡más que una puerta!)</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">15 cm (como un lápiz)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1 cm (como una hormiga)</button>
 </div>
 </div>
 
 </div>
 </section>
+
+<!-- CAJA DE ERROR COMÚN -->
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+No confundir <b>centímetros</b> (para medir longitud) con <b>kilogramos</b> (para medir peso). ¡Son cosas diferentes! 📏 ≠ ⚖️
+</div>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>La longitud es lo larga o corta que es algo</li></li><li><li>Medimos con centímetros (cm)</li></li><li><li>Una regla nos ayuda a medir</li></li><li><li>Podemos comparar longitudes sin regla</li></li><li><li>¡Ya sabes medir! 🎉</li></li>
+<li>La longitud es lo larga o corta que es algo</li>
+<li>Medimos con centímetros (cm)</li>
+<li>Una regla nos ayuda a medir</li>
+<li>Podemos comparar longitudes sin regla</li>
+<li>1 metro = 100 centímetros</li>
+<li>Para saber cuánto mide más algo, restamos las longitudes</li>
+<li>¡Ya sabes medir! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -192,6 +348,114 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+function checkFill1() {
+  const input = document.getElementById('fill1');
+  const result = document.getElementById('fill1Result');
+  const val = parseInt(input.value);
+  if(val >= 15 && val <= 20) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! Un lápiz mide entre 15 y 20 cm. ¡Buen ojo!';
+    input.classList.add('correct-input');
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Piensa... un lápiz mide aproximadamente 18 cm. ¿Estás cerca?';
+    input.classList.add('wrong-input');
+  }
+}
+
+function checkFill2() {
+  const input = document.getElementById('fill2');
+  const result = document.getElementById('fill2Result');
+  const val = parseInt(input.value);
+  if(val === 400) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Exacto! 4 metros = 400 cm. ¡El salón es grande!';
+    input.classList.add('correct-input');
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Recuerda: 1 metro = 100 cm. Entonces 4 metros = 4 × 100 = ___';
+    input.classList.add('wrong-input');
+  }
+}
+
+function checkVF(btn, isCorrect, userAnswer) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const resultId = btn.closest('.exercise').querySelector('.result').id;
+  const result = document.getElementById(resultId);
+  if(userAnswer === isCorrect) {
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = isCorrect ? '✅ ¡Correcto! Un elefante (300 cm) mide mucho más que una hormiga (0.5 cm).' : '✅ ¡Correcto! 18 cm > 15 cm, así que el lápiz SÍ es más largo.';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = isCorrect ? '❌ ¡Es verdadero! 300 cm > 0.5 cm. ¡Un elefante es enorme!' : '❌ ¡Es falso! 18 cm > 15 cm, el lápiz es más largo que el rotulador.';
+  }
+}
+
+// Sort exercise logic
+const sortState = {};
+
+function selectSort(el, containerId) {
+  if (sortState[containerId] === undefined) sortState[containerId] = [];
+  const selected = sortState[containerId];
+  if (selected.length >= 3) return;
+  if (selected.includes(el)) return;
+  selected.push(el);
+  el.classList.add('selected');
+}
+
+function checkSort(containerId) {
+  const container = document.getElementById(containerId);
+  const items = container.querySelectorAll('.sort-item');
+  const selected = sortState[containerId] || [];
+  const resultEl = document.getElementById(containerId + 'Result');
+
+  if (selected.length < 3) {
+    resultEl.className = 'result fail';
+    resultEl.textContent = '⚠️ Pulsa en los 3 objetos primero, de más corto a más largo.';
+    return;
+  }
+
+  let allCorrect = true;
+  selected.forEach((el, i) => {
+    const expectedOrder = i + 1;
+    const actualOrder = parseInt(el.dataset.order);
+    if (actualOrder === expectedOrder) {
+      el.classList.remove('selected');
+      el.classList.add('correct-order');
+    } else {
+      el.classList.remove('selected');
+      el.classList.add('wrong-order');
+      allCorrect = false;
+    }
+  });
+
+  if (allCorrect) {
+    resultEl.className = 'result ok';
+    resultEl.textContent = '✅ ¡Perfecto! Clip (3 cm) → Móvil (15 cm) → Zapato (25 cm). ¡Orden correcto!';
+  } else {
+    resultEl.className = 'result fail';
+    resultEl.textContent = '❌ No del todo. El orden correcto es: más corto primero (3 cm), luego (15 cm), luego (25 cm). ¡Inténtalo de nuevo!';
+  }
+}
+
+function resetSort(containerId) {
+  const container = document.getElementById(containerId);
+  const items = container.querySelectorAll('.sort-item');
+  const resultEl = document.getElementById(containerId + 'Result');
+  items.forEach(el => {
+    el.classList.remove('selected', 'correct-order', 'wrong-order');
+  });
+  sortState[containerId] = [];
+  resultEl.className = 'result';
+  resultEl.textContent = '';
 }
 
 window.onscroll = function(){
