@@ -148,7 +148,8 @@ Muchos piensan que el círculo tiene "muchos lados" porque es redondo. ¡Pero NO
 </div>
 </section>
 
-2️⃣ ¡Busca figuras a tu alrededor!</h2>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Busca figuras a tu alrededor!</h2>
 
 <div class="interactive">
 <h3>🎮 Juego: ¿Qué figura es?</h3>
@@ -163,8 +164,6 @@ Muchos piensan que el círculo tiene "muchos lados" porque es redondo. ¡Pero NO
 </section>
 
 <section class="chapter">
-
-<section class="chapter">
 <h2 class="chapter-title">🌍 Figuras en mi vida real</h2>
 
 <div class="box box-ejemplo">
@@ -176,7 +175,28 @@ Pediste una pizza redonda 🍕. Tu hermana se comió una porción en forma de tr
 <strong>📦 Caso 2: La mudanza de tu habitación</strong>
 Tienes que meter tus juguetes en cajas. Tu pelota ⚽ cabe en una caja redonda. Tu libro 📖 cabe en una caja rectangular. ¿Y tu dado 🎲? ¡Cabe en una caja cuadrada! Las figuras te ayudan a elegir la caja correcta.
 </div>
+
+<div class="box box-ejemplo">
+<strong>🧱 Caso 3: Construir con LEGO</strong>
+Cuando construyes un castillo con LEGO, las piezas cuadradas 🟧 son para las paredes (¡son muy estables!). Las piezas triangulares 🔺 las usas para el tejado. ¿Y la torre redonda ⭕? ¡Es la más alta porque no tiene esquinas que se caigan!
+</div>
 </section>
+
+<h2 class="chapter-title">🎨 ¡Dibuja figuras!</h2>
+
+<div class="interactive">
+<h3>🖌️ Pizarra mágica de figuras</h3>
+<p>Elige una figura y haz clic en la pizarra para dibujarla. ¡Practica hasta que las reconozcas en tu casa!</p>
+<div style="text-align:center;margin:1rem 0">
+<button onclick="drawShape('circulo')" style="background:#2563eb;color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;margin:.3rem">⭕ Círculo</button>
+<button onclick="drawShape('cuadrado')" style="background:#f97316;color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;margin:.3rem">🟧 Cuadrado</button>
+<button onclick="drawShape('triangulo')" style="background:#10b981;color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;margin:.3rem">🔺 Triángulo</button>
+<button onclick="drawShape('rectangulo')" style="background:#8b5cf6;color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;margin:.3rem">▭ Rectángulo</button>
+<button onclick="clearCanvas()" style="background:#ef4444;color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;margin:.3rem">🗑️ Borrar</button>
+</div>
+<canvas id="drawCanvas" width="500" height="300" style="border:3px dashed #cbd5e1;border-radius:12px;background:#fff;cursor:crosshair;display:block;margin:0 auto;max-width:100%"></canvas>
+<div id="drawResult" class="result" style="display:none;text-align:center;margin-top:.8rem"></div>
+</div>
 
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
@@ -269,13 +289,14 @@ Tienes que meter tus juguetes en cajas. Tu pelota ⚽ cabe en una caja redonda. 
 </div>
 
 <div class="exercise">
-<p>10. Si un triángulo tiene 3 lados y cada lado mide 5 cm, ¿cuánto mide el perímetro (la suma de todos los lados)?</p>
+<p>10. Completa: Un rectángulo tiene ___ lados, pero 2 son largos y 2 son cortos.</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">15 cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8 cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
 </div>
 </div>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
@@ -424,45 +445,66 @@ function sortCheck(btn, shape){
       });
       result.textContent = '';
     }
-  }
 }
-\n
-function sortCheck(btn, shape){
-  const container = document.getElementById('sortExercise');
-  const result = document.getElementById('sortResult');
+
+// === PIZARRA MÁGICA DE FIGURAS ===
+let currentShape = null;
+const canvas = document.getElementById('drawCanvas');
+const ctx = canvas.getContext('2d');
+
+function drawShape(shape){
+  currentShape = shape;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const colors = {circulo:'#2563eb',cuadrado:'#f97316',triangulo:'#10b981',rectangulo:'#8b5cf6'};
+  const names = {circulo:'círculo',cuadrado:'cuadrado',triangulo:'triángulo',rectangulo:'rectángulo'};
+  document.getElementById('drawResult').style.display = 'block';
+  document.getElementById('drawResult').className = 'result';
+  document.getElementById('drawResult').textContent = '🎨 Haz clic en la pizarra para dibujar un '+names[shape]+' '+colors[shape]+'!';
+}
+
+canvas.addEventListener('click', function(e){
+  if(!currentShape) return;
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+  const colors = {circulo:'#2563eb',cuadrado:'#f97316',triangulo:'#10b981',rectangulo:'#8b5cf6'};
+  ctx.fillStyle = colors[currentShape] + '33';
+  ctx.strokeStyle = colors[currentShape];
+  ctx.lineWidth = 3;
+  
+  if(currentShape === 'circulo'){
+    ctx.beginPath();
+    ctx.arc(x, y, 40, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+  } else if(currentShape === 'cuadrado'){
+    ctx.fillRect(x-35, y-35, 70, 70);
+    ctx.strokeRect(x-35, y-35, 70, 70);
+  } else if(currentShape === 'triangulo'){
+    ctx.beginPath();
+    ctx.moveTo(x, y-40);
+    ctx.lineTo(x+40, y+35);
+    ctx.lineTo(x-40, y+35);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  } else if(currentShape === 'rectangulo'){
+    ctx.fillRect(x-45, y-25, 90, 50);
+    ctx.strokeRect(x-45, y-25, 90, 50);
+  }
+  
+  const result = document.getElementById('drawResult');
   result.style.display = 'block';
-  
-  if(btn.classList.contains('selected')){
-    btn.classList.remove('selected');
-    btn.style.background = '#fff';
-    btn.style.color = 'var(--azul)';
-    result.textContent = '';
-    result.className = 'result';
-    return;
-  }
-  
-  btn.classList.add('selected');
-  btn.style.background = 'var(--azul)';
-  btn.style.color = '#fff';
-  
-  const selected = container.querySelectorAll('.quiz-btn.selected');
-  if(selected.length === 3){
-    const order = Array.from(selected).map(b => b.dataset.shape);
-    const correct = ['circulo','triangulo','cuadrado'];
-    if(JSON.stringify(order) === JSON.stringify(correct)){
-      result.className = 'result ok';
-      result.textContent = '🌟 ¡Correcto! Círculo (0) → Triángulo (3) → Cuadrado (4)';
-    } else {
-      result.className = 'result fail';
-      result.textContent = '❌ Inténtalo de nuevo. Recuerda: 0 < 3 < 4';
-      selected.forEach(b => {
-        b.classList.remove('selected');
-        b.style.background = '#fff';
-        b.style.color = 'var(--azul)';
-      });
-      result.textContent = '';
-    }
-  }
+  result.className = 'result ok';
+  result.textContent = '✅ ¡Has dibujado un '+currentShape+'! ¿Lo ves en algo de tu habitación?';
+});
+
+function clearCanvas(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  currentShape = null;
+  document.getElementById('drawResult').style.display = 'block';
+  document.getElementById('drawResult').className = 'result';
+  document.getElementById('drawResult').textContent = '🗑️ Pizarra limpia. ¡Elige una figura para dibujar!';
 }
 
 function checkExercise(btn, correct){
