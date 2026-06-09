@@ -1,151 +1,151 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>1º Carrera — Curso de Matemáticas</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1º Carrera — Curso de Matemáticas</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.container{max-width:900px;margin:0 auto;padding:1.5rem}
-    15|.intro-box{background:linear-gradient(135deg,#e0e7ff,var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #6366f1}
-    16|.intro-box h2{color:#6366f1;margin-bottom:.8rem}
-    17|.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
-    18|.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-    19|.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#6366f1}
-    20|.session-card .num{font-size:.8rem;color:#6366f1;font-weight:700;margin-bottom:.3rem}
-    21|.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
-    22|.session-card p{font-size:.85rem;color:#64748b}
-    23|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    24|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    25|.nav a:hover{background:var(--azul-claro)}
-    26|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    27|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    28|.summary h3{color:#6366f1;margin-bottom:.8rem}
-    29|.summary ul{list-style:none;padding:0}
-    30|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    31|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    32|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    33|.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#6366f1;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:#e0e7ff;transition:all .2s}
-    34|.back-link:hover{transform:translateX(-4px)}
-    35|@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
-    36|</style>
-    37|</head>
-    38|<body>
-    39|<div class="container">
-    40|<a class="back-link" href="INDEX.html">← Volver al índice general</a>
-    41|
-    42|<div class="header">
-    43|<h1>🏛️ 1º Carrera</h1>
-    44|<p>Cálculo multivariable, álgebra lineal, EDOs y transformaciones lineales</p>
-    45|</div>
-    46|
-    47|<div class="intro-box">
-    48|<h2>¿Qué vamos a aprender en 1º de Carrera?</h2>
-    49|<p>La universidad es otro nivel. Aquí las matemáticas dejan de ser números y se convierten en estructuras abstractas. El cálculo multivariable extiende las derivadas e integrales a funciones de varias variables. El álgebra lineal estudia espacios vectoriales y transformaciones. Las EDOs modelan fenómenos físicos reales.</p>
-    50|<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
-    51|<ul style="padding-left:1.5rem;margin-top:.5rem">
-    52|<li>Límites y continuidad en varias variables</li>
-    53|<li>Derivadas parciales y gradiente</li>
-    54|<li>Integrales múltiples: dobles y triples</li>
-    55|<li>Espacios vectoriales y transformaciones lineales</li>
-    56|<li>Ecuaciones diferenciales ordinarias de primer y segundo orden</li>
-    57|<li>Series de Fourier y autovalores</li>
-    58|</ul>
-    59|</div>
-    60|
-    61|<h2 style="margin:2rem 0 1rem;color:#6366f1">📚 10 Sesiones de 1º Carrera</h2>
-    62|
-    63|<div class="sessions-grid">
-    64|<a class="session-card" href="s10-1-carrera-limites-multivariable.html">
-    65|<div class="num">Sesión 1</div>
-    66|<h3>📐 Límites Multivariable</h3>
-    67|<p>Límites en R²: trayectorias, coordenadas polares y continuidad.</p>
-    68|</a>
-    69|
-    70|<a class="session-card" href="s10-2-carrera-derivadas-parciales.html">
-    71|<div class="num">Sesión 2</div>
-    72|<h3>📈 Derivadas Parciales</h3>
-    73|<p>Derivar respecto a una variable manteniendo las demás fijas. El gradiente.</p>
-    74|</a>
-    75|
-    76|<a class="session-card" href="s10-3-carrera-integrales-multiples.html">
-    77|<div class="num">Sesión 3</div>
-    78|<h3>∫ Integrales Múltiples</h3>
-    79|<p>Integrales dobles y triples: calcular volúmenes y masas.</p>
-    80|</a>
-    81|
-    82|<a class="session-card" href="s10-4-carrera-edos-primer-orden.html">
-    83|<div class="num">Sesión 4</div>
-    84|<h3>🔢 EDOs de Primer Orden</h3>
-    85|<p>Ecuaciones separables, lineales y exactas. Modelado de crecimiento.</p>
-    86|</a>
-    87|
-    88|<a class="session-card" href="s10-5-carrera-edos-segundo-orden.html">
-    89|<div class="num">Sesión 5</div>
-    90|<h3>🔢 EDOs de Segundo Orden</h3>
-    91|<p>Ecuaciones lineales con coeficientes constantes. Oscilaciones.</p>
-    92|</a>
-    93|
-    94|<a class="session-card" href="s10-6-carrera-series-fourier.html">
-    95|<div class="num">Sesión 6</div>
-    96|<h3>🔔 Series de Fourier</h3>
-    97|<p>Descomponer funciones periódicas en senos y cosenos.</p>
-    98|</a>
-    99|
-   100|<a class="session-card" href="s10-7-carrera-espacios-vectoriales.html">
-   101|<div class="num">Sesión 7</div>
-   102|<h3>📐 Espacios Vectoriales</h3>
-   103|<p>Vectores, bases, dimensión y subespacios.</p>
-   104|</a>
-   105|
-   106|<a class="session-card" href="s10-8-carrera-autovalores.html">
-   107|<div class="num">Sesión 8</div>
-   108|<h3>🔢 Autovalores y Autovectores</h3>
-   109|<p>La esencia de una matriz: sus eigenvalores y eigenvectores.</p>
-   110|</a>
-   111|
-   112|<a class="session-card" href="s10-9-carrera-transformaciones-lineales.html">
-   113|<div class="num">Sesión 9</div>
-   114|<h3>🔄 Transformaciones Lineales</h3>
-   115|<p>Mapeos que preservan suma y producto por escalar. Rotaciones, escalados.</p>
-   116|</a>
-   117|
-   118|<a class="session-card" href="s10-10-carrera-repaso.html">
-   119|<div class="num">Sesión 10</div>
-   120|<h3>🎓 Repaso Integrador</h3>
-   121|<p>Problemas que combinan todo: cálculo, álgebra lineal y EDOs.</p>
-   122|</a>
-   123|</div>
-   124|
-   125|<div class="summary">
-   126|<h3>📋 Resumen de lo que vas a aprender</h3>
-   127|<ul>
-   128|<li>Límites en R²: el límite existe si es el mismo en todas las trayectorias</li>
-   129|<li>Derivadas parciales: ∂f/∂x mide cómo cambia f cuando solo x varía</li>
-   130|<li>El gradiente: vector que apunta en la dirección de máximo crecimiento</li>
-   131|<li>Integrales dobles y triples: calcular volúmenes y masas</li>
-   132|<li>EDOs: ecuaciones que relacionan una función con sus derivadas</li>
-   133|<li>Series de Fourier: toda función periódica es suma de senos y cosenos</li>
-   134|<li>Espacios vectoriales: la estructura más fundamental del álgebra</li>
-   135|<li>Autovalores: los "números propios" de una matriz</li>
-   136|<li>Transformaciones lineales: rotaciones, escalados, proyecciones</li>
-   137|</ul>
-   138|</div>
-   139|
-   140|<div class="nav">
-   141|<a href="s09-bachiller.html">← Bachillerato</a>
-   142|<a class="disabled">Siguiente</a>
-   143|</div>
-   144|</div>
-   145|
-   146|<div class="footer">Hecho con ❤️ por David Antizar</div>
-   147|</body>
-   148|</html>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,#e0e7ff,var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #6366f1}
+.intro-box h2{color:#6366f1;margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#6366f1}
+.session-card .num{font-size:.8rem;color:#6366f1;font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#6366f1;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#6366f1;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:#e0e7ff;transition:all .2s}
+.back-link:hover{transform:translateX(-4px)}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
+
+<div class="header">
+<h1>🏛️ 1º Carrera</h1>
+<p>Cálculo multivariable, álgebra lineal, EDOs y transformaciones lineales</p>
+</div>
+
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en 1º de Carrera?</h2>
+<p>La universidad es otro nivel. Aquí las matemáticas dejan de ser números y se convierten en estructuras abstractas. El cálculo multivariable extiende las derivadas e integrales a funciones de varias variables. El álgebra lineal estudia espacios vectoriales y transformaciones. Las EDOs modelan fenómenos físicos reales.</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Límites y continuidad en varias variables</li>
+<li>Derivadas parciales y gradiente</li>
+<li>Integrales múltiples: dobles y triples</li>
+<li>Espacios vectoriales y transformaciones lineales</li>
+<li>Ecuaciones diferenciales ordinarias de primer y segundo orden</li>
+<li>Series de Fourier y autovalores</li>
+</ul>
+</div>
+
+<h2 style="margin:2rem 0 1rem;color:#6366f1">📚 10 Sesiones de 1º Carrera</h2>
+
+<div class="sessions-grid">
+<a class="session-card" href="s10-1-carrera-limites-multivariable.html">
+<div class="num">Sesión 1</div>
+<h3>📐 Límites Multivariable</h3>
+<p>Límites en R²: trayectorias, coordenadas polares y continuidad.</p>
+</a>
+
+<a class="session-card" href="s10-2-carrera-derivadas-parciales.html">
+<div class="num">Sesión 2</div>
+<h3>📈 Derivadas Parciales</h3>
+<p>Derivar respecto a una variable manteniendo las demás fijas. El gradiente.</p>
+</a>
+
+<a class="session-card" href="s10-3-carrera-integrales-multiples.html">
+<div class="num">Sesión 3</div>
+<h3>∫ Integrales Múltiples</h3>
+<p>Integrales dobles y triples: calcular volúmenes y masas.</p>
+</a>
+
+<a class="session-card" href="s10-4-carrera-edos-primer-orden.html">
+<div class="num">Sesión 4</div>
+<h3>🔢 EDOs de Primer Orden</h3>
+<p>Ecuaciones separables, lineales y exactas. Modelado de crecimiento.</p>
+</a>
+
+<a class="session-card" href="s10-5-carrera-edos-segundo-orden.html">
+<div class="num">Sesión 5</div>
+<h3>🔢 EDOs de Segundo Orden</h3>
+<p>Ecuaciones lineales con coeficientes constantes. Oscilaciones.</p>
+</a>
+
+<a class="session-card" href="s10-6-carrera-series-fourier.html">
+<div class="num">Sesión 6</div>
+<h3>🔔 Series de Fourier</h3>
+<p>Descomponer funciones periódicas en senos y cosenos.</p>
+</a>
+
+<a class="session-card" href="s10-7-carrera-espacios-vectoriales.html">
+<div class="num">Sesión 7</div>
+<h3>📐 Espacios Vectoriales</h3>
+<p>Vectores, bases, dimensión y subespacios.</p>
+</a>
+
+<a class="session-card" href="s10-8-carrera-autovalores.html">
+<div class="num">Sesión 8</div>
+<h3>🔢 Autovalores y Autovectores</h3>
+<p>La esencia de una matriz: sus eigenvalores y eigenvectores.</p>
+</a>
+
+<a class="session-card" href="s10-9-carrera-transformaciones-lineales.html">
+<div class="num">Sesión 9</div>
+<h3>🔄 Transformaciones Lineales</h3>
+<p>Mapeos que preservan suma y producto por escalar. Rotaciones, escalados.</p>
+</a>
+
+<a class="session-card" href="s10-10-carrera-repaso.html">
+<div class="num">Sesión 10</div>
+<h3>🎓 Repaso Integrador</h3>
+<p>Problemas que combinan todo: cálculo, álgebra lineal y EDOs.</p>
+</a>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Límites en R²: el límite existe si es el mismo en todas las trayectorias</li>
+<li>Derivadas parciales: ∂f/∂x mide cómo cambia f cuando solo x varía</li>
+<li>El gradiente: vector que apunta en la dirección de máximo crecimiento</li>
+<li>Integrales dobles y triples: calcular volúmenes y masas</li>
+<li>EDOs: ecuaciones que relacionan una función con sus derivadas</li>
+<li>Series de Fourier: toda función periódica es suma de senos y cosenos</li>
+<li>Espacios vectoriales: la estructura más fundamental del álgebra</li>
+<li>Autovalores: los "números propios" de una matriz</li>
+<li>Transformaciones lineales: rotaciones, escalados, proyecciones</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s09-bachiller.html">← Bachillerato</a>
+<a class="disabled">Siguiente</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+</body>
+</html>
