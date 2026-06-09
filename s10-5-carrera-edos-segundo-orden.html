@@ -6,7 +6,28 @@
 <title>🔢 1º Carrera — Sesión 5: EDOs de Segundo Orden | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+// Oscilador armónico: x'' + ω²x = 0
+const t = Array.from({length: 200}, (_, i) => i * 0.05);
+const omega = 2;
+const trace1 = {
+  x: t, y: t.map(x => Math.cos(omega*x)),
+  mode: 'lines', name: 'cos(2t)',
+  line: {color: '#2563eb', width: 2}
+};
+const trace2 = {
+  x: t, y: t.map(x => Math.exp(-0.3*x) * Math.cos(omega*x)),
+  mode: 'lines', name: 'Amortiguada',
+  line: {color: '#f97316', width: 2, dash: 'dash'}
+};
+Plotly.newPlot('plot-oscilacion', [trace1, trace2], {
+  title: 'Oscilador armónico vs amortiguado',
+  xaxis: {title: 't', gridcolor: '#e2e8f0'},
+  yaxis: {title: 'x(t)', gridcolor: '#e2e8f0'},
+  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+}, {responsive: true});
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 

@@ -6,7 +6,29 @@
 <title>📐 1º Carrera — Sesión 7: Espacios Vectoriales | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+// Gráfico de bases en R²
+const trace1 = {
+  x: [0, 1, 0, 0], y: [0, 0, 1, 0],
+  mode: 'lines+markers', name: 'Base canónica {(1,0), (0,1)}',
+  line: {color: '#2563eb', width: 3},
+  marker: {size: 10}
+};
+const trace2 = {
+  x: [0, 1, 1, 0], y: [0, 1, -1, 0],
+  mode: 'lines+markers', name: 'Base alternativa {(1,1), (1,-1)}',
+  line: {color: '#f97316', width: 3},
+  marker: {size: 10}
+};
+Plotly.newPlot('plot-base', [trace1, trace2], {
+  title: 'Dos bases que generan R²',
+  xaxis: {title: 'x', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+  yaxis: {title: 'y', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+  legend: {x: 0.02, y: 0.98}
+}, {responsive: true});
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -171,6 +193,27 @@ document.addEventListener('DOMContentLoaded', () => {
     throwOnError: false
   });
 });
+
+// Gráfico de bases en R²
+const trace1 = {
+  x: [0, 1, 0, 0], y: [0, 0, 1, 0],
+  mode: 'lines+markers', name: 'Base canónica {(1,0), (0,1)}',
+  line: {color: '#2563eb', width: 3},
+  marker: {size: 10}
+};
+const trace2 = {
+  x: [0, 1, 1, 0], y: [0, 1, -1, 0],
+  mode: 'lines+markers', name: 'Base alternativa {(1,1), (1,-1)}',
+  line: {color: '#f97316', width: 3},
+  marker: {size: 10}
+};
+Plotly.newPlot('plot-base', [trace1, trace2], {
+  title: 'Dos bases que generan R²',
+  xaxis: {title: 'x', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+  yaxis: {title: 'y', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+  legend: {x: 0.02, y: 0.98}
+}, {responsive: true});
 </script>
 </body>
 </html>
