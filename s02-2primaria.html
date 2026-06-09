@@ -91,6 +91,24 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>💡 Caso real: Calcular el cambio</strong>
 <p>Tienes 500€ y compras algo que cuesta 237€. ¿Cuánto te devuelven?</p>
 <p>500 - 237 = <strong>263€</strong></p>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Para qué sirve en tu vida?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso 2: Comparar precios</strong>
+<p>Un videojuego cuesta 65€ y otro 42€. ¿Cuánto más cuesta el primero?</p>
+<p>65 - 42 = <strong>23€</strong> más caro</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">⚠️ Error que comete la gente</h2>
+<div class="box box-error">
+<strong>🚫 Olvidar el préstamo</strong>
+<p>En 500 - 237, muchos olvidan que al pedir prestado las centenas bajan de 5 a 4.</p>
+<p>Siempre revisa: ¿pedí prestado a esta columna? Si sí, resta 1 antes de restar.</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -140,6 +158,60 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+
+<div class="chapter">
+<h2 class="chapter-title">🧠 Más ejercicios</h2>
+
+<!-- Ejercicio tipo: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 4 — Completar el hueco:</strong> 852 - ___ = 397</p>
+<p style="font-size:0.9rem;color:#64748b">Piensa: ¿qué número le resto a 852 para obtener 397?</p>
+<div class="exercise-input"><input type="number" id="e4"><button onclick="checkE(4, 455)">Comprobar</button></div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio tipo: Verdadero/Falso -->
+<div class="exercise">
+<p><strong>Ejercicio 5 — ¿Verdadero o Falso?</strong> 600 - 347 = 263</p>
+<p style="font-size:0.9rem;color:#64748b">Haz clic en la respuesta correcta:</p>
+<div style="display:flex;gap:1rem;margin:.8rem 0">
+<button onclick="checkVF(5, true)" style="flex:1;padding:.6rem;border:2px solid var(--azul);border-radius:8px;background:#fff;cursor:pointer;font-size:1rem">✅ Verdadero</button>
+<button onclick="checkVF(5, false)" style="flex:1;padding:.6rem;border:2px solid var(--azul);border-radius:8px;background:#fff;cursor:pointer;font-size:1rem">❌ Falso</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio tipo: Problema contextualizado -->
+<div class="exercise">
+<p><strong>Ejercicio 6 — Problema del autobús:</strong></p>
+<p>En un autobús hay 425 pasajeros. En la primera parada bajan 178. ¿Cuántos pasajeros quedan?</p>
+<div class="exercise-input"><input type="number" id="e6"><button onclick="checkE(6, 247)">Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Ejercicio tipo: Ordenar números -->
+<div class="exercise">
+<p><strong>Ejercicio 7 — Ordenar resultados:</strong></p>
+<p>Ordena estas restas de menor a mayor resultado:</p>
+<p style="font-size:1.1rem;margin:.5rem 0">
+🔹 500 - 200 &nbsp;&nbsp; 🔹 800 - 500 &nbsp;&nbsp; 🔹 600 - 100
+</p>
+<p style="font-size:0.9rem;color:#64748b">Pista: calcula cada una y compáralas</p>
+<div class="exercise-input"><input type="text" id="e7" placeholder="Ej: B, A, C" style="width:200px"><button onclick="checkOrden(7, 'B,A,C')">Comprobar</button></div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- Ejercicio tipo: Completar la resta vertical -->
+<div class="exercise">
+<p><strong>Ejercicio 8 — Completar la resta:</strong></p>
+<p style="font-family:monospace;font-size:1.3rem;text-align:center;margin:.5rem 0">
+&nbsp;&nbsp;905<br>- 438<br>─────<br>&nbsp;&nbsp;___
+</p>
+<div class="exercise-input"><input type="number" id="e8"><button onclick="checkE(8, 467)">Comprobar</button></div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+</div>
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
@@ -216,6 +288,33 @@ function verificarResta3() {
 ''' + checkE_func() + '''
 document.addEventListener('DOMContentLoaded', () => {
   nuevaResta3();
+
+
+function checkVF(num, isCorrect) {
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (!feedback) return;
+  // 600 - 347 = 253, NOT 263, so the statement is FALSE
+  if (isCorrect === false) {
+    feedback.textContent = '✅ ¡Correcto! 600 - 347 = 253, no 263';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ ¡Cuidado! 600 - 347 = 253, no 263. Es Falso';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden(num, correct) {
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (!feedback) return;
+  const input = document.getElementById('e' + num).value.trim().toUpperCase().replace(/\s/g, '');
+  if (input === correct) {
+    feedback.textContent = '✅ ¡Correcto! 800-500=300 < 500-200=300 < 600-100=500';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ Pista: 800-500=300, 500-200=300, 600-100=500. Orden: 300, 300, 500 → B,A,C';
+    feedback.className = 'feedback incorrect';
+  }
+}
 
 function checkE(num, correct) {
   const input = document.getElementById('e' + num);

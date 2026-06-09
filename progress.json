@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-7-figuras-basicas.html",
+  "last_improved": "s02-2primaria.html",
   "last_run": "2026-06-09",
-  "total_runs": 9,
+  "total_runs": 10,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -238,21 +238,32 @@
       "improvement_count": 2
     },
     "s02-2primaria.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 1,
-      "category": "primaria_2",
-      "improvements": [],
+      "category": "primaria_base",
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos vida real (manzanas, juguetes), 2 analogías vida real (helado, estrellas), 1 juego canvas animales, desafío final granja"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-09",
+          "added": "5 ejercicios nuevos variados (completar hueco, V/F, problema autobús, ordenar, resta vertical), 1 caso vida real (comparar precios), 1 caja error común, funciones checkVF y checkOrden"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 10,
+        "visual": 4,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 2
     },
     "s02-3primaria.html": {
       "status": "pending",
