@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-4primaria.html",
+  "last_improved": "s01-5primaria.html",
   "last_run": "2026-06-09",
-  "total_runs": 4,
+  "total_runs": 5,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -96,21 +96,27 @@
       "improvement_count": 1
     },
     "s01-5primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "4 ejercicios interactivos (manzanas, globos, pájaros, pizza), 2 explicaciones vida real (vampiro, supermercado), 2 ejemplos cotidianos (hucha, piscina), 1 gráfico Plotly de barras interactivo, resumen ampliado"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 9,
+        "text": 12,
+        "visual": 4,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-6primaria.html": {
       "status": "pending",

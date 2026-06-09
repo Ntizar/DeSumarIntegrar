@@ -208,16 +208,71 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 </div>
 
 <div class="exercise">
-<p>5. ¿Cuánto es 10 − 6?</p>
+<p>6. 🍎 Si tienes 6 manzanas y te comes 2... ¿cuántas te quedan?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>7. 🎈 En una fiesta había 10 globos y explotaron 4. ¿Cuántos quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>8. 🐱 En el jardín hay 8 pájaros en una rama y se vuelan 5. ¿Cuántos pájaros quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>9. 🍕 Si pides una pizza de 8 porciones y te comes 3... ¿cuántas porciones quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
 </div>
 </div>
 
 </div>
 </section>
+
+<div class="box box-teoria">
+<strong>📖 Teoría — Restar es como un vampiro</strong>
+Imagina que los números vampiro tienen miedo de los números grandes. Cuando ves 7 − 3, el 7 le tiene miedo al 3, así que el 3 se esconde y al 7 le quedan 4. ¡El vampiro matemático! 🧛
+</div>
+
+<div class="box box-teoria">
+<strong>📖 Teoría — La resta en el supermercado</strong>
+Cuando vas al supermercado y tienes 10€ y compras un chicle de 2€, el cajero resta: 10 − 2 = 8€. ¡Así sabes cuánto dinero te queda! La resta está en todas partes. 🛒
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 4 — La hucha</strong>
+Tenías 9 monedas en la hucha 🐷 y gastaste 4 en cromos. ¿Cuántas te quedan?<br>
+9 − 4 = <b>5</b> (¡5 monedas en la hucha!)
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 5 — La piscina</strong>
+En la piscina hay 10 niños 👦👧 y se van 6 a la playa. ¿Cuántos quedan en la piscina?<br>
+10 − 6 = <b>4</b> (¡4 niños siguen nadando!)
+</div>
+
+<div class="interactive">
+<h3>📊 Tabla visual de restas</h3>
+<p>Mira cómo cambian los resultados cuando restas más y más. ¡Es como una montaña rusa de números! 🎢</p>
+<div id="plotly-table" style="min-height: 250px;"></div>
+</div>
 
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
@@ -226,6 +281,7 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 <li>El signo − significa "menos"</li>
 <li>A veces sobra todo y queda 0</li>
 <li>Sumar y restar son operaciones inversas</li>
+<li>La resta está en el supermercado, la hucha y la piscina</li>
 <li>¡Ya sabes restar hasta 10! 🎉</li>
 </ul>
 </div>
@@ -242,6 +298,7 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 Hecho con ❤️ por David Antizar
 </footer>
 
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
 <script>
 const emoji = '🍪';
 
@@ -283,6 +340,33 @@ function checkExercise(btn, correct){
     btn.classList.add('wrong');
   }
 }
+
+// Plotly: gráfico de barras mostrando restas del 10
+const restasX = [];
+const restasY = [];
+for(let i = 0; i <= 10; i++){
+  restasX.push('10−'+i);
+  restasY.push(10 - i);
+}
+Plotly.newPlot('plotly-table', [{
+  x: restasX,
+  y: restasY,
+  type: 'bar',
+  marker: {
+    color: restasY.map(v => v > 5 ? '#10b981' : v > 2 ? '#f97316' : '#ef4444'),
+    line: { color: '#fff', width: 2 }
+  },
+  text: restasY.map(v => v.toString()),
+  textposition: 'outside',
+  hovertemplate: '10 − %{x}<br>Resultado: %{y}<extra></extra>'
+}], {
+  title: '📊 ¿Cuánto es 10 menos...?',
+  xaxis: { title: 'Operación' },
+  yaxis: { title: 'Resultado', range: [0, 11] },
+  margin: { t: 60, b: 60, l: 50, r: 20 },
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)'
+}, {responsive: true, displayModeBar: false});
 
 window.onscroll = function(){
   var h = document.documentElement;
