@@ -1,7 +1,34 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>3º Primaria — Matemáticas 🔍</title>
 <link href="https://cdn.jsdelivr.net/npm/@ntizar/aurora@latest/dist/aurora.min.css" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css"></head>
+<style>:root{--azul:#2563eb;--naranja:#f97316;--exito:#10b981;--error:#ef4444;--glass:rgba(255,255,255,.72);--glass-border:rgba(255,255,255,.35)}*{margin:0;padding:0;box-sizing:border-box}
+body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,#f0f9ff,#fff7ed 50%,#fef3c7);min-height:100vh;color:#1e293b}
+.header{background:linear-gradient(135deg,var(--azul),#7c3aed);color:#fff;padding:.8rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.layout{display:flex;min-height:calc(100vh - 52px)}.sidebar{width:200px;background:var(--glass);backdrop-filter:blur(12px);border-right:1px solid var(--glass-border);padding:1rem 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto}
+.sidebar a{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.2rem;color:#334155;text-decoration:none;font-size:.85rem;transition:all .2s}.sidebar a:hover,.sidebar a.active{background:rgba(37,99,235,.1);color:var(--azul);border-right:3px solid var(--azul)}.sidebar a .emoji{font-size:1.1rem}
+.main{flex:1;padding:1.5rem;max-width:850px}.chapter{display:none}.chapter.active{display:block}
+.card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin-bottom:1.2rem;box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.card h2{font-size:1.3rem;color:var(--azul);margin-bottom:.8rem}.card h3{font-size:1.05rem;color:#334155;margin:.8rem 0 .4rem}
+.teoria{border-left:5px solid var(--azul);background:rgba(37,99,235,.06);padding:1rem;border-radius:0 10px 10px 0}
+.ejemplo{border-left:5px solid var(--naranja);background:rgba(249,115,22,.06);padding:1rem;border-radius:0 10px 10px 0;margin:.5rem 0}
+.emoji-big{font-size:2.2rem;display:block;text-align:center;margin:.5rem 0}
+.canvas-box{text-align:center;margin:1rem 0}canvas{border:2px solid var(--azul);border-radius:12px;background:#fff;max-width:100%;cursor:pointer}
+.btn{display:inline-block;padding:.45rem 1.1rem;border-radius:10px;border:none;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;margin:.2rem}
+.btn-primary{background:var(--azul);color:#fff}.btn-primary:hover{background:#1d4ed8;transform:scale(1.03)}.btn-secondary{background:var(--naranja);color:#fff}.btn-success{background:var(--exito);color:#fff}
+.feedback{font-size:1rem;font-weight:700;margin:.5rem 0;min-height:1.5rem}.feedback.correct{color:var(--exito)}.feedback.incorrect{color:var(--error)}
+.footer{text-align:center;padding:1.5rem;color:#64748b;font-size:.85rem}
+.dark-toggle{background:none;border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1rem}
+.dark-toggle:hover{background:rgba(255,255,255,.2)}
+.slider-box{display:flex;align-items:center;gap:.8rem;margin:1rem 0;flex-wrap:wrap;justify-content:center}
+.slider-box input[type=range]{width:160px;accent-color:var(--azul)}
+.slider-box .val{font-size:1.3rem;font-weight:700;color:var(--azul);min-width:3ch}
+.quiz-opt{display:block;width:100%;text-align:left;padding:.6rem 1rem;margin:.3rem 0;border:2px solid #e2e8f0;border-radius:10px;background:#f8fafc;cursor:pointer;font-size:.95rem;transition:all .2s}
+.quiz-opt:hover{border-color:var(--azul);background:#dbeafe}
+.quiz-opt.correct-opt{border-color:var(--exito);background:#d1fae5}
+.quiz-opt.wrong-opt{border-color:var(--error);background:#fee2e2}
+.dark body.nz{background:linear-gradient(135deg,#0f172a,#1e1b4b 50%,#1c1917)!important;color:#e2e8f0!important}
+.dark .card{background:rgba(30,41,59,.85);border-color:rgba(255,255,255,.1)}.dark .sidebar{background:rgba(30,41,59,.9)}.dark .sidebar a{color:#cbd5e1}.dark .teoria{background:rgba(37,99,235,.15)}.dark .ejemplo{background:rgba(249,115,22,.15)}.dark .quiz-opt{background:#1e293b;border-color:#334155;color:#e2e8f0}.dark canvas{background:#1e293b}
+@media(max-width:768px){.sidebar{display:none}.main{padding:1rem}}</style></head>
 <body class="nz"><a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,.9); text-decoration: none; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 8px; background: rgba(255,255,255,.15); font-size: 0.8rem;">← Índice</a><div class="header"><h1>🔍 Matemáticas 3º Primaria — Detectives de Números</h1><button class="dark-toggle" onclick="toggleDark()" title="Modo oscuro">🌙</button></div>
 <div class="layout"><nav class="sidebar"><a href="#" class="active" onclick="showChapter(0)"><span class="emoji">✖️</span> Multiplicar</a><a href="#" onclick="showChapter(1)"><span class="emoji">➗</span> Dividir</a><a href="#" onclick="showChapter(2)"><span class="emoji">🍕</span> Fracciones</a><a href="#" onclick="showChapter(3)"><span class="emoji">📊</span> Comparar</a><a href="#" onclick="showChapter(4)"><span class="emoji">📏</span> Perímetro</a><a href="#" onclick="showChapter(5)"><span class="emoji">📈</span> Estadística</a></nav>
 <main class="main">
