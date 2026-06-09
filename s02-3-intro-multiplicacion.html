@@ -91,6 +91,28 @@ En vez de escribir 4 + 4 + 4 + 4 + 4, podemos escribir <b>5 × 4</b> (5 grupos d
 <strong>🔍 Ejemplo 3</strong>
 4 × 3 = 3 + 3 + 3 + 3 = <b>12</b><br>4 grupos de 3 = 12 🔴🔴🔴 🔴🔴🔴 🔴🔴🔴 🔴🔴🔴
 </div>
+
+<div class="box box-teoria">
+<strong>📖 ¿Cómo se lee?</strong>
+<b>3 × 4</b> se lee "3 por 4" o "3 grupos de 4".<br>
+El primer número = cuántos grupos hay.<br>
+El segundo número = cuántos objetos en cada grupo.<br><br>
+👉 <b>Truco:</b> si ves "cada", "por" o "veces", probablemente es multiplicación.
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+¡No confundas multiplicación con suma!<br>
+3 × 4 = 12 (no 7). El signo × NO es +.<br>
+Multiplicar es sumar el MISMO número: 4 + 4 + 4 = 12, no 4 + 3 = 7.
+</div>
+
+<div class="box box-success">
+<strong>🌍 Vida real</strong>
+Imagina que vas al supermercado y compras <b>4 paquetes de galletas</b>, cada paquete tiene <b>3 galletas</b>.<br>
+¿Cuántas galletas llevas? 4 × 3 = <b>12 galletas</b>.<br>
+Sin multiplicación tendrías que contar una por una: 1, 2, 3, 4, 5... ¡qué pereza! 😄
+</div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Crea grupos!</h2>
@@ -158,12 +180,43 @@ En vez de escribir 4 + 4 + 4 + 4 + 4, podemos escribir <b>5 × 4</b> (5 grupos d
 </div>
 </div>
 
+<div class="exercise">
+<p>6. Completa el hueco: 3 × __ = 12</p>
+<p style="font-size:0.9rem;color:#64748b">Piensa: 3 grupos de cuántos dan 12? 🤔</p>
+<input type="number" id="e6" placeholder="?" style="width:60px;padding:0.4rem;font-size:1.1rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkComplete()" style="background:var(--azul);color:#fff;border:none;padding:0.4rem 1rem;border-radius:6px;cursor:pointer;margin-left:0.5rem">Comprobar</button>
+<div class="result" id="r6"></div>
+</div>
+
+<div class="exercise">
+<p>7. Verdadero o Falso: 2 × 6 = 14</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+<p style="font-size:0.85rem;color:#64748b;margin-top:0.3rem">2 × 6 = 6 + 6 = 12, no 14</p>
+</div>
+
+<div class="exercise">
+<p>8. Problema: En la clase hay 4 mesas. En cada mesa se sientan 3 alumnos. ¿Cuántos alumnos hay en total?</p>
+<p style="font-size:0.9rem;color:#64748b">📝 4 mesas × 3 alumnos = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+
 </div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Multiplicar es sumar el mismo número varias veces</li></li><li><li>3 × 4 = 4 + 4 + 4 = 12</li></li><li><li>El signo × significa 'veces' o 'grupos de'</li></li><li><li>¡La multiplicación es un atajo para sumar!</li></li><li><li>¡Ya sabes multiplicar! 🎉</li></li>
+<li>Multiplicar es sumar el mismo número varias veces</li>
+<li>3 × 4 = 4 + 4 + 4 = 12</li>
+<li>El signo × significa 'veces' o 'grupos de'</li>
+<li>¡La multiplicación es un atajo para sumar!</li>
+<li>¡Ya sabes multiplicar! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -202,6 +255,34 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+function checkComplete() {
+  const input = document.getElementById('e6');
+  const result = document.getElementById('r6');
+  const val = parseInt(input.value);
+  if(val === 4) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 3 × 4 = 12, así que 3 × 4 = 12. ¡4 grupos de 3 = 12!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Piensa: 3 × __ = 12 → ¿3 grupos de cuántos dan 12? 3 + 3 + 3 + 3 = 12 → ¡4!';
+  }
+}
+
+function checkVF(btn, isCorrect) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(isCorrect) {
+    btn.classList.add('correct');
+    btn.textContent = '✅ ¡Correcto! 2 × 6 = 12, no 14';
+  } else {
+    btn.classList.add('wrong');
+    btn.textContent = '❌ Falso. 2 × 6 = 6 + 6 = 12';
+  }
 }
 
 window.onscroll = function(){

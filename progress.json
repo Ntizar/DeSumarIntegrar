@@ -261,21 +261,27 @@
       "improvement_count": 2
     },
     "s02-3primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "3 ejercicios nuevos variados (completar hueco, V/F, problema contexto clase), 3 cajas pedagógicas (lectura ×, error común × vs +, vida real supermercado), arreglado HTML roto <li><li>"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 10,
+        "visual": 4,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s02-4primaria.html": {
       "status": "pending",
