@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-2primaria.html",
+  "last_improved": "s01-3primaria.html",
   "last_run": "2026-06-09",
-  "total_runs": 2,
+  "total_runs": 3,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -50,21 +50,27 @@
       "improvement_count": 1
     },
     "s01-3primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "7 ejercicios interactivos (e4-e10) con emojis, 3 analogías vida real (pizzería, consolas, patas gatos), 3 ejemplos cotidianos (chocolates, ruedas coches, ramos flores), 1 gráfico canvas barras tabla del 3 interactivo, resumen ampliado"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 3,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 4
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-4primaria.html": {
       "status": "pending",

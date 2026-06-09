@@ -132,12 +132,134 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<div class="chapter">
+<h2 class="chapter-title">🍕 Analogías de la Vida Real</h2>
+
+<div class="box box-teoria">
+<strong>🍕 Analogía 1: La pizzería</strong>
+<p>Imagina que vas a una pizzería. Cada pizza se corta en <strong>8 trozos</strong>. Si pides <strong>3 pizzas</strong>, ¿cuántos trozos tienes?</p>
+<p>3 × 8 = 8 + 8 + 8 = <strong>24 trozos</strong></p>
+<p>¡Multiplicar es como pedir varias pizzas enteras! En vez de contar cada trozo uno a uno, sumas los trozos de cada pizza.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>🎮 Analogía 2: Consola de videojuegos</strong>
+<p>Tienes <strong>4 consolas</strong> y en cada una guardaste <strong>5 juegos</strong>. ¿Cuántos juegos tienes en total?</p>
+<p>4 × 5 = 5 + 5 + 5 + 5 = <strong>20 juegos</strong></p>
+<p>¡Con multiplicar ya sabes! No necesitas abrir cada consola para contar.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>🐾 Analogía 3: Las patas de los animales</strong>
+<p>En el granjero hay <strong>6 gatos</strong>. Cada gato tiene <strong>4 patas</strong>. ¿Cuántas patas hay en total?</p>
+<p>6 × 4 = 4 + 4 + 4 + 4 + 4 + 4 = <strong>24 patas</strong></p>
+<p>¡Y si hay un granjero con 2 patas también? 24 + 2 = <strong>26 patas en total!</strong> 😄</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🏠 Ejemplos con Objetos Cotidianos</h2>
+
+<div class="box box-ejemplo">
+<strong>🍫 Ejemplo: Los chocolates de la semana</strong>
+<p>Mamá te da <strong>3 chocolates</strong> cada día. ¿Cuántos chocolates tienes en <strong>5 días</strong>?</p>
+<p>5 × 3 = 3 + 3 + 3 + 3 + 3 = <strong>15 chocolates</strong></p>
+<p>📅 Lunes: 3 | Martes: 6 | Miércoles: 9 | Jueves: 12 | Viernes: 15</p>
+<p>¡Cada día sumas 3 más! La multiplicación te ahorra contar uno a uno.</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🚗 Ejemplo: Las ruedas del coche</strong>
+<p>En un parking hay <strong>7 coches</strong>. Cada coche tiene <strong>4 ruedas</strong>.</p>
+<p>7 × 4 = 4 + 4 + 4 + 4 + 4 + 4 + 4 = <strong>28 ruedas</strong></p>
+<p>🚗🚗🚗🚗🚗🚗🚗 → ¡28 ruedas en total!</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🌺 Ejemplo: Ramo de flores</strong>
+<p>Haces <strong>4 ramos</strong> y en cada ramo pones <strong>6 flores</strong>.</p>
+<p>4 × 6 = 6 + 6 + 6 + 6 = <strong>24 flores</strong></p>
+<p>🌺🌺🌺🌺🌺🌺 | 🌺🌺🌺🌺🌺🌺 | 🌺🌺🌺🌺🌺🌺 | 🌺🌺🌺🌺🌺🌺</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización: Tabla del 3 con Barras</h2>
+<div class="chart-container">
+<h3>📊 ¿Cuánto es 3 × N? ¡Mira las barras!</h3>
+<p class="chart-desc">Cambia el número y observa cómo crece la multiplicación.</p>
+<canvas id="canvas-tabla3" class="chart-canvas"></canvas>
+<div class="chart-controls">
+<button onclick="cambiarTabla3(1)">3 × 1</button>
+<button onclick="cambiarTabla3(2)">3 × 2</button>
+<button onclick="cambiarTabla3(3)">3 × 3</button>
+<button onclick="cambiarTabla3(4)">3 × 4</button>
+<button onclick="cambiarTabla3(5)">3 × 5</button>
+<button onclick="cambiarTabla3(6)">3 × 6</button>
+<button onclick="cambiarTabla3(7)">3 × 7</button>
+<button onclick="cambiarTabla3(8)">3 × 8</button>
+<button onclick="cambiarTabla3(9)">3 × 9</button>
+<button onclick="cambiarTabla3(10)">3 × 10</button>
+</div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Ejercicios Extra</h2>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 4:</strong> 2 × 8 = ? (Piensa: 2 grupos de 8)</p>
+<div class="exercise-input"><input type="number" id="e4"><button onclick="checkE(4, 16)">Comprobar</button></div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 5:</strong> 6 × 3 = ? (Piensa: 6 grupos de 3)</p>
+<div class="exercise-input"><input type="number" id="e5"><button onclick="checkE(5, 18)">Comprobar</button></div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 6:</strong> 9 × 2 = ? (Piensa: 9 grupos de 2)</p>
+<div class="exercise-input"><input type="number" id="e6"><button onclick="checkE(6, 18)">Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 7:</strong> 5 × 5 = ? (¡Este es especial, es una cuadrícula!)</p>
+<div class="exercise-input"><input type="number" id="e7"><button onclick="checkE(7, 25)">Comprobar</button></div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 8:</strong> 8 × 4 = ? (8 grupos de 4 🍎🍎🍎🍎 × 8)</p>
+<div class="exercise-input"><input type="number" id="e8"><button onclick="checkE(8, 32)">Comprobar</button></div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 9:</strong> 10 × 3 = ? (¡El cero es tu amigo!)</p>
+<div class="exercise-input"><input type="number" id="e9"><button onclick="checkE(9, 30)">Comprobar</button></div>
+<div class="feedback" id="e9-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🏆 Desafío Final:</strong> Si cada caja tiene 7 galletas y tienes 6 cajas, ¿cuántas galletas hay en total?</p>
+<div class="emoji-big">📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪</div>
+<div class="exercise-input"><input type="number" id="e10"><button onclick="checkE(10, 42)">Comprobar</button></div>
+<div class="feedback" id="e10-fb"></div>
+</div>
+</div>
+
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
 <li>Multiplicar es sumar el mismo número varias veces</li>
 <li>3 × 4 = 4 + 4 + 4 = 12</li>
 <li>Las tablas te ayudan a multiplicar rápido</li>
+<li>Puedes usar multiplicar para contar pizzas, juegos, patas y galletas</li>
+<li>El 0 multiplicado siempre da 0</li>
+<li>El 1 multiplicado siempre da el mismo número</li>
 </ul>
 </div>
 
@@ -222,7 +344,69 @@ function checkE(num, respuesta) {
 
 document.addEventListener('DOMContentLoaded', () => {
   nuevaMulti();
+  cambiarTabla3(5);
 });
+
+function cambiarTabla3(n) {
+  const canvas = document.getElementById('canvas-tabla3');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const base = 3;
+  const maxBars = 10;
+  const barWidth = Math.min(50, (canvas.width - 80) / maxBars - 8);
+  const maxVal = base * maxBars;
+  const chartHeight = canvas.height - 80;
+
+  // Draw axes
+  ctx.strokeStyle = '#cbd5e1';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(50, 10);
+  ctx.lineTo(50, chartHeight + 20);
+  ctx.lineTo(canvas.width - 10, chartHeight + 20);
+  ctx.stroke();
+
+  // Draw all bars
+  for (let i = 1; i <= maxBars; i++) {
+    const val = base * i;
+    const barH = (val / maxVal) * (chartHeight - 30);
+    const x = 60 + (i - 1) * (barWidth + 8);
+    const y = chartHeight + 20 - barH;
+
+    if (i === n) {
+      ctx.fillStyle = '#f97316';
+    } else {
+      ctx.fillStyle = '#2563eb';
+    }
+    ctx.fillRect(x, y, barWidth, barH);
+
+    // Value on top
+    ctx.fillStyle = '#1e293b';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(val, x + barWidth / 2, y - 5);
+
+    // Label below
+    ctx.font = '10px sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.fillText(i, x + barWidth / 2, chartHeight + 35);
+  }
+
+  // Title
+  ctx.fillStyle = '#2563eb';
+  ctx.font = 'bold 16px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(base + ' × ' + n + ' = ' + (base * n), canvas.width / 2, 25);
+
+  // Highlight active button
+  document.querySelectorAll('.chart-controls button').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === n - 1);
+  });
+}
 </script>
 </body>
 </html>
