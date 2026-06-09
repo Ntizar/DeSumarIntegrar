@@ -51,6 +51,12 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .feedback.incorrect{color:var(--rojo)}
 .emoji-big{font-size:2rem;text-align:center;margin:1rem 0}
 .big-number{font-size:3rem;font-weight:800;text-align:center;color:var(--azul);margin:1rem 0}
+.quiz-options{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.quiz-options button{flex:1;min-width:100px;padding:.6rem 1rem;border:2px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:1rem;font-weight:600;transition:all .2s}
+.quiz-options button:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-options button.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-options button.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.quiz-options button:disabled{opacity:.6;cursor:not-allowed}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -166,6 +172,131 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 
 <div style="text-align:center;margin:1rem 0"><a href="s01-1-contar-0-10.html" style="display:inline-block;background:#2563eb;color:#fff;padding:0.8rem 2rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.1rem">📖 Ver todas las sesiones detalladas de 1º Primaria →</a></div>
 
+<!-- MEJORAS: Nuevas explicaciones y ejercicios -->
+<div class="chapter">
+<h2 class="chapter-title">🏠 Sumar en la Vida Real</h2>
+
+<div class="box box-teoria">
+<strong>🍕 Sumar en la cocina</strong>
+<p style="margin-top:.5rem">Mamá cocina pizzas. Ella hizo 4 pizzas de pepperoni y 3 de queso. ¿Cuántas pizzas hizo en total?</p>
+<p style="margin-top:.5rem">Contamos: 🍕🍕🍕🍕 + 🍕🍕🍕 = 🍕🍕🍕🍕🍕🍕🍕</p>
+<p style="margin-top:.5rem">¡4 + 3 = <strong>7</strong> pizzas! Sumar nos ayuda a saber cuántas cosas tenemos.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>🧸 Sumar en el parque</strong>
+<p style="margin-top:.5rem">En el parque hay 6 niños jugando y llegan 4 más. ¿Cuántos niños hay ahora?</p>
+<p style="margin-top:.5rem">Contamos los niños: 👦👦👦👦👦👦 + 👦👦👦👦 = 👦👦👦👦👦👦👦👦👦👦</p>
+<p style="margin-top:.5rem">¡6 + 4 = <strong>10</strong> niños! Sumar nos dice cuántos somos en total.</p>
+</div>
+
+<div class="box box-teoria">
+<strong>💰 Sumar con monedas</strong>
+<p style="margin-top:.5rem">Tienes 5 monedas de 1 euro y tu abuelo te da 3 más. ¿Cuántos euros tienes?</p>
+<p style="margin-top:.5rem">Contamos las monedas: 🪙🪙🪙🪙🪙 + 🪙🪙🪙 = 🪙🪙🪙🪙🪙🪙🪙🪙</p>
+<p style="margin-top:.5rem">¡5 + 3 = <strong>8</strong> euros! Sumar nos ayuda a contar el dinero.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Ejercicios Extra</h2>
+
+<div class="exercise">
+<p>🍎 Ejercicio 4: Tienes 2 manzanas y tu amigo te da 5 más. ¿Cuántas manzanas tienes?</p>
+<div class="emoji-big">🍎🍎 + 🍎🍎🍎🍎🍎 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, true)">7 manzanas</button>
+<button onclick="checkAnswer(this, false)">5 manzanas</button>
+<button onclick="checkAnswer(this, false)">8 manzanas</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🐱 Ejercicio 5: En el jardín hay 3 gatitos y llegan 4 más. ¿Cuántos gatitos hay?</p>
+<div class="emoji-big">🐱🐱🐱 + 🐱🐱🐱🐱 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">5 gatitos</button>
+<button onclick="checkAnswer(this, true)">7 gatitos</button>
+<button onclick="checkAnswer(this, false)">8 gatitos</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🌟 Ejercicio 6: En tu caja hay 8 estrellas de papel y pones 2 más. ¿Cuántas estrellas hay?</p>
+<div class="emoji-big">⭐⭐⭐⭐⭐⭐⭐⭐ + ⭐⭐ = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">9 estrellas</button>
+<button onclick="checkAnswer(this, false)">10 estrellas</button>
+<button onclick="checkAnswer(this, true)">10 estrellas</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🍪 Ejercicio 7: La abuela hizo 6 galletas y tú te comiste 3. ¿Cuántas galletas quedan?</p>
+<div class="emoji-big">🍪🍪🍪🍪🍪🍪 - 🍪🍪🍪 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">2 galletas</button>
+<button onclick="checkAnswer(this, true)">3 galletas</button>
+<button onclick="checkAnswer(this, false)">4 galletas</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🎈 Ejercicio 8: En la fiesta hay 5 globos rojos y 4 azules. ¿Cuántos globos hay en total?</p>
+<div class="emoji-big">🎈🎈🎈🎈🎈 + 🎈🎈🎈🎈 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">8 globos</button>
+<button onclick="checkAnswer(this, true)">9 globos</button>
+<button onclick="checkAnswer(this, false)">10 globos</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🍓 Ejercicio 9: Fuiste al mercado y compraste 4 fresas y 6 moras. ¿Cuántas frutas compraste?</p>
+<div class="emoji-big">🍓🍓🍓🍓 + 🫐🫐🫐🫐🫐🫐 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">8 frutas</button>
+<button onclick="checkAnswer(this, true)">10 frutas</button>
+<button onclick="checkAnswer(this, false)">12 frutas</button>
+</div>
+<p class="feedback"></p>
+</div>
+
+<div class="exercise">
+<p>🎁 Ejercicio 10: En tu cumpleaños recibiste 7 regalos y tu hermana te dio 3 más. ¿Cuántos regalos tienes?</p>
+<div class="emoji-big">🎁🎁🎁🎁🎁🎁🎁 + 🎁🎁🎁 = ❓</div>
+<div class="quiz-options">
+<button onclick="checkAnswer(this, false)">9 regalos</button>
+<button onclick="checkAnswer(this, true)">10 regalos</button>
+<button onclick="checkAnswer(this, false)">11 regalos</button>
+</div>
+<p class="feedback"></p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📊 Sumas Visuales</h2>
+
+<div class="chart-container">
+<h3>🎨 ¿Cuántos animales hay?</h3>
+<p class="chart-desc">Mira los animales y suma. ¡Haz clic en los botones para ver diferentes sumas!</p>
+<canvas id="canvas-animales" class="chart-canvas"></canvas>
+<div class="chart-controls">
+<button onclick="nuevaAnimales()">🐾 Nueva suma de animales</button>
+</div>
+<div class="exercise-input" style="margin-top:1rem">
+<input type="number" id="respuesta-animales" placeholder="?" min="0" max="30">
+<button onclick="verificarAnimales()">✅ Comprobar</button>
+</div>
+<div class="feedback" id="fb-animales"></div>
+</div>
+</div>
+
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
@@ -173,6 +304,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <li>3 + 2 = 5 (contamos todos juntos)</li>
 <li>A veces necesitamos una "llevada" cuando pasamos de 10</li>
 <li>8 + 5 = 13 (llegamos a 10 y nos sobran 3)</li>
+<li>Sumar nos ayuda en la vida real: cocina, parque, dinero</li>
+<li>4 + 3 = 7 (pizzas), 6 + 4 = 10 (niños), 5 + 3 = 8 (euros)</li>
 </ul>
 </div>
 
@@ -293,6 +426,79 @@ function checkE(num, respuesta) {
 document.addEventListener('DOMContentLoaded', () => {
   nuevaSuma();
 });
+
+// Funciones para ejercicios tipo quiz (botones)
+function checkAnswer(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('button').forEach(b => {
+    b.disabled = true;
+    b.classList.remove('correct','wrong');
+  });
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  const feedback = parent.nextElementSibling;
+  if(feedback && feedback.classList.contains('feedback')) {
+    feedback.textContent = correct ? '✅ ¡Correcto! ¡Muy bien!' : '❌ ¡Intenta de nuevo!';
+    feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+  }
+}
+
+// Canvas de animales
+const animalEmojis = ['🐱','🐶','🐰','🐸','🦊','🐻','🐼','🐨','🐯','🦁'];
+
+function nuevaAnimales() {
+  const a = Math.floor(Math.random() * 6) + 1;
+  const b = Math.floor(Math.random() * 6) + 1;
+  const emoji1 = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
+  let emoji2 = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
+  while (emoji2 === emoji1) {
+    emoji2 = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
+  }
+  const canvas = document.getElementById('canvas-animales');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = '28px serif';
+  let x = 20, y = 60;
+  for (let i = 0; i < a; i++) {
+    ctx.fillText(emoji1, x, y);
+    x += 35;
+    if (x > canvas.width - 40) { x = 20; y += 40; }
+  }
+  ctx.font = 'bold 32px sans-serif';
+  ctx.fillStyle = '#f97316';
+  ctx.fillText('+', canvas.width / 2 - 15, 60);
+  x = canvas.width - a * 35 - 50;
+  y = 60;
+  for (let i = 0; i < b; i++) {
+    ctx.fillText(emoji2, x, y);
+    x += 35;
+    if (x > canvas.width - 40) { x = 20; y += 40; }
+  }
+  ctx.font = 'bold 24px sans-serif';
+  ctx.fillStyle = '#10b981';
+  ctx.fillText(a + ' + ' + b + ' = ?', canvas.width / 2 - 50, canvas.height - 40);
+  window._animalA = a;
+  window._animalB = b;
+  document.getElementById('respuesta-animales').value = '';
+  document.getElementById('fb-animales').textContent = '';
+  document.getElementById('fb-animales').className = 'feedback';
+}
+
+function verificarAnimales() {
+  const a = window._animalA || 3;
+  const b = window._animalB || 2;
+  const resp = parseInt(document.getElementById('respuesta-animales').value);
+  const fb = document.getElementById('fb-animales');
+  if (resp === a + b) {
+    fb.textContent = '✅ ¡Correcto! ' + a + ' + ' + b + ' = ' + (a + b);
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ ¡Casi! ' + a + ' + ' + b + ' = ' + (a + b);
+    fb.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>
