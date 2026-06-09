@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-2primaria.html",
+  "last_improved": "s01-7-figuras-basicas.html",
   "last_run": "2026-06-09",
-  "total_runs": 10,
+  "total_runs": 11,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -142,21 +142,27 @@
       "improvement_count": 1
     },
     "s01-7primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "1 ejercicio completar hueco (rectángulo), -1 ejercicio avanzado (perímetro), 1 caso vida real LEGO, 1 canvas interactivo pizarra mágica, arreglado sortCheck duplicado y HTML roto"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 4,
+        "real_world": 9,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-8primaria.html": {
       "status": "pending",
