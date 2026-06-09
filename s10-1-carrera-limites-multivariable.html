@@ -162,8 +162,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Trayectorias hacia el origen
+// Trayectorias hacia el origen
   const t = Array.from({length: 100}, (_, i) => i / 50);
   const trace1 = {
     x: t.map(x => x), y: t.map(x => x),
@@ -201,7 +200,8 @@ function checkE1() {
   else if (sel.value === 'si') { fb.textContent = 'Incorrecto. Para que exista el límite, debe ser el mismo por TODAS las trayectorias'; fb.className = 'feedback incorrect'; }
   else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

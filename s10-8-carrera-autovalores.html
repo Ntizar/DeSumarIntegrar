@@ -159,8 +159,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Visualización de autovalores
+// Visualización de autovalores
   const trace1 = {
     x: [1, 2, 3, 4, 5], y: [3, 1, 4, 1, 5],
     mode: 'markers+text', name: 'Autovalores',
@@ -190,7 +189,8 @@ function checkE1() {
   if ((v.includes('2') && v.includes('3')) || v === '2,3' || v === '2 y 3' || v === '2, 3') { fb.textContent = '¡Correcto! Los autovalores son 2 y 3 (diagonal de la matriz diagonal) 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. Para una matriz diagonal, los autovalores son los elementos de la diagonal: 2 y 3'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

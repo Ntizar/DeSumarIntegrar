@@ -161,8 +161,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Oscilador armónico: x'' + ω²x = 0
+// Oscilador armónico: x'' + ω²x = 0
   const t = Array.from({length: 200}, (_, i) => i * 0.05);
   const omega = 2;
   const trace1 = {
@@ -198,7 +197,8 @@ function checkE1() {
   else if (v.includes('c1') && v.includes('c2') && v.includes('e')) { fb.textContent = '¡Correcto! La forma general es y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. Ecuación característica: r²-4=0 → r=±2. Solución: y = C₁e²ˣ + C₂e⁻²ˣ'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

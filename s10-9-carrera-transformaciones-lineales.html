@@ -167,8 +167,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Transformación: rotación + escalado
+// Transformación: rotación + escalado
   const theta = Math.PI / 4;
   const sx = 1.5, sy = 0.8;
   const orig_x = [1, 0, -1, 0, 1];
@@ -203,7 +202,8 @@ function checkE1() {
   else if (sel.value === 'c') { fb.textContent = 'Incorrecto. Elevar al cuadrado no es lineal: (a+b)² ≠ a² + b²'; fb.className = 'feedback incorrect'; }
   else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

@@ -162,8 +162,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Aproximación de onda cuadrada
+// Aproximación de onda cuadrada
   const t = Array.from({length: 200}, (_, i) => (i - 100) * 0.03);
   const approx = t.map(x => {
     let sum = 0;
@@ -201,7 +200,8 @@ function checkE1() {
   else if (sel.value) { fb.textContent = 'Incorrecto. La serie de Fourier descompone funciones periódicas en senos y cosenos'; fb.className = 'feedback incorrect'; }
   else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

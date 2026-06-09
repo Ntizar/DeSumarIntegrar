@@ -167,8 +167,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Superficie f(x,y) = x² + y²
+// Superficie f(x,y) = x² + y²
   const x = [], y = [], z = [];
   for (let i = -2; i <= 2; i += 0.3) {
     const row_x = [], row_y = [], row_z = [];
@@ -203,7 +202,8 @@ function checkE1() {
   if (v.includes('2xy') && v.includes('3y') && (v.includes('+') || v.includes('2xy+3y²') || v.includes('2xy+3y^2'))) { fb.textContent = '¡Correcto! ∂f/∂x = 2xy + 3y² 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. ∂f/∂x = 2xy + 3y² (deriva respecto a x, y es constante)'; fb.className = 'feedback incorrect'; }
 }
-});
+
+
 </script>
 </body>
 </html>

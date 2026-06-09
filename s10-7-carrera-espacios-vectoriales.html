@@ -163,8 +163,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Gráfico de bases en R²
+// Gráfico de bases en R²
   const trace1 = {
     x: [0, 1, 0, 0], y: [0, 0, 1, 0],
     mode: 'lines+markers', name: 'Base canónica {(1,0), (0,1)}',
@@ -191,7 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
-});
+
+
 
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);

@@ -159,8 +159,7 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Soluciones de dy/dx = -2y
+// Soluciones de dy/dx = -2y
   const t = Array.from({length: 100}, (_, i) => i * 0.05);
   const traces = [0.5, 1, 2, -1].map((y0, idx) => ({
     x: t, y: t.map(x => y0 * Math.exp(-2*x)),
@@ -200,7 +199,8 @@ function checkExercise(num, correct) {
     feedback.className = 'feedback incorrect';
   }
 }
-});
+
+
 </script>
 </body>
 </html>
