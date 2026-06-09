@@ -120,11 +120,35 @@ Todo tiene forma. Las <b>figuras geométricas</b> son los "bloques" con los que 
 <div class="shape-info" id="shapeInfo">
 <h3>👆 Haz clic en una figura</h3>
 <p>Selecciona una figura de arriba para conocer sus secretos.</p>
+
+<section class="chapter">
+<h2 class="chapter-title">📖 ¿Qué son las figuras geométricas?</h2>
+
+<div class="box box-teoria">
+<strong>📖 ¿Qué son?</strong>
+Son formas con reglas. Cada figura tiene un número determinado de lados y vértices (esquinas).
+</div>
+
+<div class="box box-ejemplo">
+<strong>🏠 ¿Para qué sirven?</strong>
+Para construir cosas: una ventana es un rectángulo, una porción de pizza es un triángulo, una moneda es un círculo. ¡Los ingenieros las usan para construir casas y puentes!
+</div>
+
+<div class="box box-idea">
+<strong>🔍 ¿Cómo se hacen?</strong>
+1. <b>Observa</b> un objeto → ¿tiene esquinas o es redondo?<br>
+2. <b>Cuenta</b> los lados → ¿cuántos bordes tiene?<br>
+3. <b>Cuenta</b> los vértices → ¿cuántas esquinas tiene?<br>
+4. <b>Compara</b> → ¿todos los lados son iguales?
+</div>
+
+<div class="box box-success">
+<strong>⚠️ Error común:</strong>
+Muchos piensan que el círculo tiene "muchos lados" porque es redondo. ¡Pero NO! El círculo tiene <b>0 lados</b> porque su borde es una curva, no líneas rectas.
 </div>
 </section>
 
-<section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Busca figuras a tu alrededor!</h2>
+2️⃣ ¡Busca figuras a tu alrededor!</h2>
 
 <div class="interactive">
 <h3>🎮 Juego: ¿Qué figura es?</h3>
@@ -139,6 +163,21 @@ Todo tiene forma. Las <b>figuras geométricas</b> son los "bloques" con los que 
 </section>
 
 <section class="chapter">
+
+<section class="chapter">
+<h2 class="chapter-title">🌍 Figuras en mi vida real</h2>
+
+<div class="box box-ejemplo">
+<strong>🍕 Caso 1: La pizza misteriosa</strong>
+Pediste una pizza redonda 🍕. Tu hermana se comió una porción en forma de triángulo. ¿Qué figura le queda a tu pizza? <b>¡Un círculo con un troquito menos!</b> El triángulo que se comió tiene 3 lados y 3 vértices.
+</div>
+
+<div class="box box-ejemplo">
+<strong>📦 Caso 2: La mudanza de tu habitación</strong>
+Tienes que meter tus juguetes en cajas. Tu pelota ⚽ cabe en una caja redonda. Tu libro 📖 cabe en una caja rectangular. ¿Y tu dado 🎲? ¡Cabe en una caja cuadrada! Las figuras te ayudan a elegir la caja correcta.
+</div>
+</section>
+
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
@@ -190,6 +229,53 @@ Todo tiene forma. Las <b>figuras geométricas</b> son los "bloques" con los que 
 </div>
 </section>
 
+
+<div class="exercise">
+<p>6. Completa: Un triángulo tiene ___ lados.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>7. Verdadero o Falso: Un cuadrado tiene 4 lados iguales.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Verdadero ✅</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Falso ❌</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>8. Ordena de menos a más lados: círculo, triángulo, cuadrado.</p>
+<p style="font-size:0.85rem;color:#64748b;margin-bottom:.5rem">Pista: el círculo tiene 0 lados</p>
+<div id="sortExercise" style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0">
+<button class="quiz-btn" onclick="sortCheck(this,'circulo')" data-shape="circulo">⭕ Círculo</button>
+<button class="quiz-btn" onclick="sortCheck(this,'triangulo')" data-shape="triangulo">🔺 Triángulo</button>
+<button class="quiz-btn" onclick="sortCheck(this,'cuadrado')" data-shape="cuadrado">🟧 Cuadrado</button>
+</div>
+<div id="sortResult" class="result" style="display:none"></div>
+</div>
+
+<div class="exercise">
+<p>9. Si tienes 3 ventanas en forma de rectángulo y 2 ventanas en forma de cuadrado, ¿cuántas esquinas (vértices) hay en total?</p>
+<p style="font-size:0.85rem;color:#64748b;margin-bottom:.5rem">Pista: un rectángulo tiene 4 vértices y un cuadrado también</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">20</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>10. Si un triángulo tiene 3 lados y cada lado mide 5 cm, ¿cuánto mide el perímetro (la suma de todos los lados)?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">15 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10 cm</button>
+</div>
+</div>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
@@ -297,6 +383,87 @@ function newFindGame(){
   document.getElementById('findResult').textContent = '';
 }
 newFindGame();
+
+
+function sortCheck(btn, shape){
+  const container = document.getElementById('sortExercise');
+  const result = document.getElementById('sortResult');
+  result.style.display = 'block';
+  
+  // Check if this shape was already clicked
+  if(btn.classList.contains('selected')){
+    btn.classList.remove('selected');
+    btn.style.background = '#fff';
+    btn.style.color = 'var(--azul)';
+    result.textContent = '';
+    result.className = 'result';
+    return;
+  }
+  
+  // Mark as selected
+  btn.classList.add('selected');
+  btn.style.background = 'var(--azul)';
+  btn.style.color = '#fff';
+  
+  // Get all selected shapes in order
+  const selected = container.querySelectorAll('.quiz-btn.selected');
+  if(selected.length === 3){
+    const order = Array.from(selected).map(b => b.dataset.shape);
+    const correct = ['circulo','triangulo','cuadrado'];
+    if(JSON.stringify(order) === JSON.stringify(correct)){
+      result.className = 'result ok';
+      result.textContent = '🌟 ¡Correcto! Círculo (0) → Triángulo (3) → Cuadrado (4)';
+    } else {
+      result.className = 'result fail';
+      result.textContent = '❌ Inténtalo de nuevo. Recuerda: 0 < 3 < 4';
+      // Reset
+      selected.forEach(b => {
+        b.classList.remove('selected');
+        b.style.background = '#fff';
+        b.style.color = 'var(--azul)';
+      });
+      result.textContent = '';
+    }
+  }
+}
+\n
+function sortCheck(btn, shape){
+  const container = document.getElementById('sortExercise');
+  const result = document.getElementById('sortResult');
+  result.style.display = 'block';
+  
+  if(btn.classList.contains('selected')){
+    btn.classList.remove('selected');
+    btn.style.background = '#fff';
+    btn.style.color = 'var(--azul)';
+    result.textContent = '';
+    result.className = 'result';
+    return;
+  }
+  
+  btn.classList.add('selected');
+  btn.style.background = 'var(--azul)';
+  btn.style.color = '#fff';
+  
+  const selected = container.querySelectorAll('.quiz-btn.selected');
+  if(selected.length === 3){
+    const order = Array.from(selected).map(b => b.dataset.shape);
+    const correct = ['circulo','triangulo','cuadrado'];
+    if(JSON.stringify(order) === JSON.stringify(correct)){
+      result.className = 'result ok';
+      result.textContent = '🌟 ¡Correcto! Círculo (0) → Triángulo (3) → Cuadrado (4)';
+    } else {
+      result.className = 'result fail';
+      result.textContent = '❌ Inténtalo de nuevo. Recuerda: 0 < 3 < 4';
+      selected.forEach(b => {
+        b.classList.remove('selected');
+        b.style.background = '#fff';
+        b.style.color = 'var(--azul)';
+      });
+      result.textContent = '';
+    }
+  }
+}
 
 function checkExercise(btn, correct){
   const parent = btn.parentElement;

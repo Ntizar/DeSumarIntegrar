@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-1primaria.html",
+  "last_improved": "s01-7-figuras-basicas.html",
   "last_run": "2026-06-09",
-  "total_runs": 8,
+  "total_runs": 9,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -714,21 +714,27 @@
       "improvement_count": 0
     },
     "s01-7-figuras-basicas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "1 sección de concepto estructurada (qué son, para qué sirven, cómo se hacen, error común), 2 casos reales (pizza misteriosa, mudanza), +5 ejercicios variados (completar hueco, V/F, ordenar, problema ventanas, problema perímetro)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 3,
+        "real_world": 6,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-8-medidas-tamano-peso.html": {
       "status": "pending",
