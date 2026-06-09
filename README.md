@@ -183,6 +183,54 @@ Cada sesión incluye:
 
 ---
 
+## 🔄 Mejora Continua (MEGA-PLAN 2)
+
+El proyecto tiene un **sistema automatizado de mejora continua** que ejecuta un cron job cada 30 minutos, mejorando un tema por ejecución.
+
+### Estado actual
+
+| Métrica | Valor |
+|---------|-------|
+| **Temas mejorados** | 4 / 107 |
+| **Temas pendientes** | 103 / 107 |
+| **Ejecuciones totales** | 4 |
+| **Último tema** | `s01-4primaria.html` |
+
+### Temas ya mejorados
+
+| Tema | Nivel | Ronda | Ejercicios | Texto | Visual |
+|------|-------|-------|------------|-------|--------|
+| `s01-1primaria.html` | 1º Primaria | 1 | 10 | 8 | 3 |
+| `s01-2primaria.html` | 1º Primaria | 1 | 7 | 8 | 2 |
+| `s01-3primaria.html` | 1º Primaria | 1 | 10 | 10 | 3 |
+| `s01-4primaria.html` | 1º Primaria | 1 | 12 | 10 | 3 |
+
+### Qué se añade en cada mejora
+
+- 📝 **Más ejercicios interactivos** (de 5 a 15 por tema)
+- 🌍 **Casos de uso real** (vida cotidiana)
+- 📊 **Visualizaciones** Plotly / Canvas
+- 🔗 **Conexiones** con otros temas
+- 💡 **Explicaciones** con intuición antes de fórmulas
+
+### Cómo funciona
+
+```
+Cada 30 min → Selecciona tema pending (prioridad 1°)
+             → Analiza qué falta en el HTML
+             → Añade ejercicios + texto + visual
+             → Git commit + push automático
+             → Siguiente tema...
+```
+
+### Documentación
+
+- `MEGA-PLAN.md` — Plan original del proyecto
+- `MEGA-PLAN2.md` — Estrategia de mejora continua
+- `progress.json` — Estado de cada tema (actualizado por el cron)
+
+---
+
 ## 🛠️ Tecnología
 
 - **HTML + CSS + JavaScript vanilla** — Sin frameworks, sin librerías externas
