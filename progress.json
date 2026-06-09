@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-8-medidas-tamano-peso.html",
+  "last_improved": "s01-9-medidas-longitud.html",
   "last_run": "2026-06-09",
-  "total_runs": 12,
+  "total_runs": 13,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -165,33 +165,10 @@
       "improvement_count": 1
     },
     "s01-8-medidas-tamano-peso.html": {
-      "status": "improved_1",
-      "level": "1º Primaria",
-      "priority": 1,
-      "category": "primaria_base",
-      "improvements": [
-        {
-          "run": 1,
-          "date": "2026-06-09",
-          "added": "1 explicación estructurada (qué es/para qué/cómo/error común), +1 sección comparar por peso, +1 visualización ordenar por peso (5 objetos), +5 ejercicios variados (completar hueco, V/F, problema mercado, ordenar peso, problema mochila)"
-        }
-      ],
-      "scores": {
-        "exercises": 10,
-        "text": 12,
-        "visual": 4,
-        "real_world": 8,
-        "connections": 3,
-        "difficulty_range": 5
-      },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
-    },
-    "s01-9primaria.html": {
       "status": "pending",
       "level": "1º Primaria",
-      "priority": 1,
-      "category": "primaria_base",
+      "priority": 2,
+      "category": "primaria_tema",
       "improvements": [],
       "scores": {
         "exercises": 0,
@@ -759,39 +736,28 @@
       "last_improved": "2026-06-09",
       "improvement_count": 1
     },
-    "s01-8-medidas-tamano-peso.html": {
-      "status": "pending",
-      "level": "1º Primaria",
-      "priority": 2,
-      "category": "primaria_tema",
-      "improvements": [],
-      "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
-      },
-      "last_improved": null,
-      "improvement_count": 0
-    },
     "s01-9-medidas-longitud.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
-      "priority": 2,
-      "category": "primaria_tema",
-      "improvements": [],
+      "priority": 1,
+      "category": "primaria_base",
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "5 ejercicios nuevos variados: completar hueco (lápiz 18cm), V/F (elefante>hormiga), problema contextualizado (rotulador-goma), ordenar 3 objetos, problema mochila (3 lápices), completar hueco (4m=400cm), V/F error común (18>15), quiz visual mano; +1 línea numérica visual con 7 objetos; +1 caja error común cm vs kg"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 4,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-10-patrones.html": {
       "status": "pending",
