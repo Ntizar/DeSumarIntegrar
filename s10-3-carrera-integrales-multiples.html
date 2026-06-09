@@ -6,28 +6,7 @@
 <title>∫ 1º Carrera — Sesión 3: Integrales Múltiples | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Volumen bajo f(x,y) = 4 - x² - y²
-const x = [], y = [], z = [];
-for (let i = -1.5; i <= 1.5; i += 0.2) {
-  const row_x = [], row_y = [], row_z = [];
-  for (let j = -1.5; j <= 1.5; j += 0.2) {
-    row_x.push(i); row_y.push(j);
-    row_z.push(Math.max(0, 4 - i*i - j*j));
-  }
-  x.push(row_x); y.push(row_y); z.push(row_z);
-}
-Plotly.newPlot('plot-doble', [{
-  type: 'surface', x: x, y: y, z: z,
-  colorscale: 'Viridis'
-}], {
-  title: 'Volumen: ∫∫ (4 - x² - y²) dA',
-  scene: {
-    xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'z'}
-  }
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -179,6 +158,26 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Volumen bajo f(x,y) = 4 - x² - y²
+  const x = [], y = [], z = [];
+  for (let i = -1.5; i <= 1.5; i += 0.2) {
+    const row_x = [], row_y = [], row_z = [];
+    for (let j = -1.5; j <= 1.5; j += 0.2) {
+      row_x.push(i); row_y.push(j);
+      row_z.push(Math.max(0, 4 - i*i - j*j));
+    }
+    x.push(row_x); y.push(row_y); z.push(row_z);
+  }
+  Plotly.newPlot('plot-doble', [{
+    type: 'surface', x: x, y: y, z: z,
+    colorscale: 'Viridis'
+  }], {
+    title: 'Volumen: ∫∫ (4 - x² - y²) dA',
+    scene: {
+      xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'z'}
+    }
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

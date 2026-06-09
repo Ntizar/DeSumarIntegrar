@@ -82,7 +82,7 @@ table tr:nth-child(even){background:#f8fafc}
 <p>La <strong>distribución normal</strong> (o gaussiana) es la distribución de probabilidad continua más importante en ingeniería. Muchos fenómenos naturales e industriales siguen (o se aproximan a) esta distribución.</p>
 
 <div class="formula">
-f(x) = (1 / (σ√(2π))) · e<sup>−(x−μ)²/(2σ²)</sup>
+f(x) = (1 / (σ$\sqrt{\1}$)) · e<sup>−(x−μ)²/(2σ²)</sup>
 </div>
 
 <p>Se define por dos parámetros:</p>
@@ -96,7 +96,7 @@ f(x) = (1 / (σ√(2π))) · e<sup>−(x−μ)²/(2σ²)</sup>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>Simétrica respecto a μ (media = mediana = moda)</li>
 <li>Forma de campana</li>
-<li>Se extiende de −∞ a +∞</li>
+<li>Se extiende de −$\infty$ a +$\infty$</li>
 <li>La área total bajo la curva = 1</li>
 <li>68% del área entre μ−σ y μ+σ; 95% entre μ−2σ y μ+2σ; 99.7% entre μ−3σ y μ+3σ</li>
 </ul>
@@ -126,7 +126,7 @@ z = (x − μ) / σ
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo en control de calidad:</strong>
-<p>El diámetro de un eje sigue N(50 mm, 0.5 mm). Las especificaciones son 50 ± 1.5 mm.</p>
+<p>El diámetro de un eje sigue N(50 mm, 0.5 mm). Las especificaciones son 50 $\pm$ 1.5 mm.</p>
 <p style="margin-top:.5rem"><strong>Límite superior:</strong> z = (51.5 − 50) / 0.5 = 3.0</p>
 <p style="margin-top:.5rem"><strong>Límite inferior:</strong> z = (48.5 − 50) / 0.5 = −3.0</p>
 <p>El 99.7% de los ejes estarán dentro de especificación (regla 68-95-99.7). Solo un 0.3% fuera.</p>
@@ -135,12 +135,12 @@ z = (x − μ) / σ
 
 <div class="chapter">
 <h2 class="chapter-title">3️⃣ Usando la Tabla de la Normal Estándar</h2>
-<p>La tabla de la normal estándar da P(Z ≤ z) para diferentes valores de z. Es la probabilidad acumulada hasta z.</p>
+<p>La tabla de la normal estándar da P(Z $\leq$ z) para diferentes valores de z. Es la probabilidad acumulada hasta z.</p>
 
 <div class="box box-teoria">
 <strong>📌 Probabilidades clave (valores de z memorizables):</strong>
 <table>
-<tr><th>z</th><th>P(Z ≤ z)</th><th>Significado</th></tr>
+<tr><th>z</th><th>P(Z $\leq$ z)</th><th>Significado</th></tr>
 <tr><td>−3.00</td><td>0.0013</td><td>0.13% por debajo</td></tr>
 <tr><td>−2.00</td><td>0.0228</td><td>2.28% por debajo</td></tr>
 <tr><td>−1.96</td><td>0.0250</td><td>2.5% por debajo (95% bilateral)</td></tr>
@@ -156,10 +156,10 @@ z = (x − μ) / σ
 <div class="box box-idea">
 <strong>🔑 Reglas rápidas para calcular probabilidades:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>P(Z ≤ z) = valor directo de la tabla</li>
-<li>P(Z ≥ z) = 1 − P(Z ≤ z)</li>
-<li>P(a ≤ Z ≤ b) = P(Z ≤ b) − P(Z ≤ a)</li>
-<li>Por simetría: P(Z ≤ −z) = P(Z ≥ z) = 1 − P(Z ≤ z)</li>
+<li>P(Z $\leq$ z) = valor directo de la tabla</li>
+<li>P(Z $\geq$ z) = 1 − P(Z $\leq$ z)</li>
+<li>P(a $\leq$ Z $\leq$ b) = P(Z $\leq$ b) − P(Z $\leq$ a)</li>
+<li>Por simetría: P(Z $\leq$ −z) = P(Z $\geq$ z) = 1 − P(Z $\leq$ z)</li>
 </ul>
 </div>
 </div>
@@ -171,14 +171,14 @@ z = (x − μ) / σ
 <p style="margin-top:.5rem">La vida útil (en miles de horas) de un tipo de cojinete sigue una distribución N(5, 1.5).</p>
 <p style="margin-top:.5rem"><strong>a) ¿Probabilidad de que dure más de 6000 horas?</strong></p>
 <p style="margin-top:.5rem">z = (6 − 5) / 1.5 = 0.667</p>
-<p style="margin-top:.5rem">P(X > 6) = P(Z > 0.667) = 1 − P(Z ≤ 0.667) = 1 − 0.7475 = <strong>0.2525</strong></p>
+<p style="margin-top:.5rem">P(X > 6) = P(Z > 0.667) = 1 − P(Z $\leq$ 0.667) = 1 − 0.7475 = <strong>0.2525</strong></p>
 <p style="margin-top:.5rem">25.25% de cojinetes durarán más de 6000 horas.</p>
 </div>
 
 <div class="box box-ejemplo">
 <p style="margin-top:.5rem"><strong>b) ¿Probabilidad de que dure entre 4000 y 6000 horas?</strong></p>
-<p style="margin-top:.5rem">z₁ = (4 − 5) / 1.5 = −0.667 → P(Z ≤ −0.667) = 0.2525</p>
-<p style="margin-top:.5rem">z₂ = (6 − 5) / 1.5 = 0.667 → P(Z ≤ 0.667) = 0.7475</p>
+<p style="margin-top:.5rem">$z_1$ = (4 − 5) / 1.5 = −0.667 → P(Z $\leq$ −0.667) = 0.2525</p>
+<p style="margin-top:.5rem">$z_2$ = (6 − 5) / 1.5 = 0.667 → P(Z $\leq$ 0.667) = 0.7475</p>
 <p style="margin-top:.5rem">P(4 < X < 6) = 0.7475 − 0.2525 = <strong>0.4950</strong></p>
 <p>49.5% de cojinetes durarán entre 4000 y 6000 horas.</p>
 </div>
@@ -192,7 +192,7 @@ z = (x − μ) / σ
 <tr><th>Distribución</th><th>Uso en ingeniería</th><th>Parámetros</th></tr>
 <tr><td><strong>Chi-cuadrado (χ²)</strong></td><td>Contrastes de varianza, bondad de ajuste</td><td>gl (grados de libertad)</td></tr>
 <tr><td><strong>t de Student</strong></td><td>Intervalos de confianza y contrastes con muestras pequeñas</td><td>gl (grados de libertad)</td></tr>
-<tr><td><strong>F de Fisher</strong></td><td>Comparar varianzas, ANOVA</td><td>gl₁, gl₂</td></tr>
+<tr><td><strong>F de Fisher</strong></td><td>Comparar varianzas, ANOVA</td><td>g$l_1$, g$l_2$</td></tr>
 </table>
 
 <div class="box box-teoria">
@@ -225,7 +225,7 @@ z = (x − μ) / σ
 </div>
 
 <div class="exercise">
-<p><strong>3.</strong> P(Z ≤ 1.96) = 0.975. ¿Cuál es P(Z > 1.96)?</p>
+<p><strong>3.</strong> P(Z $\leq$ 1.96) = 0.975. ¿Cuál es P(Z > 1.96)?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">0.975</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">0.025</button>
@@ -235,7 +235,7 @@ z = (x − μ) / σ
 </div>
 
 <div class="exercise">
-<p><strong>4.</strong> En control de calidad, si un proceso sigue N(μ, σ) y las especificaciones son μ ± 3σ, ¿qué porcentaje de piezas estará fuera de especificación?</p>
+<p><strong>4.</strong> En control de calidad, si un proceso sigue N(μ, σ) y las especificaciones son μ $\pm$ 3σ, ¿qué porcentaje de piezas estará fuera de especificación?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">5%</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">1%</button>
@@ -251,8 +251,8 @@ z = (x − μ) / σ
 <ul>
 <li>La <strong>distribución normal</strong> N(μ, σ) es la más importante en ingeniería: simétrica, campana, definida por media y desviación típica</li>
 <li><strong>Puntuación z</strong> = (x − μ) / σ: transforma cualquier normal en la estándar N(0,1)</li>
-<li>La <strong>tabla de la normal estándar</strong> da P(Z ≤ z) para cualquier z</li>
-<li>Regla 68-95-99.7: ~68% en μ±σ, ~95% en μ±2σ, ~99.7% en μ±3σ</li>
+<li>La <strong>tabla de la normal estándar</strong> da P(Z $\leq$ z) para cualquier z</li>
+<li>Regla 68-95-99.7: ~68% en μ$\pm$σ, ~95% en μ$\pm$2σ, ~99.7% en μ$\pm$3σ</li>
 <li>Aplicaciones: control de calidad, tolerancias, vida útil, errores de medición</li>
 <li>Otras distribuciones continuas: χ², t de Student, F — fundamentales para contrastes e intervalos</li>
 </ul>

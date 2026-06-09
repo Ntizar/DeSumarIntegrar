@@ -6,27 +6,7 @@
 <title>🔄 1º Carrera — Sesión 9: Transformaciones Lineales | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Transformación: rotación + escalado
-const theta = Math.PI / 4;
-const sx = 1.5, sy = 0.8;
-const orig_x = [1, 0, -1, 0, 1];
-const orig_y = [0, 1, 0, -1, 0];
-const trans_x = orig_x.map((x, i) => sx * (x*Math.cos(theta) - orig_y[i]*Math.sin(theta)));
-const trans_y = orig_y.map((y, i) => sy * (orig_x[i]*Math.sin(theta) + y*Math.cos(theta)));
-Plotly.newPlot('plot-transform', [
-  {x: orig_x, y: orig_y, mode: 'lines+markers', name: 'Original', fill: 'toself',
-   fillcolor: 'rgba(37,99,235,0.2)', line: {color: '#2563eb', width: 2}},
-  {x: trans_x, y: trans_y, mode: 'lines+markers', name: 'Transformado', fill: 'toself',
-   fillcolor: 'rgba(249,115,22,0.2)', line: {color: '#f97316', width: 2}}
-], {
-  title: 'Rotación + Escalado',
-  xaxis: {range: [-2.5, 2.5], gridcolor: '#e2e8f0', scaleanchor: 'y'},
-  yaxis: {range: [-2.5, 2.5], gridcolor: '#e2e8f0'},
-  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -187,6 +167,25 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Transformación: rotación + escalado
+  const theta = Math.PI / 4;
+  const sx = 1.5, sy = 0.8;
+  const orig_x = [1, 0, -1, 0, 1];
+  const orig_y = [0, 1, 0, -1, 0];
+  const trans_x = orig_x.map((x, i) => sx * (x*Math.cos(theta) - orig_y[i]*Math.sin(theta)));
+  const trans_y = orig_y.map((y, i) => sy * (orig_x[i]*Math.sin(theta) + y*Math.cos(theta)));
+  Plotly.newPlot('plot-transform', [
+    {x: orig_x, y: orig_y, mode: 'lines+markers', name: 'Original', fill: 'toself',
+     fillcolor: 'rgba(37,99,235,0.2)', line: {color: '#2563eb', width: 2}},
+    {x: trans_x, y: trans_y, mode: 'lines+markers', name: 'Transformado', fill: 'toself',
+     fillcolor: 'rgba(249,115,22,0.2)', line: {color: '#f97316', width: 2}}
+  ], {
+    title: 'Rotación + Escalado',
+    xaxis: {range: [-2.5, 2.5], gridcolor: '#e2e8f0', scaleanchor: 'y'},
+    yaxis: {range: [-2.5, 2.5], gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

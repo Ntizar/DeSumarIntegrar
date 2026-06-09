@@ -84,8 +84,8 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="box box-teoria">
 <strong>📌 Dos hipótesis:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li><strong>H₀ (hipótesis nula):</strong> la afirmación que queremos poner a prueba (asumida verdadera hasta probar lo contrario)</li>
-<li><strong>H₁ o Hₐ (hipótesis alternativa):</strong> lo que creemos que es cierto si rechazamos H₀</li>
+<li><strong>$H_0$ (hipótesis nula):</strong> la afirmación que queremos poner a prueba (asumida verdadera hasta probar lo contrario)</li>
+<li><strong>$H_1$ o Hₐ (hipótesis alternativa):</strong> lo que creemos que es cierto si rechazamos $H_0$</li>
 </ul>
 </div>
 
@@ -93,8 +93,8 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>💡 Ejemplo en ingeniería:</strong>
 <p>Una fábrica afirma que la resistencia media del concreto es de 35 MPa. Queremos verificarlo.</p>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li><strong>H₀:</strong> μ = 35 MPa (la fábrica dice la verdad)</li>
-<li><strong>H₁:</strong> μ ≠ 35 MPa (la resistencia media es diferente)</li>
+<li><strong>$H_0$:</strong> μ = 35 MPa (la fábrica dice la verdad)</li>
+<li><strong>$H_1$:</strong> μ $\neq$ 35 MPa (la resistencia media es diferente)</li>
 </ul>
 </div>
 </div>
@@ -105,8 +105,8 @@ table tr:nth-child(even){background:#f8fafc}
 
 <table>
 <tr><th>Error</th><th>Definición</th><th>Ejemplo en ingeniería</th></tr>
-<tr><td><strong>Tipo I (α)</strong></td><td>Rechazar H₀ siendo verdadera</td><td>Dar por buena una pieza defectuosa (pasa control de calidad)</td></tr>
-<tr><td><strong>Tipo II (β)</strong></td><td>No rechazar H₀ siendo falsa</td><td>Rechazar un lote bueno (la máquina funciona bien pero lo descartamos)</td></tr>
+<tr><td><strong>Tipo I (α)</strong></td><td>Rechazar $H_0$ siendo verdadera</td><td>Dar por buena una pieza defectuosa (pasa control de calidad)</td></tr>
+<tr><td><strong>Tipo II (β)</strong></td><td>No rechazar $H_0$ siendo falsa</td><td>Rechazar un lote bueno (la máquina funciona bien pero lo descartamos)</td></tr>
 </table>
 
 <div class="box box-idea">
@@ -124,13 +124,13 @@ table tr:nth-child(even){background:#f8fafc}
 <h2 class="chapter-title">3️⃣ Nivel de Significación (α) y Valor p</h2>
 <p>El <strong>nivel de significación α</strong> es la probabilidad máxima que aceptamos de cometer un error tipo I. Los valores típicos son 0.05 (5%) y 0.01 (1%).</p>
 
-<p>El <strong>valor p</strong> es la probabilidad de obtener un resultado tan extremo como el observado, asumiendo que H₀ es cierta.</p>
+<p>El <strong>valor p</strong> es la probabilidad de obtener un resultado tan extremo como el observado, asumiendo que $H_0$ es cierta.</p>
 
 <div class="box box-teoria">
 <strong>📌 Regla de decisión:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Si <strong>p ≤ α</strong> → rechazamos H₀ (el resultado es estadísticamente significativo)</li>
-<li>Si <strong>p > α</strong> → no rechazamos H₀ (no hay evidencia suficiente)</li>
+<li>Si <strong>p $\leq$ α</strong> → rechazamos $H_0$ (el resultado es estadísticamente significativo)</li>
+<li>Si <strong>p > α</strong> → no rechazamos $H_0$ (no hay evidencia suficiente)</li>
 </ul>
 </div>
 
@@ -138,7 +138,7 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>💡 Interpretación:</strong>
 <p>Si p = 0.03 y α = 0.05:</p>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>p ≤ α → <strong>rechazamos H₀</strong></li>
+<li>p $\leq$ α → <strong>rechazamos $H_0$</strong></li>
 <li>Hay evidencia al 5% de que la resistencia media es diferente de 35 MPa</li>
 </ul>
 </div>
@@ -147,7 +147,7 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="chapter">
 <h2 class="chapter-title">4️⃣ Contraste para la Media (σ conocida)</h2>
 <div class="formula">
-z = (x̄ − μ₀) / (σ/√n)
+z = (x̄ − μ₀) / (σ/$\sqrt{n}$)
 </div>
 
 <p>Donde μ₀ es el valor de la hipótesis nula.</p>
@@ -155,10 +155,10 @@ z = (x̄ − μ₀) / (σ/√n)
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo completo:</strong>
 <p>Una máquina debe producir ejes con diámetro μ₀ = 50 mm. Se sabe que σ = 0.3 mm. Tomamos una muestra de n = 36 ejes y obtenemos x̄ = 50.12 mm. ¿Hay evidencia al 5% de que la máquina está descalibrada?</p>
-<p style="margin-top:.5rem"><strong>H₀:</strong> μ = 50 mm &nbsp;&nbsp; <strong>H₁:</strong> μ ≠ 50 mm (contraste bilateral)</p>
-<p style="margin-top:.5rem">z = (50.12 − 50) / (0.3/√36) = 0.12 / 0.05 = <strong>2.40</strong></p>
-<p style="margin-top:.5rem">z crítico al 5% (bilateral) = ±1.96</p>
-<p style="margin-top:.5rem">|2.40| > 1.96 → <strong>¡Rechazamos H₀!</strong></p>
+<p style="margin-top:.5rem"><strong>$H_0$:</strong> μ = 50 mm &nbsp;&nbsp; <strong>$H_1$:</strong> μ $\neq$ 50 mm (contraste bilateral)</p>
+<p style="margin-top:.5rem">z = (50.12 − 50) / (0.3/$\sqrt{36}$) = 0.12 / 0.05 = <strong>2.40</strong></p>
+<p style="margin-top:.5rem">z crítico al 5% (bilateral) = $\pm$1.96</p>
+<p style="margin-top:.5rem">|2.40| > 1.96 → <strong>¡Rechazamos $H_0$!</strong></p>
 <p>Hay evidencia estadística al 5% de que la máquina está descalibrada. Se debe ajustar.</p>
 </div>
 </div>
@@ -168,15 +168,15 @@ z = (x̄ − μ₀) / (σ/√n)
 <p>Cuando σ no se conoce (lo más habitual), usamos la <strong>t de Student</strong>:</p>
 
 <div class="formula">
-t = (x̄ − μ₀) / (s/√n) &nbsp;&nbsp; con gl = n − 1
+t = (x̄ − μ₀) / (s/$\sqrt{n}$) &nbsp;&nbsp; con gl = n − 1
 </div>
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo:</strong>
 <p>Misma situación pero σ desconocida. s = 0.35 mm, x̄ = 50.12 mm, n = 36.</p>
-<p style="margin-top:.5rem">t = (50.12 − 50) / (0.35/√36) = 0.12 / 0.0583 = <strong>2.06</strong></p>
-<p style="margin-top:.5rem">t crítico (gl = 35, α = 0.05 bilateral) ≈ 2.03</p>
-<p style="margin-top:.5rem">|2.06| > 2.03 → <strong>¡Rechazamos H₀!</strong> (justito)</p>
+<p style="margin-top:.5rem">t = (50.12 − 50) / (0.35/$\sqrt{36}$) = 0.12 / 0.0583 = <strong>2.06</strong></p>
+<p style="margin-top:.5rem">t crítico (gl = 35, α = 0.05 bilateral) $\approx$ 2.03</p>
+<p style="margin-top:.5rem">|2.06| > 2.03 → <strong>¡Rechazamos $H_0$!</strong> (justito)</p>
 </div>
 </div>
 
@@ -186,8 +186,8 @@ t = (x̄ − μ₀) / (s/√n) &nbsp;&nbsp; con gl = n − 1
 <div class="exercise">
 <p><strong>1.</strong> Si α = 0.05 y p = 0.02, ¿qué decisión tomamos?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazamos H₀</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazamos H₀</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazamos $H_0$</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazamos $H_0$</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">Depende del tamaño de muestra</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">Necesitamos más datos</button>
 </div>
@@ -196,10 +196,10 @@ t = (x̄ − μ₀) / (s/√n) &nbsp;&nbsp; con gl = n − 1
 <div class="exercise">
 <p><strong>2.</strong> Un error tipo I consiste en:</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazar H₀ siendo verdadera</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazar H₀ siendo verdadera</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Rechazar H₁ siendo falsa</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Aceptar H₀ sin datos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazar $H_0$ siendo verdadera</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazar $H_0$ siendo verdadera</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Rechazar $H_1$ siendo falsa</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Aceptar $H_0$ sin datos</button>
 </div>
 </div>
 
@@ -217,9 +217,9 @@ t = (x̄ − μ₀) / (s/√n) &nbsp;&nbsp; con gl = n − 1
 <p><strong>4.</strong> En un contraste bilateral con α = 0.05, ¿cuál es el z crítico?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">1.645</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">±1.96</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">±2.576</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">±1.00</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">$\pm$1.96</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">$\pm$2.576</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">$\pm$1.00</button>
 </div>
 </div>
 </div>
@@ -228,12 +228,12 @@ t = (x̄ − μ₀) / (s/√n) &nbsp;&nbsp; con gl = n − 1
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><strong>H₀:</strong> hipótesis nula (lo que queremos poner a prueba). <strong>H₁:</strong> alternativa (lo que creemos si rechazamos H₀)</li>
-<li><strong>Error tipo I (α):</strong> rechazar H₀ siendo verdadera. <strong>Error tipo II (β):</strong> no rechazar H₀ siendo falsa</li>
-<li><strong>α:</strong> nivel de significación (típicamente 0.05 o 0.01). <strong>p:</strong> probabilidad del resultado si H₀ es cierta</li>
-<li>Si p ≤ α → rechazamos H₀. Si p > α → no rechazamos H₀</li>
-<li>Contraste con σ conocida: z = (x̄ − μ₀)/(σ/√n). Con σ desconocida: t = (x̄ − μ₀)/(s/√n)</li>
-<li>Contraste bilateral (H₁: μ ≠ μ₀) vs unilateral (H₁: μ > μ₀ o H₁: μ < μ₀)</li>
+<li><strong>$H_0$:</strong> hipótesis nula (lo que queremos poner a prueba). <strong>$H_1$:</strong> alternativa (lo que creemos si rechazamos $H_0$)</li>
+<li><strong>Error tipo I (α):</strong> rechazar $H_0$ siendo verdadera. <strong>Error tipo II (β):</strong> no rechazar $H_0$ siendo falsa</li>
+<li><strong>α:</strong> nivel de significación (típicamente 0.05 o 0.01). <strong>p:</strong> probabilidad del resultado si $H_0$ es cierta</li>
+<li>Si p $\leq$ α → rechazamos $H_0$. Si p > α → no rechazamos $H_0$</li>
+<li>Contraste con σ conocida: z = (x̄ − μ₀)/(σ/$\sqrt{n}$). Con σ desconocida: t = (x̄ − μ₀)/(s/$\sqrt{n}$)</li>
+<li>Contraste bilateral ($H_1$: μ $\neq$ μ₀) vs unilateral ($H_1$: μ > μ₀ o $H_1$: μ < μ₀)</li>
 </ul>
 </div>
 

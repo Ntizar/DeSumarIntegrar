@@ -99,7 +99,7 @@ canvas{max-width:100%;margin:1rem 0}
 </table>
 
 <div class="formula">
-f<sub>i</sub> = n<sub>i</sub> / N &nbsp;&nbsp;&nbsp; F<sub>i</sub> = Σ(n<sub>j</sub> / N) para j ≤ i &nbsp;&nbsp;&nbsp; N<sub>i</sub> = Σn<sub>j</sub> para j ≤ i
+f<sub>i</sub> = n<sub>i</sub> / N &nbsp;&nbsp;&nbsp; F<sub>i</sub> = Σ(n<sub>j</sub> / N) para j $\leq$ i &nbsp;&nbsp;&nbsp; N<sub>i</sub> = Σn<sub>j</sub> para j $\leq$ i
 </div>
 </div>
 
@@ -137,7 +137,7 @@ f<sub>i</sub> = n<sub>i</sub> / N &nbsp;&nbsp;&nbsp; F<sub>i</sub> = Σ(n<sub>j<
 </div>
 
 <p><strong>Paso 1:</strong> Calcular el rango = Máximo − Mínimo = 450 − 410 = 40 MPa</p>
-<p><strong>Paso 2:</strong> Elegir número de clases k. Regla de Sturges: k = 1 + 3.322 · log₁₀(N) = 1 + 3.322 · log₁₀(20) ≈ 5.3 → <strong>5 clases</strong></p>
+<p><strong>Paso 2:</strong> Elegir número de clases k. Regla de Sturges: k = 1 + 3.322 · lo$g_1_0$(N) = 1 + 3.322 · lo$g_1_0$(20) $\approx$ 5.3 → <strong>5 clases</strong></p>
 <p><strong>Paso 3:</strong> Anchura de clase = Rango / k = 40 / 5 = 8 MPa</p>
 
 <table>
@@ -240,7 +240,7 @@ Frecuencia Clase 5: <input type="number" id="f5" value="2" min="0" style="width:
 <ul>
 <li>Una <strong>distribución de frecuencia</strong> organiza datos en clases con sus frecuencias</li>
 <li><strong>Frecuencia absoluta</strong> (n<sub>i</sub>): conteo; <strong>relativa</strong> (f<sub>i</sub>): proporción; <strong>acumulada</strong> (N<sub>i</sub>): suma acumulada</li>
-<li>Regla de Sturges: k = 1 + 3.322 · log₁₀(N) para elegir número de clases</li>
+<li>Regla de Sturges: k = 1 + 3.322 · lo$g_1_0$(N) para elegir número de clases</li>
 <li>El <strong>histograma</strong> muestra la distribución con barras adyacentes; el <strong>polígono</strong> une los puntos medios</li>
 <li>La forma de la distribución (simétrica, asimétrica, bimodal) da pistas sobre el proceso</li>
 <li>En ingeniería, las distribuciones de frecuencia son el primer paso del análisis de calidad</li>

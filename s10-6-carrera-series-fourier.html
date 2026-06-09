@@ -6,31 +6,7 @@
 <title>🔔 1º Carrera — Sesión 6: Series de Fourier | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Aproximación de onda cuadrada
-const t = Array.from({length: 200}, (_, i) => (i - 100) * 0.03);
-const approx = t.map(x => {
-  let sum = 0;
-  for (let n = 1; n <= 11; n += 2) {
-    sum += Math.sin(n * x) / n;
-  }
-  return (4 / Math.PI) * sum;
-});
-const square = t.map(x => {
-  const mod = ((x % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
-  return mod < Math.PI ? 1 : -1;
-});
-Plotly.newPlot('plot-fourier', [
-  {x: t, y: square, mode: 'lines', name: 'Onda cuadrada', line: {color: '#94a3b8', width: 1}},
-  {x: t, y: approx, mode: 'lines', name: 'Fourier (5 términos)', line: {color: '#2563eb', width: 2}}
-], {
-  title: 'Aproximación de Fourier',
-  xaxis: {title: 't', gridcolor: '#e2e8f0'},
-  yaxis: {title: 'f(t)', gridcolor: '#e2e8f0'},
-  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -136,7 +112,7 @@ $$f(x) = \frac{a_0}$\{2\}$ + \sum_{n=1}^{\infty} \left[a_n \cos\left(\frac{n\pi 
 
 <!-- GRÁFICO: Fourier -->
 <div class="chart-container">
-<h3>📊 Descomposición de Fourier: onda cuadrada ≈ suma de senos</h3>
+<h3>📊 Descomposición de Fourier: onda cuadrada $\approx$ suma de senos</h3>
 <p class="chart-desc">Observa cómo al sumar más términos, la aproximación se acerca más a la onda cuadrada.</p>
 <div id="plot-fourier" class="chart-plot"></div>
 </div>
@@ -186,6 +162,29 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Aproximación de onda cuadrada
+  const t = Array.from({length: 200}, (_, i) => (i - 100) * 0.03);
+  const approx = t.map(x => {
+    let sum = 0;
+    for (let n = 1; n <= 11; n += 2) {
+      sum += Math.sin(n * x) / n;
+    }
+    return (4 / Math.PI) * sum;
+  });
+  const square = t.map(x => {
+    const mod = ((x % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+    return mod < Math.PI ? 1 : -1;
+  });
+  Plotly.newPlot('plot-fourier', [
+    {x: t, y: square, mode: 'lines', name: 'Onda cuadrada', line: {color: '#94a3b8', width: 1}},
+    {x: t, y: approx, mode: 'lines', name: 'Fourier (5 términos)', line: {color: '#2563eb', width: 2}}
+  ], {
+    title: 'Aproximación de Fourier',
+    xaxis: {title: 't', gridcolor: '#e2e8f0'},
+    yaxis: {title: 'f(t)', gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

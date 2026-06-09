@@ -6,23 +6,7 @@
 <title>🔢 1º Carrera — Sesión 8: Autovalores y Autovectores | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Visualización de autovalores
-const trace1 = {
-  x: [1, 2, 3, 4, 5], y: [3, 1, 4, 1, 5],
-  mode: 'markers+text', name: 'Autovalores',
-  marker: {size: 15, color: ['#2563eb', '#f97316', '#10b981', '#ef4444', '#a855f7']},
-  text: ['λ₁=3', 'λ₂=1', 'λ₃=4', 'λ₄=1', 'λ₅=5'],
-  textposition: 'top center'
-};
-Plotly.newPlot('plot-eigen', [trace1], {
-  title: 'Autovalores de una matriz',
-  xaxis: {title: 'Índice', gridcolor: '#e2e8f0'},
-  yaxis: {title: 'Valor', gridcolor: '#e2e8f0'},
-  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -175,6 +159,21 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Visualización de autovalores
+  const trace1 = {
+    x: [1, 2, 3, 4, 5], y: [3, 1, 4, 1, 5],
+    mode: 'markers+text', name: 'Autovalores',
+    marker: {size: 15, color: ['#2563eb', '#f97316', '#10b981', '#ef4444', '#a855f7']},
+    text: ['λ₁=3', 'λ₂=1', 'λ₃=4', 'λ₄=1', 'λ₅=5'],
+    textposition: 'top center'
+  };
+  Plotly.newPlot('plot-eigen', [trace1], {
+    title: 'Autovalores de una matriz',
+    xaxis: {title: 'Índice', gridcolor: '#e2e8f0'},
+    yaxis: {title: 'Valor', gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

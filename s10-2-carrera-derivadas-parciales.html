@@ -6,28 +6,7 @@
 <title>📈 1º Carrera — Sesión 2: Derivadas Parciales | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Superficie f(x,y) = x² + y²
-const x = [], y = [], z = [];
-for (let i = -2; i <= 2; i += 0.3) {
-  const row_x = [], row_y = [], row_z = [];
-  for (let j = -2; j <= 2; j += 0.3) {
-    row_x.push(i); row_y.push(j);
-    row_z.push(i*i + j*j);
-  }
-  x.push(row_x); y.push(row_y); z.push(row_z);
-}
-Plotly.newPlot('plot-parciales', [{
-  type: 'surface', x: x, y: y, z: z,
-  colorscale: 'Blues'
-}], {
-  title: 'f(x,y) = x² + y²',
-  scene: {
-    xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'f(x,y)'}
-  }
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -188,6 +167,26 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Superficie f(x,y) = x² + y²
+  const x = [], y = [], z = [];
+  for (let i = -2; i <= 2; i += 0.3) {
+    const row_x = [], row_y = [], row_z = [];
+    for (let j = -2; j <= 2; j += 0.3) {
+      row_x.push(i); row_y.push(j);
+      row_z.push(i*i + j*j);
+    }
+    x.push(row_x); y.push(row_y); z.push(row_z);
+  }
+  Plotly.newPlot('plot-parciales', [{
+    type: 'surface', x: x, y: y, z: z,
+    colorscale: 'Blues'
+  }], {
+    title: 'f(x,y) = x² + y²',
+    scene: {
+      xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'f(x,y)'}
+    }
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

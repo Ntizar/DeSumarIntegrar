@@ -6,31 +6,7 @@
 <title>📐 1º Carrera — Sesión 1: Límites Multivariable | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-// Trayectorias hacia el origen
-const t = Array.from({length: 100}, (_, i) => i / 50);
-const trace1 = {
-  x: t.map(x => x), y: t.map(x => x),
-  mode: 'lines', name: 'Trayectoria y=x',
-  line: {color: '#2563eb', width: 2}
-};
-const trace2 = {
-  x: t.map(x => x), y: t.map(x => x*x),
-  mode: 'lines', name: 'Trayectoria y=x²',
-  line: {color: '#f97316', width: 2}
-};
-const trace3 = {
-  x: [0], y: [0], mode: 'markers', name: 'Punto (0,0)',
-  marker: {size: 12, color: '#ef4444', symbol: 'star'}
-};
-Plotly.newPlot('plot-trayectorias', [trace1, trace2, trace3], {
-  title: '¿Existe el límite en (0,0)?',
-  xaxis: {title: 'x', gridcolor: '#e2e8f0'},
-  yaxis: {title: 'y', gridcolor: '#e2e8f0'},
-  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-}, {responsive: true});
 
-</script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
@@ -186,6 +162,29 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+  // Trayectorias hacia el origen
+  const t = Array.from({length: 100}, (_, i) => i / 50);
+  const trace1 = {
+    x: t.map(x => x), y: t.map(x => x),
+    mode: 'lines', name: 'Trayectoria y=x',
+    line: {color: '#2563eb', width: 2}
+  };
+  const trace2 = {
+    x: t.map(x => x), y: t.map(x => x*x),
+    mode: 'lines', name: 'Trayectoria y=x²',
+    line: {color: '#f97316', width: 2}
+  };
+  const trace3 = {
+    x: [0], y: [0], mode: 'markers', name: 'Punto (0,0)',
+    marker: {size: 12, color: '#ef4444', symbol: 'star'}
+  };
+  Plotly.newPlot('plot-trayectorias', [trace1, trace2, trace3], {
+    title: '¿Existe el límite en (0,0)?',
+    xaxis: {title: 'x', gridcolor: '#e2e8f0'},
+    yaxis: {title: 'y', gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+  }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},

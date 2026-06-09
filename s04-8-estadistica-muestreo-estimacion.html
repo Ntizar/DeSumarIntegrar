@@ -106,14 +106,14 @@ table tr:nth-child(even){background:#f8fafc}
 
 <div class="box box-teoria">
 <strong>📌 Teorema Central del Límite:</strong>
-<p style="margin-top:.5rem">Si tomamos muestras aleatorias de tamaño n de cualquier población con media μ y desviación σ, la distribución de las medias muestrales se aproxima a una normal N(μ, σ/√n) cuando n es grande (n ≥ 30).</p>
+<p style="margin-top:.5rem">Si tomamos muestras aleatorias de tamaño n de cualquier población con media μ y desviación σ, la distribución de las medias muestrales se aproxima a una normal N(μ, σ/$\sqrt{n}$) cuando n es grande (n $\geq$ 30).</p>
 </div>
 
 <div class="box box-idea">
 <strong>🔑 Consecuencias prácticas:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>Las medias muestrales se distribuyen normalmente, aunque la población no lo sea</li>
-<li>La desviación típica de las medias muestrales (error estándar) = σ/√n</li>
+<li>La desviación típica de las medias muestrales (error estándar) = σ/$\sqrt{n}$</li>
 <li>A mayor n, menor dispersión de las medias → estimaciones más precisas</li>
 </ul>
 </div>
@@ -124,19 +124,19 @@ table tr:nth-child(even){background:#f8fafc}
 <p>Un <strong>intervalo de confianza</strong> (IC) es un rango de valores que probablemente contiene el parámetro poblacional desconocido.</p>
 
 <div class="formula">
-IC = x̄ ± z<sub>α/2</sub> · (σ/√n) &nbsp;&nbsp; (si σ es conocida y n ≥ 30)
+IC = x̄ $\pm$ z<sub>α/2</sub> · (σ/$\sqrt{n}$) &nbsp;&nbsp; (si σ es conocida y n $\geq$ 30)
 </div>
 
 <div class="formula">
-IC = x̄ ± t<sub>α/2, n-1</sub> · (s/√n) &nbsp;&nbsp; (si σ es desconocida o n < 30)
+IC = x̄ $\pm$ t<sub>α/2, n-1</sub> · (s/$\sqrt{n}$) &nbsp;&nbsp; (si σ es desconocida o n < 30)
 </div>
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo en ingeniería:</strong>
 <p>Se mide la resistencia de 36 probetas de concreto. x̄ = 32.5 MPa, s = 4.2 MPa. Calcular IC al 95%.</p>
-<p style="margin-top:.5rem">n = 36 ≥ 30, usamos z: z<sub>0.025</sub> = 1.96</p>
-<p style="margin-top:.5rem">Error estándar = s/√n = 4.2/√36 = 4.2/6 = 0.7</p>
-<p style="margin-top:.5rem">IC = 32.5 ± 1.96 × 0.7 = 32.5 ± 1.372</p>
+<p style="margin-top:.5rem">n = 36 $\geq$ 30, usamos z: z<sub>0.025</sub> = 1.96</p>
+<p style="margin-top:.5rem">Error estándar = s/$\sqrt{n}$ = 4.2/$\sqrt{36}$ = 4.2/6 = 0.7</p>
+<p style="margin-top:.5rem">IC = 32.5 $\pm$ 1.96 × 0.7 = 32.5 $\pm$ 1.372</p>
 <p style="margin-top:.5rem"><strong>IC al 95%: [31.13, 33.87] MPa</strong></p>
 <p>Estamos 95% seguros de que la resistencia media real del lote está entre 31.13 y 33.87 MPa.</p>
 </div>
@@ -153,7 +153,7 @@ n = (z<sub>α/2</sub> · σ / E)²
 
 <div class="box box-ejemplo">
 <strong>💡 Ejemplo:</strong>
-<p>Queremos estimar la resistencia media del concreto con un margen de error de ±0.5 MPa al 95%. Sabemos que σ ≈ 4.2 MPa.</p>
+<p>Queremos estimar la resistencia media del concreto con un margen de error de $\pm$0.5 MPa al 95%. Sabemos que σ $\approx$ 4.2 MPa.</p>
 <p style="margin-top:.5rem">n = (1.96 × 4.2 / 0.5)² = (16.464)² = 271.1 → <strong>272 probetas</strong></p>
 <p>¡Necesitamos 272 probetas! Esto muestra por qué a veces usamos muestras más pequeñas y aceptamos mayor margen de error.</p>
 </div>
@@ -208,9 +208,9 @@ n = (z<sub>α/2</sub> · σ / E)²
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
 <li><strong>Muestreo aleatorio:</strong> cada individuo tiene igual probabilidad. Tipos: simple, estratificado, por conglomerados</li>
-<li><strong>Teorema Central del Límite:</strong> las medias muestrales se distribuyen como N(μ, σ/√n) para n grande</li>
-<li><strong>Error estándar:</strong> σ/√n (o s/√n). Disminuye con √n → más datos = más precisión</li>
-<li><strong>IC para la media:</strong> x̄ ± z · (σ/√n) o x̄ ± t · (s/√n)</li>
+<li><strong>Teorema Central del Límite:</strong> las medias muestrales se distribuyen como N(μ, σ/$\sqrt{n}$) para n grande</li>
+<li><strong>Error estándar:</strong> σ/$\sqrt{n}$ (o s/$\sqrt{n}$). Disminuye con $\sqrt{n}$ → más datos = más precisión</li>
+<li><strong>IC para la media:</strong> x̄ $\pm$ z · (σ/$\sqrt{n}$) o x̄ $\pm$ t · (s/$\sqrt{n}$)</li>
 <li><strong>Tamaño de muestra:</strong> n = (z · σ / E)². Mayor precisión (E pequeño) → más datos necesarios</li>
 <li>IC al 95%: z = 1.96. IC al 99%: z = 2.576. Mayor confianza → intervalo más ancho</li>
 </ul>

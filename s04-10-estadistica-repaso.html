@@ -89,7 +89,7 @@ table tr:nth-child(even){background:#f8fafc}
 <p style="margin-top:.5rem"><strong>Moda:</strong> no hay (todos distintos)</p>
 <p style="margin-top:.5rem"><strong>Rango:</strong> 450 − 410 = <strong>40 MPa</strong></p>
 <p style="margin-top:.5rem"><strong>s²</strong> = Σ(xᵢ−430.2)²/9 = (408.04+14.44+492.84+299.24+14.44+5.76+190.44+231.04+449.44+4.84)/9 = 2160.5/9 = <strong>240.06 MPa²</strong></p>
-<p style="margin-top:.5rem"><strong>s</strong> = √240.06 = <strong>15.49 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>s</strong> = $\sqrt{240}$.06 = <strong>15.49 MPa</strong></p>
 <p style="margin-top:.5rem"><strong>CV</strong> = (15.49/430.2) × 100 = <strong>3.6%</strong> → dispersión baja, proceso consistente</p>
 </div>
 </div>
@@ -107,10 +107,10 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>✅ Solución:</strong>
 <p style="margin-top:.5rem">n = 50, p = 0.03, X ~ B(50, 0.03)</p>
 <p style="margin-top:.5rem"><strong>a)</strong> P(X=2) = C(50,2) × (0.03)² × (0.97)⁴⁸ = 1225 × 0.0009 × 0.2303 = <strong>0.2540</strong></p>
-<p style="margin-top:.5rem"><strong>b)</strong> P(X ≤ 1) = P(X=0) + P(X=1)</p>
+<p style="margin-top:.5rem"><strong>b)</strong> P(X $\leq$ 1) = P(X=0) + P(X=1)</p>
 <p style="margin-top:.5rem">P(X=0) = (0.97)⁵⁰ = 0.2181</p>
 <p style="margin-top:.5rem">P(X=1) = 50 × 0.03 × (0.97)⁴⁹ = 1.5 × 0.2248 = 0.3372</p>
-<p style="margin-top:.5rem">P(X ≤ 1) = 0.2181 + 0.3372 = <strong>0.5553</strong></p>
+<p style="margin-top:.5rem">P(X $\leq$ 1) = 0.2181 + 0.3372 = <strong>0.5553</strong></p>
 <p>55.53% de probabilidad de encontrar como máximo 1 defectuoso.</p>
 </div>
 </div>
@@ -127,11 +127,11 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="box box-teoria">
 <strong>✅ Solución:</strong>
 <p style="margin-top:.5rem"><strong>a)</strong> z = (28 − 35)/5 = −1.4</p>
-<p style="margin-top:.5rem">P(X ≥ 28) = P(Z ≥ −1.4) = P(Z ≤ 1.4) = <strong>0.9192</strong></p>
+<p style="margin-top:.5rem">P(X $\geq$ 28) = P(Z $\geq$ −1.4) = P(Z $\leq$ 1.4) = <strong>0.9192</strong></p>
 <p>El 91.92% del concreto cumple las especificaciones.</p>
-<p style="margin-top:.5rem"><strong>b)</strong> Queremos x₀ tal que P(X < x₀) = 0.05</p>
-<p style="margin-top:.5rem">z₀.₀₅ = −1.645</p>
-<p style="margin-top:.5rem">x₀ = μ + z₀ · σ = 35 + (−1.645) × 5 = 35 − 8.225 = <strong>26.78 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>b)</strong> Queremos $x_0$ tal que P(X < $x_0$) = 0.05</p>
+<p style="margin-top:.5rem">$z_0$.₀₅ = −1.645</p>
+<p style="margin-top:.5rem">$x_0$ = μ + $z_0$ · σ = 35 + (−1.645) × 5 = 35 − 8.225 = <strong>26.78 MPa</strong></p>
 </div>
 </div>
 
@@ -141,16 +141,16 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>💡 Contexto:</strong>
 <p>Se miden las longitudes de 25 pernos: x̄ = 10.2 mm, s = 0.3 mm.</p>
 <p><strong>a)</strong> Calcular IC al 95% para la media.</p>
-<p><strong>b)</strong> ¿Qué tamaño de muestra se necesita para que el IC tenga un margen de error de ±0.1 mm?</p>
+<p><strong>b)</strong> ¿Qué tamaño de muestra se necesita para que el IC tenga un margen de error de $\pm$0.1 mm?</p>
 </div>
 
 <div class="box box-teoria">
 <strong>✅ Solución:</strong>
 <p style="margin-top:.5rem"><strong>a)</strong> n = 25, σ desconocida → usar t con gl = 24</p>
-<p style="margin-top:.5rem">t₀.₀₂₅,₂₄ = 2.064</p>
-<p style="margin-top:.5rem">IC = 10.2 ± 2.064 × (0.3/√25) = 10.2 ± 2.064 × 0.06 = 10.2 ± 0.124</p>
+<p style="margin-top:.5rem">$t_0$.₀₂₅,₂₄ = 2.064</p>
+<p style="margin-top:.5rem">IC = 10.2 $\pm$ 2.064 × (0.3/$\sqrt{25}$) = 10.2 $\pm$ 2.064 × 0.06 = 10.2 $\pm$ 0.124</p>
 <p style="margin-top:.5rem"><strong>IC al 95%: [10.076, 10.324] mm</strong></p>
-<p style="margin-top:.5rem"><strong>b)</strong> n = (z₀.₀₂₅ × s / E)² = (1.96 × 0.3 / 0.1)² = (5.88)² = 34.57 → <strong>35 pernos</strong></p>
+<p style="margin-top:.5rem"><strong>b)</strong> n = ($z_0$.₀₂₅ × s / E)² = (1.96 × 0.3 / 0.1)² = (5.88)² = 34.57 → <strong>35 pernos</strong></p>
 </div>
 </div>
 
@@ -163,10 +163,10 @@ table tr:nth-child(even){background:#f8fafc}
 
 <div class="box box-teoria">
 <strong>✅ Solución:</strong>
-<p style="margin-top:.5rem"><strong>H₀:</strong> μ = 500 MPa &nbsp;&nbsp; <strong>H₁:</strong> μ < 500 MPa (unilateral izquierdo)</p>
-<p style="margin-top:.5rem">z = (492 − 500) / (30/√36) = −8 / 5 = <strong>−1.60</strong></p>
+<p style="margin-top:.5rem"><strong>$H_0$:</strong> μ = 500 MPa &nbsp;&nbsp; <strong>$H_1$:</strong> μ < 500 MPa (unilateral izquierdo)</p>
+<p style="margin-top:.5rem">z = (492 − 500) / (30/$\sqrt{36}$) = −8 / 5 = <strong>−1.60</strong></p>
 <p style="margin-top:.5rem">z crítico (α = 0.05, unilateral) = −1.645</p>
-<p style="margin-top:.5rem">−1.60 > −1.645 → <strong>No rechazamos H₀</strong></p>
+<p style="margin-top:.5rem">−1.60 > −1.645 → <strong>No rechazamos $H_0$</strong></p>
 <p>No hay evidencia estadística al 5% de que la resistencia sea menor a 500 MPa. El resultado no es suficientemente significativo.</p>
 <p style="margin-top:.5rem"><strong>P valor:</strong> P(Z < −1.60) = 0.0548 → p = 0.0548 > 0.05 → no significativo</p>
 </div>
@@ -181,7 +181,7 @@ table tr:nth-child(even){background:#f8fafc}
 <tr><th>T (°C)</th><td>20</td><td>25</td><td>30</td><td>35</td><td>40</td><td>45</td></tr>
 <tr><th>R (MPa)</th><td>25</td><td>30</td><td>35</td><td>38</td><td>42</td><td>45</td></tr>
 </table>
-<p><strong>a)</strong> Calcular r y R²</p>
+<p><strong>a)</strong> Calcular r y $R^2$</p>
 <p><strong>b)</strong> Obtener la recta de regresión</p>
 <p><strong>c)</strong> Predecir resistencia a 32°C</p>
 </div>
@@ -192,8 +192,8 @@ table tr:nth-child(even){background:#f8fafc}
 <p style="margin-top:.5rem">b = Σ(xᵢ−x̄)(yᵢ−ȳ) / Σ(xᵢ−x̄)² = 312.5 / 175 = <strong>1.786</strong></p>
 <p style="margin-top:.5rem">a = 35.83 − 1.786 × 32.5 = <strong>−22.07</strong></p>
 <p style="margin-top:.5rem"><strong>Recta: R = −22.07 + 1.786T</strong></p>
-<p style="margin-top:.5rem">r = 312.5 / √(175 × 213.83) = 312.5 / 193.5 = <strong>0.989</strong></p>
-<p style="margin-top:.5rem">R² = 0.989² = <strong>0.978</strong> → el 97.8% de la variabilidad se explica por la temperatura</p>
+<p style="margin-top:.5rem">r = 312.5 / $\sqrt{\1}$ = 312.5 / 193.5 = <strong>0.989</strong></p>
+<p style="margin-top:.5rem">$R^2$ = 0.989² = <strong>0.978</strong> → el 97.8% de la variabilidad se explica por la temperatura</p>
 <p style="margin-top:.5rem">Predicción a 32°C: R = −22.07 + 1.786 × 32 = <strong>34.87 MPa</strong></p>
 </div>
 </div>
@@ -202,7 +202,7 @@ table tr:nth-child(even){background:#f8fafc}
 <h2 class="chapter-title">📝 Quiz Final</h2>
 <div class="exercises">
 <div class="exercise">
-<p><strong>1.</strong> Si r = 0.95 y R² = 0.90, ¿qué significa?</p>
+<p><strong>1.</strong> Si r = 0.95 y $R^2$ = 0.90, ¿qué significa?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">El 90% de la variabilidad de y se explica por x</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">La correlación es débil</button>
@@ -214,8 +214,8 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="exercise">
 <p><strong>2.</strong> Si p = 0.003 y α = 0.01, ¿qué decisión tomamos?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazamos H₀</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazamos H₀</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Rechazamos $H_0$</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">No rechazamos $H_0$</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">No hay suficiente información</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">Necesitamos más datos</button>
 </div>
@@ -260,9 +260,9 @@ table tr:nth-child(even){background:#f8fafc}
 <li><strong>Sesión 4:</strong> Dispersión — rango, varianza, desviación típica, CV, IQR</li>
 <li><strong>Sesión 5:</strong> Probabilidad discreta — binomial, Poisson, esperanza, varianza</li>
 <li><strong>Sesión 6:</strong> Probabilidad continua — normal, normalización, tabla z</li>
-<li><strong>Sesión 7:</strong> Correlación y regresión — r, R², mínimos cuadrados</li>
+<li><strong>Sesión 7:</strong> Correlación y regresión — r, $R^2$, mínimos cuadrados</li>
 <li><strong>Sesión 8:</strong> Muestreo y estimación — TCL, IC, tamaño de muestra</li>
-<li><strong>Sesión 9:</strong> Contrastes — H₀, H₁, α, β, valor p, z y t</li>
+<li><strong>Sesión 9:</strong> Contrastes — $H_0$, $H_1$, α, β, valor p, z y t</li>
 <li><strong>Sesión 10:</strong> Repaso integrador — problemas que combinan todo</li>
 </ul>
 </div>

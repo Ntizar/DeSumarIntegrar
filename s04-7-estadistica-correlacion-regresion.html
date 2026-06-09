@@ -71,7 +71,7 @@ table tr:nth-child(even){background:#f8fafc}
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>Calcular e interpretar el coeficiente de correlación de Pearson</li>
 <li>Construir la recta de regresión por mínimos cuadrados</li>
-<li>Interpretar R² (coeficiente de determinación)</li>
+<li>Interpretar $R^2$ (coeficiente de determinación)</li>
 <li>Aplicar correlación y regresión a problemas de ingeniería</li>
 </ul>
 </div>
@@ -112,7 +112,7 @@ r = Σ(x<sub>i</sub> − x̄)(y<sub>i</sub> − ȳ) / √[Σ(x<sub>i</sub> − x
 
 <div class="box box-idea">
 <strong>🔑 ¡Cuidado!</strong>
-<p><strong>Correlación ≠ Causalidad.</strong> Dos variables pueden estar correlacionadas sin que una cause la otra. Por ejemplo, las ventas de helado y los ahogamientos están correlacionados positivamente, pero la causa común es el verano (temperatura alta).</p>
+<p><strong>Correlación $\neq$ Causalidad.</strong> Dos variables pueden estar correlacionadas sin que una cause la otra. Por ejemplo, las ventas de helado y los ahogamientos están correlacionados positivamente, pero la causa común es el verano (temperatura alta).</p>
 </div>
 </div>
 
@@ -148,19 +148,19 @@ a = ȳ − b·x̄ &nbsp;&nbsp; (ordenada en el origen)
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">4️⃣ Coeficiente de Determinación (R²)</h2>
-<p>El <strong>R²</strong> indica qué proporción de la variabilidad de y se explica por la regresión con x.</p>
+<h2 class="chapter-title">4️⃣ Coeficiente de Determinación ($R^2$)</h2>
+<p>El <strong>$R^2$</strong> indica qué proporción de la variabilidad de y se explica por la regresión con x.</p>
 
 <div class="formula">
-R² = r² = (coeficiente de correlación)²
+$R^2$ = r² = (coeficiente de correlación)²
 </div>
 
 <div class="box box-teoria">
-<strong>📌 Interpretación de R²:</strong>
+<strong>📌 Interpretación de $R^2$:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>R² = 0.90 → el 90% de la variabilidad de y se explica por x</li>
-<li>R² = 0.50 → el 50% se explica por x (el 50% restante es por otros factores o aleatoriedad)</li>
-<li>R² = 0.10 → solo el 10% se explica por x → la regresión no es buena</li>
+<li>$R^2$ = 0.90 → el 90% de la variabilidad de y se explica por x</li>
+<li>$R^2$ = 0.50 → el 50% se explica por x (el 50% restante es por otros factores o aleatoriedad)</li>
+<li>$R^2$ = 0.10 → solo el 10% se explica por x → la regresión no es buena</li>
 </ul>
 </div>
 </div>
@@ -179,7 +179,7 @@ R² = r² = (coeficiente de correlación)²
 </div>
 
 <div class="exercise">
-<p><strong>2.</strong> Si R² = 0.64, ¿qué porcentaje de la variabilidad se explica?</p>
+<p><strong>2.</strong> Si $R^2$ = 0.64, ¿qué porcentaje de la variabilidad se explica?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">640%</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">64%</button>
@@ -215,8 +215,8 @@ R² = r² = (coeficiente de correlación)²
 <ul>
 <li><strong>Correlación (r):</strong> mide fuerza y dirección de la relación lineal (−1 a +1)</li>
 <li><strong>Regresión lineal:</strong> y = a + bx. La pendiente b indica cuánto cambia y por cada unidad de x</li>
-<li><strong>R²:</strong> proporción de variabilidad explicada. R² = 0.80 → 80% explicado</li>
-<li>¡Correlación ≠ causalidad! Siempre buscar explicación causal</li>
+<li><strong>$R^2$:</strong> proporción de variabilidad explicada. $R^2$ = 0.80 → 80% explicado</li>
+<li>¡Correlación $\neq$ causalidad! Siempre buscar explicación causal</li>
 <li>Aplicaciones: predecir resistencia del concreto, vida de herramientas, calidad de materiales</li>
 </ul>
 </div>

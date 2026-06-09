@@ -154,21 +154,21 @@ s² = Σ(x<sub>i</sub> − x̄)² / (N − 1)
 <p>La <strong>desviación típica</strong> es la raíz cuadrada de la varianza. Vuelve a las unidades originales, lo que la hace interpretable.</p>
 
 <div class="formula">
-s = √s² = √(Σ(x<sub>i</sub> − x̄)² / (N − 1))
+s = $\sqrt{s}$² = $\sqrt{\1}$² / (N − 1))
 </div>
 
 <div class="box box-teoria">
 <strong>📌 Para el ejemplo anterior:</strong>
-<p style="margin-top:.5rem"><strong>s = √182.5 = 13.51 MPa</strong></p>
+<p style="margin-top:.5rem"><strong>s = $\sqrt{182}$.5 = 13.51 MPa</strong></p>
 <p>Esto significa que las mediciones se desvían de la media (428 MPa) aproximadamente 13.5 MPa en promedio.</p>
 </div>
 
 <div class="box box-idea">
 <strong>🔑 Regla empírica (para distribuciones aproximadamente normales):</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Aprox. <strong>68%</strong> de los datos están dentro de x̄ ± s</li>
-<li>Aprox. <strong>95%</strong> de los datos están dentro de x̄ ± 2s</li>
-<li>Aprox. <strong>99.7%</strong> de los datos están dentro de x̄ ± 3s</li>
+<li>Aprox. <strong>68%</strong> de los datos están dentro de x̄ $\pm$ s</li>
+<li>Aprox. <strong>95%</strong> de los datos están dentro de x̄ $\pm$ 2s</li>
+<li>Aprox. <strong>99.7%</strong> de los datos están dentro de x̄ $\pm$ 3s</li>
 </ul>
 <p>Esto se conoce como la <strong>regla 68-95-99.7</strong> o "regla empírica".</p>
 </div>
@@ -196,8 +196,8 @@ CV = (s / x̄) × 100%
 <strong>📌 Interpretación del CV:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li><strong>CV < 10%:</strong> dispersión baja (proceso muy consistente)</li>
-<li><strong>10% ≤ CV < 20%:</strong> dispersión moderada</li>
-<li><strong>CV ≥ 20%:</strong> dispersión alta (proceso poco consistente)</li>
+<li><strong>10% $\leq$ CV < 20%:</strong> dispersión moderada</li>
+<li><strong>CV $\geq$ 20%:</strong> dispersión alta (proceso poco consistente)</li>
 </ul>
 </div>
 </div>
@@ -207,15 +207,15 @@ CV = (s / x̄) × 100%
 <p>El <strong>rango intercuartílico</strong> mide la dispersión del 50% central de los datos, eliminando los valores extremos.</p>
 
 <div class="formula">
-IQR = Q₃ − Q₁
+IQR = $Q_3$ − $Q_1$
 </div>
 
-<p>Donde Q₁ es el primer cuartil (25%) y Q₃ es el tercer cuartil (75%).</p>
+<p>Donde $Q_1$ es el primer cuartil (25%) y $Q_3$ es el tercer cuartil (75%).</p>
 
 <div class="box box-ejemplo">
 <strong>💡 Aplicación en control de calidad:</strong>
-<p>Si IQR = 10 y un valor está fuera del rango [Q₁ − 1.5·IQR, Q₃ + 1.5·IQR], se considera un <strong>valor atípico (outlier)</strong>.</p>
-<p>Para el ejemplo anterior: rango de valores normales = [Q₁ − 15, Q₃ + 15]. Cualquier valor fuera de este rango se marca como posible error o anomalía.</p>
+<p>Si IQR = 10 y un valor está fuera del rango [$Q_1$ − 1.5·IQR, $Q_3$ + 1.5·IQR], se considera un <strong>valor atípico (outlier)</strong>.</p>
+<p>Para el ejemplo anterior: rango de valores normales = [$Q_1$ − 15, $Q_3$ + 15]. Cualquier valor fuera de este rango se marca como posible error o anomalía.</p>
 </div>
 </div>
 
@@ -271,8 +271,8 @@ IQR = Q₃ − Q₁
 <li><strong>Varianza</strong> (s²): promedio de desviaciones al cuadrado. Usar N−1 para muestras (corrección de Bessel)</li>
 <li><strong>Desviación típica</strong> (s): raíz de la varianza. Misma unidad que los datos</li>
 <li><strong>CV:</strong> (s/x̄) × 100%. Permite comparar dispersión relativa entre grupos</li>
-<li><strong>IQR:</strong> Q₃ − Q₁. Dispersión del 50% central, robusto a outliers</li>
-<li>Regla 68-95-99.7: ~68% en x̄±s, ~95% en x̄±2s, ~99.7% en x̄±3s (distribución normal)</li>
+<li><strong>IQR:</strong> $Q_3$ − $Q_1$. Dispersión del 50% central, robusto a outliers</li>
+<li>Regla 68-95-99.7: ~68% en x̄$\pm$s, ~95% en x̄$\pm$2s, ~99.7% en x̄$\pm$3s (distribución normal)</li>
 </ul>
 </div>
 
