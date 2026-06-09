@@ -196,12 +196,98 @@ Un patrón es una <b>secuencia que se repite</b>. Si sabes cómo empieza, ¡sabe
 </div>
 </section>
 
+<div class="box box-teoria">
+<strong>📖 ¿Dónde veo patrones en la vida real?</strong>
+<p>Los patrones están <b>en todas partes</b>:</p>
+<ul style="margin:.5rem 0 0 1.2rem">
+<li>🎵 <b>Música:</b> La canción "Estrellita dónde estás" tiene ritmo AB: ta-ta-ta (est-re-lli-ta), ta-ta-ta (dón-de e-stás)</li>
+<li>👕 <b>Ropa:</b> Una camiseta a rayas tiene patrón: azul, blanco, azul, blanco...</li>
+<li>🌅 <b>Días:</b> Lunes, martes, miércoles... ¡es un patrón que se repite cada 7 días!</li>
+<li>🐾 <b>Naturaleza:</b> Las pétalos de una flor suelen estar en grupos de 3, 5 o 8</li>
+</ul>
+<p><b>¡Ahora tú verás patrones por todas partes!</b></p>
+</div>
+
+<div class="box box-idea">
+<strong>⚠️ Error común</strong>
+No confundir <b>patrón</b> con <b>aleatorio</b>. Si no hay repetición, no es patrón. Ejemplo: 🔴🟡🟢🔵 no es un patrón, ¡es un desorden!
+</div>
+
+<div class="exercises">
+
+<div class="exercise">
+<p>🔍 <b>Verdadero o Falso:</b> La secuencia 🔴🔴🔵🔴🔴🔵🔴🔴🔵 tiene patrón AAB.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🔍 <b>Verdadero o Falso:</b> La secuencia 1, 3, 5, 7, 9 sigue el patrón "sumar 2".</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🔍 <b>Ordena estos elementos</b> para crear el patrón AB: rojo, azul, rojo, azul, rojo, azul.</p>
+<p>Arrastra o elige el orden correcto:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkOrden(this, false)">@e1</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">@e2</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">@e3</button>
+</div>
+<p style="font-size:0.85rem;color:#64748b;margin-top:.3rem">Pista: el orden correcto es 🔴🔵🔴🔵🔴🔵</p>
+</div>
+
+<div class="exercise">
+<p>🧠 <b>Encuentra la regla:</b> En la secuencia 2, 4, 6, 8, ¿qué regla sigue?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">Sumar 1</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Sumar 2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Restar 2</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🎨 <b>Crea tu patrón:</b> Si tuvieras 6 fichas: 🟡🟡🟢🟡🟡🟢, ¿qué patrón formaría?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">AAB (dos amarillas, una verde)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">AB (una amarilla, una verde)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">ABC (tres colores)</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🎵 <b>Completa el ritmo:</b> Escucha este ritmo: ta-ta-pausa, ta-ta-pausa, ta-ta-___</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">pausa</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">ta</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">ta-ta</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🧩 <b>¿Cuál NO es un patrón?</b></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">🔴🔵🔴🔵🔴🔵</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">🔴🟡🟢🔵🟣⚫</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">⭐🌙⭐🌙⭐🌙</button>
+</div>
+</div>
+
+</div>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Un patrón es algo que se repite</li>
-<li>Los patrones pueden ser de colores, formas o números</li>
+<li>Un patrón es algo que se repite de forma ordenada</li>
+<li>Los patrones pueden ser de colores (AB, AAB), formas o números</li>
 <li>Si encuentras la regla del patrón, puedes predecir lo que sigue</li>
+<li>Los patrones están en la música, la ropa, los días de la semana y la naturaleza</li>
+<li>No confundir patrón con desorden: si no se repite, no es patrón</li>
 <li>¡Los patrones son como acertijos divertidos! 🎉</li>
 </ul>
 </div>
@@ -270,6 +356,32 @@ function newPattern(){
 newPattern();
 
 function checkExercise(btn, correct){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
+function checkVF(btn, correct){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
+function checkOrden(btn, correct){
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => {
     b.disabled = true;
