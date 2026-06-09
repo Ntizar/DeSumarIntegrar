@@ -139,6 +139,97 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </ul>
 </div>
 
+
+<div class="chapter">
+<h2 class="chapter-title">🍎 Más ejemplos de la vida real</h2>
+
+<div class="box box-ejemplo">
+<strong>🍎 Caso real: Manzanas en la mochila</strong>
+<p>Tienes 7 manzanas en la mochila y te comes 3 en el recreo...</p>
+<p class="emoji-big">🍎🍎🍎🍎🍎🍎🍎 ➖ 🍎🍎🍎 = 🍎🍎🍎🍎</p>
+<p><strong>7 - 3 = 4</strong> manzanas te quedan para el camino de casa.</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🧸 Caso real: Juguetes en la caja</strong>
+<p>Tienes 10 juguetes en la caja y prestas 4 a tu amigo...</p>
+<p class="emoji-big">🧸🎈🚗🎮🧩🎪🪀🪁🎠🎡 ➖ 4 prestados = 6 tuyos</p>
+<p><strong>10 - 4 = 6</strong> juguetes quedan en tu caja.</p>
+</div>
+
+<div class="box box-idea">
+<strong>💡 Piensa en esto</strong>
+<p>Cada vez que <strong>compras un helado</strong> y te lo comes, ¡estás restando! Tenías 1 helado, te lo comes... te quedan 0 helados. <strong>1 - 1 = 0</strong></p>
+</div>
+
+<div class="box box-idea">
+<strong>💡 Otro ejemplo</strong>
+<p>Si tienes <strong>12 estrellas</strong> en un póster y se caen 5... ¡quedan 7! <strong>12 - 5 = 7</strong>. Las estrellas se caen, ¡pero las matemáticas no!</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🎮 Juego: ¡Cuenta y Resta!</h2>
+
+<div class="chart-container">
+<h3>🦁 Animales que se van</h3>
+<p class="chart-desc">Hay animales en la selva. ¡Haz clic en "Nuevo juego" y cuenta cuántos quedan!</p>
+<canvas id="canvas-juego-resta" class="chart-canvas"></canvas>
+<div class="chart-controls">
+<button onclick="nuevoJuegoResta()">🎲 Nuevo juego</button>
+<button onclick="verificarJuegoResta()">✅ Comprobar</button>
+</div>
+<div class="exercise-input" style="margin-top:1rem">
+<input type="number" id="respuesta-juego" placeholder="?" min="0" max="20">
+<span id="feedback-juego" style="font-size:1.2rem;font-weight:600"></span>
+</div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🧠 Más ejercicios interactivos</h2>
+
+<div class="exercise">
+<p><strong>🎃 Ejercicio 4:</strong> 10 - 4 = ?</p>
+<div class="emoji-big">🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈 ➖ 🎈🎈🎈🎈 = ❓</div>
+<div class="exercise-input"><input type="number" id="e4"><button onclick="checkE(4, 6)">Comprobar</button></div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🍕 Ejercicio 5:</strong> 9 - 5 = ?</p>
+<div class="emoji-big">🍕🍕🍕🍕🍕🍕🍕🍕🍕 ➖ 🍕🍕🍕🍕🍕 = ❓</div>
+<div class="exercise-input"><input type="number" id="e5"><button onclick="checkE(5, 4)">Comprobar</button></div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>⭐ Ejercicio 6:</strong> 14 - 7 = ?</p>
+<div class="emoji-big">⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ ➖ ⭐⭐⭐⭐⭐⭐⭐ = ❓</div>
+<div class="exercise-input"><input type="number" id="e6"><button onclick="checkE(6, 7)">Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>🐟 Ejercicio 7:</strong> 6 - 2 = ?</p>
+<div class="emoji-big">🐟🐟🐟🐟🐟🐟 ➖ 🐟🐟 = ❓</div>
+<div class="exercise-input"><input type="number" id="e7"><button onclick="checkE(7, 4)">Comprobar</button></div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌟 ¡Desafío final!</h2>
+
+<div class="box box-success">
+<strong>🏆 Desafío: ¿Puedes resolverlo?</strong>
+<p>En una granja hay 18 gallinas. El zorro se lleva 9... ¿cuántas gallinas quedan en la granja?</p>
+<p class="emoji-big">🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔 ➖ 🐔🐔🐔🐔🐔🐔🐔🐔🐔 = ❓</p>
+<div class="exercise-input"><input type="number" id="e8"><button onclick="checkE(8, 9)">Comprobar</button></div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+</div>
+
 <div class="nav">
   <a href="s01-1primaria.html">← Anterior</a>
   <a href="s01-1primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -219,6 +310,61 @@ function checkE(num, respuesta) {
 document.addEventListener('DOMContentLoaded', () => {
   nuevaResta();
 });
+
+
+function nuevoJuegoResta() {
+  const animales = ['🐔','🐶','🐱','🐰','🦁','🐸','🐵','🐮','🐷','🐼'];
+  const animal = animales[Math.floor(Math.random() * animales.length)];
+  const a = Math.floor(Math.random() * 10) + 5; // 5-14
+  const b = Math.floor(Math.random() * (a - 2)) + 1; // at least 3 remain
+  const canvas = document.getElementById('canvas-juego-resta');
+  const ctx = canvas.getContext('2d');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = '28px serif';
+  let x = 20, y = 60;
+  for (let i = 0; i < a; i++) {
+    if (i >= a - b) {
+      ctx.fillStyle = '#ef4444';
+      ctx.globalAlpha = 0.3;
+    } else {
+      ctx.fillStyle = '#10b981';
+      ctx.globalAlpha = 1.0;
+    }
+    ctx.fillText(animal, x, y);
+    x += 38;
+    if (x > canvas.width - 50) { x = 20; y += 40; }
+  }
+  ctx.globalAlpha = 1.0;
+  ctx.font = 'bold 18px sans-serif';
+  ctx.fillStyle = '#ef4444';
+  ctx.fillText('❌ Se llevan ' + b + ' (apagados)', 20, canvas.height - 35);
+  ctx.fillStyle = '#10b981';
+  ctx.fillText('✅ Quedan ' + (a - b) + ' (verdes)', canvas.width / 2 - 80, canvas.height - 35);
+  ctx.font = 'bold 24px sans-serif';
+  ctx.fillStyle = '#2563eb';
+  ctx.fillText(a + ' - ' + b + ' = ?', canvas.width / 2 - 50, 30);
+  window._juegoA = a;
+  window._juegoB = b;
+  document.getElementById('respuesta-juego').value = '';
+  document.getElementById('feedback-juego').textContent = '';
+}
+
+function verificarJuegoResta() {
+  const a = window._juegoA || 10;
+  const b = window._juegoB || 3;
+  const resp = parseInt(document.getElementById('respuesta-juego').value);
+  const fb = document.getElementById('feedback-juego');
+  if (resp === a - b) {
+    fb.textContent = '✅ ¡Correcto! ¡' + a + ' - ' + b + ' = ' + (a - b) + '!';
+    fb.style.color = '#10b981';
+  } else {
+    fb.textContent = '❌ ¡Casi! ' + a + ' - ' + b + ' = ' + (a - b);
+    fb.style.color = '#ef4444';
+  }
+}
 </script>
 </body>
 </html>
