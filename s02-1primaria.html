@@ -150,6 +150,140 @@ table tr:nth-child(even){background:#f8fafc}
 </ul>
 </div>
 
+<div class="chapter">
+<h2 class="chapter-title">🌟 ¡Vamos a practicar más!</h2>
+
+<!-- Analogía vida real 1 -->
+<div class="box box-teoria">
+<strong>🍕 Analogía: La pizza familiar</strong>
+<p>Imagina que pedimos dos pizzas grandes. Una tiene 356 trozos (¡sí, son mini-pizzas!) y la otra 243. Si nos los comemos todos, ¿cuántas mini-pizzas hemos comido en total?</p>
+<p>356 + 243 = <strong>599</strong> mini-pizzas. ¡Qué fiesta!</p>
+</div>
+
+<!-- Analogía vida real 2 -->
+<div class="box box-teoria">
+<strong>🧸 Analogía: Los juguetes del armario</strong>
+<p>Tu armario de juguetes tiene 428 piezas de LEGO. Tu amigo te regala 265 más. Ahora tienes:</p>
+<p>428 + 265 = <strong>693</strong> piezas de LEGO. ¡Ya puedes construir un castillo!</p>
+</div>
+
+<!-- Analogía vida real 3 -->
+<div class="box box-teoria">
+<strong>🎮 Analogía: Monedas de videojuego</strong>
+<p>En tu inventario tienes 512 monedas de oro. Encuentras un cofre con 389 monedas más. ¿Cuántas tienes ahora?</p>
+<p>512 + 389 = <strong>901</strong> monedas. ¡Puedes comprar la espada legendaria!</p>
+</div>
+
+<!-- Ejemplo cotidiano 1 -->
+<div class="box box-ejemplo">
+<strong>🍎 Ejemplo cotidiano: La hucha</strong>
+<p>Dentro de tu hucha tienes 275 céntimos (2,75€). Tu abuela te da 148 céntimos más (1,48€). ¿Cuánto dinero hay en la hucha?</p>
+<p>275 + 148 = <strong>423</strong> céntimos = <strong>4,23€</strong>. ¡Ya tienes para un helado doble!</p>
+</div>
+
+<!-- Ejemplo cotidiano 2 -->
+<div class="box box-ejemplo">
+<strong>📚 Ejemplo cotidiano: Libros de la biblioteca</strong>
+<p>La biblioteca del colegio tiene 367 libros de aventuras. Le regalan 254 libros de ciencia. ¿Cuántos libros de aventuras y ciencia hay?</p>
+<p>367 + 254 = <strong>621</strong> libros. ¡Hay para leer todo el año!</p>
+</div>
+
+<!-- Ejemplo cotidiano 3 -->
+<div class="box box-ejemplo">
+<strong>🐾 Ejemplo cotidiano: Patas de animales</strong>
+<p>En una granja hay 189 gallinas y 234 conejos. Cada animal tiene 4 patas. Si sumamos las patas de todos los animales:</p>
+<p>189 + 234 = <strong>423</strong> animales. Y 423 × 4 = <strong>1.692</strong> patas en total. ¡Muchas patas!</p>
+</div>
+</div>
+
+<!-- Gráfico Plotly -->
+<div class="chart-container">
+<h3>📊 Visualización: Sumas populares</h3>
+<p class="chart-desc">Estas son algunas de las sumas que hemos visto hoy. ¿Puedes adivinar cuál da el resultado más alto?</p>
+<div id="plotly-sumas" class="chart-canvas"></div>
+<div class="chart-controls">
+<button onclick="randomizarSumas()">🎲 Nuevos datos</button>
+<button onclick="ordenarSumas()">📈 Ordenar por resultado</button>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🧠 Más Ejercicios</h2>
+
+<div class="exercise">
+<p>🎯 Ejercicio 4: 156 + 278 = ?</p>
+<div class="exercise-input"><input type="number" id="e4"><button onclick="checkE(4, 434)">Comprobar</button></div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🍕 Ejercicio 5: 356 + 243 = ? (Mini-pizzas familiares)</p>
+<div class="exercise-input"><input type="number" id="e5"><button onclick="checkE(5, 599)">Comprobar</button></div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🧸 Ejercicio 6: 428 + 265 = ? (Piezas de LEGO)</p>
+<div class="exercise-input"><input type="number" id="e6"><button onclick="checkE(6, 693)">Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🎮 Ejercicio 7: 512 + 389 = ? (Monedas de videojuego)</p>
+<div class="exercise-input"><input type="number" id="e7"><button onclick="checkE(7, 901)">Comprobar</button></div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🍎 Ejercicio 8: 275 + 148 = ? (Céntimos en la hucha)</p>
+<div class="exercise-input"><input type="number" id="e8"><button onclick="checkE(8, 423)">Comprobar</button></div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+<div class="exercise">
+<p>📚 Ejercicio 9: 367 + 254 = ? (Libros de la biblioteca)</p>
+<div class="exercise-input"><input type="number" id="e9"><button onclick="checkE(9, 621)">Comprobar</button></div>
+<div class="feedback" id="e9-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🐾 Ejercicio 10: 189 + 234 = ? (Animales en la granja)</p>
+<div class="exercise-input"><input type="number" id="e10"><button onclick="checkE(10, 423)">Comprobar</button></div>
+<div class="feedback" id="e10-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🏆 Ejercicio 11 (Desafío): 678 + 245 = ? (Suma con 3 llevadas)</p>
+<div class="exercise-input"><input type="number" id="e11"><button onclick="checkE(11, 923)">Comprobar</button></div>
+<div class="feedback" id="e11-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🏆 Ejercicio 12 (Desafío final): 899 + 101 = ? (La suma perfecta)</p>
+<div class="exercise-input"><input type="number" id="e12"><button onclick="checkE(12, 1000)">Comprobar</button></div>
+<div class="feedback" id="e12-fb"></div>
+</div>
+</div>
+
+<!-- Resumen ampliado -->
+<div class="summary">
+<h3>📋 Lo que aprendiste</h3>
+<ul>
+<li>Sumamos de derecha a izquierda: unidades, decenas, centenas</li>
+<li>Si la suma pasa de 9, llevamos 1 al siguiente grupo</li>
+<li>245 + 178 = 423 (con dos llevadas)</li>
+<li>356 + 243 = 599 (mini-pizzas)</li>
+<li>428 + 265 = 693 (LEGO)</li>
+<li>512 + 389 = 901 (monedas de videojuego)</li>
+<li>275 + 148 = 423 céntimos = 4,23€ (hucha)</li>
+<li>367 + 254 = 621 (libros)</li>
+<li>189 + 234 = 423 (animales)</li>
+<li>678 + 245 = 923 (3 llevadas)</li>
+<li>899 + 101 = 1000 (¡la suma perfecta!)</li>
+<li>Las sumas grandes son como contar: siempre de derecha a izquierda</li>
+</ul>
+</div>
+
 <div class="nav">
   <a href="s01-4primaria.html">← Anterior</a>
   <a href="s02-2primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -221,6 +355,7 @@ function verificarSuma3() {
 ''' + checkE_func() + '''
 document.addEventListener('DOMContentLoaded', () => {
   nuevaSuma3();
+  renderPlotlySumas();
 
 function checkE(num, correct) {
   const input = document.getElementById('e' + num);
@@ -230,6 +365,75 @@ function checkE(num, correct) {
   if (isNaN(value)) { feedback.textContent = 'Introduce un número'; feedback.className = 'feedback incorrect'; return; }
   if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
   else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
+}
+
+function renderPlotlySumas(ordenado=false) {
+  const data = [
+    {x: ['245+178', '356+243', '428+265', '512+389', '275+148', '367+254', '189+234', '678+245', '899+101'],
+     y: [423, 599, 693, 901, 423, 621, 423, 923, 1000],
+     type: 'bar',
+     marker: {
+       color: ['#2563eb','#f97316','#10b981','#a855f7','#ef4444','#2563eb','#f97316','#10b981','#a855f7']
+     },
+     text: [423, 599, 693, 901, 423, 621, 423, 923, 1000],
+     textposition: 'auto'
+    }
+  ];
+  const layout = {
+    margin: {t: 20, b: 80, l: 50, r: 20},
+    xaxis: {tickangle: -30, tickfont: {size: 10}},
+    yaxis: {title: 'Resultado', range: [0, 1100]},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)'
+  };
+  Plotly.newPlot('plotly-sumas', data, layout, {responsive: true, displayModeBar: false});
+}
+
+function randomizarSumas() {
+  const ops = [];
+  for (let i = 0; i < 9; i++) {
+    const a = Math.floor(Math.random() * 600) + 100;
+    const b = Math.floor(Math.random() * 600) + 100;
+    ops.push({label: a+'+'+b, value: a+b});
+  }
+  const data = [{
+    x: ops.map(o => o.label),
+    y: ops.map(o => o.value),
+    type: 'bar',
+    marker: {color: ops.map((_,i) => ['#2563eb','#f97316','#10b981','#a855f7','#ef4444'][i%5])},
+    text: ops.map(o => o.value),
+    textposition: 'auto'
+  }];
+  const layout = {
+    margin: {t: 20, b: 80, l: 50, r: 20},
+    xaxis: {tickangle: -30, tickfont: {size: 9}},
+    yaxis: {title: 'Resultado'},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)'
+  };
+  Plotly.newPlot('plotly-sumas', data, layout, {responsive: true, displayModeBar: false});
+}
+
+function ordenarSumas() {
+  const data = [
+    {x: ['245+178', '275+148', '189+234', '356+243', '367+254', '428+265', '512+389', '678+245', '899+101'],
+     y: [423, 423, 423, 599, 621, 693, 901, 923, 1000],
+     type: 'bar',
+     marker: {
+       color: ['#ef4444','#2563eb','#f97316','#a855f7','#10b981','#2563eb','#f97316','#10b981','#a855f7']
+     },
+     text: [423, 423, 423, 599, 621, 693, 901, 923, 1000],
+     textposition: 'auto'
+    }
+  ];
+  const layout = {
+    margin: {t: 20, b: 80, l: 50, r: 20},
+    xaxis: {tickangle: -30, tickfont: {size: 10}},
+    yaxis: {title: 'Resultado (ordenado)', range: [0, 1100]},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)'
+  };
+  Plotly.newPlot('plotly-sumas', data, layout, {responsive: true, displayModeBar: false});
 }
 });
 </script>

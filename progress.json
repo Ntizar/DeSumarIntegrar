@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-6primaria.html",
+  "last_improved": "s02-1primaria.html",
   "last_run": "2026-06-09",
-  "total_runs": 6,
+  "total_runs": 8,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -210,21 +210,32 @@
       "improvement_count": 0
     },
     "s02-1primaria.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "1ª ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analogías vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gráfico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-09",
+          "added": "2ª ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analogías vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gráfico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 10,
+        "visual": 4,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 2
     },
     "s02-2primaria.html": {
       "status": "pending",
