@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-7-figuras-basicas.html",
+  "last_improved": "s01-8-medidas-tamano-peso.html",
   "last_run": "2026-06-09",
-  "total_runs": 11,
+  "total_runs": 12,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -164,22 +164,28 @@
       "last_improved": "2026-06-09",
       "improvement_count": 1
     },
-    "s01-8primaria.html": {
-      "status": "pending",
+    "s01-8-medidas-tamano-peso.html": {
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-09",
+          "added": "1 explicación estructurada (qué es/para qué/cómo/error común), +1 sección comparar por peso, +1 visualización ordenar por peso (5 objetos), +5 ejercicios variados (completar hueco, V/F, problema mercado, ordenar peso, problema mochila)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 4,
+        "real_world": 8,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-09",
+      "improvement_count": 1
     },
     "s01-9primaria.html": {
       "status": "pending",
