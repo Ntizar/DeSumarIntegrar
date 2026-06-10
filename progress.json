@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-10-patrones.html",
+  "last_improved": "s04-4primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 28,
+  "total_runs": 29,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -420,21 +420,27 @@
       "improvement_count": 1
     },
     "s04-4primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
-      "category": "primaria_4",
-      "improvements": [],
+      "category": "primaria_tema",
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+1 mini quiz interactivo (pregunta fracción pizzas), diseño glassmorphism mejorado, tags por categoría en cada sesión, +1 caja intro con objetivos claros, CSS mejorado con gradientes y backdrop-filter"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 1,
+        "text": 10,
+        "visual": 5,
+        "real_world": 7,
+        "connections": 2,
+        "difficulty_range": 4
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s05-5primaria.html": {
       "status": "pending",

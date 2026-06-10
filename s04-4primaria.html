@@ -7,19 +7,44 @@
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-.header{background:linear-gradient(135deg,#f59e0b,var(--naranja));color:#fff;padding:2rem 1.5rem;text-align:center}
-.header h1{font-size:1.8rem;margin-bottom:.5rem}
-.header p{opacity:.9;font-size:1rem}
-.container{max-width:900px;margin:0 auto;padding:1.5rem}
-.intro-box{background:linear-gradient(135deg,var(--naranja-claro),var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid var(--naranja)}
-.intro-box h2{color:var(--naranja);margin-bottom:.8rem}
-.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
-.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:var(--naranja)}
-.session-card .num{font-size:.8rem;color:var(--naranja);font-weight:700;margin-bottom:.3rem}
-.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
-.session-card p{font-size:.85rem;color:#64748b}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f0f9ff 0%,#fff7ed 100%);min-height:100vh;color:var(--texto)}
+.header{text-align:center;padding:3rem 2rem 2rem;background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(37,99,235,0.06));border-radius:0 0 24px 24px;margin-bottom:2rem}
+.header h1{font-size:2.5rem;background:linear-gradient(135deg,var(--azul),var(--naranja));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
+.header p{color:#64748b;font-size:1.1rem}
+.container{max-width:900px;margin:0 auto;padding:0 2rem 4rem}
+.intro-box{background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(37,99,235,0.06));border-radius:16px;padding:1.5rem;margin-bottom:2rem;border-left:4px solid var(--naranja)}
+.intro-box h2{color:var(--naranja);margin-bottom:.8rem;font-size:1.2rem}
+.intro-box ul{padding-left:1.2rem;margin-top:.5rem}
+.intro-box li{margin:.3rem 0;color:#475569}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;margin:1.5rem 0}
+.card{background:rgba(255,255,255,0.75);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);border-radius:16px;padding:1.2rem;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,99,235,0.12);border-color:var(--azul)}
+.card .num{font-size:.75rem;color:var(--naranja);font-weight:700;margin-bottom:.3rem}
+.card h3{font-size:1.05rem;color:var(--texto);margin-bottom:.3rem}
+.card p{font-size:.85rem;color:#64748b;line-height:1.5}
+.card .tag{display:inline-block;font-size:.7rem;padding:.15rem .6rem;border-radius:999px;margin-top:.5rem;font-weight:600}
+.tag-fracciones{background:rgba(249,115,22,0.1);color:#ea580c}
+.tag-decimales{background:rgba(37,99,235,0.1);color:#2563eb}
+.tag-geometria{background:rgba(16,185,129,0.1);color:#059669}
+.tag-medidas{background:rgba(168,85,247,0.1);color:#a855f7}
+.tag-problemas{background:rgba(239,68,68,0.1);color:#dc2626}
+.tag-multiplicacion{background:rgba(37,99,235,0.1);color:#2563eb}
+.tag-division{background:rgba(249,115,22,0.1);color:#ea580c}
+
+/* Mini quiz interactivo */
+.mini-quiz{background:linear-gradient(135deg,var(--azul-claro),var(--naranja-claro));border-radius:16px;padding:1.5rem;margin:2rem 0;border:2px solid var(--azul)}
+.mini-quiz h3{color:var(--azul);margin-bottom:.5rem;font-size:1.1rem}
+.mini-quiz p{color:#475569;margin-bottom:1rem}
+.quiz-options{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.quiz-options button{flex:1;min-width:100px;padding:.7rem 1rem;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;font-size:1rem;font-weight:600;transition:all .2s}
+.quiz-options button:hover{border-color:var(--azul);background:var(--azul-claro);transform:scale(1.03)}
+.quiz-options button.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-options button.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.quiz-options button:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.quiz-feedback{font-size:1rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.quiz-feedback.correct{color:var(--verde)}
+.quiz-feedback.wrong{color:var(--rojo)}
+
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -30,25 +55,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.footer a{color:var(--azul);text-decoration:none}
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--naranja);text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--naranja-claro);transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
-@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.header h1{font-size:1.8rem}}
 </style>
 </head>
 <body>
-<div class="container">
-<a class="back-link" href="INDEX.html">← Volver al índice general</a>
-
 <div class="header">
 <h1>📐 4º Primaria</h1>
 <p>Fracciones, decimales, porcentajes, áreas y resolución de problemas</p>
+</div>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
+
+<!-- Mini quiz para enganchar -->
+<div class="mini-quiz" id="miniQuiz">
+<h3>🎯 ¡Pruébalo antes de empezar!</h3>
+<p id="quizQuestion">Si repartes 3 pizzas entre 4 amigos, ¿qué parte de pizza le toca a cada uno?</p>
+<div class="quiz-options" id="quizOptions">
+<button onclick="checkQuiz(0, 3)">3/4</button>
+<button onclick="checkQuiz(1, 4)">1/4</button>
+<button onclick="checkQuiz(2, 5)">1/3</button>
+<button onclick="checkQuiz(3, 6)">3/12</button>
+</div>
+<div class="quiz-feedback" id="quizFeedback"></div>
 </div>
 
 <div class="intro-box">
 <h2>¿Qué vamos a aprender en 4º Primaria?</h2>
 <p>En 4º Primaria damos un salto importante: las fracciones dejan de ser algo visual para convertirse en números con los que podemos operar. También introducimos los decimales y los porcentajes, que usamos todos los días.</p>
-<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
-<ul style="padding-left:1.5rem;margin-top:.5rem">
+<p style="margin-top:.8rem"><strong>🎯 Objetivos de esta unidad:</strong></p>
+<ul>
 <li>Entender y crear fracciones equivalentes</li>
 <li>Sumar y restar fracciones con igual y distinto denominador</li>
 <li>Multiplicar y dividir fracciones</li>
@@ -62,53 +100,61 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 
 <h2 style="margin:2rem 0 1rem;color:var(--naranja)">📚 Sesiones de 4º Primaria</h2>
 
-<div class="sessions-grid">
-<a class="session-card" href="s04-1-fracciones-equivalentes.html">
+<div class="grid">
+<a class="card" href="s04-1-fracciones-equivalentes.html">
 <div class="num">Sesión 1</div>
 <h3>🍕 Fracciones Equivalentes</h3>
 <p>¿Cuándo dos fracciones son iguales aunque se vean diferentes? Aprende a simplificar y crear equivalentes.</p>
+<span class="tag tag-fracciones">Fracciones</span>
 </a>
 
-<a class="session-card" href="s04-2-mult-3-cifras.html">
+<a class="card" href="s04-2-mult-3-cifras.html">
 <div class="num">Sesión 2</div>
 <h3>✖️ Multiplicación por 3 Cifras</h3>
 <p>Multiplicar por 100, por 234... Descomponer y multiplicar por partes.</p>
+<span class="tag tag-multiplicacion">Multiplicación</span>
 </a>
 
-<a class="session-card" href="s04-3-division-2-cifras.html">
+<a class="card" href="s04-3-division-2-cifras.html">
 <div class="num">Sesión 3</div>
 <h3>➗ División entre 2 Cifras</h3>
 <p>Estimar el cociente y verificar con la multiplicación. ¡Dividir se pone serio!</p>
+<span class="tag tag-division">División</span>
 </a>
 
-<a class="session-card" href="s04-4-fracciones-equivalentes.html">
+<a class="card" href="s04-4-fracciones-equivalentes.html">
 <div class="num">Sesión 4</div>
 <h3>🍕 Fracciones Equivalentes (Práctica)</h3>
 <p>Más práctica con fracciones equivalentes: simplificar, comparar y ordenar.</p>
+<span class="tag tag-fracciones">Fracciones</span>
 </a>
 
-<a class="session-card" href="s04-5-decimales-intro.html">
+<a class="card" href="s04-5-decimales-intro.html">
 <div class="num">Sesión 5</div>
 <h3>🔢 Introducción a los Decimales</h3>
 <p>La parte decimal: décimas, centésimas, milésimas. Relación con fracciones.</p>
+<span class="tag tag-decimales">Decimales</span>
 </a>
 
-<a class="session-card" href="s04-6-areas.html">
+<a class="card" href="s04-6-areas.html">
 <div class="num">Sesión 6</div>
 <h3>📐 Áreas de Figuras</h3>
 <p>Medir superficies: cuadrado, rectángulo y más figuras planas.</p>
+<span class="tag tag-geometria">Geometría</span>
 </a>
 
-<a class="session-card" href="s04-7-capacidades.html">
+<a class="card" href="s04-7-capacidades.html">
 <div class="num">Sesión 7</div>
 <h3>🥤 Capacidades</h3>
 <p>Litros y mililitros: convertir entre unidades y resolver problemas.</p>
+<span class="tag tag-medidas">Medidas</span>
 </a>
 
-<a class="session-card" href="s04-8-problemas-1-paso.html">
+<a class="card" href="s04-8-problemas-1-paso.html">
 <div class="num">Sesión 8</div>
 <h3>🧩 Problemas de 1 Paso</h3>
 <p>Leer, entender, elegir la operación, calcular y comprobar. El método para resolver cualquier problema.</p>
+<span class="tag tag-problemas">Problemas</span>
 </a>
 </div>
 
@@ -131,6 +177,39 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
-<div class="footer">Hecho con ❤️ por David Antizar</div>
+<div class="footer">Hecho con ❤️ por <a href="https://github.com/Ntizar">David Antizar</a></div>
+
+<script>
+// Mini quiz interactivo para enganchar al alumno
+const quizData = {
+  question: "Si repartes 3 pizzas entre 4 amigos, ¿qué parte de pizza le toca a cada uno?",
+  answers: ["3/4", "1/4", "1/3", "3/12"],
+  correct: 0,
+  explanation: "¡Exacto! 3 pizzas entre 4 amigos → cada uno se lleva 3/4 de pizza. 🍕"
+};
+
+function checkQuiz(index, value) {
+  const buttons = document.querySelectorAll('#quizOptions button');
+  const feedback = document.getElementById('quizFeedback');
+
+  // Disable all buttons
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === quizData.correct) {
+      btn.classList.add('correct');
+    } else if (i === index) {
+      btn.classList.add('wrong');
+    }
+  });
+
+  if (index === quizData.correct) {
+    feedback.textContent = '✅ ' + quizData.explanation;
+    feedback.className = 'quiz-feedback correct';
+  } else {
+    feedback.textContent = '❌ ¡Casi! La respuesta es ' + quizData.answers[quizData.correct] + '. ¡Descúbrelo en la sesión 1!';
+    feedback.className = 'quiz-feedback wrong';
+  }
+}
+</script>
 </body>
 </html>
