@@ -1,7 +1,7 @@
 {
-  "last_improved": "s04-2-mult-3-cifras.html",
+  "last_improved": "eso1-1-numeros-enteros.html",
   "last_run": "2026-06-10",
-  "total_runs": 26,
+  "total_runs": 27,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -483,21 +483,27 @@
       "improvement_count": 0
     },
     "eso1-1-numeros-enteros.html": {
-      "status": "pending",
-      "level": "ESO 1º",
+      "status": "improved_1",
+      "level": "1º ESO",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+8 ejercicios variados (quiz botones, valor absoluto input, ordenar de menor a mayor, V/F x2, problema ascensor, temperatura input, altitud input), +4 explicaciones estructuradas (qué son, para qué sirven, cómo se ordenan, error común), +2 casos reales (ascensor/sótanos, temperatura), +1 recta numérica SVG interactiva, +1 caja error común, +1 caja conexión vida real, resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 9,
+        "visual": 2,
+        "real_world": 3,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "eso1-3-proporcionalidad.html": {
       "status": "pending",
