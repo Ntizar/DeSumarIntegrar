@@ -213,13 +213,12 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 <div class="result" id="e4result"></div>
 </div>
 
-<!-- Ejercicio 5: DECIDIR OPERACIÓN — ¿sumar o restar? -->
+<!-- Ejercicio 5: PROBLEMA NARRATIVO — historia corta -->
 <div class="exercise">
-<p>5. 🤔 ¿Qué operación hago? Tengo 6 cromos y me regalan 4 más. ¿Cuántos tengo en total?</p>
-<p style="font-size:.9rem;color:#64748b">Elige la operación correcta:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkE5(this, true)">6 + 4 = 10</button>
-<button class="quiz-btn" onclick="checkE5(this, false)">6 − 4 = 2</button>
+<p>5. 📖 Ana tiene un acuario con 9 peces 🐠. Un día, 2 peces se ponen tristes y se quedan en el fondo. ¿Cuántos peces están nadando felices?</p>
+<div style="text-align:center;margin:.8rem 0">
+<input type="number" id="e5" min="0" max="10" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkE5()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem">Comprobar</button>
 </div>
 <div class="result" id="e5result"></div>
 </div>
@@ -245,16 +244,13 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 </div>
 </div>
 
-<!-- Ejercicio 8: EMPAREJAR — restas con resultado -->
+<!-- Ejercicio 8: PROBLEMA CON RESULTADO 0 — contexto real -->
 <div class="exercise">
-<p>8. 🔗 Empareja cada resta con su resultado correcto:</p>
-<p style="font-weight:400;font-size:.95rem">
-  6 − 2 = ? &nbsp;&nbsp; 10 − 7 = ? &nbsp;&nbsp; 9 − 9 = ?
-</p>
-<p style="font-size:.9rem;color:#64748b">Escribe los 3 resultados separados por comas (orden: primera, segunda, tercera).</p>
-<div style="text-align:center;margin:.8rem 0">
-<input type="text" id="e8" placeholder="ej: 1, 2, 3" style="width:200px;padding:.5rem;font-size:1.1rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
-<button onclick="checkE8()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem">Comprobar</button>
+<p>8. 🎈 Tienes 7 globos en una fiesta 🎉. Se van volando 7 globos. ¿Cuántos te quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
 </div>
 <div class="result" id="e8result"></div>
 </div>
@@ -326,6 +322,12 @@ Compraste 6 palomitas para ver la película 🍿. Si te comes 4 antes de que emp
 <br>6 − 4 = <b>2</b> (¡2 palomitas para el inicio! 😋)
 </div>
 
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 6 — La hucha vacía</strong>
+Tenías 4 monedas en tu hucha 🐷 y gastaste 4 en un chicle. ¿Cuántas monedas te quedan?
+<br>4 − 4 = <b>0</b> (¡la hucha está vacía! Pero no pasa nada, es normal que quede 0)
+</div>
+
 <div class="interactive">
 <h3>📊 Tabla visual de restas</h3>
 <p>Mira cómo cambian los resultados cuando restas más y más. ¡Es como una montaña rusa de números! 🎢</p>
@@ -342,7 +344,7 @@ Compraste 6 palomitas para ver la película 🍿. Si te comes 4 antes de que emp
 <li>Sumar y restar son <b>operaciones inversas</b> (como espejos 🪞)</li>
 <li><b>Truco:</b> Para comprobar una resta, ¡suma! 9−4=5 → 5+4=9 ✅</li>
 <li><b>Completar hueco:</b> si 7 − ___ = 4, falta el 3</li>
-<li><b>Decidir operación:</b> "me regalan más" = sumar, "se rompen" = restar</li>
+<li><b>Resultado 0:</b> cuando quitas todo lo que tienes, queda 0 (es normal, no es error)</li>
 <li>¡Ya sabes restar hasta 10! 🎉</li>
 </ul>
 </div>
@@ -432,8 +434,23 @@ function checkE4(){
   }
 }
 
-function checkE5(btn, correct){
+function checkE5(){
+  const input = document.getElementById('e5');
   const result = document.getElementById('e5result');
+  const val = parseInt(input.value);
+  if(val === 7){
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 9 − 2 = 7. 9 peces menos 2 que se quedan en el fondo = 7 peces nadando felices.';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Piensa: 9 peces en total, 2 se quedan en el fondo. ¿Cuántos nadan? 9 − 2 = 7.';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
+function checkE8(btn, correct){
+  const result = document.getElementById('e8result');
   btn.parentElement.querySelectorAll('.quiz-btn').forEach(b => {
     b.disabled = true;
     b.style.pointerEvents = 'none';
@@ -441,27 +458,11 @@ function checkE5(btn, correct){
   if(correct){
     btn.classList.add('correct');
     result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! "Me regalan más" = sumar. 6 + 4 = 10 cromos.';
+    result.textContent = '✅ ¡Correcto! 7 − 7 = 0. Si se van TODOS los globos, no queda ninguno. ¡Quedar 0 es normal!';
   } else {
     btn.classList.add('wrong');
     result.className = 'result fail';
-    result.textContent = '❌ "Me regalan más" significa que tengo más cromos, no menos. ¡Se suma! 6 + 4 = 10.';
-  }
-}
-
-function checkE8(){
-  const input = document.getElementById('e8');
-  const result = document.getElementById('e8result');
-  const val = input.value.replace(/\s/g, '').toLowerCase();
-  // 6−2=4, 10−7=3, 9−9=0 → 4,3,0
-  if(val === '4,3,0'){
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Perfecto! 6−2=4, 10−7=3, 9−9=0. ¡Emparejaste todas!';
-    input.style.borderColor = 'var(--verde)';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ Piensa cada una: 6−2=4, 10−7=3, 9−9=0. Orden: 4, 3, 0.';
-    input.style.borderColor = 'var(--rojo)';
+    result.textContent = '❌ 7 − 7 = 0. Si se van todos los globos, no queda ninguno. Quedar 0 es perfectamente normal.';
   }
 }
 

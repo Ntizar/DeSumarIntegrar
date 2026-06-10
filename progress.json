@@ -1,11 +1,11 @@
 {
-  "last_improved": "s02-3primaria.html",
+  "last_improved": "s01-5-restar-hasta-10.html",
   "last_run": "2026-06-10",
-  "total_runs": 37,
+  "total_runs": 38,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
@@ -17,12 +17,12 @@
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+6 ejercicios variados (input numérico, completar hueco, V/F, problema contextual, ordenar, problema inverso), +1 explicación estructurada 4 pasos, +2 casos reales (supermercado, fútbol), +1 caja error común, +1 caja conexión, eliminados 7 ejercicios repetitivos + 1 resta errónea"
+          "added": "+6 ejercicios variados (input num\u00e9rico, completar hueco, V/F, problema contextual, ordenar, problema inverso), +1 explicaci\u00f3n estructurada 4 pasos, +2 casos reales (supermercado, f\u00fatbol), +1 caja error com\u00fan, +1 caja conexi\u00f3n, eliminados 7 ejercicios repetitivos + 1 resta err\u00f3nea"
         },
         {
           "run": 3,
           "date": "2026-06-10",
-          "added": "+2 ejercicios nuevos (emparejar sumas iguales, conteo visual emojis), +1 caso real cocina, +1 línea numérica interactiva canvas, +1 caja error común (contar dos veces), +1 conexión sumar-restar inversas, +7 puntos resumen, +3 funciones JS nuevas"
+          "added": "+2 ejercicios nuevos (emparejar sumas iguales, conteo visual emojis), +1 caso real cocina, +1 l\u00ednea num\u00e9rica interactiva canvas, +1 caja error com\u00fan (contar dos veces), +1 conexi\u00f3n sumar-restar inversas, +7 puntos resumen, +3 funciones JS nuevas"
         }
       ],
       "scores": {
@@ -38,24 +38,24 @@
     },
     "s01-2primaria.html": {
       "status": "improved_3",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos reales (manzanas, juguetes), 2 analogías vida real (helado, estrellas), 1 juego canvas animales, desafío final granja"
+          "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos reales (manzanas, juguetes), 2 analog\u00edas vida real (helado, estrellas), 1 juego canvas animales, desaf\u00edo final granja"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+4 ejercicios variados (completar hueco, V/F, quiz botones, ordenar), +1 explicación 4 pasos, +1 caso real heladería, +1 caja error común, +1 caja conexión, summary 7 puntos"
+          "added": "+4 ejercicios variados (completar hueco, V/F, quiz botones, ordenar), +1 explicaci\u00f3n 4 pasos, +1 caso real helader\u00eda, +1 caja error com\u00fan, +1 caja conexi\u00f3n, summary 7 puntos"
         },
         {
           "run": 3,
           "date": "2026-06-10",
-          "added": "-4 ejercicios repetitivos (e4-e7: input numérico con emojis decorativos), +4 ejercicios variados (problema inverso pájaros, emparejar restas iguales, decidir operación, ordenar resultados), +1 conexión restar↔sumar (espejos + truco), resumen corregido (quitar multiplicación, añadir 3 puntos), +3 funciones JS nuevas"
+          "added": "-4 ejercicios repetitivos (e4-e7: input num\u00e9rico con emojis decorativos), +4 ejercicios variados (problema inverso p\u00e1jaros, emparejar restas iguales, decidir operaci\u00f3n, ordenar resultados), +1 conexi\u00f3n restar\u2194sumar (espejos + truco), resumen corregido (quitar multiplicaci\u00f3n, a\u00f1adir 3 puntos), +3 funciones JS nuevas"
         }
       ],
       "scores": {
@@ -71,19 +71,19 @@
     },
     "s01-3primaria.html": {
       "status": "improved_2",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "7 ejercicios interactivos (e4-e10) con emojis, 3 analogías vida real (pizzería, consolas, patas gatos), 3 ejemplos cotidianos (chocolates, ruedas coches, ramos flores), 1 gráfico canvas barras tabla del 3 interactivo, resumen ampliado"
+          "added": "7 ejercicios interactivos (e4-e10) con emojis, 3 analog\u00edas vida real (pizzer\u00eda, consolas, patas gatos), 3 ejemplos cotidianos (chocolates, ruedas coches, ramos flores), 1 gr\u00e1fico canvas barras tabla del 3 interactivo, resumen ampliado"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+7 ejercicios variados (completar hueco ×2, V/F, problema contextual, ordenar, quiz botones, problema inverso ×2), +1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 caso real panadería, +1 caja error común (× vs +), +1 caja conexión (multiplicación×suma), resumen ampliado a 8 puntos, eliminados 3 ejercicios repetitivos"
+          "added": "+7 ejercicios variados (completar hueco \u00d72, V/F, problema contextual, ordenar, quiz botones, problema inverso \u00d72), +1 explicaci\u00f3n estructurada 4 pasos (qu\u00e9 es/para qu\u00e9/c\u00f3mo/error com\u00fan), +1 caso real panader\u00eda, +1 caja error com\u00fan (\u00d7 vs +), +1 caja conexi\u00f3n (multiplicaci\u00f3n\u00d7suma), resumen ampliado a 8 puntos, eliminados 3 ejercicios repetitivos"
         }
       ],
       "scores": {
@@ -99,19 +99,19 @@
     },
     "s01-4primaria.html": {
       "status": "improved_2",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "9 ejercicios interactivos nuevos (e4-e12) con emojis (pizza, muffins, globos, galletas, estrellas, cromos, rosas, peces, manzanas), 5 casos vida real (pizza, videojuegos, zumo, jardín, biblioteca), 2 explicaciones pedagógicas (división×multiplicación inversas, truco tablas multiplicar), 1 visualización interactiva CSS con emojis, resumen ampliado"
+          "added": "9 ejercicios interactivos nuevos (e4-e12) con emojis (pizza, muffins, globos, galletas, estrellas, cromos, rosas, peces, manzanas), 5 casos vida real (pizza, videojuegos, zumo, jard\u00edn, biblioteca), 2 explicaciones pedag\u00f3gicas (divisi\u00f3n\u00d7multiplicaci\u00f3n inversas, truco tablas multiplicar), 1 visualizaci\u00f3n interactiva CSS con emojis, resumen ampliado"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+3 ejercicios variados (completar hueco, V/F, ordenar), +3 ejercicios nuevos (quiz botones, problema inverso ×2, completar hueco inverso), +1 explicación estructurada 4 pasos, +1 caja error común (÷ vs ×), +3 funciones JS nuevas (checkVF, checkOrden, checkQuiz, checkE14)"
+          "added": "+3 ejercicios variados (completar hueco, V/F, ordenar), +3 ejercicios nuevos (quiz botones, problema inverso \u00d72, completar hueco inverso), +1 explicaci\u00f3n estructurada 4 pasos, +1 caja error com\u00fan (\u00f7 vs \u00d7), +3 funciones JS nuevas (checkVF, checkOrden, checkQuiz, checkE14)"
         }
       ],
       "scores": {
@@ -126,38 +126,43 @@
       "improvement_count": 2
     },
     "s01-5primaria.html": {
-      "status": "improved_1",
-      "level": "1º Primaria",
+      "status": "improved_2",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "4 ejercicios interactivos (manzanas, globos, pájaros, pizza), 2 explicaciones vida real (vampiro, supermercado), 2 ejemplos cotidianos (hucha, piscina), 1 gráfico Plotly de barras interactivo, resumen ampliado"
+          "added": "4 ejercicios interactivos (manzanas, globos, p\u00e1jaros, pizza), 2 explicaciones vida real (vampiro, supermercado), 2 ejemplos cotidianos (hucha, piscina), 1 gr\u00e1fico Plotly de barras interactivo, resumen ampliado"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+1 ejemplo vida real (hucha vac\u00eda, resultado 0), +1 problema narrativo (acuario peces), +1 problema resultado 0 (globos fiesta), eliminado ejercicio decidir operaci\u00f3n (no es restar), eliminado ejercicio completar m\u00faltiple (repetitivo), +1 punto resumen (resultado 0)"
         }
       ],
       "scores": {
-        "exercises": 9,
+        "exercises": 8,
         "text": 12,
-        "visual": 4,
-        "real_world": 9,
+        "visual": 5,
+        "real_world": 10,
         "connections": 3,
-        "difficulty_range": 5
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-6primaria.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "3 analogías vida real (helado, videojuego, gatitos), 3 ejemplos cotidianos (pizza, libros, estrellas), 7 ejercicios interactivos nuevos (e6-e12) con emojis, gráfico Plotly de barras, resumen ampliado con 12 restas"
+          "added": "3 analog\u00edas vida real (helado, videojuego, gatitos), 3 ejemplos cotidianos (pizza, libros, estrellas), 7 ejercicios interactivos nuevos (e6-e12) con emojis, gr\u00e1fico Plotly de barras, resumen ampliado con 12 restas"
         }
       ],
       "scores": {
@@ -173,14 +178,14 @@
     },
     "s01-7primaria.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "1 ejercicio completar hueco (rectángulo), -1 ejercicio avanzado (perímetro), 1 caso vida real LEGO, 1 canvas interactivo pizarra mágica, arreglado sortCheck duplicado y HTML roto"
+          "added": "1 ejercicio completar hueco (rect\u00e1ngulo), -1 ejercicio avanzado (per\u00edmetro), 1 caso vida real LEGO, 1 canvas interactivo pizarra m\u00e1gica, arreglado sortCheck duplicado y HTML roto"
         }
       ],
       "scores": {
@@ -196,14 +201,14 @@
     },
     "s01-8-medidas-tamano-peso.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+2 ejercicios variados (completar con emojis, problema zoo), +1 canvas balanza mágica, +1 caja vida real"
+          "added": "+2 ejercicios variados (completar con emojis, problema zoo), +1 canvas balanza m\u00e1gica, +1 caja vida real"
         }
       ],
       "scores": {
@@ -219,14 +224,14 @@
     },
     "s01-10primaria.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "1 caja vida real (patrones en música, ropa, días, naturaleza), 1 caja error común (patrón vs aleatorio), 7 ejercicios variados (V/F x2, ordenar, regla, crear patrón, ritmo, identificar NO-patrón), resumen ampliado con 6 puntos"
+          "added": "1 caja vida real (patrones en m\u00fasica, ropa, d\u00edas, naturaleza), 1 caja error com\u00fan (patr\u00f3n vs aleatorio), 7 ejercicios variados (V/F x2, ordenar, regla, crear patr\u00f3n, ritmo, identificar NO-patr\u00f3n), resumen ampliado con 6 puntos"
         }
       ],
       "scores": {
@@ -242,19 +247,19 @@
     },
     "s02-1primaria.html": {
       "status": "improved_2",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "1ª ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analogías vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gráfico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
+          "added": "1\u00aa ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analog\u00edas vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gr\u00e1fico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
         },
         {
           "run": 2,
           "date": "2026-06-09",
-          "added": "2ª ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analogías vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gráfico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
+          "added": "2\u00aa ronda: +9 ejercicios interactivos (e4-e12) con emojis y contexto (mini-pizzas, LEGO, videojuegos, hucha, biblioteca, granja), +3 analog\u00edas vida real (pizza, juguetes, monedas), +3 ejemplos cotidianos (hucha, libros, patas animales), 1 gr\u00e1fico Plotly de barras interactivo con botones randomizar/ordenar, resumen ampliado con 12 sumas"
         }
       ],
       "scores": {
@@ -270,19 +275,19 @@
     },
     "s02-2primaria.html": {
       "status": "improved_2",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos vida real (manzanas, juguetes), 2 analogías vida real (helado, estrellas), 1 juego canvas animales, desafío final granja"
+          "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos vida real (manzanas, juguetes), 2 analog\u00edas vida real (helado, estrellas), 1 juego canvas animales, desaf\u00edo final granja"
         },
         {
           "run": 2,
           "date": "2026-06-09",
-          "added": "5 ejercicios nuevos variados (completar hueco, V/F, problema autobús, ordenar, resta vertical), 1 caso vida real (comparar precios), 1 caja error común, funciones checkVF y checkOrden"
+          "added": "5 ejercicios nuevos variados (completar hueco, V/F, problema autob\u00fas, ordenar, resta vertical), 1 caso vida real (comparar precios), 1 caja error com\u00fan, funciones checkVF y checkOrden"
         }
       ],
       "scores": {
@@ -298,19 +303,19 @@
     },
     "s02-3primaria.html": {
       "status": "improved_2",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "3 ejercicios nuevos variados (completar hueco, V/F, problema contexto clase), 3 cajas pedagógicas (lectura ×, error común × vs +, vida real supermercado), arreglado HTML roto <li><li>"
+          "added": "3 ejercicios nuevos variados (completar hueco, V/F, problema contexto clase), 3 cajas pedag\u00f3gicas (lectura \u00d7, error com\u00fan \u00d7 vs +, vida real supermercado), arreglado HTML roto <li><li>"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+4 ejercicios variados (completar hueco con 5 pasos, problema inverso pizzería, completar hueco inverso), +1 V/F (34×3), +1 quiz botones (45×2), +1 problema contextual granja, +1 ejercicio ordenar resultados, +1 explicación estructurada 4 pasos, +1 caso real caramelos, +1 caja error común (olvidar descomponer), +1 conexión ×20, +1 resumen ampliado a 8 puntos"
+          "added": "+4 ejercicios variados (completar hueco con 5 pasos, problema inverso pizzer\u00eda, completar hueco inverso), +1 V/F (34\u00d73), +1 quiz botones (45\u00d72), +1 problema contextual granja, +1 ejercicio ordenar resultados, +1 explicaci\u00f3n estructurada 4 pasos, +1 caso real caramelos, +1 caja error com\u00fan (olvidar descomponer), +1 conexi\u00f3n \u00d720, +1 resumen ampliado a 8 puntos"
         }
       ],
       "scores": {
@@ -326,14 +331,14 @@
     },
     "s02-4primaria.html": {
       "status": "improved_1",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+6 ejercicios variados (completar hueco ×2, V/F ×3, problema granja, problema inverso euros, quiz botones, ordenar resultados, completar con resto), +2 casos reales (caramelos, galletas), +1 explicación pedagógica paso a paso, +1 caja error común (confundir 40 con 4), +1 truco división×multiplicación, resumen ampliado a 6 puntos"
+          "added": "+6 ejercicios variados (completar hueco \u00d72, V/F \u00d73, problema granja, problema inverso euros, quiz botones, ordenar resultados, completar con resto), +2 casos reales (caramelos, galletas), +1 explicaci\u00f3n pedag\u00f3gica paso a paso, +1 caja error com\u00fan (confundir 40 con 4), +1 truco divisi\u00f3n\u00d7multiplicaci\u00f3n, resumen ampliado a 6 puntos"
         }
       ],
       "scores": {
@@ -349,14 +354,14 @@
     },
     "s02-5primaria.html": {
       "status": "improved_1",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (completar numerador x2, completar denominador, VF x2, problema chocolate, quiz botones, ordenar fracciones, simplificar), +1 explicación pedagógica paso a paso, +1 caso real galletas, +1 caja error común (1/4 > 1/2), resumen ampliado a 7 puntos"
+          "added": "+8 ejercicios variados (completar numerador x2, completar denominador, VF x2, problema chocolate, quiz botones, ordenar fracciones, simplificar), +1 explicaci\u00f3n pedag\u00f3gica paso a paso, +1 caso real galletas, +1 caja error com\u00fan (1/4 > 1/2), resumen ampliado a 7 puntos"
         }
       ],
       "scores": {
@@ -372,14 +377,14 @@
     },
     "s02-6primaria.html": {
       "status": "improved_1",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+10 ejercicios variados (completar hueco ×4, V/F ×2, problema supermercado, quiz unidades, ordenar objetos, problema inverso globos), +1 explicación pedagógica estructurada (concepto 4 pasos), +1 caso real supermercado, +1 caja error común (×100 vs ÷100), truco mnemotécnico, resumen ampliado a 8 puntos"
+          "added": "+10 ejercicios variados (completar hueco \u00d74, V/F \u00d72, problema supermercado, quiz unidades, ordenar objetos, problema inverso globos), +1 explicaci\u00f3n pedag\u00f3gica estructurada (concepto 4 pasos), +1 caso real supermercado, +1 caja error com\u00fan (\u00d7100 vs \u00f7100), truco mnemot\u00e9cnico, resumen ampliado a 8 puntos"
         }
       ],
       "scores": {
@@ -395,14 +400,14 @@
     },
     "s02-7primaria.html": {
       "status": "improved_1",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 1,
       "category": "primaria_2",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (completar hueco x2, V/F, problema panadería, quiz visual x2, ordenar, problema inverso hucha), +1 explicación pedagógica estructurada 4 pasos, +1 caso real helado, +1 caja error común (100¢=1€), +1 truco billetes, resumen ampliado a 7 puntos"
+          "added": "+8 ejercicios variados (completar hueco x2, V/F, problema panader\u00eda, quiz visual x2, ordenar, problema inverso hucha), +1 explicaci\u00f3n pedag\u00f3gica estructurada 4 pasos, +1 caso real helado, +1 caja error com\u00fan (100\u00a2=1\u20ac), +1 truco billetes, resumen ampliado a 7 puntos"
         }
       ],
       "scores": {
@@ -418,14 +423,14 @@
     },
     "s03-3primaria.html": {
       "status": "improved_1",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 1,
       "category": "primaria_3",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+15 ejercicios variados (completar hueco ×5, V/F ×5, problema ×4, ordenar ×1, moda/media ×2), +6 casos reales (supermercado, galletas, pizza, valla jardín, excursión, chocolates), +6 cajas error común (×≠+, división≠resto, 1/4>1/2, perímetro≠área, media≠moda)"
+          "added": "+15 ejercicios variados (completar hueco \u00d75, V/F \u00d75, problema \u00d74, ordenar \u00d71, moda/media \u00d72), +6 casos reales (supermercado, galletas, pizza, valla jard\u00edn, excursi\u00f3n, chocolates), +6 cajas error com\u00fan (\u00d7\u2260+, divisi\u00f3n\u2260resto, 1/4>1/2, per\u00edmetro\u2260\u00e1rea, media\u2260moda)"
         }
       ],
       "scores": {
@@ -441,19 +446,19 @@
     },
     "s04-4primaria.html": {
       "status": "improved_2",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+1 mini quiz interactivo (pregunta fracción pizzas), diseño glassmorphism mejorado, tags por categoría en cada sesión, +1 caja intro con objetivos claros, CSS mejorado con gradientes y backdrop-filter"
+          "added": "+1 mini quiz interactivo (pregunta fracci\u00f3n pizzas), dise\u00f1o glassmorphism mejorado, tags por categor\u00eda en cada sesi\u00f3n, +1 caja intro con objetivos claros, CSS mejorado con gradientes y backdrop-filter"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+2 mini quizzes interactivos (porcentaje 25%, comparar decimales), +1 caso real supermercado (20€ materiales), +1 caja ¿Sabías que? (egipcios, rebajas, baldosas), corregida respuesta quiz2, funciones JS checkQuiz2/checkQuiz3"
+          "added": "+2 mini quizzes interactivos (porcentaje 25%, comparar decimales), +1 caso real supermercado (20\u20ac materiales), +1 caja \u00bfSab\u00edas que? (egipcios, rebajas, baldosas), corregida respuesta quiz2, funciones JS checkQuiz2/checkQuiz3"
         }
       ],
       "scores": {
@@ -469,7 +474,7 @@
     },
     "s05-5primaria.html": {
       "status": "pending",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_5",
       "improvements": [],
@@ -486,7 +491,7 @@
     },
     "s06-6primaria.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_6",
       "improvements": [],
@@ -503,7 +508,7 @@
     },
     "s06-10-repasos-primaria.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_6",
       "improvements": [],
@@ -520,14 +525,14 @@
     },
     "eso1-1-numeros-enteros.html": {
       "status": "improved_1",
-      "level": "1º ESO",
+      "level": "1\u00ba ESO",
       "priority": 2,
       "category": "eso",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (quiz botones, valor absoluto input, ordenar de menor a mayor, V/F x2, problema ascensor, temperatura input, altitud input), +4 explicaciones estructuradas (qué son, para qué sirven, cómo se ordenan, error común), +2 casos reales (ascensor/sótanos, temperatura), +1 recta numérica SVG interactiva, +1 caja error común, +1 caja conexión vida real, resumen ampliado a 8 puntos"
+          "added": "+8 ejercicios variados (quiz botones, valor absoluto input, ordenar de menor a mayor, V/F x2, problema ascensor, temperatura input, altitud input), +4 explicaciones estructuradas (qu\u00e9 son, para qu\u00e9 sirven, c\u00f3mo se ordenan, error com\u00fan), +2 casos reales (ascensor/s\u00f3tanos, temperatura), +1 recta num\u00e9rica SVG interactiva, +1 caja error com\u00fan, +1 caja conexi\u00f3n vida real, resumen ampliado a 8 puntos"
         }
       ],
       "scores": {
@@ -543,7 +548,7 @@
     },
     "eso1-3-proporcionalidad.html": {
       "status": "pending",
-      "level": "ESO 1º",
+      "level": "ESO 1\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -560,7 +565,7 @@
     },
     "eso1-5-intro-algebra.html": {
       "status": "pending",
-      "level": "ESO 1º",
+      "level": "ESO 1\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -577,7 +582,7 @@
     },
     "eso1-7-estadistica-probabilidad.html": {
       "status": "pending",
-      "level": "ESO 1º",
+      "level": "ESO 1\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -594,7 +599,7 @@
     },
     "eso2-1-ecuaciones-1grado.html": {
       "status": "pending",
-      "level": "ESO 2º",
+      "level": "ESO 2\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -611,7 +616,7 @@
     },
     "eso2-3-teorema-tales.html": {
       "status": "pending",
-      "level": "ESO 2º",
+      "level": "ESO 2\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -628,7 +633,7 @@
     },
     "eso2-5-funciones-intro.html": {
       "status": "pending",
-      "level": "ESO 2º",
+      "level": "ESO 2\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -645,7 +650,7 @@
     },
     "eso2-7-circunferencia-circulo.html": {
       "status": "pending",
-      "level": "ESO 2º",
+      "level": "ESO 2\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -662,7 +667,7 @@
     },
     "eso2-9-probabilidad.html": {
       "status": "pending",
-      "level": "ESO 2º",
+      "level": "ESO 2\u00ba",
       "priority": 2,
       "category": "eso",
       "improvements": [],
@@ -713,7 +718,7 @@
     },
     "s01-1-contar-0-10.html": {
       "status": "pending",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -730,7 +735,7 @@
     },
     "s01-2-contar-10-100.html": {
       "status": "pending",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -747,7 +752,7 @@
     },
     "s01-3-sumar-hasta-10.html": {
       "status": "pending",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -764,7 +769,7 @@
     },
     "s01-4-sumar-hasta-20.html": {
       "status": "pending",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -781,19 +786,19 @@
     },
     "s01-5-restar-hasta-10.html": {
       "status": "improved_2",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+5 ejercicios variados (quiz botones, completar hueco, V/F, comparar, problema inverso), +1 explicación estructurada 4 pasos, eliminado vampiro (confuso), arreglado bug botón duplicado ejercicio 1, resumen ampliado a 8 puntos"
+          "added": "+5 ejercicios variados (quiz botones, completar hueco, V/F, comparar, problema inverso), +1 explicaci\u00f3n estructurada 4 pasos, eliminado vampiro (confuso), arreglado bug bot\u00f3n duplicado ejercicio 1, resumen ampliado a 8 puntos"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (completar hueco, V/F, problema contextual cumpleaños, ordenar resultados, decidir operación, comparar, problema inverso, emparejar), -3 quiz botones repetitivos, +1 caja conexión sumar↔restar (espejos+truco), +1 caso real fiesta, -Plotly excesivo → +1 tabla CSS tarjetas coloreadas, +3 funciones JS nuevas (checkE1, checkE5, checkE8)"
+          "added": "+8 ejercicios variados (completar hueco, V/F, problema contextual cumplea\u00f1os, ordenar resultados, decidir operaci\u00f3n, comparar, problema inverso, emparejar), -3 quiz botones repetitivos, +1 caja conexi\u00f3n sumar\u2194restar (espejos+truco), +1 caso real fiesta, -Plotly excesivo \u2192 +1 tabla CSS tarjetas coloreadas, +3 funciones JS nuevas (checkE1, checkE5, checkE8)"
         },
         {
           "run": 2,
@@ -814,7 +819,7 @@
     },
     "s01-6-restar-hasta-20.html": {
       "status": "pending",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -831,14 +836,14 @@
     },
     "s01-7-figuras-basicas.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "1 sección de concepto estructurada (qué son, para qué sirven, cómo se hacen, error común), 2 casos reales (pizza misteriosa, mudanza), +5 ejercicios variados (completar hueco, V/F, ordenar, problema ventanas, problema perímetro)"
+          "added": "1 secci\u00f3n de concepto estructurada (qu\u00e9 son, para qu\u00e9 sirven, c\u00f3mo se hacen, error com\u00fan), 2 casos reales (pizza misteriosa, mudanza), +5 ejercicios variados (completar hueco, V/F, ordenar, problema ventanas, problema per\u00edmetro)"
         }
       ],
       "scores": {
@@ -854,14 +859,14 @@
     },
     "s01-9-medidas-longitud.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 1,
       "category": "primaria_base",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-09",
-          "added": "5 ejercicios nuevos variados: completar hueco (lápiz 18cm), V/F (elefante>hormiga), problema contextualizado (rotulador-goma), ordenar 3 objetos, problema mochila (3 lápices), completar hueco (4m=400cm), V/F error común (18>15), quiz visual mano; +1 línea numérica visual con 7 objetos; +1 caja error común cm vs kg"
+          "added": "5 ejercicios nuevos variados: completar hueco (l\u00e1piz 18cm), V/F (elefante>hormiga), problema contextualizado (rotulador-goma), ordenar 3 objetos, problema mochila (3 l\u00e1pices), completar hueco (4m=400cm), V/F error com\u00fan (18>15), quiz visual mano; +1 l\u00ednea num\u00e9rica visual con 7 objetos; +1 caja error com\u00fan cm vs kg"
         }
       ],
       "scores": {
@@ -877,19 +882,19 @@
     },
     "s01-10-patrones.html": {
       "status": "improved_1",
-      "level": "1º Primaria",
+      "level": "1\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+5 ejercicios variados (input numérico ×2: patrón +3 y patrón inverso +5, problema contextualizado silla clase, conexión con sumas, identificar tipo patrón AB), +1 caja conexión con álgebra ESO, +2 funciones JS nuevas (checkInputPat1, checkInputPat2), resumen ampliado a 8 puntos"
+          "added": "+5 ejercicios variados (input num\u00e9rico \u00d72: patr\u00f3n +3 y patr\u00f3n inverso +5, problema contextualizado silla clase, conexi\u00f3n con sumas, identificar tipo patr\u00f3n AB), +1 caja conexi\u00f3n con \u00e1lgebra ESO, +2 funciones JS nuevas (checkInputPat1, checkInputPat2), resumen ampliado a 8 puntos"
         },
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "-4 ejercicios repetitivos (todos 'completar con quiz botones'), +1 canvas interactivo creador de patrones con paleta de colores y detección automática, +1 caso real cumpleaños (velas alta/baja), +1 conexión música (vals ABB), arreglado bug ejercicio 2 (dos botones '5'), arreglado ejercicio ordenar roto"
+          "added": "-4 ejercicios repetitivos (todos 'completar con quiz botones'), +1 canvas interactivo creador de patrones con paleta de colores y detecci\u00f3n autom\u00e1tica, +1 caso real cumplea\u00f1os (velas alta/baja), +1 conexi\u00f3n m\u00fasica (vals ABB), arreglado bug ejercicio 2 (dos botones '5'), arreglado ejercicio ordenar roto"
         }
       ],
       "scores": {
@@ -905,7 +910,7 @@
     },
     "s02-1-sumas-llevadas.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -922,7 +927,7 @@
     },
     "s02-2-restas-llevadas.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -939,14 +944,14 @@
     },
     "s02-3-intro-multiplicacion.html": {
       "status": "improved_2",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [
         {
           "run": 2,
           "date": "2026-06-10",
-          "added": "+4 ejercicios variados (ordenar resultados ×2, completar suma repetida ×2, problema fiesta cumpleaños), +1 caso real panadería, +1 caja conexión (multiplicación×suma repetida), +1 truco mnemotécnico, resumen ampliado a 8 puntos, eliminados 2 ejercicios quiz repetitivos"
+          "added": "+4 ejercicios variados (ordenar resultados \u00d72, completar suma repetida \u00d72, problema fiesta cumplea\u00f1os), +1 caso real panader\u00eda, +1 caja conexi\u00f3n (multiplicaci\u00f3n\u00d7suma repetida), +1 truco mnemot\u00e9cnico, resumen ampliado a 8 puntos, eliminados 2 ejercicios quiz repetitivos"
         }
       ],
       "scores": {
@@ -962,7 +967,7 @@
     },
     "s02-4-tablas-1-5.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -979,7 +984,7 @@
     },
     "s02-5-tablas-6-9.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -996,7 +1001,7 @@
     },
     "s02-6-longitud-peso.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1013,7 +1018,7 @@
     },
     "s02-7-dinero.html": {
       "status": "pending",
-      "level": "2º Primaria",
+      "level": "2\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1030,7 +1035,7 @@
     },
     "s03-1-mult-dos-cifras.html": {
       "status": "pending",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1047,7 +1052,7 @@
     },
     "s03-2-division.html": {
       "status": "pending",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1064,7 +1069,7 @@
     },
     "s03-3-intro-fracciones.html": {
       "status": "pending",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1081,7 +1086,7 @@
     },
     "s03-4-comparar-fracciones.html": {
       "status": "improved_1",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1103,7 +1108,7 @@
     },
     "s03-5-perimetro.html": {
       "status": "pending",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1120,7 +1125,7 @@
     },
     "s03-6-estadistica.html": {
       "status": "pending",
-      "level": "3º Primaria",
+      "level": "3\u00ba Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
@@ -1137,14 +1142,14 @@
     },
     "s04-1-fracciones-equivalentes.html": {
       "status": "improved_1",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+5 ejercicios interactivos variados (completar hueco ×2, V/F, problema chocolate, ordenar fracciones), +1 caso real (fiesta pizza), feedback inmediato con explicación, botones quiz interactivos"
+          "added": "+5 ejercicios interactivos variados (completar hueco \u00d72, V/F, problema chocolate, ordenar fracciones), +1 caso real (fiesta pizza), feedback inmediato con explicaci\u00f3n, botones quiz interactivos"
         }
       ],
       "scores": {
@@ -1160,14 +1165,14 @@
     },
     "s04-2-mult-3-cifras.html": {
       "status": "improved_1",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_4",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+7 ejercicios variados (completar hueco, V/F x2, problema supermercado, ordenar pasos, inverso, quiz botones), +1 explicación estructurada 4 pasos, +1 caso real librería, +1 caso real supermercado, +1 caja error común (olvidar ceros), HTML arreglado"
+          "added": "+7 ejercicios variados (completar hueco, V/F x2, problema supermercado, ordenar pasos, inverso, quiz botones), +1 explicaci\u00f3n estructurada 4 pasos, +1 caso real librer\u00eda, +1 caso real supermercado, +1 caja error com\u00fan (olvidar ceros), HTML arreglado"
         }
       ],
       "scores": {
@@ -1183,7 +1188,7 @@
     },
     "s04-3-division-2-cifras.html": {
       "status": "pending",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1200,14 +1205,14 @@
     },
     "s04-4-fracciones-equivalentes.html": {
       "status": "improved_1",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (completar hueco ×2, V/F ×2, problema contextual pastel, ordenar fracciones, quiz NO-equivalente, simplificar), +1 explicación estructurada 4 pasos, +1 caso real pizza cumpleaños, +1 caja error común, +1 visualización canvas fracciones, +1 quiz interactivo, resumen ampliado a 7 puntos, HTML corregido"
+          "added": "+8 ejercicios variados (completar hueco \u00d72, V/F \u00d72, problema contextual pastel, ordenar fracciones, quiz NO-equivalente, simplificar), +1 explicaci\u00f3n estructurada 4 pasos, +1 caso real pizza cumplea\u00f1os, +1 caja error com\u00fan, +1 visualizaci\u00f3n canvas fracciones, +1 quiz interactivo, resumen ampliado a 7 puntos, HTML corregido"
         }
       ],
       "scores": {
@@ -1223,14 +1228,14 @@
     },
     "s04-5-decimales-intro.html": {
       "status": "improved_1",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_4",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (quiz botón ×2, completar hueco ×2, V/F ×2, ordenar, problema contextual), +1 explicación estructurada 4 pasos, +1 caso real supermercado, +1 caja error común (0,10=0,1, 0,9>0,11), resumen ampliado a 8 puntos"
+          "added": "+8 ejercicios variados (quiz bot\u00f3n \u00d72, completar hueco \u00d72, V/F \u00d72, ordenar, problema contextual), +1 explicaci\u00f3n estructurada 4 pasos, +1 caso real supermercado, +1 caja error com\u00fan (0,10=0,1, 0,9>0,11), resumen ampliado a 8 puntos"
         }
       ],
       "scores": {
@@ -1246,7 +1251,7 @@
     },
     "s04-6-areas.html": {
       "status": "pending",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1263,7 +1268,7 @@
     },
     "s04-7-capacidades.html": {
       "status": "pending",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1280,7 +1285,7 @@
     },
     "s04-8-problemas-1-paso.html": {
       "status": "pending",
-      "level": "4º Primaria",
+      "level": "4\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1297,14 +1302,14 @@
     },
     "s05-1-sumar-decimales.html": {
       "status": "improved_1",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+6 ejercicios variados (completar hueco ×2, V/F ×2, problema contextual, quiz botones), +1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 caso real supermercado, +1 visualización grid decimal alineado, +1 resumen 7 puntos, HTML limpiado (<li><li> arreglado)"
+          "added": "+6 ejercicios variados (completar hueco \u00d72, V/F \u00d72, problema contextual, quiz botones), +1 explicaci\u00f3n estructurada 4 pasos (qu\u00e9 es/para qu\u00e9/c\u00f3mo/error com\u00fan), +1 caso real supermercado, +1 visualizaci\u00f3n grid decimal alineado, +1 resumen 7 puntos, HTML limpiado (<li><li> arreglado)"
         }
       ],
       "scores": {
@@ -1320,7 +1325,7 @@
     },
     "s05-3-mult-decimales.html": {
       "status": "pending",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1337,14 +1342,14 @@
     },
     "s05-5-areas-perimetros.html": {
       "status": "improved_1",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [
         {
           "run": 1,
           "date": "2026-06-10",
-          "added": "+8 ejercicios variados (completar hueco ×2, V/F ×2, problema contextual ×2, ordenar, inverso), +3 explicaciones estructuradas (área/perímetro/figuras compuestas), +3 casos reales (moqueta habitación, valla jardín, pintura pared), +1 canvas interactivo figuras L/T/H, +2 cajas conexión (multiplicación, restas), +1 caja error común, resumen ampliado 8 puntos, corregido HTML roto <li> anidados"
+          "added": "+8 ejercicios variados (completar hueco \u00d72, V/F \u00d72, problema contextual \u00d72, ordenar, inverso), +3 explicaciones estructuradas (\u00e1rea/per\u00edmetro/figuras compuestas), +3 casos reales (moqueta habitaci\u00f3n, valla jard\u00edn, pintura pared), +1 canvas interactivo figuras L/T/H, +2 cajas conexi\u00f3n (multiplicaci\u00f3n, restas), +1 caja error com\u00fan, resumen ampliado 8 puntos, corregido HTML roto <li> anidados"
         }
       ],
       "scores": {
@@ -1360,7 +1365,7 @@
     },
     "s05-7-porcentajes.html": {
       "status": "pending",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1377,7 +1382,7 @@
     },
     "s05-9-tiempo-calendarios.html": {
       "status": "pending",
-      "level": "5º Primaria",
+      "level": "5\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1394,7 +1399,7 @@
     },
     "s06-1-operaciones-grandes.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1411,7 +1416,7 @@
     },
     "s06-3-fracciones-operar.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1428,7 +1433,7 @@
     },
     "s06-5-proporcionalidad.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1445,7 +1450,7 @@
     },
     "s06-7-areas-compuestas.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1462,7 +1467,7 @@
     },
     "s06-9-intro-algebra.html": {
       "status": "pending",
-      "level": "6º Primaria",
+      "level": "6\u00ba Primaria",
       "priority": 2,
       "category": "primaria_456",
       "improvements": [],
@@ -1479,7 +1484,7 @@
     },
     "s04-1-estadistica-conceptos-basicos.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1496,7 +1501,7 @@
     },
     "s04-2-estadistica-distribuciones-frecuencia.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1513,7 +1518,7 @@
     },
     "s04-3-estadistica-tendencia-central.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1530,7 +1535,7 @@
     },
     "s04-4-estadistica-dispersion.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1547,7 +1552,7 @@
     },
     "s04-5-estadistica-distribuciones-discretas.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1564,7 +1569,7 @@
     },
     "s04-6-estadistica-distribuciones-continuas.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1581,7 +1586,7 @@
     },
     "s04-7-estadistica-correlacion-regresion.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1598,7 +1603,7 @@
     },
     "s04-8-estadistica-muestreo-estimacion.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1615,7 +1620,7 @@
     },
     "s04-9-estadistica-hipotesis.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1632,7 +1637,7 @@
     },
     "s04-10-estadistica-repaso.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
@@ -1649,7 +1654,7 @@
     },
     "s05-10-estadistica-avanzada.html": {
       "status": "pending",
-      "level": "Estadística",
+      "level": "Estad\u00edstica",
       "priority": 2,
       "category": "estadistica",
       "improvements": [],
