@@ -77,7 +77,12 @@ Multiplicar decimales es como multiplicar enteros y luego colocar la coma al fin
 <h2 class="chapter-title">1️⃣ Multiplicar decimales</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-Multiplicamos como si fueran enteros y luego contamos los decimales totales. 2.5 × 1.2: 25 × 12 = 300. 2 decimales totales → 3.00 = 3.
+<div style="margin-top:.5rem">
+<strong>1. ¿Qué es?</strong> Multiplicar decimales es multiplicar como si no hubiera coma y luego colocarla según los decimales totales.<br>
+<strong>2. ¿Para qué sirve?</strong> Para calcular precios con céntimos, medidas con centímetros, o cantidades con gramos.<br>
+<strong>3. ¿Cómo se hace?</strong> Paso 1: Ignora la coma y multiplica como enteros. Paso 2: Cuenta los decimales de ambos factores. Paso 3: Coloca la coma desde la derecha contando esa cantidad de cifras.<br>
+<strong>4. Error común:</strong> Poner la coma donde da la gana. ¡No! Si multiplicamos 1.2 × 0.3 (1+1=2 decimales), el resultado SIEMPRE tendrá 2 decimales: 0.36, no 3.6 ni 0.036.
+</div>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -143,13 +148,47 @@ Multiplicamos como si fueran enteros y luego contamos los decimales totales. 2.5
 <button class="quiz-btn" onclick="checkExercise(this, false)">0.63</button>
 </div>
 </div>
+<div class="exercise">
+<p>🛒 Caso real: Un kilo de manzanas cuesta 2,50 €. ¿Cuánto cuestan 1,5 kilos?</p>
+<p style="font-size:.9rem;color:#64748b">Pista: 2,50 × 1,5 = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">3,75 €</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">37,50 €</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">375 €</button>
+</div>
+</div>
+<div class="exercise">
+<p>📝 Completa: 0.6 × 0.4 = ___</p>
+<div style="display:flex;gap:.5rem;align-items:center">
+<input type="text" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result14"></div>
+</div>
+<div class="exercise">
+<p>✅❓ ¿Verdadero o Falso? 0.2 × 0.5 = 0.10</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Muchos creen que 0.2 × 0.5 = 1.0 (porque 2×5=10). ¡Pero olvidan los decimales! 2×5=10, y tenemos 1+1=2 decimales → 0.10 = 0.1. ¡Multiplicar decimales puede dar un resultado MÁS PEQUEÑO que los factores!
+</div>
 
 </div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Multiplicamos como enteros</li></li><li><li>Contamos decimales totales</li></li><li><li>Colocamos la coma</li></li><li><li>¡Ya sabes multiplicar decimales! 🎉</li>
+<li>Multiplicamos como si no hubiera coma (ignorar la coma temporalmente)</li>
+<li>Contamos los decimales de AMBOS factores y los sumamos</li>
+<li>Colocamos la coma desde la derecha contando esa cantidad</li>
+<li>Los casos reales (precios, medidas, pesos) usan decimales todos los días</li>
+<li>Error común: olvidar los decimales o ponerlos en sitio incorrecto</li>
+<li>¡Multiplicar decimales puede dar un resultado más pequeño!</li>
+<li>¡Ya sabes multiplicar decimales! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -193,6 +232,39 @@ function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+function checkCompleta() {
+  const input = document.getElementById('e14');
+  const result = document.getElementById('result14');
+  const val = input.value.replace(',', '.').trim();
+  if(parseFloat(val) === 0.24 || val === '0.24' || val === '0,24') {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 0.6 × 0.4 = 0.24. 6×4=24, 1+1=2 decimales → 0.24';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. Pista: 6×4=24, y 0.6+0.4 tienen 2 decimales → 0.24';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 2×5=10, 1+1=2 decimales → 0.10 = 0.1';
+    div.appendChild(res);
+  } else {
+    btn.classList.add('wrong');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result fail';
+    res.textContent = '❌ Falso. 2×5=10, 1+1=2 decimales → 0.10 = 0.1. ¡Es verdadero!';
+    div.appendChild(res);
+  }
 }
 
 window.onscroll = function(){
