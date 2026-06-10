@@ -154,7 +154,7 @@
       "improvement_count": 2
     },
     "s01-6primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -163,18 +163,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "3 analogías vida real (helado, videojuego, gatitos), 3 ejemplos cotidianos (pizza, libros, estrellas), 7 ejercicios interactivos nuevos (e6-e12) con emojis, gráfico Plotly de barras, resumen ampliado con 12 restas"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+2 ejercicios nuevos (emparejar restas con resultados, problema resultado 0), +1 conteo visual mejorado (manzanas tachadas con X roja), +1 conexión con s01-5 (restar hasta 10), +1 caja ¿Sabías que? (egipcios), +2 puntos resumen, +1 función matchPair JS, +3 funciones JS nuevas"
         }
       ],
       "scores": {
-        "exercises": 12,
-        "text": 10,
-        "visual": 3,
-        "real_world": 8,
-        "connections": 2,
-        "difficulty_range": 5
+        "exercises": 10,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 4,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-7primaria.html": {
       "status": "improved_1",

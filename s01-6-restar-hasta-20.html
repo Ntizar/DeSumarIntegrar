@@ -147,6 +147,11 @@ Si 13 − 5 = 8, entonces 8 + 5 = 13. ¡Las dos operaciones te llevan al mismo s
 <strong>⚠️ Error común</strong>
 Muchos niños piensan que si 8 + 5 = 13, entonces 13 − 5 = 5. ¡Cuidado! La resta quita del número grande, no del pequeño. 13 − 5 = <b>8</b>, no 5.
 </div>
+
+<div class="box box-success">
+<strong>🔗 Conexión con la lección anterior</strong>
+En la sesión pasada aprendiste a restar hasta 10. ¡Ahora es el mismo truco pero con números más grandes! Si sabías que 10 − 3 = 7, ahora puedes hacer 15 − 3 = 12 (primero llegas a 10, luego sumas lo que queda). ¡Eres un crack! 🌟
+</div>
 </section>
 
 <section class="chapter">
@@ -277,7 +282,38 @@ Muchos niños piensan que si 8 + 5 = 13, entonces 13 − 5 = 5. ¡Cuidado! La re
 <button class="quiz-btn" onclick="checkExercise(this, true)">19 − 8 = 11 (resta)</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">19 + 8 = 27 (suma)</button>
 </div>
-<p style="font-weight:normal;font-size:.9rem;color:var(--gris);margin-top:.3rem">💡 "Pierdo" significa que quitan puntos → ¡resta!</p>
+<p style="font-weight:normal;font-size:.9rem;color:var(--gris);margin-top:.3rem">💡 "Pierdo" y "quitan" → resta. "Gano" y "añaden" → suma</p>
+</div>
+
+<!-- E9: EMPAREJAR (nuevo tipo) -->
+<div class="exercise">
+<p>9. 🔗 Empareja cada resta con su resultado. Pulsa la resta y luego su resultado:</p>
+<div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:1rem 0">
+<div>
+<p style="font-weight:600;margin-bottom:.5rem;color:var(--azul)">Resta</p>
+<button class="quiz-btn" id="match1" onclick="matchPair(this,'m1')">12 − 5</button>
+<button class="quiz-btn" id="match2" onclick="matchPair(this,'m2')">16 − 6</button>
+<button class="quiz-btn" id="match3" onclick="matchPair(this,'m3')">11 − 11</button>
+</div>
+<div>
+<p style="font-weight:600;margin-bottom:.5rem;color:var(--naranja)">Resultado</p>
+<button class="quiz-btn" id="matchA" onclick="matchPair(this,'m3')">0</button>
+<button class="quiz-btn" id="matchB" onclick="matchPair(this,'m1')">7</button>
+<button class="quiz-btn" id="matchC" onclick="matchPair(this,'m2')">10</button>
+</div>
+</div>
+<div class="result" id="e9result" style="display:none;text-align:center"></div>
+</div>
+
+<!-- E10: PROBLEMA RESULTADO 0 (nuevo tipo) -->
+<div class="exercise">
+<p>10. 🎈 En un globo tienes 12 globos. Se escapan 12. ¿Cuántos globos te quedan?</p>
+<div style="text-align:center;margin:.5rem 0">
+<input type="number" id="e10answer" class="input-answer" placeholder="?">
+<button class="check-btn" onclick="checkE10()">Comprobar</button>
+</div>
+<div class="result" id="e10result" style="display:none;text-align:center"></div>
+<p style="font-weight:normal;font-size:.9rem;color:var(--gris);margin-top:.3rem">💡 Cuando restas el mismo número que tienes, ¡no te queda nada! X − X = 0</p>
 </div>
 
 </div>
@@ -316,6 +352,11 @@ Cortaste una pizza en <b>20 porciones</b>. Te comiste <b>6</b>. ¿Cuántas queda
 Había <b>17 libros</b> en la estantería. Sacaron <b>9</b> para leer. ¿Cuántos quedaron?<br>
 👉 17 − 9 = 8 libros restantes 📚
 </div>
+
+<div class="box box-idea">
+<strong>🤔 ¿Sabías que...?</strong>
+Los antiguos egipcios ya usaban restas hace 4000 años. En los papiros matemáticos se ven restas de panes y cervezas entre trabajadores. ¡Las restas llevan contigo desde que eras un bebé! 👶
+</div>
 </section>
 
 <!-- NUEVO: Resumen ampliado -->
@@ -328,6 +369,8 @@ Había <b>17 libros</b> en la estantería. Sacaron <b>9</b> para leer. ¿Cuánto
 <li>16 − 7 = 9 (helado), 19 − 8 = 11 (videojuego), 13 − 5 = 8 (gatitos)</li>
 <li>20 − 6 = 14 (pizza), 17 − 9 = 8 (biblioteca)</li>
 <li>"Pierdo" y "quitan" → resta. "Gano" y "añaden" → suma</li>
+<li>X − X = 0: cuando quitas todo, no queda nada (12 − 12 = 0)</li>
+<li>12 − 5 = 7, 16 − 6 = 10, 11 − 11 = 0 (empareja restas con resultados)</li>
 <li>¡Ya sabes restar hasta 20! 🎉</li>
 </ul>
 </div>
@@ -473,6 +516,62 @@ function checkE7(){
   }
 }
 
+// --- E9: Emparejar ---
+let matchState = { selected: null, matched: new Set(), pairs: 0 };
+function matchPair(btn, pairId) {
+  if (btn.disabled) return;
+  const r = document.getElementById('e9result');
+  r.style.display = 'block';
+
+  if (!matchState.selected) {
+    matchState.selected = { btn, pairId };
+    btn.style.background = '#fef3c7';
+    btn.style.borderColor = '#f59e0b';
+  } else {
+    if (matchState.selected.pairId === pairId) {
+      // Mismo par - correcto
+      matchState.selected.btn.disabled = true;
+      matchState.selected.btn.classList.add('correct');
+      btn.disabled = true;
+      btn.classList.add('correct');
+      matchState.matched.add(pairId);
+      matchState.pairs++;
+      r.className = 'result ok';
+      r.innerHTML = '✅ ¡Bien! Emparejados.';
+      if (matchState.pairs === 3) {
+        r.innerHTML = '✅ ¡Todas emparejadas! 12−5=7, 16−6=10, 11−11=0';
+      }
+    } else {
+      // Diferente par - incorrecto
+      matchState.selected.btn.style.background = '';
+      matchState.selected.btn.style.borderColor = '';
+      btn.style.background = '#fef2f2';
+      btn.style.borderColor = '#ef4444';
+      r.className = 'result fail';
+      r.innerHTML = '❌ No coinciden. ¡Intenta de nuevo!';
+      setTimeout(() => {
+        btn.style.background = '';
+        btn.style.borderColor = '';
+      }, 1000);
+    }
+    matchState.selected = null;
+  }
+}
+
+// --- E10: Resultado 0 ---
+function checkE10() {
+  const ans = parseInt(document.getElementById('e10answer').value);
+  const r = document.getElementById('e10result');
+  r.style.display = 'block';
+  if (ans === 0) {
+    r.className = 'result ok';
+    r.innerHTML = '✅ ¡Correcto! 12 − 12 = 0. ¡Cuando quitas todo, no queda nada! 🎈💨';
+  } else {
+    r.className = 'result fail';
+    r.innerHTML = '❌ Piensa: tienes 12 globos y se ESCAPAN TODOS. ¿Cuántos quedan? 12 − 12 = 0';
+  }
+}
+
 // --- Línea numérica canvas ---
 function drawNumberLine(){
   const canvas = document.getElementById('numberLine');
@@ -586,7 +685,7 @@ window.onscroll = function(){
 // --- Init ---
 window.onload = function(){
   drawNumberLine();
-  // Dibujar conteo visual
+  // Dibujar conteo visual con 5 tachadas
   const vc = document.getElementById('visualCount');
   if(vc){
     const vctx = vc.getContext('2d');
@@ -594,12 +693,33 @@ window.onload = function(){
     vctx.fillRect(0, 0, vc.width, vc.height);
     vctx.font = '28px sans-serif';
     vctx.textAlign = 'center';
-    const apples = '🍎';
+    const total = 13;
+    const eaten = 5;
     let x = 30;
-    for(let i = 0; i < 13; i++){
-      vctx.fillText(apples, x, 60);
+    for(let i = 0; i < total; i++){
+      if(i < eaten){
+        // Tachadas: gris con X
+        vctx.fillStyle = '#d1d5db';
+        vctx.fillText('🍎', x, 50);
+        vctx.strokeStyle = '#ef4444';
+        vctx.lineWidth = 2;
+        vctx.beginPath();
+        vctx.moveTo(x - 10, 40);
+        vctx.lineTo(x + 10, 60);
+        vctx.moveTo(x + 10, 40);
+        vctx.lineTo(x - 10, 60);
+        vctx.stroke();
+      } else {
+        // Restantes: verde
+        vctx.fillStyle = '#10b981';
+        vctx.fillText('🍎', x, 50);
+      }
       x += 36;
     }
+    // Leyenda
+    vctx.fillStyle = '#1e293b';
+    vctx.font = 'bold 14px Inter, sans-serif';
+    vctx.fillText('🍎 5 tachadas (se comió)  |  🍎 8 restantes', vc.width / 2, 90);
   }
 };
 </script>
