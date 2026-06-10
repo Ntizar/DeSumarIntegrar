@@ -171,15 +171,17 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- Ejercicio 1: Quiz botones — resta directa -->
 <div class="exercise">
 <p>1. ¿Cuánto es 7 − 3?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">4</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
 </div>
 </div>
 
+<!-- Ejercicio 2: Quiz botones — resta consigo misma = 0 -->
 <div class="exercise">
 <p>2. ¿Cuánto es 5 − 5?</p>
 <div class="quiz-options">
@@ -189,53 +191,9 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 </div>
 </div>
 
+<!-- Ejercicio 3: Problema contextual — globos -->
 <div class="exercise">
-<p>3. ¿Cuánto es 9 − 4?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>4. Si tienes 8 globos y se popan 3... ¿cuántos te quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>6. 🍎 Si tienes 6 manzanas y te comes 2... ¿cuántas te quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>7. 🎈 En una fiesta había 10 globos y explotaron 4. ¿Cuántos quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>8. 🐱 En el jardín hay 8 pájaros en una rama y se vuelan 5. ¿Cuántos pájaros quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>9. 🍕 Si pides una pizza de 8 porciones y te comes 3... ¿cuántas porciones quedan?</p>
+<p>3. 🎈 Si tienes 8 globos y se popan 3... ¿cuántos te quedan?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
@@ -243,17 +201,66 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 </div>
 </div>
 
+<!-- Ejercicio 4: COMPLETAR HUECO — nuevo tipo -->
+<div class="exercise">
+<p>4. Completa el hueco: 9 − ___ = 6</p>
+<div style="text-align:center;margin:.8rem 0">
+<input type="number" id="e4" min="0" max="10" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkE4()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem">Comprobar</button>
+</div>
+<div class="result" id="e4result"></div>
+</div>
+
+<!-- Ejercicio 5: VERDADERO/FALSO — nuevo tipo -->
+<div class="exercise">
+<p>5. ¿Verdadero o falso? 10 − 4 = 7</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+<div class="result" id="e5result" style="display:none;margin-top:.5rem"></div>
+</div>
+
+<!-- Ejercicio 6: COMPARAR — nuevo tipo -->
+<div class="exercise">
+<p>6. ¿Cuál resta da un resultado MAYOR?</p>
+<p style="font-weight:400;font-size:.95rem">A) 9 − 2 &nbsp;|&nbsp; B) 9 − 7</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkE6(this, true)">A) 9 − 2</button>
+<button class="quiz-btn" onclick="checkE6(this, false)">B) 9 − 7</button>
+</div>
+<div class="result" id="e6result"></div>
+</div>
+
+<!-- Ejercicio 7: Problema inverso — nuevo tipo -->
+<div class="exercise">
+<p>7. 🍎 Si te quedan 4 manzanas después de comer 2... ¿cuántas tenías al principio?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+</div>
+</div>
+
+<!-- Ejercicio 8: Quiz visual — resultado mayor -->
+<div class="exercise">
+<p>8. 🐱 En el jardín hay 9 gatos. Se van 4. ¿Cuántos gatos quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+</div>
+</div>
+
 </div>
 </section>
 
 <div class="box box-teoria">
-<strong>📖 Teoría — Restar es como un vampiro</strong>
-Imagina que los números vampiro tienen miedo de los números grandes. Cuando ves 7 − 3, el 7 le tiene miedo al 3, así que el 3 se esconde y al 7 le quedan 4. ¡El vampiro matemático! 🧛
-</div>
-
-<div class="box box-teoria">
-<strong>📖 Teoría — La resta en el supermercado</strong>
-Cuando vas al supermercado y tienes 10€ y compras un chicle de 2€, el cajero resta: 10 − 2 = 8€. ¡Así sabes cuánto dinero te queda! La resta está en todas partes. 🛒
+<strong>📖 ¿Qué es restar?</strong>
+<b>1. ¿Qué es?</b> Restar es quitar algo de un grupo y ver cuántos quedan.<br>
+<b>2. ¿Para qué sirve?</b> Para saber cuánto te queda después de gastar, comer o perder algo (como cuando gastas monedas de tu hucha 🐷).<br>
+<b>3. ¿Cómo se hace?</b> Empiezas con un número, quitas otro y miras cuántos quedan. Ejemplo: 8 − 3 = 5.<br>
+<b>4. ¿Qué error comete la gente?</b> Confundir restar con sumar: si tienes 8 y quitas 3, NO sumes (8+3=11), ¡quita! (8−3=5).
 </div>
 
 <div class="box box-ejemplo">
@@ -277,11 +284,13 @@ En la piscina hay 10 niños 👦👧 y se van 6 a la playa. ¿Cuántos quedan en
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Restar es quitar cosas</li>
-<li>El signo − significa "menos"</li>
-<li>A veces sobra todo y queda 0</li>
-<li>Sumar y restar son operaciones inversas</li>
-<li>La resta está en el supermercado, la hucha y la piscina</li>
+<li>Restar es <b>quitar</b> algo de un grupo</li>
+<li>El signo <b>−</b> significa "menos"</li>
+<li>Cuando restas un número consigo mismo, el resultado es <b>0</b></li>
+<li><b>Quitar menos</b> → queda más (9−2=7 > 9−7=2)</li>
+<li>Sumar y restar son <b>operaciones inversas</b></li>
+<li>La resta está en el <b>supermercado</b>, la <b>hucha</b> y la <b>piscina</b></li>
+<li><b>Completar hueco</b>: si 9 − ___ = 6, falta el 3</li>
 <li>¡Ya sabes restar hasta 10! 🎉</li>
 </ul>
 </div>
@@ -338,6 +347,52 @@ function checkExercise(btn, correct){
     btn.classList.add('correct');
   } else {
     btn.classList.add('wrong');
+  }
+}
+
+function checkE4(){
+  const input = document.getElementById('e4');
+  const result = document.getElementById('e4result');
+  const val = parseInt(input.value);
+  if(val === 3){
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 9 − 3 = 6';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Piensa: 9 menos ¿cuánto es 6? Necesitas quitar 3.';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
+function checkVF(btn, isFalso){
+  const result = document.getElementById('e5result');
+  result.style.display = 'block';
+  if(isFalso){
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Falso! 10 − 4 = 6, no 7. ¡Cuenta con los dedos si hace falta!';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = '❌ No es verdadero. 10 − 4 = 6. ¿Lo puedes comprobar?';
+  }
+}
+
+function checkE6(btn, correct){
+  const result = document.getElementById('e6result');
+  btn.parentElement.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 9−2=7 es mayor que 9−7=2. Quitas menos, queda más.';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = '❌ 9−7=2 es MENOR que 9−2=7. Cuando quitas menos, queda más.';
   }
 }
 
