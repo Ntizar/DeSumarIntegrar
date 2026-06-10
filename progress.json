@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-2primaria.html",
+  "last_improved": "s04-5-decimales-intro.html",
   "last_run": "2026-06-10",
-  "total_runs": 23,
+  "total_runs": 24,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -1135,21 +1135,27 @@
       "improvement_count": 0
     },
     "s04-5-decimales-intro.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
-      "category": "primaria_456",
-      "improvements": [],
+      "category": "primaria_4",
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+8 ejercicios variados (quiz botón ×2, completar hueco ×2, V/F ×2, ordenar, problema contextual), +1 explicación estructurada 4 pasos, +1 caso real supermercado, +1 caja error común (0,10=0,1, 0,9>0,11), resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 9,
+        "text": 12,
+        "visual": 3,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s04-6-areas.html": {
       "status": "pending",
