@@ -1,208 +1,506 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>🔢 ESO1.1: Números Enteros — 1º ESO — ¡Números negativos!</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔢 ESO1.1: Números Enteros — 1º ESO — ¡Más allá del cero!</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
-    15|.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-    16|.container{max-width:850px;margin:0 auto;padding:1.5rem}
-    17|.chapter{margin-bottom:2.5rem}
-    18|.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
-    19|.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-    20|.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
-    21|.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
-    22|.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-    23|.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
-    24|.box strong{display:block;margin-bottom:.3rem}
-    25|.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-    26|.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-    27|.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-    28|.interactive button:hover{background:#1d4ed8}
-    29|.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-    30|.result.ok{background:var(--verde-claro);color:#065f46}
-    31|.result.fail{background:var(--rojo-claro);color:#991b1b}
-    32|.exercises{margin:1.5rem 0}
-    33|.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-    34|.exercise p{font-weight:600;margin-bottom:.5rem}
-    35|.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-    36|.solution.show{display:block}
-    37|.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
-    38|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    39|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    40|.nav a:hover{background:var(--azul-claro)}
-    41|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    42|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    43|.summary h3{color:var(--azul);margin-bottom:.8rem}
-    44|.summary ul{list-style:none;padding:0}
-    45|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    46|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    47|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    48|.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-    49|.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-    50|.quiz-btn:hover{background:var(--azul-claro)}
-    51|.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-    52|.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-    53|</style>
-    54|</head>
-    55|<body>
-    56|  <div style="padding: 0.75rem 1.5rem;">
-    57|    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
-    58|  </div>
-    59|<header class="header">
-    60|<h1>🔢 ESO1.1: Números Enteros</h1>
-    61|<p>1º ESO — ¡Números negativos!</p>
-    62|<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-    63|</header>
-    64|<main class="container">
-    65|<section class="chapter">
-    66|<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-    67|<div class="box box-idea">
-    68|<strong>💡 Idea clave</strong>
-    69|Los números enteros incluyen los positivos, negativos y el cero. -3 < 0 < 3.
-    70|</div>
-    71|<p>En esta sesión aprenderás a:</p>
-    72|<ul style="margin:.8rem 0 1rem 1.5rem">
-    73|<li>Entender qué son los enteros</li><li>Comparar números enteros</li><li>Representar en la recta</li>
-    74|</ul>
-    75|</section>
-    76|<section class="chapter">
-    77|<h2 class="chapter-title">1️⃣ Números enteros (Z)</h2>
-    78|<div class="box box-teoria">
-    79|<strong>📖 Teoría</strong>
-    80|Los enteros son: {..., -3, -2, -1, 0, 1, 2, 3, ...}. Son más que los naturales. Se representan en la recta numérica.
-    81|</div>
-    82|<div class="box box-ejemplo">
-    83|<strong>🔍 Ejemplo 1</strong>
-    84|-5 < -3 < 0 < 2 < 4
-    85|</div>
-    86|<div class="box box-ejemplo">
-    87|<strong>🔍 Ejemplo 2</strong>
-    88|Temperatura: -3°C es más frío que 2°C
-    89|</div>
-    90|<div class="box box-ejemplo">
-    91|<strong>🔍 Ejemplo 3</strong>
-    92|Altitud: -100m (bajo el mar) < 0m (nivel del mar) < 1000m (montaña)
-    93|</div>
-    94|</section>
-    95|<section class="chapter">
-    96|<h2 class="chapter-title">2️⃣ ¡Compara enteros!</h2>
-    97|<div class="interactive">
-    98|<h3>Selecciona la relación correcta:</h3>
-    99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="enteroDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="enteroButtons"></div></div>
-   100|<div class="result" id="interactiveResult"></div>
-   101|</div>
-   102|</section>
-   103|<section class="chapter">
-   104|<h2 class="chapter-title">📝 Ejercicios</h2>
-   105|<div class="exercises">
-   106|<div class="exercise">
-   107|<p>-5 ___ -3</p>
-   108|<div class="quiz-options">
-   109|<button class="quiz-btn" onclick="checkExercise(this, true)"><</button>
-   110|<button class="quiz-btn" onclick="checkExercise(this, false)">></button>
-   111|<button class="quiz-btn" onclick="checkExercise(this, false)">=</button>
-   112|</div>
-   113|</div>
-   114|<div class="exercise">
-   115|<p>0 ___ -10</p>
-   116|<div class="quiz-options">
-   117|<button class="quiz-btn" onclick="checkExercise(this, true)">></button>
-   118|<button class="quiz-btn" onclick="checkExercise(this, false)"><</button>
-   119|<button class="quiz-btn" onclick="checkExercise(this, false)">=</button>
-   120|</div>
-   121|</div>
-   122|<div class="exercise">
-   123|<p>-1 ___ -100</p>
-   124|<div class="quiz-options">
-   125|<button class="quiz-btn" onclick="checkExercise(this, true)">></button>
-   126|<button class="quiz-btn" onclick="checkExercise(this, false)"><</button>
-   127|<button class="quiz-btn" onclick="checkExercise(this, false)">=</button>
-   128|</div>
-   129|</div>
-   130|<div class="exercise">
-   131|<p>3 ___ -3</p>
-   132|<div class="quiz-options">
-   133|<button class="quiz-btn" onclick="checkExercise(this, true)">></button>
-   134|<button class="quiz-btn" onclick="checkExercise(this, false)"><</button>
-   135|<button class="quiz-btn" onclick="checkExercise(this, false)">=</button>
-   136|</div>
-   137|</div>
-   138|<div class="exercise">
-   139|<p>-7 ___ -7</p>
-   140|<div class="quiz-options">
-   141|<button class="quiz-btn" onclick="checkExercise(this, true)">=</button>
-   142|<button class="quiz-btn" onclick="checkExercise(this, false)"><</button>
-   143|<button class="quiz-btn" onclick="checkExercise(this, false)">></button>
-   144|</div>
-   145|</div>
-   146|
-   147|</div>
-   148|</section>
-   149|<div class="summary">
-   150|<h3>📋 Resumen de lo aprendido</h3>
-   151|<ul>
-   152|<li><li>Los enteros incluyen negativos, cero y positivos</li></li><li><li>En la recta: a la izquierda = menor</li></li><li><li>¡Ya sabes enteros! 🎉</li>
-   153|</ul>
-   154|</div>
-   155|<div class="nav">
-   156|<a href="#">← Anterior</a>
-  <a href="s07-1eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-   157|<a href="eso1-3-proporcionalidad.html">Siguiente: Operaciones con enteros →</a>
-   158|</div>
-   159|</main>
-   160|<footer class="footer">
-   161|Hecho con ❤️ por David Antizar
-   162|</footer>
-   163|<script>
-   164|function newQuiz() {
-   165|  const data = [{"q": "-5 ___ -3", "opts": ["<", ">", "="], "correct": 0}, {"q": "0 ___ -10", "opts": [">", "<", "="], "correct": 0}, {"q": "-1 ___ -100", "opts": [">", "<", "="], "correct": 0}, {"q": "3 ___ -3", "opts": [">", "<", "="], "correct": 0}, {"q": "-7 ___ -7", "opts": ["=", "<", ">"], "correct": 0}];
-   166|  const item = data[Math.floor(Math.random()*data.length)];
-   167|  document.getElementById('enteroDisplay').textContent = item.q;
-   168|  const opts = item.opts;
-   169|  const buttons = document.getElementById('enteroButtons');
-   170|  buttons.innerHTML = '';
-   171|  opts.forEach((opt, i) => {
-   172|    const btn = document.createElement('button');
-   173|    btn.className = 'quiz-btn';
-   174|    btn.textContent = opt;
-   175|    btn.onclick = function() {
-   176|      if(i === item.correct) {
-   177|        this.classList.add('correct');
-   178|        document.getElementById('interactiveResult').className = 'result ok';
-   179|        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-   180|      } else {
-   181|        this.classList.add('wrong');
-   182|        document.getElementById('interactiveResult').className = 'result fail';
-   183|        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-   184|      }
-   185|    };
-   186|    buttons.appendChild(btn);
-   187|  });
-   188|  document.getElementById('interactiveResult').textContent = '';
-   189|}
-   190|newQuiz();
-   191|function checkExercise(btn, correct) {
-   192|  const parent = btn.parentElement;
-   193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-   195|}
-   196|
-   197|window.onscroll = function(){
-   198|  var h = document.documentElement;
-   199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-   200|  document.getElementById('progress').style.width = p+'%';
-   201|};
-   202|</script>
-   203|</body>
-   204|</html>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise input[type="number"]{padding:.4rem .6rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:100px;text-align:center}
+.exercise input[type="text"]{padding:.4rem .6rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:200px}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+/* Recta numérica visual */
+.number-line{display:flex;align-items:center;justify-content:center;margin:1.5rem 0;overflow-x:auto;padding:1rem 0}
+.number-line svg{min-width:600px}
+.sort-container{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:1rem 0}
+.sort-item{background:var(--azul-claro);border:2px solid var(--azul);border-radius:8px;padding:.6rem 1rem;font-size:1.2rem;font-weight:600;cursor:grab;user-select:none;transition:all .2s}
+.sort-item:hover{background:var(--azul);color:#fff}
+.sort-item.wrong{background:var(--rojo-claro);border-color:var(--rojo)}
+.sort-item.correct{background:var(--verde-claro);border-color:var(--verde)}
+.order-input{display:flex;gap:.5rem;justify-content:center;margin:1rem 0;flex-wrap:wrap}
+.order-input input{width:70px;padding:.5rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1.1rem;font-weight:600}
+.check-btn{background:var(--azul);color:#fff;border:none;padding:.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.5rem 0}
+.check-btn:hover{background:#1d4ed8}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>🔢 ESO1.1: Números Enteros</h1>
+<p>1º ESO — Más allá del cero: el mundo de los negativos</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+
+<!-- OBJETIVOS -->
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Los números enteros (Z) van más allá de los naturales: incluyen negativos, cero y positivos. -3 es MENOR que -1, aunque 3 es MAYOR que 1.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender qué son los enteros y para qué sirven</li>
+<li>Comparar números enteros correctamente</li>
+<li>Representarlos en la recta numérica</li>
+<li>Calcular el valor absoluto</li>
+<li>Resolver problemas con temperaturas y altitudes</li>
+</ul>
+</section>
+
+<!-- TEORÍA ESTRUCTURADA -->
+<section class="chapter">
+<h2 class="chapter-title">📖 Los números enteros (Z)</h2>
+
+<div class="box box-teoria">
+<strong>📖 ¿Qué son?</strong>
+Los números enteros (Z) son: {..., -3, -2, -1, 0, 1, 2, 3, ...}. Incluyen los naturales (1, 2, 3...), sus opuestos negativos (-1, -2, -3...) y el cero.
+</div>
+
+<div class="box box-teoria">
+<strong>📖 ¿Para qué sirven?</strong>
+Para medir cosas que pueden estar por debajo de un punto de referencia: temperatura bajo cero, plantas sótano, deudas, altitud bajo el nivel del mar.
+</div>
+
+<div class="box box-teoria">
+<strong>📖 ¿Cómo se ordenan?</strong>
+En la recta numérica, cuanto más a la izquierda, menor. Todo positivo > 0 > todo negativo. Entre dos negativos, el que tiene menor valor absoluto es MAYOR: -1 > -5.
+</div>
+
+<div class="box box-teoria">
+<strong>📖 ¿Error común?</strong>
+Pensar que -5 es "mayor" que -3 porque 5 > 3. ¡Falso! En negativos, cuanto mayor es el número sin signo, MENOR es. Piensa: -5°C está MÁS FRÍO que -3°C.
+</div>
+</section>
+
+<!-- RECTA NUMÉRICA VISUAL -->
+<section class="chapter">
+<h2 class="chapter-title">📏 Recta numérica interactiva</h2>
+<div class="interactive">
+<h3>🖱️ Haz clic en un número para verlo en la recta</h3>
+<p style="text-align:center;margin-bottom:.5rem;color:var(--gris)">Selecciona un entero y observa dónde queda en la recta</p>
+<div class="number-line">
+<svg id="numberLineSvg" width="620" height="120" viewBox="0 0 620 120">
+<!-- Línea principal -->
+<line x1="30" y1="60" x2="590" y2="60" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+<!-- Flechas -->
+<polygon points="30,60 42,54 42,66" fill="#94a3b8"/>
+<polygon points="590,60 578,54 578,66" fill="#94a3b8"/>
+<!-- Marcas y números se generan con JS -->
+</svg>
+</div>
+<div style="text-align:center;margin-top:.5rem">
+<button class="check-btn" onclick="showRandomPoint()">🎲 Mostrar número aleatorio</button>
+</div>
+<div class="result" id="lineResult" style="text-align:center"></div>
+</div>
+</section>
+
+<!-- COMPARAR ENTEROS -->
+<section class="chapter">
+<h2 class="chapter-title">⚖️ Compara enteros</h2>
+<div class="interactive">
+<h3>Selecciona la relación correcta:</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="enteroDisplay"></p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="enteroButtons"></div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+
+<!-- EJERCICIOS -->
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<!-- E1: Completar hueco en recta -->
+<div class="exercise">
+<p>🔢 Completa el hueco: -4 ___ -2</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">&gt;</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">&lt;</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">=</button>
+</div>
+</div>
+
+<!-- E2: Completar hueco - valor absoluto -->
+<div class="exercise">
+<p>📏 El valor absoluto de -7 es |−7| = ___</p>
+<input type="number" id="absInput" placeholder="?">
+<button class="check-btn" onclick="checkAbs()">Comprobar</button>
+<div class="result" id="absResult" style="display:none"></div>
+</div>
+
+<!-- E3: Ordenar números -->
+<div class="exercise">
+<p>📊 Ordena de menor a mayor: 3, -5, 0, -1, 4</p>
+<div class="order-input">
+<input type="text" id="sort1" placeholder="nº1">
+<input type="text" id="sort2" placeholder="nº2">
+<input type="text" id="sort3" placeholder="nº3">
+<input type="text" id="sort4" placeholder="nº4">
+<input type="text" id="sort5" placeholder="nº5">
+</div>
+<button class="check-btn" onclick="checkOrder()">Comprobar orden</button>
+<div class="result" id="orderResult" style="display:none"></div>
+</div>
+
+<!-- E4: Verdadero/Falso -->
+<div class="exercise">
+<p>✅❌ ¿Verdadero o falso? "El número -10 es mayor que -3"</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
+</div>
+</div>
+
+<!-- E5: Problema contextualizado - ascensor -->
+<div class="exercise">
+<p>🏢 <strong>Problema:</strong> Estás en la planta 3 de un parking. Bajas 5 plantas. ¿En qué planta quedas?</p>
+<p style="font-size:.9rem;color:var(--gris);margin-bottom:.5rem">Pista: La planta -2 es el sótano 2</p>
+<input type="number" id="elevatorInput" placeholder="Tu respuesta">
+<button class="check-btn" onclick="checkElevator()">Comprobar</button>
+<div class="result" id="elevatorResult" style="display:none"></div>
+</div>
+
+<!-- E6: Verdadero/Falso - error común -->
+<div class="exercise">
+<p>✅❌ ¿Verdadero o falso? "0 es un número negativo"</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
+</div>
+</div>
+
+<!-- E7: Completar hueco - temperatura -->
+<div class="exercise">
+<p>🌡️ Si hace -2°C y baja 4 grados más, la nueva temperatura es ___ °C</p>
+<input type="number" id="tempInput" placeholder="°C">
+<button class="check-btn" onclick="checkTemp()">Comprobar</button>
+<div class="result" id="tempResult" style="display:none"></div>
+</div>
+
+<!-- E8: Completar hueco - altitud -->
+<div class="exercise">
+<p>🏔️ El Mar Muerto está a -430 m y el Everest a +8849 m. La diferencia de altitud es ___ metros.</p>
+<p style="font-size:.85rem;color:var(--gris);margin-bottom:.5rem">Pista: Restas la menor de la mayor: 8849 - (-430)</p>
+<input type="number" id="altitudeInput" placeholder="metros">
+<button class="check-btn" onclick="checkAltitude()">Comprobar</button>
+<div class="result" id="altitudeResult" style="display:none"></div>
+</div>
+
+</div>
+</section>
+
+<!-- CAJA ERROR COMÚN -->
+<section class="chapter">
+<h2 class="chapter-title">⚠️ Error frecuente</h2>
+<div class="box box-error">
+<strong>🚫 Confundir valor absoluto con signo</strong>
+<p>¡-5 < -3 NO es un error! Es correcto. El valor absoluto de -5 (que es 5) es mayor que el de -3 (que es 3), pero en la recta -5 queda más a la izquierda, así que es MENOR.</p>
+<p style="margin-top:.5rem"><strong>Truco:</strong> Imagina la temperatura. -5°C está MÁS FRÍO que -3°C, así que -5 < -3. ❄️</p>
+</div>
+</section>
+
+<!-- CONEXIÓN CON LA VIDA REAL -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Conexión con la vida real</h2>
+<div class="box box-success">
+<strong>🏢 Los ascensores y sótanos</strong>
+<p>En muchos edificios, las plantas sótano se numeran con negativos: S1 = -1, S2 = -2. Si estás en la planta 2 y quieres ir al sótano 1, bajas 3 plantas: 2 + (-3) = -1.</p>
+<p style="margin-top:.5rem"><strong>💡 ¿Lo viste?</strong> Los números enteros están en las señales de tu edificio. ¡Los usas cada día!</p>
+</div>
+</section>
+
+<!-- RESUMEN -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Los enteros (Z) = {..., -3, -2, -1, 0, 1, 2, 3, ...}</li>
+<li>En la recta: a la izquierda = menor, a la derecha = mayor</li>
+<li>Todo positivo > 0 > todo negativo</li>
+<li>Entre negativos: el de menor valor absoluto es MAYOR (-1 > -10)</li>
+<li>El valor absoluto |x| es la distancia al cero: |−7| = 7</li>
+<li>Temperatura y altitud son ejemplos reales de enteros</li>
+<li>0 NO es positivo ni negativo: es el punto de referencia</li>
+<li>Para restar enteros: a - (-b) = a + b (menos por menos = más)</li>
+</ul>
+</div>
+
+<nav class="nav">
+<a href="#">← Anterior</a>
+<a href="s07-1eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="eso1-3-proporcionalidad.html">Siguiente: Operaciones con enteros →</a>
+</nav>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+
+<script>
+// === RECTA NUMÉRICA ===
+function drawNumberLine() {
+  const svg = document.getElementById('numberLineSvg');
+  const startX = 40;
+  const endX = 580;
+  const y = 60;
+  const range = [-10, 10];
+  const totalRange = range[1] - range[0]; // 20
+  const pxPerUnit = (endX - startX) / totalRange; // 27px por unidad
+
+  // Limpiar marcas anteriores (no la línea ni flechas)
+  const existing = svg.querySelectorAll('.mark-group');
+  existing.forEach(g => g.remove());
+
+  for (let i = range[0]; i <= range[1]; i++) {
+    const x = startX + (i - range[0]) * pxPerUnit;
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.classList.add('mark-group');
+
+    // Marca
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x); line.setAttribute('y1', y - 10);
+    line.setAttribute('x2', x); line.setAttribute('y2', y + 10);
+    line.setAttribute('stroke', i === 0 ? '#2563eb' : '#94a3b8');
+    line.setAttribute('stroke-width', i === 0 ? '3' : '2');
+    g.appendChild(line);
+
+    // Número
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', x); text.setAttribute('y', y + 30);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('font-size', i === 0 ? '14' : '12');
+    text.setAttribute('font-weight', i === 0 ? 'bold' : 'normal');
+    text.setAttribute('fill', i === 0 ? '#2563eb' : '#64748b');
+    text.textContent = i;
+    g.appendChild(text);
+
+    // Círculo clickeable
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', x); circle.setAttribute('cy', y);
+    circle.setAttribute('r', '12'); circle.setAttribute('fill', 'transparent');
+    circle.setAttribute('cursor', 'pointer');
+    circle.onclick = function() { showPoint(i, x); };
+    g.appendChild(circle);
+
+    svg.appendChild(g);
+  }
+}
+
+function showPoint(n, x) {
+  const svg = document.getElementById('numberLineSvg');
+  // Quitar highlight anterior
+  svg.querySelectorAll('.highlight').forEach(h => h.remove());
+
+  // Dibujar highlight
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.classList.add('highlight');
+  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', x); circle.setAttribute('cy', 60);
+  circle.setAttribute('r', '15'); circle.setAttribute('fill', '#f97316');
+  circle.setAttribute('opacity', '0.3');
+  g.appendChild(circle);
+  svg.appendChild(g);
+
+  const sign = n > 0 ? 'positivo' : n < 0 ? 'negativo' : 'cero';
+  const abs = Math.abs(n);
+  document.getElementById('lineResult').className = 'result ok';
+  document.getElementById('lineResult').innerHTML =
+    `📍 <strong>${n}</strong> es ${sign}. Valor absoluto: |${n}| = ${abs}.`;
+}
+
+function showRandomPoint() {
+  const n = Math.floor(Math.random() * 21) - 10; // -10 a 10
+  const startX = 40;
+  const pxPerUnit = 27;
+  const x = startX + (n - (-10)) * pxPerUnit;
+  showPoint(n, x);
+}
+
+// === COMPARAR ENTEROS (QUIZ INTERACTIVO) ===
+function newQuiz() {
+  const comparisons = [
+    {q: "-5 ___ -3", opts: ["<", ">", "="], correct: 0, explain: "-5 está más a la izquierda que -3"},
+    {q: "0 ___ -10", opts: [">", "<", "="], correct: 0, explain: "0 es mayor que cualquier negativo"},
+    {q: "-1 ___ -100", opts: [">", "<", "="], correct: 0, explain: "-1 está más a la derecha que -100"},
+    {q: "3 ___ -3", opts: [">", "<", "="], correct: 0, explain: "Todo positivo > todo negativo"},
+    {q: "-7 ___ -7", opts: ["=", "<", ">"], correct: 0, explain: "Son el mismo número"},
+    {q: "-2 ___ 0", opts: ["<", ">", "="], correct: 0, explain: "Todo negativo < 0"},
+    {q: "10 ___ -1", opts: [">", "<", "="], correct: 0, explain: "10 está muy a la derecha, -1 muy a la izquierda"},
+    {q: "-100 ___ -99", opts: ["<", ">", "="], correct: 0, explain: "-100 es más negativo que -99"},
+    {q: "0 ___ 0", opts: ["=", "<", ">"], correct: 0, explain: "0 es igual a 0"},
+    {q: "-1 ___ 1", opts: ["<", ">", "="], correct: 0, explain: "-1 es negativo, 1 es positivo"}
+  ];
+  const item = comparisons[Math.floor(Math.random() * comparisons.length)];
+  document.getElementById('enteroDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('enteroButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(i === item.correct) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + item.explain;
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct] + '. ' + item.explain;
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+
+// === FUNCIONES DE EJERCICIOS ===
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+function checkAbs() {
+  const val = parseInt(document.getElementById('absInput').value);
+  const result = document.getElementById('absResult');
+  result.style.display = 'block';
+  if(val === 7) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! |−7| = 7. El valor absoluto es la distancia al cero, siempre positiva.';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ La respuesta es 7. El valor absoluto |−7| = 7 (distancia al cero, sin signo).';
+  }
+}
+
+function checkOrder() {
+  const expected = [-5, -1, 0, 3, 4];
+  const inputs = ['sort1','sort2','sort3','sort4','sort5'];
+  let allCorrect = true;
+  for(let i = 0; i < 5; i++) {
+    const val = parseInt(document.getElementById(inputs[i]).value);
+    if(val !== expected[i]) allCorrect = false;
+  }
+  const result = document.getElementById('orderResult');
+  result.style.display = 'block';
+  if(allCorrect) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Perfecto! -5 < -1 < 0 < 3 < 4. ¡De menor a mayor!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ El orden correcto es: -5, -1, 0, 3, 4. Recuerda: los negativos van primero, y entre negativos el de menor valor absoluto es MAYOR.';
+  }
+}
+
+function checkElevator() {
+  const val = parseInt(document.getElementById('elevatorInput').value);
+  const result = document.getElementById('elevatorResult');
+  result.style.display = 'block';
+  if(val === -2) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 3 + (-5) = -2. Estás en el sótano 2 (planta -2).';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ La respuesta es -2. Desde planta 3, bajas 5: 3 + (-5) = -2 (sótano 2).';
+  }
+}
+
+function checkTemp() {
+  const val = parseInt(document.getElementById('tempInput').value);
+  const result = document.getElementById('tempResult');
+  result.style.display = 'block';
+  if(val === -6) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! -2 + (-4) = -6°C. Hace MUCHO frío. ❄️';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ La respuesta es -6°C. -2 + (-4) = -6. Bajar grados = sumar negativo.';
+  }
+}
+
+function checkAltitude() {
+  const val = parseInt(document.getElementById('altitudeInput').value);
+  const result = document.getElementById('altitudeResult');
+  result.style.display = 'block';
+  if(val === 9279) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 8849 - (-430) = 8849 + 430 = 9279 metros de diferencia. ¡Impresionante!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ La respuesta es 9279m. 8849 - (-430) = 8849 + 430 = 9279. ¡Menos por menos = más!';
+  }
+}
+
+// === PROGRESS BAR ===
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+
+// === INIT ===
+drawNumberLine();
+newQuiz();
+</script>
+</body>
+</html>
