@@ -329,6 +329,27 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 </div>
 <div class="feedback" id="e4-fb"></div>
 </div>
+<div class="exercise">
+<p><strong>Ejercicio 5 (V/F):</strong> Si $\lim_{x \to a} f(x)$ existe, entonces $f(a)$ está necesariamente definida.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+<div class="exercise">
+<p><strong>Ejercicio 6 (Completar):</strong> $\lim_{x \to 3} \frac{x^2 - 9}{x - 3} =$ ___</p>
+<p style="font-size:.85rem;color:#64748b">Pista: factoriza $x^2-9 = (x+3)(x-3)$ y simplifica</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="?" step="any">
+<button onclick="checkExercise6()">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Confundir límite con valor de la función. Que $\lim_{x \to a} f(x) = L$ NO significa que $f(a) = L$. De hecho, $f(a)$ podría ni estar definida. El límite es hacia dónde VA la función, no dónde ESTÁ. El hueco en $(2,4)$ de $\frac{x^2-4}{x-2}$ es el ejemplo perfecto: el límite existe pero la función no está definida en $x=2$.
+</div>
 </div>
 
 <!-- RESUMEN -->
@@ -602,6 +623,30 @@ function checkExercise4() {
   } else {
     fb.className = 'feedback incorrect';
     fb.textContent = '❌ Incorrecto. Pista: e ≈ 2.71828...';
+  }
+}
+function checkVF(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! Falso. El límite existe aunque f(a) no esté definida. El hueco en (2,4) lo demuestra.';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Falso. El límite describe hacia dónde VA la función, no dónde ESTÁ. f(a) puede no estar definida.';
+  }
+}
+function checkExercise6() {
+  const input = document.getElementById('e6').value.trim();
+  const fb = document.getElementById('e6-fb');
+  const val = parseFloat(input);
+  if (val === 6) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! (x²-9)/(x-3) = (x+3)(x-3)/(x-3) = x+3 → lim(x→3) = 6';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ No exactamente. Pista: factoriza x²-9 = (x+3)(x-3), simplifica, y sustituye x=3.';
   }
 }
 

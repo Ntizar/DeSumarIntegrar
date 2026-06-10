@@ -1722,21 +1722,27 @@
       "improvement_count": 0
     },
     "s09-1-bachiller-limites.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+2 ejercicios nuevos (V/F sobre definición límite, completar hueco factorización), +1 caja error común (límite vs valor función), +3 funciones JS nuevas (checkVF, checkExercise6)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 8,
+        "real_world": 10,
+        "connections": 4,
+        "difficulty_range": 8
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s09-2-bachiller-continuidad-derivadas.html": {
       "status": "pending",
