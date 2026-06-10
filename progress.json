@@ -854,18 +854,23 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+5 ejercicios variados (input numérico ×2: patrón +3 y patrón inverso +5, problema contextualizado silla clase, conexión con sumas, identificar tipo patrón AB), +1 caja conexión con álgebra ESO, +2 funciones JS nuevas (checkInputPat1, checkInputPat2), resumen ampliado a 8 puntos"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "-4 ejercicios repetitivos (todos 'completar con quiz botones'), +1 canvas interactivo creador de patrones con paleta de colores y detección automática, +1 caso real cumpleaños (velas alta/baja), +1 conexión música (vals ABB), arreglado bug ejercicio 2 (dos botones '5'), arreglado ejercicio ordenar roto"
         }
       ],
       "scores": {
-        "exercises": 17,
+        "exercises": 12,
         "text": 12,
-        "visual": 5,
-        "real_world": 9,
-        "connections": 3,
+        "visual": 7,
+        "real_world": 10,
+        "connections": 4,
         "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 2
     },
     "s02-1-sumas-llevadas.html": {
       "status": "pending",

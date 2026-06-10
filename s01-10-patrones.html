@@ -151,43 +151,8 @@ Un patrón es una <b>secuencia que se repite</b>. Si sabes cómo empieza, ¡sabe
 <div class="exercises">
 
 <div class="exercise">
-<p>1. Completa: 🔴🔵🔴🔵🔴___</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">🔵</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">🔴</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">🟢</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>2. Completa: 1, 2, 3, 4, ___</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>3. Completa: ⭐⭐🌙⭐⭐🌙⭐⭐___</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">🌙</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">⭐</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">🌟</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>4. Completa: 5, 10, 15, 20, ___</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">21</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">25</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>5. Completa: 🍎🍎🍌🍎🍎🍌🍎🍎___</p>
+<p>🍎🍎🍌🍎🍎🍌🍎🍎___ — ¿Qué fruta sigue?</p>
+<p style="font-size:0.85rem;color:#64748b">Pista: ¿cuál se repite? Dos rojas, una amarilla...</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">🍌</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">🍎</button>
@@ -197,6 +162,17 @@ Un patrón es una <b>secuencia que se repite</b>. Si sabes cómo empieza, ¡sabe
 
 </div>
 </section>
+
+<div class="interactive">
+<h3>🎨 Crea tu propio patrón visual</h3>
+<p style="text-align:center;margin-bottom:1rem">¡Haz clic en los colores para crear un patrón que se repita!</p>
+<canvas id="patternCanvas" width="700" height="120" style="display:block;margin:0 auto 1rem;border-radius:10px;background:#fff;cursor:pointer"></canvas>
+<div style="text-align:center">
+<button onclick="clearCanvas()" style="background:var(--rojo);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;margin:.3rem">🗑️ Limpiar</button>
+<button onclick="checkCanvasPattern()" style="background:var(--verde);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;margin:.3rem">✅ ¿Tiene patrón?</button>
+</div>
+<div class="result" id="canvasResult"></div>
+</div>
 
 <div class="box box-teoria">
 <strong>📖 ¿Dónde veo patrones en la vida real?</strong>
@@ -216,6 +192,9 @@ No confundir <b>patrón</b> con <b>aleatorio</b>. Si no hay repetición, no es p
 
 <strong>🔗 Conexión con el futuro</strong>
 Los patrones son la base del <b>álgebra</b>. Cuando en 1º ESO veas "x, x+2, x+4, x+6", eso es un patrón. ¡Ya sabes lo que es!
+
+<strong>🎵 Conexión con la música</strong>
+Las canciones usan patrones de ritmo: <b>fuerte, suave, suave</b> (como el compás de 3/4). ¡Un vals es un patrón ABB que se repite una y otra vez!
 </div>
 
 <div class="exercises">
@@ -237,14 +216,12 @@ Los patrones son la base del <b>álgebra</b>. Cuando en 1º ESO veas "x, x+2, x+
 </div>
 
 <div class="exercise">
-<p>🔍 <b>Ordena estos elementos</b> para crear el patrón AB: rojo, azul, rojo, azul, rojo, azul.</p>
-<p>Arrastra o elige el orden correcto:</p>
+<p>🎂 <b>Problema de cumpleaños:</b> En la fiesta de Laura, las velas del pastel siguen este patrón: alta, baja, alta, baja, alta... Si la primera vela es alta, ¿es alta o baja la vela número 9?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkOrden(this, false)">@e1</button>
-<button class="quiz-btn" onclick="checkOrden(this, false)">@e2</button>
-<button class="quiz-btn" onclick="checkOrden(this, false)">@e3</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Alta</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Baja</button>
 </div>
-<p style="font-size:0.85rem;color:#64748b;margin-top:.3rem">Pista: el orden correcto es 🔴🔵🔴🔵🔴🔵</p>
+<p style="font-size:0.85rem;color:#64748b;margin-top:.3rem">💡 Pista: impares=alta, pares=baja. ¿9 es impar o par?</p>
 </div>
 
 <div class="exercise">
@@ -345,7 +322,8 @@ Los patrones son la base del <b>álgebra</b>. Cuando en 1º ESO veas "x, x+2, x+
 <li>No confundir patrón con desorden: si no se repite, no es patrón</li>
 <li>Puedes encontrar patrones al revés: si falta el primer número, ¡también puedes descubrirlo!</li>
 <li>Los patrones numéricos son la base de las sumas y restas repetidas</li>
-<li>¡Los patrones son como acertijos divertidos! 🎉</li>
+<li>Los vals usan patrones de ritmo ABB (fuerte, suave, suave)</li>
+<li>¡Puedes crear tus propios patrones y detectar si algo tiene patrón o no!</li>
 </ul>
 </div>
 
@@ -478,6 +456,96 @@ function checkInputPat2(){
     result.className = 'result fail';
     result.textContent = '❌ No es correcto. Pista: ¿cuánto hay entre 10 y 15? 15-10=5, así que antes de 10 va 10-5=';
     input.style.borderColor = 'var(--rojo)';
+  }
+}
+
+// Canvas pattern creator
+const patternColors = ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+let canvasState = {cells: [], currentColor: 0, cellSize: 70};
+const canvas = document.getElementById('patternCanvas');
+const ctx = canvas ? canvas.getContext('2d') : null;
+
+if(ctx){
+  canvas.addEventListener('click', function(e){
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const col = Math.floor(x / canvasState.cellSize);
+    if(col >= 0 && col < 10){
+      canvasState.cells[col] = canvasState.currentColor;
+      canvasState.currentColor = (canvasState.currentColor + 1) % patternColors.length;
+      drawCanvas();
+    }
+  });
+
+  // Color palette
+  const palette = document.createElement('div');
+  palette.style.cssText = 'display:flex;gap:.5rem;justify-content:center;margin-bottom:1rem';
+  patternColors.forEach((c, i) => {
+    const swatch = document.createElement('div');
+    swatch.style.cssText = `width:36px;height:36px;border-radius:50%;background:${c};cursor:pointer;border:3px solid ${i===0?'#fff':'transparent'};box-shadow:0 0 0 2px ${i===0?'var(--azul)':'transparent'}`;
+    swatch.onclick = function(){
+      canvasState.currentColor = i;
+      palette.querySelectorAll('div').forEach((s,j) => {
+        s.style.boxShadow = j===i ? '0 0 0 2px var(--azul)' : 'none';
+        s.style.border = j===i ? '3px solid var(--azul)' : '3px solid transparent';
+      });
+    };
+    palette.appendChild(swatch);
+  });
+  canvas.parentElement.insertBefore(palette, canvas);
+}
+
+function drawCanvas(){
+  if(!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#f8fafc';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for(let i = 0; i < 10; i++){
+    ctx.beginPath();
+    ctx.arc(35 + i * 70, 60, 28, 0, Math.PI * 2);
+    if(canvasState.cells[i] !== undefined){
+      ctx.fillStyle = patternColors[canvasState.cells[i]];
+      ctx.fill();
+    }
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+}
+drawCanvas();
+
+function clearCanvas(){
+  canvasState.cells = [];
+  drawCanvas();
+  document.getElementById('canvasResult').textContent = '';
+}
+
+function checkCanvasPattern(){
+  const cells = canvasState.cells;
+  if(cells.length < 4){
+    document.getElementById('canvasResult').className = 'result fail';
+    document.getElementById('canvasResult').textContent = '⚠️ Pon al menos 4 círculos de color primero.';
+    return;
+  }
+  // Check if there's a repeating pattern
+  let hasPattern = false;
+  for(let period = 1; period <= Math.floor(cells.length / 2); period++){
+    let match = true;
+    for(let i = period; i < cells.length && match; i++){
+      if(cells[i] !== cells[i % period]) match = false;
+    }
+    if(match){
+      hasPattern = true;
+      break;
+    }
+  }
+  const result = document.getElementById('canvasResult');
+  if(hasPattern){
+    result.className = 'result ok';
+    result.textContent = '🎉 ¡Tiene patrón! ¡Eres un detective de patrones!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '🤔 No veo un patrón claro. ¿Puedes hacer que se repita algo?';
   }
 }
 
