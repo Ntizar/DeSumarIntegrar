@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-8-medidas-tamano-peso.html",
+  "last_improved": "s03-4-comparar-fracciones.html",
   "last_run": "2026-06-10",
-  "total_runs": 20,
+  "total_runs": 21,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -995,7 +995,7 @@
       "improvement_count": 0
     },
     "s03-4-comparar-fracciones.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -1009,7 +1009,12 @@
         "difficulty_range": 0
       },
       "last_improved": null,
-      "improvement_count": 0
+      "improvement_count": 1,
+      "score": {
+        "exercises": 8,
+        "types": 3,
+        "real_cases": 2
+      }
     },
     "s03-5-perimetro.html": {
       "status": "pending",
