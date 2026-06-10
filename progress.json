@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-2primaria.html",
+  "last_improved": "s01-5-restar-hasta-10.html",
   "last_run": "2026-06-10",
-  "total_runs": 35,
+  "total_runs": 36,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -297,7 +297,7 @@
       "improvement_count": 2
     },
     "s02-3primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -306,18 +306,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "3 ejercicios nuevos variados (completar hueco, V/F, problema contexto clase), 3 cajas pedagógicas (lectura ×, error común × vs +, vida real supermercado), arreglado HTML roto <li><li>"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+4 ejercicios variados (completar hueco con 5 pasos, problema inverso pizzería, completar hueco inverso), +1 V/F (34×3), +1 quiz botones (45×2), +1 problema contextual granja, +1 ejercicio ordenar resultados, +1 explicación estructurada 4 pasos, +1 caso real caramelos, +1 caja error común (olvidar descomponer), +1 conexión ×20, +1 resumen ampliado a 8 puntos"
         }
       ],
       "scores": {
-        "exercises": 8,
-        "text": 10,
-        "visual": 4,
-        "real_world": 8,
-        "connections": 2,
-        "difficulty_range": 5
+        "exercises": 12,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s02-4primaria.html": {
       "status": "improved_1",
@@ -775,7 +780,7 @@
       "improvement_count": 0
     },
     "s01-5-restar-hasta-10.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -784,6 +789,11 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+5 ejercicios variados (quiz botones, completar hueco, V/F, comparar, problema inverso), +1 explicación estructurada 4 pasos, eliminado vampiro (confuso), arreglado bug botón duplicado ejercicio 1, resumen ampliado a 8 puntos"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+8 ejercicios variados (completar hueco, V/F, problema contextual cumpleaños, ordenar resultados, decidir operación, comparar, problema inverso, emparejar), -3 quiz botones repetitivos, +1 caja conexión sumar↔restar (espejos+truco), +1 caso real fiesta, -Plotly excesivo → +1 tabla CSS tarjetas coloreadas, +3 funciones JS nuevas (checkE1, checkE5, checkE8)"
         }
       ],
       "scores": {
@@ -791,11 +801,11 @@
         "text": 12,
         "visual": 5,
         "real_world": 9,
-        "connections": 3,
-        "difficulty_range": 6
+        "connections": 4,
+        "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 2
     },
     "s01-6-restar-hasta-20.html": {
       "status": "pending",

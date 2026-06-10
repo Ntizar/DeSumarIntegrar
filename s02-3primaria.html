@@ -34,7 +34,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
 .chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
 .chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
-.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
 .chart-canvas{width:100%;height:300px;border-radius:8px;background:#fff;border:1px solid #e2e8f0}
 .chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
 .chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
@@ -55,10 +54,35 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+/* Quiz botones */
+.quiz-options{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.quiz-btn{background:#fff;border:2px solid #e2e8f0;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1.1rem;font-weight:600;transition:all .2s}
+.quiz-btn:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-btn.correct-answer{background:var(--verde-claro);border-color:var(--verde);color:var(--verde)}
+.quiz-btn.incorrect-answer{background:var(--rojo-claro);border-color:var(--rojo);color:var(--rojo)}
+/* Ordenar */
+.ordenar-list{list-style:none;padding:0}
+.ordenar-list li{display:flex;align-items:center;gap:.5rem;padding:.5rem .8rem;margin:.3rem 0;background:#fff;border-radius:8px;border:2px solid #e2e8f0;cursor:pointer;user-select:none}
+.ordenar-list li:hover{border-color:var(--azul)}
+.ordenar-list li.selected{border-color:var(--azul);background:var(--azul-claro)}
+.ordenar-list li .drag-handle{color:var(--gris);font-size:1.2rem}
+/* Hueco input */
+.hueco-input{display:inline-block;width:80px;padding:.3rem .5rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;text-align:center;background:var(--azul-claro);font-weight:700}
+.hueco-input:focus{outline:none;border-color:var(--naranja);background:var(--naranja-claro)}
+/* VF */
+.vf-options{display:flex;gap:1rem;margin:.8rem 0}
+.vf-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:1.1rem;font-weight:600;transition:all .2s}
+.vf-btn:hover{border-color:var(--azul)}
+.vf-btn.vf-correct{background:var(--verde-claro);border-color:var(--verde);color:var(--verde)}
+.vf-btn.vf-incorrect{background:var(--rojo-claro);border-color:var(--rojo);color:var(--rojo)}
+/* Conexión */
+.box-conexion{background:linear-gradient(135deg,#faf5ff,#eff6ff);border:2px solid var(--pura)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .chart-canvas{height:250px}
+  .vf-options{flex-direction:column}
+  .quiz-options{flex-direction:column}
 }
 </style>
 </head>
@@ -73,40 +97,58 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- INTRO -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-teoria">
 <strong>Aprenderás a:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>Multiplicar un número de 2 cifras por uno de 1 cifra</li>
-<li>Visualizar con grupos más grandes</li>
-<li>Resolver multiplicaciones más complejas</li>
+<li>Descomponer el número en decenas y unidades</li>
+<li>Resolver multiplicaciones más complejas de la vida real</li>
 </ul>
 </div>
 </div>
 
+<!-- CASO REAL 1 -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Para qué sirve?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: 23 paquetes con 4 lápices</strong>
-<p>Si tienes 23 paquetes y cada uno tiene 4 lápices, ¿cuántos lápices hay en total?</p>
-<p>23 × 4 = 20 × 4 + 3 × 4 = 80 + 12 = <strong>92</strong> lápices.</p>
+<strong>💡 Caso real: Comprar caramelos</strong>
+<p>En la tienda hay bolsas con 23 caramelos cada una. Si compras 4 bolsas, ¿cuántos caramelos te llevas?</p>
+<p>23 × 4 = (20 × 4) + (3 × 4) = 80 + 12 = <strong>92 caramelos</strong> 🍬</p>
 </div>
 </div>
 
+<!-- EXPLICACIÓN ESTRUCTURADA -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Multiplicar 2 Cifras</h2>
-
+<h2 class="chapter-title">📖 ¿Cómo se multiplica 23 × 4?</h2>
+<div class="box box-teoria">
+<strong>1. ¿Qué es?</strong>
+<p>Multiplicar 23 × 4 es como sumar 23 cuatro veces, pero más rápido.</p>
+</div>
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo:</strong>
-<p style="margin-top:.5rem">23 × 4</p>
-<p style="margin-top:.5rem">20 × 4 = 80</p>
-<p style="margin-top:.5rem">3 × 4 = 12</p>
-<p style="margin-top:.5rem">80 + 12 = <strong>92</strong></p>
+<strong>2. ¿Cómo se hace? (Paso a paso)</strong>
+<p style="margin-top:.5rem"><strong>Paso 1:</strong> Descomponer 23 en 20 + 3</p>
+<p><strong>Paso 2:</strong> Multiplicar 20 × 4 = 80</p>
+<p><strong>Paso 3:</strong> Multiplicar 3 × 4 = 12</p>
+<p><strong>Paso 4:</strong> Sumar 80 + 12 = <strong>92</strong></p>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común:</strong>
+<p>¡Muchos olvidan multiplicar las dos partes! Recuerda: siempre hay que hacer (decenas × número) + (unidades × número). Si solo haces 3 × 4 = 12, te falta la parte de las decenas (80).</p>
+</div>
+<div class="box box-conexion">
+<strong>🔗 Conexión con multiplicaciones pequeñas:</strong>
+<p>Ya sabes que 2 × 4 = 8. Pues 20 × 4 = 80, ¡es lo mismo pero con un cero más! Multiplicar por 20 es multiplicar por 2 y poner un cero al final.</p>
+</div>
 </div>
 
+<!-- CANVAS PRÁCTICA -->
+<div class="chapter">
+<h2 class="chapter-title">🎮 Practica con el canvas</h2>
 <div class="chart-container">
-<h3>🎮 ¡Practica multiplicaciones!</h3>
+<h3>🎲 Multiplicación aleatoria</h3>
 <canvas id="canvas-multi2" class="chart-canvas"></canvas>
 <div class="chart-controls">
 <button onclick="nuevaMulti2()">🎲 Nueva multiplicación</button>
@@ -119,31 +161,106 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- EJERCICIOS VARIADOS -->
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
+
+<!-- E1: Completar hueco -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 23 × 4 = ?</p>
-<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 92)">Comprobar</button></div>
-<div class="feedback" id="e1-fb"></div>
+<p><strong>Ejercicio 1 — Completar hueco:</strong> Completa los pasos de 23 × 4</p>
+<p style="margin-top:.5rem">23 × 4 = (20 × <span class="hueco-input" id="e1a" placeholder="?">4</span>) + (3 × <span class="hueco-input" id="e1b" placeholder="?">4</span>) = <span class="hueco-input" id="e1c" placeholder="?">80</span> + <span class="hueco-input" id="e1d" placeholder="?">12</span> = <span class="hueco-input" id="e1e" placeholder="?">92</span></p>
+<p style="font-size:.9rem;color:var(--gris);margin-top:.3rem">Pista: el hueco de la derecha es el resultado final.</p>
+<div class="exercise-input">
+<button onclick="checkHueco()" style="background:var(--naranja)">Comprobar</button>
 </div>
-<div class="exercise">
-<p><strong>Ejercicio 2:</strong> 35 × 3 = ?</p>
-<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 105)">Comprobar</button></div>
-<div class="feedback" id="e2-fb"></div>
-</div>
-<div class="exercise">
-<p><strong>Ejercicio 3:</strong> 42 × 5 = ?</p>
-<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 210)">Comprobar</button></div>
-<div class="feedback" id="e3-fb"></div>
-</div>
+<div class="feedback" id="hueco-fb"></div>
 </div>
 
+<!-- E2: Verdadero/Falso -->
+<div class="exercise">
+<p><strong>Ejercicio 2 — Verdadero o Falso:</strong> ¿Es correcta esta operación?</p>
+<p style="margin-top:.5rem;font-size:1.3rem;text-align:center">34 × 3 = 102</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="vf-fb"></div>
+</div>
+
+<!-- E3: Problema contextual -->
+<div class="exercise">
+<p><strong>Ejercicio 3 — Problema de la granja:</strong></p>
+<p style="margin-top:.5rem">🐰 En una granja hay 12 jaulas. En cada jaula hay 5 conejos. ¿Cuántos conejos hay en total?</p>
+<div class="exercise-input">
+<input type="number" id="e3" placeholder="?">
+<button onclick="checkE(3, 60)">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- E4: Ordenar resultados -->
+<div class="exercise">
+<p><strong>Ejercicio 4 — Ordenar de menor a mayor:</strong> ¿Cuál es el orden correcto?</p>
+<p style="margin-top:.5rem">Calcula y ordena: 15 × 2, 10 × 3, 12 × 4</p>
+<p style="font-size:.9rem;color:var(--gris);margin:.3rem 0">Pista: 15×2=30, 10×3=30, 12×4=48</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkOrden(this, false)">30, 30, 48</button>
+<button class="quiz-btn" onclick="checkOrden(this, true)">30, 30, 48</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">48, 30, 30</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">30, 48, 30</button>
+</div>
+<div class="feedback" id="orden-fb"></div>
+</div>
+
+<!-- E5: Quiz visual botones -->
+<div class="exercise">
+<p><strong>Ejercicio 5 — ¿Cuál es el resultado?</strong></p>
+<p style="margin-top:.5rem;font-size:1.3rem;text-align:center">45 × 2 = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz(this, false)">60</button>
+<button class="quiz-btn" onclick="checkQuiz(this, true)">90</button>
+<button class="quiz-btn" onclick="checkQuiz(this, false)">80</button>
+<button class="quiz-btn" onclick="checkQuiz(this, false)">100</button>
+</div>
+<div class="feedback" id="quiz-fb"></div>
+</div>
+
+<!-- E6: Problema inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 6 — Problema inverso:</strong></p>
+<p style="margin-top:.5rem">🍕 Una pizzería prepara 36 pizzas por hora. Si trabaja 3 horas, ¿cuántas pizzas preparó en total?</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="?">
+<button onclick="checkE(6, 108)">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- E7: Completar hueco inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 7 — Completar hueco:</strong> Encuentra el número que falta</p>
+<p style="margin-top:.5rem">25 × ___ = 100</p>
+<div class="exercise-input">
+<input type="number" id="e7" placeholder="?">
+<button onclick="checkE(7, 4)">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+</div>
+
+<!-- RESUMEN AMPLIADO -->
 <div class="summary">
-<h3>📋 Lo que aprendiste</h3>
+<h3>📋 Lo que aprendiste hoy</h3>
 <ul>
-<li>Descomponemos: 23 × 4 = (20 × 4) + (3 × 4)</li>
-<li>Sumamos los resultados</li>
-<li>23 × 4 = 92</li>
+<li>Descomponer: 23 × 4 = (20 × 4) + (3 × 4) → 80 + 12</li>
+<li>Sumar los resultados: 80 + 12 = 92</li>
+<li>Siempre multiplica las dos partes (decenas Y unidades)</li>
+<li>Multiplicar por 20 es multiplicar por 2 y poner un cero</li>
+<li>Los problemas de la vida real usan multiplicaciones grandes</li>
+<li>Verifica siempre: ¿tiene sentido mi respuesta?</li>
+<li>La multiplicación es una suma rápida: 23+23+23+23 = 92</li>
+<li>Practica con el canvas para mejorar velocidad</li>
 </ul>
 </div>
 
@@ -195,9 +312,6 @@ function verificarMulti2() {
     fb.style.color = '#ef4444';
   }
 }
-''' + checkE_func() + '''
-document.addEventListener('DOMContentLoaded', () => {
-  nuevaMulti2();
 
 function checkE(num, correct) {
   const input = document.getElementById('e' + num);
@@ -208,6 +322,84 @@ function checkE(num, correct) {
   if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
   else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
 }
+
+function checkHueco() {
+  const a = parseInt(document.getElementById('e1a').value);
+  const b = parseInt(document.getElementById('e1b').value);
+  const c = parseInt(document.getElementById('e1c').value);
+  const d = parseInt(document.getElementById('e1d').value);
+  const e = parseInt(document.getElementById('e1e').value);
+  const fb = document.getElementById('hueco-fb');
+  if ([a,b,c,d,e].some(x => isNaN(x))) {
+    fb.textContent = 'Rellena todos los huecos';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (a === 4 && b === 4 && c === 80 && d === 12 && e === 92) {
+    fb.textContent = '✅ ¡Perfecto! Has descompuesto bien la multiplicación.';
+    fb.className = 'feedback correct';
+  } else {
+    let msg = 'Revisa: 23×4=(20×4)+(3×4)=80+12=92. ';
+    if (a !== 4 || b !== 4) msg += 'Los factores son 4 y 4. ';
+    if (c !== 80) msg += '20×4=80. ';
+    if (d !== 12) msg += '3×4=12. ';
+    if (e !== 92) msg += '80+12=92. ';
+    fb.textContent = '❌ ' + msg;
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkVF(btn, userChoice) {
+  const correct = true; // 34×3 = 102 es correcto
+  const fb = document.getElementById('vf-fb');
+  const allBtns = btn.parentElement.querySelectorAll('.vf-btn');
+  allBtns.forEach(b => { b.disabled = true; b.style.cursor = 'default'; });
+  
+  if (userChoice === correct) {
+    btn.classList.add('vf-correct');
+    fb.textContent = '✅ ¡Verdadero! 34×3 = (30×3)+(4×3) = 90+12 = 102';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('vf-incorrect');
+    fb.textContent = '❌ Falso, era Verdadero. 34×3 = (30×3)+(4×3) = 90+12 = 102';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden(btn, isCorrect) {
+  const fb = document.getElementById('orden-fb');
+  const allBtns = btn.parentElement.querySelectorAll('.quiz-btn');
+  allBtns.forEach(b => { b.disabled = true; b.style.cursor = 'default'; });
+  
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    fb.textContent = '✅ ¡Correcto! 15×2=30, 10×3=30, 12×4=48 → 30, 30, 48';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('incorrect-answer');
+    fb.textContent = '❌ El orden correcto es: 30, 30, 48';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkQuiz(btn, isCorrect) {
+  const fb = document.getElementById('quiz-fb');
+  const allBtns = btn.parentElement.querySelectorAll('.quiz-btn');
+  allBtns.forEach(b => { b.disabled = true; b.style.cursor = 'default'; });
+  
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    fb.textContent = '✅ ¡90! 45×2 = (40×2)+(5×2) = 80+10 = 90';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('incorrect-answer');
+    fb.textContent = '❌ La respuesta es 90. 45×2 = (40×2)+(5×2) = 80+10 = 90';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  nuevaMulti2();
 });
 </script>
 </body>
