@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-10-patrones.html",
+  "last_improved": "s01-5-restar-hasta-10.html",
   "last_run": "2026-06-10",
-  "total_runs": 33,
+  "total_runs": 34,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -770,21 +770,27 @@
       "improvement_count": 0
     },
     "s01-5-restar-hasta-10.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+5 ejercicios variados (quiz botones, completar hueco, V/F, comparar, problema inverso), +1 explicación estructurada 4 pasos, eliminado vampiro (confuso), arreglado bug botón duplicado ejercicio 1, resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s01-6-restar-hasta-20.html": {
       "status": "pending",
