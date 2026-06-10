@@ -1046,21 +1046,27 @@
       "improvement_count": 0
     },
     "s04-1-fracciones-equivalentes.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+5 ejercicios interactivos variados (completar hueco ×2, V/F, problema chocolate, ordenar fracciones), +1 caso real (fiesta pizza), feedback inmediato con explicación, botones quiz interactivos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 3,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s04-2-mult-3-cifras.html": {
       "status": "pending",

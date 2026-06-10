@@ -52,7 +52,20 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid var(--gris-claro);margin-top:2rem}
+|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid var(--gris-claro);margin-top:2rem}
+|.quiz-options{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+|.quiz-options button{padding:.5rem 1rem;border:2px solid var(--azul);border-radius:8px;background:#fff;cursor:pointer;font-size:.95rem;font-weight:600;transition:all .15s}
+|.quiz-options button:hover{background:var(--azul-claro)}
+|.quiz-options button.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+|.quiz-options button.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+|.quiz-options button:disabled{opacity:.6;cursor:not-allowed}
+|.input-answer{width:80px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem;font-weight:600}
+|.check-btn{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;font-weight:600;margin-left:.5rem}
+|.check-btn:hover{background:#1d4ed8}
+|.feedback{margin-top:.5rem;padding:.6rem;border-radius:6px;font-weight:600;display:none}
+|.feedback.show{display:block}
+|.feedback.ok{background:var(--verde-claro);color:#065f46}
+|.feedback.fail{background:var(--rojo-claro);color:#991b1b}
 .equation{font-size:1.3rem;text-align:center;margin:1rem 0;font-weight:600;color:var(--azul)}
 .step{padding:.5rem 0;padding-left:1.5rem;position:relative}
 .step::before{content:attr(data-step);position:absolute;left:0;font-weight:bold;color:var(--naranja)}
@@ -307,7 +320,86 @@ Si el numerador y el denominador terminan en 0, 2, 4, 6, 8, puedes dividir entre
 </div>
 </section>
 
-<!-- RESUMEN -->
+|<!-- CASO REAL -->
+|<section class="chapter">
+|<h2 class="chapter-title">🍕 Fracciones en la vida real</h2>
+|
+|<div class="box box-problema">
+|<strong>🍕 Caso real: La fiesta de pizza</strong>
+|En una fiesta hay 2 pizzas grandes cortadas en 8 trozos cada una. Si cada niño come 4 trozos, ¿cuántos niños pueden comer sin que sobre pizza?<br><br>
+|Piensa: 2 pizzas × 8 trozos = 16 trozos. Cada niño come 4 trozos.<br>
+|16 ÷ 4 = <b>4 niños</b>.<br><br>
+|Y si solo cortáramos las pizzas en 4 trozos grandes cada una (8 trozos en total), cada niño comería 2 trozos grandes. ¡<span class="fraction"><span class="num">4</span><span class="den">8</span></span> = <span class="fraction"><span class="num">2</span><span class="den">4</span></span>! Son fracciones equivalentes en acción. 🎉
+|</div>
+|
+|<!-- EJERCICIOS INTERACTIVOS -->
+|<section class="chapter">
+|<h2 class="chapter-title">🎮 Ejercicios interactivos</h2>
+|<div class="exercises">
+|
+|<!-- E6: Completar hueco -->
+|<div class="exercise">
+|<p>6. Completa el hueco para que sea equivalente:</p>
+|<p style="font-size:1.2rem;margin:.5rem 0">
+|<span class="fraction"><span class="num">2</span><span class="den">3</span></span> = <span class="fraction"><span class="num">___</span><span class="den">12</span></span>
+|</p>
+|<input type="number" class="input-answer" id="e6" min="0" max="99">
+|<button class="check-btn" onclick="checkE6()">Comprobar</button>
+|<div class="feedback" id="e6-fb"></div>
+|</div>
+|
+|<!-- E7: Completar hueco inverso -->
+|<div class="exercise">
+|<p>7. Completa el hueco:</p>
+|<p style="font-size:1.2rem;margin:.5rem 0">
+|<span class="fraction"><span class="num">5</span><span class="den">___</span></span> = <span class="fraction"><span class="num">15</span><span class="den">21</span></span>
+|</p>
+|<input type="number" class="input-answer" id="e7" min="0" max="99">
+|<button class="check-btn" onclick="checkE7()">Comprobar</button>
+|<div class="feedback" id="e7-fb"></div>
+|</div>
+|
+|<!-- E8: Verdadero/Falso -->
+|<div class="exercise">
+|<p>8. ¿Verdadero o falso? <span class="fraction"><span class="num">3</span><span class="den">4</span></span> y <span class="fraction"><span class="num">6</span><span class="den">9</span></span> son equivalentes.</p>
+|<div class="quiz-options" id="e8-options">
+|<button onclick="checkE8(true)">✅ Verdadero</button>
+|<button onclick="checkE8(false)">❌ Falso</button>
+|</div>
+|<div class="feedback" id="e8-fb"></div>
+|</div>
+|
+|<!-- E9: Problema contextual -->
+|<div class="exercise">
+|<p>9. Marta tiene <span class="fraction"><span class="num">1</span><span class="den">2</span></span> de barra de chocolate. Pablo tiene <span class="fraction"><span class="num">2</span><span class="den">4</span></span> de la misma barra. ¿Quién tiene más chocolate?</p>
+|<div class="quiz-options" id="e9-options">
+|<button onclick="checkE9('marta')">🍫 Marta</button>
+|<button onclick="checkE9('pablo')">🍫 Pablo</button>
+|<button onclick="checkE9('igual')">⚖️ Tienen igual</button>
+|</div>
+|<div class="feedback" id="e9-fb"></div>
+|</div>
+|
+|<!-- E10: Ordenar -->
+|<div class="exercise">
+|<p>10. Ordena de menor a mayor. ¿Cuál es la fracción más pequeña?</p>
+|<p style="font-size:1.1rem;margin:.5rem 0">
+|<span class="fraction"><span class="num">1</span><span class="den">2</span></span>,
+|<span class="fraction"><span class="num">1</span><span class="den">3</span></span>,
+|<span class="fraction"><span class="num">1</span><span class="den">4</span></span>
+|</p>
+|<div class="quiz-options" id="e10-options">
+|<button onclick="checkE10('1/2')">1/2</button>
+|<button onclick="checkE10('1/3')">1/3</button>
+|<button onclick="checkE10('1/4')">1/4</button>
+|</div>
+|<div class="feedback" id="e10-fb"></div>
+|</div>
+|
+|</div>
+|</section>
+|
+|<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
@@ -361,7 +453,41 @@ var g=mcd(n,d);
 r.className='result ok';
 r.innerHTML='📐 Dividimos por '+g+' → <span class="fraction"><span class="num">'+(n/g)+'</span><span class="den">'+(d/g)+'</span></span> ✅'
 }
-window.onscroll=function(){
+|function checkE6(){
+|var a=parseInt(document.getElementById('e6').value);
+|var fb=document.getElementById('e6-fb');
+|if(a===8){fb.className='feedback show ok';fb.textContent='✅ ¡Correcto! 2×4=8 y 3×4=12, así que 2/3 = 8/12'}
+|else{fb.className='feedback show fail';fb.textContent='❌ No. Para pasar de 3 a 12 multiplicamos por 4: 2×4 = ___'}
+|}
+|function checkE7(){
+|var a=parseInt(document.getElementById('e7').value);
+|var fb=document.getElementById('e7-fb');
+|if(a===7){fb.className='feedback show ok';fb.textContent='✅ ¡Correcto! 5×3=15 y 7×3=21, así que 5/7 = 15/21'}
+|else{fb.className='feedback show fail';fb.textContent='❌ No. Para pasar de 5 a 15 multiplicamos por 3: ___×3 = 7 → 7'}
+|}
+|function checkE8(respuesta){
+|var fb=document.getElementById('e8-fb');
+|var btns=document.querySelectorAll('#e8-options button');
+|btns.forEach(function(b){b.disabled=true});
+|var correct=(respuesta===false);
+|if(correct){fb.className='feedback show ok';fb.innerHTML='✅ ¡Correcto! 3×9=27 y 4×6=24. 27≠24 → NO son equivalentes'}
+|else{fb.className='feedback show fail';fb.innerHTML='❌ No. 3×9=27 y 4×6=24. Como 27≠24, NO son equivalentes. ¡La respuesta es Falso!'}
+|}
+|function checkE9(respuesta){
+|var fb=document.getElementById('e9-fb');
+|var btns=document.querySelectorAll('#e9-options button');
+|btns.forEach(function(b){b.disabled=true});
+|if(respuesta==='igual'){fb.className='feedback show ok';fb.innerHTML='✅ ¡Exacto! 1/2 = 2/4. Marta y Pablo tienen la misma cantidad de chocolate. ¡Fracciones equivalentes! 🍫'}
+|else{fb.className='feedback show fail';fb.innerHTML='❌ No. 1/2 = 2/4 (multiplicamos en cruz: 1×4=4, 2×2=4). ¡Ambos tienen la misma cantidad!'}
+|}
+|function checkE10(respuesta){
+|var fb=document.getElementById('e10-fb');
+|var btns=document.querySelectorAll('#e10-options button');
+|btns.forEach(function(b){b.disabled=true});
+|if(respuesta==='1/4'){fb.className='feedback show ok';fb.innerHTML='✅ ¡Correcto! 1/4 < 1/3 < 1/2. Cuanto mayor es el denominador, más pequeña es la fracción (si el numerador es 1). 🍰'}
+|else{fb.className='feedback show fail';fb.innerHTML='❌ No. Recuerda: con numerador 1, mayor denominador = porción más pequeña. 1/4 < 1/3 < 1/2'}
+|}
+|window.onscroll=function(){
 var h=document.documentElement,
 p=(window.scrollY/(h.scrollHeight-h.clientHeight))*100;
 document.getElementById('progress').style.width=p+'%';
