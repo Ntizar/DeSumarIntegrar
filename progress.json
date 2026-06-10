@@ -1,7 +1,7 @@
 {
-  "last_improved": "eso1-1-numeros-enteros.html",
+  "last_improved": "s01-10-patrones.html",
   "last_run": "2026-06-10",
-  "total_runs": 27,
+  "total_runs": 28,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -829,21 +829,27 @@
       "improvement_count": 1
     },
     "s01-10-patrones.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+5 ejercicios variados (input numérico ×2: patrón +3 y patrón inverso +5, problema contextualizado silla clase, conexión con sumas, identificar tipo patrón AB), +1 caja conexión con álgebra ESO, +2 funciones JS nuevas (checkInputPat1, checkInputPat2), resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 17,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s02-1-sumas-llevadas.html": {
       "status": "pending",
