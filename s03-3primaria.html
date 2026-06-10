@@ -45,7 +45,42 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <div class="card"><h3>🧮 Tablas rápidas</h3><p>Elige una tabla:</p><div style="display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0;justify-content:center">
 <button class="btn btn-secondary" onclick="showTable(2)">T2</button><button class="btn btn-secondary" onclick="showTable(3)">T3</button><button class="btn btn-secondary" onclick="showTable(4)">T4</button><button class="btn btn-secondary" onclick="showTable(5)">T5</button><button class="btn btn-secondary" onclick="showTable(6)">T6</button><button class="btn btn-secondary" onclick="showTable(7)">T7</button><button class="btn btn-secondary" onclick="showTable(8)">T8</button><button class="btn btn-secondary" onclick="showTable(9)">T9</button><button class="btn btn-secondary" onclick="showTable(10)">T10</button></div>
 <div id="tDisp" class="teoria"><p><strong>Elige una tabla</strong> arriba. 👆</p></div></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Multiplicar = sumar varias veces igual ✖️</li><li>3 × 4 = 3 grupos de 4 = 12</li><li>¡Ya sabes multiplicar con dos cifras! 🎉</li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Multiplicar = sumar varias veces igual ✖️</li><li>3 × 4 = 3 grupos de 4 = 12</li><li>¡Ya sabes multiplicar con dos cifras! 🎉</li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e1" style="margin:1rem 0">
+<p><strong>Ejercicio 1 — Completar hueco:</strong></p>
+<p>4 × ___ = 20</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e1opts">
+<button class="quiz-opt" onclick="chkS03e1(this,4)">4</button>
+<button class="quiz-opt" onclick="chkS03e1(this,5)">5</button>
+<button class="quiz-opt" onclick="chkS03e1(this,6)">6</button>
+<button class="quiz-opt" onclick="chkS03e1(this,8)">8</button>
+</div>
+<div class="feedback" id="s03e1fb"></div>
+</div>
+<div id="s03e2" style="margin:1rem 0">
+<p><strong>Ejercicio 2 — Verdadero o Falso:</strong></p>
+<p>7 × 3 = 21</p>
+<div style="display:flex;gap:.5rem;margin:.5rem 0">
+<button class="quiz-opt" onclick="chkS03e2(this,true)">✅ Verdadero</button>
+<button class="quiz-opt" onclick="chkS03e2(this,false)">❌ Falso</button>
+</div>
+<div class="feedback" id="s03e2fb"></div>
+</div>
+<div id="s03e3" style="margin:1rem 0">
+<p><strong>Ejercicio 3 — Problema:</strong></p>
+<p>🎒 En mi mochila hay 6 cuadernos. Si tengo 3 mochilas iguales, ¿cuántos cuadernos llevo en total?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e3opts">
+<button class="quiz-opt" onclick="chkS03e3(this,9)">9</button>
+<button class="quiz-opt" onclick="chkS03e3(this,18)">18</button>
+<button class="quiz-opt" onclick="chkS03e3(this,15)">15</button>
+<button class="quiz-opt" onclick="chkS03e3(this,21)">21</button>
+</div>
+<div class="feedback" id="s03e3fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> En el supermercado, las latas de refresco vienen en packs de 6. Si compras 4 packs, ¿cuántas latas llevas? ¡6 × 4 = 24 latas!</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> No confundir 5 × 3 con 5 + 3. Multiplicar es sumar 3 veces el 5: 5 + 5 + 5 = 15, NO 5 + 3 = 8.</p></div>
+</div>
 
 <div class="chapter" id="ch1"><div class="card"><h2>➗ ¡Vamos a Dividir! 🎁</h2><div class="emoji-big">🍬🍬🍬🍬🍬🍬</div>
 <div class="teoria"><p><strong>Dividir es repartir en partes iguales</strong> 🎁</p><p><strong>12 caramelos</strong> entre <strong>3 amigos</strong>: cada uno recibe <strong>4</strong></p><p>¡<strong>12 ÷ 3 = 4</strong>! Cada uno gets 4. 🎉</p></div></div>
@@ -56,7 +91,42 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <div class="feedback" id="dFb">12 ÷ 3 = 4 cada uno</div>
 <div class="ejemplo" id="dRem" style="display:none">⚠️ Sobra: <strong id="dRemV">0</strong> caramelo(s)</div></div>
 <div class="card"><h3>🧮 Quiz</h3><p>¿Cuánto es <strong><span id="dQA">18</span> ÷ <span id="dQB">3</span></strong>?</p><div id="dQOpts"></div><div class="feedback" id="dQFb"></div><button class="btn btn-primary" onclick="rndDQuiz()">🎲 Nuevo</button></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Dividir = repartir en partes iguales ➗</li><li>12 ÷ 3 = 4 porque 4 × 3 = 12</li><li>A veces sobra algo: eso es el <strong>resto</strong></li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Dividir = repartir en partes iguales ➗</li><li>12 ÷ 3 = 4 porque 4 × 3 = 12</li><li>A veces sobra algo: eso es el <strong>resto</strong></li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e4" style="margin:1rem 0">
+<p><strong>Ejercicio 1 — Verdadero o Falso:</strong></p>
+<p>24 ÷ 6 = 4</p>
+<div style="display:flex;gap:.5rem;margin:.5rem 0">
+<button class="quiz-opt" onclick="chkS03e4(this,true)">✅ Verdadero</button>
+<button class="quiz-opt" onclick="chkS03e4(this,false)">❌ Falso</button>
+</div>
+<div class="feedback" id="s03e4fb"></div>
+</div>
+<div id="s03e5" style="margin:1rem 0">
+<p><strong>Ejercicio 2 — Completar divisor:</strong></p>
+<p>18 ÷ ___ = 3</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e5opts">
+<button class="quiz-opt" onclick="chkS03e5(this,2)">2</button>
+<button class="quiz-opt" onclick="chkS03e5(this,3)">3</button>
+<button class="quiz-opt" onclick="chkS03e5(this,6)">6</button>
+<button class="quiz-opt" onclick="chkS03e5(this,9)">9</button>
+</div>
+<div class="feedback" id="s03e5fb"></div>
+</div>
+<div id="s03e6" style="margin:1rem 0">
+<p><strong>Ejercicio 3 — Problema inverso:</strong></p>
+<p>🍫 Repartí 21 chocolates entre mis amigos. Cada uno recibió 7. ¿Cuántos amigos había?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e6opts">
+<button class="quiz-opt" onclick="chkS03e6(this,2)">2</button>
+<button class="quiz-opt" onclick="chkS03e6(this,3)">3</button>
+<button class="quiz-opt" onclick="chkS03e6(this,4)">4</button>
+<button class="quiz-opt" onclick="chkS03e6(this,7)">7</button>
+</div>
+<div class="feedback" id="s03e6fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> Tu mamá compró 30 galletas para 5 personas. ¿Cuántas galletas le tocan a cada uno? ¡30 ÷ 5 = 6 galletas!</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> El resultado de una división NO es el resto. En 17 ÷ 5 = 3, el 3 es el cociente (cada uno recibe 3). El resto es 2 (sobran 2). ¡No los confundas!</p></div>
+</div>
 
 <div class="chapter" id="ch2"><div class="card"><h2>🍕 ¡Las Fracciones! 🍕</h2><div class="emoji-big">🍕🍕🍕🍕</div>
 <div class="teoria"><p><strong>¿Compartiste pizza?</strong> Si cortas en <strong>4 trozos</strong> y te comes <strong>1</strong>, te comiste <strong>1/4</strong> 📝</p><p><strong>1</strong> = Numerador (partes que me llevo) 🍕<br><strong>4</strong> = Denominador (partes totales)</p></div></div>
@@ -66,7 +136,33 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <div class="canvas-box"><canvas id="fc" width="400" height="250"></canvas></div>
 <div class="feedback" id="fFb">1/4 de pizza 🍕</div></div>
 <div class="card"><h3>🧮 Fracciones en la vida real</h3><div class="ejemplo"><p>🎂 Media tarta = 1/2 | 🥤 Medio vaso = 1/2 | 📺 Un cuarto de hora = 1/4 | 📅 Un tercio del año = 1/3</p></div></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Fracción = parte de algo entero 🍕</li><li>Numerador (arriba) = partes que tengo</li><li>Denominador (abajo) = partes totales</li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Fracción = parte de algo entero 🍕</li><li>Numerador (arriba) = partes que tengo</li><li>Denominador (abajo) = partes totales</li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e7" style="margin:1rem 0">
+<p><strong>Ejercicio 7 — Problema:</strong></p>
+<p>🍕 Me como 2 trozos de una pizza cortada en 8. ¿Qué fracción me he comido?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e7opts">
+<button class="quiz-opt" onclick="chkS03e7(this,'2/8')">2/8</button>
+<button class="quiz-opt" onclick="chkS03e7(this,'8/2')">8/2</button>
+<button class="quiz-opt" onclick="chkS03e7(this,'1/2')">1/2</button>
+<button class="quiz-opt" onclick="chkS03e7(this,'2/4')">2/4</button>
+</div>
+<div class="feedback" id="s03e7fb"></div>
+</div>
+<div id="s03e8" style="margin:1rem 0">
+<p><strong>Ejercicio 8 — Completar:</strong></p>
+<p>📦 Tengo una caja con 10 lápices. 3 son rojos. La fracción de lápices rojos es ___/10</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e8opts">
+<button class="quiz-opt" onclick="chkS03e8(this,3)">3</button>
+<button class="quiz-opt" onclick="chkS03e8(this,7)">7</button>
+<button class="quiz-opt" onclick="chkS03e8(this,10)">10</button>
+<button class="quiz-opt" onclick="chkS03e8(this,13)">13</button>
+</div>
+<div class="feedback" id="s03e8fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> Un tercio del año son 4 meses (enero-marzo). Si llevas 2 meses en el colegio, ¿qué fracción del año escolar llevas? ¡2/12 = 1/6!</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> ¡1/4 NO es mayor que 1/2! Piensa en la pizza: si la cortas en 4 trozos, cada trozo es más pequeño que si la cortas en 2. ¡Más partes = trozos más pequeños!</p></div>
+</div>
 
 <div class="chapter" id="ch3"><div class="card"><h2>📊 ¡Comparar Fracciones! ⚖️</h2>
 <div class="teoria"><p><strong>¿1/2 o 1/4?</strong> 🤔 ¡1/2 es más grande! Las mitades son más grandes que los cuartos</p><p><strong>Regla 1:</strong> Mismo denominador → gana mayor numerador: 3/5 > 2/5</p><p><strong>Regla 2:</strong> Mismo numerador (1) → gana menor denominador: 1/2 > 1/4</p></div></div>
@@ -78,7 +174,31 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <div class="canvas-box"><canvas id="fcc" width="400" height="120"></canvas></div>
 <div class="feedback" id="fcFb">1/4 < 3/4</div></div>
 <div class="card"><h3>🧮 Quiz: ¿Cuál es mayor?</h3><div id="fQCont"></div><div class="feedback" id="fQFb"></div><button class="btn btn-primary" onclick="rndFQuiz()">🎲 Nueva</button></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Mismo denominador → gana mayor numerador</li><li>Mismo numerador (1) → gana menor denominador</li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Mismo denominador → gana mayor numerador</li><li>Mismo numerador (1) → gana menor denominador</li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e9" style="margin:1rem 0">
+<p><strong>Ejercicio 9 — Ordenar de menor a mayor:</strong></p>
+<p>Ordena estas fracciones: 1/2, 1/4, 3/4</p>
+<div style="display:flex;gap:.3rem;flex-wrap:wrap;margin:.5rem 0" id="s03e9opts">
+<button class="quiz-opt" onclick="chkS03e9(this,'1/4, 1/2, 3/4')">1/4 → 1/2 → 3/4</button>
+<button class="quiz-opt" onclick="chkS03e9(this,'3/4, 1/2, 1/4')">3/4 → 1/2 → 1/4</button>
+<button class="quiz-opt" onclick="chkS03e9(this,'1/2, 1/4, 3/4')">1/2 → 1/4 → 3/4</button>
+</div>
+<div class="feedback" id="s03e9fb"></div>
+</div>
+<div id="s03e10" style="margin:1rem 0">
+<p><strong>Ejercicio 10 — Completar con &gt; &lt; o =:</strong></p>
+<p>5/8 ___ 3/8</p>
+<div style="display:flex;gap:.5rem;margin:.5rem 0">
+<button class="quiz-opt" onclick="chkS03e10(this,'>')">&gt; (mayor)</button>
+<button class="quiz-opt" onclick="chkS03e10(this,'<')">&lt; (menor)</button>
+<button class="quiz-opt" onclick="chkS03e10(this,'=')">= (igual)</button>
+</div>
+<div class="feedback" id="s03e10fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> En la carrera, Ana corrió 3/4 del camino y Luis 1/2. ¿Quién ha corrido más? ¡3/4 > 1/2! Ana ha recorrido más.</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> No confundas 1/3 con 1/6. ¡1/3 es MÁS grande que 1/6! Imagina una barra de chocolate: si la partimos en 3, cada trozo es más grande que si la partimos en 6.</p></div>
+</div>
 
 <div class="chapter" id="ch4"><div class="card"><h2>📏 ¡El Perímetro! 🏗️</h2>
 <div class="teoria"><p><strong>El perímetro = suma de todos los lados</strong> 📐</p><p>Imagina poner una valla alrededor del jardín: ¡mide todos los lados y súmalos! 🏡</p><p><strong>Cuadrado:</strong> P = 4 × lado | <strong>Rectángulo:</strong> P = 2 × (largo + ancho)</p></div></div>
@@ -87,7 +207,42 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <button class="btn btn-primary" onclick="setShape('sq')">Cuadrado</button><button class="btn btn-primary" onclick="setShape('rect')">Rectángulo</button><button class="btn btn-primary" onclick="setShape('tri')">Triángulo</button></div>
 <div id="pCont"></div><div class="canvas-box"><canvas id="pc" width="400" height="280"></canvas></div>
 <div class="feedback" id="pFb">P = 20 cm</div></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Perímetro = suma de todos los lados 📏</li><li>Cuadrado: P = 4 × lado</li><li>Rectángulo: P = 2 × (largo + ancho)</li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Perímetro = suma de todos los lados 📏</li><li>Cuadrado: P = 4 × lado</li><li>Rectángulo: P = 2 × (largo + ancho)</li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e11" style="margin:1rem 0">
+<p><strong>Ejercicio 11 — Problema:</strong></p>
+<p>🏡 Quiero poner una valla alrededor de mi jardín rectangular. Mide 6 metros de largo y 4 metros de ancho. ¿Cuántos metros de valla necesito?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e11opts">
+<button class="quiz-opt" onclick="chkS03e11(this,10)">10 m</button>
+<button class="quiz-opt" onclick="chkS03e11(this,20)">20 m</button>
+<button class="quiz-opt" onclick="chkS03e11(this,24)">24 m</button>
+<button class="quiz-opt" onclick="chkS03e11(this,15)">15 m</button>
+</div>
+<div class="feedback" id="s03e11fb"></div>
+</div>
+<div id="s03e12" style="margin:1rem 0">
+<p><strong>Ejercicio 12 — Completar la fórmula:</strong></p>
+<p>Perímetro del cuadrado = ___ × lado</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e12opts">
+<button class="quiz-opt" onclick="chkS03e12(this,2)">2</button>
+<button class="quiz-opt" onclick="chkS03e12(this,3)">3</button>
+<button class="quiz-opt" onclick="chkS03e12(this,4)">4</button>
+<button class="quiz-opt" onclick="chkS03e12(this,8)">8</button>
+</div>
+<div class="feedback" id="s03e12fb"></div>
+</div>
+<div id="s03e13" style="margin:1rem 0">
+<p><strong>Ejercicio 13 — Verdadero o Falso:</strong></p>
+<p>Un cuadrado de lado 5 cm tiene perímetro 20 cm</p>
+<div style="display:flex;gap:.5rem;margin:.5rem 0">
+<button class="quiz-opt" onclick="chkS03e13(this,true)">✅ Verdadero</button>
+<button class="quiz-opt" onclick="chkS03e13(this,false)">❌ Falso</button>
+</div>
+<div class="feedback" id="s03e13fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> Tu papá quiere poner guirnaldas alrededor de la mesa rectangular de la fiesta. La mesa mide 2 m de largo y 1 m de ancho. ¿Cuántos metros de guirnalda necesita? ¡2 × (2 + 1) = 6 metros!</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> El perímetro se mide en unidades de longitud (cm, m), NO en cm². El área se mide en unidades cuadradas. ¡No los confundas!</p></div>
+</div>
 
 <div class="chapter" id="ch5"><div class="card"><h2>📈 ¡Estadística! 📊</h2>
 <div class="teoria"><p><strong>¿Cuántos caramelos de cada color?</strong> 🍬 La estadística organiza datos</p><p>Contar = tabla de datos + gráfico de barras 📊</p></div></div>
@@ -104,7 +259,33 @@ body.nz{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:linear-gr
 <div class="card"><h3>🧮 ¡Encuentra la media!</h3><div class="teoria"><p><strong>Media</strong> = suma ÷ cantidad. Ejemplo: (7+5+8+6+4)÷5 = 30÷5 = <strong>6</strong> 📊</p></div>
 <div class="slider-box"><input type="range" id="mn1" min="0" max="20" value="5" oninput="updMean()"><span class="val" id="mn1V">5</span><input type="range" id="mn2" min="0" max="20" value="8" oninput="updMean()"><span class="val" id="mn2V">8</span><input type="range" id="mn3" min="0" max="20" value="3" oninput="updMean()"><span class="val" id="mn3V">3</span><input type="range" id="mn4" min="0" max="20" value="12" oninput="updMean()"><span class="val" id="mn4V">12</span><input type="range" id="mn5" min="0" max="20" value="7" oninput="updMean()"><span class="val" id="mn5V">7</span></div>
 <div class="feedback" id="mFb2"></div></div>
-<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Estadística = organizar datos en tablas y gráficos 📊</li><li>Gráfico de barras = qué es más popular</li><li>Media = suma ÷ cantidad (promedio)</li></ul></div></div>
+<div class="card resumen-card"><h3>📋 ¿Qué aprendimos?</h3><ul><li>Estadística = organizar datos en tablas y gráficos 📊</li><li>Gráfico de barras = qué es más popular</li><li>Media = suma ÷ cantidad (promedio)</li></ul></div>
+<div class="card"><h3>🧠 ¡A ejercitarse!</h3>
+<div id="s03e14" style="margin:1rem 0">
+<p><strong>Ejercicio 14 — Encontrar la moda:</strong></p>
+<p>🍬 En una bolsa hay: 🔴 3 rojas, 🔵 7 azules, 🟢 3 verdes, 🟡 5 amarillas. ¿Cuál es el color más frecuente (la moda)?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e14opts">
+<button class="quiz-opt" onclick="chkS03e14(this,'roja')">🔴 Roja</button>
+<button class="quiz-opt" onclick="chkS03e14(this,'azul')">🔵 Azul</button>
+<button class="quiz-opt" onclick="chkS03e14(this,'verde')">🟢 Verde</button>
+<button class="quiz-opt" onclick="chkS03e14(this,'amarilla')">🟡 Amarilla</button>
+</div>
+<div class="feedback" id="s03e14fb"></div>
+</div>
+<div id="s03e15" style="margin:1rem 0">
+<p><strong>Ejercicio 15 — Interpretar datos:</strong></p>
+<p>📊 En una encuesta: Lunes=8, Martes=5, Miércoles=8, Jueves=3, Viernes=6. ¿Cuántos alumnos votaron en total?</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="s03e15opts">
+<button class="quiz-opt" onclick="chkS03e15(this,26)">26</button>
+<button class="quiz-opt" onclick="chkS03e15(this,30)">30</button>
+<button class="quiz-opt" onclick="chkS03e15(this,28)">28</button>
+<button class="quiz-opt" onclick="chkS03e15(this,32)">32</button>
+</div>
+<div class="feedback" id="s03e15fb"></div>
+</div>
+<div class="teoria" style="border-left-color:var(--naranja)"><p>🌍 <strong>Caso real:</strong> Tu clase votó por el destino de excursión: Playa=12, Montaña=8, Ciudad=5. ¿Dónde debe ir la clase? ¡A la playa, que ganó con 12 votos! Eso es la moda: el valor más frecuente.</p></div>
+<div class="ejemplo" style="border-left-color:var(--rojo)"><p>⚠️ <strong>Error común:</strong> La media (promedio) NO es lo mismo que la moda (lo más frecuente). Si las notas son 5, 5, 8, la moda es 5 (aparece más veces) y la media es (5+5+8)÷3 = 6. ¡Son cosas distintas!</p></div>
+</div>
 
 <div class="nav" style="display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
 <a href="s02-2primaria.html" style="color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px">← 2º Primaria</a>
@@ -138,4 +319,111 @@ function calcPerim(){const c=document.getElementById('pc'),x=c.getContext('2d');
 function updStats(){const a=+document.getElementById('sa').value,b=+document.getElementById('sb').value,cc=+document.getElementById('sc').value,d=+document.getElementById('sd').value;document.getElementById('saV').textContent=a;document.getElementById('sbV').textContent=b;document.getElementById('scV').textContent=cc;document.getElementById('sdV').textContent=d;const c=document.getElementById('sc2'),x=c.getContext('2d');x.clearRect(0,0,400,250);const data=[{v:a,e:'🍎',n:'Manzanas'},{v:b,e:'🍌',n:'Plátanos'},{v:cc,e:'🍊',n:'Naranjas'},{v:d,e:'🍇',n:'Uvas'}],mx=Math.max(...data.map(y=>y.v),1),bw=60,gap=30,sx=50;x.lineWidth=1;x.beginPath();x.moveTo(sx,20);x.lineTo(sx,210);x.stroke();x.beginPath();x.moveTo(sx,210);x.lineTo(390,210);x.stroke();const colors=['#ef4444','#eab308','#f97316','#8b5cf6'];data.forEach((item,i)=>{const bx=sx+i*(bw+gap),bh=(item.v/mx)*180;x.fillStyle=colors[i];x.fillRect(bx,210-bh,bw,bh);x.fillStyle='#1e293b';x.font='bold 16px sans-serif';x.textAlign='center';x.fillText(item.v,bx+bw/2,200-bh);x.font='12px sans-serif';x.fillText(item.e+item.n,bx+bw/2,225)});const total=a+b+cc+d,mxI=data.reduce((a,b)=>a.v>b.v?a:b);document.getElementById('sFb').textContent='Total: '+total+' frutas | Popular: '+mxI.e+' '+mxI.n}
 function updMean(){const ids=['mn1','mn2','mn3','mn4','mn5'],vals=ids.map(id=>+document.getElementById(id).value);ids.forEach((id,i)=>document.getElementById(id+'V').textContent=vals[i]);const sum=vals.reduce((a,b)=>a+b,0),mean=(sum/vals.length).toFixed(1);document.getElementById('mFb2').textContent='('+vals.join(' + ')+') ÷ '+vals.length+' = '+sum+' ÷ '+vals.length+' = '+mean}
 updMult();
+
+// === EJERCICIOS S03-3 ===
+function chkS03e1(btn,ans){
+  const correct=5;
+  document.querySelectorAll('#s03e1opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e1fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 4×5=20 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='No: 4×5=20. ¡4×4=16, 4×6=24! 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e2(btn,ans){
+  const correct=true;
+  document.querySelectorAll('#s03e2 .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e2fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 7+7+7=21 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='¡Es verdadero! 7×3=21 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e3(btn,ans){
+  const correct=18;
+  document.querySelectorAll('#s03e3opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e3fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 6×3=18 cuadernos 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='6+6+6=18. ¡Piensa en 3 mochilas de 6! 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e4(btn,ans){
+  const correct=true;
+  document.querySelectorAll('#s03e4 .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e4fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 6×4=24, luego 24÷6=4 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='¡Es verdadero! 24÷6=4 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e5(btn,ans){
+  const correct=6;
+  document.querySelectorAll('#s03e5opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e5fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 18÷6=3, porque 3×6=18 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='Piensa: ___ × 3 = 18. ¡6×3=18! 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e6(btn,ans){
+  const correct=3;
+  document.querySelectorAll('#s03e6opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e6fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 21÷7=3 amigos 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='21÷7=3. ¡3 amigos con 7 chocolates cada uno! 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e7(btn,ans){
+  const correct='2/8';
+  document.querySelectorAll('#s03e7opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e7fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 2 de 8 trozos = 2/8 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='Te comiste 2 de 8 trozos = 2/8 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e8(btn,ans){
+  const correct=3;
+  document.querySelectorAll('#s03e8opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e8fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 3 de 10 = 3/10 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='3 lápices rojos de 10 totales = 3/10 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e9(btn,ans){
+  const correct='1/4, 1/2, 3/4';
+  document.querySelectorAll('#s03e9opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e9fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 1/4 < 1/2 < 3/4 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='Recuerda: más partes = trozo más pequeño. 1/4 < 1/2 < 3/4 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e10(btn,ans){
+  const correct='>';
+  document.querySelectorAll('#s03e10 .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e10fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! Mismo denominador: 5 > 3, luego 5/8 > 3/8 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='Mismo denominador (8): 5 > 3, así que 5/8 > 3/8 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e11(btn,ans){
+  const correct=20;
+  document.querySelectorAll('#s03e11opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e11fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! P = 2×(6+4) = 2×10 = 20 m 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='P = 2×(6+4) = 2×10 = 20 m 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e12(btn,ans){
+  const correct=4;
+  document.querySelectorAll('#s03e12opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e12fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! P = 4 × lado 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='Un cuadrado tiene 4 lados iguales: P = 4 × lado 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e13(btn,ans){
+  const correct=true;
+  document.querySelectorAll('#s03e13 .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e13fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! P = 4×5 = 20 cm 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='¡Es verdadero! 4×5=20 cm 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e14(btn,ans){
+  const correct='azul';
+  document.querySelectorAll('#s03e14opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e14fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 🔵 Azul con 7 es la moda (lo más frecuente) 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='La moda es lo más frecuente: 🔵 Azul con 7 🤔';fb.className='feedback incorrect'}
+}
+function chkS03e15(btn,ans){
+  const correct=30;
+  document.querySelectorAll('#s03e15opts .quiz-opt').forEach(b=>{b.disabled=true;b.style.cursor='default'});
+  const fb=document.getElementById('s03e15fb');
+  if(ans===correct){btn.classList.add('correct-opt');fb.textContent='¡Correcto! 8+5+8+3+6 = 30 alumnos 🌟';fb.className='feedback correct'}
+  else{btn.classList.add('wrong-opt');fb.textContent='8+5+8+3+6 = 30 alumnos 🤔';fb.className='feedback incorrect'}
+}
 </script></body></html>
