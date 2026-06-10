@@ -77,7 +77,12 @@ Un porcentaje es una parte de 100. 50% = 50/100 = la mitad.
 <h2 class="chapter-title">1️⃣ ¿Qué es un porcentaje?</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-Un porcentaje es una parte de 100. 50% = 50/100 = 0.5 = la mitad. Para calcular el 10% de un número, dividimos entre 10.
+<div style="margin-top:.5rem">
+<strong>1. ¿Qué es?</strong> Un porcentaje es una fracción con denominador 100. 25% significa 25 de cada 100.<br>
+<strong>2. ¿Para qué sirve?</strong> Para descuentos en tiendas, notas del examen, estadísticas del tiempo (70% probabilidad de lluvia), y muchas cosas más.<br>
+<strong>3. ¿Cómo se hace?</strong> 10% = dividir entre 10. 50% = dividir entre 2. 25% = dividir entre 4. Para otros: número × porcentaje ÷ 100.<br>
+<strong>4. Error común:</strong> Confundir 10% de 200 con 10% de 20. ¡El 10% de 200 es 20, pero el 10% de 20 es solo 2! Siempre aplica el porcentaje al número correcto.
+</div>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -143,13 +148,44 @@ Un porcentaje es una parte de 100. 50% = 50/100 = 0.5 = la mitad. Para calcular 
 <button class="quiz-btn" onclick="checkExercise(this, false)">50</button>
 </div>
 </div>
-
+<div class="exercise">
+<p>🛍️ Caso real: Una camiseta cuesta 40 € y tiene un 25% de descuento. ¿Cuánto ahorras?</p>
+<p style="font-size:.9rem;color:#64748b">Pista: 25% de 40 = 40 ÷ 4</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">10 €</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15 €</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20 €</button>
+</div>
+</div>
+<div class="exercise">
+<p>📝 Completa: 10% de 350 = ___</p>
+<div style="display:flex;gap:.5rem;align-items:center">
+<input type="number" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result14"></div>
+</div>
+<div class="exercise">
+<p>✅❓ ¿Verdadero o Falso? 20% de 150 = 30</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Confundir "el 20% de 150" con "150% de 20". El primero es 30 (20% × 150 ÷ 100), el segundo es 300. ¡El número después de "de" es siempre el total al que aplicas el porcentaje!
 </div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Porcentaje = parte de 100</li></li><li><li>10% = dividir entre 10</li></li><li><li>50% = dividir entre 2</li></li><li><li>¡Ya sabes porcentajes! 🎉</li>
+<li>Porcentaje = parte de cada 100</li>
+<li>10% = dividir entre 10, 50% = dividir entre 2, 25% = dividir entre 4</li>
+<li>Los descuentos, notas y estadísticas usan porcentajes todos los días</li>
+<li>Para calcular cualquier porcentaje: número × porcentaje ÷ 100</li>
+<li>Error común: confundir "X% de Y" con "Y% de X"</li>
+<li>¡Ya sabes porcentajes! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -193,6 +229,39 @@ function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+function checkCompleta() {
+  const input = document.getElementById('e14');
+  const result = document.getElementById('result14');
+  const val = parseInt(input.value);
+  if(val === 35) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 10% de 350 = 350 ÷ 10 = 35';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. Pista: 10% = dividir entre 10. 350 ÷ 10 = ?';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 20% de 150 = 150 × 20 ÷ 100 = 30';
+    div.appendChild(res);
+  } else {
+    btn.classList.add('wrong');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result fail';
+    res.textContent = '❌ Falso. 20% de 150 = 150 × 20 ÷ 100 = 30. ¡Es VERDADERO!';
+    div.appendChild(res);
+  }
 }
 
 window.onscroll = function(){

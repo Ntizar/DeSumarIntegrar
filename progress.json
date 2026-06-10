@@ -1399,21 +1399,27 @@
       "improvement_count": 1
     },
     "s05-7-porcentajes.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "5º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 caso real camiseta descuento, +1 completar hueco (10% de 350), +1 V/F (20% de 150), +1 caja error común (X% de Y vs Y% de X), +6 puntos resumen, +3 funciones JS nuevas"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 3,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s05-9-tiempo-calendarios.html": {
       "status": "pending",
