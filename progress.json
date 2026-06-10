@@ -869,21 +869,27 @@
       "improvement_count": 0
     },
     "s02-3-intro-multiplicacion.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+4 ejercicios variados (ordenar resultados ×2, completar suma repetida ×2, problema fiesta cumpleaños), +1 caso real panadería, +1 caja conexión (multiplicación×suma repetida), +1 truco mnemotécnico, resumen ampliado a 8 puntos, eliminados 2 ejercicios quiz repetitivos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 12,
+        "visual": 4,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s02-4-tablas-1-5.html": {
       "status": "pending",
