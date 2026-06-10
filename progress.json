@@ -1305,21 +1305,27 @@
       "improvement_count": 0
     },
     "s05-5-areas-perimetros.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "5º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+8 ejercicios variados (completar hueco ×2, V/F ×2, problema contextual ×2, ordenar, inverso), +3 explicaciones estructuradas (área/perímetro/figuras compuestas), +3 casos reales (moqueta habitación, valla jardín, pintura pared), +1 canvas interactivo figuras L/T/H, +2 cajas conexión (multiplicación, restas), +1 caja error común, resumen ampliado 8 puntos, corregido HTML roto <li> anidados"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 6,
+        "real_world": 10,
+        "connections": 4,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s05-7-porcentajes.html": {
       "status": "pending",
