@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-7primaria.html",
+  "last_improved": "s03-3primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 18,
+  "total_runs": 19,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_1",
@@ -376,21 +376,27 @@
       "improvement_count": 1
     },
     "s03-3primaria.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "3º Primaria",
       "priority": 1,
       "category": "primaria_3",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+15 ejercicios variados (completar hueco ×5, V/F ×5, problema ×4, ordenar ×1, moda/media ×2), +6 casos reales (supermercado, galletas, pizza, valla jardín, excursión, chocolates), +6 cajas error común (×≠+, división≠resto, 1/4>1/2, perímetro≠área, media≠moda)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 15,
+        "text": 12,
+        "visual": 6,
+        "real_world": 12,
+        "connections": 6,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s04-4primaria.html": {
       "status": "pending",
