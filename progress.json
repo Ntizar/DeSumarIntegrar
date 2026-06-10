@@ -93,7 +93,7 @@
       "improvement_count": 2
     },
     "s01-4primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -102,18 +102,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "9 ejercicios interactivos nuevos (e4-e12) con emojis (pizza, muffins, globos, galletas, estrellas, cromos, rosas, peces, manzanas), 5 casos vida real (pizza, videojuegos, zumo, jardín, biblioteca), 2 explicaciones pedagógicas (división×multiplicación inversas, truco tablas multiplicar), 1 visualización interactiva CSS con emojis, resumen ampliado"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+3 ejercicios variados (completar hueco, V/F, ordenar), +3 ejercicios nuevos (quiz botones, problema inverso ×2, completar hueco inverso), +1 explicación estructurada 4 pasos, +1 caja error común (÷ vs ×), +3 funciones JS nuevas (checkVF, checkOrden, checkQuiz, checkE14)"
         }
       ],
       "scores": {
-        "exercises": 12,
-        "text": 10,
-        "visual": 3,
-        "real_world": 7,
-        "connections": 2,
-        "difficulty_range": 5
+        "exercises": 15,
+        "text": 12,
+        "visual": 5,
+        "real_world": 8,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-5primaria.html": {
       "status": "improved_1",
