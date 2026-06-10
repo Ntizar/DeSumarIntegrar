@@ -32,6 +32,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .exercises{margin:1.5rem 0}
 .exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
 .exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise input[type="number"]{padding:.4rem .6rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:80px;text-align:center}
 .solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
 .solution.show{display:block}
 .toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
@@ -50,6 +51,18 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.vf-buttons{display:flex;gap:.8rem;justify-content:center;margin:.8rem 0}
+.vf-btn{padding:.5rem 2rem;border-radius:8px;border:2px solid;font-size:1rem;font-weight:600;cursor:pointer;background:#fff}
+.vf-btn.vf-true{border-color:var(--verde);color:var(--verde)}
+.vf-btn.vf-false{border-color:var(--rojo);color:var(--rojo)}
+.vf-btn.correct{background:var(--verde)!important;color:#fff!important;border-color:var(--verde)!important}
+.vf-btn.wrong{background:var(--rojo)!important;color:#fff!important;border-color:var(--rojo)!important}
+.order-list{list-style:none;padding:0;margin:.8rem 0}
+.order-list li{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border:2px solid #e2e8f0;border-radius:8px;display:flex;align-items:center;gap:.5rem}
+.order-list li .num{background:var(--azul);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700}
+.order-input{width:90px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem}
+.problem-box{background:var(--naranja-claro);border:2px solid var(--naranja);border-radius:10px;padding:1rem;margin:.8rem 0}
+.problem-box p{font-style:italic;margin-bottom:.5rem}
 </style>
 </head>
 <body>
@@ -62,109 +75,197 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- INTRO -->
 <section class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Los decimales son partes de una unidad. 0.5 = 5/10 = la mitad.
+Los decimales son partes de una unidad. 0.5 = 5/10 = la mitad. ¡Los usamos todos los días con el dinero y las medidas!
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Entender qué es un decimal</li><li>Leer y escribir decimales</li><li>Relación con fracciones</li>
+<li>Entender qué es un decimal</li><li>Leer y escribir decimales</li><li>Relación con fracciones</li><li>Usar decimales en la vida real</li>
 </ul>
 </section>
+
+<!-- EXPLICACIÓN ESTRUCTURADA -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ ¿Qué son los decimales?</h2>
+<h2 class="chapter-title">📖 ¿Qué son los decimales?</h2>
+
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Un decimal es una forma de escribir fracciones con denominador 10, 100, 1000... 0.5 = 5/10 (medio), 0.25 = 25/100 (cuarto).
+<strong>1️⃣ ¿Qué es?</strong>
+Un decimal es otra forma de escribir una fracción con denominador 10, 100, 1000... La coma separa la parte entera de la parte decimal.
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-0.1 = 1/10 (una décima)<br>0.01 = 1/100 (una centésima)<br>0.001 = 1/1000 (una milésima)
+<strong>2️⃣ ¿Para qué sirve?</strong>
+Imagina que vas al supermercado: un yogur cuesta 0,75€. Eso significa 75 céntimos, o 75/100 de un euro. ¡Sin decimales no podríamos poner precios exactos!
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-0.5 = 5/10 = 1/2 (medio)<br>0.25 = 25/100 = 1/4 (un cuarto)<br>0.75 = 75/100 = 3/4 (tres cuartos)
+<strong>3️⃣ ¿Cómo se lee?</strong>
+- 0,1 → "cero coma uno" = una décima = 1/10
+- 0,01 → "cero coma cero uno" = una centésima = 1/100
+- 1,5 → "uno coma cinco" = uno y medio = 1 + 5/10
+- 2,75 → "dos coma setenta y cinco" = 2 + 75/100
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-1.5 = 1 + 0.5 = 1 y medio<br>2.75 = 2 + 0.75 = 2 y tres cuartos
+
+<div class="box box-teoria">
+<strong>4️⃣ Relación con fracciones</strong>
+0,5 = 5/10 = 1/2 (medio)<br>
+0,25 = 25/100 = 1/4 (un cuarto)<br>
+0,75 = 75/100 = 3/4 (tres cuartos)<br>
+0,1 = 1/10 (una décima)<br>
+0,01 = 1/100 (una centésima)
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Muchos piensan que 0,10 es mayor que 0,1 porque tiene más cifras. ¡NO! 0,10 = 0,1 = 1/10. Los ceros a la derecha del último número decimal NO cambian el valor. Es como decir "10 centésimas" vs "1 décima": ¡son lo mismo!
 </div>
 </section>
+
+<!-- CASO REAL -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Convierte decimales!</h2>
+<h2 class="chapter-title">🛒 Caso real: El supermercado</h2>
+<div class="problem-box">
+<p>🍎 Laura va al supermercado con 5€. Compra:</p>
+<p>• Un yogur: 0,75€<br>
+• Una manzana: 0,50€<br>
+• Un zumo: 1,25€</p>
+<p><strong>¿Cuánto gasta en total? ¿Le queda dinero?</strong></p>
+<button class="toggle-btn" onclick="showSolution('solSupermercado')">Ver solución</button>
+<div class="solution" id="solSupermercado">
+<strong>Respuesta:</strong> 0,75 + 0,50 + 1,25 = 2,50€. Gasta 2,50€ y le quedan 5,00 - 2,50 = 2,50€. ¡La mitad le vuelve a casa! 🏠
+</div>
+</div>
+</section>
+
+<!-- INTERACTIVO -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 Convierte decimales</h2>
 <div class="interactive">
 <h3>Selecciona la fracción correcta:</h3>
 <div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="decDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="decButtons"></div></div>
 <div class="result" id="interactiveResult"></div>
+<button onclick="newDec()" style="margin-top:.5rem">🔄 Otro decimal</button>
 </div>
 </section>
+
+<!-- EJERCICIOS VARIADOS -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- E1: Quiz botón (ya existía, lo mantengo) -->
 <div class="exercise">
-<p>0.5 es igual a...</p>
+<p>1️⃣ 0,5 es igual a...</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">5/10</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">5/100</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">1/5</button>
 </div>
 </div>
+
+<!-- E2: Completar hueco (NUEVO TIPO) -->
 <div class="exercise">
-<p>0.25 es igual a...</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">25/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">25/100</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/10</button>
+<p>2️⃣ Completa: 0,25 = <input type="number" id="e2a" min="0" max="999"> / 100</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Pista: piensa en cuántos ceros tiene la parte decimal (0,25 tiene 2 cifras → denominador 100)</p>
+<button onclick="checkE2()">Comprobar</button>
+<div class="solution" id="solE2">✅ ¡Correcto! 0,25 = 25/100. Los dos ceros tras la coma nos dicen que el denominador es 100.</div>
 </div>
-</div>
+
+<!-- E3: Completar hueco diferente (NUEVO TIPO) -->
 <div class="exercise">
-<p>0.1 es igual a...</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/100</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10/1</button>
+<p>3️⃣ Completa: 0,3 = <input type="number" id="e3" min="0" max="999"> / 10</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Pista: 0,3 tiene una cifra tras la coma → denominador 10</p>
+<button onclick="checkE3()">Comprobar</button>
+<div class="solution" id="solE3">✅ ¡Correcto! 0,3 = 3/10. Una cifra tras la coma = décimas = /10.</div>
 </div>
-</div>
+
+<!-- E4: Verdadero/Falso (NUEVO TIPO) -->
 <div class="exercise">
-<p>1.5 es igual a...</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">15/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">15/100</button>
+<p>4️⃣ ¿Verdadero o falso? 0,1 = 1/10</p>
+<div class="vf-buttons">
+<button class="vf-btn vf-true" onclick="checkVF(this, true, 'solE4')">✅ Verdadero</button>
+<button class="vf-btn vf-false" onclick="checkVF(this, false, 'solE4')">❌ Falso</button>
 </div>
+<div class="solution" id="solE4">✅ ¡Verdadero! 0,1 = 1/10 (una décima). La coma separa las décimas.</div>
 </div>
+
+<!-- E5: Verdadero/Falso — error común (NUEVO TIPO) -->
 <div class="exercise">
-<p>0.01 es igual a...</p>
+<p>5️⃣ ¿Verdadero o falso? 0,10 > 0,1</p>
+<div class="vf-buttons">
+<button class="vf-btn vf-true" onclick="checkVF(this, false, 'solE5')">✅ Verdadero</button>
+<button class="vf-btn vf-false" onclick="checkVF(this, true, 'solE5')">❌ Falso</button>
+</div>
+<div class="solution" id="solE5">❌ Falso. 0,10 = 0,1 = 1/10. Los ceros a la derecha no cambian el valor. ¡Cuidado con este error!</div>
+</div>
+
+<!-- E6: Ordenar números (NUEVO TIPO) -->
+<div class="exercise">
+<p>6️⃣ Ordena de menor a mayor: 0,5 &nbsp;|&nbsp; 0,05 &nbsp;|&nbsp; 0,50 &nbsp;|&nbsp; 0,15</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Pista: escribe los números con el mismo número de cifras: 0,50 | 0,05 | 0,50 | 0,15</p>
+<input type="text" id="e6" placeholder="Ej: 0,05; 0,15; 0,5; 0,50" style="width:100%;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem">
+<button onclick="checkE6()" style="margin-left:.5rem">Comprobar</button>
+<div class="solution" id="solE6">✅ Orden correcto: 0,05 &lt; 0,15 &lt; 0,5 = 0,50. <br>Recuerda: 0,5 = 0,50 (son lo mismo). Compara cifra a cifra: 0,05 tiene 0 décimas, es el menor.</div>
+</div>
+
+<!-- E7: Problema contextual (NUEVO TIPO) -->
+<div class="exercise">
+<div class="problem-box">
+<p>🏃 Pablo corre 0,75 km por la mañana y 0,25 km por la tarde. ¿Cuántos kilómetros corre en total?</p>
+</div>
+<button onclick="checkE7()">Verificar</button>
+<div class="solution" id="solE7">✅ 0,75 + 0,25 = 1,00 km. ¡Pablo corre exactamente 1 kilómetro al día! 🏁</div>
+</div>
+
+<!-- E8: Quiz botón diferente (NUEVO TIPO) -->
+<div class="exercise">
+<p>8️⃣ ¿Cuál es mayor: 0,9 o 0,11?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/100</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10/100</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0,9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0,11</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Son iguales</button>
 </div>
 </div>
 
 </div>
 </section>
+
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>0.1 = 1/10 (décima)</li></li><li><li>0.01 = 1/100 (centésima)</li></li><li><li>Los decimales son fracciones especiales</li></li><li><li>¡Ya sabes decimales! 🎉</li>
+<li>Los decimales son fracciones con denominador 10, 100, 1000... (0,5 = 5/10 = 1/2)</li>
+<li>La coma separa la parte entera de la decimal (1,5 = 1 + 5/10)</li>
+<li>Una cifra tras la coma = décimas (/10), dos cifras = centésimas (/100)</li>
+<li>0,1 = 0,10 = 0,100 — los ceros a la derecha no cambian el valor</li>
+<li>0,9 > 0,11 — no compares el número de cifras, compara valor a valor</li>
+<li>Los decimales están en el dinero: 0,75€ = 75 céntimos</li>
+<li>Para sumar decimales, alinea la coma y suma como con números enteros</li>
+<li>Para ordenar decimales, escribe con la misma cantidad de cifras y compara</li>
 </ul>
 </div>
+
+<!-- NAVEGACIÓN -->
 <div class="nav">
 <a href="s04-4-fracciones-equivalentes.html">← Anterior</a>
-  <a href="s04-4primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-<a href="s04-5-estadistica-distribuciones-discretas.html">Siguiente →</a>
+<a href="s04-4primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s04-6-areas.html">Siguiente →</a>
 </div>
 </main>
 <footer class="footer">
 Hecho con ❤️ por David Antizar
 </footer>
+
 <script>
 
+// --- Interactive decimal converter ---
 function newDec() {
-  const decs = [{d:'0.5',f:'5/10'},{d:'0.25',f:'25/100'},{d:'0.1',f:'1/10'},{d:'1.5',f:'15/10'},{d:'0.01',f:'1/100'},{d:'0.75',f:'75/100'}];
+  const decs = [{d:'0,5',f:'5/10'},{d:'0,25',f:'25/100'},{d:'0,1',f:'1/10'},{d:'1,5',f:'15/10'},{d:'0,01',f:'1/100'},{d:'0,75',f:'75/100'}];
   const dec = decs[Math.floor(Math.random()*decs.length)];
   document.getElementById('decDisplay').textContent = '¿Qué fracción es ' + dec.d + '?';
   const opts = [dec.f, '1/2', '1/4', '1/10', '1/100', '2/5', '3/4'];
@@ -193,12 +294,84 @@ function newDec() {
   document.getElementById('interactiveResult').textContent = '';
 }
 newDec();
+
+// --- Exercise checkers ---
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
 }
 
+function checkVF(btn, isCorrect, solId) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(isCorrect) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+  document.getElementById(solId).classList.add('show');
+}
+
+function checkE2() {
+  const val = document.getElementById('e2a').value.trim();
+  const sol = document.getElementById('solE2');
+  if(val === '25') {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--verde-claro)';
+    sol.innerHTML = '✅ ¡Correcto! 0,25 = 25/100. Los dos ceros tras la coma nos dicen que el denominador es 100.';
+  } else {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--rojo-claro)';
+    sol.innerHTML = '❌ La respuesta es 25. 0,25 tiene dos cifras tras la coma → denominador 100 → numerador 25.';
+  }
+}
+
+function checkE3() {
+  const val = document.getElementById('e3').value.trim();
+  const sol = document.getElementById('solE3');
+  if(val === '3') {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--verde-claro)';
+    sol.innerHTML = '✅ ¡Correcto! 0,3 = 3/10. Una cifra tras la coma = décimas = /10.';
+  } else {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--rojo-claro)';
+    sol.innerHTML = '❌ La respuesta es 3. 0,3 tiene una cifra tras la coma → denominador 10 → numerador 3.';
+  }
+}
+
+function checkE6() {
+  const val = document.getElementById('e6').value.trim().replace(/\s/g, '');
+  // Accept various orderings that are mathematically correct
+  const sol = document.getElementById('solE6');
+  // Normalize: accept both comma and period
+  const normalized = val.replace(/\./g, ',');
+  const correctPatterns = [
+    '0,05;0,15;0,5;0,50',
+    '0,05;0,15;0,50;0,5',
+    '0,05,0,15,0,5,0,50',
+    '0,05,0,15,0,50,0,5'
+  ];
+  if (correctPatterns.includes(normalized)) {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--verde-claro)';
+    sol.innerHTML = '✅ ¡Correcto! Orden: 0,05 &lt; 0,15 &lt; 0,5 = 0,50.';
+  } else {
+    sol.className = 'solution show';
+    sol.style.background = 'var(--rojo-claro)';
+    sol.innerHTML = '❌ El orden correcto es: 0,05 &lt; 0,15 &lt; 0,5 = 0,50. Recuerda: 0,5 = 0,50.';
+  }
+}
+
+function checkE7() {
+  const sol = document.getElementById('solE7');
+  sol.className = 'solution show';
+  sol.style.background = 'var(--verde-claro)';
+  sol.innerHTML = '✅ 0,75 + 0,25 = 1,00 km. ¡Pablo corre exactamente 1 kilómetro al día! 🏁';
+}
+
+// --- Progress bar ---
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;

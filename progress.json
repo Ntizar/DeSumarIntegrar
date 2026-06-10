@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-1primaria.html",
+  "last_improved": "s01-2primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 22,
+  "total_runs": 23,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -32,7 +32,7 @@
       "improvement_count": 2
     },
     "s01-2primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -41,18 +41,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "4 ejercicios interactivos con emojis (globos, pizza, estrellas, peces), 2 casos reales (manzanas, juguetes), 2 analogías vida real (helado, estrellas), 1 juego canvas animales, desafío final granja"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+4 ejercicios variados (completar hueco, V/F, quiz botones, ordenar), +1 explicación 4 pasos, +1 caso real heladería, +1 caja error común, +1 caja conexión, summary 7 puntos"
         }
       ],
       "scores": {
-        "exercises": 7,
-        "text": 8,
-        "visual": 2,
-        "real_world": 5,
-        "connections": 0,
-        "difficulty_range": 3
+        "exercises": 12,
+        "text": 12,
+        "visual": 3,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-3primaria.html": {
       "status": "improved_1",
