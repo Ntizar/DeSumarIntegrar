@@ -53,6 +53,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-pattern{width:60px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center;font-weight:700}
+.input-pattern:focus{outline:none;border-color:var(--naranja);box-shadow:0 0 0 3px rgba(249,115,22,.2)}
 </style>
 </head>
 <body>
@@ -211,6 +213,9 @@ Un patrón es una <b>secuencia que se repite</b>. Si sabes cómo empieza, ¡sabe
 <div class="box box-idea">
 <strong>⚠️ Error común</strong>
 No confundir <b>patrón</b> con <b>aleatorio</b>. Si no hay repetición, no es patrón. Ejemplo: 🔴🟡🟢🔵 no es un patrón, ¡es un desorden!
+
+<strong>🔗 Conexión con el futuro</strong>
+Los patrones son la base del <b>álgebra</b>. Cuando en 1º ESO veas "x, x+2, x+4, x+6", eso es un patrón. ¡Ya sabes lo que es!
 </div>
 
 <div class="exercises">
@@ -280,6 +285,56 @@ No confundir <b>patrón</b> con <b>aleatorio</b>. Si no hay repetición, no es p
 
 </div>
 
+<!-- NUEVOS EJERCICIOS MEJORA -->
+<div class="exercises">
+
+<div class="exercise">
+<p>✏️ <b>Completa el hueco:</b> En el patrón 3, 6, 9, 12, ___ el siguiente número es:</p>
+<div style="display:flex;align-items:center;gap:.8rem;margin:.5rem 0">
+<input type="number" class="input-pattern" id="patInput1" placeholder="?">
+<button class="quiz-btn" style="background:var(--azul);color:#fff;border:none" onclick="checkInputPat1()">Comprobar</button>
+</div>
+<div class="result" id="patResult1"></div>
+</div>
+
+<div class="exercise">
+<p>🪑 <b>Problema de la clase:</b> La profesora pone las sillas en este patrón: roja, azul, roja, azul, roja, azul... Si empieza con la roja (silla 1), ¿de qué color es la silla número 7?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">🔴 Roja</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">🔵 Azul</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">🟢 Verde</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🔙 <b>Patrón inverso:</b> Completa el primer número: ___, 10, 15, 20, 25</p>
+<div style="display:flex;align-items:center;gap:.8rem;margin:.5rem 0">
+<input type="number" class="input-pattern" id="patInput2" placeholder="?">
+<button class="quiz-btn" style="background:var(--azul);color:#fff;border:none" onclick="checkInputPat2()">Comprobar</button>
+</div>
+<div class="result" id="patResult2"></div>
+</div>
+
+<div class="exercise">
+<p>🔗 <b>Conexión con sumas:</b> Si el patrón es +2 (2, 4, 6, 8, 10), ¿cuánto es 10 + 2?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🎨 <b>¿Qué patrón es?</b> Mira esta secuencia: 🟩🟨🟩🟨🟩🟨. ¿Qué tipo de patrón es?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">AB (alternado)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">AAB (dos-uno)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">AAA (tres-igual)</button>
+</div>
+</div>
+
+</div>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
@@ -288,6 +343,8 @@ No confundir <b>patrón</b> con <b>aleatorio</b>. Si no hay repetición, no es p
 <li>Si encuentras la regla del patrón, puedes predecir lo que sigue</li>
 <li>Los patrones están en la música, la ropa, los días de la semana y la naturaleza</li>
 <li>No confundir patrón con desorden: si no se repite, no es patrón</li>
+<li>Puedes encontrar patrones al revés: si falta el primer número, ¡también puedes descubrirlo!</li>
+<li>Los patrones numéricos son la base de las sumas y restas repetidas</li>
 <li>¡Los patrones son como acertijos divertidos! 🎉</li>
 </ul>
 </div>
@@ -391,6 +448,36 @@ function checkOrden(btn, correct){
     btn.classList.add('correct');
   } else {
     btn.classList.add('wrong');
+  }
+}
+
+function checkInputPat1(){
+  const input = document.getElementById('patInput1');
+  const result = document.getElementById('patResult1');
+  const val = parseInt(input.value);
+  if(val === 15){
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! El patrón es +3: 3, 6, 9, 12, 15';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No es correcto. Pista: ¿cuánto sumas cada vez? 3→6 (+3), 6→9 (+3)...';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
+function checkInputPat2(){
+  const input = document.getElementById('patInput2');
+  const result = document.getElementById('patResult2');
+  const val = parseInt(input.value);
+  if(val === 5){
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! El patrón es +5: 5, 10, 15, 20, 25';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No es correcto. Pista: ¿cuánto hay entre 10 y 15? 15-10=5, así que antes de 10 va 10-5=';
+    input.style.borderColor = 'var(--rojo)';
   }
 }
 
