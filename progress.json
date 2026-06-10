@@ -1,10 +1,10 @@
 {
-  "last_improved": "s03-4-comparar-fracciones.html",
+  "last_improved": "s01-1primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 21,
+  "total_runs": 22,
   "topics": {
     "s01-1primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -13,18 +13,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "7 ejercicios interactivos con emojis, 3 explicaciones vida real (cocina, parque, dinero), 1 canvas interactivo de animales, CSS quiz-options"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+6 ejercicios variados (input numérico, completar hueco, V/F, problema contextual, ordenar, problema inverso), +1 explicación estructurada 4 pasos, +2 casos reales (supermercado, fútbol), +1 caja error común, +1 caja conexión, eliminados 7 ejercicios repetitivos + 1 resta errónea"
         }
       ],
       "scores": {
-        "exercises": 10,
-        "text": 8,
+        "exercises": 6,
+        "text": 12,
         "visual": 3,
-        "real_world": 4,
-        "connections": 0,
-        "difficulty_range": 2
+        "real_world": 8,
+        "connections": 1,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-2primaria.html": {
       "status": "improved_1",
