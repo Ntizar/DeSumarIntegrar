@@ -18,18 +18,23 @@
           "run": 2,
           "date": "2026-06-10",
           "added": "+6 ejercicios variados (input numérico, completar hueco, V/F, problema contextual, ordenar, problema inverso), +1 explicación estructurada 4 pasos, +2 casos reales (supermercado, fútbol), +1 caja error común, +1 caja conexión, eliminados 7 ejercicios repetitivos + 1 resta errónea"
+        },
+        {
+          "run": 3,
+          "date": "2026-06-10",
+          "added": "+2 ejercicios nuevos (emparejar sumas iguales, conteo visual emojis), +1 caso real cocina, +1 línea numérica interactiva canvas, +1 caja error común (contar dos veces), +1 conexión sumar-restar inversas, +7 puntos resumen, +3 funciones JS nuevas"
         }
       ],
       "scores": {
-        "exercises": 6,
+        "exercises": 8,
         "text": 12,
-        "visual": 3,
-        "real_world": 8,
-        "connections": 1,
-        "difficulty_range": 6
+        "visual": 5,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 3
     },
     "s01-2primaria.html": {
       "status": "improved_2",

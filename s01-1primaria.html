@@ -205,6 +205,29 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="feedback" id="e6-fb"></div>
 <p style="font-size:0.9rem;color:#64748b;margin-top:0.3rem">💡 Piensa: 8 + ¿qué número = 15?</p>
 </div>
+
+<!-- Tipo 7: Emparejar sumas iguales (quiz visual) -->
+<div class="exercise">
+<p><strong>Ejercicio 7:</strong> 🧩 ¿Qué suma es IGUAL a 5 + 3?</p>
+<div class="quiz-options">
+<button onclick="checkMatch(this, false)">4 + 4</button>
+<button onclick="checkMatch(this, true)">6 + 2</button>
+<button onclick="checkMatch(this, false)">7 + 3</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+<p style="font-size:0.9rem;color:#64748b;margin-top:0.3rem">💡 5+3=8. Busca la que también dé 8.</p>
+</div>
+
+<!-- Tipo 8: Completar con emoji visual -->
+<div class="exercise">
+<p><strong>Ejercicio 8:</strong> 🍎🍎🍎 + 🍎🍎🍎🍎🍎 = ¿Cuántos hay en total?</p>
+<div class="emoji-big">🍎🍎🍎 ➕ 🍎🍎🍎🍎🍎</div>
+<div class="exercise-input">
+<input type="number" id="e8" placeholder="?">
+<button onclick="checkE(8, 8)">Comprobar</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
+</div>
 </div>
 
 <div style="text-align:center;margin:1rem 0"><a href="s01-1-contar-0-10.html" style="display:inline-block;background:#2563eb;color:#fff;padding:0.8rem 2rem;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.1rem">📖 Ver todas las sesiones detalladas de 1º Primaria →</a></div>
@@ -248,6 +271,27 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <strong>🔗 Conexión: Sumar y contar</strong>
 <p style="margin-top:.5rem">Sumar es como contar pero más rápido. En vez de contar todos los objetos de uno en uno (1,2,3,4,5...), empiezas desde el primer número y sigues. 4 + 3 → empiezas en 4 y cuentas 3 más: 5, 6, 7.</p>
 <p style="margin-top:.5rem">¡Esto te servirá cuando las sumas sean más grandes!</p>
+
+<!-- Caso real 3: Cocina -->
+<div class="box box-ejemplo">
+<strong>🍳 Caso real: La receta de cocina</strong>
+<p style="margin-top:.5rem">Para hacer una tortilla, tu mamá necesita 4 huevos. Tú rompes 3 más de los que hacen falta. ¿Cuántos huevos usaron en total?</p>
+<p style="margin-top:.5rem">4 huevos + 3 huevos = <strong>7 huevos</strong>. ¡Sumar nos ayuda a cocinar!</p>
+</div>
+
+<!-- Error común 2: Contar dos veces -->
+<div class="box box-error">
+<strong>⚠️ Error común: ¡No contar dos veces!</strong>
+<p style="margin-top:.5rem">Cuando usas los dedos para sumar 4 + 3, no empieces desde el 1 otra vez. Empieza desde el 4 y cuenta 3 más: 5, 6, 7.</p>
+<p style="margin-top:.5rem">Si vuelves a empezar desde 1, ¡contarías el 4 dos veces!</p>
+</div>
+
+<!-- Conexión 2: Sumar y restar son inversas -->
+<div class="box box-idea">
+<strong>🔗 Conexión: Sumar y restar</strong>
+<p style="margin-top:.5rem">Sumar y restar son como amigas inversas. Si 4 + 3 = 7, entonces 7 − 3 = 4 y 7 − 4 = 3.</p>
+<p style="margin-top:.5rem">Cuando aprendas a restar, verás que es lo mismo pero al revés. ¡Ya sabes restar porque sabes sumar!</p>
+</div>
 </div>
 </div>
 
@@ -269,6 +313,26 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+
+<div class="chapter">
+<h2 class="chapter-title">📏 Línea Numérica</h2>
+<p>La línea numérica te ayuda a visualizar las sumas. ¡Salta hacia adelante!</p>
+
+<div class="chart-container">
+<h3>🐸 ¡Salta con la rana!</h3>
+<p class="chart-desc">La rana salta en la línea numérica. ¿Cuántos saltos da en total?</p>
+<canvas id="canvas-linea" class="chart-canvas"></canvas>
+<div class="chart-controls">
+<button onclick="nuevaLinea()">🐸 Nueva suma</button>
+</div>
+<div class="exercise-input" style="margin-top:1rem">
+<input type="number" id="respuesta-linea" placeholder="?" min="0" max="30">
+<button onclick="verificarLinea()">✅ Comprobar</button>
+</div>
+<div class="feedback" id="fb-linea"></div>
+</div>
+</div>
+
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
@@ -283,6 +347,12 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <li>Palabra clave "más" o "añadir" → siempre es suma</li>
 <li>Sumar es contar más rápido: empiezas donde estás y sigues</li>
 <li>Sumar conecta con contar: es contar pero desde otro punto</li>
+<li>Emparejar: 5+3=8 es igual a 6+2=8 (busca la misma respuesta)</li>
+<li>Conteo visual: cuenta los emojis sin perder la cuenta</li>
+<li>La receta: 4+3=7 huevos para la tortilla</li>
+<li>No cuentes dos veces: empieza desde el primer número y sigue</li>
+<li>Sumar y restar son inversas: si 4+3=7, entonces 7-3=4</li>
+<li>Línea numérica: salta de 4 en 4 pasos y luego 3 más = 7</li>
 </ul>
 </div>
 
@@ -519,6 +589,127 @@ function verificarAnimales() {
     fb.className = 'feedback correct';
   } else {
     fb.textContent = '❌ ¡Casi! ' + a + ' + ' + b + ' = ' + (a + b);
+    fb.className = 'feedback incorrect';
+  }
+}
+
+
+// Función para ejercicios de emparejar
+function checkMatch(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('button').forEach(b => {
+    b.disabled = true;
+    b.classList.remove('correct','wrong');
+  });
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  const fb = document.getElementById('e7-fb');
+  if (correct) {
+    fb.textContent = '✅ ¡Correcto! 6+2=8, igual que 5+3=8';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ No es esa. 4+4=8... espera, ¡6+2=8 también!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Línea numérica interactiva
+function nuevaLinea() {
+  const a = Math.floor(Math.random() * 5) + 1;
+  const b = Math.floor(Math.random() * 5) + 1;
+  const canvas = document.getElementById('canvas-linea');
+  const ctx = canvas.getContext('div');
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  // Background
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const startX = 40;
+  const endX = canvas.width - 40;
+  const y = canvas.height / 2;
+  const maxNum = 20;
+  const step = (endX - startX) / maxNum;
+
+  // Draw line
+  ctx.strokeStyle = '#2563eb';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(startX, y);
+  ctx.lineTo(endX, y);
+  ctx.stroke();
+
+  // Draw ticks and numbers
+  ctx.font = '16px sans-serif';
+  ctx.fillStyle = '#1e293b';
+  ctx.textAlign = 'center';
+  for (let i = 0; i <= maxNum; i++) {
+    const x = startX + i * step;
+    ctx.beginPath();
+    ctx.moveTo(x, y - 10);
+    ctx.lineTo(x, y + 10);
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillText(i.toString(), x, y + 30);
+  }
+
+  // Draw first jump (a steps)
+  const jump1Start = startX;
+  const jump1End = startX + a * step;
+  ctx.strokeStyle = '#2563eb';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(jump1Start, y - 25, 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#2563eb';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(jump1Start, y - 30);
+  ctx.quadraticCurveTo((jump1Start + jump1End) / 2, y - 60, jump1End, y - 30);
+  ctx.stroke();
+  ctx.font = 'bold 14px sans-serif';
+  ctx.fillStyle = '#2563eb';
+  ctx.fillText('+' + a, (jump1Start + jump1End) / 2, y - 65);
+
+  // Draw second jump (b steps)
+  const jump2Start = jump1End;
+  const jump2End = jump1End + b * step;
+  ctx.strokeStyle = '#f97316';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.arc(jump2Start, y - 25, 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#f97316';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(jump2Start, y - 30);
+  ctx.quadraticCurveTo((jump2Start + jump2End) / 2, y - 60, jump2End, y - 30);
+  ctx.stroke();
+  ctx.font = 'bold 14px sans-serif';
+  ctx.fillStyle = '#f97316';
+  ctx.fillText('+' + b, (jump2Start + jump2End) / 2, y - 65);
+
+  // Draw result
+  ctx.font = 'bold 20px sans-serif';
+  ctx.fillStyle = '#10b981';
+  ctx.textAlign = 'center';
+  ctx.fillText('=' + (a + b), jump2End, y + 55);
+
+  window._lineaA = a;
+  window._lineaB = b;
+  document.getElementById('respuesta-linea').value = '';
+  document.getElementById('fb-linea').textContent = '';
+}
+
+function verificarLinea() {
+  const a = window._lineaA || 3;
+  const b = window._lineaB || 2;
+  const resp = parseInt(document.getElementById('respuesta-linea').value);
+  const fb = document.getElementById('fb-linea');
+  if (resp === a + b) {
+    fb.textContent = '✅ ¡Correcto! ' + a + ' + ' + b + ' = ' + (a + b) + '. ¡La rana saltó hasta el ' + (a+b) + '!';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ ¡Casi! ' + a + ' + ' + b + ' = ' + (a + b) + '. Mira la rana en la línea.';
     fb.className = 'feedback incorrect';
   }
 }
