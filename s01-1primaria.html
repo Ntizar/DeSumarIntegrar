@@ -142,6 +142,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
 
+<!-- Tipo 1: Input numérico directo -->
 <div class="exercise">
 <p><strong>Ejercicio 1:</strong> 4 + 3 = ?</p>
 <div class="exercise-input">
@@ -151,22 +152,58 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Tipo 2: Completar hueco (el alumno completa el sumando) -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 7 + 6 = ?</p>
+<p><strong>Ejercicio 2:</strong> 5 + ___ = 12</p>
 <div class="exercise-input">
 <input type="number" id="e2" placeholder="?">
-<button onclick="checkE(2, 13)">Comprobar</button>
+<button onclick="checkE(2, 7)">Comprobar</button>
 </div>
 <div class="feedback" id="e2-fb"></div>
+<p style="font-size:0.9rem;color:#64748b;margin-top:0.3rem">💡 Piensa: ¿qué número le falta a 5 para llegar a 12?</p>
 </div>
 
+<!-- Tipo 3: Verdadero / Falso -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 9 + 8 = ?</p>
-<div class="exercise-input">
-<input type="number" id="e3" placeholder="?">
-<button onclick="checkE(3, 17)">Comprobar</button>
+<p><strong>Ejercicio 3:</strong> ¿Es cierto que 8 + 6 = 14?</p>
+<div class="quiz-options">
+<button onclick="checkVF(this, true)">✅ Verdadero</button>
+<button onclick="checkVF(this, false)">❌ Falso</button>
 </div>
 <div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Tipo 4: Problema contextual con historia -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> 🎮 Tu consola tiene 9 puntos. Ganas una partida y sumas 7 puntos más. ¿Cuántos puntos tienes ahora?</p>
+<div class="exercise-input">
+<input type="number" id="e4" placeholder="?">
+<button onclick="checkE(4, 16)">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Tipo 5: Ordenar de menor a mayor -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> Ordena estas sumas de MENOR a MAYOR. Pulsa los botones en orden:</p>
+<div class="quiz-options" id="ordenar-quiz">
+<button onclick="checkOrden(this, 1)">3 + 2</button>
+<button onclick="checkOrden(this, 3)">7 + 4</button>
+<button onclick="checkOrden(this, 2)">5 + 5</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+<p style="font-size:0.9rem;color:#64748b;margin-top:0.3rem">💡 Primero calcula cada suma y luego ordénalas.</p>
+</div>
+
+<!-- Tipo 6: Problema inverso (¿cuántos faltan?) -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> 🍪 Quieres hacer 15 galletas. Ya hiciste 8. ¿Cuántas galletas te faltan?</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="?">
+<button onclick="checkE(6, 7)">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+<p style="font-size:0.9rem;color:#64748b;margin-top:0.3rem">💡 Piensa: 8 + ¿qué número = 15?</p>
 </div>
 </div>
 
@@ -176,106 +213,41 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="chapter">
 <h2 class="chapter-title">🏠 Sumar en la Vida Real</h2>
 
+<!-- Explicación estructurada: Cómo sumar paso a paso -->
 <div class="box box-teoria">
-<strong>🍕 Sumar en la cocina</strong>
-<p style="margin-top:.5rem">Mamá cocina pizzas. Ella hizo 4 pizzas de pepperoni y 3 de queso. ¿Cuántas pizzas hizo en total?</p>
-<p style="margin-top:.5rem">Contamos: 🍕🍕🍕🍕 + 🍕🍕🍕 = 🍕🍕🍕🍕🍕🍕🍕</p>
-<p style="margin-top:.5rem">¡4 + 3 = <strong>7</strong> pizzas! Sumar nos ayuda a saber cuántas cosas tenemos.</p>
+<strong>📖 ¿Cómo se hace una suma?</strong>
+<p style="margin-top:.5rem"><strong>1. ¿Qué es?</strong> Sumar es juntar dos o más grupos para saber cuántos hay en total.</p>
+<p style="margin-top:.5rem"><strong>2. ¿Para qué sirve?</strong> Para saber cuántos juguetes tienes si te regalan más, o cuántos euros necesitas para dos cosas.</p>
+<p style="margin-top:.5rem"><strong>3. ¿Cómo se hace?</strong> Cuenta los objetos del primer grupo, luego sigue contando desde donde llegaste los del segundo grupo. El último número que digas es el resultado.</p>
+<p style="margin-top:.5rem"><strong>4. Ejemplo:</strong> 4 + 3 → cuentas 4, luego sigues: 5, 6, 7. ¡El resultado es 7!</p>
 </div>
 
-<div class="box box-teoria">
-<strong>🧸 Sumar en el parque</strong>
-<p style="margin-top:.5rem">En el parque hay 6 niños jugando y llegan 4 más. ¿Cuántos niños hay ahora?</p>
-<p style="margin-top:.5rem">Contamos los niños: 👦👦👦👦👦👦 + 👦👦👦👦 = 👦👦👦👦👦👦👦👦👦👦</p>
-<p style="margin-top:.5rem">¡6 + 4 = <strong>10</strong> niños! Sumar nos dice cuántos somos en total.</p>
+<!-- Caso real 1: Supermercado -->
+<div class="box box-ejemplo">
+<strong>🛒 Caso real: El supermercado</strong>
+<p style="margin-top:.5rem">Tu mamá te da una cesta con 5 latas de atún. Tú añades 4 latas de maíz. ¿Cuántas latas hay en la cesta?</p>
+<p style="margin-top:.5rem">Contamos: 5 latas + 4 latas = <strong>9 latas</strong>. ¡Sumar nos ayuda en la compra!</p>
 </div>
 
-<div class="box box-teoria">
-<strong>💰 Sumar con monedas</strong>
-<p style="margin-top:.5rem">Tienes 5 monedas de 1 euro y tu abuelo te da 3 más. ¿Cuántos euros tienes?</p>
-<p style="margin-top:.5rem">Contamos las monedas: 🪙🪙🪙🪙🪙 + 🪙🪙🪙 = 🪙🪙🪙🪙🪙🪙🪙🪙</p>
-<p style="margin-top:.5rem">¡5 + 3 = <strong>8</strong> euros! Sumar nos ayuda a contar el dinero.</p>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">🎯 Ejercicios Extra</h2>
-
-<div class="exercise">
-<p>🍎 Ejercicio 4: Tienes 2 manzanas y tu amigo te da 5 más. ¿Cuántas manzanas tienes?</p>
-<div class="emoji-big">🍎🍎 + 🍎🍎🍎🍎🍎 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, true)">7 manzanas</button>
-<button onclick="checkAnswer(this, false)">5 manzanas</button>
-<button onclick="checkAnswer(this, false)">8 manzanas</button>
-</div>
-<p class="feedback"></p>
+<!-- Caso real 2: Deportes -->
+<div class="box box-ejemplo">
+<strong>⚽ Caso real: El equipo de fútbol</strong>
+<p style="margin-top:.5rem">Tu equipo marcó 2 goles en la primera mitad y 3 en la segunda. ¿Cuántos goles marcó en total?</p>
+<p style="margin-top:.5rem">2 goles + 3 goles = <strong>5 goles</strong>. ¡Sumar nos dice el resultado del partido!</p>
 </div>
 
-<div class="exercise">
-<p>🐱 Ejercicio 5: En el jardín hay 3 gatitos y llegan 4 más. ¿Cuántos gatitos hay?</p>
-<div class="emoji-big">🐱🐱🐱 + 🐱🐱🐱🐱 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">5 gatitos</button>
-<button onclick="checkAnswer(this, true)">7 gatitos</button>
-<button onclick="checkAnswer(this, false)">8 gatitos</button>
-</div>
-<p class="feedback"></p>
+<!-- Error común -->
+<div class="box box-error">
+<strong>⚠️ Error común: ¡No confundir sumar con restar!</strong>
+<p style="margin-top:.5rem">Si tienes 5 caramelos y te dan 3 más, NO restes. Suma: 5 + 3 = 8 caramelos.</p>
+<p style="margin-top:.5rem">La palabra clave es <strong>"más"</strong> o <strong>"añadir"</strong> → siempre es suma.</p>
 </div>
 
-<div class="exercise">
-<p>🌟 Ejercicio 6: En tu caja hay 8 estrellas de papel y pones 2 más. ¿Cuántas estrellas hay?</p>
-<div class="emoji-big">⭐⭐⭐⭐⭐⭐⭐⭐ + ⭐⭐ = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">9 estrellas</button>
-<button onclick="checkAnswer(this, true)">10 estrellas</button>
-<button onclick="checkAnswer(this, false)">11 estrellas</button>
-</div>
-<p class="feedback"></p>
-</div>
-
-<div class="exercise">
-<p>🍪 Ejercicio 7: La abuela hizo 6 galletas y tú te comiste 3. ¿Cuántas galletas quedan?</p>
-<div class="emoji-big">🍪🍪🍪🍪🍪🍪 - 🍪🍪🍪 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">2 galletas</button>
-<button onclick="checkAnswer(this, true)">3 galletas</button>
-<button onclick="checkAnswer(this, false)">4 galletas</button>
-</div>
-<p class="feedback"></p>
-</div>
-
-<div class="exercise">
-<p>🎈 Ejercicio 8: En la fiesta hay 5 globos rojos y 4 azules. ¿Cuántos globos hay en total?</p>
-<div class="emoji-big">🎈🎈🎈🎈🎈 + 🎈🎈🎈🎈 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">8 globos</button>
-<button onclick="checkAnswer(this, true)">9 globos</button>
-<button onclick="checkAnswer(this, false)">10 globos</button>
-</div>
-<p class="feedback"></p>
-</div>
-
-<div class="exercise">
-<p>🍓 Ejercicio 9: Fuiste al mercado y compraste 4 fresas y 6 moras. ¿Cuántas frutas compraste?</p>
-<div class="emoji-big">🍓🍓🍓🍓 + 🫐🫐🫐🫐🫐🫐 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">8 frutas</button>
-<button onclick="checkAnswer(this, true)">10 frutas</button>
-<button onclick="checkAnswer(this, false)">12 frutas</button>
-</div>
-<p class="feedback"></p>
-</div>
-
-<div class="exercise">
-<p>🎁 Ejercicio 10: En tu cumpleaños recibiste 7 regalos y tu hermana te dio 3 más. ¿Cuántos regalos tienes?</p>
-<div class="emoji-big">🎁🎁🎁🎁🎁🎁🎁 + 🎁🎁🎁 = ❓</div>
-<div class="quiz-options">
-<button onclick="checkAnswer(this, false)">9 regalos</button>
-<button onclick="checkAnswer(this, true)">10 regalos</button>
-<button onclick="checkAnswer(this, false)">11 regalos</button>
-</div>
-<p class="feedback"></p>
+<!-- Conexión con contar -->
+<div class="box box-idea">
+<strong>🔗 Conexión: Sumar y contar</strong>
+<p style="margin-top:.5rem">Sumar es como contar pero más rápido. En vez de contar todos los objetos de uno en uno (1,2,3,4,5...), empiezas desde el primer número y sigues. 4 + 3 → empiezas en 4 y cuentas 3 más: 5, 6, 7.</p>
+<p style="margin-top:.5rem">¡Esto te servirá cuando las sumas sean más grandes!</p>
 </div>
 </div>
 
@@ -300,12 +272,17 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
-<li>Sumar es juntar cosas</li>
-<li>3 + 2 = 5 (contamos todos juntos)</li>
+<li>Sumar es juntar cosas: 3 + 2 = 5 (contamos todos juntos)</li>
 <li>A veces necesitamos una "llevada" cuando pasamos de 10</li>
 <li>8 + 5 = 13 (llegamos a 10 y nos sobran 3)</li>
-<li>Sumar nos ayuda en la vida real: cocina, parque, dinero</li>
-<li>4 + 3 = 7 (pizzas), 6 + 4 = 10 (niños), 5 + 3 = 8 (euros)</li>
+<li>Completar hueco: 5 + ___ = 12 → falta el 7</li>
+<li>Verdadero/Falso: 8 + 6 = 14 → ¡Verdadero!</li>
+<li>Problema inverso: si tienes 8 y quieres 15, faltan 7</li>
+<li>Ordenar: 3+2=5 &lt; 5+5=10 &lt; 7+4=11</li>
+<li>Sumar nos ayuda en la vida real: compra, fútbol, cocina</li>
+<li>Palabra clave "más" o "añadir" → siempre es suma</li>
+<li>Sumar es contar más rápido: empiezas donde estás y sigues</li>
+<li>Sumar conecta con contar: es contar pero desde otro punto</li>
 </ul>
 </div>
 
@@ -439,6 +416,52 @@ function checkAnswer(btn, correct) {
   if(feedback && feedback.classList.contains('feedback')) {
     feedback.textContent = correct ? '✅ ¡Correcto! ¡Muy bien!' : '❌ ¡Intenta de nuevo!';
     feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+  }
+}
+
+// Función para ejercicios Verdadero / Falso
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('button').forEach(b => {
+    b.disabled = true;
+    b.classList.remove('correct','wrong');
+  });
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  const fb = document.getElementById('e3-fb');
+  if (correct) {
+    fb.textContent = '✅ ¡Correcto! 8 + 6 = 14, es verdadero.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '✅ ¡Bien pensado! 8 + 6 = 14, así que SÍ es verdadero.';
+    fb.className = 'feedback correct';
+  }
+}
+
+// Función para ejercicios de ordenar
+let ordenarStep = 0;
+let ordenarOrder = [1, 2, 3]; // 3+2=5, 5+5=10, 7+4=11
+function checkOrden(btn, value) {
+  ordenarStep++;
+  if (value === ordenarOrder[ordenarStep - 1]) {
+    btn.classList.add('correct');
+    btn.disabled = true;
+    if (ordenarStep === 3) {
+      document.getElementById('e5-fb').textContent = '✅ ¡Perfecto! 3+2=5 < 5+5=10 < 7+4=11';
+      document.getElementById('e5-fb').className = 'feedback correct';
+    }
+  } else {
+    btn.classList.add('wrong');
+    btn.disabled = true;
+    document.getElementById('e5-fb').textContent = '❌ Ese no es el siguiente. Piensa: ¿cuál suma da menos?';
+    document.getElementById('e5-fb').className = 'feedback incorrect';
+    ordenarStep = 0;
+    setTimeout(() => {
+      document.querySelectorAll('#ordenar-quiz button').forEach(b => {
+        b.disabled = false;
+        b.classList.remove('correct','wrong');
+      });
+      document.getElementById('e5-fb').textContent = '';
+    }, 1500);
   }
 }
 
