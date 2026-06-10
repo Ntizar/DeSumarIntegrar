@@ -51,6 +51,22 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .feedback.incorrect{color:var(--rojo)}
 .emoji-big{font-size:2rem;text-align:center;margin:1rem 0}
 .big-number{font-size:3rem;font-weight:800;text-align:center;color:var(--azul);margin:1rem 0}
+.quiz-options{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.quiz-btn{background:#fff;border:2px solid #e2e8f0;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600;transition:all .2s}
+.quiz-btn:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-btn.correct-answer{background:var(--verde-claro);border-color:var(--verde);color:var(--verde)}
+.quiz-btn.wrong-answer{background:var(--rojo-claro);border-color:var(--rojo);color:var(--rojo)}
+.order-list{list-style:none;padding:0;margin:.8rem 0}
+.order-item{background:#fff;border:2px solid #e2e8f0;border-radius:8px;padding:.6rem 1rem;margin:.3rem 0;cursor:pointer;transition:all .2s;font-weight:600}
+.order-item:hover{border-color:var(--azul)}
+.order-item.selected{border-color:var(--azul);background:var(--azul-claro)}
+.order-item.correct-pos{border-color:var(--verde);background:var(--verde-claro)}
+.order-item.wrong-pos{border-color:var(--rojo);background:var(--rojo-claro)}
+.fill-blank{display:inline-block;min-width:60px;border-bottom:3px solid var(--naranja);text-align:center;font-weight:800;color:var(--naranja);padding:0 .3rem}
+.hueco-input{border:none;border-bottom:3px solid var(--naranja);text-align:center;font-weight:800;color:var(--naranja);font-size:1.2rem;width:80px;padding:.2rem;background:transparent}
+.hueco-input:focus{outline:none;border-bottom-color:var(--azul);color:var(--azul)}
+.step-list{padding-left:1.2rem;margin:.5rem 0}
+.step-list li{margin:.3rem 0}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -69,6 +85,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 <div class="container">
 
+<!-- INTRO -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-teoria">
@@ -81,6 +98,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<!-- CASO REAL -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Para qué sirve multiplicar?</h2>
 <div class="box box-ejemplo">
@@ -91,6 +109,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<!-- EXPLICACIÓN ESTRUCTURADA 4 PASOS -->
+<div class="chapter">
+<h2 class="chapter-title">📖 ¿Qué es multiplicar?</h2>
+
+<div class="box box-teoria">
+<strong>1️⃣ ¿Qué es?</strong>
+<p>Multiplicar es una forma rápida de <strong>sumar el mismo número varias veces</strong>.</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong>2️⃣ ¿Para qué sirve?</strong>
+<p>Imagina que tienes <strong>4 bolsas</strong> y en cada bolsa hay <strong>5 caramelos</strong>. En vez de contar 5+5+5+5, multiplicas: 4 × 5 = 20 caramelos. ¡Ahorras tiempo!</p>
+</div>
+
+<div class="box box-teoria">
+<strong>3️⃣ ¿Cómo se hace?</strong>
+<ol class="step-list">
+<li>Cuenta cuántos <strong>grupos</strong> hay (primer número)</li>
+<li>Cuenta cuántos hay en <strong>cada grupo</strong> (segundo número)</li>
+<li><strong>Multiplica</strong>: grupos × elementos por grupo</li>
+<li>¡Listo! El resultado es el <strong>total</strong></li>
+</ol>
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común: ¡No confundir × con +!</strong>
+<p>Mucha gente piensa que 3 × 4 = 3 + 4 = 7. ¡<strong>Incorrecto!</strong> 3 × 4 significa <strong>3 veces el número 4</strong>, es decir: 4 + 4 + 4 = <strong>12</strong>.</p>
+<p>💡 <em>Truco:</em> Si ves una "×", piensa "veces" o "grupos de".</p>
+</div>
+</div>
+
+<!-- CANVAS INTERACTIVO -->
 <div class="chapter">
 <h2 class="chapter-title">1️⃣ Multiplicar es Sumar Veces</h2>
 
@@ -113,25 +163,106 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<!-- EJERCICIOS VARIADOS -->
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
+
+<!-- Ejercicio 1: Completar hueco -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 3 × 5 = ?</p>
-<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 15)">Comprobar</button></div>
+<p><strong>Ejercicio 1 (Completar hueco):</strong> 3 × 5 = 5 + 5 + <span class="fill-blank">___</span> = ?</p>
+<p style="font-size:0.9rem;color:#64748b">Piensa: 3 grupos de 5. Ya tienes dos 5. ¿Qué número falta?</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkE1()">Comprobar</button>
+</div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Verdadero/Falso -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 4 × 6 = ?</p>
-<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 24)">Comprobar</button></div>
+<p><strong>Ejercicio 2 (Verdadero o Falso):</strong> 4 × 3 = 12</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(2, true, this)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(2, false, this)">❌ Falso</button>
+</div>
 <div class="feedback" id="e2-fb"></div>
 </div>
+
+<!-- Ejercicio 3: Problema contextual -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 7 × 3 = ?</p>
-<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 21)">Comprobar</button></div>
+<p><strong>Ejercicio 3 (Problema):</strong> En el parque hay 5 bancos. En cada banco se sientan 3 niños. ¿Cuántos niños hay en total?</p>
+<div class="emoji-big">🪑🪑🪑 | 🪑🪑🪑 | 🪑🪑🪑 | 🪑🪑🪑 | 🪑🪑🪑</div>
+<div class="exercise-input">
+<input type="number" id="e3" placeholder="?">
+<button onclick="checkE3()">Comprobar</button>
+</div>
 <div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Ordenar números -->
+<div class="exercise">
+<p><strong>Ejercicio 4 (Ordenar):</strong> Ordena estas multiplicaciones de <strong>menor a mayor</strong> resultado:</p>
+<p style="font-size:0.9rem;color:#64748b">Pista: Calcula cada una primero.</p>
+<div class="quiz-options" id="order-container">
+<button class="quiz-btn" onclick="selectOrder(this, 1)" data-value="6">2 × 3</button>
+<button class="quiz-btn" onclick="selectOrder(this, 2)" data-value="12">4 × 3</button>
+<button class="quiz-btn" onclick="selectOrder(this, 3)" data-value="9">3 × 3</button>
+<button class="quiz-btn" onclick="selectOrder(this, 4)" data-value="15">5 × 3</button>
+</div>
+<p style="font-size:0.9rem;color:#64748b">Tu orden: <span id="order-result">___</span></p>
+<div class="exercise-input">
+<button onclick="checkOrder()" style="background:var(--naranja)">Comprobar orden</button>
+<button onclick="resetOrder()" style="background:#94a3b8">Reiniciar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Quiz botones -->
+<div class="exercise">
+<p><strong>Ejercicio 5 (Quiz rápido):</strong> ¿Cuánto es 6 × 2?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz(5, 12, this)">10</button>
+<button class="quiz-btn" onclick="checkQuiz(5, 12, this)">12</button>
+<button class="quiz-btn" onclick="checkQuiz(5, 12, this)">14</button>
+<button class="quiz-btn" onclick="checkQuiz(5, 12, this)">8</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Problema inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (Problema inverso):</strong> Si 4 × ___ = 20, ¿qué número falta?</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="?">
+<button onclick="checkE6()">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Ejercicio 7: Completar hueco diferente -->
+<div class="exercise">
+<p><strong>Ejercicio 7 (Completar grupo):</strong> ___ × 4 = 16</p>
+<p style="font-size:0.9rem;color:#64748b">¿Cuántos grupos de 4 necesitas para llegar a 16?</p>
+<div class="exercise-input">
+<input type="number" id="e7" placeholder="?">
+<button onclick="checkE7()">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
 </div>
 </div>
 
+<!-- CASO REAL COTIDIANO -->
+<div class="chapter">
+<h2 class="chapter-title">🏪 Caso Real: La Panadería</h2>
+<div class="box box-ejemplo">
+<strong>🥐 Caso real: Panadería del barrio</strong>
+<p>En la panadería hacen <strong>6 bandejas de croissants</strong> cada mañana. Cada bandeja tiene <strong>5 croissants</strong>.</p>
+<p>6 × 5 = 5 + 5 + 5 + 5 + 5 + 5 = <strong>30 croissants</strong> cada día</p>
+<p>¡Si fueras el panadero, sabrías que necesitas hornear 30 croissants sin contar uno a uno! La multiplicación te salva el día. 🥐</p>
+</div>
+</div>
+
+<!-- ANÁLISISAS DE LA VIDA REAL -->
 <div class="chapter">
 <h2 class="chapter-title">🍕 Analogías de la Vida Real</h2>
 
@@ -157,6 +288,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<!-- EJEMPLOS COTIDIANOS -->
 <div class="chapter">
 <h2 class="chapter-title">🏠 Ejemplos con Objetos Cotidianos</h2>
 
@@ -183,6 +315,19 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
+<!-- CONEXIÓN -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexión con lo que ya sabes</h2>
+<div class="box box-idea">
+<strong>🔗 La multiplicación y la suma</strong>
+<p>Ya sabes sumar, ¿verdad? Pues la multiplicación es <strong>suma rápida</strong>.</p>
+<p>👉 3 × 4 = 4 + 4 + 4 = 12 (sumas el 4 tres veces)</p>
+<p>👉 5 × 2 = 2 + 2 + 2 + 2 + 2 = 10 (sumas el 2 cinco veces)</p>
+<p>¡La multiplicación es como un superpoder de la suma! ⚡</p>
+</div>
+</div>
+
+<!-- VISUALIZACIÓN -->
 <div class="chapter">
 <h2 class="chapter-title">📊 Visualización: Tabla del 3 con Barras</h2>
 <div class="chart-container">
@@ -204,62 +349,18 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 </div>
 
-<div class="chapter">
-<h2 class="chapter-title">🎯 Ejercicios Extra</h2>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 4:</strong> 2 × 8 = ? (Piensa: 2 grupos de 8)</p>
-<div class="exercise-input"><input type="number" id="e4"><button onclick="checkE(4, 16)">Comprobar</button></div>
-<div class="feedback" id="e4-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 5:</strong> 6 × 3 = ? (Piensa: 6 grupos de 3)</p>
-<div class="exercise-input"><input type="number" id="e5"><button onclick="checkE(5, 18)">Comprobar</button></div>
-<div class="feedback" id="e5-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 6:</strong> 9 × 2 = ? (Piensa: 9 grupos de 2)</p>
-<div class="exercise-input"><input type="number" id="e6"><button onclick="checkE(6, 18)">Comprobar</button></div>
-<div class="feedback" id="e6-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 7:</strong> 5 × 5 = ? (¡Este es especial, es una cuadrícula!)</p>
-<div class="exercise-input"><input type="number" id="e7"><button onclick="checkE(7, 25)">Comprobar</button></div>
-<div class="feedback" id="e7-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 8:</strong> 8 × 4 = ? (8 grupos de 4 🍎🍎🍎🍎 × 8)</p>
-<div class="exercise-input"><input type="number" id="e8"><button onclick="checkE(8, 32)">Comprobar</button></div>
-<div class="feedback" id="e8-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🎃 Ejercicio 9:</strong> 10 × 3 = ? (¡El cero es tu amigo!)</p>
-<div class="exercise-input"><input type="number" id="e9"><button onclick="checkE(9, 30)">Comprobar</button></div>
-<div class="feedback" id="e9-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>🏆 Desafío Final:</strong> Si cada caja tiene 7 galletas y tienes 6 cajas, ¿cuántas galletas hay en total?</p>
-<div class="emoji-big">📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪 | 📦🍪🍪🍪🍪🍪🍪🍪</div>
-<div class="exercise-input"><input type="number" id="e10"><button onclick="checkE(10, 42)">Comprobar</button></div>
-<div class="feedback" id="e10-fb"></div>
-</div>
-</div>
-
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
 <li>Multiplicar es sumar el mismo número varias veces</li>
-<li>3 × 4 = 4 + 4 + 4 = 12</li>
+<li>3 × 4 = 4 + 4 + 4 = 12 (no 3 + 4 = 7)</li>
 <li>Las tablas te ayudan a multiplicar rápido</li>
 <li>Puedes usar multiplicar para contar pizzas, juegos, patas y galletas</li>
-<li>El 0 multiplicado siempre da 0</li>
-<li>El 1 multiplicado siempre da el mismo número</li>
+<li>El 0 multiplicado siempre da 0 (cualquier número × 0 = 0)</li>
+<li>El 1 multiplicado siempre da el mismo número (cualquier número × 1 = ese número)</li>
+<li>3 × 5 = 5 + 5 + 5 + 5 + 5 = 25 (3 veces el 5)</li>
+<li>La multiplicación es suma rápida: un superpoder matemático ⚡</li>
 </ul>
 </div>
 
@@ -281,6 +382,7 @@ window.addEventListener('scroll', () => {
 </script>
 
 <script>
+// Canvas: nueva multiplicación
 function nuevaMulti() {
   const a = Math.floor(Math.random() * 5) + 2;
   const b = Math.floor(Math.random() * 5) + 2;
@@ -321,7 +423,7 @@ function verificarMulti() {
   const resp = parseInt(document.getElementById('respuesta-multi').value);
   const fb = document.getElementById('feedback-multi');
   if (resp === a * b) {
-    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
+    fb.textContent = '✅ ¡Correcto! ' + a + ' × ' + b + ' = ' + (a * b);
     fb.style.color = '#10b981';
   } else {
     fb.textContent = '❌ ¡Casi! ' + a + ' × ' + b + ' = ' + (a * b);
@@ -329,24 +431,135 @@ function verificarMulti() {
   }
 }
 
-function checkE(num, respuesta) {
-  const input = document.getElementById('e' + num).value;
-  const fb = document.getElementById('e' + num + '-fb');
-  const val = parseInt(input);
-  if (val === respuesta) {
+// Ejercicio 1: Completar hueco
+function checkE1() {
+  const val = parseInt(document.getElementById('e1').value);
+  const fb = document.getElementById('e1-fb');
+  if (val === 5) {
     fb.className = 'feedback correct';
-    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
+    fb.textContent = '✅ ¡Correcto! 3 × 5 = 5 + 5 + 5 = 15';
   } else {
     fb.className = 'feedback incorrect';
-    fb.textContent = '❌ Inténtalo de nuevo.';
+    fb.textContent = '❌ 3 grupos de 5: 5 + 5 + ___ → faltan 3 grupos, el último es 5';
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  nuevaMulti();
-  cambiarTabla3(5);
-});
+// Ejercicio 2: Verdadero/Falso
+function checkVF(num, respuesta, btn) {
+  const fb = document.getElementById('e2-fb');
+  const buttons = btn.parentElement.querySelectorAll('.quiz-btn');
+  buttons.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
+  if (respuesta === true) {
+    btn.classList.add('correct-answer');
+    btn.style.opacity = '1';
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 4 × 3 = 3 + 3 + 3 + 3 = 12';
+  } else {
+    btn.classList.add('wrong-answer');
+    btn.style.opacity = '1';
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Falso, pero espera... ¡4 × 3 SÍ es 12! Era verdadero.';
+  }
+}
 
+// Ejercicio 3: Problema contextual
+function checkE3() {
+  const val = parseInt(document.getElementById('e3').value);
+  const fb = document.getElementById('e3-fb');
+  if (val === 15) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Perfecto! 5 bancos × 3 niños = 15 niños';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ 5 bancos con 3 niños cada uno: 3 + 3 + 3 + 3 + 3 = 15';
+  }
+}
+
+// Ejercicio 4: Ordenar
+let orderSelection = [];
+let orderSelected = [];
+
+function selectOrder(btn, value) {
+  if (btn.classList.contains('selected')) {
+    btn.classList.remove('selected');
+    orderSelection = orderSelection.filter(v => v !== value);
+  } else {
+    btn.classList.add('selected');
+    orderSelection.push(value);
+  }
+  document.getElementById('order-result').textContent = orderSelection.join(' → ');
+}
+
+function checkOrder() {
+  const fb = document.getElementById('e4-fb');
+  const correct = [6, 9, 12, 15];
+  if (orderSelection.length !== 4) {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '⚠️ Selecciona los 4 resultados.';
+    return;
+  }
+  if (JSON.stringify(orderSelection) === JSON.stringify(correct)) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Perfecto! 2×3=6 < 3×3=9 < 4×3=12 < 5×3=15';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ El orden correcto es: 6, 9, 12, 15 (de menor a mayor)';
+  }
+}
+
+function resetOrder() {
+  orderSelection = [];
+  document.getElementById('order-result').textContent = '___';
+  document.querySelectorAll('#order-container .quiz-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('e4-fb').textContent = '';
+}
+
+// Ejercicio 5: Quiz botones
+function checkQuiz(num, correcta, btn) {
+  const fb = document.getElementById('e5-fb');
+  const buttons = btn.parentElement.querySelectorAll('.quiz-btn');
+  buttons.forEach(b => { b.disabled = true; b.style.opacity = '0.5'; });
+  const btnText = parseInt(btn.textContent);
+  if (btnText === correcta) {
+    btn.classList.add('correct-answer');
+    btn.style.opacity = '1';
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 6 × 2 = 2 + 2 + 2 + 2 + 2 + 2 = 12';
+  } else {
+    btn.classList.add('wrong-answer');
+    btn.style.opacity = '1';
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ 6 × 2 = 2 + 2 + 2 + 2 + 2 + 2 = 12';
+  }
+}
+
+// Ejercicio 6: Problema inverso
+function checkE6() {
+  const val = parseInt(document.getElementById('e6').value);
+  const fb = document.getElementById('e6-fb');
+  if (val === 5) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 4 × 5 = 20';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Piensa: ¿qué número × 4 = 20? 4 × 5 = 20';
+  }
+}
+
+// Ejercicio 7: Completar grupo
+function checkE7() {
+  const val = parseInt(document.getElementById('e7').value);
+  const fb = document.getElementById('e7-fb');
+  if (val === 4) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 4 × 4 = 16';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ ¿Cuántos grupos de 4 dan 16? 4 × 4 = 16';
+  }
+}
+
+// Canvas: tabla del 3
 function cambiarTabla3(n) {
   const canvas = document.getElementById('canvas-tabla3');
   const ctx = canvas.getContext('2d');
@@ -361,7 +574,6 @@ function cambiarTabla3(n) {
   const maxVal = base * maxBars;
   const chartHeight = canvas.height - 80;
 
-  // Draw axes
   ctx.strokeStyle = '#cbd5e1';
   ctx.lineWidth = 2;
   ctx.beginPath();
@@ -370,7 +582,6 @@ function cambiarTabla3(n) {
   ctx.lineTo(canvas.width - 10, chartHeight + 20);
   ctx.stroke();
 
-  // Draw all bars
   for (let i = 1; i <= maxBars; i++) {
     const val = base * i;
     const barH = (val / maxVal) * (chartHeight - 30);
@@ -384,29 +595,30 @@ function cambiarTabla3(n) {
     }
     ctx.fillRect(x, y, barWidth, barH);
 
-    // Value on top
     ctx.fillStyle = '#1e293b';
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(val, x + barWidth / 2, y - 5);
 
-    // Label below
     ctx.font = '10px sans-serif';
     ctx.fillStyle = '#64748b';
     ctx.fillText(i, x + barWidth / 2, chartHeight + 35);
   }
 
-  // Title
   ctx.fillStyle = '#2563eb';
   ctx.font = 'bold 16px sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText(base + ' × ' + n + ' = ' + (base * n), canvas.width / 2, 25);
 
-  // Highlight active button
   document.querySelectorAll('.chart-controls button').forEach((btn, idx) => {
     btn.classList.toggle('active', idx === n - 1);
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  nuevaMulti();
+  cambiarTabla3(5);
+});
 </script>
 </body>
 </html>
