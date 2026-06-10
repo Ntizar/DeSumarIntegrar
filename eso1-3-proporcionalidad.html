@@ -80,8 +80,13 @@
     77|<h2 class="chapter-title">1️⃣ Proporcionalidad directa</h2>
     78|<div class="box box-teoria">
     79|<strong>📖 Teoría</strong>
-    80|Dos magnitudes son proporcionales si al multiplicar una, la otra se multiplica igual. Regla de tres: a/b = c/x → x = b×c/a.
-    81|</div>
+    80|<div style="margin-top:.5rem">
+    81|<strong>1. ¿Qué es?</strong> Dos magnitudes son directamente proporcionales si al multiplicar una, la otra se multiplica por el mismo factor.<br>
+    82|<strong>2. ¿Para qué sirve?</strong> Para calcular precios, velocidades, recetas, escalas de mapas, y cualquier situación de "si esto aumenta, aquello también".<br>
+    83|<strong>3. ¿Cómo se hace?</strong> Paso 1: Identifica las magnitudes. Paso 2: Calcula la unidad (cuánto vale 1). Paso 3: Multiplica por lo que necesitas. O usa la regla de tres: x = b×c/a.<br>
+    84|<strong>4. Error común:</strong> Sumar en vez de multiplicar. Si 2 kg cuestan 8€, NO sumas 4€ por kg — multiplicas: 8€ ÷ 2 = 4€/kg, luego 4€ × 5 = 20€.
+    85|</div>
+    86|</div>
     82|<div class="box box-ejemplo">
     83|<strong>🔍 Ejemplo 1</strong>
     84|3 kg cuestan 12€. ¿Cuánto 5 kg? 12/3 × 5 = 20€
@@ -146,14 +151,47 @@
    143|<button class="quiz-btn" onclick="checkExercise(this, false)">20€</button>
    144|</div>
    145|</div>
-   146|
-   147|</div>
+   146|<div class="exercise">
+   147|<p>🏃 Caso real: Un corredor recorre 10 km en 50 minutos. ¿Cuántos kilómetros recorrerá en 2 horas (120 min) manteniendo el mismo ritmo?</p>
+   148|<p style="font-size:.9rem;color:#64748b">Pista: 10/50 = x/120 → x = 50×120/10</p>
+   149|<div class="quiz-options">
+   150|<button class="quiz-btn" onclick="checkExercise(this, true)">24 km</button>
+   151|<button class="quiz-btn" onclick="checkExercise(this, false)">20 km</button>
+   152|<button class="quiz-btn" onclick="checkExercise(this, false)">30 km</button>
+   153|</div>
+   154|</div>
+   155|<div class="exercise">
+   156|<p>📝 Completa: Si 4 camisetas cuestan 60€, 7 camisetas cuestan ___ €</p>
+   157|<div style="display:flex;gap:.5rem;align-items:center">
+   158|<input type="number" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+   159|<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+   160|</div>
+   161|<div class="result" id="result14"></div>
+   162|</div>
+   163|<div class="exercise">
+   164|<p>✅❓ ¿Verdadero o Falso? Si 5 metros de tela cuestan 15€, 20 metros cuestan 60€</p>
+   165|<div class="quiz-options">
+   166|<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+   167|<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+   168|</div>
+   169|</div>
+   170|<div class="box box-error">
+   171|<strong>⚠️ Error común</strong>
+   172|Confundir proporcionalidad directa con inversa. En proporcionalidad DIRECTA, si una magnitud se triplica, la otra también se triplica. Ejemplo: más manzanas = más dinero. Pero en la INVERSA: más obreros = menos tiempo. ¡Fíjate bien en el problema!
+   173|</div>
    148|</section>
    149|<div class="summary">
    150|<h3>📋 Resumen de lo aprendido</h3>
    151|<ul>
-   152|<li><li>Magnitudes proporcionales</li></li><li><li>Regla de tres: x = b×c/a</li></li><li><li>¡Ya sabes proporcionalidad! 🎉</li>
-   153|</ul>
+   151|<ul>
+   152|<li>Proporcionalidad directa: si una magnitud se multiplica por k, la otra también</li>
+   153|<li>Regla de tres: x = b×c/a es tu herramienta principal</li>
+   154|<li>Calcula siempre el valor de la unidad primero</li>
+   155|<li>Los casos reales (precios, velocidad, recetas) usan proporcionalidad constantemente</li>
+   156|<li>Error común: confundir directa con inversa, o sumar en vez de multiplicar</li>
+   157|<li>Completar huecos te ayuda a pensar al revés</li>
+   158|<li>¡Ya sabes proporcionalidad! 🎉</li>
+   159|</ul>
    154|</div>
    155|<div class="nav">
    156|<a href="eso1-1-numeros-enteros.html">← Anterior</a>
@@ -192,11 +230,44 @@
    188|  document.getElementById('interactiveResult').textContent = '';
    189|}
    190|newQuiz();
-   191|function checkExercise(btn, correct) {
-   192|  const parent = btn.parentElement;
-   193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-   195|}
+   195|function checkExercise(btn, correct) {
+   196|  const parent = btn.parentElement;
+   197|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+   198|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+   199|}
+   200|function checkCompleta() {
+   201|  const input = document.getElementById('e14');
+   202|  const result = document.getElementById('result14');
+   203|  const val = parseInt(input.value);
+   204|  if(val === 105) {
+   205|    result.className = 'result ok';
+   206|    result.textContent = '✅ ¡Correcto! 60€/4 = 15€/camiseta → 15€ × 7 = 105€';
+   207|    input.style.borderColor = 'var(--verde)';
+   208|  } else {
+   209|    result.className = 'result fail';
+   210|    result.textContent = '❌ No exactamente. Pista: 60€ ÷ 4 = 15€/camiseta. ¿Cuánto 15€ × 7?';
+   211|    input.style.borderColor = 'var(--rojo)';
+   212|  }
+   213|}
+   214|function checkVF(btn, correct) {
+   215|  const parent = btn.parentElement;
+   216|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+   217|  if(correct) {
+   218|    btn.classList.add('correct');
+   219|    const div = btn.closest('.exercise');
+   220|    const res = document.createElement('div');
+   221|    res.className = 'result ok';
+   222|    res.textContent = '✅ ¡Correcto! 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es proporcional!';
+   223|    div.appendChild(res);
+   224|  } else {
+   225|    btn.classList.add('wrong');
+   226|    const div = btn.closest('.exercise');
+   227|    const res = document.createElement('div');
+   228|    res.className = 'result fail';
+   229|    res.textContent = '❌ Falso. 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es VERDADERO!';
+   230|    div.appendChild(res);
+   231|  }
+}
    196|
    197|window.onscroll = function(){
    198|  var h = document.documentElement;
