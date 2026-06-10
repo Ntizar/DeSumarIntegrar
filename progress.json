@@ -1,7 +1,7 @@
 {
-  "last_improved": "s04-4primaria.html",
+  "last_improved": "s01-3primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 29,
+  "total_runs": 30,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -65,7 +65,7 @@
       "improvement_count": 2
     },
     "s01-3primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -74,18 +74,23 @@
           "run": 1,
           "date": "2026-06-09",
           "added": "7 ejercicios interactivos (e4-e10) con emojis, 3 analogías vida real (pizzería, consolas, patas gatos), 3 ejemplos cotidianos (chocolates, ruedas coches, ramos flores), 1 gráfico canvas barras tabla del 3 interactivo, resumen ampliado"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+7 ejercicios variados (completar hueco ×2, V/F, problema contextual, ordenar, quiz botones, problema inverso ×2), +1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 caso real panadería, +1 caja error común (× vs +), +1 caja conexión (multiplicación×suma), resumen ampliado a 8 puntos, eliminados 3 ejercicios repetitivos"
         }
       ],
       "scores": {
-        "exercises": 10,
-        "text": 10,
-        "visual": 3,
-        "real_world": 8,
-        "connections": 2,
-        "difficulty_range": 4
+        "exercises": 7,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-09",
-      "improvement_count": 1
+      "last_improved": "2026-06-10",
+      "improvement_count": 2
     },
     "s01-4primaria.html": {
       "status": "improved_1",
