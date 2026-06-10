@@ -1,5 +1,5 @@
 {
-  "last_improved": "s03-3primaria.html",
+  "last_improved": "s01-8-medidas-tamano-peso.html",
   "last_run": "2026-06-10",
   "total_runs": 19,
   "topics": {
@@ -165,21 +165,27 @@
       "improvement_count": 1
     },
     "s01-8-medidas-tamano-peso.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+2 ejercicios variados (completar con emojis, problema zoo), +1 canvas balanza mágica, +1 caja vida real"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 10,
+        "visual": 5,
+        "real_world": 8,
+        "connections": 2,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s01-10primaria.html": {
       "status": "improved_1",
