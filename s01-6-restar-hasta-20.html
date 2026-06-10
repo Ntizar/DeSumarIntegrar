@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S01.6: Restar hasta 20 — 1º Primaria</title>
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js" async></script>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -50,6 +49,22 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-answer{padding:.4rem .8rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;width:80px;text-align:center}
+.check-btn{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem}
+.check-btn:hover{background:#1d4ed8}
+.order-container{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:1rem 0}
+.order-item{padding:.6rem 1.2rem;border-radius:8px;border:2px solid var(--gris);background:#fff;font-size:1.1rem;cursor:pointer;user-select:none;transition:all .2s}
+.order-item:hover{border-color:var(--azul);background:var(--azul-claro)}
+.order-item.selected{border-color:var(--azul);background:var(--azul);color:#fff}
+.order-answer{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0;min-height:45px;padding:.5rem;border:2px dashed var(--gris);border-radius:8px}
+.vf-btn{padding:.6rem 2rem;border-radius:8px;border:2px solid;padding:0.6rem 2rem;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s;margin:.3rem}
+.vf-btn.true-btn{border-color:var(--verde);color:var(--verde)}
+.vf-btn.false-btn{border-color:var(--rojo);color:var(--rojo)}
+.vf-btn:hover{transform:scale(1.05)}
+.vf-btn.correct{background:var(--verde);color:#fff}
+.vf-btn.wrong{background:var(--rojo);color:#fff}
+.canvas-container{text-align:center;margin:1rem 0}
+.canvas-container canvas{border-radius:12px;background:#fff;max-width:100%}
 </style>
 </head>
 <body>
@@ -113,6 +128,27 @@ Paso 2: 10 − 2 = 8<br>
 </div>
 </section>
 
+<!-- NUEVO: Conexión suma↔resta (espejos) -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Suma y resta: ¡Son espejos!</h2>
+
+<div class="box box-teoria">
+<strong>🪞 Truco de los espejos</strong>
+Si sabes que <b>8 + 7 = 15</b>, entonces ya sabes que <b>15 − 7 = 8</b> y <b>15 − 8 = 7</b>.<br>
+La resta es como la suma al revés, como un espejo. 🪞
+</div>
+
+<div class="box box-success">
+<strong>✅ ¡Compruébalo!</strong>
+Si 13 − 5 = 8, entonces 8 + 5 = 13. ¡Las dos operaciones te llevan al mismo sitio!
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Muchos niños piensan que si 8 + 5 = 13, entonces 13 − 5 = 5. ¡Cuidado! La resta quita del número grande, no del pequeño. 13 − 5 = <b>8</b>, no 5.
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Practica tú!</h2>
 
@@ -130,10 +166,32 @@ Paso 2: 10 − 2 = 8<br>
 </div>
 </section>
 
+<!-- NUEVO: Visualización — línea numérica interactiva -->
+<section class="chapter">
+<h2 class="chapter-title">📏 Línea numérica: Visualiza la resta</h2>
+
+<div class="interactive">
+<h3>🐸 ¡El sapo salta hacia atrás!</h3>
+<p>El sapo está en el número grande y salta hacia atrás para restar. ¡Mira cómo funciona!</p>
+<div class="canvas-container">
+<canvas id="numberLine" width="700" height="150"></canvas>
+</div>
+<div style="text-align:center;margin:1rem 0">
+<label style="font-weight:600">Empieza en: </label>
+<input type="number" id="nlStart" min="11" max="20" value="15" style="width:70px;padding:.3rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem">
+<label style="font-weight:600">Salta hacia atrás: </label>
+<input type="number" id="nlJump" min="1" max="15" value="7" style="width:70px;padding:.3rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem">
+<button onclick="drawNumberLine()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem">¡Saltar!</button>
+</div>
+<div class="result" id="nlResult" style="margin-top:1rem;text-align:center"></div>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- E1: Quiz botón (mantenemos uno) -->
 <div class="exercise">
 <p>1. ¿Cuánto es 15 − 7?</p>
 <div class="quiz-options">
@@ -143,8 +201,29 @@ Paso 2: 10 − 2 = 8<br>
 </div>
 </div>
 
+<!-- E2: COMPLETAR HUECO (nuevo tipo) -->
 <div class="exercise">
-<p>2. ¿Cuánto es 18 − 9?</p>
+<p>2. Completa el hueco: 14 − ___ = 9</p>
+<div style="text-align:center;margin:.5rem 0">
+<input type="number" id="e2answer" class="input-answer" placeholder="?">
+<button class="check-btn" onclick="checkE2()">Comprobar</button>
+</div>
+<div class="result" id="e2result" style="display:none;text-align:center"></div>
+</div>
+
+<!-- E3: VERDADERO/FALSO (nuevo tipo) -->
+<div class="exercise">
+<p>3. ¿Verdadero o falso? 18 − 9 = 10</p>
+<div style="text-align:center;margin:.5rem 0">
+<button class="vf-btn true-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="vf-btn false-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+<div class="result" id="e3result" style="display:none;text-align:center"></div>
+</div>
+
+<!-- E4: PROBLEMA CONTEXTUAL (nuevo tipo) -->
+<div class="exercise">
+<p>4. 🎂 En la fiesta de Ana había 17 velas en los pasteles. Se apagaron 8 por el viento. ¿Cuántas velas encendidas quedan?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
@@ -152,174 +231,90 @@ Paso 2: 10 − 2 = 8<br>
 </div>
 </div>
 
+<!-- E5: ORDENAR (nuevo tipo) -->
 <div class="exercise">
-<p>3. ¿Cuánto es 14 − 6?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<p>5. Ordena estas restas de menor a mayor resultado:</p>
+<p style="font-weight:normal;font-size:.9rem;color:var(--gris)">Pulsa en cada una en el orden correcto (primero la que da resultado más pequeño):</p>
+<div class="order-container" id="orderContainer">
+<div class="order-item" data-value="7" onclick="selectOrder(this)">20 − 13</div>
+<div class="order-item" data-value="8" onclick="selectOrder(this)">15 − 7</div>
+<div class="order-item" data-value="9" onclick="selectOrder(this)">18 − 9</div>
+<div class="order-item" data-value="10" onclick="selectOrder(this)">20 − 10</div>
 </div>
+<div class="order-answer" id="orderAnswer"></div>
+<button class="check-btn" onclick="checkOrder()" style="display:block;margin:.5rem auto">Comprobar orden</button>
+<div class="result" id="e5result" style="display:none;text-align:center"></div>
 </div>
 
+<!-- E6: PROBLEMA INVERSO (nuevo tipo) -->
 <div class="exercise">
-<p>4. ¿Cuánto es 20 − 10?</p>
+<p>6. 🧩 Si 13 − 5 = 8, ¿cuánto es 8 + 5?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">13</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
 </div>
+<p style="font-weight:normal;font-size:.9rem;color:var(--gris);margin-top:.3rem">💡 Recuerda: si la resta es correcta, la suma también lo es. ¡Son espejos!</p>
 </div>
 
+<!-- E7: CONTEO VISUAL (nuevo tipo) -->
 <div class="exercise">
-<p>5. Si tienes 16 cromos y regalas 8... ¿cuántos te quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
+<p>7. 👀 Cuenta: hay 🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 (13 manzanas). Si te comes 5, ¿cuántas quedan? Haz clic en las que quedan:</p>
+<div class="canvas-container">
+<canvas id="visualCount" width="500" height="100"></canvas>
 </div>
+<div style="text-align:center;margin:.5rem 0">
+<input type="number" id="e7answer" class="input-answer" placeholder="?">
+<button class="check-btn" onclick="checkE7()">Comprobar</button>
+</div>
+<div class="result" id="e7result" style="display:none;text-align:center"></div>
+</div>
+
+<!-- E8: DECIDIR OPERACIÓN (nuevo tipo) -->
+<div class="exercise">
+<p>8. 🎮 En un videojuego tienes 19 puntos. Pierdes 8 puntos. ¿Qué operación usas?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">19 − 8 = 11 (resta)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">19 + 8 = 27 (suma)</button>
+</div>
+<p style="font-weight:normal;font-size:.9rem;color:var(--gris);margin-top:.3rem">💡 "Pierdo" significa que quitan puntos → ¡resta!</p>
 </div>
 
 </div>
 </section>
 
-<div class="summary">
-<h3>📋 Resumen de lo aprendido</h3>
-<ul>
-<li>Para restar números grandes, resta en dos pasos</li>
-<li>Primero llega a 10, luego lo que falta</li>
-<li>15 − 7 = 8, 18 − 9 = 9, 14 − 6 = 8</li>
-<li>¡Ya sabes restar hasta 20! 🎉</li>
-</ul>
-</div>
-
-<!-- NUEVO: Analogías de la vida real -->
+<!-- Casos reales mejorados -->
 <section class="chapter">
 <h2 class="chapter-title">🌍 Restas en la vida real</h2>
 
 <div class="box box-teoria">
-<strong>🍦 Analogía 1: El helado</strong>
-Imagina que tienes <b>16 euros</b> en la hucha para comprar helados. Cada helado cuesta <b>7 euros</b>. ¿Cuántos euros te quedan después de comprar uno?<br>
+<strong>🍦 El helado</strong>
+Tienes <b>16 euros</b> en la hucha. Cada helado cuesta <b>7 euros</b>. ¿Cuántos euros te quedan después de comprar uno?<br>
 👉 16 − 7 = 9 euros. ¡Te sobran 9 euros para otro helado! 🍦
 </div>
 
 <div class="box box-teoria">
-<strong>🎮 Analogía 2: Los puntos del videojuego</strong>
-En tu videojuego tienes <b>19 puntos</b>. Pierdes <b>8 puntos</b> porque te atrapó un enemigo. ¿Cuántos puntos te quedan?<br>
+<strong>🎮 Los puntos del videojuego</strong>
+Tienes <b>19 puntos</b>. Te atrapó un enemigo y perdiste <b>8</b>. ¿Cuántos te quedan?<br>
 👉 19 − 8 = 11 puntos. ¡Aún puedes ganar más! 🎮
 </div>
 
 <div class="box box-teoria">
-<strong>🐱 Analogía 3: Los gatitos del refugio</strong>
-En el refugio hay <b>13 gatitos</b>. <b>5</b> han sido adoptados y se han ido a casa. ¿Cuántos gatitos quedan en el refugio?<br>
+<strong>🐱 Los gatitos del refugio</strong>
+Hay <b>13 gatitos</b>. <b>5</b> fueron adoptados. ¿Cuántos quedan?<br>
 👉 13 − 5 = 8 gatitos. ¡Esperando ser adoptados! 🐱
 </div>
-</section>
-
-<!-- NUEVO: Más ejemplos cotidianos -->
-<section class="chapter">
-<h2 class="chapter-title">🍕 Más ejemplos de la vida</h2>
 
 <div class="box box-ejemplo">
-<strong>🍕 Ejemplo 4: La pizza</strong>
-Cortaste una pizza en <b>20 porciones</b>. Te comiste <b>6 porciones</b>. ¿Cuántas porciones quedan?<br>
-Paso 1: 20 − 10 = 10 (pero solo quitamos 6)<br>
-Paso 2: 20 − 6 = 14 porciones restantes 🍕
+<strong>🍕 La pizza</strong>
+Cortaste una pizza en <b>20 porciones</b>. Te comiste <b>6</b>. ¿Cuántas quedan?<br>
+👉 20 − 6 = 14 porciones restantes 🍕
 </div>
 
 <div class="box box-ejemplo">
-<strong>📚 Ejemplo 5: Los libros de la biblioteca</strong>
-En la estantería había <b>17 libros</b>. Sacaron <b>9</b> para leer. ¿Cuántos quedaron?<br>
-Paso 1: 17 − 7 = 10 (llegamos a 10)<br>
-Paso 2: 10 − 2 = 8 libros restantes 📚
-</div>
-
-<div class="box box-ejemplo">
-<strong>🌟 Ejemplo 6: Estrellas en el cielo</strong>
-Contaste <b>18 estrellas</b> anoche. Una se escondió detrás de una nube. ¿Cuántas ves ahora?<br>
-Paso 1: 18 − 8 = 10<br>
-Paso 2: 10 − 1 = 9 estrellas visibles ⭐
-</div>
-</section>
-
-<!-- NUEVO: Gráfico Plotly -->
-<section class="chapter">
-<h2 class="chapter-title">📊 Visualización: Restas populares</h2>
-<div class="interactive">
-<h3>📊 ¿Qué restas son las más fáciles?</h3>
-<p>Mira este gráfico con los resultados de todos los ejercicios de este tema. ¡Observa cuántos aciertos hay!</p>
-<div id="plotly-chart" style="min-height:300px;margin:1rem 0"></div>
-</div>
-</section>
-
-<!-- NUEVO: Ejercicios extra -->
-<section class="chapter">
-<h2 class="chapter-title">🏆 ¡A seguir practicando!</h2>
-
-<div class="exercises">
-
-<div class="exercise">
-<p>6. 🍎 Si tienes 14 manzanas y te comes 5... ¿cuántas te quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>7. 🎈 Tienes 18 globos y se revientan 6. ¿Cuántos te quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">13</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>8. 🐟 En el acuario hay 16 peces. 7 se van a otro acuario. ¿Cuántos quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>9. 🧸 Tu mamá te dio 20 euros. Gastaste 12 en juguetes. ¿Cuánto te sobra?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>10. 🌺 En el jardín había 19 flores. Cortaron 10. ¿Cuántas quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>11. 🍪 Hiciste 20 galletas. Tu hermano se comió 13. ¿Cuántas quedan?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>12. 🏃 En una carrera hay 15 corredores. 8 llegan primero. ¿Cuántos no han llegado?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-</div>
-</div>
-
+<strong>📚 La biblioteca</strong>
+Había <b>17 libros</b> en la estantería. Sacaron <b>9</b> para leer. ¿Cuántos quedaron?<br>
+👉 17 − 9 = 8 libros restantes 📚
 </div>
 </section>
 
@@ -327,14 +322,12 @@ Paso 2: 10 − 1 = 9 estrellas visibles ⭐
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Para restar números grandes, resta en dos pasos</li>
-<li>Primero llega a 10, luego lo que falta</li>
+<li>Para restar números grandes, resta en dos pasos (llegar a 10 primero)</li>
 <li>15 − 7 = 8, 18 − 9 = 9, 14 − 6 = 8</li>
+<li>La suma y la resta son espejos: si 8 + 5 = 13, entonces 13 − 5 = 8</li>
 <li>16 − 7 = 9 (helado), 19 − 8 = 11 (videojuego), 13 − 5 = 8 (gatitos)</li>
-<li>20 − 6 = 14 (pizza), 17 − 9 = 8 (libros), 18 − 1 = 9 (estrellas)</li>
-<li>14 − 5 = 9 (manzanas), 18 − 6 = 12 (globos), 16 − 7 = 9 (peces)</li>
-<li>20 − 12 = 8 (euros), 19 − 10 = 9 (flores), 20 − 13 = 7 (galletas)</li>
-<li>15 − 8 = 7 (carrera)</li>
+<li>20 − 6 = 14 (pizza), 17 − 9 = 8 (biblioteca)</li>
+<li>"Pierdo" y "quitan" → resta. "Gano" y "añaden" → suma</li>
 <li>¡Ya sabes restar hasta 20! 🎉</li>
 </ul>
 </div>
@@ -352,6 +345,7 @@ Hecho con ❤️ por David Antizar
 </footer>
 
 <script>
+// --- Calculadora de restas ---
 function solveSub(){
   const a = parseInt(document.getElementById('subA').value);
   const b = parseInt(document.getElementById('subB').value);
@@ -375,6 +369,7 @@ function solveSub(){
   r.innerHTML = steps;
 }
 
+// --- Quiz botón ---
 function checkExercise(btn, correct){
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => {
@@ -388,35 +383,225 @@ function checkExercise(btn, correct){
   }
 }
 
+// --- E2: Completar hueco ---
+function checkE2(){
+  const ans = parseInt(document.getElementById('e2answer').value);
+  const r = document.getElementById('e2result');
+  r.style.display = 'block';
+  if(ans === 5){
+    r.className = 'result ok';
+    r.innerHTML = '✅ ¡Correcto! 14 − 5 = 9. ¡Completaste el hueco!';
+  } else {
+    r.className = 'result fail';
+    r.innerHTML = '❌ No es correcto. Piensa: 14 − ___ = 9. ¿Cuánto hay que quitar a 14 para llegar a 9?';
+  }
+}
+
+// --- E3: Verdadero/Falso ---
+function checkVF(btn, isCorrect){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const r = document.getElementById('e3result');
+  r.style.display = 'block';
+  if(isCorrect){
+    btn.classList.add('correct');
+    r.className = 'result ok';
+    r.innerHTML = '✅ ¡Correcto! 18 − 9 = 9, NO 10. ¡Falso!';
+  } else {
+    btn.classList.add('wrong');
+    r.className = 'result fail';
+    r.innerHTML = '❌ 18 − 9 = 9, no 10. ¡Es FALSO!';
+  }
+}
+
+// --- E5: Ordenar ---
+let selectedOrder = [];
+function selectOrder(item){
+  if(item.classList.contains('selected')){
+    item.classList.remove('selected');
+    selectedOrder = selectedOrder.filter(x => x !== item);
+  } else {
+    item.classList.add('selected');
+    selectedOrder.push(item);
+  }
+  updateOrderDisplay();
+}
+function updateOrderDisplay(){
+  const container = document.getElementById('orderAnswer');
+  container.innerHTML = '';
+  selectedOrder.forEach(item => {
+    const span = document.createElement('span');
+    span.className = 'order-item selected';
+    span.textContent = item.textContent;
+    container.appendChild(span);
+  });
+}
+function checkOrder(){
+  const r = document.getElementById('e5result');
+  r.style.display = 'block';
+  if(selectedOrder.length !== 4){
+    r.className = 'result fail';
+    r.innerHTML = '⚠️ Pulsa en los 4 elementos primero.';
+    return;
+  }
+  const values = selectedOrder.map(x => parseInt(x.dataset.value));
+  const sorted = [...values].sort((a,b) => a - b);
+  const correct = values.every((v,i) => v === sorted[i]);
+  if(correct){
+    r.className = 'result ok';
+    r.innerHTML = '✅ ¡Correcto! 20−13=7, 15−7=8, 18−9=9, 20−10=10. ¡Orden de menor a mayor!';
+  } else {
+    r.className = 'result fail';
+    r.innerHTML = '❌ El orden correcto es: 20−13 (7), 15−7 (8), 18−9 (9), 20−10 (10). ¡Inténtalo de nuevo!';
+  }
+}
+
+// --- E7: Conteo visual ---
+function checkE7(){
+  const ans = parseInt(document.getElementById('e7answer').value);
+  const r = document.getElementById('e7result');
+  r.style.display = 'block';
+  if(ans === 8){
+    r.className = 'result ok';
+    r.innerHTML = '✅ ¡Correcto! 13 − 5 = 8 manzanas. 🍎';
+  } else {
+    r.className = 'result fail';
+    r.innerHTML = '❌ No es correcto. 13 − 5 = 8. ¡Cuenta las manzanas que quedan!';
+  }
+}
+
+// --- Línea numérica canvas ---
+function drawNumberLine(){
+  const canvas = document.getElementById('numberLine');
+  const ctx = canvas.getContext('2d');
+  const start = parseInt(document.getElementById('nlStart').value);
+  const jump = parseInt(document.getElementById('nlJump').value);
+  const result = document.getElementById('nlResult');
+
+  if(jump >= start){
+    result.className = 'result fail';
+    result.innerHTML = '❌ No puedes saltar ' + jump + ' pasos desde ' + start + '. ¡El salto debe ser menor!';
+    return;
+  }
+
+  const end = start - jump;
+  result.className = 'result ok';
+  result.innerHTML = '🐸 ¡El sapo saltó de ' + start + ' hacia atrás ' + jump + ' pasos y llegó a ' + end + '!';
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Fondo
+  ctx.fillStyle = '#f8faff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const y = 80;
+  const stepX = 30;
+  const startX = 50;
+
+  // Línea
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(startX, y);
+  ctx.lineTo(startX + 20 * stepX, y);
+  ctx.stroke();
+
+  // Flecha derecha
+  ctx.beginPath();
+  ctx.moveTo(startX + 20 * stepX, y);
+  ctx.lineTo(startX + 20 * stepX - 10, y - 5);
+  ctx.lineTo(startX + 20 * stepX - 10, y + 5);
+  ctx.fill();
+
+  // Números
+  ctx.font = 'bold 14px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  for(let i = 0; i <= 20; i++){
+    const x = startX + i * stepX;
+    ctx.fillStyle = '#1e293b';
+    ctx.fillRect(x - 1, y - 15, 2, 30);
+    ctx.fillText(i.toString(), x, y + 35);
+  }
+
+  // Posición inicial (verde)
+  const startXPos = startX + start * stepX;
+  ctx.fillStyle = '#10b981';
+  ctx.beginPath();
+  ctx.arc(startXPos, y, 18, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 16px Inter, sans-serif';
+  ctx.fillText(start.toString(), startXPos, y + 6);
+
+  // Flechas de salto (hacia atrás)
+  ctx.strokeStyle = '#f97316';
+  ctx.lineWidth = 3;
+  const jumpX = startX + end * stepX;
+  const arrowY = y - 30;
+
+  // Flecha grande
+  ctx.beginPath();
+  ctx.moveTo(startXPos, y - 18);
+  ctx.lineTo(jumpX, arrowY);
+  ctx.stroke();
+
+  // Punta de flecha
+  ctx.fillStyle = '#f97316';
+  ctx.beginPath();
+  ctx.moveTo(jumpX, arrowY);
+  ctx.lineTo(jumpX + 8, arrowY - 6);
+  ctx.lineTo(jumpX + 8, arrowY + 6);
+  ctx.fill();
+
+  // Etiqueta del salto
+  ctx.fillStyle = '#f97316';
+  ctx.font = 'bold 13px Inter, sans-serif';
+  ctx.fillText('−' + jump, (startXPos + jumpX) / 2, arrowY - 8);
+
+  // Posición final (azul)
+  ctx.fillStyle = '#2563eb';
+  ctx.beginPath();
+  ctx.arc(jumpX, y, 18, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 16px Inter, sans-serif';
+  ctx.fillText(end.toString(), jumpX, y + 6);
+
+  // Emoji sapo
+  ctx.font = '24px sans-serif';
+  ctx.fillText('🐸', startXPos - 5, y - 22);
+  ctx.fillText('🐸', jumpX - 5, y - 22);
+}
+
+// --- Progress bar ---
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
 
-// Plotly chart: Restas populares
-if(typeof plotly !== 'undefined'){
-  var chartData = [{
-    type: 'bar',
-    x: ['15−7', '18−9', '14−6', '20−10', '16−8', '14−5', '18−6', '16−7', '20−12', '19−10', '20−13', '15−8'],
-    y: [8, 9, 8, 10, 8, 9, 12, 9, 8, 9, 7, 7],
-    marker: {
-      color: ['#2563eb','#2563eb','#2563eb','#10b981','#2563eb','#2563eb','#10b981','#2563eb','#2563eb','#2563eb','#f97316','#f97316']
-    },
-    text: ['8','9','8','10','8','9','12','9','8','9','7','7'],
-    textposition: 'outside',
-    hovertemplate: '<b>%{x}</b><br>Resultado: %{y}<extra></extra>'
-  }];
-  var chartLayout = {
-    title: {text: '📊 Resultados de las restas', font: {size: 14, color: '#1e293b'}},
-    xaxis: {title: 'Resta', tickangle: -45},
-    yaxis: {title: 'Resultado', range: [0, 14]},
-    margin: {t: 50, b: 80, l: 50, r: 20},
-    paper_bgcolor: 'rgba(0,0,0,0)',
-    plot_bgcolor: 'rgba(0,0,0,0)'
-  };
-  Plotly.newPlot('plotly-chart', chartData, chartLayout, {responsive: true, displayModeBar: false});
-}
+// --- Init ---
+window.onload = function(){
+  drawNumberLine();
+  // Dibujar conteo visual
+  const vc = document.getElementById('visualCount');
+  if(vc){
+    const vctx = vc.getContext('2d');
+    vctx.fillStyle = '#f8faff';
+    vctx.fillRect(0, 0, vc.width, vc.height);
+    vctx.font = '28px sans-serif';
+    vctx.textAlign = 'center';
+    const apples = '🍎';
+    let x = 30;
+    for(let i = 0; i < 13; i++){
+      vctx.fillText(apples, x, 60);
+      x += 36;
+    }
+  }
+};
 </script>
 </body>
 </html>
