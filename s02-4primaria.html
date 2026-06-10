@@ -55,10 +55,24 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.vf-buttons{display:flex;gap:.8rem;margin:.8rem 0}
+.vf-buttons button{padding:.6rem 1.5rem;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.vf-buttons button.vf-true{background:var(--verde);color:#fff}
+.vf-buttons button.vf-false{background:var(--rojo);color:#fff}
+.vf-buttons button:hover{opacity:.85;transform:scale(1.03)}
+.order-list{list-style:none;padding:0}
+.order-list li{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border-radius:6px;border:1px solid #e2e8f0;display:flex;align-items:center;gap:.5rem}
+.order-list li span{cursor:grab;user-select:none;font-size:1.2rem}
+.order-list li input[type="radio"]{width:20px;height:20px;cursor:pointer}
+.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.8rem 0}
+.quiz-options button{padding:.6rem 1rem;border:2px solid #e2e8f0;border-radius:8px;background:#fff;font-size:1rem;cursor:pointer;transition:all .2s}
+.quiz-options button:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-options button.selected{border-color:var(--azul);background:var(--azul-claro)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .chart-canvas{height:250px}
+  .quiz-options{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -73,6 +87,7 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- ¿QUÉ VAMOS A APRENDER? -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-teoria">
@@ -85,6 +100,7 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- ¿PARA QUÉ SIRVE? -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Para qué sirve?</h2>
 <div class="box box-ejemplo">
@@ -92,19 +108,39 @@ table tr:nth-child(even){background:#f8fafc}
 <p>Si tienes 120 caramelos y quieres repartirlos entre 4 niños, ¿cuántos le tocan a cada uno?</p>
 <p>120 ÷ 4 = <strong>30</strong> caramelos cada uno.</p>
 </div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">1️⃣ Dividir entre 2 Cifras</h2>
-
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo:</strong>
-<p style="margin-top:.5rem">120 ÷ 4</p>
-<p style="margin-top:.5rem">12 ÷ 4 = 3</p>
-<p style="margin-top:.5rem">0 ÷ 4 = 0</p>
-<p style="margin-top:.5rem">Resultado: <strong>30</strong></p>
+<strong>💡 Caso real: 360 galletas en 12 cajas</strong>
+<p>Una pastelería mete 360 galletas en cajas, 12 galletas en cada caja. ¿Cuántas cajas llena?</p>
+<p>360 ÷ 12 = <strong>30</strong> cajas.</p>
+</div>
 </div>
 
+<!-- EXPLICACIÓN PEDAGÓGICA -->
+<div class="chapter">
+<h2 class="chapter-title">📖 ¿Cómo funciona?</h2>
+<div class="box box-teoria">
+<strong>1. ¿Qué es dividir?</strong>
+<p>Dividir es repartir algo en partes iguales. Si tienes 20 gominolas y las repartes entre 4 amigos, cada uno recibe 5.</p>
+</div>
+<div class="box box-ejemplo">
+<strong>2. ¿Cómo se hace paso a paso?</strong>
+<p style="margin-top:.5rem"><strong>Paso 1:</strong> Mira cuántas cifras tiene el número grande. Ejemplo: 240 tiene 3 cifras.</p>
+<p style="margin-top:.3rem"><strong>Paso 2:</strong> Divide de izquierda a derecha. 24 ÷ 6 = 4, luego 0 ÷ 6 = 0.</p>
+<p style="margin-top:.3rem"><strong>Paso 3:</strong> El resultado es 40. ¡Comprueba multiplicando! 40 × 6 = 240 ✅</p>
+</div>
+<div class="box box-idea">
+<strong>3. Truco: la división y la multiplicación son amigas</strong>
+<p>Si 6 × 40 = 240, entonces 240 ÷ 6 = 40. Si sabes multiplicar, ya sabes dividir. 🧠</p>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común: confundir el resultado</strong>
+<p>Mucha gente piensa que 240 ÷ 6 = 4. ¡Cuidado! 6 × 4 = 24, no 240. El resultado correcto es <strong>40</strong>, no 4. ¡No olvides el cero!</p>
+</div>
+</div>
+
+<!-- CANVAS INTERACTIVO -->
+<div class="chapter">
+<h2 class="chapter-title">🎮 ¡Practica con el canvas!</h2>
 <div class="chart-container">
 <h3>🎮 ¡Practica divisiones!</h3>
 <canvas id="canvas-div2" class="chart-canvas"></canvas>
@@ -119,31 +155,115 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- EJERCICIOS VARIADOS -->
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
+
+<!-- Ejercicio 1: Completar hueco -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 120 ÷ 4 = ?</p>
-<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 30)">Comprobar</button></div>
+<p><strong>Ejercicio 1 (completar hueco):</strong> ___ ÷ 4 = 30</p>
+<p style="font-size:.9rem;color:#64748b">Piensa: ¿qué número dividido entre 4 da 30? Pista: 30 × 4 = ?</p>
+<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 120)">Comprobar</button></div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Completar hueco inverso -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 150 ÷ 5 = ?</p>
-<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 30)">Comprobar</button></div>
+<p><strong>Ejercicio 2 (completar divisor):</strong> 180 ÷ ___ = 20</p>
+<p style="font-size:.9rem;color:#64748b">¿Entre qué número divido 180 para obtener 20? Pista: 180 ÷ 20 = ?</p>
+<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 9)">Comprobar</button></div>
 <div class="feedback" id="e2-fb"></div>
 </div>
+
+<!-- Ejercicio 3: Verdadero/Falso -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 200 ÷ 8 = ?</p>
-<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 25)">Comprobar</button></div>
+<p><strong>Ejercicio 3 (verdadero o falso):</strong> 240 ÷ 6 = 40</p>
+<div class="vf-buttons">
+<button class="vf-true" onclick="checkVF(3, true)">✅ Verdadero</button>
+<button class="vf-false" onclick="checkVF(3, false)">❌ Falso</button>
+</div>
 <div class="feedback" id="e3-fb"></div>
 </div>
+
+<!-- Ejercicio 4: Verdadero/Falso (trampa común) -->
+<div class="exercise">
+<p><strong>Ejercicio 4 (verdadero o falso):</strong> 300 ÷ 5 = 60</p>
+<div class="vf-buttons">
+<button class="vf-true" onclick="checkVF(4, true)">✅ Verdadero</button>
+<button class="vf-false" onclick="checkVF(4, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
 </div>
 
+<!-- Ejercicio 5: Problema con contexto -->
+<div class="exercise">
+<p><strong>Ejercicio 5 (problema):</strong> En una granja hay 480 huevos. Se meten en cajas de 12 huevos cada una. ¿Cuántas cajas se llenan?</p>
+<div class="exercise-input"><input type="number" id="e5" placeholder="cajas"><button onclick="checkE(5, 40)">Comprobar</button></div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Problema inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (problema inverso):</strong> Si repartimos 540 euros entre 9 familias, ¿cuánto le toca a cada una?</p>
+<div class="exercise-input"><input type="number" id="e6" placeholder="euros"><button onclick="checkE(6, 60)">Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Ejercicio 7: Quiz visual (botones) -->
+<div class="exercise">
+<p><strong>Ejercicio 7 (selecciona la respuesta):</strong> ¿Cuál es el resultado de 720 ÷ 8?</p>
+<div class="quiz-options">
+<button onclick="selectQuiz(7, this, 80)">80</button>
+<button onclick="selectQuiz(7, this, 90)">90</button>
+<button onclick="selectQuiz(7, this, 72)">72</button>
+<button onclick="selectQuiz(7, this, 100)">100</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- Ejercicio 8: Ordenar números -->
+<div class="exercise">
+<p><strong>Ejercicio 8 (ordenar de menor a mayor):</strong> Ordena estas divisiones por su resultado:</p>
+<ul class="order-list">
+<li><input type="radio" name="order8" value="1"> 120 ÷ 4 (resultado: 30)</li>
+<li><input type="radio" name="order8" value="3"> 300 ÷ 5 (resultado: 60)</li>
+<li><input type="radio" name="order8" value="2"> 200 ÷ 4 (resultado: 50)</li>
+</ul>
+<p style="font-size:.9rem;color:#64748b">Selecciona en qué orden van: primero el menor, luego el del medio, luego el mayor.</p>
+<div class="exercise-input"><button onclick="checkOrder8()">Comprobar orden</button></div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+<!-- Ejercicio 9: Completar hueco con resto -->
+<div class="exercise">
+<p><strong>Ejercicio 9 (completar hueco):</strong> 85 ÷ 4 = 21 y sobran ___</p>
+<p style="font-size:.9rem;color:#64748b">21 × 4 = 84, y 85 - 84 = ?</p>
+<div class="exercise-input"><input type="number" id="e9"><button onclick="checkE(9, 1)">Comprobar</button></div>
+<div class="feedback" id="e9-fb"></div>
+</div>
+
+<!-- Ejercicio 10: Verdadero/Falso (concepto) -->
+<div class="exercise">
+<p><strong>Ejercicio 10 (verdadero o falso):</strong> Si 7 × 50 = 350, entonces 350 ÷ 7 = 50</p>
+<div class="vf-buttons">
+<button class="vf-true" onclick="checkVF(10, true)">✅ Verdadero</button>
+<button class="vf-false" onclick="checkVF(10, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e10-fb"></div>
+</div>
+
+</div>
+
+<!-- RESUMEN AMPLIADO -->
 <div class="summary">
-<h3>📋 Lo que aprendiste</h3>
+<h3>📋 Lo que aprendiste hoy</h3>
 <ul>
 <li>Dividir entre 2 cifras es repartir en grupos más grandes</li>
-<li>120 ÷ 4 = 30</li>
-<li>La división es lo contrario de multiplicar</li>
+<li>120 ÷ 4 = 30 — divide de izquierda a derecha</li>
+<li>La división es lo contrario de multiplicar: si 6 × 40 = 240, entonces 240 ÷ 6 = 40</li>
+<li>Siempre comprueba: resultado × divisor = dividendo</li>
+<li>Cuidado con los ceros: 240 ÷ 6 = 40, ¡no 4!</li>
+<li>En la vida real dividimos caramelos, galletas, dinero, huevos…</li>
 </ul>
 </div>
 
@@ -196,9 +316,6 @@ function verificarDiv2() {
     fb.style.color = '#ef4444';
   }
 }
-''' + checkE_func() + '''
-document.addEventListener('DOMContentLoaded', () => {
-  nuevaDiv2();
 
 function checkE(num, correct) {
   const input = document.getElementById('e' + num);
@@ -209,6 +326,59 @@ function checkE(num, correct) {
   if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
   else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
 }
+
+function checkVF(num, userAnswer) {
+  const feedback = document.getElementById('e' + num + '-fb');
+  // e3: 240÷6=40 → verdadero, e4: 300÷5=60 → verdadero, e10: 350÷7=50 → verdadero
+  const answers = {3: true, 4: true, 10: true};
+  if (userAnswer === answers[num]) {
+    feedback.textContent = '✅ ¡Correcto! ¡Muy bien!';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ ¡Casi! Piénsalo de nuevo.';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function selectQuiz(num, btn, selected) {
+  // Q7: 720÷8 = 90
+  const answers = {7: 90};
+  const feedback = document.getElementById('e' + num + '-fb');
+  // Deseleccionar todos
+  const buttons = btn.parentElement.querySelectorAll('button');
+  buttons.forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  if (selected === answers[num]) {
+    feedback.textContent = '✅ ¡Correcto! 720 ÷ 8 = 90';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ No es ese. Pista: 90 × 8 = ?';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function checkOrder8() {
+  const feedback = document.getElementById('e8-fb');
+  const radios = document.querySelectorAll('input[name="order8"]');
+  const values = [];
+  radios.forEach(r => { if (r.checked) values.push(parseInt(r.value)); });
+  if (values.length < 3) {
+    feedback.textContent = 'Selecciona el orden para los 3.';
+    feedback.className = 'feedback incorrect';
+    return;
+  }
+  // Correct order: 30 (120÷4), 50 (200÷4), 60 (300÷5) → values [1, 3, 2]
+  if (values[0] === 1 && values[1] === 3 && values[2] === 2) {
+    feedback.textContent = '✅ ¡Correcto! 30 < 50 < 60';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ Orden incorrecto. Recuerda: primero el resultado menor.';
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  nuevaDiv2();
 });
 </script>
 </body>
