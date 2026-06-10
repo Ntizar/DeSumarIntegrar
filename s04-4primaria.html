@@ -80,11 +80,33 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <button onclick="checkQuiz(3, 6)">3/12</button>
 </div>
 <div class="quiz-feedback" id="quizFeedback"></div>
+<p style="margin-top:1rem;font-size:.85rem;color:#64748b">➡️ Siguiente pregunta: <strong>En un paquete de 20 galletas, ¿cuántas son el 25%?</strong></p>
+<div class="quiz-options" id="quizOptions2">
+<button onclick="checkQuiz2(0, 2)">5</button>
+<button onclick="checkQuiz2(1, 4)">10</button>
+<button onclick="checkQuiz2(2, 5)">15</button>
+<button onclick="checkQuiz2(3, 6)">4</button>
+</div>
+<div class="quiz-feedback" id="quizFeedback2"></div>
+<p style="margin-top:1rem;font-size:.85rem;color:#64748b">➡️ Última pregunta: <strong>¿Qué es mayor: 0,5 o 0,49?</strong></p>
+<div class="quiz-options" id="quizOptions3">
+<button onclick="checkQuiz3(0, 7)">0,5</button>
+<button onclick="checkQuiz3(1, 8)">0,49</button>
+<button onclick="checkQuiz3(2, 9)">Son iguales</button>
+</div>
+<div class="quiz-feedback" id="quizFeedback3"></div>
 </div>
 
 <div class="intro-box">
 <h2>¿Qué vamos a aprender en 4º Primaria?</h2>
 <p>En 4º Primaria damos un salto importante: las fracciones dejan de ser algo visual para convertirse en números con los que podemos operar. También introducimos los decimales y los porcentajes, que usamos todos los días.</p>
+
+<!-- Caso real que engancha -->
+<div style="background:rgba(249,115,22,0.06);border-radius:12px;padding:1rem;margin-top:1rem;border-left:3px solid var(--naranja)">
+<p style="font-size:.95rem;color:#475569"><strong>🛒 Caso real:</strong> Tu mamá te da 20€ para comprar materiales. Gastas 12€. ¿Qué fracción del dinero gastaste? ¿Cuánto te queda? ¿Qué porcentaje es lo que gastaste?</p>
+<p style="font-size:.85rem;color:#64748b;margin-top:.5rem">En 4º Primaria aprenderás a responder TODAS estas preguntas con números.</p>
+</div>
+
 <p style="margin-top:.8rem"><strong>🎯 Objetivos de esta unidad:</strong></p>
 <ul>
 <li>Entender y crear fracciones equivalentes</li>
@@ -95,6 +117,16 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <li>Calcular áreas de figuras planas</li>
 <li>Convertir entre litros y mililitros</li>
 <li>Resolver problemas de una operación</li>
+</ul>
+</div>
+
+<!-- ¿Sabías que? -->
+<div style="background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(37,99,235,0.06));border-radius:16px;padding:1.2rem;margin:1.5rem 0;border-left:4px solid var(--pura)">
+<p style="font-size:.95rem;color:#475569"><strong>🤔 ¿Sabías que...?</strong></p>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Los egipcios usaban fracciones hace 4.000 años para repartir pan y cerveza 🍺</li>
+<li>Los porcentajes se usan en las rebajas: si algo vale 30€ y tiene un 30% de descuento, te ahorras 9€ 💰</li>
+<li>El área de tu habitación te dice cuántos baldosas necesitas si cada una mide 1m² 📐</li>
 </ul>
 </div>
 
@@ -188,11 +220,23 @@ const quizData = {
   explanation: "¡Exacto! 3 pizzas entre 4 amigos → cada uno se lleva 3/4 de pizza. 🍕"
 };
 
-function checkQuiz(index, value) {
+const quizData2 = {
+  question: "En un paquete de 20 galletas, ¿cuántas son el 25%?",
+  answers: ["5", "10", "15", "4"],
+  correct: 0,
+  explanation: "¡Correcto! 25% = 1/4. Un cuarto de 20 = 20 ÷ 4 = 5 galletas. 🍪"
+};
+
+const quizData3 = {
+  question: "¿Qué es mayor: 0,5 o 0,49?",
+  answers: ["0,5", "0,49", "Son iguales"],
+  correct: 0,
+  explanation: "¡Bien! 0,5 = 0,50, y 50 centésimas > 49 centésimas. Piensa en dinero: 0,5€ = 50 céntimos, 0,49€ = 49 céntimos. 🪙"
+};
+
+function checkQuiz(index) {
   const buttons = document.querySelectorAll('#quizOptions button');
   const feedback = document.getElementById('quizFeedback');
-
-  // Disable all buttons
   buttons.forEach((btn, i) => {
     btn.disabled = true;
     if (i === quizData.correct) {
@@ -201,12 +245,51 @@ function checkQuiz(index, value) {
       btn.classList.add('wrong');
     }
   });
-
   if (index === quizData.correct) {
     feedback.textContent = '✅ ' + quizData.explanation;
     feedback.className = 'quiz-feedback correct';
   } else {
     feedback.textContent = '❌ ¡Casi! La respuesta es ' + quizData.answers[quizData.correct] + '. ¡Descúbrelo en la sesión 1!';
+    feedback.className = 'quiz-feedback wrong';
+  }
+}
+
+function checkQuiz2(index) {
+  const buttons = document.querySelectorAll('#quizOptions2 button');
+  const feedback = document.getElementById('quizFeedback2');
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === quizData2.correct) {
+      btn.classList.add('correct');
+    } else if (i === index) {
+      btn.classList.add('wrong');
+    }
+  });
+  if (index === quizData2.correct) {
+    feedback.textContent = '✅ ' + quizData2.explanation;
+    feedback.className = 'quiz-feedback correct';
+  } else {
+    feedback.textContent = '❌ ¡Casi! La respuesta es ' + quizData2.answers[quizData2.correct] + '. ¡Descúbrelo paso a paso en las sesiones!';
+    feedback.className = 'quiz-feedback wrong';
+  }
+}
+
+function checkQuiz3(index) {
+  const buttons = document.querySelectorAll('#quizOptions3 button');
+  const feedback = document.getElementById('quizFeedback3');
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === quizData3.correct) {
+      btn.classList.add('correct');
+    } else if (i === index) {
+      btn.classList.add('wrong');
+    }
+  });
+  if (index === quizData3.correct) {
+    feedback.textContent = '✅ ' + quizData3.explanation;
+    feedback.className = 'quiz-feedback correct';
+  } else {
+    feedback.textContent = '❌ ¡Casi! La respuesta es ' + quizData3.answers[quizData3.correct] + '. ¡Descúbrelo en la sesión 5!';
     feedback.className = 'quiz-feedback wrong';
   }
 }

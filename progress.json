@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-3primaria.html",
+  "last_improved": "s04-4primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 30,
+  "total_runs": 31,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -425,7 +425,7 @@
       "improvement_count": 1
     },
     "s04-4primaria.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -434,18 +434,23 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+1 mini quiz interactivo (pregunta fracción pizzas), diseño glassmorphism mejorado, tags por categoría en cada sesión, +1 caja intro con objetivos claros, CSS mejorado con gradientes y backdrop-filter"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+2 mini quizzes interactivos (porcentaje 25%, comparar decimales), +1 caso real supermercado (20€ materiales), +1 caja ¿Sabías que? (egipcios, rebajas, baldosas), corregida respuesta quiz2, funciones JS checkQuiz2/checkQuiz3"
         }
       ],
       "scores": {
-        "exercises": 1,
-        "text": 10,
+        "exercises": 4,
+        "text": 12,
         "visual": 5,
-        "real_world": 7,
-        "connections": 2,
-        "difficulty_range": 4
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 5
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 2
     },
     "s05-5primaria.html": {
       "status": "pending",
