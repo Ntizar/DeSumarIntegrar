@@ -45,11 +45,18 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-options{display:flex;gap:.5rem;justify-content:flex-wrap}
+.quiz-btn{padding:.5rem 1rem;border:2px solid var(--azul);border-radius:6px;background:#fff;cursor:pointer;font-weight:600}
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-exercise{display:flex;align-items:center;gap:.5rem;margin:.5rem 0}
+.input-exercise input{width:100px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center}
+.input-exercise button{padding:.4rem .8rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer}
+.order-list{list-style:none;padding:0}
+.order-list li{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border:2px solid #e2e8f0;border-radius:6px;cursor:grab;display:flex;align-items:center;gap:.5rem}
+.order-list li .num{background:var(--azul);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.fill-blank{display:inline-block;min-width:80px;border-bottom:3px solid var(--naranja);text-align:center;font-weight:700;color:var(--naranja);margin:0 .3rem}
 </style>
 </head>
 <body>
@@ -62,38 +69,98 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- CONCEPTO -->
 <section class="chapter">
-<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<h2 class="chapter-title">📖 ¿Qué vamos a aprender?</h2>
+
+<div class="box box-teoria">
+<strong>📖 CONCEPTO</strong>
+<p><b>1. ¿Qué es?</b> Multiplicar por números de 3 cifras es descomponer el número grande en centenas, decenas y unidades, multiplicar por separado y sumar los resultados.</p>
+<p><b>2. ¿Para qué sirve?</b> Si una caja de cromos cuesta 4,50 € y quieres comprar 120 cajas, necesitas multiplicar 4,50 × 120 para saber cuánto pagas.</p>
+<p><b>3. ¿Cómo se hace?</b> Descompone: 12 × 234 = 12 × (200 + 30 + 4) = 12×200 + 12×30 + 12×4. Suma todo.</p>
+<p><b>4. ¿Qué error comete la gente?</b> Olvidar un paso de la descomposición. ¡Siempre verifica: ¿multiplicaste por las centenas, las decenas y las unidades?</p>
+</div>
+
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Multiplicar por 3 cifras es como multiplicar por 1, 10 y 100 por separado y sumar todo.
+Multiplicar por 3 cifras es como multiplicar por 100, por 10 y por 1 por separado, y sumar todo.
 </div>
+
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Multiplicar por 100</li><li>Multiplicar por números de 3 cifras</li><li>Entender el método de multiplicación larga</li>
+<li>Multiplicar por 100 y por números de 3 cifras</li>
+<li>Entender el método de descomposición</li>
+<li>Aplicarlo a problemas reales</li>
 </ul>
 </section>
+
+<!-- EJEMPLOS -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Multiplicar por 100 y más</h2>
-<div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Para multiplicar por 100, añadimos dos ceros. 23 × 100 = 2300. Para multiplicar por 234, multiplicamos por 4, por 30 y por 200, y sumamos.
-</div>
+<h2 class="chapter-title">🔍 Ejemplos paso a paso</h2>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-23 × 100 = 2300<br>45 × 100 = 4500<br>7 × 100 = 700
+<strong>🔍 Ejemplo 1: Multiplicar por 100</strong>
+<p>23 × 100 = 2300 → simplemente añadimos dos ceros</p>
+<p>45 × 100 = 4500</p>
+<p>7 × 100 = 700</p>
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-12 × 234 = ?<br>12 × 4 = 48<br>12 × 30 = 360<br>12 × 200 = 2400<br>Total: 48 + 360 + 2400 = 2808
+<strong>🔍 Ejemplo 2: Descomponer y multiplicar</strong>
+<p>12 × 234 = ?</p>
+<p>12 × 4 = 48 (unidades)</p>
+<p>12 × 30 = 360 (decenas)</p>
+<p>12 × 200 = 2400 (centenas)</p>
+<p><b>Total: 48 + 360 + 2400 = 2808</b></p>
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-5 × 123 = ?<br>5 × 3 = 15<br>5 × 20 = 100<br>5 × 100 = 500<br>Total: 15 + 100 + 500 = 615
+<strong>🔍 Ejemplo 3: Otro ejemplo</strong>
+<p>5 × 123 = ?</p>
+<p>5 × 3 = 15</p>
+<p>5 × 20 = 100</p>
+<p>5 × 100 = 500</p>
+<p><b>Total: 15 + 100 + 500 = 615</b></p>
 </div>
 </section>
+
+<!-- CASO REAL -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Practica multiplicaciones!</h2>
+<h2 class="chapter-title">🏪 Caso real: La librería del pueblo</h2>
+
+<div class="box box-success">
+<strong>🏪 Caso real</strong>
+<p>En la librería del pueblo hay estanterías con 125 libros cada una. Si hay 14 estanterías iguales, ¿cuántos libros hay en total?</p>
+<p><i>Pista: multiplica 125 × 14 usando descomposición</i></p>
+<button class="toggle-btn" onclick="showSolution('solLibreria')">Ver solución</button>
+<div class="solution" id="solLibreria">
+<p>125 × 14 = 125 × (10 + 4)</p>
+<p>125 × 10 = 1250</p>
+<p>125 × 4 = 500</p>
+<p><b>1250 + 500 = 1750 libros</b> 📚</p>
+</div>
+</div>
+</section>
+
+<!-- ERRORES COMUNES -->
+<section class="chapter">
+<h2 class="chapter-title">⚠️ Error común</h2>
+
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+<p>Al multiplicar 12 × 234, muchos alumnos hacen:</p>
+<p>12 × 4 = 48 ✅</p>
+<p>12 × 30 = 360 ✅</p>
+<p>12 × 200 = 240 ✅❌ ¡Se olvidó un cero!</p>
+<p><b>Recuerda:</b> 200 = 2 × 100, así que 12 × 200 = 12 × 2 × 100 = 24 × 100 = 2400</p>
+<p><b>Truco:</b> Escribe siempre los ceros que corresponda. Si multiplicas por 200, el resultado debe terminar en al menos dos ceros (si el otro número no tiene factor 5).</p>
+</div>
+</section>
+
+<!-- PRÁCTICA INTERACTIVA -->
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¡Practica multiplicaciones!</h2>
 <div class="interactive">
 <h3>Resuelve estas multiplicaciones:</h3>
 <div style="text-align:center;margin:1rem 0">
@@ -103,58 +170,106 @@ Para multiplicar por 100, añadimos dos ceros. 23 × 100 = 2300. Para multiplica
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<!-- EJERCICIOS VARIADOS -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- Ejercicio 1: Completar hueco -->
 <div class="exercise">
-<p>¿Cuánto es 34 × 100?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">340</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">3400</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">34</button>
+<p>1️⃣ Completa el hueco: 15 × 300 = <span class="fill-blank">___</span></p>
+<div class="input-exercise">
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkInput('e1', 4500, 'r1')">Comprobar</button>
 </div>
+<div class="result" id="r1"></div>
 </div>
+
+<!-- Ejercicio 2: Verdadero/Falso -->
 <div class="exercise">
-<p>¿Cuánto es 5 × 200?</p>
+<p>2️⃣ Verdadero o Falso: 25 × 400 = 1000</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1000</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">205</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">100</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
 </div>
+<p style="font-size:.85rem;color:#64748b;margin-top:.3rem">Pista: 25 × 400 = 25 × 4 × 100</p>
 </div>
+
+<!-- Ejercicio 3: Problema contextual -->
 <div class="exercise">
-<p>¿Cuánto es 12 × 3?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">36</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">33</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
+<p>3️⃣ Problema: En un supermercado, cada caja de latas contiene 240 latas. Si llegan 8 camiones con 35 cajas cada uno, ¿cuántas latas hay en total?</p>
+<button class="toggle-btn" onclick="showSolution('sol3')">Ver solución</button>
+<div class="solution" id="sol3">
+<p>35 cajas × 240 latas = 35 × 240</p>
+<p>35 × 200 = 7000</p>
+<p>35 × 40 = 1400</p>
+<p><b>7000 + 1400 = 8400 latas</b> 🥫</p>
 </div>
 </div>
+
+<!-- Ejercicio 4: Ordenar pasos -->
 <div class="exercise">
-<p>¿Cuánto es 8 × 100?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">80</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">800</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8000</button>
+<p>4️⃣ Ordena los pasos para calcular 13 × 245:</p>
+<ol class="order-list" id="orderList">
+<li><span class="num">?</span> Sumar: 3900 + 1170 + 65 = 5135</li>
+<li><span class="num">?</span> 13 × 200 = 2600</li>
+<li><span class="num">?</span> Descomponer: 245 = 200 + 40 + 5</li>
+<li><span class="num">?</span> 13 × 40 = 520</li>
+<li><span class="num">?</span> 13 × 5 = 65</li>
+</ol>
+<button class="toggle-btn" onclick="checkOrder()">Comprobar orden</button>
+<div class="result" id="r4"></div>
 </div>
-</div>
+
+<!-- Ejercicio 5: Inverso -->
 <div class="exercise">
-<p>¿Cuánto es 6 × 150?</p>
+<p>5️⃣ ¿Qué número falta? ___ × 200 = 6000</p>
+<div class="input-exercise">
+<input type="number" id="e5" placeholder="?">
+<button onclick="checkInput('e5', 30, 'r5')">Comprobar</button>
+</div>
+<div class="result" id="r5"></div>
+</div>
+
+<!-- Ejercicio 6: V/F otro error -->
+<div class="exercise">
+<p>6️⃣ Verdadero o Falso: Si multiplico un número por 100, el resultado siempre tiene 2 ceros al final</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">900</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">90</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9000</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+<p style="font-size:.85rem;color:#64748b;margin-top:.3rem">Pista: piensa en 0,5 × 100</p>
+</div>
+
+<!-- Ejercicio 7: Quiz botones -->
+<div class="exercise">
+<p>7️⃣ ¿Cuánto es 8 × 150?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">850</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1200</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">120</button>
 </div>
 </div>
 
 </div>
 </section>
+
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Por 100: añadir dos ceros</li></li><li><li>Descomponemos el número y multiplicamos por partes</li></li><li><li>Sumamos los resultados</li></li><li><li>¡Ya sabes multiplicar por 3 cifras! 🎉</li>
+<li>Multiplicar por 100: añade dos ceros al número (23 × 100 = 2300)</li>
+<li>Descompone el número de 3 cifras: 234 = 200 + 40 + 5</li>
+<li>Multiplica por cada parte por separado</li>
+<li>Suma todos los resultados para obtener el total</li>
+<li>Cuidado con los ceros: 12 × 200 = 2400, no 240</li>
+<li>Este método funciona para cualquier multiplicación grande</li>
+<li>En la vida real: cajas, estanterías, camiones... todo se multiplica</li>
+<li>¡Practica con el generador interactivo de arriba! 🎯</li>
 </ul>
 </div>
+
 <div class="nav">
 <a href="s04-2-estadistica-distribuciones-frecuencia.html">← Anterior</a>
   <a href="s04-4primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -199,10 +314,44 @@ function newMult() {
   document.getElementById('interactiveResult').textContent = '';
 }
 newMult();
+
+function checkInput(inputId, correctAnswer, resultId) {
+  const input = document.getElementById(inputId);
+  const result = document.getElementById(resultId);
+  const val = parseInt(input.value);
+  if(val === correctAnswer) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ La respuesta es ' + correctAnswer;
+  }
+}
+
+function checkVF(btn, isCorrect) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(isCorrect) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+function showSolution(id) {
+  document.getElementById(id).classList.toggle('show');
+}
+
+function checkOrder() {
+  const result = document.getElementById('r4');
+  result.className = 'result fail';
+  result.innerHTML = '📝 El orden correcto es:<br>1. Descomponer: 245 = 200 + 40 + 5<br>2. 13 × 200 = 2600<br>3. 13 × 40 = 520<br>4. 13 × 5 = 65<br>5. Sumar: 2600 + 520 + 65 = 3185';
 }
 
 window.onscroll = function(){
