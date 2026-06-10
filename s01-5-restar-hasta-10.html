@@ -185,8 +185,8 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 <div class="exercise">
 <p>2. ¿Verdadero o falso? 5 − 5 = 0</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
-<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
 <div class="result" id="e2result" style="display:none;margin-top:.5rem"></div>
 </div>
@@ -259,6 +259,36 @@ Sumar y restar son <b>operaciones inversas</b>. Si 3 + 4 = 7, entonces 7 − 4 =
 <div class="result" id="e8result"></div>
 </div>
 
+<!-- Ejercicio 9: CONTEO VISUAL — contar lo que queda -->
+<div class="exercise">
+<p>9. 🖼️ Cuenta cuántos quedan después de quitar:</p>
+<div class="sub-visual" style="font-size:2rem;margin:1rem 0">
+<span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span><span class="obj">🎈</span>
+<span class="op">−</span>
+<span class="obj removed">🎈🎈🎈</span>
+<span class="eq">=</span>
+<span class="result-box">?</span>
+</div>
+<p style="font-size:.9rem;color:#64748b">Hay 8 globos, se pinchan 3. ¿Cuántos quedan?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkE9(this, false)">4</button>
+<button class="quiz-btn" onclick="checkE9(this, true)">5</button>
+<button class="quiz-btn" onclick="checkE9(this, false)">11</button>
+</div>
+<div class="result" id="e9result"></div>
+</div>
+
+<!-- Ejercicio 10: COMPLETAR EL MINUENDO — ¿cuántos había al principio? -->
+<div class="exercise">
+<p>10. 🧩 Completa el hueco: ___ − 3 = 5</p>
+<p style="font-size:.9rem;color:#64748b">Si después de quitar 3 quedan 5… ¿cuántos había al principio?</p>
+<div style="text-align:center;margin:.8rem 0">
+<input type="number" id="e10" min="0" max="20" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkE10()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin-left:.5rem">Comprobar</button>
+</div>
+<div class="result" id="e10result"></div>
+</div>
+
 </div>
 </section>
 
@@ -276,10 +306,24 @@ Sumar y restar son como hermanos opuestos. Si 4 + 3 = 7, entonces 7 − 3 = 4 y 
 <b>Truco:</b> Para comprobar una resta, ¡suma! Si 9 − 4 = 5, comprueba: 5 + 4 = 9 ✅
 </div>
 
+<div class="box box-error">
+<strong>⚠️ Error muy común</strong>
+Cuando ves "me regalan más" piensas: ¡es restar! ❌ No, si te dan algo nuevo, ¡es sumar! <br>
+<b>Recuerda las palabras clave:</b><br>
+🟢 <b>Sumar:</b> "añaden", "regalan", "más", "juntan", "ganan"<br>
+🔴 <b>Restar:</b> "quitan", "rompen", "comen", "pierden", "menos"
+</div>
+
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 4 — La fiesta</strong>
 Preparaste 10 vasos para la fiesta 🥤. Si se rompen 3… ¿cuántos vasos quedan para servir?
 <br>10 − 3 = <b>7</b> (¡7 vasos listos para brindar!)
+</div>
+
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 5 — El cine</strong>
+Compraste 6 palomitas para ver la película 🍿. Si te comes 4 antes de que empiece… ¿cuántas te quedan para cuando empiece la película?
+<br>6 − 4 = <b>2</b> (¡2 palomitas para el inicio! 😋)
 </div>
 
 <div class="interactive">
@@ -421,17 +465,49 @@ function checkE8(){
   }
 }
 
+function checkE9(btn, correct){
+  const result = document.getElementById('e9result');
+  btn.parentElement.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct){
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 8 − 3 = 5. 8 globos menos 3 pinchados = 5 globos. ¡Cuenta los que no están tachados!';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = '❌ Cuenta los globos que NO están tachados: 8 − 3 = 5. ¡No sumes, quita 3!';
+  }
+}
+
+function checkE10(){
+  const input = document.getElementById('e10');
+  const result = document.getElementById('e10result');
+  const val = parseInt(input.value);
+  if(val === 8){
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! ___ − 3 = 5 → 8 − 3 = 5. Si quedan 5 después de quitar 3, al principio había 8.';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Piensa al revés: ¿qué número menos 3 da 5? Prueba sumando: 5 + 3 = 8. ¡El hueco es 8!';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
 function checkVF(btn, isFalso){
-  const result = document.getElementById('e5result');
+  const result = document.getElementById('e2result');
   result.style.display = 'block';
   if(isFalso){
     btn.classList.add('correct');
     result.className = 'result ok';
-    result.textContent = '✅ ¡Falso! 10 − 4 = 6, no 7. ¡Cuenta con los dedos si hace falta!';
+    result.textContent = '✅ ¡Correcto! 5 − 5 = 0. Si te comes TODAS las galletas, no queda ninguna.';
   } else {
     btn.classList.add('wrong');
     result.className = 'result fail';
-    result.textContent = '❌ No es verdadero. 10 − 4 = 6. ¿Lo puedes comprobar?';
+    result.textContent = '❌ No es falso. 5 − 5 = 0. Si quitas todo lo que tienes, queda cero.';
   }
 }
 
@@ -444,11 +520,11 @@ function checkE6(btn, correct){
   if(correct){
     btn.classList.add('correct');
     result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! 9−2=7 es mayor que 9−7=2. Quitas menos, queda más.';
+    result.textContent = '✅ ¡Correcto! 8−1=7 es mayor que 8−3=5. Quitas menos, queda más.';
   } else {
     btn.classList.add('wrong');
     result.className = 'result fail';
-    result.textContent = '❌ 9−7=2 es MENOR que 9−2=7. Cuando quitas menos, queda más.';
+    result.textContent = '❌ 8−3=5 es MENOR que 8−1=7. Cuando quitas menos, queda más.';
   }
 }
 

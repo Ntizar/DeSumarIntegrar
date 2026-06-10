@@ -794,15 +794,20 @@
           "run": 2,
           "date": "2026-06-10",
           "added": "+8 ejercicios variados (completar hueco, V/F, problema contextual cumpleaños, ordenar resultados, decidir operación, comparar, problema inverso, emparejar), -3 quiz botones repetitivos, +1 caja conexión sumar↔restar (espejos+truco), +1 caso real fiesta, -Plotly excesivo → +1 tabla CSS tarjetas coloreadas, +3 funciones JS nuevas (checkE1, checkE5, checkE8)"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-10",
+          "added": "+2 ejercicios variados (conteo visual globos, completar minuendo desconocido), +1 caso real cine/palomitas, +1 caja palabras clave sumar vs restar, corregidos 2 bugs (e2 VF y e6 comparar sin coincidir con enunciado)"
         }
       ],
       "scores": {
-        "exercises": 8,
+        "exercises": 10,
         "text": 12,
         "visual": 5,
         "real_world": 9,
         "connections": 4,
-        "difficulty_range": 7
+        "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
       "improvement_count": 2
