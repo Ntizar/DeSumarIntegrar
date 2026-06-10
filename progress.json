@@ -1,7 +1,7 @@
 {
-  "last_improved": "s04-5-decimales-intro.html",
+  "last_improved": "s04-4-fracciones-equivalentes.html",
   "last_run": "2026-06-10",
-  "total_runs": 24,
+  "total_runs": 25,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -1118,21 +1118,27 @@
       "improvement_count": 0
     },
     "s04-4-fracciones-equivalentes.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+8 ejercicios variados (completar hueco ×2, V/F ×2, problema contextual pastel, ordenar fracciones, quiz NO-equivalente, simplificar), +1 explicación estructurada 4 pasos, +1 caso real pizza cumpleaños, +1 caja error común, +1 visualización canvas fracciones, +1 quiz interactivo, resumen ampliado a 7 puntos, HTML corregido"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 4,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s04-5-decimales-intro.html": {
       "status": "improved_1",

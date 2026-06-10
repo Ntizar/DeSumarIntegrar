@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍕 S04.4: Fracciones Equivalentes — 4º Primaria — ¡Mismas partes, distinto número!</title>
+<title>🍕 S04.4: Fracciones Equivalentes (Práctica) — 4º Primaria</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -20,9 +20,17 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-teoria{background:var(--azul-claro);border-color:var(--azul)}
 .box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box-problema{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.fraction{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .3rem;font-weight:600}
+.fraction .num{border-bottom:2px solid var(--texto);padding:0 .4rem .1rem}
+.fraction .den{padding:.1rem .4rem 0}
+.visual{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:1.5rem 0}
+.visual-piece{width:120px;height:120px;border:2px solid var(--azul);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;text-align:center;background:var(--azul-claro);position:relative;overflow:hidden}
+.visual-piece canvas{width:100%;height:100%}
+.interactive{background:var(--gris-claro);border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 .interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
 .interactive button:hover{background:#1d4ed8}
@@ -30,7 +38,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .result.ok{background:var(--verde-claro);color:#065f46}
 .result.fail{background:var(--rojo-claro);color:#991b1b}
 .exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise{background:var(--gris-claro);border-radius:8px;padding:1rem;margin:.8rem 0}
 .exercise p{font-weight:600;margin-bottom:.5rem}
 .solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
 .solution.show{display:block}
@@ -50,6 +58,15 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-answer{width:80px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;text-align:center;font-size:1rem;font-weight:600}
+.check-btn{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;font-weight:600;margin-left:.5rem}
+.check-btn:hover{background:#1d4ed8}
+.feedback{margin-top:.5rem;padding:.6rem;border-radius:6px;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:var(--verde-claro);color:#065f46}
+.feedback.fail{background:var(--rojo-claro);color:#991b1b}
+.step{padding:.5rem 0;padding-left:1.5rem;position:relative}
+.step::before{content:attr(data-step);position:absolute;left:0;font-weight:bold;color:var(--naranja)}
 </style>
 </head>
 <body>
@@ -57,145 +74,398 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <header class="header">
-<h1>🍕 S04.4: Fracciones Equivalentes</h1>
+<h1>🍕 S04.4: Fracciones Equivalentes (Práctica)</h1>
 <p>4º Primaria — ¡Mismas partes, distinto número!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- INTRO -->
 <section class="chapter">
-<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<h2 class="chapter-title">🎯 ¿Qué vamos a practicar hoy?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Dos fracciones son equivalentes si representan la misma cantidad. 1/2 = 2/4 = 3/6.
+Dos fracciones son equivalentes si representan la misma cantidad. 1/2 = 2/4 = 3/6. ¡Es como tener la misma pizza cortada en trozos de distinto tamaño!
 </div>
-<p>En esta sesión aprenderás a:</p>
-<ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Entender qué son fracciones equivalentes</li><li>Crear fracciones equivalentes</li><li>Simplificar fracciones</li>
-</ul>
+<p>En esta sesión vamos a <b>practicar</b> lo que ya sabes sobre fracciones equivalentes con ejercicios variados.</p>
 </section>
+
+<!-- EXPLICACIÓN ESTRUCTURADA -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Fracciones equivalentes</h2>
+<h2 class="chapter-title">📖 ¿Cómo comprobar si dos fracciones son equivalentes?</h2>
+
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Multiplicamos o dividimos numerador y denominador por el mismo número. 1/2 × 2/2 = 2/4. ¡Son la misma cantidad!
+<strong>📖 Los 4 pasos</strong>
+<ol style="margin:.5rem 0 0 1.2rem">
+<li class="step" data-step="1️⃣"><b>¿Qué es?</b> Dos fracciones son equivalentes si representan la misma parte del todo.</li>
+<li class="step" data-step="2️⃣"><b>¿Para qué sirve?</b> Para saber si 2/4 y 1/2 son lo mismo sin dibujar nada.</li>
+<li class="step" data-step="3️⃣"><b>¿Cómo se hace?</b> Multiplicamos en cruz: num₁ × den₂ y num₂ × den₁. Si los resultados son iguales → ¡son equivalentes!</li>
+<li class="step" data-step="4️⃣"><b>¿Qué error comete la gente?</b> Sumar o restar al numerador y denominador. ¡Eso NO funciona! Solo multiplicar o dividir.</li>
+</ol>
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-1/2 = 2/4 = 3/6 = 4/8 = 5/10
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-2/3 = 4/6 = 6/9 = 8/12
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-6/8 = 3/4 (dividimos entre 2)
+<strong>🔍 Ejemplo rápido</strong>
+¿Son <span class="fraction"><span class="num">2</span><span class="den">3</span></span> y <span class="fraction"><span class="num">4</span><span class="den">6</span></span> equivalentes?<br><br>
+2 × 6 = <b>12</b> &nbsp;|&nbsp; 3 × 4 = <b>12</b><br>
+¡12 = 12! → <b>Sí, son equivalentes</b> ✅
 </div>
 </section>
+
+<!-- CASO REAL -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Encuentra equivalentes!</h2>
-<div class="interactive">
-<h3>¿Cuál es equivalente a 1/2?</h3>
-<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="eqDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eqButtons"></div></div>
-<div class="result" id="interactiveResult"></div>
+<h2 class="chapter-title">🍕 Fracciones equivalentes en la vida real</h2>
+
+<div class="box box-problema">
+<strong>🍕 Caso real: La pizza del cumpleaños</strong>
+En el cumpleaños de Ana hay dos pizzas del mismo tamaño. Una la cortan en <b>4 trozos</b> y Ana se come <b>2</b>. La otra la cortan en <b>8 trozos</b> y Luis se come <b>4</b>.<br><br>
+¿Quién comió más pizza?<br><br>
+Ana: 2/4 &nbsp;|&nbsp; Luis: 4/8<br><br>
+Comprobamos en cruz: 2 × 8 = <b>16</b> &nbsp;|&nbsp; 4 × 4 = <b>16</b><br><br>
+¡Son equivalentes! Ana y Luis comieron <b>exactamente la misma cantidad</b> de pizza. 🎉
 </div>
 </section>
+
+<!-- CAJA ERROR COMÚN -->
+<section class="chapter">
+<div class="box box-error">
+<strong>⚠️ Error muy común</strong>
+Muchos alumnos piensan que si sumas 1 al numerador y al denominador obtienes una equivalente.<br><br>
+❌ <span class="fraction"><span class="num">1</span><span class="den">2</span></span> + 1/1 = <span class="fraction"><span class="num">2</span><span class="den">3</span></span> → ¡NO! 1/2 ≠ 2/3<br><br>
+✅ Solo puedes <b>multiplicar o dividir</b> ambos por el mismo número.<br>
+1/2 × 2/2 = <span class="fraction"><span class="num">2</span><span class="den">4</span></span> → ¡SÍ! Son equivalentes.
+</div>
+</section>
+
+<!-- VISUALIZACIÓN -->
+<section class="chapter">
+<h2 class="chapter-title">👀 Visualiza: ¿Por qué son iguales?</h2>
+<div class="visual">
+<div class="visual-piece">
+<canvas id="vis1" width="120" height="120"></canvas>
+<p style="position:absolute;bottom:4px;font-size:.75rem">1/2 = 2/4</p>
+</div>
+<div class="visual-piece">
+<canvas id="vis2" width="120" height="120"></canvas>
+<p style="position:absolute;bottom:4px;font-size:.75rem">2/4 = 4/8</p>
+</div>
+</div>
+<p style="text-align:center;color:#64748b;font-size:.9rem">Mira cómo el área coloreada es la misma aunque los trozos sean de distinto tamaño</p>
+</section>
+
+<!-- INTERACTIVO -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 ¡Practica tú!</h2>
+
+<div class="interactive">
+<h3>🧪 Comprobador rápido de equivalencia</h3>
+<p>¿Son equivalentes estas dos fracciones?</p>
+<div id="quickQuiz" style="margin:1rem 0"></div>
+<div class="result" id="quizResult"></div>
+<button onclick="newQuickQuiz()">🔄 Nueva pareja</button>
+</div>
+</section>
+
+<!-- EJERCICIOS VARIADOS -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- E1: Completar hueco -->
 <div class="exercise">
-<p>¿Cuál es equivalente a 1/2?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">2/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3/5</button>
+<p>1️⃣ <b>Completar hueco:</b> ¿Qué número falta?</p>
+<p style="font-size:1.3rem;margin:.5rem 0">
+<span class="fraction"><span class="num">1</span><span class="den">3</span></span> = <span class="fraction"><span class="num">___</span><span class="den">9</span></span>
+</p>
+<input type="number" class="input-answer" id="e1" min="0" max="99">
+<button class="check-btn" onclick="checkE1()">Comprobar</button>
+<div class="feedback" id="e1-fb"></div>
 </div>
-</div>
+
+<!-- E2: Completar hueco inverso -->
 <div class="exercise">
-<p>¿Cuál es equivalente a 2/3?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">4/6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3/5</button>
+<p>2️⃣ <b>Completar hueco (inverso):</b> ¿Qué número falta?</p>
+<p style="font-size:1.3rem;margin:.5rem 0">
+<span class="fraction"><span class="num">___</span><span class="den">5</span></span> = <span class="fraction"><span class="num">6</span><span class="den">15</span></span>
+</p>
+<input type="number" class="input-answer" id="e2" min="0" max="99">
+<button class="check-btn" onclick="checkE2()">Comprobar</button>
+<div class="feedback" id="e2-fb"></div>
 </div>
-</div>
+
+<!-- E3: Verdadero/Falso -->
 <div class="exercise">
-<p>Simplifica 4/8</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">Ambas</button>
+<p>3️⃣ <b>Verdadero o Falso:</b> <span class="fraction"><span class="num">3</span><span class="den">5</span></span> y <span class="fraction"><span class="num">6</span><span class="den">10</span></span> son equivalentes.</p>
+<div class="quiz-options" id="e3-options">
+<button class="quiz-btn" onclick="checkE3(true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkE3(false)">❌ Falso</button>
 </div>
+<div class="feedback" id="e3-fb"></div>
 </div>
+
+<!-- E4: Verdadero/Falso (trampa) -->
 <div class="exercise">
-<p>¿Cuál NO es equivalente a 1/4?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3/12</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">2/6</button>
+<p>4️⃣ <b>Verdadero o Falso:</b> <span class="fraction"><span class="num">1</span><span class="den">2</span></span> y <span class="fraction"><span class="num">2</span><span class="den">5</span></span> son equivalentes.</p>
+<div class="quiz-options" id="e4-options">
+<button class="quiz-btn" onclick="checkE4(true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkE4(false)">❌ Falso</button>
 </div>
+<div class="feedback" id="e4-fb"></div>
 </div>
+
+<!-- E5: Problema contextual -->
 <div class="exercise">
-<p>¿Cuál es equivalente a 3/5?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">6/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5/10</button>
+<p>5️⃣ <b>Problema:</b> Sofía tiene <span class="fraction"><span class="num">3</span><span class="den">4</span></span> de un pastel. Carlos tiene <span class="fraction"><span class="num">6</span><span class="den">8</span></span> del mismo pastel. ¿Quién tiene más?</p>
+<div class="quiz-options" id="e5-options">
+<button class="quiz-btn" onclick="checkE5('sofia')">🍰 Sofía</button>
+<button class="quiz-btn" onclick="checkE5('carlos')">🍰 Carlos</button>
+<button class="quiz-btn" onclick="checkE5('igual')">⚖️ Tienen la misma cantidad</button>
 </div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- E6: Ordenar -->
+<div class="exercise">
+<p>6️⃣ <b>Ordenar:</b> ¿Cuál de estas fracciones es la MÁS GRANDE?</p>
+<p style="font-size:1.1rem;margin:.5rem 0">
+<span class="fraction"><span class="num">1</span><span class="den">2</span></span> &nbsp;|&nbsp;
+<span class="fraction"><span class="num">1</span><span class="den">3</span></span> &nbsp;|&nbsp;
+<span class="fraction"><span class="num">1</span><span class="den">4</span></span>
+</p>
+<div class="quiz-options" id="e6-options">
+<button class="quiz-btn" onclick="checkE6('1/2')">1/2</button>
+<button class="quiz-btn" onclick="checkE6('1/3')">1/3</button>
+<button class="quiz-btn" onclick="checkE6('1/4')">1/4</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- E7: Quiz visual (botones) -->
+<div class="exercise">
+<p>7️⃣ <b>Quiz rápido:</b> ¿Cuál de estas NO es equivalente a <span class="fraction"><span class="num">2</span><span class="den">5</span></span>?</p>
+<div class="quiz-options" id="e7-options">
+<button class="quiz-btn" onclick="checkE7('4/10')">4/10</button>
+<button class="quiz-btn" onclick="checkE7('6/15')">6/15</button>
+<button class="quiz-btn" onclick="checkE7('3/7')">3/7</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- E8: Simplificar -->
+<div class="exercise">
+<p>8️⃣ <b>Simplificar:</b> Simplifica <span class="fraction"><span class="num">10</span><span class="den">20</span></span> a su forma más sencilla.</p>
+<div class="quiz-options" id="e8-options">
+<button class="quiz-btn" onclick="checkE8('1/2')">1/2</button>
+<button class="quiz-btn" onclick="checkE8('1/4')">1/4</button>
+<button class="quiz-btn" onclick="checkE8('2/5')">2/5</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
 </div>
 
 </div>
 </section>
+
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Multiplicar/dividir num y den por mismo número</li></li><li><li>1/2 = 2/4 = 3/6</li></li><li><li>Simplificar: dividir entre el mismo número</li></li><li><li>¡Ya sabes fracciones equivalentes! 🎉</li>
+<li>Fracciones equivalentes = misma cantidad, distinto número (1/2 = 2/4 = 3/6)</li>
+<li>Comprobar: multiplicar en cruz. Si los productos son iguales → son equivalentes</li>
+<li>Crear equivalente: multiplicar o dividir numerador y denominador por el mismo número</li>
+<li>Simplificar: dividir entre el mayor divisor común posible</li>
+<li>Error típico: sumar/restar al num y den → ¡NO funciona! Solo × o ÷</li>
+<li>En la vida real: 2/4 de pizza = 4/8 de pizza = la misma cantidad</li>
+<li>Con numerador 1: mayor denominador = porción más pequeña</li>
 </ul>
 </div>
+
+<!-- NAVEGACIÓN -->
 <div class="nav">
-<a href="s04-4-estadistica-dispersion.html">← Anterior</a>
+<a href="s04-3-division-2-cifras.html">← Anterior</a>
   <a href="s04-4primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s04-5-decimales-intro.html">Siguiente →</a>
 </div>
+
 </main>
 <footer class="footer">
 Hecho con ❤️ por David Antizar
 </footer>
+
 <script>
-
-function newQuiz() {
-  const data = [{"q": "\u00bfCu\u00e1l equivale a 1/2?", "opts": ["2/4", "1/3", "3/5"], "correct": 0}, {"q": "\u00bfCu\u00e1l equivale a 2/3?", "opts": ["4/6", "2/4", "3/5"], "correct": 0}, {"q": "Simplifica 4/8", "opts": ["1/2", "2/4", "Ambas"], "correct": 2}, {"q": "\u00bfCu\u00e1l equivale a 3/5?", "opts": ["6/10", "3/10", "5/10"], "correct": 0}, {"q": "\u00bfCu\u00e1l equivale a 1/4?", "opts": ["2/8", "1/3", "3/8"], "correct": 0}];
-  const item = data[Math.floor(Math.random()*data.length)];
-  document.getElementById('eqDisplay').textContent = item.q;
-  const opts = item.opts;
-  const buttons = document.getElementById('eqButtons');
-  buttons.innerHTML = '';
-  opts.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-btn';
-    btn.textContent = opt;
-    btn.onclick = function() {
-      if(i === item.correct) {
-        this.classList.add('correct');
-        document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-      } else {
-        this.classList.add('wrong');
-        document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-      }
-    };
-    buttons.appendChild(btn);
-  });
-  document.getElementById('interactiveResult').textContent = '';
+// === VISUALIZACIONES ===
+function drawFraction(canvas, num, den) {
+  var ctx = canvas.getContext('2d');
+  var w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  // Draw rectangle divided into den parts
+  var partW = w / den;
+  for (var i = 0; i < den; i++) {
+    ctx.fillStyle = i < num ? '#2563eb' : '#e2e8f0';
+    ctx.fillRect(i * partW, 0, partW, h);
+    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeRect(i * partW, 0, partW, h);
+  }
 }
-newQuiz();
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+drawFraction(document.getElementById('vis1'), 1, 2);
+drawFraction(document.getElementById('vis2'), 2, 4);
+
+// === QUICK QUIZ INTERACTIVO ===
+var quizData = [
+  {n1:2,d1:3,n2:4,d2:6},
+  {n1:1,d1:2,n2:3,d2:6},
+  {n1:3,d1:4,n2:6,d2:8},
+  {n1:2,d1:5,n2:4,d2:10},
+  {n1:5,d1:6,n2:10,d2:12}
+];
+var qIdx = 0;
+
+function showQuickQuiz() {
+  var q = quizData[qIdx];
+  var html = '<div style="display:flex;align-items:center;gap:1rem;justify-content:center;flex-wrap:wrap">';
+  html += '<span style="font-size:1.3rem"><span class="fraction"><span class="num">'+q.n1+'</span><span class="den">'+q.d1+'</span></span></span>';
+  html += '<span style="font-size:1.5rem">vs</span>';
+  html += '<span style="font-size:1.3rem"><span class="fraction"><span class="num">'+q.n2+'</span><span class="den">'+q.d2+'</span></span></span>';
+  html += '</div>';
+  html += '<div style="text-align:center;margin-top:1rem">';
+  html += '<button class="quiz-btn" onclick="checkQuick(true)" style="margin:.3rem">✅ Son equivalentes</button>';
+  html += '<button class="quiz-btn" onclick="checkQuick(false)" style="margin:.3rem">❌ No son equivalentes</button>';
+  html += '</div>';
+  document.getElementById('quickQuiz').innerHTML = html;
+  document.getElementById('quizResult').textContent = '';
 }
 
+function checkQuick(respuesta) {
+  var q = quizData[qIdx];
+  var real = (q.n1 * q.d2 === q.n2 * q.d1);
+  var r = document.getElementById('quizResult');
+  if (respuesta === real) {
+    r.className = 'result ok';
+    r.textContent = '✅ ¡Correcto! ' + (real ? 'Son equivalentes' : 'No son equivalentes');
+  } else {
+    r.className = 'result fail';
+    r.textContent = '❌ No. ' + (real ? 'Son equivalentes' : 'No son equivalentes');
+  }
+}
+
+function newQuickQuiz() {
+  qIdx = (qIdx + 1) % quizData.length;
+  showQuickQuiz();
+}
+showQuickQuiz();
+
+// === EJERCICIOS ===
+
+// E1: Completar hueco -> 1/3 = ?/9 (respuesta: 3)
+function checkE1() {
+  var a = parseInt(document.getElementById('e1').value);
+  var fb = document.getElementById('e1-fb');
+  if (a === 3) {
+    fb.className = 'feedback show ok';
+    fb.textContent = '✅ ¡Correcto! 1×3=3 y 3×3=9, así que 1/3 = 3/9';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.textContent = '❌ No. Para pasar de 3 a 9 multiplicamos por 3: 1×3 = ___';
+  }
+}
+
+// E2: Completar hueco inverso -> ?/5 = 6/15 (respuesta: 2)
+function checkE2() {
+  var a = parseInt(document.getElementById('e2').value);
+  var fb = document.getElementById('e2-fb');
+  if (a === 2) {
+    fb.className = 'feedback show ok';
+    fb.textContent = '✅ ¡Correcto! 2×3=6 y 5×3=15, así que 2/5 = 6/15';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.textContent = '❌ No. Para pasar de 5 a 15 multiplicamos por 3: ___×3 = 6 → 2';
+  }
+}
+
+// E3: VF -> 3/5 y 6/10 equivalentes? (Verdadero)
+function checkE3(respuesta) {
+  var fb = document.getElementById('e3-fb');
+  var btns = document.querySelectorAll('#e3-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === true) {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Correcto! 3×10=30 y 5×6=30. ¡Son equivalentes!';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. 3×10=30 y 5×6=30. Los productos son iguales → ¡son equivalentes!';
+  }
+}
+
+// E4: VF -> 1/2 y 2/5 equivalentes? (Falso)
+function checkE4(respuesta) {
+  var fb = document.getElementById('e4-fb');
+  var btns = document.querySelectorAll('#e4-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === false) {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Correcto! 1×5=5 y 2×2=4. 5≠4 → NO son equivalentes';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. 1×5=5 y 2×2=4. Como 5≠4, NO son equivalentes.';
+  }
+}
+
+// E5: Problema -> Sofía 3/4 vs Carlos 6/8 (igual)
+function checkE5(respuesta) {
+  var fb = document.getElementById('e5-fb');
+  var btns = document.querySelectorAll('#e5-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === 'igual') {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Exacto! 3/4 = 6/8 (3×8=24, 4×6=24). Sofía y Carlos tienen la misma cantidad. 🍰';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. 3×8=24 y 4×6=24. ¡Son equivalentes! Ambos tienen la misma cantidad.';
+  }
+}
+
+// E6: Ordenar -> ¿Cuál es más grande? 1/2
+function checkE6(respuesta) {
+  var fb = document.getElementById('e6-fb');
+  var btns = document.querySelectorAll('#e6-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === '1/2') {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Correcto! 1/2 > 1/3 > 1/4. Con numerador 1, menor denominador = porción más grande. 🍰';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. Recuerda: con numerador 1, MENOR denominador = porción más grande. 1/2 > 1/3 > 1/4';
+  }
+}
+
+// E7: Quiz -> ¿NO equivale a 2/5? -> 3/7
+function checkE7(respuesta) {
+  var fb = document.getElementById('e7-fb');
+  var btns = document.querySelectorAll('#e7-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === '3/7') {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Correcto! 3/7 NO es equivalente a 2/5 (3×5=15 ≠ 7×2=14). Las otras sí lo son.';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. 3/7 es la que NO equivale: 3×5=15 ≠ 7×2=14. Las otras sí son equivalentes a 2/5.';
+  }
+}
+
+// E8: Simplificar -> 10/20 = 1/2
+function checkE8(respuesta) {
+  var fb = document.getElementById('e8-fb');
+  var btns = document.querySelectorAll('#e8-options .quiz-btn');
+  btns.forEach(function(b) { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (respuesta === '1/2') {
+    fb.className = 'feedback show ok';
+    fb.innerHTML = '✅ ¡Correcto! 10÷10=1 y 20÷10=2. 10/20 simplificada es 1/2. ✨';
+  } else {
+    fb.className = 'feedback show fail';
+    fb.innerHTML = '❌ No. Dividimos entre 10: 10÷10=1 y 20÷10=2 → 1/2';
+  }
+}
+
+// === PROGRESS BAR ===
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
