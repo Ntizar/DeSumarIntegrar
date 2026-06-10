@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-5-restar-hasta-10.html",
+  "last_improved": "s01-2primaria.html",
   "last_run": "2026-06-10",
-  "total_runs": 34,
+  "total_runs": 35,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -37,7 +37,7 @@
       "improvement_count": 3
     },
     "s01-2primaria.html": {
-      "status": "improved_2",
+      "status": "improved_3",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -51,18 +51,23 @@
           "run": 2,
           "date": "2026-06-10",
           "added": "+4 ejercicios variados (completar hueco, V/F, quiz botones, ordenar), +1 explicación 4 pasos, +1 caso real heladería, +1 caja error común, +1 caja conexión, summary 7 puntos"
+        },
+        {
+          "run": 3,
+          "date": "2026-06-10",
+          "added": "-4 ejercicios repetitivos (e4-e7: input numérico con emojis decorativos), +4 ejercicios variados (problema inverso pájaros, emparejar restas iguales, decidir operación, ordenar resultados), +1 conexión restar↔sumar (espejos + truco), resumen corregido (quitar multiplicación, añadir 3 puntos), +3 funciones JS nuevas"
         }
       ],
       "scores": {
         "exercises": 12,
         "text": 12,
-        "visual": 3,
+        "visual": 5,
         "real_world": 9,
-        "connections": 3,
-        "difficulty_range": 6
+        "connections": 4,
+        "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 3
     },
     "s01-3primaria.html": {
       "status": "improved_2",
