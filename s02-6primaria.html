@@ -30,16 +30,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
-.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
-.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
-.chart-canvas{width:100%;height:300px;border-radius:8px;background:#fff;border:1px solid #e2e8f0}
-.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
-.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
-.chart-controls button:hover{background:#1d4ed8}
-.chart-controls button.active{background:var(--naranja)}
 .exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
 .exercise p{font-weight:600;margin-bottom:.5rem}
 .exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
@@ -55,10 +47,15 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.quiz-buttons{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.quiz-buttons button{background:#fff;border:2px solid #e2e8f0;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600;transition:all .2s}
+.quiz-buttons button:hover{border-color:var(--azul);background:var(--azul-claro)}
+.order-items{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}
+.order-item{background:#fff;border:2px solid #e2e8f0;padding:.5rem 1rem;border-radius:8px;font-size:1rem;cursor:grab;user-select:none}
+.order-item.selected{border-color:var(--azul);background:var(--azul-claro)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
-  .chart-canvas{height:250px}
 }
 </style>
 </head>
@@ -73,6 +70,7 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- INTRO -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-teoria">
@@ -85,72 +83,178 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- CASO REAL -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Para qué sirve?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Medir tu altura y pesar tu mochila</strong>
-<p>¿Cuánto mides? ¿Cuánto pesa tu mochila?</p>
-<p>Usamos <strong>cm</strong> para cosas pequeñas (tu lápiz) y <strong>m</strong> para cosas grandes (tu habitación).</p>
-<p>Usamos <strong>g</strong> para cosas ligeras (una manzana) y <strong>kg</strong> para cosas pesadas (tu mochila).</p>
+<strong>💡 Caso real: Ir al supermercado con mamá o papá</strong>
+<p>¿Alguna vez has visto el precio de las frutas? 🍎</p>
+<p>En el supermercado, las frutas se <strong>pueden</strong> vender por <strong>peso</strong> (kg) o por <strong>unidad</strong>.</p>
+<p>Si compras <strong>2 kg de manzanas</strong>, ¿sabes cuántos gramos son? ¡Pues ahora lo aprenderás!</p>
+<p>Y si quieres saber si tu mochila cabe en el asiento del coche, necesitas <strong>medir</strong> con una regla 📏</p>
 </div>
 </div>
 
+<!-- EXPLICACIÓN PEDAGÓGICA -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Unidades de Medida</h2>
+<h2 class="chapter-title">📖 ¿Cómo convertir unidades?</h2>
+<div class="box box-teoria">
+<strong>📖 CONCEPTO: Convertir medidas</strong>
+<p><strong>1. ¿Qué es?</strong> Es cambiar una medida a otra unidad diferente (metros a centímetros, kg a gramos...).</p>
+<p><strong>2. ¿Para qué sirve?</strong> Para saber cuánto mide algo en la unidad que necesites. Si tu mamá te dice "mide 2 metros de cinta", tú puedes decir "son 200 centímetros".</p>
+<p><strong>3. ¿Cómo se hace?</strong></p>
+<ul style="padding-left:1.2rem;margin:.5rem 0">
+<li><strong>De mayor a menor</strong> → <em>multiplica</em> por 100 (m → cm) o por 1000 (kg → g)</li>
+<li><strong>De menor a mayor</strong> → <em>divide</em> entre 100 (cm → m) o entre 1000 (g → kg)</li>
+</ul>
+<p><strong>4. ¿Qué error comete la gente?</strong> Confundir cuándo multiplicar y cuándo dividir. 💡 <strong>Truco:</strong> "De grande a pequeño, ¡multiplico! De pequeño a grande, ¡divido!"</p>
+</div>
+</div>
+
+<!-- TABLAS DE CONVERSIÓN -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Tablas de conversión</h2>
 
 <table>
-<tr><th>Longitud</th><th>Equivalente</th></tr>
+<tr><th>📏 Longitud</th><th>Equivalente</th></tr>
 <tr><td>1 metro (m)</td><td>= 100 centímetros (cm)</td></tr>
 <tr><td>1 centímetro (cm)</td><td>= 10 milímetros (mm)</td></tr>
 </table>
 
 <table>
-<tr><th>Peso</th><th>Equivalente</th></tr>
+<tr><th>⚖️ Peso</th><th>Equivalente</th></tr>
 <tr><td>1 kilogramo (kg)</td><td>= 1000 gramos (g)</td></tr>
 <tr><td>1 gramo (g)</td><td>= 1000 miligramos (mg)</td></tr>
 </table>
 
-<div class="chart-container">
-<h3>📏 ¡Practica midiendo!</h3>
-<p class="chart-desc">Convierte entre unidades.</p>
-<canvas id="canvas-medir" class="chart-canvas"></canvas>
-<div class="chart-controls">
-<button onclick="nuevaMedida()">🎲 Nueva medida</button>
-<button onclick="verificarMedida()">✅ Comprobar</button>
-</div>
-<div class="exercise-input" style="margin-top:1rem">
-<input type="number" id="respuesta-medida" placeholder="?" min="0" max="9999">
-<span id="feedback-medida" style="font-size:1.2rem;font-weight:600"></span>
-</div>
+<div class="box box-idea">
+<strong>🧠 Recuerda:</strong>
+<p>m → cm: multiplica × 100 &nbsp;|&nbsp; cm → m: divide ÷ 100</p>
+<p>kg → g: multiplica × 1000 &nbsp;|&nbsp; g → kg: divide ÷ 1000</p>
 </div>
 </div>
 
+<!-- EJERCICIOS -->
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios</h2>
+
+<!-- E1: Completar hueco (m → cm) -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> 2 m = ? cm</p>
-<div class="exercise-input"><input type="number" id="e1"><button onclick="checkE(1, 200)">Comprobar</button></div>
+<p><strong>Ejercicio 1:</strong> 📏 La mesa mide 2 metros. ¿Cuántos centímetros mide?</p>
+<p>2 m = <input type="number" id="e1" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> cm</p>
+<div class="exercise-input"><button onclick="checkE(1, 200)">✅ Comprobar</button></div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- E2: Completar hueco (kg → g) -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> 3 kg = ? g</p>
-<div class="exercise-input"><input type="number" id="e2"><button onclick="checkE(2, 3000)">Comprobar</button></div>
+<p><strong>Ejercicio 2:</strong> ⚖️ Un paquete de arroz pesa 3 kg. ¿Cuántos gramos pesa?</p>
+<p>3 kg = <input type="number" id="e2" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> g</p>
+<div class="exercise-input"><button onclick="checkE(2, 3000)">✅ Comprobar</button></div>
 <div class="feedback" id="e2-fb"></div>
 </div>
+
+<!-- E3: Completar hueco (cm → m) -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> 500 cm = ? m</p>
-<div class="exercise-input"><input type="number" id="e3"><button onclick="checkE(3, 5)">Comprobar</button></div>
+<p><strong>Ejercicio 3:</strong> 📏 Un cordón mide 500 cm. ¿Cuántos metros son?</p>
+<p>500 cm = <input type="number" id="e3" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> m</p>
+<div class="exercise-input"><button onclick="checkE(3, 5)">✅ Comprobar</button></div>
 <div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- E4: Verdadero/Falso (error común) -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> 🤔 ¿Verdadero o Falso? "1 kg = 100 g"</p>
+<div class="quiz-buttons">
+<button onclick="checkVF(4, false, '1 kg = 1000 g, no 100 g')">✅ Verdadero</button>
+<button onclick="checkVF(4, true, '¡Exacto! 1 kg = 1000 g')">❌ Falso</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- E5: Verdadero/Falso (error común) -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> 🤔 ¿Verdadero o Falso? "3 m = 300 cm"</p>
+<div class="quiz-buttons">
+<button onclick="checkVF(5, true, '¡Sí! 3 × 100 = 300 cm')">✅ Verdadero</button>
+<button onclick="checkVF(5, false, 'No, 3 m = 300 cm')">❌ Falso</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- E6: Problema contextualizado -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> 🛒 En la frutería, María compra 2 kg de naranjas y 500 g de manzanas. ¿Cuántos gramos compra en total?</p>
+<p>Pista: 2 kg = ___ g, luego suma los 500 g.</p>
+<p>Total: <input type="number" id="e6" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> g</p>
+<div class="exercise-input"><button onclick="checkE(6, 2500)">✅ Comprobar</button></div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- E7: Quiz visual (qué unidad usar) -->
+<div class="exercise">
+<p><strong>Ejercicio 7:</strong> 🎯 ¿Qué unidad usarías para medir la longitud de un lápiz?</p>
+<div class="quiz-buttons">
+<button onclick="checkQuiz(7, false, 'Los metros son para cosas grandes, como una habitación')">📏 Metros (m)</button>
+<button onclick="checkQuiz(7, true, '¡Exacto! Un lápiz es pequeño, se mide en centímetros')">📐 Centímetros (cm)</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- E8: Ordenar objetos -->
+<div class="exercise">
+<p><strong>Ejercicio 8:</strong> 📏 Ordena estos objetos de <strong>menor a mayor</strong> longitud:</p>
+<p><em>Un elefante (5 m), un lápiz (15 cm), una puerta (2 m)</em></p>
+<p>¿Cuál es el más corto?</p>
+<div class="quiz-buttons">
+<button onclick="checkQuiz(8, false, 'Un elefante mide 5 metros, es el más largo')">🐘 Elefante (5 m)</button>
+<button onclick="checkQuiz(8, true, '¡Correcto! 15 cm es menor que 2 m y 5 m')">✏️ Lápiz (15 cm)</button>
+<button onclick="checkQuiz(8, false, 'Una puerta mide 2 m, que es más que 15 cm')">🚪 Puerta (2 m)</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+<!-- E9: Completar hueco inverso (g → kg) -->
+<div class="exercise">
+<p><strong>Ejercicio 9:</strong> ⚖️ Un melón pesa 2000 g. ¿Cuántos kg pesa?</p>
+<p>2000 g = <input type="number" id="e9" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> kg</p>
+<div class="exercise-input"><button onclick="checkE(9, 2)">✅ Comprobar</button></div>
+<div class="feedback" id="e9-fb"></div>
+</div>
+
+<!-- E10: Problema inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 10:</strong> 🎈 Un globo mide 1 m de largo. Si tienes 3 globos puestos uno detrás del otro, ¿cuántos cm miden en total?</p>
+<p>Pista: primero convierte 1 m a cm, luego multiplica por 3.</p>
+<p>Total: <input type="number" id="e10" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.2rem;width:100px"> cm</p>
+<div class="exercise-input"><button onclick="checkE(10, 300)">✅ Comprobar</button></div>
+<div class="feedback" id="e10-fb"></div>
+</div>
+
+</div>
+
+<!-- CAJA ERROR COMÚN -->
+<div class="chapter">
+<h2 class="chapter-title">⚠️ ¡Cuidado con este error!</h2>
+<div class="box box-error">
+<strong>❌ Error común: Confundir ×100 y ÷100</strong>
+<p>Si conviertes <strong>m → cm</strong>, ¿multiplicas o divides?</p>
+<p>💡 Piensa así: 1 metro es más largo que 1 centímetro. Si tienes metros y quieres cm, ¡el número tiene que ser <strong>más grande</strong>! Así que <strong>multiplicas</strong> por 100.</p>
 </div>
 </div>
 
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Lo que aprendiste</h3>
 <ul>
 <li>1 m = 100 cm</li>
+<li>1 cm = 10 mm</li>
 <li>1 kg = 1000 g</li>
-<li>Para convertir m a cm, multiplicamos por 100</li>
-<li>Para convertir cm a m, dividimos entre 100</li>
+<li>De mayor a menor unidad → multiplicas (m → cm: ×100, kg → g: ×1000)</li>
+<li>De menor a mayor unidad → divides (cm → m: ÷100, g → kg: ÷1000)</li>
+<li>Truco: "De grande a pequeño, ¡multiplico! De pequeño a grande, ¡divido!"</li>
+<li>En el supermercado se pesa en kg y g</li>
+<li>Para medir cosas pequeñas usas cm, para cosas grandes usas m</li>
 </ul>
 </div>
 
@@ -166,56 +270,9 @@ window.addEventListener('scroll', () => {
   const winScroll = document.documentElement.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.display = 'block';
   document.getElementById('progress').style.width = scrolled + '%';
 });
-</script>
-
-<script>
-function nuevaMedida() {
-  const canvas = document.getElementById('canvas-medir');
-  const ctx = canvas.getContext('2d');
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  ctx.fillStyle = '#fff';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  const tipos = [
-    {q: '¿Cuántos cm son 2 m?', a: 200, u: 'cm'},
-    {q: '¿Cuántos g son 5 kg?', a: 5000, u: 'g'},
-    {q: '¿Cuántos m son 300 cm?', a: 3, u: 'm'},
-    {q: '¿Cuántos g son 2 kg?', a: 2000, u: 'g'},
-    {q: '¿Cuántos cm son 4 m?', a: 400, u: 'cm'},
-  ];
-  const t = tipos[Math.floor(Math.random() * tipos.length)];
-  
-  ctx.font = 'bold 24px sans-serif';
-  ctx.fillStyle = '#2563eb';
-  ctx.textAlign = 'center';
-  ctx.fillText(t.q, canvas.width / 2, canvas.height / 2);
-  
-  ctx.font = '18px sans-serif';
-  ctx.fillStyle = '#64748b';
-  ctx.fillText('Escribe el número:', canvas.width / 2, canvas.height / 2 + 40);
-  
-  window._medidaA = t.a;
-  document.getElementById('respuesta-medida').value = '';
-  document.getElementById('feedback-medida').textContent = '';
-}
-
-function verificarMedida() {
-  const resp = parseInt(document.getElementById('respuesta-medida').value);
-  const fb = document.getElementById('feedback-medida');
-  if (resp === window._medidaA) {
-    fb.textContent = '✅ ¡Correcto! ¡Muy bien!';
-    fb.style.color = '#10b981';
-  } else {
-    fb.textContent = '❌ ¡Casi! La respuesta es ' + window._medidaA;
-    fb.style.color = '#ef4444';
-  }
-}
-''' + checkE_func() + '''
-document.addEventListener('DOMContentLoaded', () => {
-  nuevaMedida();
 
 function checkE(num, correct) {
   const input = document.getElementById('e' + num);
@@ -226,7 +283,28 @@ function checkE(num, correct) {
   if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
   else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
 }
-});
+
+function checkVF(num, esFalso, mensaje) {
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (esFalso) {
+    feedback.textContent = '✅ ' + mensaje;
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ No, ' + mensaje;
+    feedback.className = 'feedback incorrect';
+  }
+}
+
+function checkQuiz(num, esCorrecto, mensaje) {
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (esCorrecto) {
+    feedback.textContent = '✅ ' + mensaje;
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ ' + mensaje;
+    feedback.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>
