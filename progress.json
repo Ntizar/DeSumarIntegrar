@@ -1273,21 +1273,27 @@
       "improvement_count": 1
     },
     "s04-6-areas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-10",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 caso real habitación (moqueta), +1 completar hueco (9²), +1 V/F (12×5), +1 caja error común (área vs perímetro), +6 puntos resumen, +3 funciones JS nuevas"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 3,
+        "real_world": 9,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-10",
+      "improvement_count": 1
     },
     "s04-7-capacidades.html": {
       "status": "pending",

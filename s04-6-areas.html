@@ -77,7 +77,12 @@ El área es la superficie de una figura. Se mide en cm², m²...
 <h2 class="chapter-title">1️⃣ ¿Qué es el área?</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-El área es la superficie que ocupa una figura. Se mide en unidades cuadradas (cm², m²). Área cuadrado = lado × lado. Área rectángulo = base × altura.
+<div style="margin-top:.5rem">
+<strong>1. ¿Qué es?</strong> El área es la cantidad de superficie que ocupa una figura plana. Se mide en unidades cuadradas (cm², m²).<br>
+<strong>2. ¿Para qué sirve?</strong> Para saber cuánta moqueta necesitas para una habitación, cuántas baldosas para el suelo, o cuánto pintura para una pared.<br>
+<strong>3. ¿Cómo se hace?</strong> Cuadrado: lado × lado. Rectángulo: base × altura. ¡Solo multiplicas!<br>
+<strong>4. Error común:</strong> Confundir área con perímetro. El perímetro es el contorno (suma lados), el área es la superficie interior (multiplica). ¡Un cuadrado de lado 4 tiene perímetro 16 y área 16, pero son cosas distintas!
+</div>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -143,13 +148,44 @@ Rectángulo 10cm × 6cm: A = 10 × 6 = 60 cm²
 <button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
 </div>
 </div>
-
+<div class="exercise">
+<p>🏠 Caso real: Tu habitación mide 4 m de largo y 3 m de ancho. ¿Cuántos m² de moqueta necesitas comprar?</p>
+<p style="font-size:.9rem;color:#64748b">Pista: área = largo × ancho</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12 m²</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14 m²</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">7 m²</button>
+</div>
+</div>
+<div class="exercise">
+<p>📝 Completa: Un cuadrado de lado 9 cm tiene un área de ___ cm²</p>
+<div style="display:flex;gap:.5rem;align-items:center">
+<input type="number" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result14"></div>
+</div>
+<div class="exercise">
+<p>✅❓ ¿Verdadero o Falso? Un rectángulo de 12×5 tiene área 60 cm²</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+¡No confundas área con perímetro! Área = superficie interior (multiplica). Perímetro = contorno (suma lados). Un rectángulo 6×4 tiene área 24 cm² y perímetro 20 cm. ¡Son números distintos que responden a preguntas distintas!
 </div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Área = superficie</li></li><li><li>Cuadrado: lado × lado</li></li><li><li>Rectángulo: base × altura</li></li><li><li>¡Ya sabes calcular áreas! 🎉</li>
+<li>Área = superficie interior de la figura (se mide en cm², m²...)</li>
+<li>Cuadrado: lado × lado — ¡el lado se multiplica por sí mismo!</li>
+<li>Rectángulo: base × altura — ¡solo multiplicas dos lados!</li>
+<li>Los casos reales (moqueta, baldosas, pintura) usan área todos los días</li>
+<li>Error común: confundir área con perímetro</li>
+<li>¡Ya sabes calcular áreas de cuadrados y rectángulos! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -203,6 +239,39 @@ function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+function checkCompleta() {
+  const input = document.getElementById('e14');
+  const result = document.getElementById('result14');
+  const val = parseInt(input.value);
+  if(val === 81) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 9 × 9 = 81 cm²';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. Pista: 9 × 9 = ?';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 12 × 5 = 60 cm²';
+    div.appendChild(res);
+  } else {
+    btn.classList.add('wrong');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result fail';
+    res.textContent = '❌ Falso. 12 × 5 = 60 cm². ¡Es VERDADERO!';
+    div.appendChild(res);
+  }
 }
 
 window.onscroll = function(){
