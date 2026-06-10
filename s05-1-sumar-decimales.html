@@ -50,6 +50,22 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.input-exercise{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:.5rem 0}
+.input-exercise input{width:100px;padding:.5rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;text-align:center}
+.input-exercise button{background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem}
+.input-exercise button:hover{background:#1d4ed8}
+.vf-options{display:flex;gap:1rem;justify-content:center;margin:.5rem 0}
+.vf-btn{padding:.6rem 2rem;border-radius:8px;border:2px solid;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.vf-btn.true-btn{border-color:var(--verde);color:var(--verde);background:#fff}
+.vf-btn.false-btn{border-color:var(--rojo);color:var(--rojo);background:#fff}
+.vf-btn.true-btn:hover{background:var(--verde-claro)}
+.vf-btn.false-btn:hover{background:var(--rojo-claro)}
+.vf-btn.correct{background:var(--verde);color:#fff}
+.vf-btn.wrong{background:var(--rojo);color:#fff}
+.decimal-grid{display:inline-grid;grid-template-columns:repeat(4,1.5rem);gap:2px;font-family:monospace;font-size:1.3rem;font-weight:700;text-align:center;padding:1rem;background:#fff;border-radius:8px;border:2px solid var(--azul-claro);margin:.5rem 0}
+.decimal-grid .cell{padding:.3rem}
+.decimal-grid .comma{color:var(--naranja);font-weight:900}
+.decimal-grid .line{grid-column:1/-1;border-top:3px solid var(--texto);margin-top:.3rem;padding-top:.3rem}
 </style>
 </head>
 <body>
@@ -62,96 +78,173 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- INTRO -->
 <section class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Para sumar/restar decimales, alineamos la coma y sumamos/restamos como con números enteros.
+Para sumar o restar decimales, alineamos la coma y operamos como con enteros. ¡Es como sumar monedas y céntimos!
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Sumar decimales</li><li>Restar decimales</li><li>Alinear la coma decimal</li>
+<li>Sumar decimales correctamente</li>
+<li>Restar decimales sin errores</li>
+<li>Alinear la coma decimal siempre</li>
 </ul>
 </section>
+
+<!-- EXPLICACIÓN ESTRUCTURADA -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Sumar y restar decimales</h2>
+<h2 class="chapter-title">📖 ¿Cómo se suman los decimales?</h2>
+
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Alineamos la coma decimal y sumamos/restamos columna a columna. 2.5 + 1.3 = 3.8. ¡Es como sumar enteros pero con coma!
+<strong>📖 1. ¿Qué es?</strong>
+Un decimal tiene una parte entera (antes de la coma) y una parte decimal (después). Ejemplo: en 2.50, el 2 son euros y el 50 son céntimos.
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-2.5 + 1.3 = 3.8<br>4.75 + 2.3 = 7.05<br>1.25 + 0.75 = 2.0
+<strong>📖 2. ¿Para qué sirve?</strong>
+Cada vez que vas al supermercado, pagas con euros y céntimos. Sumar decimales es sumar dinero: 2,50€ + 1,30€ = 3,80€.
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-5.8 - 2.3 = 3.5<br>10.5 - 3.7 = 6.8<br>7.25 - 2.5 = 4.75
+
+<div class="box box-teoria">
+<strong>📖 3. ¿Cómo se hace? (paso a paso)</strong>
+<p style="margin-top:.5rem"><strong>Paso 1:</strong> Escribe los números uno debajo del otro, alineando la coma.</p>
+<div class="decimal-grid">
+<div class="cell">2</div><div class="cell">.</div><div class="cell">5</div><div class="cell">0</div>
+<div class="cell">+</div><div class="cell">1</div><div class="cell">.</div><div class="cell">3</div><div class="cell">0</div>
+<div class="line"></div>
+<div class="cell">3</div><div class="cell">.</div><div class="cell">8</div><div class="cell">0</div>
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-3.45 + 2.67 = 6.12<br>8.9 - 4.35 = 4.55<br>15.6 + 4.4 = 20.0
+<p style="margin-top:.5rem"><strong>Paso 2:</strong> Rellena con ceros si faltan cifras (2.5 → 2.50).</p>
+<p style="margin-top:.5rem"><strong>Paso 3:</strong> Suma como si fueran enteros, columna a columna.</p>
+<p style="margin-top:.5rem"><strong>Paso 4:</strong> Coloca la coma en el mismo sitio.</p>
+</div>
+
+<div class="box box-error">
+<strong>⚠️ 4. Error que comete la gente</strong>
+Alinear por la derecha en vez de por la coma. <strong>¡Mal!</strong> 2.5 + 1.30 ≠ 3.35. Si alineas por la derecha, estás sumando 5 décimos con 0 centésimos. Siempre alinea la COMA.
 </div>
 </section>
+
+<!-- CASO REAL -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Practica con decimales!</h2>
+<h2 class="chapter-title">🛒 Caso real: La compra del sábado</h2>
+<div class="box box-success">
+<strong>🛒 María va al supermercado</strong>
+<p style="margin-top:.5rem">María compra:</p>
+<p>🍎 Unas manzanas: <strong>2,75€</strong></p>
+<p>🥛 Un litro de leche: <strong>1,20€</strong></p>
+<p>🍞 Un pan: <strong>0,85€</strong></p>
+<p style="margin-top:.8rem"><strong>¿Cuánto paga en total?</strong></p>
+<div class="input-exercise">
+<input type="text" id="compraInput" placeholder="€">
+<button onclick="checkCompra()">Comprobar</button>
+</div>
+<div class="result" id="compraResult"></div>
+</div>
+</section>
+
+<!-- INTERACTIVO -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 Practica con decimales</h2>
 <div class="interactive">
-<h3>Resuelve estas operaciones:</h3>
+<h3>Resuelve esta operación aleatoria:</h3>
 <div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="decOpDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="decOpButtons"></div></div>
 <div class="result" id="interactiveResult"></div>
+<button onclick="newQuiz()" style="margin-top:1rem;background:var(--naranja);color:#fff;border:none;padding:.6rem 1.5rem;border-radius:8px;cursor:pointer;font-size:1rem">🔄 Otra operación</button>
 </div>
 </section>
+
+<!-- EJERCICIOS VARIADOS -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- Ejercicio 1: Completar hueco -->
 <div class="exercise">
-<p>2.5 + 1.3 =</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">3.8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3.5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4.8</button>
+<p><strong>Ejercicio 1 — Completar hueco:</strong></p>
+<p style="font-size:1.2rem;margin:.5rem 0">3.4 + ___ = 5.9</p>
+<div class="input-exercise">
+<input type="text" id="ej1" placeholder="?">
+<button onclick="checkEj1()">Comprobar</button>
 </div>
+<div class="result" id="ej1Result"></div>
 </div>
+
+<!-- Ejercicio 2: Verdadero/Falso -->
 <div class="exercise">
-<p>5.8 - 2.3 =</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">3.5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4.5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3.8</button>
+<p><strong>Ejercicio 2 — ¿Verdadero o Falso?</strong></p>
+<p style="font-size:1.1rem;margin:.5rem 0">Si alineas 4.25 + 1.3 por la derecha (sin mirar la coma), el resultado es 5.55.</p>
+<div class="vf-options">
+<button class="vf-btn true-btn" onclick="checkVF(2, true, this)">✅ Verdadero</button>
+<button class="vf-btn false-btn" onclick="checkVF(2, false, this)">❌ Falso</button>
 </div>
+<div class="result" id="ej2Result"></div>
 </div>
+
+<!-- Ejercicio 3: Completar hueco inverso -->
 <div class="exercise">
-<p>4.75 + 2.3 =</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">7.05</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">7.75</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6.05</button>
+<p><strong>Ejercicio 3 — Completar hueco (resta):</strong></p>
+<p style="font-size:1.2rem;margin:.5rem 0">___ − 2.4 = 3.6</p>
+<div class="input-exercise">
+<input type="text" id="ej3" placeholder="?">
+<button onclick="checkEj3()">Comprobar</button>
 </div>
+<div class="result" id="ej3Result"></div>
 </div>
+
+<!-- Ejercicio 4: Quiz botones -->
 <div class="exercise">
-<p>10.5 - 3.7 =</p>
+<p><strong>Ejercicio 4 — ¿Cuánto es 12.50 + 8.75?</strong></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">6.8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">7.8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6.2</button>
+<button class="quiz-btn" onclick="checkExercise(4, this, true)">21.25</button>
+<button class="quiz-btn" onclick="checkExercise(4, this, false)">20.25</button>
+<button class="quiz-btn" onclick="checkExercise(4, this, false)">21.15</button>
 </div>
+<div class="result" id="ej4Result"></div>
 </div>
+
+<!-- Ejercicio 5: V/F -->
 <div class="exercise">
-<p>3.45 + 2.67 =</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">6.12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6.22</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5.12</button>
+<p><strong>Ejercicio 5 — ¿Verdadero o Falso?</strong></p>
+<p style="font-size:1.1rem;margin:.5rem 0">6.0 + 0.60 = 6.60</p>
+<div class="vf-options">
+<button class="vf-btn true-btn" onclick="checkVF(5, true, this)">✅ Verdadero</button>
+<button class="vf-btn false-btn" onclick="checkVF(5, false, this)">❌ Falso</button>
 </div>
+<div class="result" id="ej5Result"></div>
+</div>
+
+<!-- Ejercicio 6: Problema contextual -->
+<div class="exercise">
+<p><strong>Ejercicio 6 — Problema:</strong></p>
+<p style="font-size:1.05rem;margin:.5rem 0">En un depósito hay 15,4 litros de agua. Si sacas 7,8 litros, ¿cuántos litros quedan?</p>
+<div class="input-exercise">
+<input type="text" id="ej6" placeholder="litros">
+<button onclick="checkEj6()">Comprobar</button>
+</div>
+<div class="result" id="ej6Result"></div>
 </div>
 
 </div>
 </section>
+
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Alinear la coma decimal</li></li><li><li>Sumar/restar columna a columna</li></li><li><li>¡Ya sabes operar con decimales! 🎉</li>
+<li>Alinear siempre la coma decimal, no la derecha</li>
+<li>Rellenar con ceros si un número tiene menos decimales</li>
+<li>Sumar y restar como con enteros, luego colocar la coma</li>
+<li>Los decimales están en todas partes: dinero, medidas, peso...</li>
+<li>6.0 + 0.60 = 6.60 (los ceros importan para alinear, pero no cambian el valor)</li>
+<li>Para restas inversas: si ___ − 2.4 = 3.6, entonces ___ = 3.6 + 2.4 = 6.0</li>
+<li>¡Practica con dinero, es la mejor forma de dominar decimales!</li>
 </ul>
 </div>
+
 <div class="nav">
 <a href="s05-5primaria.html">← Índice del nivel</a>
 <a href="s05-3-mult-decimales.html">Siguiente →</a>
@@ -161,8 +254,18 @@ Alineamos la coma decimal y sumamos/restamos columna a columna. 2.5 + 1.3 = 3.8.
 Hecho con ❤️ por David Antizar
 </footer>
 <script>
+// --- QUIZ ALEATORIO INTERACTIVO ---
 function newQuiz() {
-  const data = [{"q": "2.5 + 1.3 =", "opts": ["3.8", "3.5", "4.8"], "correct": 0}, {"q": "5.8 - 2.3 =", "opts": ["3.5", "4.5", "3.8"], "correct": 0}, {"q": "4.75 + 2.3 =", "opts": ["7.05", "7.75", "6.05"], "correct": 0}, {"q": "10.5 - 3.7 =", "opts": ["6.8", "7.8", "6.2"], "correct": 0}, {"q": "3.45 + 2.67 =", "opts": ["6.12", "6.22", "5.12"], "correct": 0}];
+  const data = [
+    {q: "2.5 + 1.3 =", opts: ["3.8", "3.5", "4.8"], correct: 0, explain: "2.5 + 1.3 = 3.8. ¡Alinea la coma!"},
+    {q: "5.8 − 2.3 =", opts: ["3.5", "4.5", "3.8"], correct: 0, explain: "5.8 − 2.3 = 3.5"},
+    {q: "4.75 + 2.3 =", opts: ["7.05", "7.75", "6.05"], correct: 0, explain: "4.75 + 2.30 = 7.05. ¡Rellena con cero!"},
+    {q: "10.5 − 3.7 =", opts: ["6.8", "7.8", "6.2"], correct: 0, explain: "10.5 − 3.7 = 6.8"},
+    {q: "3.45 + 2.67 =", opts: ["6.12", "6.22", "5.12"], correct: 0, explain: "3.45 + 2.67 = 6.12"},
+    {q: "0.5 + 0.25 =", opts: ["0.75", "0.30", "0.55"], correct: 0, explain: "0.50 + 0.25 = 0.75"},
+    {q: "9.0 − 3.45 =", opts: ["5.55", "5.45", "6.55"], correct: 0, explain: "9.00 − 3.45 = 5.55"},
+    {q: "1.25 + 0.75 =", opts: ["2.00", "1.100", "2.10"], correct: 0, explain: "1.25 + 0.75 = 2.00"}
+  ];
   const item = data[Math.floor(Math.random()*data.length)];
   document.getElementById('decOpDisplay').textContent = item.q;
   const opts = item.opts;
@@ -173,14 +276,15 @@ function newQuiz() {
     btn.className = 'quiz-btn';
     btn.textContent = opt;
     btn.onclick = function() {
+      buttons.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
       if(i === item.correct) {
         this.classList.add('correct');
         document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + item.explain;
       } else {
         this.classList.add('wrong');
         document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct] + '. ' + item.explain;
       }
     };
     buttons.appendChild(btn);
@@ -188,12 +292,98 @@ function newQuiz() {
   document.getElementById('interactiveResult').textContent = '';
 }
 newQuiz();
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+
+// --- EJERCICIO 1: Completar hueco ---
+function checkEj1() {
+  var val = document.getElementById('ej1').value.replace(',', '.').trim();
+  var r = document.getElementById('ej1Result');
+  if(val === '2.5') {
+    r.className = 'result ok';
+    r.textContent = '✅ ¡Correcto! 3.4 + 2.5 = 5.9. Para encontrar el hueco: 5.9 − 3.4 = 2.5';
+  } else {
+    r.className = 'result fail';
+    r.textContent = '❌ Incorrecto. Pista: 5.9 − 3.4 = ?';
+  }
 }
 
+// --- EJERCICIO 2: V/F ---
+function checkVF(num, userAnswer, btn) {
+  var answers = {2: false, 5: true};
+  var correct = answers[num];
+  var results = {
+    2: {ok: '✅ ¡Correcto! Es FALSO. Si alineas por la derecha en vez de por la coma, el resultado es erróneo. 4.25 + 1.30 = 5.55 solo si alineas la coma, no la derecha.', fail: '❌ No, es FALSO. Alinear por la derecha es el error más común. La coma debe ir debajo de la coma.'},
+    5: {ok: '✅ ¡Correcto! 6.0 + 0.60 = 6.60. Los ceros no cambian el valor, pero ayudan a alinear.', fail: '❌ Es VERDADERO. 6.0 + 0.60 = 6.60. Piensa en dinero: 6€ + 0,60€ = 6,60€.'}
+  };
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(userAnswer === correct) {
+    btn.classList.add('correct');
+    document.getElementById('ej'+num+'Result').className = 'result ok';
+    document.getElementById('ej'+num+'Result').textContent = results[num].ok;
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('ej'+num+'Result').className = 'result fail';
+    document.getElementById('ej'+num+'Result').textContent = results[num].fail;
+  }
+}
+
+// --- EJERCICIO 3: Completar hueco inverso ---
+function checkEj3() {
+  var val = document.getElementById('ej3').value.replace(',', '.').trim();
+  var r = document.getElementById('ej3Result');
+  if(val === '6' || val === '6.0') {
+    r.className = 'result ok';
+    r.textContent = '✅ ¡Correcto! Si ___ − 2.4 = 3.6, entonces ___ = 3.6 + 2.4 = 6.0. Para hallar el minuendo, sumas.';
+  } else {
+    r.className = 'result fail';
+    r.textContent = '❌ Incorrecto. Pista: para encontrar el minuendo, suma: 3.6 + 2.4 = ?';
+  }
+}
+
+// --- EJERCICIO 4: Quiz botones ---
+function checkExercise(num, btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    document.getElementById('ej'+num+'Result').className = 'result ok';
+    document.getElementById('ej'+num+'Result').textContent = '✅ ¡Correcto! 12.50 + 8.75 = 21.25';
+  } else {
+    btn.classList.add('wrong');
+    document.getElementById('ej'+num+'Result').className = 'result fail';
+    document.getElementById('ej'+num+'Result').textContent = '❌ La respuesta es 21.25. 12.50 + 8.75: suma centésimos (50+75=125), luego décimos (0+7+1=8), luego enteros (12+8=20). Total: 21.25';
+  }
+}
+
+// --- EJERCICIO 5: V/F (manejado por checkVF) ---
+
+// --- EJERCICIO 6: Problema contextual ---
+function checkEj6() {
+  var val = document.getElementById('ej6').value.replace(',', '.').trim();
+  var r = document.getElementById('ej6Result');
+  if(val === '7.6' || val === '7,6') {
+    r.className = 'result ok';
+    r.textContent = '✅ ¡Correcto! 15.4 − 7.8 = 7.6 litros. 15.40 − 7.80 = 7.60 = 7.6';
+  } else {
+    r.className = 'result fail';
+    r.textContent = '❌ Incorrecto. Pista: 15.40 − 7.80. Alinea la coma y resta columna a columna.';
+  }
+}
+
+// --- CASO REAL: Compra del supermercado ---
+function checkCompra() {
+  var val = document.getElementById('compraInput').value.replace(',', '.').trim();
+  var r = document.getElementById('compraResult');
+  if(val === '4.8') {
+    r.className = 'result ok';
+    r.textContent = '✅ ¡Exacto! 2.75 + 1.20 + 0.85 = 4.80€. María paga 4,80€ en total. ¡Y le queda dinero de su hucha!';
+  } else {
+    r.className = 'result fail';
+    r.textContent = '❌ No exactamente. Pista: suma paso a paso: primero 2.75 + 1.20 = ?, luego + 0.85.';
+  }
+}
+
+// --- BARRA DE PROGRESO ---
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
