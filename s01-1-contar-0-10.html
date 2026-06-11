@@ -63,6 +63,16 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .counting-item{cursor:pointer;transition:all .2s;padding:.2rem}
 .counting-item:hover{transform:scale(1.2)}
 .counting-item.counted{opacity:.2;transform:scale(.8)}
+
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
+.feedback{display:inline-block;padding:.3rem .8rem;border-radius:6px;font-weight:600;margin-top:.5rem}
+.feedback.correct{color:#065f46;background:var(--verde-claro)}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -95,6 +105,32 @@ Los números nos dicen <b>cuántas cosas</b> hay. ¡Hoy vamos a aprender a conta
 </section>
 
 <!-- TEMA 1: LOS NÚMEROS -->
+
+<!-- EXPLICACIÓN ESTRUCTURADA -->
+<section class="chapter">
+<h2 class="chapter-title">📚 ¿Cómo se cuenta? — Explicación paso a paso</h2>
+
+<div class="box box-teoria">
+<strong>📖 Paso 1 — Mira 👀</strong>
+Cuando tienes un montón de cosas (juguetes, frutas, amigos), necesitas saber <b>cómo son</b>. Los números nos dicen eso. El 0 = nada, el 1 = uno, el 2 = dos...
+</div>
+
+<div class="box box-ejemplo">
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+Cada número tiene un <b>orden</b>: primero el 0, luego el 1, luego el 2... ¡Como los escalones de una escalera! No puedes saltar un escalón.
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+Para contar, <b>señala cada cosa UNA SOLA VEZ</b> y di el número. Si tocas dos veces lo mismo, cuentas mal. ¡Como contar caramelos en un bote!
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+Muchos niños dicen "1, 2, 3, 5" saltándose el 4. ¡Para evitarlo, usa los dedos! Un dedo por cada cosa que cuentas.
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Conoce los números del 0 al 10</h2>
 
@@ -102,6 +138,20 @@ Los números nos dicen <b>cuántas cosas</b> hay. ¡Hoy vamos a aprender a conta
 <strong>📖 Teoría</strong>
 Los números son como palabras especiales que nos dicen <b>cómo son las cosas</b>. ¡1, 2, 3... son mágicos!
 </div>
+
+
+<!-- VISUALIZACIÓN: LÍNEA NUMÉRICA SVG -->
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📏 Línea Numérica Interactiva</h3>
+<svg viewBox="0 0 700 120" width="100%" style="max-width:700px">
+<line x1="30" y1="60" x2="670" y2="60" stroke="#2563eb" stroke-width="3"/>
+<polygon points="670,55 680,60 670,65" fill="#2563eb"/>
+<polygon points="30,55 20,60 30,65" fill="#2563eb"/>
+<circle cx="30" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="0" style="cursor:pointer"/><text x="30" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">0</text><circle cx="90" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="1" style="cursor:pointer"/><text x="90" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">1</text><circle cx="150" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="2" style="cursor:pointer"/><text x="150" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">2</text><circle cx="210" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="3" style="cursor:pointer"/><text x="210" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">3</text><circle cx="270" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="4" style="cursor:pointer"/><text x="270" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">4</text><circle cx="330" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="5" style="cursor:pointer"/><text x="330" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">5</text><circle cx="390" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="6" style="cursor:pointer"/><text x="390" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">6</text><circle cx="450" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="7" style="cursor:pointer"/><text x="450" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">7</text><circle cx="510" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="8" style="cursor:pointer"/><text x="510" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">8</text><circle cx="570" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="9" style="cursor:pointer"/><text x="570" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">9</text><circle cx="630" cy="60" r="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="num-marker" data-num="10" style="cursor:pointer"/><text x="630" y="65" text-anchor="middle" fill="#2563eb" font-size="16" font-weight="bold">10</text>
+<text x="350" y="105" text-anchor="middle" fill="#64748b" font-size="12">Haz clic en un número para verlo en grande</text>
+</svg>
+</div>
+
 
 <p>Haz clic en cada número para verlo en grande:</p>
 
@@ -161,6 +211,27 @@ Cada número es <b>uno más</b> que el anterior. ¡El 5 viene después del 4!
 <div class="quiz-options" id="seqOptions"></div>
 <div class="result" id="seqResult"></div>
 <button onclick="newSequence()" style="margin-top:1rem">➡️ Nueva secuencia</button>
+
+<!-- CASOS REALES -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Los números en la vida real</h2>
+
+<div class="box box-problema">
+<strong>🍕 Caso 1 — La pizzería</strong>
+<span class="real-world-badge">Vida real</span><br>
+En una pizzería, el camarero te pregunta: <i>"¿Cuántas pizzas queréis?"</i> Si sois 4 personas, dices <b>4</b>. ¡Eso es contar!
+</div>
+
+<div class="box box-problema">
+<strong>🎮 Caso 2 — Los niveles del videojuego</strong>
+<span class="real-world-badge">Vida real</span><br>
+En muchos videojuegos, los niveles van del 1 al 10. Cuando llegas al nivel 10, ¡has completado todo! Contaste hasta 10.
+</div>
+
+<div class="box box-problema">
+<strong>🐱 Caso 3 — Los gatitos del refugio</strong>
+<span class="real-world-badge">Vida real</span><br>
+En un refugio hay 0 gatitos en la caja A, 3 en la B y 7 en la C. ¿Cuántos gatitos hay en total? ¡Contemos! 3 + 7 = 10 gatitos.
 </div>
 </section>
 
@@ -214,8 +285,63 @@ Cada número es <b>uno más</b> que el anterior. ¡El 5 viene después del 4!
 </div>
 </div>
 
+
+<!-- EJERCICIOS VARIOS -->
+<div class="exercise">
+<p>6. <b>V/F:</b> El número 0 significa "nada" o "ninguno".</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
-</section>
+<div class="feedback" id="vf6"></div>
+</div>
+
+<div class="exercise">
+<p>7. <b>V/F:</b> El número 6 viene después del 5.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="vf7"></div>
+</div>
+
+<div class="exercise">
+<p>8. <b>Completar:</b> 0, 1, 2, ___, 4</p>
+<div style="margin:.5rem 0">
+<input type="number" id="fill8" min="0" max="10" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkFillIn(8, ['3'])" style="padding:.5rem 1rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="feedback" id="fill8fb"></div>
+</div>
+
+<div class="exercise">
+<p>9. <b>Ordenar:</b> Pon estos números de menor a mayor: 5, 2, 8, 0</p>
+<p style="font-size:.85rem;color:var(--gris)">Escribe la respuesta separada por comas:</p>
+<div style="margin:.5rem 0">
+<input type="text" id="fill9" placeholder="ej: 0, 1, 2" style="padding:.5rem;font-size:1rem;border:2px solid var(--azul);border-radius:6px;width:200px">
+<button onclick="checkOrden9()" style="padding:.5rem 1rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="feedback" id="fill9fb"></div>
+</div>
+
+<div class="exercise">
+<p>10. <b>Problema:</b> Ana tiene 3 caramelos. Su madre le da 2 más. ¿Cuántos caramelos tiene Ana ahora?</p>
+<div style="margin:.5rem 0">
+<input type="number" id="fill10" min="0" max="20" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkFillIn(10, ['5'])" style="padding:.5rem 1rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="feedback" id="fill10fb"></div>
+</div>
+
+
+
+<!-- CONEXIONES -->
+<div class="connection-box">
+<strong>🔗 Conexiones</strong>
+<p>• Este tema conecta con <b>S01.2: Contar del 10 al 100</b> — ¡ahora que sabes contar hasta 10, iremos más lejos!</p>
+<p>• También con <b>S01.3: Sumar hasta 10</b> — contar es el primer paso para sumar.</p>
+<p>• En la vida real, usas contar cada día: en el supermercado, en el colegio, jugando...</p>
+</div>
 
 <!-- RESUMEN -->
 <div class="summary">
@@ -226,6 +352,9 @@ Cada número es <b>uno más</b> que el anterior. ¡El 5 viene después del 4!
 <li>Cada número viene después del anterior</li>
 <li>El 0 significa "nada" o "ninguno"</li>
 <li>¡Ya sabes contar! 🎉</li>
+<li>En la vida real contamos todo el tiempo: en la pizzería, en los videojuegos, con los gatitos...</li>
+<li>Los números tienen un orden fijo: nunca te los puedes saltar</li>
+<li>Contar es el primer paso para sumar y restar</li>
 </ul>
 </div>
 
@@ -262,6 +391,16 @@ function showNumber(n){
   document.getElementById('numObjects').textContent = numEmojis[n] || '';
   document.querySelectorAll('.num-btn').forEach((b,i) => b.classList.toggle('active', i===n));
 }
+
+// === SVG LÍNEA NUMÉRICA ===
+document.querySelectorAll('.num-marker').forEach(marker => {
+  marker.addEventListener('click', function() {
+    const n = parseInt(this.getAttribute('data-num'));
+    showNumber(n);
+    this.setAttribute('fill', '#f97316');
+    this.setAttribute('stroke', '#f97316');
+  });
+});
 
 // === CONTAR FRUTAS ===
 const fruits = ['🍎','🍌','🍊','🍇','🍓','🍑','🫐','🍍'];
@@ -345,6 +484,53 @@ function checkExercise(btn, ex, correct){
     parent.querySelectorAll('.quiz-btn').forEach(b => {
       if(b !== btn) b.style.opacity = '0.5';
     });
+  }
+}
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fbId = btn.closest('.exercise').querySelector('.feedback').id;
+  const fb = document.getElementById(fbId);
+  if (correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto!';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Incorrecto. ¡Inténtalo de nuevo!';
+  }
+}
+
+function checkFillIn(exNum, correctAnswers) {
+  const input = document.getElementById('fill' + exNum);
+  const answer = input.value.trim().toLowerCase();
+  const fb = document.getElementById('fill' + exNum + 'fb');
+  if (correctAnswers.some(a => a.toLowerCase() === answer)) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto!';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ No es esa. ¡Pruébalo otra vez!';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
+function checkOrden9() {
+  const input = document.getElementById('fill9').value.trim().toLowerCase();
+  const fb = document.getElementById('fill9fb');
+  const nums = input.replace(/\s/g, '').split(',').map(Number);
+  if (nums.length === 4 && nums[0] === 0 && nums[1] === 2 && nums[2] === 5 && nums[3] === 8) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Perfecto! De menor a mayor: 0, 2, 5, 8';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ El orden correcto es: 0, 2, 5, 8';
   }
 }
 

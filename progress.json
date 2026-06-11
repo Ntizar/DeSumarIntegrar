@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-4-bachiller-aplicaciones-derivadas.html",
+  "last_improved": "s02-4-tablas-1-5.html",
   "last_run": "2026-06-11",
-  "total_runs": 46,
+  "total_runs": 47,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -790,21 +790,27 @@
       "improvement_count": 0
     },
     "s01-1-contar-0-10.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación estructurada 4 pasos (mira/fíjate/ahora ves/error común), +1 SVG línea numérica interactiva, +3 casos reales (pizzería, videojuego, gatitos), +5 ejercicios variados (VF x2, completar hueco x2, ordenar, problema), +1 caja conexiones, +CSS: step-indicator, connection-box, svg-container, feedback, real-world-badge, difficulty-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 7,
+        "text": 8,
+        "visual": 6,
+        "real_world": 7,
+        "connections": 5,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s01-2-contar-10-100.html": {
       "status": "pending",
@@ -1057,21 +1063,27 @@
       "improvement_count": 2
     },
     "s02-4-tablas-1-5.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación estructurada 4 pasos (mira/fíjate/ahora ves/error común), +1 SVG agrupación visual (3×4), +3 casos reales (supermercado, videojuego, repostería), +8 ejercicios variados (quiz x2, VF x2, completar x2, ordenar, problema, decidir operación), +1 caja conexiones, arreglado nested <li>, +CSS: step-indicator, connection-box, svg-container, feedback, real-world-badge, difficulty-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 7,
+        "visual": 6,
+        "real_world": 7,
+        "connections": 5,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s02-5-tablas-6-9.html": {
       "status": "pending",
