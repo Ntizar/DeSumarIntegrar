@@ -245,27 +245,6 @@ Si tienes a/b = c/d, NO puedes hacer a/c = d/b. Debes mantener el orden: siempre
 <div class="result" id="tales-vf-result"></div>
 </div>
 </div>
-<!-- QUIZ 6: Ordenar resultados -->
-<div class="exercise">
-<p>Ordena de menor a mayor los valores de d: (a=5, b=2, c=8, d=?), (a=6, b=3, c=9, d=?), (a=4, b=2, c=7, d=?):</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkOrdenTales(this, false)">4, 4.5, 6</button>
-<button class="quiz-btn" onclick="checkOrdenTales(this, true)">3.2, 3.5, 4.5</button>
-<button class="quiz-btn" onclick="checkOrdenTales(this, false)">6, 4, 4.5</button>
-</div>
-<div class="result" id="tales-orden-result"></div>
-</div>
-<!-- QUIZ 7: Decidir operación -->
-<div class="exercise">
-<p>Un edificio de 30m tiene sombra de 15m. Un árbol tiene sombra de 6m. ¿Cuál es la altura del árbol?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkInputEdificio(this)">12m</button>
-<button class="quiz-btn" onclick="checkInputEdificio(this)">15m</button>
-<button class="quiz-btn" onclick="checkInputEdificio(this)">20m</button>
-</div>
-<div class="result" id="tales-edificio-result"></div>
-</div>
-</div>
 </section>
 
 <div class="summary">
@@ -346,34 +325,6 @@ function checkVF(btn, correct) {
     btn.classList.add('wrong');
     fb.className = 'result fail';
     fb.textContent = '❌ Falso. 12/6 = 2 y 20/10 = 2, ¡son iguales!';
-  }
-}
-function checkOrdenTales(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('tales-orden-result');
-  if(correct) {
-    btn.classList.add('correct');
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! d₁=4, d₂=6, d₃=4.5 → Orden: 4 < 4.5 < 6';
-  } else {
-    btn.classList.add('wrong');
-    fb.className = 'result fail';
-    fb.textContent = '❌ Incorrecto. Calcula: d₁=2×8/5=3.2, d₂=3×9/6=4.5, d₃=2×7/4=3.5 → Orden: 3.2 < 3.5 < 4.5';
-  }
-}
-function checkInputEdificio(btn) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('tales-edificio-result');
-  if(btn.textContent === '12m') {
-    btn.classList.add('correct');
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 30/15 = h/6 → h = 30×6/15 = 12m';
-  } else {
-    btn.classList.add('wrong');
-    fb.className = 'result fail';
-    fb.textContent = '❌ Incorrecto. 30/15 = h/6 → h = 30×6/15 = 12m';
   }
 }
 window.onscroll = function(){

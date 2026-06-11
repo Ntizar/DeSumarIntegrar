@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-6-bachiller-integrales-definidas.html",
+  "last_improved": "eso2-3-teorema-tales.html",
   "last_run": "2026-06-11",
-  "total_runs": 40,
+  "total_runs": 41,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -665,21 +665,27 @@
       "improvement_count": 1
     },
     "eso2-3-teorema-tales.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-11",
+          "added": "+2 ejercicios nuevos (ordenar resultados, decidir operación), +1 explicación 4 pasos estructurada, +1 SVG diagrama Tales con rectas/paralelas, +2 casos reales (pirámide Keops, zoom móvil), +3 cajas conexión (álgebra, funciones, fracciones), corregido HTML <li> anidado, +3 funciones JS nuevas (checkOrdenTales, checkInputEdificio, checkVF)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 6,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 2
     },
     "eso2-5-funciones-intro.html": {
       "status": "pending",
