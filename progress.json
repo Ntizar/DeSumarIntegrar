@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-4-tablas-1-5.html",
+  "last_improved": "s09-7-bachiller-aplicaciones-integrales.html",
   "last_run": "2026-06-11",
-  "total_runs": 47,
+  "total_runs": 48,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -722,21 +722,27 @@
       "improvement_count": 2
     },
     "eso2-7-circunferencia-circulo.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "ESO 2º",
       "priority": 2,
-      "category": "eso",
-      "improvements": [],
+      "category": "eso_tema",
+      "improvements": [
+        {
+          "run": 48,
+          "date": "2026-06-11",
+          "added": "+6 ejercicios variados (quiz ×2, completar hueco ×2, V/F, emparejar fórmula, problema contextual plato), +1 caso real rueda de bici (r=35cm, C=219.8cm), +1 diagrama SVG partes del círculo (centro, radio, diámetro, arco), +1 explicación estructurada 4 pasos, +1 caja error común (diámetro vs radio), +1 caja conexión (círculo↔cuadrado), resumen ampliado a 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 6,
+        "text": 12,
+        "visual": 7,
+        "real_world": 6,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "eso2-9-probabilidad.html": {
       "status": "pending",
@@ -1137,21 +1143,27 @@
       "improvement_count": 0
     },
     "s03-1-mult-dos-cifras.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 48,
+          "date": "2026-06-11",
+          "added": "+6 ejercicios variados (quiz ×2, completar hueco, V/F, ordenar resultados, problema contextual cine), +1 caso real panadería (8 cajas ×12 galletas), +1 visualización SVG (3 filas de 12 galletas), +1 explicación estructurada 4 pasos, +1 caja error común (× vs +), +1 caja conexión (multiplicación↔suma), resumen ampliado a 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 6,
+        "text": 12,
+        "visual": 6,
+        "real_world": 6,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s03-2-division.html": {
       "status": "improved_1",
@@ -1982,21 +1994,27 @@
       "improvement_count": 1
     },
     "s09-7-bachiller-aplicaciones-integrales.html": {
-      "status": "pending",
-      "level": "Bachiller",
+      "status": "improved_1",
+      "level": "Bachillerato",
       "priority": 3,
-      "category": "bachiller",
-      "improvements": [],
+      "category": "bachiller_tema",
+      "improvements": [
+        {
+          "run": 48,
+          "date": "2026-06-11",
+          "added": "+4 ejercicios variados (input numérico ×2, completar hueco pasos, V/F, emparejar fórmula), +2 casos reales (diseño botella vidrio, trabajo resorte Hooke), +1 visualización SVG método de discos (rebanadas), +1 explicación estructurada 4 pasos, +1 caja error común (olvidar π), +1 caja conexión (integrales definidas↔volúmenes), resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 5,
+        "text": 12,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 3,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-8-bachiller-probabilidad-avanzada.html": {
       "status": "pending",
