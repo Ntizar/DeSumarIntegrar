@@ -1,7 +1,7 @@
 {
-  "last_improved": "s10-2-carrera-derivadas-parciales.html",
+  "last_improved": "s04-7-capacidades.html",
   "last_run": "2026-06-11",
-  "total_runs": 43,
+  "total_runs": 44,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1373,21 +1373,27 @@
       "improvement_count": 1
     },
     "s04-7-capacidades.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos estructurada, +1 SVG conversión litros↔ml (botella+vasos), +3 casos reales (zumo supermercado, medicina, depósito coche), +3 cajas conexión (medidas, multiplicación, decimales), +3 ejercicios variados (input ×1000, input ÷1000, ordenar), corregido HTML <li> anidado, +3 funciones JS nuevas (checkCapInput1, checkCapInput2, checkCapOrden)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 2
     },
     "s04-8-problemas-1-paso.html": {
       "status": "pending",
