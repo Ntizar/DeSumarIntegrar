@@ -4,7 +4,7 @@
   "total_runs": 39,
   "topics": {
     "s01-1primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -34,10 +34,11 @@
         "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 3
+      "improvement_count": 3,
+      "is_index": true
     },
     "s01-2primaria.html": {
-      "status": "improved_3",
+      "status": "index",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -67,10 +68,11 @@
         "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 3
+      "improvement_count": 3,
+      "is_index": true
     },
     "s01-3primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -95,10 +97,11 @@
         "difficulty_range": 7
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s01-4primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "1º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -123,7 +126,8 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s01-5primaria.html": {
       "status": "improved_2",
@@ -251,7 +255,7 @@
       "improvement_count": 1
     },
     "s02-1primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -276,10 +280,11 @@
         "difficulty_range": 5
       },
       "last_improved": "2026-06-09",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s02-2primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_base",
@@ -304,10 +309,11 @@
         "difficulty_range": 5
       },
       "last_improved": "2026-06-09",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s02-3primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -332,10 +338,11 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s02-4primaria.html": {
-      "status": "improved_1",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -355,10 +362,11 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s02-5primaria.html": {
-      "status": "improved_1",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -378,10 +386,11 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s02-6primaria.html": {
-      "status": "improved_1",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -401,10 +410,11 @@
         "difficulty_range": 5
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s02-7primaria.html": {
-      "status": "improved_1",
+      "status": "index",
       "level": "2º Primaria",
       "priority": 1,
       "category": "primaria_2",
@@ -424,10 +434,11 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s03-3primaria.html": {
-      "status": "improved_1",
+      "status": "index",
       "level": "3º Primaria",
       "priority": 1,
       "category": "primaria_3",
@@ -447,10 +458,11 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s04-4primaria.html": {
-      "status": "improved_2",
+      "status": "index",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -475,10 +487,11 @@
         "difficulty_range": 5
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 2
+      "improvement_count": 2,
+      "is_index": true
     },
     "s05-5primaria.html": {
-      "status": "improved",
+      "status": "index",
       "level": "5º Primaria",
       "priority": 2,
       "category": "primaria_5",
@@ -498,10 +511,11 @@
         "difficulty_range": 0
       },
       "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s06-6primaria.html": {
-      "status": "improved",
+      "status": "index",
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_6",
@@ -521,7 +535,8 @@
         "difficulty_range": 0
       },
       "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s06-10-repasos-primaria.html": {
       "status": "pending",
@@ -1251,7 +1266,7 @@
       "improvement_count": 2
     },
     "s04-4-fracciones-equivalentes.html": {
-      "status": "improved_1",
+      "status": "duplicate_of_s04-1-fracciones-equivalentes.html",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
@@ -1271,7 +1286,8 @@
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_duplicate": true
     },
     "s04-5-decimales-intro.html": {
       "status": "improved_1",
@@ -1735,7 +1751,7 @@
       "improvement_count": 0
     },
     "s09-bachiller.html": {
-      "status": "improved",
+      "status": "index",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
@@ -1755,7 +1771,8 @@
         "difficulty_range": 0
       },
       "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s09-1-bachiller-limites.html": {
       "status": "improved_1",
@@ -1934,7 +1951,7 @@
       "improvement_count": 0
     },
     "s10-1carrera.html": {
-      "status": "improved",
+      "status": "index",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
@@ -1954,7 +1971,8 @@
         "difficulty_range": 0
       },
       "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "improvement_count": 1,
+      "is_index": true
     },
     "s10-1-carrera-limites-multivariable.html": {
       "status": "pending",
@@ -2126,5 +2144,6 @@
       "last_improved": null,
       "improvement_count": 0
     }
-  }
+  },
+  "total_temas": 87
 }
