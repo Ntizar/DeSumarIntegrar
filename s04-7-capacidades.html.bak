@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>➕ S02.1: Sumas con Llevadas — 2º Primaria — ¡Sumar se pone difícil!</title>
+<title>🥤 S04.7: Capacidades — 4º Primaria — ¡Medir líquidos!</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,8 +57,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <header class="header">
-<h1>➕ S02.1: Sumas con Llevadas</h1>
-<p>2º Primaria — ¡Sumar se pone difícil!</p>
+<h1>🥤 S04.7: Capacidades</h1>
+<p>4º Primaria — ¡Medir líquidos!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
@@ -66,85 +66,81 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Cuando la suma de las unidades da más de 9, hay que <b>llevar</b> la decena al siguiente lugar. ¡Es como guardar el sobrante!
+La capacidad es cuánto líquido cabe en un recipiente. Se mide en litros (l) y mililitros (ml).
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Entender qué es una llevada</li><li>Sumar unidades primero, luego decenas</li><li>Llevar cuando las unidades suman más de 9</li><li>Practicar con sumas paso a paso</li>
+<li>Entender qué es la capacidad</li><li>Convertir entre litros y mililitros</li><li>Resolver problemas de capacidad</li>
 </ul>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ ¿Qué es una llevada?</h2>
+<h2 class="chapter-title">1️⃣ Litros y mililitros</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-Cuando sumas las unidades y el resultado es <b>más de 9</b>, no cabe en una sola casilla. Entonces <b>guardas 1 en las decenas</b> y lo que sobra se queda en las unidades.
+1 litro (l) = 1000 mililitros (ml). Para convertir: litros × 1000 = ml. Mililitros ÷ 1000 = litros.
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
-25 + 17 = ?<br>Unidades: 5 + 7 = 12 → escribo 2, llevo 1<br>Decenas: 2 + 1 + 1 (llevada) = 4<br>Resultado: <b>42</b>
+1 l = 1000 ml
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 2</strong>
-38 + 24 = ?<br>Unidades: 8 + 4 = 12 → escribo 2, llevo 1<br>Decenas: 3 + 2 + 1 = 6<br>Resultado: <b>62</b>
+2 l = 2000 ml
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
-46 + 35 = ?<br>Unidades: 6 + 5 = 11 → escribo 1, llevo 1<br>Decenas: 4 + 3 + 1 = 8<br>Resultado: <b>81</b>
+0.5 l = 500 ml
 </div>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Practica sumas con llevadas!</h2>
+<h2 class="chapter-title">2️⃣ ¡Convierte capacidades!</h2>
 <div class="interactive">
-<h3>Resuelve estas sumas paso a paso:</h3>
-<div style="text-align:center;margin:1rem 0">
-<p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="sumDisplay"></p>
-<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="sumButtons"></div>
-</div>
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="capDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="capButtons"></div></div>
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
-
 <div class="exercise">
-<p>1. ¿Cuánto es 28 + 15?</p>
+<p>2 litros son...</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">33</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">43</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">42</button>
-</div>
-</div>
-<div class="exercise">
-<p>2. ¿Cuánto es 37 + 26?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">63</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">53</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">62</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">2000 ml</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">200 ml</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20 ml</button>
 </div>
 </div>
 <div class="exercise">
-<p>3. ¿Cuánto es 45 + 38?</p>
+<p>500 ml son...</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">73</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">83</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">82</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">0.5 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">50 l</button>
 </div>
 </div>
 <div class="exercise">
-<p>4. ¿Cuánto es 19 + 27?</p>
+<p>3.5 litros son...</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">45</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">46</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">47</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3500 ml</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">350 ml</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">35 ml</button>
 </div>
 </div>
 <div class="exercise">
-<p>5. ¿Cuánto es 54 + 39?</p>
+<p>1500 ml son...</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">83</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">93</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">92</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">1.5 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">15 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">150 l</button>
+</div>
+</div>
+<div class="exercise">
+<p>4 vasos de 250 ml son...</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">1 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4 l</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Ambas a y c</button>
 </div>
 </div>
 
@@ -153,12 +149,13 @@ Cuando sumas las unidades y el resultado es <b>más de 9</b>, no cabe en una sol
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Primero sumamos las unidades</li></li><li><li>Si las unidades suman más de 9, llevamos 1 a las decenas</li></li><li><li>Luego sumamos las decenas + la llevada</li></li><li><li>¡El resultado es la suma completa!</li></li><li><li>¡Ya sabes sumar con llevadas! 🎉</li></li>
+<li><li>1 l = 1000 ml</li></li><li><li>Litros × 1000 = ml</li></li><li><li>ml ÷ 1000 = litros</li></li><li><li>¡Ya sabes capacidades! 🎉</li>
 </ul>
 </div>
 <div class="nav">
-<a href="s02-2primaria-index.html">← Índice del nivel</a>
-<a href="s02-2-restas-llevadas.html">Siguiente →</a>
+<a href="s04-6-estadistica-distribuciones-continuas.html">← Anterior</a>
+  <a href="s04-4primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s04-7-estadistica-correlacion-regresion.html">Siguiente →</a>
 </div>
 </main>
 <footer class="footer">
@@ -166,57 +163,37 @@ Hecho con ❤️ por David Antizar
 </footer>
 <script>
 
-function newSum() {
-  const a = Math.floor(Math.random() * 40) + 10;
-  const b = Math.floor(Math.random() * 40) + 10;
-  const sum = a + b;
-  const aUni = a % 10, aDec = Math.floor(a / 10);
-  const bUni = b % 10, bDec = Math.floor(b / 10);
-  const uniSum = aUni + bUni;
-  const needsCarry = uniSum > 9;
-  const finalUni = uniSum % 10;
-  const finalDec = aDec + bDec + (needsCarry ? 1 : 0);
-
-  document.getElementById('sumDisplay').innerHTML =
-    a + ' + ' + b + ' = ?<br>' +
-    '<span style="font-size:.9rem;color:var(--gris)">' +
-    'Unidades: ' + aUni + ' + ' + bUni + ' = ' + uniSum + (needsCarry ? ' → escribo ' + finalUni + ', llevo 1' : '') +
-    ' | Decenas: ' + aDec + ' + ' + bDec + (needsCarry ? ' + 1' : '') + ' = ' + finalDec +
-    '</span>';
-
-  const opts = [sum, sum + 1, sum - 1, sum + 10].filter((v,i,a) => a.indexOf(v) === i);
-  const buttons = document.getElementById('sumButtons');
+function newQuiz() {
+  const data = [{"q": "2 litros son...", "opts": ["2000 ml", "200 ml", "20 ml"], "correct": 0}, {"q": "500 ml son...", "opts": ["0.5 l", "5 l", "50 l"], "correct": 0}, {"q": "3.5 litros son...", "opts": ["3500 ml", "350 ml", "35 ml"], "correct": 0}, {"q": "1500 ml son...", "opts": ["1.5 l", "15 l", "150 l"], "correct": 0}, {"q": "4 vasos de 250 ml son...", "opts": ["1 l", "4 l", "Ambas a y c"], "correct": 2}];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('capDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('capButtons');
   buttons.innerHTML = '';
-  opts.sort(() => Math.random() - 0.5);
-  opts.forEach(opt => {
+  opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'quiz-btn';
     btn.textContent = opt;
     btn.onclick = function() {
-      if(opt === sum) {
+      if(i === item.correct) {
         this.classList.add('correct');
         document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + a + ' + ' + b + ' = ' + sum;
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
       } else {
         this.classList.add('wrong');
         document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + sum;
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
       }
     };
     buttons.appendChild(btn);
   });
   document.getElementById('interactiveResult').textContent = '';
 }
-newSum();
-
+newQuiz();
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  if(correct) { btn.classList.add('correct'); }
-  else { btn.classList.add('wrong'); }
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
 }
 
 window.onscroll = function(){

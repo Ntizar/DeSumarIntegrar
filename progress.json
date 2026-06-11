@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-1-sumas-llevadas.html",
+  "last_improved": "s10-2-carrera-derivadas-parciales.html",
   "last_run": "2026-06-11",
-  "total_runs": 42,
+  "total_runs": 43,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -625,21 +625,27 @@
       "improvement_count": 1
     },
     "eso1-7-estadistica-probabilidad.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "ESO 1º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 SVG gráfico de barras (deportes favoritos), +2 casos reales (notas del trimestre, lotería Euromillones), +1 conexión estadística↔probabilidad, +2 ejercicios nuevos (completar hueco, V/F), arreglado summary (nested <li><li>), añadida clase svg-container, +1 caja error común (falacia del jugador)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
+        "exercises": 7,
         "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 5,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "eso2-1-ecuaciones-1grado.html": {
       "status": "improved",
@@ -665,7 +671,7 @@
       "improvement_count": 1
     },
     "eso2-3-teorema-tales.html": {
-      "status": "improved_2",
+      "status": "improved_1",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
@@ -674,6 +680,11 @@
           "run": 2,
           "date": "2026-06-11",
           "added": "+2 ejercicios nuevos (ordenar resultados, decidir operación), +1 explicación 4 pasos estructurada, +1 SVG diagrama Tales con rectas/paralelas, +2 casos reales (pirámide Keops, zoom móvil), +3 cajas conexión (álgebra, funciones, fracciones), corregido HTML <li> anidado, +3 funciones JS nuevas (checkOrdenTales, checkInputEdificio, checkVF)"
+        },
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 SVG animado de rectas paralelas y transversales, +1 caso real pirámide de Keops (medición con sombras), +1 conexión con fracciones y proporcionalidad, +2 ejercicios nuevos (completar hueco, V/F), arreglado summary (nested <li><li>), añadida clase svg-container, +1 caja error común"
         }
       ],
       "scores": {
@@ -685,7 +696,7 @@
         "difficulty_range": 7
       },
       "last_improved": "2026-06-11",
-      "improvement_count": 2
+      "improvement_count": 3
     },
     "eso2-5-funciones-intro.html": {
       "status": "pending",
@@ -2038,21 +2049,28 @@
       "improvement_count": 0
     },
     "s10-2-carrera-derivadas-parciales.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-11",
+          "added": "+1 SVG campo gradiente con isotermas, +1 explicación 4 pasos (qué es/para qué/cómo/error), +1 caso real machine learning (gradiente descendente), +1 tabla comparativa derivada parcial vs ordinaria, +4 ejercicios nuevos (quiz, completar, V/F, gradiente), +1 conexión con límites, +1 caja error común, añadidas clases template (svg-container, quiz-options, interactive, result, exercises, progress-bar, progress-fill)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
+        "exercises": 8,
         "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 0,
+        "css_coherence": 10
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s10-3-carrera-integrales-multiples.html": {
       "status": "pending",
