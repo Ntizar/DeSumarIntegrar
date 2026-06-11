@@ -50,10 +50,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-.svg-visual{display:flex;justify-content:center;margin:1.5rem 0}
-.svg-visual svg{max-width:100%;height:auto}
-.vida-real{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:12px;padding:1.2rem;margin:1.5rem 0;border:2px solid var(--verde)}
-.vida-real h4{color:#065f46;margin-bottom:.5rem}
 </style>
 </head>
 <body>
@@ -77,72 +73,25 @@ Multiplicar por 10, 11 y 12 tiene <b>trucos</b>. ¡Por 10 solo añades un 0!
 <li>Multiplicar por 10, 11 y 12</li><li>Usar trucos para multiplicar rápido</li><li>Multiplicar números de dos cifras</li><li>Practicar con ejercicios interactivos</li>
 </ul>
 </section>
-
-<!-- NUEVO: Explicación estructurada en 4 pasos -->
 <section class="chapter">
-<h2 class="chapter-title">📚 ¿Cómo funciona multiplicar por 10, 11 y 12?</h2>
+<h2 class="chapter-title">1️⃣ Trucos para multiplicar</h2>
 <div class="box box-teoria">
-<strong>📖 Explicación en 4 pasos</strong>
-<p><b>Paso 1 — Entender:</b> Multiplicar es sumar varias veces. 3 × 12 = 12 + 12 + 12.</p>
-<p><b>Paso 2 — Truco ×10:</b> Solo añade un cero al final. 7 × 10 = 70. ¡Es el más fácil!</p>
-<p><b>Paso 3 — Truco ×11:</b> Repite el dígito (para números de 1 cifra). 6 × 11 = 66.</p>
-<p><b>Paso 4 — Truco ×12:</b> Multiplica por 10 y suma el doble. 5 × 12 = 50 + 10 = 60.</p>
+<strong>📖 Teoría</strong>
+<b>Por 10:</b> añade un 0 al final. 5 × 10 = 50.<br><b>Por 11:</b> repite el dígito. 3 × 11 = 33.<br><b>Por 12:</b> multiplica por 10 y suma el doble.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+<b>× 10:</b><br>4 × 10 = 40<br>7 × 10 = 70<br>12 × 10 = 120
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+<b>× 11:</b><br>3 × 11 = 33<br>5 × 11 = 55<br>9 × 11 = 99
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+<b>× 12:</b><br>5 × 12 = 5×10 + 5×2 = 50 + 10 = <b>60</b><br>8 × 12 = 8×10 + 8×2 = 80 + 16 = <b>96</b>
 </div>
 </section>
-
-<!-- NUEVO: Caso real cotidiano -->
-<section class="chapter">
-<h2 class="chapter-title">🏪 Caso real: La panadería de la abuela</h2>
-<div class="vida-real">
-<h4>🍞 ¿Cuántas galletas hay en total?</h4>
-<p>La abuela de David hace galletas para la fiesta. Cada caja lleva <b>12 galletas</b>. Si prepara <b>8 cajas</b>, ¿cuántas galletas tiene en total?</p>
-<p><b>Solución:</b> 8 × 12 = 8 × 10 + 8 × 2 = 80 + 16 = <b>96 galletas</b>. ¡La abuela es una crack multiplicando!</p>
-</div>
-</section>
-
-<!-- NUEVO: Visual SVG — Representación visual de 3×12 -->
-<section class="chapter">
-<h2 class="chapter-title">👁️ Visualiza: 3 × 12 en filas</h2>
-<div class="svg-visual">
-<svg width="420" height="160" viewBox="0 0 420 160" xmlns="http://www.w3.org/2000/svg">
-<text x="10" y="20" font-size="14" fill="#2563eb" font-weight="bold">3 filas × 12 columnas = 36</text>
-<!-- Fila 1 -->
-<rect x="10" y="30" width="300" height="25" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
-<text x="15" y="47" font-size="12" fill="#2563eb">🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪</text>
-<!-- Fila 2 -->
-<rect x="10" y="60" width="300" height="25" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="1"/>
-<text x="15" y="77" font-size="12" fill="#f97316">🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪</text>
-<!-- Fila 3 -->
-<rect x="10" y="90" width="300" height="25" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/>
-<text x="15" y="107" font-size="12" fill="#10b981">🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪 🍪</text>
-<!-- Resultado -->
-<rect x="10" y="125" width="300" height="25" rx="4" fill="#faf5ff" stroke="#a855f7" stroke-width="1"/>
-<text x="15" y="142" font-size="13" fill="#a855f7" font-weight="bold">= 36 galletas en total 🎉</text>
-</svg>
-</div>
-<p style="text-align:center;color:#64748b;font-size:.9rem">3 filas de 12 galletas cada una = 36 galletas. ¡Así de fácil visualizarlo!</p>
-</section>
-
-<!-- NUEVO: Caja de error común -->
-<section class="chapter">
-<h2 class="chapter-title">⚠️ Error común</h2>
-<div class="box box-error">
-<strong>🚫 ¡Cuidado! Confundir × con +</strong>
-<p>Muchos alumnos piensan que 5 × 10 = 15 (como si fuera 5 + 10). ¡Recuerda! Multiplicar es <b>sumar varias veces</b>: 5 × 10 = 10 + 10 + 10 + 10 + 10 = 50. ¡No 15!</p>
-</div>
-</section>
-
-<!-- NUEVO: Conexión con suma -->
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Multiplicar ↔ Sumar</h2>
-<div class="box box-success">
-<strong>💡 Conexión clave</strong>
-<p>La multiplicación es una <b>suma abreviada</b>. Si ya sabes sumar, ¡ya sabes multiplicar!</p>
-<p>3 × 4 = 4 + 4 + 4 = 12</p>
-<p>Por eso los trucos de ×10, ×11, ×12 se basan en sumas que ya conoces.</p>
-</div>
-</section>
-
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Practica multiplicaciones!</h2>
 <div class="interactive">
@@ -154,13 +103,10 @@ Multiplicar por 10, 11 y 12 tiene <b>trucos</b>. ¡Por 10 solo añades un 0!
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
-
-<!-- NUEVO: Ejercicios variados — Completar hueco -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
-<!-- Quiz original (tipo 1) -->
 <div class="exercise">
 <p>1. ¿Cuánto es 7 × 10?</p>
 <div class="quiz-options">
@@ -169,28 +115,22 @@ Multiplicar por 10, 11 y 12 tiene <b>trucos</b>. ¡Por 10 solo añades un 0!
 <button class="quiz-btn" onclick="checkExercise(this, false)">17</button>
 </div>
 </div>
-
-<!-- Completar hueco (tipo 2) -->
 <div class="exercise">
-<p>2. Completa: 6 × 11 = ___</p>
-<div class="exercise-input" style="display:flex;gap:.5rem;align-items:center;margin:.8rem 0">
-<input type="number" id="e2" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1.1rem;width:100px">
-<button onclick="checkCompleta2()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
-</div>
-<div class="result" id="e2-fb" style="display:none"></div>
-</div>
-
-<!-- V/F (tipo 3) -->
-<div class="exercise">
-<p>3. ¿Verdadero o falso? 4 × 12 = 48</p>
+<p>2. ¿Cuánto es 6 × 11?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkVF3(true)">✅ Verdadero</button>
-<button class="quiz-btn" onclick="checkVF3(false)">❌ Falso</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">66</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">61</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">17</button>
 </div>
-<div class="result" id="e3-fb" style="display:none"></div>
 </div>
-
-<!-- Quiz original (tipo 4) -->
+<div class="exercise">
+<p>3. ¿Cuánto es 4 × 12?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">44</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">48</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">42</button>
+</div>
+</div>
 <div class="exercise">
 <p>4. ¿Cuánto es 9 × 10?</p>
 <div class="quiz-options">
@@ -199,42 +139,21 @@ Multiplicar por 10, 11 y 12 tiene <b>trucos</b>. ¡Por 10 solo añades un 0!
 <button class="quiz-btn" onclick="checkExercise(this, false)">19</button>
 </div>
 </div>
-
-<!-- Ordenar (tipo 5) -->
 <div class="exercise">
-<p>5. Ordena de menor a mayor estos resultados:</p>
-<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">3×10=___ &nbsp; 2×11=___ &nbsp; 4×12=___</p>
+<p>5. ¿Cuánto es 8 × 12?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkOrden(this, false)">48, 30, 22</button>
-<button class="quiz-btn" onclick="checkOrden(this, true)">22, 30, 48</button>
-<button class="quiz-btn" onclick="checkOrden(this, false)">30, 22, 48</button>
-</div>
-<div class="result" id="e5-fb" style="display:none"></div>
-</div>
-
-<!-- Problema contextual (tipo 6) -->
-<div class="exercise">
-<p>6. 🎯 Problema: En un cine hay 12 filas con 10 asientos cada una. ¿Cuántos asientos hay en total?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">22</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">120</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">102</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">82</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">96</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">88</button>
 </div>
 </div>
 
 </div>
 </section>
-
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Por 10: añade un 0 (5 × 10 = 50)</li>
-<li>Por 11: repite el dígito (6 × 11 = 66)</li>
-<li>Por 12: multiplica por 10 y suma el doble (5 × 12 = 50 + 10 = 60)</li>
-<li>Los trucos te ayudan a multiplicar rápido</li>
-<li>Multiplicar es sumar varias veces: 3 × 4 = 4 + 4 + 4</li>
-<li>Cuidado: no confundir × con + (5 × 10 ≠ 5 + 10)</li>
-<li>¡Ya sabes multiplicar por 10, 11 y 12! 🎉</li>
+<li><li>Por 10: añade un 0</li></li><li><li>Por 11: repite el dígito</li></li><li><li>Por 12: multiplica por 10 y suma el doble</li></li><li><li>¡Los trucos te ayudan a multiplicar rápido!</li></li><li><li>¡Ya sabes multiplicar por 10, 11 y 12! 🎉</li></li>
 </ul>
 </div>
 <div class="nav">
@@ -289,57 +208,6 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
-}
-
-// Completar hueco ejercicio 2
-function checkCompleta2() {
-  const input = document.getElementById('e2');
-  const fb = document.getElementById('e2-fb');
-  if (!input || !fb) return;
-  const val = parseInt(input.value);
-  fb.style.display = 'block';
-  if (val === 66) {
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 6 × 11 = 66. Repites el dígito: 6 → 66';
-    input.style.borderColor = '#10b981';
-  } else {
-    fb.className = 'result fail';
-    fb.textContent = '❌ La respuesta es 66. Truco ×11: repite el dígito → 6 → 66';
-    input.style.borderColor = '#ef4444';
-  }
-}
-
-// V/F ejercicio 3
-function checkVF3(esVerdadero) {
-  const fb = document.getElementById('e3-fb');
-  fb.style.display = 'block';
-  if (esVerdadero) {
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 4 × 12 = 48 (4×10=40 + 4×2=8 = 48)';
-  } else {
-    fb.className = 'result fail';
-    fb.textContent = '❌ ¡Es verdadero! 4 × 12 = 48. 4×10=40 + 4×2=8 = 48';
-  }
-}
-
-// Ordenar ejercicio 5
-function checkOrden(btn, correct) {
-  const fb = document.getElementById('e5-fb');
-  fb.style.display = 'block';
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  if (correct) {
-    btn.classList.add('correct');
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 2×11=22, 3×10=30, 4×12=48 → Orden: 22 < 30 < 48';
-  } else {
-    btn.classList.add('wrong');
-    fb.className = 'result fail';
-    fb.textContent = '❌ El orden correcto es: 22, 30, 48. Calcula cada uno primero.';
-  }
 }
 
 window.onscroll = function(){

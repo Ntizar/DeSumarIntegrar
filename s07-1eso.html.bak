@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1º ESO — Curso de Matemáticas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\\\(',right:'\\\\)',display:false}]})"></script>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,var(--azul-claro),#e0f2fe);border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #0ea5e9}
+.intro-box h2{color:#0ea5e9;margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#0ea5e9}
+.session-card .num{font-size:.8rem;color:#0ea5e9;font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#0ea5e9;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#0ea5e9;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--azul-claro);transition:all .2s}
+.back-link:hover{transform:translateX(-4px)}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
+
+<div class="header">
+<h1>📐 1º ESO</h1>
+<p>Números enteros, álgebra formal, ecuaciones de primer grado y porcentajes</p>
+</div>
+
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en 1º ESO?</h2>
+<p>La ESO es un cambio importante: las matemáticas se vuelven más formales. Aquí empezamos a usar el álgebra de verdad: ecuaciones, expresiones algebraicas, y números enteros con signos.</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Entender y operar con números enteros (positivos y negativos)</li>
+<li>Proporcionalidad y porcentajes avanzados</li>
+<li>Introducción al álgebra: expresiones con letras</li>
+<li>Ecuaciones de primer grado: encontrar el valor de x</li>
+<li>Estadística y probabilidad básica</li>
+</ul>
+</div>
+
+<h2 style="margin:2rem 0 1rem;color:#0ea5e9">📚 Sesiones de 1º ESO</h2>
+
+<div class="sessions-grid">
+<a class="session-card" href="eso1-1-numeros-enteros.html">
+<div class="num">Sesión 1</div>
+<h3>🔢 Números Enteros</h3>
+<p>Por debajo de cero: los números enteros. Sumar, restar, multiplicar y dividir con signos.</p>
+</a>
+
+<a class="session-card" href="eso1-3-proporcionalidad.html">
+<div class="num">Sesión 3</div>
+<h3>⚖️ Proporcionalidad</h3>
+<p>Regla de tres directa e inversa. Razones y proporciones.</p>
+</a>
+
+<a class="session-card" href="eso1-5-intro-algebra.html">
+<div class="num">Sesión 5</div>
+<h3>🔤 Introducción al Álgebra</h3>
+<p>Expresiones algebraicas, monomios y polinomios. ¡Las letras son nuestras amigas!</p>
+</a>
+
+<a class="session-card" href="eso1-7-estadistica-probabilidad.html">
+<div class="num">Sesión 7</div>
+<h3>📊 Estadística y Probabilidad</h3>
+<p>Recoger datos, calcular probabilidades y sacar conclusiones.</p>
+</a>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Los números enteros: ℤ = {..., -3, -2, -1, 0, 1, 2, 3, ...}</li>
+<li>Regla de signos: (+)×(+) = +, (−)×(−) = +, (+)×(−) = −</li>
+<li>La proporcionalidad: si A ∝ B, cuando A se multiplica por k, B también</li>
+<li>Los porcentajes: parte de 100. 25% de 200 = 50</li>
+<li>El álgebra: usar letras para representar números desconocidos</li>
+<li>Las ecuaciones: encontrar el valor que hace cierta una igualdad</li>
+<li>Estadística y probabilidad: ciencia de los datos y la incertidumbre</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s06-6primaria.html">← 6º Primaria</a>
+<a href="s08-2-3eso.html">2º-3º ESO →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+</body>
+</html>

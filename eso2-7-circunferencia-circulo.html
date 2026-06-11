@@ -1,208 +1,355 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>⭕ ESO2.7: Circunferencia y Círculo — 2º ESO — ¡Pi y sus secretos!</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⭕ ESO2.7: Circunferencia y Círculo — 2º ESO — ¡Pi y sus secretos!</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
-    15|.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-    16|.container{max-width:850px;margin:0 auto;padding:1.5rem}
-    17|.chapter{margin-bottom:2.5rem}
-    18|.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
-    19|.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-    20|.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
-    21|.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
-    22|.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-    23|.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
-    24|.box strong{display:block;margin-bottom:.3rem}
-    25|.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-    26|.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-    27|.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-    28|.interactive button:hover{background:#1d4ed8}
-    29|.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-    30|.result.ok{background:var(--verde-claro);color:#065f46}
-    31|.result.fail{background:var(--rojo-claro);color:#991b1b}
-    32|.exercises{margin:1.5rem 0}
-    33|.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-    34|.exercise p{font-weight:600;margin-bottom:.5rem}
-    35|.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-    36|.solution.show{display:block}
-    37|.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
-    38|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    39|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    40|.nav a:hover{background:var(--azul-claro)}
-    41|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    42|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    43|.summary h3{color:var(--azul);margin-bottom:.8rem}
-    44|.summary ul{list-style:none;padding:0}
-    45|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    46|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    47|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    48|.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-    49|.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-    50|.quiz-btn:hover{background:var(--azul-claro)}
-    51|.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-    52|.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-    53|</style>
-    54|</head>
-    55|<body>
-    56|  <div style="padding: 0.75rem 1.5rem;">
-    57|    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
-    58|  </div>
-    59|<header class="header">
-    60|<h1>⭕ ESO2.7: Circunferencia y Círculo</h1>
-    61|<p>2º ESO — ¡Pi y sus secretos!</p>
-    62|<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-    63|</header>
-    64|<main class="container">
-    65|<section class="chapter">
-    66|<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-    67|<div class="box box-idea">
-    68|<strong>💡 Idea clave</strong>
-    69|La circunferencia se mide con C = 2πr. El área del círculo es A = πr².
-    70|</div>
-    71|<p>En esta sesión aprenderás a:</p>
-    72|<ul style="margin:.8rem 0 1rem 1.5rem">
-    73|<li>Calcular circunferencia</li><li>Calcular área del círculo</li><li>Usar π $\approx$ 3.14</li>
-    74|</ul>
-    75|</section>
-    76|<section class="chapter">
-    77|<h2 class="chapter-title">1️⃣ Circunferencia y círculo</h2>
-    78|<div class="box box-teoria">
-    79|<strong>📖 Teoría</strong>
-    80|Circunferencia (perímetro) = 2πr. Área = πr². π $\approx$ 3.14159...
-    81|</div>
-    82|<div class="box box-ejemplo">
-    83|<strong>🔍 Ejemplo 1</strong>
-    84|r = 5: C = 2 × 3.14 × 5 = 31.4
-    85|</div>
-    86|<div class="box box-ejemplo">
-    87|<strong>🔍 Ejemplo 2</strong>
-    88|r = 3: A = 3.14 × 9 = 28.26
-    89|</div>
-    90|<div class="box box-ejemplo">
-    91|<strong>🔍 Ejemplo 3</strong>
-    92|d = 10 (r = 5): C = 31.4, A = 78.5
-    93|</div>
-    94|</section>
-    95|<section class="chapter">
-    96|<h2 class="chapter-title">2️⃣ ¡Calcula circunferencia y área!</h2>
-    97|<div class="interactive">
-    98|<h3>Selecciona la respuesta correcta:</h3>
-    99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.3rem;font-weight:700;margin-bottom:1rem" id="eso2circDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso2circButtons"></div></div>
-   100|<div class="result" id="interactiveResult"></div>
-   101|</div>
-   102|</section>
-   103|<section class="chapter">
-   104|<h2 class="chapter-title">📝 Ejercicios</h2>
-   105|<div class="exercises">
-   106|<div class="exercise">
-   107|<p>r = 2, C = ?</p>
-   108|<div class="quiz-options">
-   109|<button class="quiz-btn" onclick="checkExercise(this, true)">12.56</button>
-   110|<button class="quiz-btn" onclick="checkExercise(this, false)">6.28</button>
-   111|<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-   112|</div>
-   113|</div>
-   114|<div class="exercise">
-   115|<p>r = 4, A = ?</p>
-   116|<div class="quiz-options">
-   117|<button class="quiz-btn" onclick="checkExercise(this, true)">50.24</button>
-   118|<button class="quiz-btn" onclick="checkExercise(this, false)">25.12</button>
-   119|<button class="quiz-btn" onclick="checkExercise(this, false)">12.56</button>
-   120|</div>
-   121|</div>
-   122|<div class="exercise">
-   123|<p>r = 1, C = ?</p>
-   124|<div class="quiz-options">
-   125|<button class="quiz-btn" onclick="checkExercise(this, true)">6.28</button>
-   126|<button class="quiz-btn" onclick="checkExercise(this, false)">3.14</button>
-   127|<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
-   128|</div>
-   129|</div>
-   130|<div class="exercise">
-   131|<p>r = 10, A = ?</p>
-   132|<div class="quiz-options">
-   133|<button class="quiz-btn" onclick="checkExercise(this, true)">314</button>
-   134|<button class="quiz-btn" onclick="checkExercise(this, false)">62.8</button>
-   135|<button class="quiz-btn" onclick="checkExercise(this, false)">31.4</button>
-   136|</div>
-   137|</div>
-   138|<div class="exercise">
-   139|<p>d = 6 (r=3), C = ?</p>
-   140|<div class="quiz-options">
-   141|<button class="quiz-btn" onclick="checkExercise(this, true)">18.84</button>
-   142|<button class="quiz-btn" onclick="checkExercise(this, false)">28.26</button>
-   143|<button class="quiz-btn" onclick="checkExercise(this, false)">12.56</button>
-   144|</div>
-   145|</div>
-   146|
-   147|</div>
-   148|</section>
-   149|<div class="summary">
-   150|<h3>📋 Resumen de lo aprendido</h3>
-   151|<ul>
-   152|<li><li>C = 2πr</li></li><li><li>A = πr²</li></li><li><li>π $\approx$ 3.14</li></li><li><li>¡Ya sabes circunferencia! 🎉</li>
-   153|</ul>
-   154|</div>
-   155|<div class="nav">
-   156|<a href="eso2-5-funciones-intro.html">← Anterior</a>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\\\(',right:'\\\\)',display:false}]})"></script>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-visual{display:flex;justify-content:center;margin:1.5rem 0}
+.svg-visual svg{max-width:100%;height:auto}
+.vida-real{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:12px;padding:1.2rem;margin:1.5rem 0;border:2px solid var(--verde)}
+.vida-real h4{color:#065f46;margin-bottom:.5rem}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>⭕ ESO2.7: Circunferencia y Círculo</h1>
+<p>2º ESO — ¡Pi y sus secretos!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+La circunferencia se mide con C = 2πr. El área del círculo es A = πr².
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Calcular circunferencia</li><li>Calcular área del círculo</li><li>Usar π ≈ 3.14</li>
+</ul>
+</section>
+
+<!-- NUEVO: Explicación estructurada en 4 pasos -->
+<section class="chapter">
+<h2 class="chapter-title">📚 ¿Cómo se relacionan circunferencia y área?</h2>
+<div class="box box-teoria">
+<strong>📖 Explicación en 4 pasos</strong>
+<p><b>Paso 1 — Partes del círculo:</b> El radio (r) va del centro al borde. El diámetro (d = 2r) cruza todo el círculo.</p>
+<p><b>Paso 2 — Circunferencia (el borde):</b> Es el perímetro del círculo. Fórmula: C = 2πr. Imagina que "desenrollas" el borde: medirías 2π veces el radio.</p>
+<p><b>Paso 3 — Área (el interior):</b> Es la superficie dentro del círculo. Fórmula: A = πr². Piensa en cuántos cuadrados de lado r caben dentro.</p>
+<p><b>Paso 4 — π (pi):</b> Es un número mágico ≈ 3.14159... Aparece siempre que hay círculos. ¡No es un número exacto, tiene infinitas decimales!</p>
+</div>
+</section>
+
+<!-- NUEVO: Visual SVG — Diagrama del círculo con partes etiquetadas -->
+<section class="chapter">
+<h2 class="chapter-title">👁️ Visualiza: Partes del círculo</h2>
+<div class="svg-visual">
+<svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+<!-- Círculo -->
+<circle cx="200" cy="160" r="100" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<!-- Centro -->
+<circle cx="200" cy="160" r="4" fill="#2563eb"/>
+<text x="210" y="155" font-size="13" fill="#2563eb" font-weight="bold">Centro O</text>
+<!-- Radio horizontal -->
+<line x1="200" y1="160" x2="300" y2="160" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="240" y="150" font-size="13" fill="#f97316" font-weight="bold">radio (r)</text>
+<!-- Diámetro horizontal -->
+<line x1="100" y1="160" x2="300" y2="160" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+<text x="110" y="180" font-size="12" fill="#a855f7">diámetro (d = 2r)</text>
+<!-- Radio vertical -->
+<line x1="200" y1="160" x2="200" y2="60" stroke="#10b981" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="175" y="110" font-size="12" fill="#10b981">r</text>
+<!-- Arco marcado -->
+<path d="M 200 60 A 100 100 0 0 1 300 160" fill="none" stroke="#ef4444" stroke-width="3"/>
+<text x="280" y="100" font-size="12" fill="#ef4444" font-weight="bold">arco</text>
+<!-- Fórmulas -->
+<rect x="30" y="250" width="170" height="50" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="45" y="272" font-size="14" fill="#f97316" font-weight="bold">C = 2πr</text>
+<text x="45" y="292" font-size="11" fill="#64748b">Circunferencia (borde)</text>
+<rect x="210" y="250" width="170" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+<text x="225" y="272" font-size="14" fill="#10b981" font-weight="bold">A = πr²</text>
+<text x="225" y="292" font-size="11" fill="#64748b">Área (interior)</text>
+</svg>
+</div>
+<p style="text-align:center;color:#64748b;font-size:.9rem">El círculo tiene partes que debes conocer: centro, radio, diámetro y arco.</p>
+</section>
+
+<!-- NUEVO: Caso real cotidiano -->
+<section class="chapter">
+<h2 class="chapter-title">🚲 Caso real: La rueda de tu bici</h2>
+<div class="vida-real">
+<h4>📏 ¿Cuánto mide una vuelta de la rueda?</h4>
+<p>La rueda de la bici de David tiene un radio de <b>35 cm</b>. Para saber cuánto avanza en cada vuelta, calculamos la circunferencia:</p>
+<p><b>C = 2 × π × 35 ≈ 2 × 3.14 × 35 = 219.8 cm</b></p>
+<p>¡Cada vuelta de la rueda avanza casi <b>2.2 metros</b>! Si das 100 vueltas, has recorrido 220 m.</p>
+<p><b>¿Y el área del neumático?</b> No se usa mucho, pero si fuera un círculo sólido: A = π × 35² ≈ 3.14 × 1225 ≈ <b>3846.5 cm²</b>.</p>
+</div>
+</section>
+
+<!-- NUEVO: Error común -->
+<section class="chapter">
+<h2 class="chapter-title">⚠️ Error común</h2>
+<div class="box box-error">
+<strong>🚫 Confundir diámetro con radio</strong>
+<p>Muchos alumnos usan el diámetro en lugar del radio en las fórmulas. ¡Recuerda! <b>r = d ÷ 2</b>. Si te dan d = 10, primero divide: r = 5. Luego aplica C = 2π(5) = 31.4.</p>
+</div>
+</section>
+
+<!-- NUEVO: Conexión con geometría -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexión: Círculo ↔ Cuadrado</h2>
+<div class="box box-success">
+<strong>💡 Conexión clave</strong>
+<p>Si tienes un cuadrado de lado r, su área es r². El círculo de radio r tiene área πr², que es <b>π veces más grande</b> que el cuadrado. ¡Por eso aparece π en la fórmula del área!</p>
+<p>Esto conecta con el tema de áreas de figuras que ya estudiaste en primaria.</p>
+</div>
+</section>
+
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Calcula circunferencia y área!</h2>
+<div class="interactive">
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.3rem;font-weight:700;margin-bottom:1rem" id="eso2circDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso2circButtons"></div></div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+
+<!-- NUEVO: Ejercicios variados -->
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<!-- Quiz original (tipo 1) -->
+<div class="exercise">
+<p>1. r = 2, C = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12.56</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6.28</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+</div>
+</div>
+
+<!-- Completar hueco (tipo 2) -->
+<div class="exercise">
+<p>2. Completa: Si r = 5, entonces A = π × ___² = 3.14 × 25 = ___</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap">
+<input type="number" id="e2a" placeholder="r²" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>=</span>
+<input type="number" id="e2b" placeholder="A" step="0.01" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<button onclick="checkCompleta2()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="result" id="e2-fb" style="display:none"></div>
+</div>
+
+<!-- V/F (tipo 3) -->
+<div class="exercise">
+<p>3. ¿Verdadero o falso? Si duplicas el radio, la circunferencia se duplica.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF3(true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF3(false)">❌ Falso</button>
+</div>
+<div class="result" id="e3-fb" style="display:none"></div>
+</div>
+
+<!-- Quiz original (tipo 4) -->
+<div class="exercise">
+<p>4. r = 4, A = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">50.24</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">25.12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12.56</button>
+</div>
+</div>
+
+<!-- Emparejar (tipo 5) -->
+<div class="exercise">
+<p>5. 🧩 Empareja cada fórmula con lo que calcula:</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">C = 2πr &nbsp;&nbsp;|&nbsp;&nbsp; A = πr²</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkEmparejar(this, true)">C=borde, A=interior</button>
+<button class="quiz-btn" onclick="checkEmparejar(this, false)">C=interior, A=borde</button>
+<button class="quiz-btn" onclick="checkEmparejar(this, false)">Ambas son lo mismo</button>
+</div>
+<div class="result" id="e5-fb" style="display:none"></div>
+</div>
+
+<!-- Problema contextual (tipo 6) -->
+<div class="exercise">
+<p>6. 🎯 Problema: Un plato redondo tiene diámetro 20 cm. ¿Cuál es su circunferencia? (Usa π ≈ 3.14)</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">62.8 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">125.6 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">314 cm</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>C = 2πr → Circunferencia (el borde del círculo)</li>
+<li>A = πr² → Área (la superficie interior)</li>
+<li>π ≈ 3.14159... — un número con infinitas decimales</li>
+<li>Radio (r) es la mitad del diámetro (d = 2r)</li>
+<li>Si duplicas el radio, la circunferencia se duplica</li>
+<li>El área del círculo es π veces el área de un cuadrado de lado r</li>
+<li>¡Ya sabes circunferencia y área! 🎉</li>
+</ul>
+</div>
+<div class="nav">
+<a href="eso2-5-funciones-intro.html">← Anterior</a>
   <a href="s08-2-3eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-   157|<a href="eso2-9-probabilidad.html">Siguiente: Probabilidad →</a>
-   158|</div>
-   159|</main>
-   160|<footer class="footer">
-   161|Hecho con ❤️ por David Antizar
-   162|</footer>
-   163|<script>
-   164|function newQuiz() {
-   165|  const data = [{"q": "r = 2, C = ?", "opts": ["12.56", "6.28", "4"], "correct": 0}, {"q": "r = 4, A = ?", "opts": ["50.24", "25.12", "12.56"], "correct": 0}, {"q": "r = 1, C = ?", "opts": ["6.28", "3.14", "1"], "correct": 0}, {"q": "r = 10, A = ?", "opts": ["314", "62.8", "31.4"], "correct": 0}, {"q": "d = 6 (r=3), C = ?", "opts": ["18.84", "28.26", "12.56"], "correct": 0}];
-   166|  const item = data[Math.floor(Math.random()*data.length)];
-   167|  document.getElementById('eso2circDisplay').textContent = item.q;
-   168|  const opts = item.opts;
-   169|  const buttons = document.getElementById('eso2circButtons');
-   170|  buttons.innerHTML = '';
-   171|  opts.forEach((opt, i) => {
-   172|    const btn = document.createElement('button');
-   173|    btn.className = 'quiz-btn';
-   174|    btn.textContent = opt;
-   175|    btn.onclick = function() {
-   176|      if(i === item.correct) {
-   177|        this.classList.add('correct');
-   178|        document.getElementById('interactiveResult').className = 'result ok';
-   179|        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-   180|      } else {
-   181|        this.classList.add('wrong');
-   182|        document.getElementById('interactiveResult').className = 'result fail';
-   183|        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-   184|      }
-   185|    };
-   186|    buttons.appendChild(btn);
-   187|  });
-   188|  document.getElementById('interactiveResult').textContent = '';
-   189|}
-   190|newQuiz();
-   191|function checkExercise(btn, correct) {
-   192|  const parent = btn.parentElement;
-   193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-   195|}
-   196|
-   197|window.onscroll = function(){
-   198|  var h = document.documentElement;
-   199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-   200|  document.getElementById('progress').style.width = p+'%';
-   201|};
-   202|</script>
-   203|</body>
-   204|</html>
+<a href="eso2-9-probabilidad.html">Siguiente: Probabilidad →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+function newQuiz() {
+  const data = [{"q": "r = 2, C = ?", "opts": ["12.56", "6.28", "4"], "correct": 0}, {"q": "r = 4, A = ?", "opts": ["50.24", "25.12", "12.56"], "correct": 0}, {"q": "r = 1, C = ?", "opts": ["6.28", "3.14", "1"], "correct": 0}, {"q": "r = 10, A = ?", "opts": ["314", "62.8", "31.4"], "correct": 0}, {"q": "d = 6 (r=3), C = ?", "opts": ["18.84", "28.26", "12.56"], "correct": 0}];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('eso2circDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('eso2circButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(i === item.correct) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto!';
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+newQuiz();
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+// Completar hueco ejercicio 2
+function checkCompleta2() {
+  const a = document.getElementById('e2a');
+  const b = document.getElementById('e2b');
+  const fb = document.getElementById('e2-fb');
+  if (!a || !b || !fb) return;
+  const ra = parseInt(a.value);
+  const rb = parseFloat(b.value);
+  fb.style.display = 'block';
+  if (ra === 25 && Math.abs(rb - 78.5) < 0.1) {
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! r² = 25, A = 3.14 × 25 = 78.5';
+  } else {
+    fb.className = 'result fail';
+    fb.textContent = '❌ r² = 5² = 25, A = 3.14 × 25 = 78.5';
+  }
+}
+
+// V/F ejercicio 3
+function checkVF3(esVerdadero) {
+  const fb = document.getElementById('e3-fb');
+  fb.style.display = 'block';
+  if (esVerdadero) {
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! C = 2πr, si r se duplica, C también se duplica.';
+  } else {
+    fb.className = 'result fail';
+    fb.textContent = '❌ ¡Es verdadero! C = 2πr es proporcional a r.';
+  }
+}
+
+// Emparejar ejercicio 5
+function checkEmparejar(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  fb.style.display = 'block';
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if (correct) {
+    btn.classList.add('correct');
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! C = 2πr mide el borde, A = πr² mide el interior.';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'result fail';
+    fb.textContent = '❌ C = 2πr es la circunferencia (borde), A = πr² es el área (interior).';
+  }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

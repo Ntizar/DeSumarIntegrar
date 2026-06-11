@@ -6,7 +6,7 @@
 <title>1º ESO — Curso de Matemáticas</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\\\(',right:'\\\\)',display:false}]})"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false}]})"></script>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -35,6 +35,50 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:#0ea5e9;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--azul-claro);transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-container{text-align:center;margin:1rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.step-indicator{display:flex;gap:.5rem;justify-content:center;margin:1rem 0}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#94a3b8;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+.step-dot.active{background:var(--azul);box-shadow:0 0 8px rgba(37,99,235,.4)}
+.step-dot:hover{transform:scale(1.1)}
+.connection-box{background:linear-gradient(135deg,#faf5ff,#ede9fe);border:1px solid #c4b5fd;border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+input[type="number"],input[type="text"]{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+input[type="number"]:focus,input[type="text"]:focus{outline:none;border-color:var(--azul)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
 @media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
 </style>
 </head>
@@ -43,23 +87,252 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <a class="back-link" href="INDEX.html">← Volver al índice general</a>
 
 <div class="header">
-<h1>📐 1º ESO</h1>
-<p>Números enteros, álgebra formal, ecuaciones de primer grado y porcentajes</p>
+<h1>📐 1º ESO — Matemáticas</h1>
+<p>Números enteros, álgebra formal, ecuaciones y porcentajes</p>
 </div>
 
-<div class="intro-box">
-<h2>¿Qué vamos a aprender en 1º ESO?</h2>
-<p>La ESO es un cambio importante: las matemáticas se vuelven más formales. Aquí empezamos a usar el álgebra de verdad: ecuaciones, expresiones algebraicas, y números enteros con signos.</p>
-<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
-<ul style="padding-left:1.5rem;margin-top:.5rem">
-<li>Entender y operar con números enteros (positivos y negativos)</li>
-<li>Proporcionalidad y porcentajes avanzados</li>
-<li>Introducción al álgebra: expresiones con letras</li>
-<li>Ecuaciones de primer grado: encontrar el valor de x</li>
-<li>Estadística y probabilidad básica</li>
+<!-- SECCIÓN 1: NÚMEROS ENTEROS — Explicación 4 pasos -->
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Números Enteros: Ir más allá del cero</h2>
+
+<div class="box box-teoria">
+<strong>📌 ¿Qué son los números enteros?</strong>
+<p>Los números enteros (ℤ) incluyen los positivos, el cero y los negativos: ℤ = {..., -3, -2, -1, 0, 1, 2, 3, ...}. Son la extensión natural de los números que ya conoces.</p>
+</div>
+
+<div class="interactive">
+<h3>🎬 Mira, fíjate, ahora ves — Recta numérica interactiva</h3>
+<div class="step-indicator">
+<div class="step-dot active" id="sd1" onclick="showStep(1)">1</div>
+<div class="dot" id="sd2" onclick="showStep(2)">2</div>
+<div class="step-dot" id="sd3" onclick="showStep(3)">3</div>
+<div class="step-dot" id="sd4" onclick="showStep(4)">4</div>
+</div>
+
+<div id="step-content">
+<div class="box box-teoria" id="step1">
+<strong>📍 Paso 1 — Mira:</strong>
+<p>La recta numérica tiene el cero en el centro. A la derecha están los positivos (+1, +2, +3...), a la izquierda los negativos (-1, -2, -3...).</p>
+<div class="svg-container">
+<svg viewBox="0 0 500 80" width="500" height="80">
+<line x1="20" y1="40" x2="480" y2="40" stroke="#334155" stroke-width="2"/>
+<polygon points="475,35 485,40 475,45" fill="#334155"/>
+<text x="250" y="70" text-anchor="middle" fill="#64748b" font-size="12">Recta numérica de números enteros</text>
+<!-- Marcas -->
+<line x1="50" y1="35" x2="50" y2="45" stroke="#334155" stroke-width="2"/>
+<text x="50" y="30" text-anchor="middle" font-size="11" fill="#334155">-4</text>
+<line x1="120" y1="35" x2="120" y2="45" stroke="#334155" stroke-width="2"/>
+<text x="120" y="30" text-anchor="middle" font-size="11" fill="#334155">-3</text>
+<line x1="190" y1="35" x2="190" y2="45" stroke="#334155" stroke-width="2"/>
+<text x="190" y="30" text-anchor="middle" font-size="11" fill="#334155">-2</text>
+<line x1="260" y1="35" x2="260" y2="45" stroke="#334155" stroke-width="2"/>
+<text x="260" y="30" text-anchor="middle" font-size="11" fill="#334155">-1</text>
+<circle cx="330" cy="40" r="8" fill="#2563eb"/>
+<text x="330" y="30" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">0</text>
+<line x1="400" y1="35" x2="400" y2="45" stroke="#334155" stroke-width="2"/>
+<text x="400" y="30" text-anchor="middle" font-size="11" fill="#334155">+1</text>
+<!-- Flecha de dirección -->
+<text x="450" y="30" text-anchor="middle" font-size="10" fill="#10b981">positivos →</text>
+<text x="80" y="30" text-anchor="middle" font-size="10" fill="#ef4444">← negativos</text>
+</svg>
+</div>
+</div>
+
+<div class="box box-teoria" id="step2" style="display:none">
+<strong>📍 Paso 2 — Fíjate:</strong>
+<p>Cuanto más a la derecha, mayor es el número. -1 es MAYOR que -5 (porque está más a la derecha en la recta). ¡Los negativos más "cercanos" al cero son mayores!</p>
+<div class="svg-container">
+<svg viewBox="0 0 500 100" width="500" height="100">
+<line x1="20" y1="50" x2="480" y2="50" stroke="#334155" stroke-width="2"/>
+<polygon points="475,45 485,50 475,55" fill="#334155"/>
+<!-- -5 y -1 comparados -->
+<circle cx="100" cy="50" r="12" fill="#ef4444" opacity="0.8"/>
+<text x="100" y="54" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">-5</text>
+<circle cx="280" cy="50" r="12" fill="#10b981" opacity="0.8"/>
+<text x="280" y="54" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">-1</text>
+<!-- Flecha comparativa -->
+<line x1="115" y1="40" x2="265" y2="40" stroke="#f97316" stroke-width="2" marker-end="url(#arrow)"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/></marker></defs>
+<text x="190" y="35" text-anchor="middle" fill="#f97316" font-size="11" font-weight="bold">-1 &gt; -5</text>
+<text x="280" y="80" text-anchor="middle" fill="#64748b" font-size="10">-1 está más a la derecha → es mayor</text>
+</svg>
+</div>
+</div>
+
+<div class="box box-teoria" id="step3" style="display:none">
+<strong>📍 Paso 3 — Ahora ves:</strong>
+<p>Para sumar enteros con el mismo signo, sumas valores absolutos y mantienes el signo. Para signos distintos, restas valores absolutos y pones el signo del mayor.</p>
+<div class="svg-container">
+<svg viewBox="0 0 500 120" width="500" height="120">
+<text x="250" y="15" text-anchor="middle" font-size="13" fill="#334155" font-weight="bold">Ejemplo: (-3) + (-2) = -5</text>
+<!-- Paso 1 -->
+<line x1="30" y1="35" x2="220" y2="35" stroke="#334155" stroke-width="2"/>
+<circle cx="60" cy="35" r="10" fill="#ef4444"/><text x="60" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">-3</text>
+<line x1="80" y1="35" x2="110" y2="35" stroke="#334155" stroke-width="2"/>
+<circle cx="130" cy="35" r="10" fill="#ef4444"/><text x="130" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">-2</text>
+<text x="180" y="39" text-anchor="middle" font-size="14">=</text>
+<circle cx="200" cy="35" r="10" fill="#ef4444"/><text x="200" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">-5</text>
+<!-- Paso 2 -->
+<text x="250" y="55" text-anchor="middle" font-size="10" fill="#64748b">Mismo signo → sumas valores (3+2=5) → pones el signo (-)</text>
+<!-- Ejemplo 2 -->
+<line x1="30" y1="80" x2="220" y2="80" stroke="#334155" stroke-width="2"/>
+<circle cx="60" cy="80" r="10" fill="#10b981"/><text x="60" y="84" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">+7</text>
+<line x1="80" y1="80" x2="110" y2="80" stroke="#334155" stroke-width="2"/>
+<circle cx="130" cy="80" r="10" fill="#ef4444"/><text x="130" y="84" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">-3</text>
+<text x="180" y="84" text-anchor="middle" font-size="14">=</text>
+<circle cx="200" cy="80" r="10" fill="#10b981"/><text x="200" y="84" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">+4</text>
+<text x="250" y="100" text-anchor="middle" font-size="10" fill="#64748b">Signos distintos → restas (7-3=4) → signo del mayor (+)</text>
+</svg>
+</div>
+</div>
+
+<div class="box box-teoria" id="step4" style="display:none">
+<strong>📍 Paso 4 — ¡Tú prueba!</strong>
+<p>En la recta, ¿qué número está justo a la izquierda de -2?</p>
+<div style="text-align:center;margin-top:.8rem">
+<button class="quiz-btn" onclick="checkVF(this, false)">-1</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">-3</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">0</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">+1</button>
+</div>
+<div class="result" id="step4-result"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CASO REAL 1 -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Casos Reales</h2>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">CASO REAL</span> El ascensor del edificio</strong>
+<p>Imagina un edificio con sótanos y plantas. El vestíbulo es el 0. Los sótanos son negativos: S1 = -1, S2 = -2. Si estás en el sótano 2 (-2) y subes 5 plantas, ¿dónde quedas?</p>
+<p><strong>Solución:</strong> -2 + 5 = +3 → Planta 3. ¡Los enteros te dicen exactamente dónde estás!</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">CASO REAL</span> La temperatura exterior</strong>
+<p>A las 6 AM hace -3°C. A mediodía sube 8°C. ¿Cuánto hace a mediodía?</p>
+<p><strong>Solución:</strong> -3 + 8 = +5°C. ¡Ya no hace frío! Las temperaturas negativas son números enteros reales.</p>
+</div>
+</div>
+
+<!-- ERRORES COMUNES -->
+<div class="chapter">
+<h2 class="chapter-title">⚠️ Error Común Frecuente</h2>
+<div class="box box-error">
+<strong>🚫 Confundir "mayor" con "más grande en valor absoluto"</strong>
+<p>¡-1 es MAYOR que -100! Aunque 100 sea un número "más grande", en la recta numérica -1 está mucho más a la derecha que -100. Recuerda: en enteros, "mayor" = "más a la derecha".</p>
+</div>
+</div>
+
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>🔗 Conecta con:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>S02.1 (Sumas con llevadas):</strong> Las reglas de signos son como llevar pero con dirección</li>
+<li><strong>S02.2 (Restas con llevadas):</strong> Restar un negativo es como sumar (−3) − (−5) = −3 + 5 = +2</li>
+<li><strong>ESO1.3 (Proporcionalidad):</strong> Los enteros permiten representar variaciones que suben y bajan</li>
+<li><strong>ESO1.5 (Álgebra):</strong> Las variables pueden tomar valores enteros negativos</li>
+<li><strong>ESO2.1 (Ecuaciones):</strong> Muchas ecuaciones tienen soluciones negativas</li>
+</ul>
+</div>
+</div>
+
+<!-- SECCIÓN 2: EJERCICIOS VARIADOS -->
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios Interactivos</h2>
+
+<div class="exercises">
+
+<!-- Ejercicio 1: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 1 (Completa el hueco) <span class="difficulty-badge easy">Fácil</span></strong></p>
+<p>Completa: (-7) + (-4) = ___</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkFillIn('e1', '-11')">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+
+<!-- Ejercicio 2: V/F -->
+<div class="exercise">
+<p><strong>Ejercicio 2 (Verdadero o Falso) <span class="difficulty-badge easy">Fácil</span></strong></p>
+<p>El número -5 es mayor que -2.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+</div>
+
+<!-- Ejercicio 3: Ordenar -->
+<div class="exercise">
+<p><strong>Ejercicio 3 (Ordenar de menor a mayor) <span class="difficulty-badge medium">Medio</span></strong></p>
+<p>Ordena estos números: 3, -5, 0, -1, 7</p>
+<p style="font-size:.85rem;color:#64748b">Escribe la respuesta separada por comas, ej: -5,-1,0,3,7</p>
+<div class="exercise-input">
+<input type="text" id="e3" placeholder="-5,-1,0,3,7">
+<button onclick="checkOrdenE3()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Quiz botones -->
+<div class="exercise">
+<p><strong>Ejercicio 4 (Quiz) <span class="difficulty-badge medium">Medio</span></strong></p>
+<p>Si tienes -3€ de deuda y te regalan 10€, ¿cuánto dinero tienes ahora?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizE4(this, false)">-7€</button>
+<button class="quiz-btn" onclick="checkQuizE4(this, true)">+7€</button>
+<button class="quiz-btn" onclick="checkQuizE4(this, false)">+13€</button>
+<button class="quiz-btn" onclick="checkQuizE4(this, false)">-13€</button>
+</div>
+</div>
+
+<!-- Ejercicio 5: Decidir operación -->
+<div class="exercise">
+<p><strong>Ejercicio 5 (Decidir la operación) <span class="difficulty-badge hard">Difícil</span></strong></p>
+<p>Un submarino está a -120m bajo el nivel del mar. Sube 45m. ¿Qué operación usas y dónde queda?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizE5(this, false)">Resta: -120 - 45 = -165m</button>
+<button class="quiz-btn" onclick="checkQuizE5(this, true)">Suma: -120 + 45 = -75m</button>
+<button class="quiz-btn" onclick="checkQuizE5(this, false)">Multiplicación: -120 × 45 = -5400m</button>
+</div>
+</div>
+
+<!-- Ejercicio 6: Completar hueco inverso -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (Completa el hueco) <span class="difficulty-badge hard">Difícil</span></strong></p>
+<p>Si ___ + (-8) = 3, ¿qué número falta?</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="?">
+<button onclick="checkFillIn('e6', '11')">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+</div>
+</div>
+
+<!-- RESUMEN -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Los números enteros (ℤ) incluyen positivos, cero y negativos: {..., -2, -1, 0, 1, 2, ...}</li>
+<li>En la recta numérica, más a la derecha = mayor número: -1 &gt; -5</li>
+<li>Mismo signo → sumas valores absolutos, mantienes el signo</li>
+<li>Signos distintos → restas valores absolutos, pones el signo del mayor</li>
+<li>Restar un negativo es sumar: a − (−b) = a + b</li>
+<li>Los enteros aparecen en la vida real: temperaturas, altitudes, deudas, ascensores</li>
+<li>Conexión con álgebra: las variables pueden valer números enteros negativos</li>
 </ul>
 </div>
 
+<!-- SECCIÓN 3: GRID DE SESIONES (original) -->
 <h2 style="margin:2rem 0 1rem;color:#0ea5e9">📚 Sesiones de 1º ESO</h2>
 
 <div class="sessions-grid">
@@ -88,19 +361,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </a>
 </div>
 
-<div class="summary">
-<h3>📋 Resumen de lo que vas a aprender</h3>
-<ul>
-<li>Los números enteros: ℤ = {..., -3, -2, -1, 0, 1, 2, 3, ...}</li>
-<li>Regla de signos: (+)×(+) = +, (−)×(−) = +, (+)×(−) = −</li>
-<li>La proporcionalidad: si A ∝ B, cuando A se multiplica por k, B también</li>
-<li>Los porcentajes: parte de 100. 25% de 200 = 50</li>
-<li>El álgebra: usar letras para representar números desconocidos</li>
-<li>Las ecuaciones: encontrar el valor que hace cierta una igualdad</li>
-<li>Estadística y probabilidad: ciencia de los datos y la incertidumbre</li>
-</ul>
-</div>
-
 <div class="nav">
 <a href="s06-6primaria.html">← 6º Primaria</a>
 <a href="s08-2-3eso.html">2º-3º ESO →</a>
@@ -108,5 +368,83 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 </div>
 
 <div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+function showStep(n) {
+  for(var i = 1; i <= 4; i++) {
+    var step = document.getElementById('step' + i);
+    var dot = document.getElementById('sd' + i);
+    if(step) step.style.display = (i === n) ? 'block' : 'none';
+    if(dot) {
+      if(i === n) {
+        dot.classList.add('active');
+        dot.style.background = 'var(--azul)';
+      } else {
+        dot.classList.remove('active');
+        dot.style.background = '#94a3b8';
+      }
+    }
+  }
+}
+
+function checkVF(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+function checkFillIn(inputId, correctAnswer) {
+  var input = document.getElementById(inputId);
+  var fbId = inputId + '-fb';
+  var fb = document.getElementById(fbId);
+  if (!input || !fb) return;
+  var val = input.value.trim();
+  if (val === correctAnswer) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. La respuesta es ' + correctAnswer;
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrdenE3() {
+  var input = document.getElementById('e3');
+  var fb = document.getElementById('e3-fb');
+  if (!input || !fb) return;
+  var val = input.value.replace(/\s/g, '').toLowerCase();
+  if (val === '-5,-1,0,3,7') {
+    fb.textContent = '¡Correcto! De menor a mayor: -5, -1, 0, 3, 7 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. El orden correcto es: -5, -1, 0, 3, 7';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkQuizE4(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+function checkQuizE5(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+</script>
 </body>
 </html>

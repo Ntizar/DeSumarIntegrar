@@ -51,6 +51,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .chart-controls button:hover{background:#1d4ed8}
 .chart-controls button.active{background:var(--naranja)}
 .exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercises{margin:1.5rem 0}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .exercise p{font-weight:600;margin-bottom:.5rem}
 .exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
 .exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
@@ -63,6 +65,15 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-visual{display:flex;justify-content:center;margin:1.5rem 0}
+.svg-visual svg{max-width:100%;height:auto}
+.vida-real{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:12px;padding:1.2rem;margin:1.5rem 0;border:2px solid var(--verde)}
+.vida-real h4{color:#065f46;margin-bottom:.5rem}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -95,12 +106,94 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- NUEVO: Explicación estructurada en 4 pasos -->
+<div class="chapter">
+<h2 class="chapter-title">📚 ¿Por qué integramos para calcular volúmenes?</h2>
+<div class="box box-teoria">
+<strong>📖 Explicación en 4 pasos</strong>
+<p><b>Paso 1 — La idea:</b> Si giramos una curva alrededor de un eje, se forma un sólido 3D. Para hallar su volumen, "cortamos" el sólido en rebanadas finas.</p>
+<p><b>Paso 2 — Método de discos:</b> Cada rebanada es un disco. Volumen de un disco = πr² × dx. Sumamos todos: $V = \pi \int_a^b [f(x)]^2\,dx$.</p>
+<p><b>Paso 3 — Método de arcos (shell):</b> En vez de discos, usamos cilindros huecos. Volumen = $V = 2\pi \int_a^b x \cdot f(x)\,dx$.</p>
+<p><b>Paso 4 — Elegir método:</b> Si giras alrededor del eje x y tienes f(x) en términos de x → discos. Si es más fácil en términos de y → arcos.</p>
+</div>
+</div>
+
+<!-- NUEVO: Caso real — Diseño de botella -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Dónde encuentro volúmenes de revolución?</h2>
 <div class="box box-ejemplo">
 <strong>💡 Caso real: Diseñar una botella</strong>
 <p>Las botellas de vidrio se fabrican girando un perfil alrededor de un eje. El volumen de la botella se calcula con integrales de revolución.</p>
 <p>Si el perfil de la botella sigue $y = f(x)$, el volumen es $V = \pi \int_a^b [f(x)]^2\,dx$.</p>
+</div>
+</div>
+
+<!-- NUEVO: Caso real 2 — Trabajo mecánico -->
+<div class="chapter">
+<h2 class="chapter-title">⚡ Caso real: Trabajo de un resorte</h2>
+<div class="vida-real">
+<h4>🔧 ¿Cuánto trabajo cuesta estirar un resorte?</h4>
+<p>La fuerza de un resorte es $F(x) = kx$ (Ley de Hooke). El trabajo para estirarlo de 0 a $x$ es:</p>
+<p>$W = \int_0^x kx\,dx = \frac{1}{2}kx^2$</p>
+<p>Si $k = 200$ N/m y estiras 0.1 m: $W = \frac{1}{2}(200)(0.01) = 1$ J. ¡Solo 1 julio!</p>
+</div>
+</div>
+
+<!-- NUEVO: Visual SVG — Representación del método de discos -->
+<div class="chapter">
+<h2 class="chapter-title">👁️ Visualiza: Método de discos</h2>
+<div class="svg-visual">
+<svg width="400" height="280" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Eje X -->
+<line x1="30" y1="250" x2="370" y2="250" stroke="#334155" stroke-width="2"/>
+<!-- Eje Y -->
+<line x1="30" y1="250" x2="30" y2="20" stroke="#334155" stroke-width="2"/>
+<!-- Flechas -->
+<polygon points="370,245 380,250 370,255" fill="#334355"/>
+<polygon points="25,20 30,10 35,20" fill="#334155"/>
+<text x="360" y="270" font-size="12" fill="#334155">x</text>
+<text x="10" y="15" font-size="12" fill="#334155">y</text>
+<!-- Curva y = x² -->
+<path d="M 30 250 Q 100 240 170 180 Q 240 120 310 50" fill="none" stroke="#2563eb" stroke-width="3"/>
+<!-- Rebanadas (discos) -->
+<rect x="60" y="230" width="12" height="20" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="80" y="210" width="12" height="40" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="100" y="185" width="12" height="65" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="120" y="155" width="12" height="95" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="140" y="120" width="12" height="130" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="160" y="85" width="12" height="165" rx="2" fill="#2563eb" opacity="0.3"/>
+<rect x="180" y="55" width="12" height="195" rx="2" fill="#2563eb" opacity="0.3"/>
+<!-- Línea de integración -->
+<line x1="50" y1="248" x2="200" y2="248" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="100" y="240" font-size="10" fill="#f97316">∫₀²</text>
+<!-- Disco individual destacado -->
+<rect x="140" y="120" width="12" height="130" rx="2" fill="none" stroke="#ef4444" stroke-width="2"/>
+<line x1="146" y1="120" x2="146" y2="250" stroke="#ef4444" stroke-width="1" stroke-dasharray="2,2"/>
+<text x="158" y="190" font-size="10" fill="#ef4444">πr²·dx</text>
+<!-- Etiquetas -->
+<text x="30" y="10" font-size="13" fill="#2563eb" font-weight="bold">y = x²</text>
+<text x="80" y="275" font-size="11" fill="#64748b">Cada rebanada = disco de radio f(x)</text>
+</svg>
+</div>
+<p style="text-align:center;color:#64748b;font-size:.9rem">El volumen se obtiene sumando el área de cada disco: $\pi [f(x)]^2 \cdot dx$</p>
+</div>
+
+<!-- NUEVO: Error común -->
+<div class="chapter">
+<h2 class="chapter-title">⚠️ Error común</h2>
+<div class="box box-error">
+<strong>🚫 Olvidar el π en el método de discos</strong>
+<p>La fórmula es $V = \pi \int_a^b [f(x)]^2\,dx$, NO $V = \int_a^b [f(x)]^2\,dx$. El $\pi$ viene de que cada rebanada es un <b>disco circular</b> (área = πr²). ¡No lo olvides!</p>
+</div>
+</div>
+
+<!-- NUEVO: Conexión con integrales definidas -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexión: Integrales definidas ↔ Volúmenes</h2>
+<div class="box box-success">
+<strong>💡 Conexión clave</strong>
+<p>Las integrales definidas que ya sabes calcular ($\int_a^b f(x)\,dx$) tienen una interpretación geométrica: <b>área bajo la curva</b>. Al elevar al cuadrado y multiplicar por π, pasamos de un área 2D a un volumen 3D.</p>
+<p>Esto conecta con la Sesión 6 (Integrales Definidas) y prepara para la Sesión 8 (Probabilidad Avanzada), donde las integrales aparecen en distribuciones continuas.</p>
 </div>
 </div>
 
@@ -116,33 +209,96 @@ $$V = 2\pi \int_a^b x \cdot f(x)\,dx$$
 
 <!-- GRÁFICO: Volumen de revolución -->
 <div class="chart-container">
-<h3>📊 Volúmen de revolución: $y = x^2$ girando alrededor del eje x</h3>
+<h3>📊 Volumen de revolución: $y = x^2$ girando alrededor del eje x</h3>
 <p class="chart-desc">Observa cómo la región bajo la curva genera un sólido al girar.</p>
 <div id="plot-volumen" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- NUEVO: Ejercicios variados -->
 <div class="chapter">
 <h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
 
+<!-- Ejercicio 1: Input numérico (tipo 1) -->
 <div class="exercise">
 <p><strong>Ejercicio 1:</strong> Calcula el volumen de girar $y = x$ de 0 a 2 alrededor del eje x.</p>
-<p style="font-size:.85rem;color:#64748b">$V = \pi \int_0^2 x^2\,dx = \pi \cdot \frac$\{8\}$$\{3\}$$</p>
+<p style="font-size:.85rem;color:#64748b">$V = \pi \int_0^2 x^2\,dx = \pi \cdot \frac{8}{3}$</p>
 <div class="exercise-input">
 <input type="number" id="e1" placeholder="V = ?" step="any">
 <button onclick="checkE1()">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- NUEVO: Ejercicio 2 — Completar hueco (tipo 2) -->
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> Completa los pasos para calcular $V$ de $y = x^2$ de 0 a 1 girando alrededor del eje x:</p>
+<p style="font-size:.85rem;color:#64748b">
+$V = \pi \int_0^1 (x^2)^2\,dx = \pi \int_0^1 x^{\,___}\,dx = \pi \left[\frac{x^{\,___}}{___}\right]_0^1 = \pi \cdot \frac{1}{___}$
+</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap">
+<input type="number" id="e2a" placeholder="exp" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px" title="Exponente tras elevar al cuadrado">
+<input type="number" id="e2b" placeholder="exp" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px" title="Exponente tras integrar">
+<input type="number" id="e2c" placeholder="coef" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px" title="Denominador">
+<input type="number" id="e2d" placeholder="den" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px" title="Denominador final">
+<button onclick="checkCompleta2()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 3 — V/F (tipo 3) -->
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> ¿Verdadero o falso? El método de arcos se usa cuando giramos alrededor de un eje <b>paralelo</b> al eje de la función.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF3(true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF3(false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Input numérico (tipo 4) -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Calcula el trabajo para estirar un resorte ($k = 100$ N/m) de 0 a 0.2 m.</p>
+<p style="font-size:.85rem;color:#64748b">$W = \int_0^{0.2} 100x\,dx = \left[\frac{100x^2}{2}\right]_0^{0.2}$</p>
+<div class="exercise-input">
+<input type="number" id="e4" placeholder="W = ?" step="any">
+<button onclick="checkE4()">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 5 — Emparejar (tipo 5) -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> 🧩 Empareja cada fórmula con su aplicación:</p>
+<div style="display:flex;gap:2rem;flex-wrap:wrap;margin:1rem 0">
+<div>
+<p style="font-weight:600;margin-bottom:.5rem">Fórmula</p>
+<p style="font-size:.9rem">A. $V = \pi \int [f(x)]^2 dx$</p>
+<p style="font-size:.9rem">B. $W = \int F(x)\,dx$</p>
+<p style="font-size:.9rem">C. $V = 2\pi \int x f(x)\,dx$</p>
+</div>
+<div>
+<p style="font-weight:600;margin-bottom:.5rem">Aplicación</p>
+<p style="font-size:.9rem" id="match1" style="cursor:pointer;padding:.3rem .8rem;border:2px solid var(--azul);border-radius:8px;display:inline-block" onclick="checkMatch(this, 'A','trabajo')">Trabajo</p>
+<p style="font-size:.9rem" id="match2" style="cursor:pointer;padding:.3rem .8rem;border:2px solid var(--azul);border-radius:8px;display:inline-block" onclick="checkMatch(this, 'B','discos')">Discos</p>
+<p style="font-size:.9rem" id="match3" style="cursor:pointer;padding:.3rem .8rem;border:2px solid var(--azul);border-radius:8px;display:inline-block" onclick="checkMatch(this, 'C','arcos')">Arcos</p>
+</div>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
 </div>
 
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li>Volúmen de revolución (discos): $V = \pi \int_a^b [f(x)]^2\,dx$</li>
-<li>Volúmen de revolución (arcos): $V = 2\pi \int_a^b x \cdot f(x)\,dx$</li>
+<li>Volumen de revolución (discos): $V = \pi \int_a^b [f(x)]^2\,dx$</li>
+<li>Volumen de revolución (arcos): $V = 2\pi \int_a^b x \cdot f(x)\,dx$</li>
 <li>Área entre curvas: $A = \int_a^b |f(x) - g(x)|\,dx$</li>
 <li>Trabajo: $W = \int_a^b F(x)\,dx$</li>
+<li>El método de discos usa rebanadas circulares (πr²·dx)</li>
+<li>El método de arcos usa cilindros huecos (2πx·f(x)·dx)</li>
+<li>¡Las integrales no son solo áreas: también calculan volúmenes y trabajo!</li>
 </ul>
 </div>
 
@@ -171,6 +327,25 @@ document.addEventListener('DOMContentLoaded', () => {
     throwOnError: false
   });
 
+  // Plotly chart
+  const x = [];
+  const y = [];
+  for (let i = 0; i <= 100; i++) {
+    const xi = i / 50;
+    x.push(xi);
+    y.push(xi * xi);
+  }
+  Plotly.newPlot('plot-volumen', [
+    {x: x, y: y, type: 'scatter', mode: 'lines', line: {color: '#2563eb', width: 3}, name: 'y = x²'},
+    {x: x, y: new Array(x.length).fill(0), type: 'scatter', mode: 'lines', line: {color: '#334155', width: 1}, name: 'eje x'}
+  ], {
+    title: '',
+    xaxis: {title: 'x', range: [0, 2]},
+    yaxis: {title: 'y', range: [0, 4]},
+    margin: {t: 20, r: 20, b: 40, l: 50},
+    font: {family: 'Inter, sans-serif'}
+  }, {responsive: true});
+
 function checkE1() {
   const input = document.getElementById('e1');
   const fb = document.getElementById('e1-fb');
@@ -179,6 +354,85 @@ function checkE1() {
   if (isNaN(v)) { fb.textContent = 'Introduce un número'; fb.className = 'feedback incorrect'; return; }
   if (Math.abs(v - 8.38) < 0.5 || Math.abs(v - 8.3776) < 0.1 || Math.abs(v - 2.67*Math.PI) < 0.5) { fb.textContent = '¡Correcto! V ≈ 8.38 unidades³ 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. V = π∫₀² (x)² dx = π·[x³/3]₀² = 8π/3 ≈ 8.38'; fb.className = 'feedback incorrect'; }
+}
+
+// Completar hueco ejercicio 2
+function checkCompleta2() {
+  const a = document.getElementById('e2a');
+  const b = document.getElementById('e2b');
+  const c = document.getElementById('e2c');
+  const d = document.getElementById('e2d');
+  const fb = document.getElementById('e2-fb');
+  if (!a || !b || !c || !d || !fb) return;
+  const va = parseInt(a.value);
+  const vb = parseInt(b.value);
+  const vc = parseInt(c.value);
+  const vd = parseInt(d.value);
+  if (va === 4 && vb === 5 && vc === 5 && vd === 5) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! (x²)² = x⁴, ∫x⁴dx = x⁵/5, evaluado de 0 a 1 = 1/5, V = π/5';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ (x²)² = x⁴ → ∫₀¹ x⁴dx = [x⁵/5]₀¹ = 1/5 → V = π/5';
+  }
+}
+
+// V/F ejercicio 3
+function checkVF3(esVerdadero) {
+  const fb = document.getElementById('e3-fb');
+  if (esVerdadero) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! El método de arcos es útil cuando el eje de giro es paralelo al eje de la variable.';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ ¡Es verdadero! Los arcos (shell method) son ideales cuando giras alrededor de un eje paralelo.';
+  }
+}
+
+// Ejercicio 4
+function checkE4() {
+  const input = document.getElementById('e4');
+  const fb = document.getElementById('e4-fb');
+  if (!input || !fb) return;
+  const w = parseFloat(input.value);
+  if (isNaN(w)) { fb.textContent = 'Introduce un número'; fb.className = 'feedback incorrect'; return; }
+  if (Math.abs(w - 2) < 0.1) {
+    fb.className = 'feedback correct';
+    fb.textContent = '¡Correcto! W = ½(100)(0.04) = 2 J 🎉';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = 'Incorrecto. W = [100x²/2]₀⁰·² = 50(0.04) = 2 J';
+  }
+}
+
+// Emparejar ejercicio 5
+let matchResults = {match1: null, match2: null, match3: null};
+function checkMatch(el, formula, app) {
+  const id = el.id;
+  matchResults[id] = {formula, app};
+  el.style.background = '#2563eb';
+  el.style.color = '#fff';
+  
+  // Check if all matched
+  if (Object.values(matchResults).every(v => v !== null)) {
+    const fb = document.getElementById('e5-fb');
+    const correct = matchResults.match1 && match1.formula === 'B' && match1.app === 'trabajo' &&
+                    matchResults.match2 && match2.formula === 'A' && match2.app === 'discos' &&
+                    matchResults.match3 && match3.formula === 'C' && match3.app === 'arcos';
+    if (correct) {
+      fb.className = 'feedback correct';
+      fb.textContent = '✅ ¡Todo correcto! Discos = fórmula A, Trabajo = fórmula B, Arcos = fórmula C';
+    } else {
+      fb.className = 'feedback incorrect';
+      fb.textContent = '❌ Revisa: A → Discos, B → Trabajo, C → Arcos';
+      // Reset styles
+      ['match1','match2','match3'].forEach(k => {
+        document.getElementById(k).style.background = '';
+        document.getElementById(k).style.color = '';
+      });
+      matchResults = {match1: null, match2: null, match3: null};
+    }
+  }
 }
 });
 </script>
