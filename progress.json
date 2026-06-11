@@ -1,7 +1,7 @@
 {
-  "last_improved": "eso2-3-teorema-tales.html",
+  "last_improved": "s02-1-sumas-llevadas.html",
   "last_run": "2026-06-11",
-  "total_runs": 41,
+  "total_runs": 42,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -971,21 +971,27 @@
       "improvement_count": 2
     },
     "s02-1-sumas-llevadas.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos estructurada, +1 SVG suma vertical con llevadas, +3 casos reales (pizza, videojuegos, hucha), +3 cajas conexión (sumar hasta 10, restas llevadas, multiplicación), +3 ejercicios variados (input numérico, completar llevada, ordenar resultados), corregido HTML <li> anidado, +3 funciones JS nuevas (checkLlevadaInput1, checkLlevadaHueco, checkOrdenLlevada)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 2
     },
     "s02-2-restas-llevadas.html": {
       "status": "pending",

@@ -79,13 +79,6 @@ Cuando la suma de las unidades da más de 9, hay que <b>llevar</b> la decena al 
 <strong>📖 Teoría</strong>
 Cuando sumas las unidades y el resultado es <b>más de 9</b>, no cabe en una sola casilla. Entonces <b>guardas 1 en las decenas</b> y lo que sobra se queda en las unidades.
 </div>
-<div class="box box-teoria">
-<strong>📖 ¿Qué es una llevada? (4 pasos)</strong><br>
-<strong>Paso 1 — ¿Qué es?</strong> Una llevada es cuando sumas las unidades y el resultado es mayor que 9. Como no puedes escribir dos dígitos en una casilla, "llevas" la decena a la columna de las decenas.<br><br>
-<strong>Paso 2 — ¿Para qué sirve?</strong> Para que las sumas de dos cifras funcionen siempre. Sin llevadas, 25+17=32 (incorrecto). Con llevadas: 42 (correcto).<br><br>
-<strong>Paso 3 — ¿Cómo se hace?</strong> 1) Suma unidades primero. 2) Si el resultado ≥ 10, escribe la unidad y lleva la decena. 3) Suma decenas + la llevada. 4) Escribe el resultado.<br><br>
-<strong>Paso 4 — Error común:</strong> ¡Olvidar sumar la llevada! Si sumas 25+17 y olvidas la llevada, te da 32 en vez de 42. ¡Siempre recuerda llevar!
-</div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
 25 + 17 = ?<br>Unidades: 5 + 7 = 12 → escribo 2, llevo 1<br>Decenas: 2 + 1 + 1 (llevada) = 4<br>Resultado: <b>42</b>
@@ -98,45 +91,6 @@ Cuando sumas las unidades y el resultado es <b>más de 9</b>, no cabe en una sol
 <strong>🔍 Ejemplo 3</strong>
 46 + 35 = ?<br>Unidades: 6 + 5 = 11 → escribo 1, llevo 1<br>Decenas: 4 + 3 + 1 = 8<br>Resultado: <b>81</b>
 </div>
-
-<!-- SVG: Visualización de sumas con llevadas -->
-<svg viewBox="0 0 500 280" style="width:100%%;max-width:450px;margin:1.5rem auto;display:block;border-radius:12px;background:#fff;border:1px solid #e2e8f0;" role="img" aria-label="Visualización de la suma 25+17 con llevadas">
-  <!-- Caja de la suma vertical -->
-  <rect x="150" y="20" width="200" height="220" rx="12" fill="#f8faff" stroke="#2563eb" stroke-width="2"/>
-  <!-- Título -->
-  <text x="250" y="45" text-anchor="middle" font-size="14" fill="#2563eb" font-weight="bold">Suma vertical: 25 + 17</text>
-  <!-- Línea separadora -->
-  <line x1="170" y1="60" x2="330" y2="60" stroke="#2563eb" stroke-width="2"/>
-  <!-- Fila 1: 25 -->
-  <text x="230" y="90" text-anchor="middle" font-size="28" fill="#1e293b" font-weight="bold">25</text>
-  <!-- Fila 2: +17 -->
-  <text x="170" y="130" text-anchor="middle" font-size="28" fill="#1e293b" font-weight="bold">+17</text>
-  <!-- Línea -->
-  <line x1="170" y1="142" x2="330" y2="142" stroke="#2563eb" stroke-width="2"/>
-  <!-- Resultado: 42 -->
-  <text x="230" y="180" text-anchor="middle" font-size="28" fill="#10b981" font-weight="bold">42</text>
-  <!-- Indicadores de columna -->
-  <text x="215" y="210" text-anchor="middle" font-size="11" fill="#94a3b8">dec</text>
-  <text x="250" y="210" text-anchor="middle" font-size="11" fill="#94a3b8">uni</text>
-  <!-- Líneas de columna -->
-  <line x1="232" y1="55" x2="232" y2="200" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
-  <!-- Flecha de llevada -->
-  <path d="M250,75 Q250,55 232,55" stroke="#f97316" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <text x="240" y="68" font-size="16" fill="#f97316" font-weight="bold">1</text>
-  <!-- Leyenda -->
-  <text x="250" y="240" text-anchor="middle" font-size="12" fill="#64748b">5+7=12 → escribo 2, llevo 1 a decenas</text>
-  <text x="250" y="258" text-anchor="middle" font-size="12" fill="#64748b">2+1+1(llevada)=4 → escribo 4</text>
-  <!-- Marcas de colores -->
-  <circle cx="250" cy="90" r="10" fill="#f97316" opacity="0.3"/>
-  <circle cx="250" cy="130" r="10" fill="#f97316" opacity="0.3"/>
-  <circle cx="250" cy="175" r="10" fill="#10b981" opacity="0.3"/>
-  <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#f97316"/>
-    </marker>
-  </defs>
-</svg>
-<p style="text-align:center;font-size:0.85rem;color:#64748b;margin-top:0.5rem;">📊 Así se ve la llevada en una suma vertical</p>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Practica sumas con llevadas!</h2>
@@ -149,69 +103,10 @@ Cuando sumas las unidades y el resultado es <b>más de 9</b>, no cabe en una sol
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
-
-<!-- Casos reales -->
 <section class="chapter">
-<h2 class="chapter-title">🌍 Sumas con llevadas en la vida real</h2>
-<div class="box box-ejemplo">
-<strong>🍕 Caso 1: Pizzas en la fiesta</strong><br>
-María compró 28 porciones de pizza y su amigo 15 más. ¿Cuántas porciones hay en total? 28+15=43. ¡Las llevadas te ayudan a contar sin perder nada!</div>
-<div class="box box-ejemplo">
-<strong>🎮 Caso 2: Puntos en videojuegos</strong><br>
-En un juego, ganas 37 puntos en la ronda 1 y 26 en la ronda 2. 37+26=63. ¡La llevada te dice cuántos puntos tienes en total para pasar de nivel!</div>
-<div class="box box-ejemplo">
-<strong>💰 Caso 3: Ahorrando en la hucha</strong><br>
-Tienes 45 céntimos y encuentras 38 céntimos más. 45+38=83. ¡Ya tienes 83 céntimos para comprar un chicle!</div>
-</section>
-
-<!-- Conexiones -->
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
-<div class="box box-idea">
-<strong>🔗 Con 1º Primaria (Sumar hasta 10)</strong><br>
-Las llevadas solo existen porque sumas unidades que dan más de 10. Si ya sabes sumar hasta 10, las llevadas son solo un paso extra: ¡escribir la unidad y llevar la decena!</div>
-<div class="box box-idea">
-<strong>🔗 Con 2º Primaria (Restas con llevadas)</strong><br>
-Las restas con llevadas son lo inverso: en lugar de llevar una decena, pides prestada una decena. ¡Son como espejos!</div>
-<div class="box box-idea">
-<strong>🔗 Con 3º Primaria (Multiplicación)</strong><br>
-Al multiplicar, también hay llevadas. 25×3: 5×3=15, escribes 5 y llevas 1. ¡Ya sabes el truco!</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">📝 Ejercicios variados</h2>
+<h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
-<!-- Completar hueco -->
-<div class="exercise">
-<p>Completa: 36 + 27 = ? (¿cuánto es?)</p>
-<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
-<input type="number" id="llevada-input-1" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
-<button onclick="checkLlevadaInput1()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
-</div>
-<div class="result" id="llevada-fb-1"></div>
-</div>
-<!-- Completar hueco: la llevada -->
-<div class="exercise">
-<p>En 48 + 35 = 83, ¿cuánto se lleva de unidades a decenas?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkLlevadaHueco(this, true)">1</button>
-<button class="quiz-btn" onclick="checkLlevadaHueco(this, false)">3</button>
-<button class="quiz-btn" onclick="checkLlevadaHueco(this, false)">0</button>
-</div>
-<div class="result" id="llevada-hueco-result"></div>
-</div>
-<!-- Ordenar -->
-<div class="exercise">
-<p>Ordena de menor a mayor: 36+27, 45+38, 19+27</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkOrdenLlevada(this, true)">63, 83, 46</button>
-<button class="quiz-btn" onclick="checkOrdenLlevada(this, false)">83, 63, 46</button>
-<button class="quiz-btn" onclick="checkOrdenLlevada(this, false)">63, 46, 83</button>
-</div>
-<div class="result" id="llevada-orden-result"></div>
-</div>
 
-<!-- Ejercicios originales -->
 <div class="exercise">
 <p>1. ¿Cuánto es 28 + 15?</p>
 <div class="quiz-options">
@@ -258,7 +153,7 @@ Al multiplicar, también hay llevadas. 25×3: 5×3=15, escribes 5 y llevas 1. ¡
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Primero sumamos las unidades</li><li>Si las unidades suman más de 9, llevamos 1 a las decenas</li><li>Luego sumamos las decenas + la llevada</li><li>¡El resultado es la suma completa!</li><li>¡Ya sabes sumar con llevadas! 🎉</li>
+<li><li>Primero sumamos las unidades</li></li><li><li>Si las unidades suman más de 9, llevamos 1 a las decenas</li></li><li><li>Luego sumamos las decenas + la llevada</li></li><li><li>¡El resultado es la suma completa!</li></li><li><li>¡Ya sabes sumar con llevadas! 🎉</li></li>
 </ul>
 </div>
 <div class="nav">
@@ -322,47 +217,6 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
-}
-function checkLlevadaInput1() {
-  const input = document.getElementById('llevada-input-1');
-  const fb = document.getElementById('llevada-fb-1');
-  if (!input || !fb) return;
-  const val = parseInt(input.value);
-  if (val === 63) {
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 36+27: unidades 6+7=13 (escribo 3, llevo 1), decenas 3+2+1=6 → 63';
-  } else {
-    fb.className = 'result fail';
-    fb.textContent = '❌ Incorrecto. 36+27: 6+7=13 → escribo 3, llevo 1. 3+2+1=6 → 63';
-  }
-}
-function checkLlevadaHueco(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('llevada-hueco-result');
-  if(correct) {
-    btn.classList.add('correct');
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 8+5=13 → se lleva 1 a las decenas';
-  } else {
-    btn.classList.add('wrong');
-    fb.className = 'result fail';
-    fb.textContent = '❌ Incorrecto. 8+5=13 → se lleva 1 a las decenas';
-  }
-}
-function checkOrdenLlevada(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('llevada-orden-result');
-  if(correct) {
-    btn.classList.add('correct');
-    fb.className = 'result ok';
-    fb.textContent = '✅ ¡Correcto! 19+27=46 < 36+27=63 < 45+38=83';
-  } else {
-    btn.classList.add('wrong');
-    fb.className = 'result fail';
-    fb.textContent = '❌ Incorrecto. Calcula: 19+27=46, 36+27=63, 45+38=83 → 46 < 63 < 83';
-  }
 }
 
 window.onscroll = function(){
