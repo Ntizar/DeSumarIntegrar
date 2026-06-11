@@ -1,5 +1,5 @@
 {
-  "last_improved": "s03-2-division.html",
+  "last_improved": "s09-2-bachiller-continuidad-derivadas.html",
   "last_run": "2026-06-11",
   "total_runs": 39,
   "topics": {
@@ -1812,21 +1812,29 @@
       "improvement_count": 1
     },
     "s09-2-bachiller-continuidad-derivadas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos (qué es/para qué/cómo/error común), +1 SVG animado (secante→tangente), +2 ejercicios variados (V/F, ordenar derivadas), +1 caja conexión (S09-3), resumen ampliado a 8 puntos, +CSS coherence classes"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 9,
+        "text": 9,
+        "visual": 7,
+        "real_world": 7,
+        "connections": 5,
+        "difficulty_range": 7,
+        "manim_quality": 7,
+        "css_coherence": 9
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-3-bachiller-reglas-derivacion.html": {
       "status": "pending",

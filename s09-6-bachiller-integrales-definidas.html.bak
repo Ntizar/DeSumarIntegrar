@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>∫ Bachillerato — Sesión 6: Integrales Definidas | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:var(--azul);margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#1d4ed8}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:var(--azul-claro);font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+  <h1>∫ Bachillerato — Sesión 6: Integrales Definidas</h1>
+  <p>Calcular áreas bajo la curva con el Teorema Fundamental del Cálculo</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Calcular integrales definidas usando el Teorema Fundamental del Cálculo</li>
+<li>Interpretar la integral definida como un área</li>
+<li>Calcular áreas entre curvas</li>
+<li>Aplicar integrales a problemas de física y economía</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro el área bajo la curva?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Distancia recorrida</strong>
+<p>Si graficas la velocidad $v(t)$ en función del tiempo, el área bajo la curva es la distancia recorrida.</p>
+<p>Si la velocidad es constante $v = 60$ km/h durante 2 horas: Área = $60 \times 2 = 120$ km.</p>
+<p>Si la velocidad varía: el área bajo la curva $v(t)$ sigue siendo la distancia total.</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Teorema Fundamental del Cálculo</h2>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$\int_a^b f(x)\,dx = F(b) - F(a)$$
+</div>
+
+<p>Donde $F$ es una antiderivada de $f$ (es decir, $F'(x) = f(x)$).</p>
+
+<div class="box box-ejemplo">
+<strong>💡 Ejemplo:</strong>
+<p style="margin-top:.5rem">Calcular $\int_0^2 x^2\,dx$</p>
+<p style="margin-top:.5rem">Antiderivada: $F(x) = \frac{x^3}$\{3\}$$</p>
+<p style="margin-top:.5rem">$$\int_0^2 x^2\,dx = F(2) - F(0) = \frac$\{8\}$$\{3\}$ - 0 = \mathbf{\frac$\{8\}$$\{3\}$}$$</p>
+</div>
+
+<!-- GRÁFICO: Área bajo la curva -->
+<div class="chart-container">
+<h3>📊 El área bajo $f(x) = x^2$ de 0 a 2 es 8/3</h3>
+<p class="chart-desc">Observa el área sombreada bajo la curva. ¡Esa área es exactamente la integral definida!</p>
+<div id="plot-area" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> Calcula $\int_0^3 2x\,dx$</p>
+<div class="exercise-input">
+<input type="number" id="e1" placeholder="?" step="any">
+<button onclick="checkExercise(1, 9)">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> Calcula $\int_1^4 \frac$\{1\}${x}\,dx$</p>
+<p style="font-size:.85rem;color:#64748b">La antiderivada es $\ln|x|$</p>
+<div class="exercise-input">
+<input type="text" id="e2" placeholder="ln(?) = ?" style="width:200px">
+<button onclick="checkE2()">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen de lo que aprendiste</h3>
+<ul>
+<li>El Teorema Fundamental del Cálculo conecta derivadas e integrales</li>
+<li>$\int_a^b f(x)\,dx = F(b) - F(a)$</li>
+<li>La integral definida es un número (el área bajo la curva)</li>
+<li>La integral indefinida es una función (más la constante $C$)</li>
+<li>Aplicaciones: distancia, trabajo, probabilidad, volumen</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s09-5-bachiller-integrales-indefinidas.html">← Anterior</a>
+  <a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s09-7-bachiller-aplicaciones-integrales.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+
+function checkExercise(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (!input || !feedback) return;
+  const value = parseFloat(input.value);
+  if (isNaN(value)) { feedback.textContent = 'Introduce un número'; feedback.className = 'feedback incorrect'; return; }
+  if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
+  else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
+}
+
+function checkE2() {
+  const input = document.getElementById('e2');
+  const fb = document.getElementById('e2-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('ln') && (v.includes('|x|') || v.includes('x') || v.includes('abs'))) { fb.textContent = '¡Correcto! ∫(1/x)dx = ln|x| + C 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. ∫(1/x)dx = ln|x| + C'; fb.className = 'feedback incorrect'; }
+}
+});
+</script>
+</body>
+</html>
