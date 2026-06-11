@@ -1,208 +1,393 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>📈 ESO2.5: Introducción a las Funciones — 2º ESO — ¡Relaciones entre variables!</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📈 ESO2.5: Introducción a las Funciones — 2º ESO — ¡Relaciones entre variables!</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
-    15|.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-    16|.container{max-width:850px;margin:0 auto;padding:1.5rem}
-    17|.chapter{margin-bottom:2.5rem}
-    18|.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
-    19|.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-    20|.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
-    21|.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
-    22|.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-    23|.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
-    24|.box strong{display:block;margin-bottom:.3rem}
-    25|.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-    26|.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-    27|.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-    28|.interactive button:hover{background:#1d4ed8}
-    29|.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-    30|.result.ok{background:var(--verde-claro);color:#065f46}
-    31|.result.fail{background:var(--rojo-claro);color:#991b1b}
-    32|.exercises{margin:1.5rem 0}
-    33|.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-    34|.exercise p{font-weight:600;margin-bottom:.5rem}
-    35|.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-    36|.solution.show{display:block}
-    37|.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
-    38|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    39|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    40|.nav a:hover{background:var(--azul-claro)}
-    41|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    42|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    43|.summary h3{color:var(--azul);margin-bottom:.8rem}
-    44|.summary ul{list-style:none;padding:0}
-    45|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    46|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    47|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    48|.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-    49|.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-    50|.quiz-btn:hover{background:var(--azul-claro)}
-    51|.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-    52|.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-    53|</style>
-    54|</head>
-    55|<body>
-    56|  <div style="padding: 0.75rem 1.5rem;">
-    57|    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
-    58|  </div>
-    59|<header class="header">
-    60|<h1>📈 ESO2.5: Introducción a las Funciones</h1>
-    61|<p>2º ESO — ¡Relaciones entre variables!</p>
-    62|<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-    63|</header>
-    64|<main class="container">
-    65|<section class="chapter">
-    66|<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-    67|<div class="box box-idea">
-    68|<strong>💡 Idea clave</strong>
-    69|Una función relaciona cada valor de x con un único valor de y. y = 2x + 1.
-    70|</div>
-    71|<p>En esta sesión aprenderás a:</p>
-    72|<ul style="margin:.8rem 0 1rem 1.5rem">
-    73|<li>Entender qué es una función</li><li>Evaluar funciones</li><li>Representar funciones</li>
-    74|</ul>
-    75|</section>
-    76|<section class="chapter">
-    77|<h2 class="chapter-title">1️⃣ ¿Qué es una función?</h2>
-    78|<div class="box box-teoria">
-    79|<strong>📖 Teoría</strong>
-    80|Una función es una regla que asigna a cada x un único y. y = 2x + 1: si x=3, y=2×3+1=7.
-    81|</div>
-    82|<div class="box box-ejemplo">
-    83|<strong>🔍 Ejemplo 1</strong>
-    84|y = 2x + 1: x=0→y=1, x=1→y=3, x=2→y=5
-    85|</div>
-    86|<div class="box box-ejemplo">
-    87|<strong>🔍 Ejemplo 2</strong>
-    88|y = x²: x=2→y=4, x=3→y=9, x=-2→y=4
-    89|</div>
-    90|<div class="box box-ejemplo">
-    91|<strong>🔍 Ejemplo 3</strong>
-    92|y = 3x - 2: x=4→y=10, x=0→y=-2
-    93|</div>
-    94|</section>
-    95|<section class="chapter">
-    96|<h2 class="chapter-title">2️⃣ ¡Evalúa funciones!</h2>
-    97|<div class="interactive">
-    98|<h3>Selecciona la respuesta correcta:</h3>
-    99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.3rem;font-weight:700;margin-bottom:1rem" id="eso2funcDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso2funcButtons"></div></div>
-   100|<div class="result" id="interactiveResult"></div>
-   101|</div>
-   102|</section>
-   103|<section class="chapter">
-   104|<h2 class="chapter-title">📝 Ejercicios</h2>
-   105|<div class="exercises">
-   106|<div class="exercise">
-   107|<p>y = 2x + 1, x=5 → y = ?</p>
-   108|<div class="quiz-options">
-   109|<button class="quiz-btn" onclick="checkExercise(this, true)">11</button>
-   110|<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
-   111|<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-   112|</div>
-   113|</div>
-   114|<div class="exercise">
-   115|<p>y = x², x=4 → y = ?</p>
-   116|<div class="quiz-options">
-   117|<button class="quiz-btn" onclick="checkExercise(this, true)">16</button>
-   118|<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-   119|<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-   120|</div>
-   121|</div>
-   122|<div class="exercise">
-   123|<p>y = 3x - 2, x=3 → y = ?</p>
-   124|<div class="quiz-options">
-   125|<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-   126|<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-   127|<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-   128|</div>
-   129|</div>
-   130|<div class="exercise">
-   131|<p>y = x + 10, x=-5 → y = ?</p>
-   132|<div class="quiz-options">
-   133|<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-   134|<button class="quiz-btn" onclick="checkExercise(this, false)">15</button>
-   135|<button class="quiz-btn" onclick="checkExercise(this, false)">-5</button>
-   136|</div>
-   137|</div>
-   138|<div class="exercise">
-   139|<p>y = 5x, x=2 → y = ?</p>
-   140|<div class="quiz-options">
-   141|<button class="quiz-btn" onclick="checkExercise(this, true)">10</button>
-   142|<button class="quiz-btn" onclick="checkExercise(this, false)">7</button>
-   143|<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-   144|</div>
-   145|</div>
-   146|
-   147|</div>
-   148|</section>
-   149|<div class="summary">
-   150|<h3>📋 Resumen de lo aprendido</h3>
-   151|<ul>
-   152|<li><li>y = f(x): cada x tiene un único y</li></li><li><li>Sustituimos x y calculamos y</li></li><li><li>¡Ya sabes funciones! 🎉</li>
-   153|</ul>
-   154|</div>
-   155|<div class="nav">
-   156|<a href="eso2-3-teorema-tales.html">← Anterior</a>
-  <a href="s08-2-3eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-   157|<a href="eso2-7-circunferencia-circulo.html">Siguiente: Polígonos →</a>
-   158|</div>
-   159|</main>
-   160|<footer class="footer">
-   161|Hecho con ❤️ por David Antizar
-   162|</footer>
-   163|<script>
-   164|function newQuiz() {
-   165|  const data = [{"q": "y = 2x + 1, x=5 \u2192 y = ?", "opts": ["11", "10", "6"], "correct": 0}, {"q": "y = x\u00b2, x=4 \u2192 y = ?", "opts": ["16", "8", "4"], "correct": 0}, {"q": "y = 3x - 2, x=3 \u2192 y = ?", "opts": ["7", "9", "5"], "correct": 0}, {"q": "y = x + 10, x=-5 \u2192 y = ?", "opts": ["5", "15", "-5"], "correct": 0}, {"q": "y = 5x, x=2 \u2192 y = ?", "opts": ["10", "7", "5"], "correct": 0}];
-   166|  const item = data[Math.floor(Math.random()*data.length)];
-   167|  document.getElementById('eso2funcDisplay').textContent = item.q;
-   168|  const opts = item.opts;
-   169|  const buttons = document.getElementById('eso2funcButtons');
-   170|  buttons.innerHTML = '';
-   171|  opts.forEach((opt, i) => {
-   172|    const btn = document.createElement('button');
-   173|    btn.className = 'quiz-btn';
-   174|    btn.textContent = opt;
-   175|    btn.onclick = function() {
-   176|      if(i === item.correct) {
-   177|        this.classList.add('correct');
-   178|        document.getElementById('interactiveResult').className = 'result ok';
-   179|        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-   180|      } else {
-   181|        this.classList.add('wrong');
-   182|        document.getElementById('interactiveResult').className = 'result fail';
-   183|        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-   184|      }
-   185|    };
-   186|    buttons.appendChild(btn);
-   187|  });
-   188|  document.getElementById('interactiveResult').textContent = '';
-   189|}
-   190|newQuiz();
-   191|function checkExercise(btn, correct) {
-   192|  const parent = btn.parentElement;
-   193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-   195|}
-   196|
-   197|window.onscroll = function(){
-   198|  var h = document.documentElement;
-   199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-   200|  document.getElementById('progress').style.width = p+'%';
-   201|};
-   202|</script>
-   203|</body>
-   204|</html>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\\\(',right:'\\\\)',display:false}]})"></script>
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-container{display:flex;justify-content:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.difficulty-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
+.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
+.step-indicator{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:#166534}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>📈 ESO2.5: Introducción a las Funciones</h1>
+<p>2º ESO — ¡Relaciones entre variables!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+
+<!-- OBJETIVOS -->
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Una función es como una máquina: metes un número (x) y sale otro número (y). Cada x tiene UN único y.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender qué es una función y sus partes</li>
+<li>Evaluar funciones sustituyendo valores</li>
+<li>Representar funciones en el plano</li>
+<li>Distinguir función de no-función</li>
+</ul>
+</section>
+
+<!-- EXPLICACIÓN 4 PASOS: ¿QUÉ ES? -->
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ ¿Qué es una función?</h2>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">1</span>Paso 1: ¿QUÉ es una función?</strong>
+Una función es una regla que asigna a cada valor de entrada (x) un <strong>único</strong> valor de salida (y). Se escribe $y = f(x)$.
+<p style="margin-top:.5rem">Piensa en una máquina expendedora: metes una moneda (x) y sale un refresco (y). La misma moneda siempre da el mismo refresco. ¡Eso es una función!</p>
+</div>
+
+<!-- SVG: Máquina de funciones -->
+<div class="svg-container">
+<svg viewBox="0 0 400 200" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+<!-- Máquina -->
+<rect x="120" y="40" width="160" height="120" rx="10" fill="#2563eb" opacity="0.1" stroke="#2563eb" stroke-width="2"/>
+<text x="200" y="100" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">f(x) = 2x + 1</text>
+<text x="200" y="125" text-anchor="middle" fill="#64748b" font-size="11">máquina</text>
+<!-- Flecha entrada -->
+<line x1="30" y1="95" x2="118" y2="95" stroke="#f97316" stroke-width="2" marker-end="url(#arrowOrange)"/>
+<circle cx="25" cy="95" r="15" fill="#f97316"/>
+<text x="25" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">x=3</text>
+<!-- Flecha salida -->
+<line x1="282" y1="95" x2="370" y2="95" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+<circle cx="375" cy="95" r="15" fill="#10b981"/>
+<text x="375" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">y=7</text>
+<!-- Marcas de flecha -->
+<defs>
+<marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/></marker>
+<marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/></marker>
+</defs>
+<!-- Etiquetas -->
+<text x="25" y="75" text-anchor="middle" fill="#f97316" font-size="11" font-weight="600">Entrada (dominio)</text>
+<text x="375" y="75" text-anchor="middle" fill="#10b981" font-size="11" font-weight="600">Salida (recorrido)</text>
+<!-- Tabla de valores -->
+<rect x="140" y="140" width="120" height="15" rx="3" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="155" y="151" fill="#64748b" font-size="9">x=0 → y=1</text>
+<text x="215" y="151" fill="#64748b" font-size="9">x=1 → y=3</text>
+</svg>
+</div>
+
+<div class="box box-ejemplo">
+<strong><span class="step-indicator">2</span>Paso 2: ¿PARA QUÉ sirven las funciones?</strong>
+Las funciones modelan relaciones del mundo real:
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>💰 El precio de un taxi: tarifa base + precio por km → $f(km)$</li>
+<li>📱 La batería del móvil: se descarga un % por hora → $f(horas)$</li>
+<li>🌡️ La temperatura: cambia a lo largo del día → $f(hora)$</li>
+</ul>
+</div>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">3</span>Paso 3: ¿CÓMO se usa una función?</strong>
+Para evaluar $f(x) = 2x + 1$ con $x = 5$:
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li>Sustituye x por 5: $f(5) = 2(5) + 1$</li>
+<li>Multiplica: $2 × 5 = 10$</li>
+<li>Suma: $10 + 1 = 11$</li>
+<li>Resultado: $f(5) = 11$</li>
+</ol>
+</div>
+
+<div class="box box-error">
+<strong><span class="step-indicator">4</span>Paso 4: Error común</strong>
+⚠️ <strong>¡No toda relación es una función!</strong> Si un mismo x tiene dos y diferentes, NO es función.
+<p style="margin-top:.5rem">Ejemplo: la relación {(1,2), (1,3)} NO es función porque x=1 tiene dos salidas (2 y 3).</p>
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">💡 Truco: la "prueba de la recta vertical" — si una recta vertical corta la gráfica en más de un punto, no es función.</p>
+</div>
+</section>
+
+<!-- CASO REAL -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Caso real: El teléfono y la batería</h2>
+<div class="box box-ejemplo">
+<strong>📱 Tu móvil se descarga un 10% cada hora</strong>
+<p>Si tu batería empieza al 100%, la función que modela la batería restante es:</p>
+<p style="font-size:1.2rem;font-weight:700;margin:.8rem 0">B(h) = 100 - 10h</p>
+<p>Donde h = horas y B = batería en %.</p>
+<p><strong>Pregunta:</strong> ¿Cuánta batería queda después de 6 horas?</p>
+<div class="interactive" style="margin-top:1rem">
+<h3>Resuelve el caso:</h3>
+<div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+<input type="number" id="bateriaInput" placeholder="B(6) = ?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:6px;font-size:1rem;width:120px">
+<button onclick="checkBateria()">Comprobar</button>
+</div>
+<div class="result" id="bateriaResult"></div>
+</div>
+</div>
+</section>
+
+<!-- CONEXIONES -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📚 ¿Dónde encontrarás funciones otra vez?</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>ESO2.3 — Teorema de Tales:</strong> La proporcionalidad es un tipo de función lineal $f(x) = kx$</li>
+<li><strong>ESO2.1 — Ecuaciones:</strong> Resolver $f(x) = 0$ es encontrar la raíz de la función</li>
+<li><strong>ESO2.5 — Funciones (este tema):</strong> ¡Estás aquí!</li>
+<li><strong>4º ESO — Funciones avanzadas:</strong> Cuadráticas, exponenciales, trigonométricas</li>
+<li><strong>Bachillerato — Límites:</strong> Estudia el comportamiento de funciones cuando x crece mucho</li>
+</ul>
+</div>
+</section>
+
+<!-- INTERACTIVO: Evaluador de funciones -->
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Evalúa funciones!</h2>
+<div class="interactive">
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.3rem;font-weight:700;margin-bottom:1rem" id="eso2funcDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso2funcButtons"></div></div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+
+<!-- EJERCICIOS VARIADOS -->
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios — ¡Pon a prueba lo aprendido!</h2>
+<div class="exercises">
+
+<!-- Ejercicio tipo 1: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 1</strong> <span class="difficulty-badge facil">Fácil</span> — Completar hueco</p>
+<p>Si $f(x) = 3x - 2$, entonces $f(4) = $ ____</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+
+<!-- Ejercicio tipo 2: V/F -->
+<div class="exercise">
+<p><strong>Ejercicio 2</strong> <span class="difficulty-badge facil">Fácil</span> — Verdadero o Falso</p>
+<p>La relación {(1,2), (2,4), (3,6)} SÍ es una función porque cada x tiene un único y.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+</div>
+
+<!-- Ejercicio tipo 3: Problema contextual -->
+<div class="exercise">
+<p><strong>Ejercicio 3</strong> <span class="difficulty-badge medio">Medio</span> — Problema contextual</p>
+<p>Un tren sale de Madrid a las 8:00 a 120 km/h. La distancia recorrida es $d(t) = 120t$ donde t = horas desde las 8:00.</p>
+<p>¿A qué hora habrá recorrido 360 km?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkProblema(this, true)">11:00</button>
+<button class="quiz-btn" onclick="checkProblema(this, false)">10:30</button>
+<button class="quiz-btn" onclick="checkProblema(this, false)">12:00</button>
+</div>
+</div>
+
+<!-- Ejercicio tipo 4: Completar tabla -->
+<div class="exercise">
+<p><strong>Ejercicio 4</strong> <span class="difficulty-badge medio">Medio</span> — Completar tabla</p>
+<p>Completa la tabla para $f(x) = x^2 + 1$:</p>
+<table style="width:100%;border-collapse:collapse;margin:.8rem 0">
+<tr style="background:var(--azul-claro)"><th style="padding:.5rem;border:1px solid #e2e8f0">x</th><th style="padding:.5rem;border:1px solid #e2e8f0">-2</th><th style="padding:.5rem;border:1px solid #e2e8f0">-1</th><th style="padding:.5rem;border:1px solid #e2e8f0">0</th><th style="padding:.5rem;border:1px solid #e2e8f0">1</th><th style="padding:.5rem;border:1px solid #e2e8f0">2</th></tr>
+<tr><td style="padding:.5rem;border:1px solid #e2e8f0;font-weight:600">f(x)</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="f1">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="f2">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="f3">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="f4">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="f5">?</td></tr>
+</table>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkTabla(this, true)">5, 2, 1, 2, 5</button>
+<button class="quiz-btn" onclick="checkTabla(this, false)">4, 1, 0, 1, 4</button>
+<button class="quiz-btn" onclick="checkTabla(this, false)">5, 2, 1, 2, 4</button>
+</div>
+</div>
+
+<!-- Ejercicio tipo 5: Dificultad alta -->
+<div class="exercise">
+<p><strong>Ejercicio 5</strong> <span class="difficulty-badge dificil">Difícil</span> — Inversa de función</p>
+<p>Si $f(x) = 2x + 5$ y $f(a) = 13$, ¿cuánto vale a?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- RESUMEN -->
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<li>Una función asigna a cada x un único y: $y = f(x)$</li>
+<li>Se evalúa sustituyendo el valor de x en la regla</li>
+<li>La máquina expendedora es una buena analogía: misma entrada = misma salida</li>
+<li>Si un x tiene dos y diferentes, NO es función</li>
+<li>Prueba de la recta vertical: si corta en más de un punto, no es función</li>
+<li>Las funciones modelan el mundo real: precios, temperatura, batería...</li>
+<li>Las conexiones con álgebra, proporcionalidad y bachillerato son clave</li>
+<li>¡Ya sabes funciones! 🎉</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="eso2-3-teorema-tales.html">← Anterior</a>
+<a href="s08-2-3eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="eso2-7-circunferencia-circulo.html">Siguiente: Polígonos →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+function newQuiz() {
+  const data = [
+    {q: "y = 2x + 1, x=5 → y = ?", opts: ["11", "10", "6"], correct: 0, explain: "2×5+1 = 10+1 = 11"},
+    {q: "y = x², x=4 → y = ?", opts: ["16", "8", "4"], correct: 0, explain: "4² = 16"},
+    {q: "y = 3x - 2, x=3 → y = ?", opts: ["7", "9", "5"], correct: 0, explain: "3×3-2 = 9-2 = 7"},
+    {q: "y = x + 10, x=-5 → y = ?", opts: ["5", "15", "-5"], correct: 0, explain: "-5+10 = 5"},
+    {q: "y = 5x, x=2 → y = ?", opts: ["10", "7", "5"], correct: 0, explain: "5×2 = 10"},
+    {q: "y = -x + 3, x=7 → y = ?", opts: ["-4", "4", "-10"], correct: 0, explain: "-7+3 = -4"},
+    {q: "y = x² - 1, x=3 → y = ?", opts: ["8", "10", "6"], correct: 0, explain: "3²-1 = 9-1 = 8"}
+  ];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('eso2funcDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('eso2funcButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(i === item.correct) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + item.explain;
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct] + ' — ' + item.explain;
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
+}
+newQuiz();
+
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+
+function checkProblema(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
+function checkTabla(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    document.getElementById('f1').textContent = '5';
+    document.getElementById('f2').textContent = '2';
+    document.getElementById('f3').textContent = '1';
+    document.getElementById('f4').textContent = '2';
+    document.getElementById('f5').textContent = '5';
+  } else {
+    btn.classList.add('wrong');
+  }
+}
+
+function checkBateria() {
+  const input = document.getElementById('bateriaInput');
+  const result = document.getElementById('bateriaResult');
+  const v = parseInt(input.value);
+  if(v === 40) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! B(6) = 100 - 10×6 = 100 - 60 = 40%. Tu móvil se apaga a las 14:00.';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Recuerda: B(6) = 100 - 10×6 = 100 - 60 = 40%. Inténtalo de nuevo.';
+  }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>

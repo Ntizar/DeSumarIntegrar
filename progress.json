@@ -1,7 +1,7 @@
 {
-  "last_improved": "s04-7-capacidades.html",
+  "last_improved": "s09-3-bachiller-reglas-derivacion.html",
   "last_run": "2026-06-11",
-  "total_runs": 44,
+  "total_runs": 45,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -699,21 +699,27 @@
       "improvement_count": 3
     },
     "eso2-5-funciones-intro.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 45,
+          "date": "2026-06-11",
+          "added": "+1 SVG máquina de funciones (dominio→rango), +1 explicación 4 pasos (qué/para qué/cómo/error común), +1 caso real batería móvil, +1 caja conexiones (Tales, ecuaciones, bachiller), +5 ejercicios variados (completar hueco, V/F, problema contextual, completar tabla, inversa), +3 niveles dificultad (fácil/medio/difícil), arreglado nested <li>, +CSS: difficulty-badge, step-indicator, connection-box, svg-container"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 9,
+        "text": 10,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 2
     },
     "eso2-7-circunferencia-circulo.html": {
       "status": "pending",
@@ -1866,21 +1872,27 @@
       "improvement_count": 1
     },
     "s09-3-bachiller-reglas-derivacion.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 45,
+          "date": "2026-06-11",
+          "added": "+1 SVG visual regla de la cadena (capas), +1 explicación 4 pasos (qué/para qué/cómo/error común), +1 caso real cohete (velocidad), +1 caja conexiones (continuidad, integrales, física, economía), +6 ejercicios variados (input derivación, V/F, completar hueco, input cadena, ordenar pasos, quiz botón), +3 niveles dificultad (fácil/medio/difícil), +CSS: exercises, quiz-options, quiz-btn, difficulty-badge, step-indicator, connection-box, svg-container"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-4-bachiller-aplicaciones-derivadas.html": {
       "status": "pending",

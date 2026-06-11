@@ -66,6 +66,28 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.difficulty-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
+.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
+.step-indicator{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:#166534}
+.svg-container{display:flex;justify-content:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -85,6 +107,7 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- OBJETIVOS -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 Objetivos</h2>
 <div class="box box-teoria">
@@ -98,17 +121,126 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- EXPLICACIÓN 4 PASOS -->
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro las reglas de derivación?</h2>
+<h2 class="chapter-title">1️⃣ ¿Qué son las reglas de derivación?</h2>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">1</span>Paso 1: ¿QUÉ son las reglas de derivación?</strong>
+Las reglas de derivación son atajos que te permiten calcular derivadas sin usar la definición de límite. En lugar de hacer $\lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$, usas fórmulas directas.
+<p style="margin-top:.5rem">Es como saber que $2+2=4$ sin contar los dedos cada vez.</p>
+</div>
+
+<!-- SVG: Regla de la cadena visual -->
+<div class="svg-container">
+<svg viewBox="0 0 500 160" width="500" height="160" xmlns="http://www.w3.org/2000/svg">
+<!-- Regla de la cadena visual: f(g(x)) -->
+<text x="250" y="20" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">Regla de la cadena: f(g(x))</text>
+
+<!-- g(x) caja -->
+<rect x="30" y="40" width="100" height="80" rx="8" fill="#f97316" opacity="0.15" stroke="#f97316" stroke-width="2"/>
+<text x="80" y="75" text-anchor="middle" fill="#f97316" font-size="14" font-weight="bold">g(x)</text>
+<text x="80" y="95" text-anchor="middle" fill="#64748b" font-size="10">capa interior</text>
+<text x="80" y="110" text-anchor="middle" fill="#64748b" font-size="9">ej: 3x+1</text>
+
+<!-- flecha -->
+<line x1="135" y1="80" x2="195" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+<!-- f(u) caja -->
+<rect x="200" y="40" width="100" height="80" rx="8" fill="#2563eb" opacity="0.15" stroke="#2563eb" stroke-width="2"/>
+<text x="250" y="75" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">f(u)</text>
+<text x="250" y="95" text-anchor="middle" fill="#64748b" font-size="10">capa exterior</text>
+<text x="250" y="110" text-anchor="middle" fill="#64748b" font-size="9">ej: u⁵</text>
+
+<!-- flecha -->
+<line x1="305" y1="80" x2="365" y2="80" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowGray)"/>
+
+<!-- Resultado -->
+<rect x="370" y="40" width="110" height="80" rx="8" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="2"/>
+<text x="425" y="70" text-anchor="middle" fill="#10b981" font-size="12" font-weight="bold">f'(g(x))·g'(x)</text>
+<text x="425" y="90" text-anchor="middle" fill="#64748b" font-size="10">derivada total</text>
+<text x="425" y="110" text-anchor="middle" fill="#64748b" font-size="9">¡multiplica ambas!</text>
+
+<!-- Marcas de flecha -->
+<defs>
+<marker id="arrowGray" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker>
+</defs>
+
+<!-- Ejemplo numérico abajo -->
+<rect x="100" y="130" width="300" height="22" rx="4" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="250" y="145" text-anchor="middle" fill="#64748b" font-size="10">(3x+1)⁵ → g=3x+1, f=u⁵ → f'=5u⁴·3 = 15(3x+1)⁴</text>
+</svg>
+</div>
+
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Optimización de recursos</strong>
-<p>Una fábrica quiere maximizar sus beneficios. El beneficio depende de la cantidad producida: $B(x) = -x^2 + 20x - 50$. ¿Cuántas unidades debe producir?</p>
-<p>La respuesta está en derivar: $B'(x) = -2x + 20 = 0$ → $x = 10$ unidades.</p>
+<strong><span class="step-indicator">2</span>Paso 2: ¿PARA QUÉ sirven?</strong>
+Las reglas de derivación son esenciales para:
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>🏭 <strong>Optimización:</strong> Maximizar beneficios, minimizar costes</li>
+<li>🚀 <strong>Física:</strong> Calcular velocidad (derivada de posición) y aceleración</li>
+<li>📈 <strong>Economía:</strong> Derivada marginal = coste de producir una unidad más</li>
+<li>🏗️ <strong>Ingeniería:</strong> Tensiones, flujos de calor, circuitos eléctricos</li>
+</ul>
+</div>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">3</span>Paso 3: ¿CÓMO se aplican?</strong>
+El proceso sistemático:
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Identifica</strong> qué reglas necesitas (suma, producto, cadena...)</li>
+<li><strong>Descompón</strong> la función en partes simples</li>
+<li><strong>Aplica</strong> la regla correspondiente a cada parte</li>
+<li><strong>Simplifica</strong> el resultado final</li>
+</ol>
+</div>
+
+<div class="box box-error">
+<strong><span class="step-indicator">4</span>Paso 4: Error común</strong>
+⚠️ <strong>¡No confundir derivada de producto con producto de derivadas!</strong>
+<p style="margin-top:.5rem">$$(f \cdot g)' \neq f' \cdot g'$$</p>
+<p style="margin-top:.5rem">La regla correcta es: $$(f \cdot g)' = f'g + fg'$$</p>
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">💡 Ejemplo: si $f(x)=x^2$ y $g(x)=x^3$, entonces $(x^2 \cdot x^3)' = (x^5)' = 5x^4$, NO $2x \cdot 3x^2 = 6x^3$</p>
 </div>
 </div>
 
+<!-- CASO REAL -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Reglas Básicas de Derivación</h2>
+<h2 class="chapter-title">🌍 Caso real: Velocidad de un cohete</h2>
+<div class="box box-ejemplo">
+<strong>🚀 Un cohete sube y su altura es h(t) = 50t² + 20t metros</strong>
+<p>La velocidad es la derivada: $v(t) = h'(t) = 100t + 20$ m/s</p>
+<p>La aceleración es la derivada de la velocidad: $a(t) = v'(t) = 100$ m/s²</p>
+<p><strong>Pregunta interactiva:</strong> ¿Cuál es la velocidad a los 3 segundos?</p>
+<div class="interactive" style="margin-top:1rem">
+<h3>Calcula v(3):</h3>
+<div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+<input type="number" id="coheteInput" placeholder="v(3) = ?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:6px;font-size:1rem;width:120px">
+<button onclick="checkCohete()">Comprobar</button>
+</div>
+<div class="result" id="coheteResult"></div>
+</div>
+</div>
+</div>
+
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📚 ¿Dónde encontrarás derivadas otra vez?</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Sesión 2 (Continuidad):</strong> Las derivadas solo existen si la función es continua</li>
+<li><strong>Sesión 4 (Aplicaciones):</strong> Máximos, mínimos, crecimiento y decrecimiento</li>
+<li><strong>Sesión 5 (Integrales):</strong> Las integrales son la inversa de las derivadas (Teorema Fundamental)</li>
+<li><strong>Sesión 6 (Integrales definidas):</strong> Calcular áreas bajo curvas con primitivas</li>
+<li><strong>Física:</strong> Velocidad = derivada de posición, aceleración = derivada de velocidad</li>
+<li><strong>Economía:</strong> Derivada marginal = coste/beneficio de una unidad adicional</li>
+</ul>
+</div>
+</div>
+
+<!-- GRÁFICO: Regla de la potencia -->
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Reglas Básicas de Derivación</h2>
 
 <div class="box box-teoria">
 <strong>📌 Reglas fundamentales:</strong>
@@ -136,8 +268,9 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- REGLA DE LA CADENA -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Regla de la Cadena</h2>
+<h2 class="chapter-title">3️⃣ Regla de la Cadena</h2>
 <p>La regla de la cadena es la más importante. Se usa cuando una función está "dentro" de otra.</p>
 
 <div class="box box-teoria">
@@ -148,16 +281,17 @@ $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$
 </div>
 
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo:</strong>
+<strong>💡 Ejemplo paso a paso:</strong>
 <p style="margin-top:.5rem">Derivar $f(x) = (3x + 1)^5$</p>
-<p style="margin-top:.5rem">Identificamos: $f(u) = u^5$ donde $u = 3x + 1$</p>
-<p style="margin-top:.5rem">$f'(u) = 5u^4$ y $u' = 3$</p>
-<p style="margin-top:.5rem">$$f'(x) = 5(3x+1)^4 \cdot 3 = 15(3x+1)^4$$</p>
+<p style="margin-top:.5rem">Paso 1: Identificamos $f(u) = u^5$ donde $u = 3x + 1$</p>
+<p style="margin-top:.5rem">Paso 2: $f'(u) = 5u^4$ y $u' = 3$</p>
+<p style="margin-top:.5rem">Paso 3: $f'(x) = 5(3x+1)^4 \cdot 3 = 15(3x+1)^4$</p>
 </div>
 </div>
 
+<!-- DERIVADAS ESPECIALES -->
 <div class="chapter">
-<h2 class="chapter-title">3️⃣ Derivadas de Funciones Especiales</h2>
+<h2 class="chapter-title">4️⃣ Derivadas de Funciones Especiales</h2>
 
 <div class="box box-teoria">
 <strong>📌 Derivadas que debes saber:</strong>
@@ -165,7 +299,7 @@ $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$
 <li>$\frac{d}{dx}[\sin(x)] = \cos(x)$</li>
 <li>$\frac{d}{dx}[\cos(x)] = -\sin(x)$</li>
 <li>$\frac{d}{dx}[e^x] = e^x$ (¡la única función que es su propia derivada!)</li>
-<li>$\frac{d}{dx}[\ln(x)] = \frac$\{1\}${x}$</li>
+<li>$\frac{d}{dx}[\ln(x)] = \frac{1}{x}$</li>
 <li>$\frac{d}{dx}[a^x] = a^x \ln(a)$</li>
 </ul>
 </div>
@@ -178,11 +312,16 @@ $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$
 </div>
 </div>
 
+<!-- EJERCICIOS VARIADOS -->
 <div class="chapter">
-<h2 class="chapter-title">4️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">5️⃣ Ejercicios Interactivos</h2>
 
+<div class="exercises">
+
+<!-- Tipo 1: Input numérico (ya existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Deriva $f(x) = 3x^2 + 2x - 5$</p>
+<p><strong>Ejercicio 1</strong> <span class="difficulty-badge facil">Fácil</span> — Derivar polinomio</p>
+<p>Deriva $f(x) = 3x^2 + 2x - 5$</p>
 <p style="font-size:.85rem;color:#64748b">Aplica la regla de la potencia a cada término.</p>
 <div class="exercise-input">
 <input type="text" id="e1" placeholder="f'(x) = " style="width:200px">
@@ -191,43 +330,91 @@ $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$$
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Tipo 2: V/F -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> Deriva $f(x) = (2x + 3)^4$ usando la regla de la cadena.</p>
-<p style="font-size:.85rem;color:#64748b">$f'(x) = 4(2x+3)^3 \cdot 2 = ?$</p>
-<div class="exercise-input">
-<input type="text" id="e2" placeholder="f'(x) = " style="width:200px">
-<button onclick="checkE2()">Comprobar</button>
+<p><strong>Ejercicio 2</strong> <span class="difficulty-badge facil">Fácil</span> — Verdadero o Falso</p>
+<p>La derivada de $f(x) = 5x^3 - 2x$ es $f'(x) = 15x^2 - 2$.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
-<div class="feedback" id="e2-fb"></div>
+<div class="feedback" id="e2-fb" style="margin-top:.5rem"></div>
 </div>
 
+<!-- Tipo 3: Completar hueco -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> ¿Cuál es la derivada de $e^x$?</p>
-<div class="exercise-input">
-<input type="text" id="e3" placeholder="f'(x) = " style="width:200px">
-<button onclick="checkE3()">Comprobar</button>
+<p><strong>Ejercicio 3</strong> <span class="difficulty-badge medio">Medio</span> — Completar hueco</p>
+<p>Si $f(x) = x^4$, entonces $f'(x) = $ ____ $x^3$</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkCompletar(this, true)">4</button>
+<button class="quiz-btn" onclick="checkCompletar(this, false)">3</button>
+<button class="quiz-btn" onclick="checkCompletar(this, false)">x</button>
 </div>
-<div class="feedback" id="e3-fb"></div>
+<div class="feedback" id="e3-fb" style="margin-top:.5rem"></div>
+</div>
+
+<!-- Tipo 4: Input con cadena -->
+<div class="exercise">
+<p><strong>Ejercicio 4</strong> <span class="difficulty-badge medio">Medio</span> — Regla de la cadena</p>
+<p>Deriva $f(x) = (2x + 3)^4$ usando la regla de la cadena.</p>
+<p style="font-size:.85rem;color:#64748b">$f'(x) = 4(2x+3)^3 \cdot 2 = $ ____</p>
+<div class="exercise-input">
+<input type="text" id="e4" placeholder="f'(x) = " style="width:200px">
+<button onclick="checkE4()">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Tipo 5: Ordenar -->
+<div class="exercise">
+<p><strong>Ejercicio 5</strong> <span class="difficulty-badge dificil">Difícil</span> — Ordenar pasos de la regla de la cadena</p>
+<p>Ordena los pasos para derivar $f(x) = \sin(3x^2)$:</p>
+<div style="margin:.8rem 0">
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Arrastra o selecciona en orden:</p>
+<div class="quiz-options" id="ordenar-container">
+<button class="quiz-btn" onclick="checkOrdenar(this, 1)" id="paso1">Identificar u = 3x²</button>
+<button class="quiz-btn" onclick="checkOrdenar(this, 2)" id="paso2">Derivar f(u) = sen(u) → cos(u)</button>
+<button class="quiz-btn" onclick="checkOrdenar(this, 3)" id="paso3">Multiplicar: cos(3x²) · 6x</button>
+</div>
+<div class="feedback" id="e5-fb" style="margin-top:.5rem"></div>
 </div>
 </div>
 
+<!-- Tipo 6: Quiz botón -->
+<div class="exercise">
+<p><strong>Ejercicio 6</strong> <span class="difficulty-badge dificil">Difícil</span> — Quiz: derivada de eˣˣ</p>
+<p>¿Cuál es la derivada de $f(x) = e^{x^2}$?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizFinal(this, true)">$2xe^{x^2}$</button>
+<button class="quiz-btn" onclick="checkQuizFinal(this, false)">$e^{x^2}$</button>
+<button class="quiz-btn" onclick="checkQuizFinal(this, false)">$xe^{x^2}$</button>
+<button class="quiz-btn" onclick="checkQuizFinal(this, false)">$2x^2e^{x^2}$</button>
+</div>
+<div class="feedback" id="e6-fb" style="margin-top:.5rem"></div>
+</div>
+
+</div>
+</div>
+
+<!-- RESUMEN -->
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
 <li>Potencia: $\frac{d}{dx}[x^n] = nx^{n-1}$</li>
 <li>Suma: derivar cada término por separado</li>
-<li>Producto: $(fg)' = f'g + fg'$</li>
+<li>Producto: $(fg)' = f'g + fg'$ — ¡NO $f' \cdot g'$!</li>
 <li>Cociente: $\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}$</li>
 <li>Regla de la cadena: $\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)$</li>
 <li>$\frac{d}{dx}[e^x] = e^x$ — ¡la única función que es su propia derivada!</li>
 <li>$\frac{d}{dx}[\sin(x)] = \cos(x)$ y $\frac{d}{dx}[\cos(x)] = -\sin(x)$</li>
-<li>$\frac{d}{dx}[\ln(x)] = \frac$\{1\}${x}$</li>
+<li>$\frac{d}{dx}[\ln(x)] = \frac{1}{x}$</li>
+<li>Proceso: identificar → descomponer → aplicar → simplificar</li>
 </ul>
 </div>
 
 <div class="nav">
 <a href="s09-2-bachiller-continuidad-derivadas.html">← Anterior</a>
-  <a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s09-4-bachiller-aplicaciones-derivadas.html">Siguiente →</a>
 </div>
 </div>
@@ -255,24 +442,103 @@ function checkE1() {
   const fb = document.getElementById('e1-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v === '6x+2' || v === '6x + 2' || v === '2+6x') { fb.textContent = '¡Correcto! f'(x) = 6x + 2 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. Usando la regla de la potencia: f'(x) = 6x + 2'; fb.className = 'feedback incorrect'; }
+  if (v === '6x+2' || v === '6x + 2' || v === '2+6x') { fb.textContent = '¡Correcto! f\'(x) = 6x + 2 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Usando la regla de la potencia: f\'(x) = 6x + 2'; fb.className = 'feedback incorrect'; }
 }
-function checkE2() {
-  const input = document.getElementById('e2');
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   const fb = document.getElementById('e2-fb');
-  if (!input || !fb) return;
-  const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v.includes('8') && v.includes('2x+3') && v.includes('3')) { fb.textContent = '¡Correcto! f'(x) = 8(2x+3)³ 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. Regla de la cadena: f'(x) = 8(2x+3)³'; fb.className = 'feedback incorrect'; }
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! d/dx(5x³) = 15x² y d/dx(-2x) = -2';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ ¡Falso! La derivada de -2x es -2, no -2x. f\'(x) = 15x² - 2';
+    fb.className = 'feedback incorrect';
+  }
 }
-function checkE3() {
-  const input = document.getElementById('e3');
+
+function checkCompletar(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   const fb = document.getElementById('e3-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Por la regla de la potencia: d/dx[x⁴] = 4x³';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ La respuesta es 4. Regla de la potencia: bajas el exponente y restas 1.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE4() {
+  const input = document.getElementById('e4');
+  const fb = document.getElementById('e4-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v === 'e^x' || v === 'ex' || v === 'eˣ') { fb.textContent = '¡Correcto! La derivada de eˣ es eˣ 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. d/dx(eˣ) = eˣ (una de las propiedades más elegantes)'; fb.className = 'feedback incorrect'; }
+  if (v.includes('8') && v.includes('2x+3') && v.includes('3')) { fb.textContent = '¡Correcto! f\'(x) = 8(2x+3)³ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Regla de la cadena: f\'(x) = 8(2x+3)³'; fb.className = 'feedback incorrect'; }
+}
+
+// Ordenar pasos
+let ordenarSteps = [];
+function checkOrdenar(btn, step) {
+  if (btn.disabled) return;
+  ordenarSteps.push(step);
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  btn.style.pointerEvents = 'none';
+
+  if (ordenarSteps.length === 3) {
+    const fb = document.getElementById('e5-fb');
+    if (ordenarSteps.join(',') === '1,2,3') {
+      fb.textContent = '✅ ¡Correcto! Primero identificas la función interior, luego derivas la exterior, y multiplicas.';
+      fb.className = 'feedback correct';
+    } else {
+      fb.textContent = '❌ El orden correcto es: 1) Identificar u=3x² → 2) Derivar sen(u)→cos(u) → 3) Multiplicar por derivada de u.';
+      fb.className = 'feedback incorrect';
+    }
+    ordenarSteps = [];
+    // Reset buttons
+    document.querySelectorAll('#ordenar-container .quiz-btn').forEach(b => {
+      b.disabled = false;
+      b.style.opacity = '1';
+      b.style.pointerEvents = 'auto';
+    });
+  }
+}
+
+function checkQuizFinal(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e6-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Regla de la cadena: f(u)=eᵘ donde u=x² → f\'=eˣ² · 2x = 2xeˣ²';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ La respuesta es 2xeˣ². Regla de la cadena: derivada de eᵘ = eᵘ · u\' donde u=x², u\'=2x';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkCohete() {
+  const input = document.getElementById('coheteInput');
+  const result = document.getElementById('coheteResult');
+  const v = parseInt(input.value);
+  if(v === 320) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! v(3) = 100(3) + 20 = 320 m/s. ¡El cohete va a 1152 km/h!';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Recuerda: v(3) = 100(3) + 20 = 300 + 20 = 320 m/s.';
+  }
 }
 
 function setPotencia(n) {
