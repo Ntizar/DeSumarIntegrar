@@ -63,11 +63,42 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+/* Quiz styles */
+.quiz-options{display:flex;flex-direction:column;gap:.5rem;margin:.8rem 0}
+.quiz-btn{background:#f1f5f9;border:2px solid #e2e8f0;padding:.6rem 1rem;border-radius:8px;cursor:pointer;font-size:.95rem;text-align:left;transition:all .2s}
+.quiz-btn:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-btn.selected{border-color:var(--azul);background:var(--azul-claro);box-shadow:0 0 0 2px rgba(37,99,235,.2)}
+.quiz-btn.correct-answer{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.quiz-btn.wrong-answer{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
+/* Exercises section */
+.exercises{margin:1rem 0}
+/* SVG interactive */
+.svg-interactive{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0;text-align:center}
+.svg-interactive svg{max-width:100%;height:auto}
+.svg-interactive .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
+/* Matching exercise */
+.match-container{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.match-column{display:flex;flex-direction:column;gap:.5rem}
+.match-item{padding:.6rem 1rem;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .2s;background:#fff;min-width:140px;text-align:center}
+.match-item:hover{border-color:var(--azul);background:var(--azul-claro)}
+.match-item.selected{border-color:var(--azul);background:var(--azul-claro);box-shadow:0 0 0 2px rgba(37,99,235,.2)}
+.match-item.matched{border-color:var(--verde);background:var(--verde-claro);pointer-events:none}
+.match-item.wrong{border-color:var(--rojo);background:var(--rojo-claro);animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+/* VF exercise */
+.vf-options{display:flex;gap:.5rem;margin:.8rem 0}
+.vf-btn{padding:.5rem 1.5rem;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-weight:600;font-size:.95rem;background:#fff;transition:all .2s}
+.vf-btn:hover{border-color:var(--azul)}
+.vf-btn.selected-true{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.vf-btn.selected-false{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
+/* Interactive SVG */
+.interactive{background:var(--azul-claro);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid #dbeafe}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
+  .match-container{flex-direction:column;align-items:center}
 }
 </style>
 </head>
@@ -100,66 +131,193 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="box box-ejemplo">
 <strong>💡 Caso real: Distancia recorrida</strong>
 <p>Si graficas la velocidad $v(t)$ en función del tiempo, el área bajo la curva es la distancia recorrida.</p>
-<p>Si la velocidad es constante $v = 60$ km/h durante 2 horas: Área = $60 \times 2 = 120$ km.</p>
+<p>Si la velocidad es constante $v = 60$ km/h durante 2 horas: Área = $60 \\times 2 = 120$ km.</p>
 <p>Si la velocidad varía: el área bajo la curva $v(t)$ sigue siendo la distancia total.</p>
+</div>
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>💡 Caso real: Energía eléctrica</strong>
+<p>La energía consumida por un electrodoméstico se calcula integrando la potencia en el tiempo: $E = \\int P(t)\\,dt$. Si tu lavadora consume $P(t) = 2t$ kW durante 3 horas, la energía total es $\\int_0^3 2t\\,dt = [t^2]_0^3 = 9$ kWh.</p>
 </div>
 </div>
 
 <div class="chapter">
 <h2 class="chapter-title">1️⃣ Teorema Fundamental del Cálculo</h2>
 
+<!-- Explicación estructurada 4 pasos -->
+<div class="box box-teoria">
+<strong>📖 El Teorema Fundamental del Cálculo en 4 pasos:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>¿Qué es?</strong> Conecta dos conceptos que parecían distintos: derivadas (tasa de cambio) e integrales (acumulación). Dice que integrar una función y luego derivar el resultado te devuelve la función original.</li>
+<li><strong>¿Para qué sirve?</strong> Para calcular áreas bajo curvas sin usar límites de sumas. En vez de aproximar con rectángulos, encuentras la antiderivada y evalúas en los extremos.</li>
+<li><strong>¿Cómo se hace?</strong> 1) Encuentra la antiderivada $F(x)$ de $f(x)$. 2) Evalúa $F(b)$. 3) Evalúa $F(a)$. 4) Resta: $F(b) - F(a)$.</li>
+<li><strong>Error común:</strong> Confundir integral definida con indefinida. La definida $\\int_a^b f(x)\\,dx$ es un NÚMERO (área). La indefinida $\\int f(x)\\,dx$ es una FUNCIÓN ($+C$).</li>
+</ol>
+</div>
+
 <div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
-$$\int_a^b f(x)\,dx = F(b) - F(a)$$
+$$\\int_a^b f(x)\\,dx = F(b) - F(a)$$
 </div>
 
 <p>Donde $F$ es una antiderivada de $f$ (es decir, $F'(x) = f(x)$).</p>
 
 <div class="box box-ejemplo">
-<strong>💡 Ejemplo:</strong>
-<p style="margin-top:.5rem">Calcular $\int_0^2 x^2\,dx$</p>
-<p style="margin-top:.5rem">Antiderivada: $F(x) = \frac{x^3}$\{3\}$$</p>
-<p style="margin-top:.5rem">$$\int_0^2 x^2\,dx = F(2) - F(0) = \frac$\{8\}$$\{3\}$ - 0 = \mathbf{\frac$\{8\}$$\{3\}$}$$</p>
+<strong>💡 Ejemplo paso a paso:</strong>
+<p style="margin-top:.5rem">Calcular $\\int_0^2 x^2\\,dx$</p>
+<p style="margin-top:.5rem">Paso 1: Antiderivada → $F(x) = \\frac{x^3}{3}$</p>
+<p style="margin-top:.5rem">Paso 2: Evaluar extremos → $F(2) = \\frac{8}{3}$, $F(0) = 0$</p>
+<p style="margin-top:.5rem">Paso 3: Restar → $\\frac{8}{3} - 0 = \\mathbf{\\frac{8}{3}}$</p>
 </div>
 
-<!-- GRÁFICO: Área bajo la curva -->
-<div class="chart-container">
-<h3>📊 El área bajo $f(x) = x^2$ de 0 a 2 es 8/3</h3>
-<p class="chart-desc">Observa el área sombreada bajo la curva. ¡Esa área es exactamente la integral definida!</p>
-<div id="plot-area" class="chart-plot"></div>
+<!-- Visual SVG: Integral definida como área -->
+<div class="svg-interactive">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📊 El área bajo $f(x)=x^2$ de 0 a 2</h3>
+<svg viewBox="0 0 500 300" width="500" height="300">
+<!-- Grid -->
+<defs>
+<pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+<path d="M 25 0 L 0 0 0 25" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+</pattern>
+</defs>
+<rect x="50" y="20" width="400" height="240" fill="url(#grid)"/>
+
+<!-- Axes -->
+<line x1="50" y1="260" x2="450" y2="260" stroke="#334155" stroke-width="2"/>
+<line x1="50" y1="260" x2="50" y2="20" stroke="#334155" stroke-width="2"/>
+<text x="460" y="265" fill="#334155" font-size="12" font-weight="bold">x</text>
+<text x="30" y="30" fill="#334155" font-size="12" font-weight="bold">f(x)</text>
+
+<!-- Area fill under curve -->
+<path d="M 50,260 L 50,260 Q 150,220 250,160 T 450,20 L 450,260 Z" fill="#eff6ff" stroke="none" opacity="0.6"/>
+<path d="M 50,260 L 50,260 Q 150,220 250,160 T 450,20" fill="none" stroke="#2563eb" stroke-width="3"/>
+
+<!-- Limits markers -->
+<line x1="50" y1="260" x2="50" y2="270" stroke="#ef4444" stroke-width="2"/>
+<text x="45" y="285" text-anchor="middle" fill="#ef4444" font-weight="bold" font-size="12">a=0</text>
+<line x1="450" y1="260" x2="450" y2="270" stroke="#ef4444" stroke-width="2"/>
+<text x="455" y="285" text-anchor="middle" fill="#ef4444" font-weight="bold" font-size="12">b=2</text>
+
+<!-- Arrow showing area -->
+<text x="250" y="180" text-anchor="middle" fill="#2563eb" font-weight="bold" font-size="14">Área = 8/3 ≈ 2.67</text>
+
+<!-- Tick marks -->
+<text x="150" y="280" text-anchor="middle" fill="#64748b" font-size="10">0.5</text>
+<text x="250" y="280" text-anchor="middle" fill="#64748b" font-size="10">1.0</text>
+<text x="350" y="280" text-anchor="middle" fill="#64748b" font-size="10">1.5</text>
+</svg>
+<p class="svg-caption">📐 El área sombreada bajo $f(x)=x^2$ de $x=0$ a $x=2$ es exactamente $8/3$</p>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">2️⃣ Pasos para calcular una integral definida</h2>
 
+<div class="box box-teoria">
+<strong>📌 Algoritmo paso a paso:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Encuentra la antiderivada</strong> $F(x)$ usando las reglas de integración</li>
+<li><strong>Evalúa</strong> $F$ en el límite superior: $F(b)$</li>
+<li><strong>Evalúa</strong> $F$ en el límite inferior: $F(a)$</li>
+<li><strong>Resta:</strong> $\\int_a^b f(x)\\,dx = F(b) - F(a)$</li>
+</ol>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
+
+<!-- Ejercicio 1: Input numérico — Fácil -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Calcula $\int_0^3 2x\,dx$</p>
+<p><strong>Ejercicio 1:</strong> Calcula $\\int_0^3 2x\\,dx$</p>
+<p style="font-size:.85rem;color:#64748b">Pista: La antiderivada de $2x$ es $x^2$</p>
 <div class="exercise-input">
-<input type="number" id="e1" placeholder="?" step="any">
+<input type="number" id="e1" placeholder="Resultado" step="any">
 <button onclick="checkExercise(1, 9)">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Ejercicio 2: Completar hueco — Antiderivada de 1/x — Fácil -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> Calcula $\int_1^4 \frac$\{1\}${x}\,dx$</p>
-<p style="font-size:.85rem;color:#64748b">La antiderivada es $\ln|x|$</p>
+<p><strong>Ejercicio 2:</strong> ¿Cuál es la antiderivada de $\\frac{1}{x}$?</p>
 <div class="exercise-input">
-<input type="text" id="e2" placeholder="ln(?) = ?" style="width:200px">
+<input type="text" id="e2" placeholder="F(x) = " style="width:200px">
 <button onclick="checkE2()">Comprobar</button>
 </div>
 <div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- Ejercicio 3: V/F — Teorema Fundamental — Medio -->
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> Verdadero o Falso: Si $F(x)$ es una antiderivada de $f(x)$, entonces $\\int_1^5 f(x)\\,dx = F(5) - F(1)$</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF3(this, true)">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF3(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Quiz botones — Área negativa — Medio -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Si la función $f(x)$ está por debajo del eje x en el intervalo $[a,b]$, ¿qué signo tiene la integral definida $\\int_a^b f(x)\\,dx$?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz4(this, true)">A) Negativo — el área está bajo el eje</button>
+<button class="quiz-btn" onclick="checkQuiz4(this, false)">B) Positivo — las áreas siempre son positivas</button>
+<button class="quiz-btn" onclick="checkQuiz4(this, false)">C) Cero — se cancelan</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Problema contextual — Energía — Medio -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> Un coche acelera de forma que su velocidad es $v(t) = 3t^2$ m/s. ¿Qué distancia recorre entre $t = 0$ y $t = 4$ segundos?</p>
+<div class="exercise-input">
+<input type="number" id="e5" placeholder="Distancia (m)" step="any">
+<button onclick="checkE5()">Comprobar</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Emparejar — Teorema Fundamental — Medio -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Empareja cada integral definida con su resultado:</p>
+<div class="match-container">
+<div class="match-column" id="match-left">
+<div class="match-item" data-pair="a" data-side="left" onclick="selectMatch(this)">∫₀² 3x² dx</div>
+<div class="match-item" data-pair="b" data-side="left" onclick="selectMatch(this)">∫₀^π sin(x) dx</div>
+<div class="match-item" data-pair="c" data-side="left" onclick="selectMatch(this)">∫₁ᵉ (1/x) dx</div>
+</div>
+<div class="match-column" id="match-right">
+<div class="match-item" data-pair="b" data-side="right" onclick="selectMatch(this)">2</div>
+<div class="match-item" data-pair="c" data-side="right" onclick="selectMatch(this)">1</div>
+<div class="match-item" data-pair="a" data-side="right" onclick="selectMatch(this)">8</div>
+</div>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Caja error común -->
+<div class="box box-error">
+<strong>⚠️ Error común: Olvidar restar F(a)</strong>
+<p>Muchos estudiantes calculan $F(b)$ y se detienen. ¡Recuerda! La integral definida es $F(b) - F(a)$, NO solo $F(b)$. Si olvidas restar $F(a)$, tu respuesta será incorrecta. Ejemplo: $\\int_1^2 2x\\,dx = [x^2]_1^2 = 4 - 1 = 3$ (no 4).</p>
+</div>
+
+<!-- Caja conexión -->
+<div class="box box-idea">
+<strong>🔗 Conexión con temas anteriores</strong>
+<p>Las integrales <strong>definidas</strong> usan las mismas antiderivadas que aprendiste en la sesión anterior (s09-5: integrales indefinidas). La diferencia clave: la indefinida da una función ($+C$), la definida da un <strong>número</strong> (el área). Además, el <strong>Teorema Fundamental del Cálculo</strong> es el puente que conecta ambos conceptos: sin él, tendríamos que calcular áreas con sumas de rectángulos infinitesimales.</p>
 </div>
 </div>
 
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li>El Teorema Fundamental del Cálculo conecta derivadas e integrales</li>
-<li>$\int_a^b f(x)\,dx = F(b) - F(a)$</li>
+<li>El Teorema Fundamental del Cálculo: $\\int_a^b f(x)\\,dx = F(b) - F(a)$</li>
 <li>La integral definida es un número (el área bajo la curva)</li>
-<li>La integral indefinida es una función (más la constante $C$)</li>
-<li>Aplicaciones: distancia, trabajo, probabilidad, volumen</li>
+<li>Pasos: encontrar antiderivada → evaluar en extremos → restar</li>
+<li>Si $f(x)$ está bajo el eje x, la integral es negativa</li>
+<li>Aplicaciones: distancia (velocidad), energía (potencia), coste total</li>
+<li>Diferencia clave: definida = número, indefinida = función + C</li>
+<li>¡Nunca olvides restar $F(a)$!</li>
 </ul>
 </div>
 
@@ -187,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+});
 
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);
@@ -202,11 +361,109 @@ function checkE2() {
   const input = document.getElementById('e2');
   const fb = document.getElementById('e2-fb');
   if (!input || !fb) return;
-  const v = input.value.replace(/\s/g, '').toLowerCase();
+  const v = input.value.replace(/\\s/g, '').toLowerCase();
   if (v.includes('ln') && (v.includes('|x|') || v.includes('x') || v.includes('abs'))) { fb.textContent = '¡Correcto! ∫(1/x)dx = ln|x| + C 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. ∫(1/x)dx = ln|x| + C'; fb.className = 'feedback incorrect'; }
 }
-});
+
+function checkVF3(btn, isCorrect) {
+  const fb = document.getElementById('e3-fb');
+  document.querySelectorAll('.vf-btn').forEach(b => {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (isCorrect) {
+    btn.classList.add('selected-true');
+    fb.textContent = '¡Correcto! Así es exactamente el Teorema Fundamental del Cálculo 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('selected-false');
+    fb.textContent = 'Incorrecto. Es VERDADERO. Ese es el enunciado del Teorema Fundamental del Cálculo.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkQuiz4(btn, isCorrect) {
+  const fb = document.getElementById('e4-fb');
+  document.querySelectorAll('.quiz-btn').forEach(b => {
+    b.classList.remove('correct-answer', 'wrong-answer', 'selected');
+  });
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    fb.textContent = '¡Correcto! Cuando la función está bajo el eje x, la integral es negativa porque estás "restando" área 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong-answer');
+    fb.textContent = 'Incorrecto. La respuesta es A: si f(x) < 0, la integral es negativa. Estás acumulando valores negativos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE5() {
+  const input = document.getElementById('e5');
+  const fb = document.getElementById('e5-fb');
+  if (!input || !fb) return;
+  const v = parseFloat(input.value);
+  // ∫₀⁴ 3t² dt = [t³]₀⁴ = 64 - 0 = 64
+  if (Math.abs(v - 64) < 0.01) {
+    fb.textContent = '¡Correcto! ∫₀⁴ 3t² dt = [t³]₀⁴ = 64 - 0 = 64 m 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. ∫₀⁴ 3t² dt = [t³]₀⁴ = 4³ - 0³ = 64 m';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Matching exercise
+let selectedLeft = null;
+let selectedRight = null;
+let matchCount = 0;
+
+function selectMatch(el) {
+  if (el.classList.contains('matched')) return;
+
+  const side = el.dataset.side;
+  if (side === 'left') {
+    if (selectedLeft) selectedLeft.classList.remove('selected');
+    selectedLeft = el;
+    el.classList.add('selected');
+  } else {
+    if (selectedRight) selectedRight.classList.remove('selected');
+    selectedRight = el;
+    el.classList.add('selected');
+  }
+
+  if (selectedLeft && selectedRight) {
+    const leftPair = selectedLeft.dataset.pair;
+    const rightPair = selectedRight.dataset.pair;
+    const fb = document.getElementById('e6-fb');
+
+    if (leftPair === rightPair) {
+      selectedLeft.classList.add('matched');
+      selectedRight.classList.add('matched');
+      selectedLeft.classList.remove('selected');
+      selectedRight.classList.remove('selected');
+      matchCount++;
+      if (matchCount === 3) {
+        fb.textContent = '¡Perfecto! ∫₀² 3x² dx = 8, ∫₀^π sin(x) dx = 2, ∫₁ᵉ (1/x) dx = 1 🎉';
+        fb.className = 'feedback correct';
+      } else {
+        fb.textContent = '¡Correcto! Sigue así (' + (3 - matchCount) + ' más)';
+        fb.className = 'feedback correct';
+      }
+    } else {
+      selectedLeft.classList.add('wrong');
+      selectedRight.classList.add('wrong');
+      fb.textContent = 'No coinciden. Inténtalo de nuevo.';
+      fb.className = 'feedback incorrect';
+      setTimeout(() => {
+        if (selectedLeft) { selectedLeft.classList.remove('wrong', 'selected'); }
+        if (selectedRight) { selectedRight.classList.remove('wrong', 'selected'); }
+      }, 800);
+    }
+    selectedLeft = null;
+    selectedRight = null;
+  }
+}
 </script>
 </body>
 </html>
