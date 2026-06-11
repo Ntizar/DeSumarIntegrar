@@ -1,7 +1,7 @@
 {
-  "last_improved": "s01-5-restar-hasta-10.html",
-  "last_run": "2026-06-10",
-  "total_runs": 38,
+  "last_improved": "eso2-1-ecuaciones-1grado.html",
+  "last_run": "2026-06-11",
+  "total_runs": 39,
   "topics": {
     "s01-1primaria.html": {
       "status": "improved_2",
@@ -478,38 +478,50 @@
       "improvement_count": 2
     },
     "s05-5primaria.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "5º Primaria",
       "priority": 2,
       "category": "primaria_5",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 mini-test interactivo (5 preguntas rotativas con explicaciones), +1 caja casos reales (supermercado, videojuegos, manualidades, tiempo), +CSS quiz-options/quiz-btn/result"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s06-6primaria.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_6",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 mini-test interactivo (5 preguntas rotativas con explicaciones), +1 caja casos reales (negativos temperatura/parking, potencias arroz, álgebra adivina número, figuras L), +CSS quiz-options/quiz-btn/result"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s06-10-repasos-primaria.html": {
       "status": "pending",
@@ -575,21 +587,27 @@
       "improvement_count": 1
     },
     "eso1-5-intro-algebra.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "ESO 1º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos para resolver ecuaciones, +1 caso real dinero ahorrado, +1 caja error común, +3 ejercicios nuevos (problema caramelos V/F, input numérico x-7=10), +1 punto resumen, +2 funciones JS nuevas (checkVF, checkInputEso1)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "eso1-7-estadistica-probabilidad.html": {
       "status": "pending",
@@ -609,21 +627,27 @@
       "improvement_count": 0
     },
     "eso2-1-ecuaciones-1grado.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 explicación 5 pasos ecuaciones con paréntesis, +1 caso real planes móviles SMS, +1 caja error común (distribución), +3 ejercicios nuevos (problema SMS V/F, input 3(x-1)=12), +1 punto resumen, +2 funciones JS nuevas (checkVF, checkInputEso2)"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "eso2-3-teorema-tales.html": {
       "status": "pending",
@@ -1711,21 +1735,27 @@
       "improvement_count": 0
     },
     "s09-bachiller.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 mini-test interactivo (5 preguntas rotativas con explicaciones), +1 caja casos reales (GPS, redes sociales, ingeniería, videojuegos), +CSS quiz-options/quiz-btn/result"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-1-bachiller-limites.html": {
       "status": "improved_1",
@@ -1904,21 +1934,27 @@
       "improvement_count": 0
     },
     "s10-1carrera.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 39,
+          "date": "2026-06-11",
+          "added": "+1 mini-test interactivo (5 preguntas rotativas con explicaciones), +1 caja casos reales (IA, satélites/GPS, medicina, finanzas), +CSS quiz-options/quiz-btn/result"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 2,
+        "visual": 1,
+        "real_world": 3,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s10-1-carrera-limites-multivariable.html": {
       "status": "pending",

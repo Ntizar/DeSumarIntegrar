@@ -90,13 +90,29 @@
     87|<strong>🔍 Ejemplo 2</strong>
     88|3x = 15 → x = 15 ÷ 3 = 5
     89|</div>
-    90|<div class="box box-ejemplo">
-    91|<strong>🔍 Ejemplo 3</strong>
-    92|2x + 3 = 11 → 2x = 8 → x = 4
-    93|</div>
-    94|</section>
-    95|<section class="chapter">
-    96|<h2 class="chapter-title">2️⃣ ¡Resuelve ecuaciones!</h2>
+2x + 3 = 11 → 2x = 8 → x = 4
+</div>
+
+<div class="box box-teoria" style="border-color:#10b981;background:var(--verde-claro)">
+<strong>📖 Los 4 pasos para resolver cualquier ecuación</strong>
+1️⃣ Identifica qué operationes hay con la x (suma, resta, multiplicación, división).<br>
+2️⃣ Haz lo contrario: si hay una suma, resta. Si hay multiplicación, divide.<br>
+3️⃣ Haz lo mismo en AMBOS lados de la igualdad.<br>
+4️⃣ Comprueba: sustituye x en la ecuación original. ¿Se cumple?
+</div>
+
+<div class="box box-success">
+<strong>🔗 Conexión con la vida real</strong>
+Imagina que ahorraste dinero: si añades 5€ a lo que tenías y ahora tienes 12€, ¿cuánto tenías antes? x + 5 = 12 → x = 7€. ¡Álgebra aplicada!
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Si ves x + 5 = 12, NO hagas x = 12 + 5. ¡Hay que RESTAR 5! x = 12 - 5 = 7. Siempre hacemos lo CONTRARIO.
+</div>
+
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Resuelve ecuaciones!</h2>
     97|<div class="interactive">
     98|<h3>Selecciona el valor de x:</h3>
     99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="eso1algDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso1algButtons"></div></div>
@@ -138,21 +154,49 @@
    135|<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
    136|</div>
    137|</div>
-   138|<div class="exercise">
-   139|<p>4x = 20, x = ?</p>
-   140|<div class="quiz-options">
-   141|<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-   142|<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
-   143|<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
-   144|</div>
-   145|</div>
-   146|
-   147|</div>
-   148|</section>
-   149|<div class="summary">
+<div class="exercise">
+<p>4x = 20, x = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>🍕 Problema: Ana tiene x caramelos. Si le doy 3 más, tendrá 11. ¿Cuántos tenía? (x + 3 = 11)</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>¿Verdadero o Falso? Si 5x = 25, entonces x = 5</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+
+<div class="exercise">
+<p>Completa: x - 7 = 10 → x = ?</p>
+<input type="number" id="eso1algInput" placeholder="?" style="padding:.5rem 1rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;width:80px;text-align:center">
+<button class="quiz-btn" onclick="checkInputEso1()" style="margin-left:.5rem">Comprobar</button>
+<div class="result" id="eso1algInputResult" style="display:inline-block;margin-left:.5rem"></div>
+</div>
+
+</div>
+</div>
+</section>
    150|<h3>📋 Resumen de lo aprendido</h3>
    151|<ul>
-   152|<li><li>Las letras son números desconocidos</li></li><li><li>Hacer lo contrario para resolver</li></li><li><li>¡Ya sabes álgebra! 🎉</li>
+   152|<li>Las letras son números desconocidos</li>
+<li>Hacer lo contrario para resolver</li>
+<li>Si hay suma, restamos. Si hay multiplicación, dividimos</li>
+<li>Comprueba siempre sustituyendo x en la ecuación original</li>
+<li>¡Ya sabes álgebra! 🎉</li>
    153|</ul>
    154|</div>
    155|<div class="nav">
@@ -197,7 +241,25 @@
    193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
    194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
    195|}
-   196|
+   196|function checkVF(btn, correct) {
+   197|  const parent = btn.parentElement;
+   198|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+   199|  if(correct) { btn.classList.add('correct'); btn.parentElement.parentElement.querySelector('p').textContent += ' ✅ ¡Correcto! 5x=25 → x=25÷5=5'; }
+   200|  else { btn.classList.add('wrong'); btn.parentElement.parentElement.querySelector('p').textContent += ' ❌ ¡Era verdadero! 5x=25 → x=25÷5=5'; }
+   201|}
+   202|function checkInputEso1() {
+   203|  const input = document.getElementById('eso1algInput');
+   204|  const result = document.getElementById('eso1algInputResult');
+   205|  const val = parseInt(input.value);
+   206|  if(val === 17) {
+   207|    result.className = 'result ok';
+   208|    result.textContent = '✅ ¡Correcto! x = 10 + 7 = 17';
+   209|  } else {
+   210|    result.className = 'result fail';
+   211|    result.textContent = '❌ x = 10 + 7 = 17. ¡Suma 7 a ambos lados!';
+   212|  }
+   213|}
+   214|
    197|window.onscroll = function(){
    198|  var h = document.documentElement;
    199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;

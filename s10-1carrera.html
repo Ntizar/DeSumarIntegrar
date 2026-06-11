@@ -35,6 +35,16 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:#6366f1;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:#e0e7ff;transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #6366f1;background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:#e0e7ff}
+.quiz-btn.correct{background:#6366f1;color:#fff;border-color:#6366f1}
+.quiz-btn.wrong{background:#ef4444;color:#fff;border-color:#ef4444}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:#e0e7ff;color:#3730a3}
+.result.fail{background:#fef2f2;color:#991b1b}
 @media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
 </style>
 </head>
@@ -139,6 +149,64 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <li>Transformaciones lineales: rotaciones, escalados, proyecciones</li>
 </ul>
 </div>
+
+<div class="intro-box" style="background:linear-gradient(135deg,#f0f0ff,#e0e7ff);border-left-color:#4f46e5">
+<h2 style="color:#4f46e5">🌍 ¿Dónde se usa el cálculo de carrera en la vida real?</h2>
+<p style="margin-top:.5rem"><strong>🤖 Inteligencia Artificial:</strong> El gradiente (∇f) es lo que permite que las redes neuronales aprendan. Cada vez que ChatGPT responde, está calculando derivadas parciales de millones de parámetros.</p>
+<p style="margin-top:.5rem"><strong>🛰️ Satélites y GPS:</strong> Las EDOs modelan la órbita de los satélites. Sin ecuaciones diferenciales, no habría GPS en tu móvil.</p>
+<p style="margin-top:.5rem"><strong>🏥 Medicina:</strong> Las transformaciones lineales se usan en resonancias magnéticas (transformada de Fourier). Los autovalores ayudan a detectar anomalías en imágenes médicas.</p>
+<p style="margin-top:.5rem"><strong>💰 Finanzas:</strong> Las integrales múltiples calculan riesgos en carteras de inversión. El cálculo estocástico (basado en EDOs) es la base de los mercados financieros.</p>
+</div>
+
+<div class="interactive" style="background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+<h3 style="color:#6366f1;margin-bottom:1rem;font-size:1.1rem">🧠 Mini-test: ¿Qué tanto sabes de universidad?</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem" id="carreraQuizQ">¿Qué representa el gradiente ∇f?</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="carreraQuizBtns"></div>
+</div>
+<div class="result" id="carreraQuizResult"></div>
+<p style="margin-top:1rem;font-size:.85rem;color:#64748b">Haz clic en la respuesta correcta. ¡No pasa nada si fallas!</p>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+<script>
+(function(){
+  const quizData = [
+    {q:"¿Qué representa el gradiente ∇f?", opts:["El área bajo la curva","El vector de máximo crecimiento","La integral doble","La derivada segunda"], correct:1, explain:"El gradiente apunta en la dirección donde f crece más rápido."},
+    {q:"¿Qué es una EDO?", opts:["Una ecuación con dos variables","Una ecuación que relaciona una función con sus derivadas","Un espacio vectorial","Una serie infinita"], correct:1, explain:"Las Ecuaciones Diferenciales Ordinarias relacionan una función con sus derivadas."},
+    {q:"¿Para qué sirven las series de Fourier?", opts:["Para derivar funciones","Para descomponer señales en senos y cosenos","Para calcular autovalores","Para resolver sistemas lineales"], correct:1, explain:"Fourier nos dice que cualquier señal periódica es suma de senos y cosenos."},
+    {q:"¿Qué es un autovalor?", opts:["El valor máximo de una función","Un escalar λ tal que Av = λv","La integral de una matriz","El determinante de un vector"], correct:1, explain:"Un autovalor λ cumple que al multiplicar la matriz A por v, el resultado es λ·v."},
+    {q:"¿Qué calcula una integral doble?", opts:["La derivada de una función","El volumen bajo una superficie","La probabilidad de un evento","El gradiente de un campo"], correct:1, explain:"La integral doble sobre una región calcula el volumen entre la superficie z=f(x,y) y el plano."}
+  ];
+  function showQuiz(){
+    const item = quizData[Math.floor(Math.random()*quizData.length)];
+    document.getElementById('carreraQuizQ').textContent = item.q;
+    const container = document.getElementById('carreraQuizBtns');
+    container.innerHTML = '';
+    item.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-btn';
+      btn.textContent = opt;
+      btn.onclick = function() {
+        container.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+        if(i === item.correct) {
+          this.classList.add('correct');
+          document.getElementById('carreraQuizResult').className = 'result ok';
+          document.getElementById('carreraQuizResult').textContent = '✅ ¡Correcto! ' + item.explain;
+        } else {
+          this.classList.add('wrong');
+          document.getElementById('carreraQuizResult').className = 'result fail';
+          document.getElementById('carreraQuizResult').textContent = '❌ No es esa. ' + item.explain;
+        }
+      };
+      container.appendChild(btn);
+    });
+    document.getElementById('carreraQuizResult').textContent = '';
+  }
+  showQuiz();
+})();
+</script>
 
 <div class="nav">
 <a href="s09-bachiller.html">← Bachillerato</a>

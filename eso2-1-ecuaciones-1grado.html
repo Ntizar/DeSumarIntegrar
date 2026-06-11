@@ -152,7 +152,11 @@
    149|<div class="summary">
    150|<h3>📋 Resumen de lo aprendido</h3>
    151|<ul>
-   152|<li><li>Distribuir paréntesis</li></li><li><li>Eliminar fracciones con mcm</li></li><li><li>Aislar x</li></li><li><li>¡Ya sabes ecuaciones! 🎉</li>
+   152|<li>Distribuir paréntesis: multiplica por TODO lo de dentro</li>
+<li>Eliminar fracciones multiplicando por el mcm</li>
+<li>Aislar x: pasa las x a un lado, números al otro</li>
+<li>Siempre comprueba sustituyendo x en la ecuación original</li>
+<li>¡Ya sabes ecuaciones! 🎉</li>
    153|</ul>
    154|</div>
    155|<div class="nav">
@@ -197,7 +201,25 @@
    193|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
    194|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
    195|}
-   196|
+   196|function checkVF(btn, correct) {
+   197|  const parent = btn.parentElement;
+   198|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+   199|  if(correct) { btn.classList.add('correct'); btn.parentElement.parentElement.querySelector('p').textContent += ' ✅ ¡Correcto! 2(x+3)=2x+6 es una identidad.'; }
+   200|  else { btn.classList.add('wrong'); btn.parentElement.parentElement.querySelector('p').textContent += ' ❌ ¡Era verdadero! 2(x+3)=2x+6 es una identidad (se cumple siempre).'; }
+   201|}
+   202|function checkInputEso2() {
+   203|  const input = document.getElementById('eso2eqInput');
+   204|  const result = document.getElementById('eso2eqInputResult');
+   205|  const val = parseInt(input.value);
+   206|  if(val === 5) {
+   207|    result.className = 'result ok';
+   208|    result.textContent = '✅ ¡Correcto! 3(x-1)=12 → x-1=4 → x=5';
+   209|  } else {
+   210|    result.className = 'result fail';
+   211|    result.textContent = '❌ 3(x-1)=12 → x-1=4 → x=5. ¡Divide entre 3 primero!';
+   212|  }
+   213|}
+   214|
    197|window.onscroll = function(){
    198|  var h = document.documentElement;
    199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;

@@ -34,8 +34,18 @@
     31|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
     32|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
     33|.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#10b981;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--verde-claro);transition:all .2s}
-    34|.back-link:hover{transform:translateX(-4px)}
-    35|@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
+.back-link:hover{transform:translateX(-4px)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:#10b981;margin-bottom:1rem;font-size:1.1rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #10b981;background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:#ecfdf5}
+.quiz-btn.correct{background:#10b981;color:#fff;border-color:#10b981}
+.quiz-btn.wrong{background:#ef4444;color:#fff;border-color:#ef4444}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:#ecfdf5;color:#065f46}
+.result.fail{background:#fef2f2;color:#991b1b}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
     36|</style>
     37|</head>
     38|<body>
@@ -124,19 +134,37 @@
    121|</a>
    122|</div>
    123|
-   124|<div class="summary">
-   125|<h3>📋 Resumen de lo que vas a aprender</h3>
-   126|<ul>
-   127|<li>Límites: qué pasa cuando algo crece sin parar o se acerca a un valor</li>
-   128|<li>Continuidad: funciones sin saltos ni agujeros</li>
-   129|<li>Derivadas: la tasa de cambio instantánea. f'(x) = lim [f(x+h) - f(x)] / h</li>
-   130|<li>Reglas de derivación: suma, producto, cociente y cadena</li>
-   131|<li>Aplicaciones: máximos, mínimos, crecimiento, concavidad</li>
-   132|<li>Integrales: el área bajo la curva. La operación inversa de derivar</li>
-   133|<li>Probabilidad: Bayes, distribuciones y combinaciones</li>
-   134|<li>Todo conectado: el cálculo es la herramienta más poderosa de las matemáticas</li>
-   135|</ul>
-   136|</div>
+<div class="summary">
+<h3>📋 Resumen de lo que vas a aprender</h3>
+<ul>
+<li>Límites: qué pasa cuando algo crece sin parar o se acerca a un valor</li>
+<li>Continuidad: funciones sin saltos ni agujeros</li>
+<li>Derivadas: la tasa de cambio instantánea. f'(x) = lim [f(x+h) - f(x)] / h</li>
+<li>Reglas de derivación: suma, producto, cociente y cadena</li>
+<li>Aplicaciones: máximos, mínimos, crecimiento, concavidad</li>
+<li>Integrales: el área bajo la curva. La operación inversa de derivar</li>
+<li>Probabilidad: Bayes, distribuciones y combinaciones</li>
+<li>Todo conectado: el cálculo es la herramienta más poderosa de las matemáticas</li>
+</ul>
+</div>
+
+<div class="intro-box" style="background:linear-gradient(135deg,#faf5ff,#eff6ff);border-left-color:#a855f7">
+<h2 style="color:#a855f7">🌍 ¿Dónde se usa el cálculo en la vida real?</h2>
+<p style="margin-top:.5rem"><strong>🚗 Derivadas en tu móvil:</strong> Cuando usas GPS y te calcula la ruta más rápida, el algoritmo usa derivadas para encontrar el camino óptimo (mínimo tiempo).</p>
+<p style="margin-top:.5rem"><strong>📱 Redes sociales:</strong> Cuando Instagram te recomienda qué ver, usa integrales para calcular probabilidades y límites para predecir tendencias.</p>
+<p style="margin-top:.5rem"><strong>🏗️ Ingeniería:</strong> Los puentes se diseñan usando derivadas para calcular dónde se ejerce más fuerza. Las integrales calculan el volumen de hormigón necesario.</p>
+<p style="margin-top:.5rem"><strong>🎮 Videojuegos:</strong> Los motores físicos usan derivadas para calcular trayectorias de proyectiles y colisiones en tiempo real.</p>
+</div>
+
+<div class="interactive" style="background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+<h3 style="color:#10b981;margin-bottom:1rem;font-size:1.1rem">🧠 Mini-test: ¿Cuánto sabes ya de cálculo?</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem" id="bachillerQuizQ">¿Qué mide una derivada?</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="bachillerQuizBtns"></div>
+</div>
+<div class="result" id="bachillerQuizResult"></div>
+<p style="margin-top:1rem;font-size:.85rem;color:#64748b">Haz clic en la respuesta correcta. ¡No pasa nada si fallas!</p>
+</div>
    137|
    138|<div class="nav">
    139|<a href="s08-2-3eso.html">← 2º-3º ESO</a>
@@ -145,5 +173,43 @@
    142|</div>
    143|
    144|<div class="footer">Hecho con ❤️ por David Antizar</div>
+<script>
+(function(){
+  const quizData = [
+    {q:"¿Qué mide una derivada?", opts:["El área bajo la curva","La tasa de cambio instantánea","El volumen de un sólido","La probabilidad"], correct:1, explain:"La derivada mide cómo cambia una función en un punto exacto."},
+    {q:"¿Qué representa una integral definida?", opts:["La pendiente de la recta","El área bajo la curva","La velocidad máxima","El punto de inflexión"], correct:1, explain:"La integral definida calcula el área entre la función y el eje X."},
+    {q:"Si f(x) = x², ¿cuál es f'(x)?", opts:["x","2x","2","x²"], correct:1, explain:"La derivada de xⁿ es n·xⁿ⁻¹, así que la de x² es 2x."},
+    {q:"¿Qué es un límite?", opts:["El valor máximo de una función","Lo que pasa cuando algo se acerca a un valor","La raíz de una ecuación","El área de un círculo"], correct:1, explain:"Un límite describe el comportamiento de una función cuando la variable se acerca a un valor."},
+    {q:"¿En qué se usa la probabilidad de Bayes?", opts:["En derivar funciones","En actualizar creencias con nueva información","En calcular integrales","En resolver ecuaciones"], correct:1, explain:"Bayes nos permite actualizar la probabilidad de algo cuando tenemos nueva evidencia."}
+  ];
+  let qi = 0;
+  function showQuiz(){
+    const item = quizData[qi % quizData.length];
+    document.getElementById('bachillerQuizQ').textContent = item.q;
+    const container = document.getElementById('bachillerQuizBtns');
+    container.innerHTML = '';
+    item.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-btn';
+      btn.textContent = opt;
+      btn.onclick = function() {
+        container.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+        if(i === item.correct) {
+          this.classList.add('correct');
+          document.getElementById('bachillerQuizResult').className = 'result ok';
+          document.getElementById('bachillerQuizResult').textContent = '✅ ¡Correcto! ' + item.explain;
+        } else {
+          this.classList.add('wrong');
+          document.getElementById('bachillerQuizResult').className = 'result fail';
+          document.getElementById('bachillerQuizResult').textContent = '❌ No es esa. ' + item.explain;
+        }
+      };
+      container.appendChild(btn);
+    });
+    document.getElementById('bachillerQuizResult').textContent = '';
+  }
+  showQuiz();
+})();
+</script>
    145|</body>
    146|</html>

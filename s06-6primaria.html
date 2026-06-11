@@ -32,6 +32,16 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--naranja);text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--naranja-claro);transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--naranja);margin-bottom:1rem;font-size:1.1rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--naranja);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--naranja-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
 @media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
 </style>
 </head>
@@ -111,6 +121,64 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <li>¡Ya estás preparado para la ESO!</li>
 </ul>
 </div>
+
+<div class="intro-box" style="background:linear-gradient(135deg,#fff7ed,#eff6ff);border-left-color:#ea580c">
+<h2 style="color:#ea580c">🚀 ¿Por qué 6º es tan importante?</h2>
+<p style="margin-top:.5rem"><strong>🔢 Números negativos:</strong> Cuando la temperatura baja de 0°C, cuando debes dinero, o cuando un ascensor baja al parking (-1, -2). ¡Los negativos están en todas partes!</p>
+<p style="margin-top:.5rem"><strong>⚡ Potencias:</strong> Un grano de arroz se duplica cada día. En 30 días cubre todo un campo. Eso es una potencia de 2: 2³⁰ = más de un billón.</p>
+<p style="margin-top:.5rem"><strong>🔤 Álgebra:</strong> Cuando juegas a "adivina el número" con un amigo, estás resolviendo ecuaciones algebraicas. x + 7 = 15 → x = 8.</p>
+<p style="margin-top:.5rem"><strong>📐 Figuras compuestas:</strong> Si tu habitación tiene forma de L, no puedes usar una sola fórmula. ¡Descompones en dos rectángulos y sumas!</p>
+</div>
+
+<div class="interactive" style="background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0">
+<h3 style="color:var(--naranja);margin-bottom:1rem;font-size:1.1rem">🧠 Mini-test: ¿Listo para la ESO?</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem" id="p6quizQ">Si x + 7 = 15, ¿cuánto vale x?</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="p6quizBtns"></div>
+</div>
+<div class="result" id="p6quizResult"></div>
+<p style="margin-top:1rem;font-size:.85rem;color:#64748b">¡Recuerda: hacer lo contrario! Haz clic en la respuesta.</p>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+<script>
+(function(){
+  const quizData = [
+    {q:"Si x + 7 = 15, ¿cuánto vale x?", opts:["8","22","7","15"], correct:0, explain:"x = 15 - 7 = 8. ¡Hacemos lo contrario: restamos 7!"},
+    {q:"¿Cuánto es 3⁴?", opts:["12","27","81","64"], correct:2, explain:"3⁴ = 3×3×3×3 = 81."},
+    {q:"¿Cuánto es -5 + (-3)?", opts:["-2","-8","2","8"], correct:1, explain:"Sumar negativos: -5 + (-3) = -8. ¡Ambos van hacia abajo!"},
+    {q:"Si un rectángulo tiene 12 cm² y la base es 4 cm, ¿cuánto mide la altura?", opts:["3 cm","8 cm","16 cm","48 cm"], correct:0, explain:"Área = base × altura → 12 = 4 × h → h = 3 cm."},
+    {q:"¿Cuánto es 2/3 + 1/6?", opts:["3/9","5/6","1/2","3/6"], correct:1, explain:"MCM(3,6) = 6. 2/3 = 4/6. Entonces 4/6 + 1/6 = 5/6."}
+  ];
+  function showQuiz(){
+    const item = quizData[Math.floor(Math.random()*quizData.length)];
+    document.getElementById('p6quizQ').textContent = item.q;
+    const container = document.getElementById('p6quizBtns');
+    container.innerHTML = '';
+    item.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-btn';
+      btn.textContent = opt;
+      btn.onclick = function() {
+        container.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+        if(i === item.correct) {
+          this.classList.add('correct');
+          document.getElementById('p6quizResult').className = 'result ok';
+          document.getElementById('p6quizResult').textContent = '✅ ¡Correcto! ' + item.explain;
+        } else {
+          this.classList.add('wrong');
+          document.getElementById('p6quizResult').className = 'result fail';
+          document.getElementById('p6quizResult').textContent = '❌ No es esa. ' + item.explain;
+        }
+      };
+      container.appendChild(btn);
+    });
+    document.getElementById('p6quizResult').textContent = '';
+  }
+  showQuiz();
+})();
+</script>
 
 <div class="nav">
 <a href="s05-5primaria.html">← 5º Primaria</a>
