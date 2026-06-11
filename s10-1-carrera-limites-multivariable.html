@@ -58,12 +58,30 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .exercise-input input:focus{outline:none;border-color:#6366f1}
 .exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
 .feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
-.feedback.correct{color:var(--verde)}
-.feedback.incorrect{color:var(--rojo)}
+.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block}
+.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #6366f1;background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:#e0e7ff}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -83,58 +101,171 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- EXPLICACIÓN 4 PASOS -->
 <div class="chapter">
-<h2 class="chapter-title">🎯 Objetivos</h2>
+<h2 class="chapter-title">📚 ¿Qué es un Límite Multivariable?</h2>
+
 <div class="box box-teoria">
-<strong>Al final de esta sesión serás capaz de:</strong>
-<ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Calcular límites de funciones de dos variables</li>
-<li>Entender por qué el límite debe ser el mismo en todas las trayectorias</li>
-<li>Determinar la continuidad de funciones de varias variables</li>
-</ul>
+<strong>📖 Paso 1 — Mira 👀</strong>
+Un límite multivariable $\lim_{(x,y)\to(a,b)} f(x,y)$ existe solo si $f(x,y)$ se acerca al <strong>mismo valor</strong> sin importar <em>cómo</em> te acerques a $(a,b)$: por la recta $y=x$, por la parábola $y=x^2$, por cualquier curva imaginable.
+</div>
+
+<div class="box box-ejemplo">
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+En una variable: solo hay dos direcciones (izquierda y derecha). En dos variables: hay <strong>infinitas direcciones</strong>. El límite existe SI Y SOLO SI todas las trayectorias convergen al mismo valor.
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+Para PROBAR que un límite NO existe: basta encontrar DOS trayectorias que den valores diferentes. Para PROBAR que SÍ existe: necesitas un argumento general (no puedes probar infinitas trayectorias).
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+Verificar que el límite es el mismo por $y=x$, $y=0$ y $y=x^2$ NO prueba que exista. Podría ser diferente por $y=\sin(1/x)$ o cualquier otra trayectoria. Probar que NO existe es fácil; probar que SÍ existe es difícil.
 </div>
 </div>
 
+<!-- SVG: Trayectorias visual -->
+<div class="chapter">
+<h2 class="chapter-title">🗺️ Visualización: Trayectorias hacia el origen</h2>
+<div class="svg-container">
+<h3 style="color:#6366f1;margin-bottom:.8rem">📏 ¿Por qué importa la trayectoria?</h3>
+<svg viewBox="0 0 700 300" width="100%" style="max-width:700px">
+<!-- Ejes -->
+<line x1="50" y1="250" x2="650" y2="250" stroke="#cbd5e1" stroke-width="1.5"/>
+<line x1="100" y1="30" x2="100" y2="270" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="650" y="270" fill="#64748b" font-size="12">x</text>
+<text x="80" y="30" fill="#64748b" font-size="12">y</text>
+<text x="105" y="265" fill="#64748b" font-size="11">(0,0)</text>
+
+<!-- Trayectoria 1: y = x (recta) -->
+<line x1="100" y1="250" x2="600" y2="50" stroke="#6366f1" stroke-width="3" stroke-dasharray="8,4"/>
+<text x="520" y="100" fill="#6366f1" font-size="12" font-weight="600">y = x → L = 1</text>
+
+<!-- Trayectoria 2: y = x² (parábola) -->
+<path d="M100,250 Q250,220 600,50" fill="none" stroke="#f97316" stroke-width="3" stroke-dasharray="8,4"/>
+<text x="420" y="160" fill="#f97316" font-size="12" font-weight="600">y = x² → L = 1</text>
+
+<!-- Trayectoria 3: y = 0 (eje x) -->
+<line x1="100" y1="250" x2="650" y2="250" stroke="#10b981" stroke-width="3" stroke-dasharray="8,4"/>
+<text x="500" y="245" fill="#10b981" font-size="12" font-weight="600">y = 0 → L = 0</text>
+
+<!-- Trayectoria 4: y = √x (curva) -->
+<path d="M100,250 Q200,180 600,80" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="8,4"/>
+<text x="400" y="130" fill="#ef4444" font-size="12" font-weight="600">y = √x → L = ?</text>
+
+<!-- Punto objetivo -->
+<circle cx="100" cy="250" r="8" fill="#6366f1" opacity="0.3"/>
+<circle cx="100" cy="250" r="4" fill="#6366f1"/>
+
+<!-- Leyenda -->
+<rect x="480" y="260" width="200" height="35" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="490" y="280" fill="#6366f1" font-size="10" font-weight="600">⚠️ Diferentes valores → NO existe</text>
+</svg>
+<p style="font-size:.85rem;color:#64748b;margin-top:.5rem">Si $f(x,y)$ da 1 por $y=x$ pero 0 por $y=0$, el límite <strong>NO existe</strong> — aunque coincida por otras trayectorias.</p>
+</div>
+</div>
+
+<!-- CASOS REALES -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Dónde encuentro límites multivariable?</h2>
+
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Temperatura en una habitación</strong>
-<p>La temperatura $T(x, y, z)$ depende de las tres coordenadas. ¿Qué pasa con la temperatura cuando te acercas a la ventana?</p>
-<p>El límite multivariable nos dice hacia dónde se acerca la temperatura cuando nos acercamos a un punto desde CUALQUIER dirección.</p>
+<strong>🌡️ Caso 1: Temperatura en una habitación</strong>
+La temperatura $T(x, y, z)$ varía con la posición. Si te acercas a la ventana, ¿hacia dónde se acerca la temperatura? El límite te dice si hay una transición suave o un "salto" brusco (como junto a un radiador). <span class="real-world-badge">Física</span>
+</div>
+
+<div class="box box-ejemplo">
+<strong>💰 Caso 2: Función de producción</strong>
+En economía, la producción $P(L, K)$ depende de trabajadores $L$ y capital $K$. ¿Qué pasa con la producción si contratas más trabajadores pero reduces capital? El límite multivariable modela este comportamiento. <span class="real-world-badge">Economía</span>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🗺️ Caso 3: Altitud en un terreno</strong>
+La altitud $h(x, y)$ de una montaña depende de las coordenadas. Si caminas hacia la cima, ¿la altitud se acerca suavemente a un valor? Si hay un acantilado, el límite NO existe. <span class="real-world-badge">Geografía</span>
 </div>
 </div>
 
+<!-- CONEXIONES -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Límites en $R^2$</h2>
-<p>Para funciones de dos variables $f(x, y)$, el límite cuando $(x, y) \to (a, b)$ debe ser el mismo <strong>en todas las trayectorias</strong>.</p>
-
-<div class="box box-teoria">
-<strong>📌 Condición de existencia:</strong>
-<p style="margin-top:.5rem">El límite $\lim_{(x,y) \to (a,b)} f(x,y)$ existe si y solo si es el mismo siguiendo CUALQUIER camino hacia $(a,b)$.</p>
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📌 Conexiones:</strong>
+<p>• Con <strong>límites en R¹</strong>: La idea es la misma, pero en R² hay infinitas trayectorias vs solo 2 direcciones</p>
+<p>• Con <strong>continuidad</strong>: $f$ es continua en $(a,b)$ si $f(a,b) = \lim_{(x,y)\to(a,b)} f(x,y)$</p>
+<p>• Con <strong>derivadas parciales</strong>: Las derivadas parciales son límites unidireccionales</p>
+<p>• Con <strong>topología</strong>: La definición formal usa bolas abiertas $B_\epsilon(a,b)$</p>
+</div>
 </div>
 
-<!-- GRÁFICO: Trayectorias -->
+<!-- GRÁFICO: Trayectorias con Plotly -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización interactiva</h2>
 <div class="chart-container">
 <h3>📊 El límite debe ser el mismo en todas las trayectorias</h3>
-<p class="chart-desc">Observa cómo al acercarte a $(0,0)$ por diferentes caminos, el valor debe ser el mismo.</p>
+<p class="chart-desc">Observa cómo al acercarte a $(0,0)$ por diferentes caminos, el valor debe ser el mismo para que el límite exista.</p>
 <div id="plot-trayectorias" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- INTERACTIVE QUIZ -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
-
-<div class="exercise">
-<p><strong>Ejercicio 1:</strong> Si el límite por la recta $y = x$ es 1 y por la recta $y = 0$ es 2, ¿existe el límite?</p>
-<div class="exercise-input">
-<select id="e1" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
-<option value="">— Elige —</option>
-<option value="no">No, porque las trayectorias dan valores diferentes</option>
-<option value="si">Sí, siempre existe</option>
-</select>
-<button onclick="checkE1()">Comprobar</button>
+<h2 class="chapter-title">⚡ ¡Practica tu intuición!</h2>
+<div class="interactive">
+<h3>Si $f(x,y) = \frac{xy}{x^2+y^2}$, ¿qué pasa por $y=x$?</h3>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:1rem">Sustituye $y=x$: $f(x,x) = \frac{x \cdot x}{x^2 + x^2} = \frac{x^2}{2x^2} = $ ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">x</button>
 </div>
-<div class="feedback" id="e1-fb"></div>
+<div class="result" id="carreraQuizResult" style="margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem"></div>
+</div>
+</div>
+
+<!-- EJERCICIOS VARIADOS -->
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+
+<!-- Ejercicio 1: Quiz botón (existente mejorado) -->
+<div class="exercise">
+<p><span class="difficulty-badge medium">Medio</span> Si el límite por la recta $y = x$ es 1 y por la recta $y = 0$ es 2, ¿existe el límite?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">No, porque las trayectorias dan valores diferentes</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Sí, siempre existe</button>
+</div>
+</div>
+
+<!-- Ejercicio 2: V/F -->
+<div class="exercise">
+<p><span class="difficulty-badge medium">Medio</span> <strong>Verdadero o Falso:</strong> Si $\lim_{(x,y)\to(0,0)} f(x,y)$ existe, entonces el límite por CUALQUIER trayectoria debe dar el mismo valor.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+</div>
+
+<!-- Ejercicio 3: Completar hueco -->
+<div class="exercise">
+<p><span class="difficulty-badge hard">Difícil</span> <strong>Completar:</strong> Para que $\lim_{(x,y)\to(0,0)} f(x,y)$ exista, el valor debe ser el mismo siguiendo <input type="text" id="e3" placeholder="..." style="width:120px;padding:.5rem;border:2px solid #e2e8f0;border-radius:8px"> hacia el punto.</p>
+<button onclick="checkFillIn(3, ['cualquier trayectoria','cualquier camino','cualquier ruta'])">Comprobar</button>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Problema -->
+<div class="exercise">
+<p><span class="difficulty-badge hard">Difícil</span> <strong>Problema:</strong> Para $f(x,y) = \frac{x^2 y}{x^4 + y^2}$, calcula el límite por $y = kx$ y por $y = x^2$. ¿Existe el límite en $(0,0)$?</p>
+<p style="font-size:.85rem;color:#64748b">Pista: por $y=kx$ obtienes $\frac{kx^3}{x^4+k^2x^2} = \frac{k}{x^2+k^2} \to 0$. Por $y=x^2$ obtienes $\frac{x^4}{x^4+x^4} = $ ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">No existe (da 0 por recta, 1/2 por parábola)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Existe y es 0</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Existe y es 1/2</button>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -143,7 +274,12 @@ table tr:nth-child(even){background:#f8fafc}
 <ul>
 <li>El límite en $R^2$ debe ser el mismo en TODAS las trayectorias</li>
 <li>Si dos trayectorias dan valores diferentes → el límite NO existe</li>
+<li>Probar que NO existe es fácil (2 trayectorias); probar que SÍ existe es difícil</li>
 <li>La continuidad en $R^2$: $f(a,b) = \lim_{(x,y) \to (a,b)} f(x,y)$</li>
+<li>Aplicaciones: temperatura, producción económica, altitud, campos vectoriales</li>
+<li>Las derivadas parciales son límites unidireccionales</li>
+<li>Por $y=x$: $f(x,x) = \frac{x^2}{2x^2} = 1/2$ (ejemplo clásico)</li>
+<li>$f(x,y) = \frac{x^2y}{x^4+y^2}$ no tiene límite: 0 por recta, 1/2 por parábola</li>
 </ul>
 </div>
 
@@ -162,12 +298,21 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-// Trayectorias hacia el origen
+document.addEventListener('DOMContentLoaded', () => {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+
+  // Plotly: Trayectorias hacia el origen
   const t = Array.from({length: 100}, (_, i) => i / 50);
   const trace1 = {
     x: t.map(x => x), y: t.map(x => x),
     mode: 'lines', name: 'Trayectoria y=x',
-    line: {color: '#2563eb', width: 2}
+    line: {color: '#6366f1', width: 2}
   };
   const trace2 = {
     x: t.map(x => x), y: t.map(x => x*x),
@@ -184,24 +329,43 @@ window.addEventListener('scroll', () => {
     yaxis: {title: 'y', gridcolor: '#e2e8f0'},
     plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
   }, {responsive: true});
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
 
-function checkE1() {
-  const sel = document.getElementById('e1');
-  const fb = document.getElementById('e1-fb');
-  if (!sel || !fb) return;
-  if (sel.value === 'no') { fb.textContent = '¡Correcto! Si las trayectorias dan valores diferentes, el límite NO existe 🎉'; fb.className = 'feedback correct'; }
-  else if (sel.value === 'si') { fb.textContent = 'Incorrecto. Para que exista el límite, debe ser el mismo por TODAS las trayectorias'; fb.className = 'feedback incorrect'; }
-  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
-}
+  function checkExercise(btn, correct) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+    if(correct) {
+      btn.classList.add('correct');
+      document.getElementById('carreraQuizResult').textContent = '✅ ¡Correcto!';
+      document.getElementById('carreraQuizResult').style.background = 'var(--verde-claro)';
+      document.getElementById('carreraQuizResult').style.color = '#065f46';
+    } else {
+      btn.classList.add('wrong');
+      document.getElementById('carreraQuizResult').textContent = '❌ Incorrecto.';
+      document.getElementById('carreraQuizResult').style.background = 'var(--rojo-claro)';
+      document.getElementById('carreraQuizResult').style.color = '#991b1b';
+    }
+  }
 
+  function checkVF(btn, correct) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+    if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+  }
 
+  function checkFillIn(exNum, correctAnswers) {
+    const input = document.getElementById('e' + exNum);
+    const fb = document.getElementById('e' + exNum + '-fb');
+    if (!input || !fb) return;
+    const val = input.value.trim().toLowerCase();
+    if (!val) { fb.textContent = 'Escribe una respuesta'; fb.className = 'feedback incorrect'; return; }
+    if (correctAnswers.some(a => val.includes(a.toLowerCase()))) {
+      fb.textContent = '✅ ¡Correcto!'; fb.className = 'feedback correct';
+    } else {
+      fb.textContent = '❌ Incorrecto. La respuesta es: "cualquier trayectoria"';
+      fb.className = 'feedback incorrect';
+    }
+  }
+});
 </script>
 </body>
 </html>

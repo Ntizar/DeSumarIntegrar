@@ -57,12 +57,30 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .exercise-input input:focus{outline:none;border-color:var(--azul)}
 .exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
 .feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
-.feedback.correct{color:var(--verde)}
-.feedback.incorrect{color:var(--rojo)}
+.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block}
+.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -82,90 +100,204 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- EXPLICACIÓN 4 PASOS: Teorema de Bayes -->
 <div class="chapter">
-<h2 class="chapter-title">🎯 Objetivos</h2>
+<h2 class="chapter-title">📚 ¿Qué es el Teorema de Bayes?</h2>
+
 <div class="box box-teoria">
-<strong>Al final de esta sesión serás capaz de:</strong>
-<ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Aplicar el teorema de Bayes</li>
-<li>Calcular combinaciones y permutaciones</li>
-<li>Resolver problemas de probabilidad condicionada</li>
-</ul>
-</div>
+<strong>📖 Paso 1 — Mira 👀</strong>
+El teorema de Bayes nos permite <em>actualizar</em> una probabilidad cuando obtenemos nueva información. Si antes creías que algo tenía un 10% de probabilidad, y recibes una pista, Bayes te dice cómo ajustar esa creencia.
 </div>
 
-<div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro Bayes?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Diagnóstico médico</strong>
-<p>Una enfermedad afecta al 1% de la población. Un test tiene 95% de sensibilidad (detecta la enfermedad si la tienes) y 90% de especificidad (da negativo si no la tienes).</p>
-<p>Si el test es positivo, ¿cuál es la probabilidad real de que tengas la enfermedad?</p>
-<p>¡Bayes! $P(D|+) = \frac{P(+|D) \cdot P(D)}{P(+|D) \cdot P(D) + P(+|\neg D) \cdot P(\neg D)} = \frac{0.95 \times 0.01}{0.95 \times 0.01 + 0.10 \times 0.99} \approx \mathbf{8.8\%}$</p>
-<p>¡Solo un 8.8%! Aunque el test sea "95% preciso", la probabilidad real es mucho menor por la baja prevalencia.</p>
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+La fórmula: $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$. Se lee: "la probabilidad de A dado B = lo que sabes de A multiplicado por tu creencia previa, dividido por lo probable que es B".
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+Imagina que un test médico da positivo. ¿Tienes la enfermedad? Bayes te dice que no basta con la precisión del test: también importa lo rara que sea la enfermedad. Si es muy rara, un positivo puede ser falso positivo.
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+Confundir P(positivo|enfermo) con P(enfermo|positivo). Son cosas muy distintas. El test puede ser 95% preciso (detecta la enfermedad si la tienes), pero la probabilidad real de tenerla tras un positivo puede ser solo 8.8% si la enfermedad es rara.
 </div>
 </div>
 
+<!-- SVG: Árbol de Bayes visual -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Teorema de Bayes</h2>
+<h2 class="chapter-title">🌳 Visualización: Árbol de Bayes</h2>
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📏 Árbol de decisión: Test médico con Bayes</h3>
+<svg viewBox="0 0 700 280" width="100%" style="max-width:700px">
+<!-- Nodo raíz: Población -->
+<rect x="20" y="100" width="100" height="50" rx="8" fill="var(--azul)"/>
+<text x="70" y="130" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Población</text>
 
-<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
-$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+<!-- Rama: Enfermo (1%) -->
+<line x1="120" y1="115" x2="280" y2="50" stroke="var(--rojo)" stroke-width="2"/>
+<text x="195" y="75" fill="var(--rojo)" font-size="11" font-weight="600">1% enfermo</text>
+<rect x="280" y="30" width="120" height="40" rx="6" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="2"/>
+<text x="340" y="55" text-anchor="middle" font-size="11" font-weight="600">Test + (95%)</text>
+<text x="340" y="72" text-anchor="middle" font-size="10" fill="#64748b">0.01 × 0.95 = 0.0095</text>
+
+<!-- Rama: Sano (99%) -->
+<line x1="120" y1="145" x2="280" y2="210" stroke="var(--verde)" stroke-width="2"/>
+<text x="195" y="185" fill="var(--verde)" font-size="11" font-weight="600">99% sano</text>
+<rect x="280" y="190" width="120" height="40" rx="6" fill="var(--verde-claro)" stroke="var(--verde)" stroke-width="2"/>
+<text x="340" y="215" text-anchor="middle" font-size="11" font-weight="600">Test + (10%)</text>
+<text x="340" y="232" text-anchor="middle" font-size="10" fill="#64748b">0.99 × 0.10 = 0.099</text>
+
+<!-- Resultado final -->
+<line x1="400" y1="50" x2="520" y2="120" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+<line x1="400" y1="210" x2="520" y2="120" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+<rect x="520" y="95" width="160" height="50" rx="8" fill="var(--naranja)" opacity="0.9"/>
+<text x="600" y="118" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">P(Enfermo|+)</text>
+<text x="600" y="136" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">≈ 8.8%</text>
+
+<!-- Etiquetas -->
+<text x="340" y="15" text-anchor="middle" font-size="12" fill="var(--texto)" font-weight="600">¿Enfermo si el test es +?</text>
+<text x="600" y="165" text-anchor="middle" font-size="10" fill="#64748b">0.0095 / (0.0095 + 0.099)</text>
+</svg>
+<p style="font-size:.85rem;color:#64748b;margin-top:.5rem">Aunque el test sea 95% preciso, la probabilidad real de tener la enfermedad con un positivo es solo <strong>8.8%</strong> por la baja prevalencia.</p>
+</div>
+</div>
+
+<!-- CASOS REALES -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Probabilidad avanzada en la vida real</h2>
+
+<div class="box box-ejemplo">
+<strong>🔬 Caso 1: IA y diagnóstico</strong>
+Los modelos de IA usan Bayes para actualizar la probabilidad de una enfermedad según múltiples síntomas. Cada nuevo síntoma "actualiza" la creencia previa. <span class="real-world-badge">IA médica</span>
+</div>
+
+<div class="box box-ejemplo">
+<strong>📧 Caso 2: Filtros de spam</strong>
+Gmail calcula P(spam|palabras) usando Bayes. Si un email tiene "ganar dinero gratis", la probabilidad de que sea spam sube drásticamente. <span class="real-world-badge">Email</span>
+</div>
+
+<div class="box box-ejemplo">
+<strong>🎰 Caso 3: Poker y lectura de oponentes</strong>
+Un jugador profesional calcula P(tiene par alto|apuesta fuerte) usando Bayes. Cada acción del rival actualiza sus creencias sobre su mano. <span class="real-world-badge">Poker</span>
+</div>
+</div>
+
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📌 Conexiones:</strong>
+<p>• Con <strong>álgebra</strong>: Las fórmulas de combinatoria usan notación factorial</p>
+<p>• Con <strong>estadística</strong>: Bayes es la base del aprendizaje automático bayesiano</p>
+<p>• Con <strong>funciones</strong>: P(A|B) es una función que depende de P(B)</p>
+<p>• Con <strong>derivadas</strong>: En machine learning, se optimiza la verosimilitud con derivadas</p>
+</div>
 </div>
 
 <!-- GRÁFICO: Bayes -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización del teorema de Bayes</h2>
 <div class="chart-container">
-<h3>📊 Visualización del teorema de Bayes</h3>
-<p class="chart-desc">El test parece bueno, pero la probabilidad real de tener la enfermedad es baja.</p>
+<h3>📊 El test parece bueno, pero la probabilidad real de tener la enfermedad es baja.</h3>
 <div id="plot-bayes" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- Combinatoria con explicación -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Combinatoria</h2>
+<h2 class="chapter-title">📐 Combinatoria: ¿Cuándo importa el orden?</h2>
 
 <div class="box box-teoria">
-<strong>📌 Permutaciones:</strong> $P(n,k) = \frac{n!}{(n-k)!}$ (el orden importa)
-<strong>📌 Combinaciones:</strong> $C(n,k) = \binom{n}{k} = \frac{n!}{k!(n-k)!}$ (el orden no importa)
+<strong>📖 Paso 1 — Mira 👀</strong>
+Las <strong>permutaciones</strong> cuentan cuando el orden importa (quién queda 1º, 2º, 3º). Las <strong>combinaciones</strong> cuentan cuando no importa (qué personas elijas para un equipo).
+</div>
+
+<div class="box box-ejemplo">
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+Permutaciones: $P(n,k) = \frac{n!}{(n-k)!}$ — orden importa. Combinaciones: $C(n,k) = \frac{n!}{k!(n-k)!}$ — orden no importa.
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+Truco mnemotécnico: <strong>P</strong>ermutación = <strong>P</strong>rimero, segundo, tercero (orden importa). <strong>C</strong>ombinación = <strong>C</strong>onjunto (solo importa quiénes, no el orden).
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+Muchos usan permutaciones cuando deberían usar combinaciones. Recuerda: si intercambiar dos elementos da un resultado DIFERENTE, usa permutaciones. Si es lo mismo, usa combinaciones.
 </div>
 </div>
 
+<!-- INTERACTIVE QUIZ -->
 <div class="chapter">
-<h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
-
-<div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Cuántas formas hay de elegir 3 personas de un grupo de 10?</p>
-<p style="font-size:.85rem;color:#64748b">$C(10,3) = \frac{10!}{3! \cdot 7!}$</p>
-<div class="exercise-input">
-<input type="number" id="e1" placeholder="?">
-<button onclick="checkExercise(1, 120)">Comprobar</button>
+<h2 class="chapter-title">⚡ ¡Practica!</h2>
+<div class="interactive">
+<h3>Calcula C(8,3) — ¿Cuántas formas de elegir 3 de 8?</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem">$C(8,3) = \frac{8!}{3! \cdot 5!}$</p></div>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">56</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">336</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">48</button>
 </div>
+<div class="result" id="bachQuizResult" style="margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem"></div>
+</div>
+</div>
+
+<!-- EJERCICIOS VARIADOS -->
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+
+<!-- Ejercicio 1: Completar hueco -->
+<div class="exercise">
+<p><span class="difficulty-badge easy">Fácil</span> ¿Cuántas formas hay de elegir 3 personas de un grupo de 10?</p>
+<p style="font-size:.85rem;color:#64748b">$C(10,3) = \frac{10!}{3! \cdot 7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} =$ <input type="number" id="e1" placeholder="?" style="width:80px;padding:.5rem;border:2px solid #e2e8f0;border-radius:8px"></p>
+<button onclick="checkFillIn(1, ['120'])">Comprobar</button>
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Ejercicio 2: V/F -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> En un barajado de 52 cartas, ¿cuál es la probabilidad de sacar un as?</p>
-<div class="exercise-input">
-<input type="number" id="e2" placeholder="?" step="any">
-<button onclick="checkExercise(2, 4/52)">Comprobar</button>
+<p><span class="difficulty-badge medium">Medio</span> <strong>Verdadero o Falso:</strong> Si P(A) = 0.3 y P(B|A) = 0.5, entonces P(A ∩ B) = 0.15</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
-<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- Ejercicio 3: Problema Bayes -->
+<div class="exercise">
+<p><span class="difficulty-badge hard">Difícil</span> <strong>Problema Bayes:</strong> Una enfermedad afecta al 2% de la población. Un test tiene 90% de sensibilidad y 95% de especificidad. Si el test es positivo, ¿cuál es la probabilidad real de tener la enfermedad? (Redondea a 2 decimales)</p>
+<p style="font-size:.85rem;color:#64748b">P(D|+) = P(+|D)·P(D) / [P(+|D)·P(D) + P(+|¬D)·P(¬D)]</p>
+<div class="exercise-input">
+<input type="number" id="e3" placeholder="?" step="any">
+<button onclick="checkBayes()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
 </div>
 </div>
 
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li>Bayes: $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$</li>
+<li>Bayes: $P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$ — actualiza creencias con nueva evidencia</li>
 <li>La probabilidad posterior depende de la prevalencia (prior)</li>
 <li>Permutaciones: orden importa → $P(n,k) = \frac{n!}{(n-k)!}$</li>
 <li>Combinaciones: orden no importa → $C(n,k) = \frac{n!}{k!(n-k)!}$</li>
-<li>Aplicaciones: diagnóstico médico, IA, finanzas, ingeniería</li>
+<li>Aplicaciones: diagnóstico médico, IA, filtros de spam, poker</li>
+<li>C(10,3) = 120, C(8,3) = 56</li>
+<li>P(A ∩ B) = P(B|A) × P(A)</li>
+<li>Un test "95% preciso" puede tener PPV bajo si la enfermedad es rara</li>
 </ul>
 </div>
 
 <div class="nav">
 <a href="s09-7-bachiller-aplicaciones-integrales.html">← Anterior</a>
-  <a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s09-9-bachiller-distribuciones-combinadas.html">Siguiente →</a>
 </div>
 </div>
@@ -188,15 +320,74 @@ document.addEventListener('DOMContentLoaded', () => {
     throwOnError: false
   });
 
-function checkExercise(num, correct) {
-  const input = document.getElementById('e' + num);
-  const feedback = document.getElementById('e' + num + '-fb');
-  if (!input || !feedback) return;
-  const value = parseFloat(input.value);
-  if (isNaN(value)) { feedback.textContent = 'Introduce un número'; feedback.className = 'feedback incorrect'; return; }
-  if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
-  else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
-}
+  // Plotly: Bayes visualization
+  const prevalencias = [0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5];
+  const ppvs = prevalencias.map(p => {
+    const sens = 0.95;
+    const spec = 0.90;
+    const num = sens * p;
+    const den = sens * p + (1 - spec) * (1 - p);
+    return num / den;
+  });
+
+  Plotly.newPlot('plot-bayes', [{
+    x: prevalencias.map(p => (p * 100) + '%'),
+    y: ppvs.map(v => (v * 100).toFixed(1) + '%'),
+    type: 'scatter',
+    mode: 'lines+markers',
+    name: 'P(Enfermo|Positivo)',
+    line: {color: '#ef4444', width: 3},
+    marker: {size: 10}
+  }], {
+    title: '¿Cómo cambia P(Enfermo|+) con la prevalencia?',
+    xaxis: {title: 'Prevalencia de la enfermedad', gridcolor: '#e2e8f0'},
+    yaxis: {title: 'P(Enfermo|Test Positivo)', gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc',
+    paper_bgcolor: 'white'
+  }, {responsive: true});
+
+  function checkExercise(btn, correct) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+    if(correct) { btn.classList.add('correct'); document.getElementById('bachQuizResult').textContent = '✅ ¡Correcto! C(8,3) = 8!/(3!×5!) = 56'; document.getElementById('bachQuizResult').style.background = 'var(--verde-claro)'; document.getElementById('bachQuizResult').style.color = '#065f46'; }
+    else { btn.classList.add('wrong'); document.getElementById('bachQuizResult').textContent = '❌ Incorrecto. C(8,3) = 8!/(3!×5!) = 56'; document.getElementById('bachQuizResult').style.background = 'var(--rojo-claro)'; document.getElementById('bachQuizResult').style.color = '#991b1b'; }
+  }
+
+  function checkVF(btn, correct) {
+    const parent = btn.parentElement;
+    parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+    if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+  }
+
+  function checkFillIn(exNum, correctAnswers) {
+    const input = document.getElementById('e' + exNum);
+    const fb = document.getElementById('e' + exNum + '-fb');
+    if (!input || !fb) return;
+    const val = input.value.trim().toLowerCase();
+    if (!val) { fb.textContent = 'Escribe un número'; fb.className = 'feedback incorrect'; return; }
+    if (correctAnswers.some(a => a.toLowerCase() === val)) {
+      fb.textContent = '✅ ¡Correcto!'; fb.className = 'feedback correct';
+    } else {
+      fb.textContent = '❌ Incorrecto. La respuesta es: ' + correctAnswers[0];
+      fb.className = 'feedback incorrect';
+    }
+  }
+
+  function checkBayes() {
+    const input = document.getElementById('e3');
+    const fb = document.getElementById('e3-fb');
+    if (!input || !fb) return;
+    const val = parseFloat(input.value);
+    if (isNaN(val)) { fb.textContent = 'Introduce un número'; fb.className = 'feedback incorrect'; return; }
+    // P(D|+) = 0.9*0.02 / (0.9*0.02 + 0.05*0.98) = 0.018 / 0.067 = 0.2687
+    if (Math.abs(val - 0.27) < 0.03) {
+      fb.textContent = '✅ ¡Correcto! P(D|+) = 0.9×0.02 / (0.9×0.02 + 0.05×0.98) ≈ 0.27 = 27%';
+      fb.className = 'feedback correct';
+    } else {
+      fb.textContent = '❌ Incorrecto. P(D|+) = 0.9×0.02 / (0.9×0.02 + 0.05×0.98) ≈ 0.27 = 27%';
+      fb.className = 'feedback incorrect';
+    }
+  }
 });
 </script>
 </body>

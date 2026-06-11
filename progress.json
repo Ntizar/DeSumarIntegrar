@@ -1,5 +1,5 @@
 {
-  "last_improved": "s09-7-bachiller-aplicaciones-integrales.html",
+  "last_improved": "s10-1-carrera-limites-multivariable.html",
   "last_run": "2026-06-11",
   "total_runs": 48,
   "topics": {
@@ -745,21 +745,27 @@
       "improvement_count": 1
     },
     "eso2-9-probabilidad.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/error común), +1 árbol probabilidad SVG interactivo, +3 casos reales (lotería, clima, videojuegos), +1 caja conexiones (fracciones/porcentajes/estadística/álgebra), +6 ejercicios variados (quiz ×2, VF ×2, completar ×2), +1 resumen ampliado a 7 puntos, +CSS: step-indicator, connection-box, svg-container, feedback.correct/incorrect, real-world-badge, difficulty-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 9,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s07-1eso.html": {
       "status": "pending",
@@ -2017,21 +2023,27 @@
       "improvement_count": 1
     },
     "s09-8-bachiller-probabilidad-avanzada.html": {
-      "status": "pending",
-      "level": "Bachiller",
-      "priority": 3,
+      "status": "improved_1",
+      "level": "Bachillerato",
+      "priority": 2,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+2 explicaciones estructuradas 4 pasos (Bayes + Combinatoria), +1 árbol Bayes SVG interactivo, +3 casos reales (IA médica, spam, poker), +1 caja conexiones (álgebra/estadística/funciones/derivadas), +1 quiz Plotly Bayes PPV, +3 ejercicios variados (completar, VF, problema Bayes), +1 gráfico Plotly PPV vs prevalencia, +CSS: step-indicator, connection-box, svg-container, feedback.correct/incorrect, real-world-badge, difficulty-badge, quiz-options, quiz-btn"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-9-bachiller-distribuciones-combinadas.html": {
       "status": "pending",
@@ -2092,21 +2104,27 @@
       "is_index": true
     },
     "s10-1-carrera-limites-multivariable.html": {
-      "status": "pending",
-      "level": "Universidad",
-      "priority": 3,
+      "status": "improved_1",
+      "level": "1º Carrera",
+      "priority": 2,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación estructurada 4 pasos (qué es/error común), +1 SVG trayectorias visual (4 caminos con colores), +3 casos reales (temperatura, producción, altitud), +1 caja conexiones (límites R¹/continuidad/derivadas parciales/topología), +4 ejercicios variados (quiz ×2, VF, completar, problema), +1 quiz interactivo f(x,y)=xy/(x²+y²), +CSS: step-indicator, connection-box, svg-container, feedback.correct/incorrect, real-world-badge, difficulty-badge, quiz-options, quiz-btn, interactive, exercises"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 9,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s10-2-carrera-derivadas-parciales.html": {
       "status": "improved_1",
