@@ -1,5 +1,5 @@
 {
-  "last_improved": "eso2-1-ecuaciones-1grado.html",
+  "last_improved": "s03-3-intro-fracciones.html",
   "last_run": "2026-06-11",
   "total_runs": 39,
   "topics": {
@@ -1124,21 +1124,28 @@
       "improvement_count": 0
     },
     "s03-3-intro-fracciones.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos (qué es/para qué/cómo/error común), +2 casos reales (chocolate, receta magdalenas), +1 caja conexión (S03.4, S06.3), +3 ejercicios variados (completar hueco, V/F, ordenar), resumen ampliado a 8 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 9,
+        "visual": 5,
+        "real_world": 7,
+        "connections": 5,
+        "difficulty_range": 6,
+        "css_coherence": 10
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s03-4-comparar-fracciones.html": {
       "status": "improved_1",
