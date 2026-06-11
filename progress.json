@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-3-bachiller-reglas-derivacion.html",
+  "last_improved": "s09-4-bachiller-aplicaciones-derivadas.html",
   "last_run": "2026-06-11",
-  "total_runs": 45,
+  "total_runs": 46,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1011,21 +1011,27 @@
       "improvement_count": 2
     },
     "s02-2-restas-llevadas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 46,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos estructurada, +1 SVG descomposición visual (52-17), +2 casos reales (cocina, colegio), +1 caja conexiones (S02.1, S01.5, S01.6), +6 ejercicios variados (completar hueco, V/F, ordenar pasos, problema contextual, completar resta vertical, decidir operación), +3 niveles dificultad (fácil/medio/difícil), arreglado nested <li>, +6 funciones JS nuevas, +CSS: feedback, real-world-badge, step-indicator, connection-box, svg-container, difficulty-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s02-3-intro-multiplicacion.html": {
       "status": "improved_2",
@@ -1895,21 +1901,27 @@
       "improvement_count": 1
     },
     "s09-4-bachiller-aplicaciones-derivadas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 46,
+          "date": "2026-06-11",
+          "added": "+1 explicación 4 pasos estructurada, +1 SVG pendiente tangente (f vs f'), +2 casos reales (construcción, física), +1 caja conexiones (S09-2, S09-3, S09-5, S09-6), +6 ejercicios variados (input numérico, V/F, ordenar pasos, quiz botones ×2, problema contextual), +3 niveles dificultad, +1 sección interactiva Plotly (parámetros a,b,c,d), +CSS: quiz-options, quiz-btn, interactive, svg-container, step-indicator, connection-box, difficulty-badge, real-world-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-5-bachiller-integrales-indefinidas.html": {
       "status": "improved_1",

@@ -50,6 +50,17 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.step-indicator{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.svg-container{text-align:center;margin:1.5rem 0}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fce7f3;color:#9d174d}
 </style>
 </head>
 <body>
@@ -76,8 +87,49 @@ Cuando no puedes restar las unidades (el número de abajo es mayor), <b>pides pr
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ ¿Qué es pedir prestado?</h2>
 <div class="box box-teoria">
+<strong>📖 Teoría — Los 4 pasos para restar con llevadas</strong>
+<p><span class="step-indicator">1</span><b>¿Qué es?</b> Pedir prestado es cuando no puedes restar las unidades, así pides 10 prestado a las decenas.</p>
+<p><span class="step-indicator">2</span><b>¿Para qué sirve?</b> Para poder restar números donde el de abajo es más grande que el de arriba en las unidades.</p>
+<p><span class="step-indicator">3</span><b>¿Cómo se hace?</b> ① Restas unidades (con el +10 si pediste prestado) ② Restas decenas (menos 1 si pediste prestado).</p>
+<p><span class="step-indicator">4</span><b>Error común:</b> ¡No restar el 1 que pediste prestado a las decenas! Si pediste prestado, las decenas bajan de número.</p>
+</div>
+<div class="box box-teoria">
 <strong>📖 Teoría</strong>
 Cuando el número de arriba en las unidades es <b>menor</b> que el de abajo, no puedes restar. Entonces <b>pides prestado 1 a las decenas</b> (que vale 10 unidades).
+</div>
+<div class="svg-container">
+<svg viewBox="0 0 400 280" width="380" style="max-width:100%">
+<!-- Title -->
+<text x="200" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2563eb">Descomposición: 52 − 17</text>
+
+<!-- Step 1: Original numbers -->
+<rect x="20" y="40" width="360" height="50" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+<text x="40" y="62" font-size="13" fill="#64748b">Paso 1: Escribimos la resta</text>
+<text x="40" y="85" font-size="22" font-weight="bold" fill="#1e293b">  5 2</text>
+<text x="100" y="85" font-size="22" fill="#ef4444">−</text>
+<text x="130" y="85" font-size="22" font-weight="bold" fill="#1e293b">  1 7</text>
+<line x1="40" y1="95" x2="170" y2="95" stroke="#1e293b" stroke-width="2"/>
+
+<!-- Step 2: Need to borrow -->
+<rect x="20" y="100" width="360" height="50" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1"/>
+<text x="40" y="122" font-size="13" fill="#64748b">Paso 2: ¿2 ≥ 7? ¡No! Pedimos prestado → 2 se convierte en 12</text>
+<text x="40" y="145" font-size="16" fill="#f97316">5 → 4 &nbsp;&nbsp; 2 → 12 &nbsp;&nbsp; (la flecha muestra el préstamo)</text>
+<text x="130" y="145" font-size="18" fill="#10b981" font-weight="bold">↓ 1 decena = 10 unidades</text>
+
+<!-- Step 3: Subtract units -->
+<rect x="20" y="155" width="360" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/>
+<text x="40" y="177" font-size="13" fill="#64748b">Paso 3: Restamos unidades → 12 − 7 = 5</text>
+<text x="40" y="200" font-size="22" font-weight="bold" fill="#1e293b">  4 12</text>
+<text x="100" y="200" font-size="22" fill="#ef4444">−</text>
+<text x="130" y="200" font-size="22" font-weight="bold" fill="#1e293b">  1  7</text>
+<line x1="40" y1="210" x2="170" y2="210" stroke="#1e293b" stroke-width="2"/>
+<text x="130" y="225" font-size="20" font-weight="bold" fill="#10b981">  5</text>
+
+<!-- Step 4: Subtract tens -->
+<rect x="20" y="215" width="360" height="50" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1"/>
+<text x="40" y="237" font-size="13" fill="#64748b">Paso 4: Restamos decenas → 4 − 1 = 3 (¡recordar el préstamo!)</text>
+<text x="40" y="260" font-size="22" font-weight="bold" fill="#1e293b">Resultado: 35</text>
+</svg>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -90,6 +142,12 @@ Cuando el número de arriba en las unidades es <b>menor</b> que el de abajo, no 
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
 61 − 35 = ?<br>Unidades: 1 < 5, pido prestado → 11 − 5 = 6<br>Decenas: 5 (pedí 1) − 3 = 2<br>Resultado: <b>26</b>
+<div class="connection-box">
+<strong>🔗 Conexiones</strong>
+• Con <b>S02.1 Sumas con llevadas</b>: Las llevadas de suma son las inversas de las llevadas de resta<br>
+• Con <b>S01.5 Restar hasta 10</b>: Aquí llevamos la resta al siguiente nivel con decenas<br>
+• Con <b>S01.6 Restar hasta 20</b>: Ahora restamos hasta 99 con préstamo
+</div>
 </div>
 </section>
 <section class="chapter">
@@ -102,58 +160,95 @@ Cuando el número de arriba en las unidades es <b>menor</b> que el de abajo, no 
 </div>
 <div class="result" id="interactiveResult"></div>
 </div>
+<div class="box box-idea">
+<strong>🌍 Vida real</strong>
+<span class="real-world-badge">Cocina</span> Tienes 52g de chocolate y usas 17g para un brownie. ¿Cuánto te queda? <b>35g</b>
+</div>
+<div class="box box-idea">
+<strong>🌍 Vida real</strong>
+<span class="real-world-badge">Colegio</span> Tu profesora tiene 60 cromos y reparte 25 a la clase. ¿Cuántos le quedan? <b>35</b>
+</div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- Ejercicio 1: Completar hueco -->
 <div class="exercise">
-<p>1. ¿Cuánto es 52 − 27?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">25</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">25</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">35</button>
-</div>
-</div>
-<div class="exercise">
-<p>2. ¿Cuánto es 43 − 18?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">25</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">35</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
-</div>
-</div>
-<div class="exercise">
-<p>3. ¿Cuánto es 71 − 46?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">25</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">35</button>
-</div>
-</div>
-<div class="exercise">
-<p>4. ¿Cuánto es 60 − 25?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">35</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">45</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">34</button>
-</div>
-</div>
-<div class="exercise">
-<p>5. ¿Cuánto es 82 − 37?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">44</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">45</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">55</button>
-</div>
+<p>1. Completa: 52 − 27 = 50 + 12 − 27 = 50 − 27 + 12 = <input type="number" id="fill1" style="width:60px;padding:.3rem;border:2px solid var(--azul);border-radius:4px"> <span class="difficulty-badge easy">Fácil</span></p>
+<button class="toggle-btn" onclick="checkFillIn1()">Comprobar</button>
+<div class="result" id="result1"></div>
 </div>
 
+<!-- Ejercicio 2: V/F -->
+<div class="exercise">
+<p>2. Verdadero o Falso: En 63 − 28, pedimos prestado a las decenas porque 3 < 8. <span class="difficulty-badge easy">Fácil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
+<div class="result" id="result2"></div>
+</div>
+
+<!-- Ejercicio 3: Ordenar pasos -->
+<div class="exercise">
+<p>3. Ordena los pasos para resolver 71 − 36: <span class="difficulty-badge medium">Medio</span></p>
+<div id="ordenContainer" style="margin:.5rem 0">
+<div class="step" data-pos="2" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Restar unidades: 11 − 6 = 5</div>
+<div class="step" data-pos="1" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Pedir prestado: 7→6, 1→11</div>
+<div class="step" data-pos="3" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Restar decenas: 6 − 3 = 3</div>
+</div>
+<button class="toggle-btn" onclick="checkOrden()">Comprobar orden</button>
+<div class="result" id="result3"></div>
+</div>
+
+<!-- Ejercicio 4: Problema contextual -->
+<div class="exercise">
+<p>4. 🧩 Problema: Ana tiene 82 sellos en su álbum. Regala 37 a su amiga. ¿Cuántos sellos le quedan? <span class="difficulty-badge medium">Medio</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise4(this, false)">44</button>
+<button class="quiz-btn" onclick="checkExercise4(this, true)">45</button>
+<button class="quiz-btn" onclick="checkExercise4(this, false)">55</button>
+<button class="quiz-btn" onclick="checkExercise4(this, false)">35</button>
+</div>
+<div class="result" id="result4"></div>
+</div>
+
+<!-- Ejercicio 5: Completar la resta vertical -->
+<div class="exercise">
+<p>5. Completa la resta vertical: 60 − 25 = ? <span class="difficulty-badge hard">Difícil</span></p>
+<p style="font-size:1.2rem;margin:.5rem 0">
+  &nbsp;&nbsp;<input type="number" id="fill5a" style="width:30px;padding:.3rem;border:2px solid var(--azul);border-radius:4px;text-align:center"> 0<br>
+  − <input type="number" id="fill5b" style="width:30px;padding:.3rem;border:2px solid var(--azul);border-radius:4px;text-align:center"> 5<br>
+  ————————<br>
+  &nbsp;&nbsp;<input type="number" id="fill5c" style="width:50px;padding:.3rem;border:2px solid var(--azul);border-radius:4px;text-align:center">
+</p>
+<button class="toggle-btn" onclick="checkFillIn5()">Comprobar</button>
+<div class="result" id="result5"></div>
+</div>
+
+<!-- Ejercicio 6: Decidir operación -->
+<div class="exercise">
+<p>6. ¿Qué operación resuelve esto? "En la frutería había 93 manzanas y vendieron 47. ¿Cuántas quedan?" <span class="difficulty-badge hard">Difícil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkOperation(this, false)">➕ Sumar: 93 + 47</button>
+<button class="quiz-btn" onclick="checkOperation(this, true)">➖ Restar: 93 − 47</button>
+<button class="quiz-btn" onclick="checkOperation(this, false)">✖️ Multiplicar: 93 × 47</button>
+</div>
+<div class="result" id="result6"></div>
+</div>
+
+</div></div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Primero miramos las unidades</li></li><li><li>Si el de abajo es mayor, pedimos prestado a las decenas</li></li><li><li>Luego restamos las decenas − la llevada</li></li><li><li>¡El resultado es la resta completa!</li></li><li><li>¡Ya sabes restar con llevadas! 🎉</li></li>
+<li>Primero miramos las unidades</li>
+<li>Si el de abajo es mayor, pedimos prestado a las decenas</li>
+<li>Luego restamos las decenas − la llevada</li>
+<li>¡El resultado es la resta completa!</li>
+<li>¡Ya sabes restar con llevadas! 🎉</li>
+<li>Siempre comprueba: suma resultado + sustraendo = minuendo</li>
 </ul>
 </div>
 <div class="nav">
@@ -217,6 +312,66 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+function checkFillIn1() {
+  const val = document.getElementById('fill1').value.trim();
+  const r = document.getElementById('result1');
+  if(val === '25') { r.className = 'result ok'; r.textContent = '✅ ¡Correcto! 52 − 27 = 25'; }
+  else { r.className = 'result fail'; r.textContent = '❌ La respuesta es 25. 52−27: 12−7=5, 4−2=2 → 25'; }
+}
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const r = document.getElementById('result2');
+  if(correct) { btn.classList.add('correct'); r.className = 'result ok'; r.textContent = '✅ ¡Verdadero! 3 < 8, así que pedimos prestado.'; }
+  else { btn.classList.add('wrong'); r.className = 'result fail'; r.textContent = '❌ Falso. 3 < 8, así que SÍ pedimos prestado.'; }
+}
+
+function moveStep(el) {
+  const container = document.getElementById('ordenContainer');
+  const steps = Array.from(container.querySelectorAll('.step'));
+  const idx = steps.indexOf(el);
+  if(idx > 0) { container.insertBefore(el, steps[idx-1]); }
+  else if(idx < steps.length - 1) { container.insertBefore(el, steps[idx+2]); }
+}
+
+function checkOrden() {
+  const steps = document.getElementById('ordenContainer').querySelectorAll('.step');
+  let correct = true;
+  steps.forEach((s, i) => { if(parseInt(s.dataset.pos) !== i+1) correct = false; });
+  const r = document.getElementById('result3');
+  if(correct) { r.className = 'result ok'; r.textContent = '✅ ¡Orden correcto! ①Pedir prestado → ②Restar unidades → ③Restar decenas'; }
+  else { r.className = 'result fail'; r.textContent = '❌ Orden incorrecto. Recuerda: primero pides prestado, luego restas unidades, luego decenas.'; }
+}
+
+function checkExercise4(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const r = document.getElementById('result4');
+  if(correct) { btn.classList.add('correct'); r.className = 'result ok'; r.textContent = '✅ ¡Correcto! 82 − 37 = 45 sellos.'; }
+  else { btn.classList.add('wrong'); r.textContent = '❌ La respuesta es 45. 82−37: 12−7=5, 7−3=4 → 45'; }
+}
+
+function checkFillIn5() {
+  const a = document.getElementById('fill5a').value.trim();
+  const b = document.getElementById('fill5b').value.trim();
+  const c = document.getElementById('fill5c').value.trim();
+  const r = document.getElementById('result5');
+  if(a === '5' && b === '2' && c === '35') {
+    r.className = 'result ok'; r.textContent = '✅ ¡Perfecto! 60−25: 50→5 decenas (pediste 1), 10−5=5, 5−2=3 → 35';
+  } else {
+    r.className = 'result fail'; r.textContent = '❌ Revisa: 60−25: unidades 0<5 → pides prestado → 10−5=5, decenas 5−2=3 → 35';
+  }
+}
+
+function checkOperation(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const r = document.getElementById('result6');
+  if(correct) { btn.classList.add('correct'); r.className = 'result ok'; r.textContent = '✅ ¡Correcto! "Quedan" indica resta: 93 − 47 = 46 manzanas.'; }
+  else { btn.classList.add('wrong'); r.textContent = '❌ "Quedan" indica que se vendieron, así que es una resta: 93 − 47 = 46.'; }
 }
 
 window.onscroll = function(){

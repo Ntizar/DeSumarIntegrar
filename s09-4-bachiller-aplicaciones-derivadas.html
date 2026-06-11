@@ -69,6 +69,23 @@ table tr:nth-child(even){background:#f8fafc}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
 }
+
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.svg-container{text-align:center;margin:1.5rem 0}
+.step-indicator{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fce7f3;color:#9d174d}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -105,7 +122,23 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<div class="box box-teoria">
+<strong>📖 Los 4 pasos para aplicar derivadas</strong>
+<p><span class="step-indicator">1</span><b>¿Qué es?</b> Las derivadas nos dicen cómo cambian las funciones: crecen, decrecen, y dónde alcanzan máximos y mínimos.</p>
+<p><span class="step-indicator">2</span><b>¿Para qué sirve?</b> Para optimizar: maximizar beneficios, minimizar costes, encontrar el tamaño óptimo de algo.</p>
+<p><span class="step-indicator">3</span><b>¿Cómo se hace?</b> ① Derivar la función ② Igualar a 0 (puntos críticos) ③ Clasificar con f''(x) ④ Verificar con el contexto.</p>
+<p><span class="step-indicator">4</span><b>Error común:</b> Confundir máximo con mínimo. Recuerda: f'' < 0 → máximo (cóncava abajo), f'' > 0 → mínimo (cóncava arriba).</p>
+</div>
 <div class="chapter">
+<div class="box box-idea">
+<strong>🌍 Vida real: Optimización de recursos</strong>
+<span class="real-world-badge">Construcción</span> Un arquitecto quiere hacer una ventana rectangular con 20m de marco. ¿Qué dimensiones maximizan la luz? Derivando: ancho=alto=5m (ventana cuadrada).
+</div>
+<div class="box box-idea">
+<strong>🌍 Vida real: Velocidad y aceleración</strong>
+<span class="real-world-badge">Física</span> La posición de un coche es s(t) = t³ − 6t² + 9t. ¿Cuándo se detiene? s'(t) = 3t² − 12t + 9 = 0 → t = 1s y t = 3s. ¡La derivada de posición es velocidad!
+</div>
+
 <h2 class="chapter-title">1️⃣ Crecimiento y Decrecimiento</h2>
 <p>Si $f'(x) > 0$, la función <strong>crece</strong>. Si $f'(x) < 0$, la función <strong>decrece</strong>.</p>
 
@@ -118,11 +151,55 @@ table tr:nth-child(even){background:#f8fafc}
 </ul>
 </div>
 
+<div class="svg-container">
+<svg viewBox="0 0 500 300" width="480" style="max-width:100%">
+<text x="250" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#2563eb">La derivada como pendiente de la tangente</text>
+
+<!-- Axes -->
+<line x1="50" y1="250" x2="470" y2="250" stroke="#1e293b" stroke-width="2"/>
+<line x1="50" y1="30" x2="50" y2="250" stroke="#1e293b" stroke-width="2"/>
+<text x="480" y="255" font-size="12" fill="#64748b">x</text>
+<text x="30" y="35" font-size="12" fill="#64748b">f(x)</text>
+
+<!-- Curve: parabola opening up -->
+<path d="M 80 220 Q 180 60 250 50 Q 320 60 420 220" fill="none" stroke="#2563eb" stroke-width="3"/>
+
+<!-- Point A: left side (positive slope) -->
+<circle cx="140" cy="120" r="5" fill="#10b981"/>
+<text x="120" y="110" font-size="11" fill="#10b981" font-weight="bold">A</text>
+<line x1="140" y1="120" x2="200" y2="60" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="155" y="85" font-size="10" fill="#10b981">pendiente +</text>
+
+<!-- Point B: minimum (zero slope) -->
+<circle cx="250" cy="50" r="5" fill="#f97316"/>
+<text x="255" y="42" font-size="11" fill="#f97316" font-weight="bold">B (mín)</text>
+<line x1="220" y1="50" x2="280" y2="50" stroke="#f97316" stroke-width="2"/>
+<text x="230" y="40" font-size="10" fill="#f97316">pendiente = 0</text>
+
+<!-- Point C: right side (positive slope) -->
+<circle cx="360" cy="120" r="5" fill="#10b981"/>
+<text x="370" y="110" font-size="11" fill="#10b981" font-weight="bold">C</text>
+<line x1="360" y1="120" x2="300" y2="60" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="310" y="85" font-size="10" fill="#10b981">pendiente +</text>
+
+<!-- Legend -->
+<rect x="100" y="265" width="300" height="25" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+<circle cx="120" cy="277" r="4" fill="#10b981"/><text x="130" y="281" font-size="10" fill="#64748b">f'(x) &gt; 0 → crece</text>
+<circle cx="230" cy="277" r="4" fill="#f97316"/><text x="240" y="281" font-size="10" fill="#64748b">f'(x) = 0 → punto crítico</text>
+</svg>
+</div>
 <!-- GRÁFICO: Crecimiento -->
 <div class="chart-container">
 <h3>📊 Visualiza el crecimiento: $f(x) = x^3 - 3x$</h3>
 <p class="chart-desc">Observa dónde crece (verde) y dónde decrece (rojo). Los puntos críticos están donde $f'(x) = 0$.</p>
 <div id="plot-crecimiento" class="chart-plot"></div>
+</div>
+<div class="connection-box">
+<strong>🔗 Conexiones</strong>
+• Con <b>S09-2 Continuidad y Derivadas</b>: Necesitas saber derivar para aplicar estos criterios<br>
+• Con <b>S09-3 Reglas de Derivación</b>: Las reglas que aprendiste aquí son las que usas para derivar<br>
+• Con <b>S09-5 Integrales Indefinidas</b>: Las integrales son las inversas de las derivadas<br>
+• Con <b>S09-6 Integrales Definidas</b>: Puedes usar integrales para calcular áreas bajo curvas optimizadas
 </div>
 </div>
 
@@ -149,37 +226,107 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 
 <div class="chapter">
+<div class="chapter">
+<h2 class="chapter-title">🎮 Práctica interactiva</h2>
+<div class="interactive">
+<h3>Explora la función: $f(x) = ax^3 + bx^2 + cx + d$</h3>
+<p style="margin-bottom:1rem;color:#64748b">Modifica los parámetros y observa cómo cambia la función, su derivada y los puntos críticos.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+<div style="flex:1;min-width:150px">
+<label style="font-size:.85rem;font-weight:600">a:</label>
+<input type="range" id="paramA" min="-2" max="2" value="1" step="0.5" onchange="updatePlot()" style="width:100%">
+<span id="valA">1</span>
+</div>
+<div style="flex:1;min-width:150px">
+<label style="font-size:.85rem;font-weight:600">b:</label>
+<input type="range" id="paramB" min="-5" max="5" value="-3" step="0.5" onchange="updatePlot()" style="width:100%">
+<span id="valB">-3</span>
+</div>
+<div style="flex:1;min-width:150px">
+<label style="font-size:.85rem;font-weight:600">c:</label>
+<input type="range" id="paramC" min="-5" max="5" value="0" step="0.5" onchange="updatePlot()" style="width:100%">
+<span id="valC">0</span>
+</div>
+<div style="flex:1;min-width:150px">
+<label style="font-size:.85rem;font-weight:600">d:</label>
+<input type="range" id="paramD" min="-5" max="5" value="0" step="0.5" onchange="updatePlot()" style="width:100%">
+<span id="valD">0</span>
+</div>
+</div>
+<div id="interactivePlot" style="width:100%;height:300px;border-radius:8px"></div>
+<div id="interactiveInfo" style="margin-top:.8rem;padding:.8rem;background:#fff;border-radius:6px;font-size:.9rem"></div>
+</div>
+</div>
+
 <h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
 
+<div class="exercises">
+
+<!-- Ejercicio 1: Completar hueco (fácil) -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Para $f(x) = x^2 - 4x + 3$, ¿en qué punto está el mínimo?</p>
-<div class="exercise-input">
-<input type="number" id="e1" placeholder="x = " step="any">
-<button onclick="checkExercise(1, 2)">Comprobar</button>
-</div>
+<p><strong>Ejercicio 1:</strong> Para $f(x) = x^2 - 4x + 3$, el mínimo está en x = <input type="number" id="e1" placeholder="?" step="any" style="width:60px;padding:.3rem;border:2px solid var(--azul);border-radius:4px"> <span class="difficulty-badge easy">Fácil</span></p>
+<button onclick="checkE1()" style="background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer">Comprobar</button>
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Ejercicio 2: V/F (fácil) -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> Si $f'(x) = 2x - 6$, ¿cuál es el punto crítico?</p>
-<div class="exercise-input">
-<input type="number" id="e2" placeholder="x = " step="any">
-<button onclick="checkExercise(2, 3)">Comprobar</button>
+<p><strong>Ejercicio 2:</strong> Si $f''(x) < 0$ en un punto crítico, ese punto es un máximo relativo. <span class="difficulty-badge easy">Fácil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
 <div class="feedback" id="e2-fb"></div>
 </div>
 
+<!-- Ejercicio 3: Ordenar pasos (medio) -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> Una empresa tiene beneficio $B(x) = -x^2 + 16x - 28$. ¿Cuántas unidades maximiza el beneficio?</p>
-<div class="exercise-input">
-<input type="number" id="e3" placeholder="x = " step="any">
-<button onclick="checkExercise(3, 8)">Comprobar</button>
+<p><strong>Ejercicio 3:</strong> Ordena los pasos para clasificar un punto crítico: <span class="difficulty-badge medium">Medio</span></p>
+<div id="ordenContainer" style="margin:.5rem 0">
+<div class="step" data-pos="3" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Evaluar f''(x) en el punto</div>
+<div class="step" data-pos="1" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Derivar f'(x) e igualar a 0</div>
+<div class="step" data-pos="2" onclick="moveStep(this)" style="background:#fff;padding:.5rem .8rem;margin:.3rem 0;border-radius:6px;border:1px solid var(--gris);cursor:pointer">Encontrar los puntos críticos x</div>
 </div>
+<button onclick="checkOrden()" style="background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer">Comprobar orden</button>
 <div class="feedback" id="e3-fb"></div>
 </div>
+
+<!-- Ejercicio 4: Quiz botones (medio) -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Para $f(x) = x^3 - 3x^2$, ¿cuáles son los puntos críticos? <span class="difficulty-badge medium">Medio</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz4(this, false)">x = 0 y x = 2</button>
+<button class="quiz-btn" onclick="checkQuiz4(this, true)">x = 0 y x = 2</button>
+<button class="quiz-btn" onclick="checkQuiz4(this, false)">x = 1 y x = 3</button>
+<button class="quiz-btn" onclick="checkQuiz4(this, false)">x = -1 y x = 1</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
 </div>
 
-<div class="summary">
+<!-- Ejercicio 5: Problema contextual (difícil) -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> Una empresa tiene coste $C(x) = x^2 - 10x + 50$. ¿Cuántas unidades minimizan el coste? <span class="difficulty-badge hard">Difícil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz5(this, false)">5 unidades</button>
+<button class="quiz-btn" onclick="checkQuiz5(this, true)">5 unidades</button>
+<button class="quiz-btn" onclick="checkQuiz5(this, false)">10 unidades</button>
+<button class="quiz-btn" onclick="checkQuiz5(this, false)">2 unidades</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Decidir tipo de punto (difícil) -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Si $f'(3) = 0$ y $f''(3) = -5$, el punto x=3 es: <span class="difficulty-badge hard">Difícil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz6(this, true)">Máximo relativo</button>
+<button class="quiz-btn" onclick="checkQuiz6(this, false)">Mínimo relativo</button>
+<button class="quiz-btn" onclick="checkQuiz6(this, false)">Punto de inflexión</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+</div><div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
 <li>$f'(x) > 0$ → crece, $f'(x) < 0$ → decrece</li>
@@ -224,6 +371,132 @@ function checkExercise(num, correct) {
   if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
   else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
 }
+
+function checkE1() {
+  const val = parseFloat(document.getElementById('e1').value);
+  const fb = document.getElementById('e1-fb');
+  if (Math.abs(val - 2) < 0.01) { fb.textContent = '✅ ¡Correcto! f'(x) = 2x-4 = 0 → x = 2'; fb.className = 'feedback correct'; }
+  else { fb.textContent = '❌ f'(x) = 2x - 4 = 0 → x = 2. El mínimo está en x = 2.'; fb.className = 'feedback incorrect'; }
+}
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e2-fb');
+  if (correct) { btn.classList.add('correct'); fb.textContent = '✅ ¡Verdadero! f'' < 0 significa cóncava hacia abajo → máximo.'; fb.className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); fb.textContent = '❌ Falso. f'' < 0 → cóncava hacia abajo → ¡es un máximo!'; fb.className = 'feedback incorrect'; }
+}
+
+function moveStep(el) {
+  const container = document.getElementById('ordenContainer');
+  const steps = Array.from(container.querySelectorAll('.step'));
+  const idx = steps.indexOf(el);
+  if (idx > 0) { container.insertBefore(el, steps[idx-1]); }
+  else if (idx < steps.length - 1) { container.insertBefore(el, steps[idx+2]); }
+}
+
+function checkOrden() {
+  const steps = document.getElementById('ordenContainer').querySelectorAll('.step');
+  let correct = true;
+  steps.forEach((s, i) => { if (parseInt(s.dataset.pos) !== i + 1) correct = false; });
+  const fb = document.getElementById('e3-fb');
+  if (correct) { fb.textContent = '✅ ¡Orden correcto! ①Derivar → ②Encontrar puntos críticos → ③Evaluar f'''; fb.className = 'feedback correct'; }
+  else { fb.textContent = '❌ Orden incorrecto. Primero derivas, luego encuentras puntos críticos, luego evalúas f''.'; fb.className = 'feedback incorrect'; }
+}
+
+function checkQuiz4(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e4-fb');
+  if (correct) { btn.classList.add('correct'); fb.textContent = '✅ ¡Correcto! f'(x) = 3x²-6x = 3x(x-2) = 0 → x=0, x=2'; fb.className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); fb.textContent = '❌ f'(x) = 3x² - 6x = 3x(x-2). Puntos críticos: x=0 y x=2.'; fb.className = 'feedback incorrect'; }
+}
+
+function checkQuiz5(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e5-fb');
+  if (correct) { btn.classList.add('correct'); fb.textContent = '✅ ¡Correcto! C'(x) = 2x-10 = 0 → x = 5. Mínimo coste a 5 unidades.'; fb.className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); fb.textContent = '❌ C'(x) = 2x - 10 = 0 → x = 5. Mínimo a 5 unidades.'; fb.className = 'feedback incorrect'; }
+}
+
+function checkQuiz6(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e6-fb');
+  if (correct) { btn.classList.add('correct'); fb.textContent = '✅ ¡Correcto! f''(3) = -5 < 0 → cóncava abajo → máximo.'; fb.className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); fb.textContent = '❌ f''(3) = -5 < 0 → cóncava hacia abajo → ¡es un máximo!'; fb.className = 'feedback incorrect'; }
+}
+
+function updatePlot() {
+  const a = parseFloat(document.getElementById('paramA').value);
+  const b = parseFloat(document.getElementById('paramB').value);
+  const c = parseFloat(document.getElementById('paramC').value);
+  const d = parseFloat(document.getElementById('paramD').value);
+  document.getElementById('valA').textContent = a;
+  document.getElementById('valB').textContent = b;
+  document.getElementById('valC').textContent = c;
+  document.getElementById('valD').textContent = d;
+
+  const x = [];
+  const y = [];
+  const yp = [];
+  for (let i = -10; i <= 10; i += 0.5) {
+    x.push(i);
+    y.push(a*i*i*i + b*i*i + c*i + d);
+    yp.push(3*a*i*i + 2*b*i + c);
+  }
+
+  const traces = [
+    {x, y, type: 'scatter', mode: 'lines', name: 'f(x)', line: {color: '#2563eb', width: 2}},
+    {x, y: yp, type: 'scatter', mode: 'lines', name: "f'(x)", line: {color: '#f97316', width: 2, dash: 'dash'}}
+  ];
+
+  const layout = {
+    title: 'Función (azul) y derivada (naranja)',
+    xaxis: {title: 'x', range: [-10, 10]},
+    yaxis: {title: 'y'},
+    showlegend: true,
+    margin: {t: 40, r: 20, l: 50, b: 40}
+  };
+
+  Plotly.react('interactivePlot', traces, layout);
+
+  // Find critical points
+  if (Math.abs(a) > 0.001) {
+    const disc = 4*b*b - 12*a*c;
+    if (disc >= 0) {
+      const x1 = (-2*b + Math.sqrt(disc)) / (6*a);
+      const x2 = (-2*b - Math.sqrt(disc)) / (6*a);
+      const f1 = a*x1*x1*x1 + b*x1*x1 + c*x1 + d;
+      const f2 = a*x2*x2*x2 + b*x2*x2 + c*x2 + d;
+      document.getElementById('interactiveInfo').innerHTML =
+        '<b>Puntos críticos:</b> x₁ = ' + x1.toFixed(2) + ' (f=' + f1.toFixed(2) + '), x₂ = ' + x2.toFixed(2) + ' (f=' + f2.toFixed(2) + ')<br>' +
+        '<b>f''(x₁):</b> ' + (6*a*x1 + 2*b).toFixed(2) + ' → ' + ((6*a*x1 + 2*b) < 0 ? 'MÁXIMO' : 'MÍNIMO') + '<br>' +
+        '<b>f''(x₂):</b> ' + (6*a*x2 + 2*b).toFixed(2) + ' → ' + ((6*a*x2 + 2*b) < 0 ? 'MÁXIMO' : 'MÍNIMO');
+    } else {
+      document.getElementById('interactiveInfo').innerHTML = '<b>Sin puntos críticos reales</b> (discriminante < 0)';
+    }
+  } else if (Math.abs(b) > 0.001) {
+    const xc = -c / (2*b);
+    document.getElementById('interactiveInfo').innerHTML = '<b>Punto crítico:</b> x = ' + xc.toFixed(2);
+  } else {
+    document.getElementById('interactiveInfo').innerHTML = '<b>Sin puntos críticos</b> (función lineal)';
+  }
+}
+
+function checkExercise(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  if (!input || !feedback) return;
+  const value = parseFloat(input.value);
+  if (isNaN(value)) { feedback.textContent = 'Introduce un número'; feedback.className = 'feedback incorrect'; return; }
+  if (Math.abs(value - correct) < 0.01) { feedback.textContent = '¡Correcto! 🎉'; feedback.className = 'feedback correct'; }
+  else { feedback.textContent = 'Incorrecto. La respuesta es ' + correct; feedback.className = 'feedback incorrect'; }
+}
+
+// Init interactive plot
+updatePlot();
 });
 </script>
 </body>
