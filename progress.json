@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-2-bachiller-continuidad-derivadas.html",
+  "last_improved": "s09-6-bachiller-integrales-definidas.html",
   "last_run": "2026-06-11",
-  "total_runs": 39,
+  "total_runs": 40,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1871,38 +1871,50 @@
       "improvement_count": 0
     },
     "s09-5-bachiller-integrales-indefinidas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+6 ejercicios variados (input texto x2, quiz botones, V/F, problema contextual economía, emparejar), +1 explicación estructurada 4 pasos, +2 casos reales (velocidad→distancia, coste marginal→coste total), +1 SVG interactivo (derivar/integrar operaciones inversas), +1 caja error común (indefinida vs definida), +1 caja conexión, resumen ampliado a 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 6,
+        "text": 12,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-6-bachiller-integrales-definidas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-11",
+          "added": "+6 ejercicios variados (input numérico, input texto, V/F, quiz botones, problema contextual física, emparejar), +1 explicación estructurada 4 pasos TFC, +2 casos reales (distancia velocidad, energía eléctrica), +1 SVG área bajo curva, +1 caja error común (olvidar F(a)), +1 caja conexión, HTML roto corregido, resumen ampliado a 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 6,
+        "text": 12,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 3,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-11",
+      "improvement_count": 1
     },
     "s09-7-bachiller-aplicaciones-integrales.html": {
       "status": "pending",
