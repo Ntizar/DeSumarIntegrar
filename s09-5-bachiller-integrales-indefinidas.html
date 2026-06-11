@@ -50,6 +50,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
 .chart-controls button:hover{background:#1d4ed8}
 .chart-controls button.active{background:var(--naranja)}
+.interactive{background:var(--azul-claro);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid #dbeafe}
 .exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
 .exercise p{font-weight:600;margin-bottom:.5rem}
 .exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
@@ -63,11 +64,47 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+/* Quiz styles */
+.quiz-options{display:flex;flex-direction:column;gap:.5rem;margin:.8rem 0}
+.quiz-btn{background:#f1f5f9;border:2px solid #e2e8f0;padding:.6rem 1rem;border-radius:8px;cursor:pointer;font-size:.95rem;text-align:left;transition:all .2s}
+.quiz-btn:hover{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-btn.selected{border-color:var(--azul);background:var(--azul-claro)}
+.quiz-btn.correct-answer{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.quiz-btn.wrong-answer{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
+/* Exercises section */
+.exercises{margin:1rem 0}
+/* SVG interactive */
+.svg-interactive{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0;text-align:center}
+.svg-interactive svg{max-width:100%;height:auto}
+.svg-interactive .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
+/* Matching exercise */
+.match-container{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.match-column{display:flex;flex-direction:column;gap:.5rem}
+.match-item{padding:.6rem 1rem;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-size:.95rem;transition:all .2s;background:#fff;min-width:140px;text-align:center}
+.match-item:hover{border-color:var(--azul);background:var(--azul-claro)}
+.match-item.selected{border-color:var(--azul);background:var(--azul-claro);box-shadow:0 0 0 2px rgba(37,99,235,.2)}
+.match-item.matched{border-color:var(--verde);background:var(--verde-claro);pointer-events:none}
+.match-item.wrong{border-color:var(--rojo);background:var(--rojo-claro);animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+/* VF exercise */
+.vf-options{display:flex;gap:.5rem;margin:.8rem 0}
+.vf-btn{padding:.5rem 1.5rem;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-weight:600;font-size:.95rem;background:#fff;transition:all .2s}
+.vf-btn:hover{border-color:var(--azul)}
+.vf-btn.selected-true{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.vf-btn.selected-false{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
+/* Ordering exercise */
+.order-list{list-style:none;padding:0;margin:.8rem 0}
+.order-item{padding:.6rem 1rem;background:#fff;border:2px solid #e2e8f0;border-radius:8px;margin:.3rem 0;cursor:grab;font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+.order-item:hover{border-color:var(--azul)}
+.order-item .drag-handle{color:var(--gris);font-size:1.2rem}
+.order-item.correct-order{border-color:var(--verde);background:var(--verde-claro)}
+.order-item.wrong-order{border-color:var(--rojo);background:var(--rojo-claro)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
+  .match-container{flex-direction:column;align-items:center}
 }
 </style>
 </head>
@@ -103,11 +140,26 @@ table tr:nth-child(even){background:#f8fafc}
 <p>¡La distancia es la integral de la velocidad! $d = \int v(t)\,dt$</p>
 <p>Es exactamente lo contrario de derivar: si derivas la distancia obtienes la velocidad, y si integras la velocidad obtienes la distancia.</p>
 </div>
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>💡 Caso real: Economía — Coste total</strong>
+<p>Si conoces el <strong>coste marginal</strong> (coste de producir una unidad más), ¿cómo calculas el coste total de producción?</p>
+<p>Integrando el coste marginal: $CT(Q) = \int C'(Q)\,dQ$. Así, si el coste marginal es $C'(Q) = 3Q^2 + 2$, el coste total es $Q^3 + 2Q + C$.</p>
+</div>
 </div>
 
 <div class="chapter">
 <h2 class="chapter-title">1️⃣ ¿Qué es una Integral Indefinida?</h2>
-<p>La integral indefinida es la <strong>operación inversa de derivar</strong>.</p>
+
+<!-- Explicación estructurada 4 pasos -->
+<div class="box box-teoria">
+<strong>📖 La integral indefinida en 4 pasos:</strong>
+<ol style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>¿Qué es?</strong> La integral indefinida es la operación inversa de derivar. Busca la función original a partir de su derivada.</li>
+<li><strong>¿Para qué sirve?</strong> Para calcular áreas, distancias, costes totales, probabilidades y cualquier cantidad acumulada.</li>
+<li><strong>¿Cómo se hace?</strong> Aplicas la regla de potencias: $\int x^n\,dx = \frac{x^{n+1}}{n+1} + C$, o memorizas las integrales básicas (seno, exponencial, logaritmo…).</li>
+<li><strong>Error común:</strong> ¡Olvidar la $+C$! Como la derivada de cualquier constante es 0, hay infinitas funciones cuya derivada es la misma. La $+C$ representa todas esas posibilidades.</li>
+</ol>
+</div>
 
 <div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
 $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
@@ -118,11 +170,40 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <p style="margin-top:.5rem">Si $\frac{d}{dx}[x^3] = 3x^2$, entonces $\int 3x^2\,dx = x^3 + C$</p>
 </div>
 
-<!-- GRÁFICO: Integral como operación inversa -->
-<div class="chart-container">
-<h3>📊 Derivar e integrar son operaciones inversas</h3>
-<p class="chart-desc">Observa cómo integrar $3x^2$ te devuelve $x^3$ (más una constante).</p>
-<div id="plot-integral" class="chart-plot"></div>
+<!-- Visual SVG: Integral como operación inversa -->
+<div class="svg-interactive">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📊 Derivar e integrar son operaciones inversas</h3>
+<svg viewBox="0 0 500 180" width="500" height="180">
+<!-- F(x) box -->
+<rect x="10" y="50" width="130" height="80" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="75" y="80" text-anchor="middle" fill="#2563eb" font-weight="bold" font-size="14">F(x) = x³</text>
+<text x="75" y="100" text-anchor="middle" fill="#64748b" font-size="11">Función original</text>
+<text x="75" y="120" text-anchor="middle" fill="#64748b" font-size="11">+ C (cualquiera)</text>
+<!-- Flecha derivar -->
+<line x1="150" y1="90" x2="230" y2="90" stroke="#f97316" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+<text x="190" y="80" text-anchor="middle" fill="#f97316" font-weight="bold" font-size="12">derivación</text>
+<!-- f(x) box -->
+<rect x="235" y="40" width="120" height="100" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="295" y="75" text-anchor="middle" fill="#f97316" font-weight="bold" font-size="14">f(x) = 3x²</text>
+<text x="295" y="95" text-anchor="middle" fill="#64748b" font-size="11">Derivada</text>
+<text x="295" y="115" text-anchor="middle" fill="#64748b" font-size="11">y primitiva</text>
+<!-- Flecha integrar -->
+<line x1="360" y1="90" x2="440" y2="90" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+<text x="400" y="80" text-anchor="middle" fill="#10b981" font-weight="bold" font-size="12">integración</text>
+<!-- Flecha de vuelta -->
+<path d="M 440,100 Q 450,140 295,155" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#arrowGreen)"/>
+<text x="445" y="145" fill="#10b981" font-size="10">+C</text>
+<!-- Arrow markers -->
+<defs>
+<marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/>
+</marker>
+<marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+</marker>
+</defs>
+</svg>
+<p class="svg-caption">🔁 Derivar e integrar son operaciones inversas: una va de F→f y otra de f→F+C</p>
 </div>
 </div>
 
@@ -133,11 +214,11 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <strong>📌 Tabla de integrales básicas:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
 <li>$\int x^n\,dx = \frac{x^{n+1}}{n+1} + C$ (para $n \neq -1$)</li>
-<li>$\int \frac$\{1\}${x}\,dx = \ln|x| + C$</li>
+<li>$\int \frac{1}{x}\,dx = \ln|x| + C$</li>
 <li>$\int e^x\,dx = e^x + C$</li>
 <li>$\int \sin(x)\,dx = -\cos(x) + C$</li>
 <li>$\int \cos(x)\,dx = \sin(x) + C$</li>
-<li>$\int \frac$\{1\}${1+x^2}\,dx = \arctan(x) + C$</li>
+<li>$\int \frac{1}{1+x^2}\,dx = \arctan(x) + C$</li>
 </ul>
 </div>
 </div>
@@ -145,6 +226,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <div class="chapter">
 <h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
 
+<!-- Ejercicio 1: Completar hueco (input texto) — Dificultad fácil -->
 <div class="exercise">
 <p><strong>Ejercicio 1:</strong> Calcula $\int 4x^3\,dx$</p>
 <div class="exercise-input">
@@ -154,6 +236,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- Ejercicio 2: Completar hueco (input texto) — trigonométrica, Dificultad fácil -->
 <div class="exercise">
 <p><strong>Ejercicio 2:</strong> Calcula $\int \cos(x)\,dx$</p>
 <div class="exercise-input">
@@ -163,18 +246,65 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <div class="feedback" id="e2-fb"></div>
 </div>
 
+<!-- Ejercicio 3: Quiz botones — ¿Por qué +C? — Dificultad fácil -->
 <div class="exercise">
 <p><strong>Ejercicio 3:</strong> ¿Por qué siempre se añade $+C$ en las integrales indefinidas?</p>
-<div class="exercise-input">
-<select id="e3" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
-<option value="">— Elige —</option>
-<option value="a">Porque la derivada de una constante es 0</option>
-<option value="b">Porque es un requisito matemático</option>
-<option value="c">Porque el profesor lo dice</option>
-</select>
-<button onclick="checkE3()">Comprobar</button>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz3(this, true)">A) Porque la derivada de una constante es 0</button>
+<button class="quiz-btn" onclick="checkQuiz3(this, false)">B) Porque es un requisito matemático</button>
+<button class="quiz-btn" onclick="checkQuiz3(this, false)">C) Porque el profesor lo dice</button>
 </div>
 <div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: V/F — Regla de potencias — Dificultad medio -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Verdadero o Falso: $\int x^5\,dx = \frac{x^6}{6} + C$</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF4(this, true)">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF4(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Problema contextual — Economía — Dificultad medio -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> El coste marginal de producir $Q$ unidades es $C'(Q) = 6Q + 10$. Si el coste fijo es 50 (es decir, $C(0) = 50$), ¿cuál es la función de coste total $C(Q)$?</p>
+<div class="exercise-input">
+<input type="text" id="e5" placeholder="C(Q) = " style="width:220px">
+<button onclick="checkE5()">Comprobar</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Emparejar — Reglas de integración — Dificultad medio -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Empareja cada integral con su resultado correcto (haz clic en una integral y luego en su resultado):</p>
+<div class="match-container">
+<div class="match-column" id="match-left">
+<div class="match-item" data-pair="a" data-side="left" onclick="selectMatch(this)">∫ 2x dx</div>
+<div class="match-item" data-pair="b" data-side="left" onclick="selectMatch(this)">∫ eˣ dx</div>
+<div class="match-item" data-pair="c" data-side="left" onclick="selectMatch(this)">∫ 1/x dx</div>
+</div>
+<div class="match-column" id="match-right">
+<div class="match-item" data-pair="c" data-side="right" onclick="selectMatch(this)">ln|x| + C</div>
+<div class="match-item" data-pair="a" data-side="right" onclick="selectMatch(this)">x² + C</div>
+<div class="match-item" data-pair="b" data-side="right" onclick="selectMatch(this)">eˣ + C</div>
+</div>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Caja error común -->
+<div class="box box-error">
+<strong>⚠️ Error común: Confundir integral indefinida con definida</strong>
+<p>La integral <strong>indefinida</strong> $\int f(x)\,dx = F(x) + C$ es una <strong>función</strong> (familia de funciones). La integral <strong>definida</strong> $\int_a^b f(x)\,dx$ es un <strong>número</strong> (el área bajo la curva). ¡No son lo mismo!</p>
+</div>
+
+<!-- Caja conexión -->
+<div class="box box-idea">
+<strong>🔗 Conexión con temas anteriores</strong>
+<p>Las integrales indefinidas son la <strong>operación inversa</strong> de las derivadas que aprendiste en la sesión anterior (s09-4). Si derivar es "desmontar" una función, integrar es "montarla" de nuevo (salvo una constante). En la <strong>siguiente sesión</strong> verás las integrales <em>definidas</em>, que usan esta misma idea para calcular áreas.</p>
 </div>
 </div>
 
@@ -184,8 +314,10 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <li>La integral indefinida es la operación inversa de derivar</li>
 <li>$\int f(x)\,dx = F(x) + C$ donde $F'(x) = f(x)$</li>
 <li>Siempre se añade $+C$ porque la derivada de una constante es 0</li>
-<li>Integrales básicas: potencia, $1/x$, $e^x$, $\sin(x)$, $\cos(x)$</li>
-<li>Las integrales defindas se verán en la siguiente sesión</li>
+<li>Regla de potencias: $\int x^n\,dx = \frac{x^{n+1}}{n+1} + C$</li>
+<li>Integrales básicas: $1/x \to \ln|x|$, $e^x \to e^x$, $\sin \to -\cos$, $\cos \to \sin$</li>
+<li>Aplicaciones: distancia (velocidad), coste total (coste marginal), probabilidades</li>
+<li>Diferencia clave: indefinida = función (familia), definida = número (área)</li>
 </ul>
 </div>
 
@@ -213,32 +345,127 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+});
 
 function checkE1() {
   const input = document.getElementById('e1');
   const fb = document.getElementById('e1-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v === 'x^4' || v === 'x⁴') { fb.textContent = '¡Correcto! ∫4x³ dx = x⁴ + C 🎉'; fb.className = 'feedback correct'; }
+  if (v === 'x^4+c' || v === 'x⁴+c' || v === 'x^4' || v === 'x⁴') { fb.textContent = '¡Correcto! ∫4x³ dx = x⁴ + C 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. ∫4x³ dx = x⁴ + C'; fb.className = 'feedback incorrect'; }
 }
+
 function checkE2() {
   const input = document.getElementById('e2');
   const fb = document.getElementById('e2-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v === 'sin(x)' || v === 'sinx' || v === 'sen(x)' || v === 'senx') { fb.textContent = '¡Correcto! ∫cos(x) dx = sin(x) + C 🎉'; fb.className = 'feedback correct'; }
+  if (v === 'sin(x)+c' || v === 'sinx+c' || v === 'sin(x)' || v === 'sinx' || v === 'sen(x)+c' || v === 'senx+c' || v === 'sen(x)' || v === 'senx') { fb.textContent = '¡Correcto! ∫cos(x) dx = sin(x) + C 🎉'; fb.className = 'feedback correct'; }
   else { fb.textContent = 'Incorrecto. ∫cos(x) dx = sin(x) + C'; fb.className = 'feedback incorrect'; }
 }
-function checkE3() {
-  const sel = document.getElementById('e3');
+
+function checkQuiz3(btn, isCorrect) {
   const fb = document.getElementById('e3-fb');
-  if (!sel || !fb) return;
-  if (sel.value === 'a') { fb.textContent = '¡Correcto! La derivada de una constante es 0, por eso hay infinitas antiderivadas 🎉'; fb.className = 'feedback correct'; }
-  else if (sel.value) { fb.textContent = 'Incorrecto. La razón es que la derivada de cualquier constante es 0'; fb.className = 'feedback incorrect'; }
-  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
+  const allBtns = document.querySelectorAll('#e3-fb ~ .quiz-btn, .quiz-options .quiz-btn');
+  // Reset all
+  document.querySelectorAll('.quiz-btn').forEach(b => {
+    b.classList.remove('correct-answer', 'wrong-answer', 'selected');
+  });
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    fb.textContent = '¡Correcto! La derivada de cualquier constante es 0, por eso hay infinitas antiderivadas 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong-answer');
+    fb.textContent = 'Incorrecto. La razón es que la derivada de cualquier constante es 0.';
+    fb.className = 'feedback incorrect';
+  }
 }
-});
+
+function checkVF4(btn, isCorrect) {
+  const fb = document.getElementById('e4-fb');
+  document.querySelectorAll('.vf-btn').forEach(b => {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (isCorrect) {
+    btn.classList.add('selected-true');
+    fb.textContent = '¡Correcto! ∫x⁵ dx = x⁶/6 + C. Aplicas la regla de potencias: sube el exponente y divides por el nuevo 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('selected-false');
+    fb.textContent = 'Incorrecto. Es VERDADERO. Regla de potencias: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C → ∫x⁵ dx = x⁶/6 + C';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE5() {
+  const input = document.getElementById('e5');
+  const fb = document.getElementById('e5-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  // C(Q) = 3Q² + 10Q + 50
+  if (v === '3q^2+10q+50' || v === '3q²+10q+50' || v === '3*q^2+10*q+50' || v === '3q²+10q+50') {
+    fb.textContent = '¡Correcto! ∫(6Q+10)dQ = 3Q² + 10Q + C, y C(0)=50 → C=50 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. ∫(6Q+10)dQ = 3Q² + 10Q + C. Como C(0)=50, C=50. Respuesta: 3Q² + 10Q + 50';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Matching exercise
+let selectedLeft = null;
+let selectedRight = null;
+let matchCount = 0;
+
+function selectMatch(el) {
+  if (el.classList.contains('matched')) return;
+
+  const side = el.dataset.side;
+  if (side === 'left') {
+    if (selectedLeft) selectedLeft.classList.remove('selected');
+    selectedLeft = el;
+    el.classList.add('selected');
+  } else {
+    if (selectedRight) selectedRight.classList.remove('selected');
+    selectedRight = el;
+    el.classList.add('selected');
+  }
+
+  // Check if both sides selected
+  if (selectedLeft && selectedRight) {
+    const leftPair = selectedLeft.dataset.pair;
+    const rightPair = selectedRight.dataset.pair;
+    const fb = document.getElementById('e6-fb');
+
+    if (leftPair === rightPair) {
+      selectedLeft.classList.add('matched');
+      selectedRight.classList.add('matched');
+      selectedLeft.classList.remove('selected');
+      selectedRight.classList.remove('selected');
+      matchCount++;
+      if (matchCount === 3) {
+        fb.textContent = '¡Perfecto! Has emparejado todas las integrales con sus resultados 🎉';
+        fb.className = 'feedback correct';
+      } else {
+        fb.textContent = '¡Correcto! Sigue así (' + (3 - matchCount) + ' más)';
+        fb.className = 'feedback correct';
+      }
+    } else {
+      selectedLeft.classList.add('wrong');
+      selectedRight.classList.add('wrong');
+      fb.textContent = 'No coinciden. Inténtalo de nuevo.';
+      fb.className = 'feedback incorrect';
+      setTimeout(() => {
+        if (selectedLeft) { selectedLeft.classList.remove('wrong', 'selected'); }
+        if (selectedRight) { selectedRight.classList.remove('wrong', 'selected'); }
+      }, 800);
+    }
+    selectedLeft = null;
+    selectedRight = null;
+  }
+}
 </script>
 </body>
 </html>

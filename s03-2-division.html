@@ -76,8 +76,12 @@ Dividir es <b>repartir en grupos iguales</b>. Si tienes 12 caramelos y 3 amigos,
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Dividir es repartir</h2>
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caramelos repartidos entre 3 amigos = 4 caramelos cada uno.
+<strong>📖 CONCEPTO — Las 4 preguntas clave</strong>
+<br><br>
+<strong>1. ¿Qué es?</strong> Dividir es <b>repartir una cantidad en grupos iguales</b>. Se escribe con el símbolo ÷. 12 ÷ 3 = 4 significa: repartimos 12 en 3 grupos de 4.<br><br>
+<strong>2. ¿Para qué sirve?</strong> Para <b>repartir igualitas</b>: caramelos entre amigos, sillas en mesas, o repartir la cuenta del restaurante.<br><br>
+<strong>3. ¿Cómo se hace?</strong> Piensa en la multiplicación inversa: si 4 × 3 = 12, entonces 12 ÷ 3 = 4. ¡La división es la operación inversa de multiplicar!<br><br>
+<strong>4. ¿Qué error comete la gente?</strong> Confundir qué número va donde. Recuerda: <b>lo que se reparte va ARRIBA</b> (dividendo), <b>los grupos van debajo</b> (divisor). Dividendo ÷ Divisor = Cociente (resto).
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -90,6 +94,7 @@ Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caram
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
 <b>Relación con multiplicar:</b><br>4 × 3 = 12 → 12 ÷ 3 = 4<br>¡Son operaciones inversas!
+</div>
 </div>
 </section>
 <section class="chapter">
@@ -114,11 +119,26 @@ Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caram
 </div>
 </section>
 <section class="chapter">
+<h2 class="chapter-title">🌍 División en la vida real</h2>
+<div class="box box-ejemplo">
+<strong>🍕 Caso 1: La pizza del cumpleaños</strong>
+Hay 23 rebanadas de pizza y 7 amigos. ¿Cuántas rebanadas le tocan a cada uno? 23 ÷ 7 = <b>3 rebanadas</b> c/u, sobran <b>2</b> para la madre que llegó tarde.
+</div>
+<div class="box box-ejemplo">
+<strong>🎮 Caso 2: Repartir cartas</strong>
+Juegan 4 amigos con una baraja de 52 cartas. 52 ÷ 4 = <b>13 cartas</b> para cada uno. ¡Exacto, sin sobrar!
+</div>
+<div class="box box-idea">
+<strong>🔗 Conexión</strong>
+La división es lo contrario de multiplicar (tema <a href="s03-1-mult-dos-cifras.html">S03.1</a>). También es la base de las <a href="s03-3-intro-fracciones.html">fracciones</a>: 3/4 es lo mismo que 3 ÷ 4.
+</div>
+</section>
+<section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
 <div class="exercise">
-<p>1. ¿Cuánto es 20 ÷ 4?</p>
+<p><b>🎯 Quiz — Tipo 1:</b> ¿Cuánto es 20 ÷ 4?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
@@ -126,36 +146,26 @@ Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caram
 </div>
 </div>
 <div class="exercise">
-<p>2. ¿Cuánto es 15 ÷ 3?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-</div>
-</div>
-<div class="exercise">
-<p>3. ¿Cuánto es 17 ÷ 5? (resto)</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">3 resto 2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3 resto 1</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4 resto 1</button>
-</div>
+<p><b>✏️ Completar hueco — Tipo 2:</b> Si repartes 18 galletas entre 6 amigos, cada uno recibe ___ galletas. Completa: ___ ÷ ___ = ___</p>
+<input type="text" id="e2-a" placeholder="?" style="width:50px;padding:0.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center">
+<span>÷</span>
+<input type="text" id="e2-b" placeholder="?" style="width:50px;padding:0.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center">
+<span>=</span>
+<input type="text" id="e2-c" placeholder="?" style="width:50px;padding:0.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center">
+<button onclick="checkE2()" style="padding:0.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-weight:600">Comprobar</button>
+<div class="result" id="e2-result"></div>
 </div>
 <div class="exercise">
-<p>4. ¿Cuánto es 18 ÷ 6?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
-</div>
+<p><b>✅❌ Verdadero o Falso — Tipo 3:</b> "17 ÷ 5 = 3 resto 2"</p>
+<button onclick="checkVF(this, true)" style="padding:0.5rem 1.5rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-size:1rem;font-weight:600;margin:0.3rem">✅ Verdadero</button>
+<button onclick="checkVF(this, false)" style="padding:0.5rem 1.5rem;border-radius:6px;border:2px solid var(--rojo);background:#fff;cursor:pointer;font-size:1rem;font-weight:600;margin:0.3rem">❌ Falso</button>
+<div class="result" id="e3-result"></div>
 </div>
 <div class="exercise">
-<p>5. ¿Cuánto es 23 ÷ 4? (resto)</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5 resto 3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5 resto 2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6 resto 1</button>
-</div>
+<p><b>🔢 Ordenar — Tipo 4:</b> Ordena de mayor a menor resultado: 12÷3, 20÷4, 30÷5. Escribe los números de las operaciones en orden.</p>
+<input type="text" id="e4-input" placeholder="ej: 12÷3,20÷4,30÷5" style="width:250px;padding:0.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center">
+<button onclick="checkOrden()" style="padding:0.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-weight:600">Comprobar</button>
+<div class="result" id="e4-result"></div>
 </div>
 
 </div>
@@ -163,7 +173,14 @@ Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caram
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Dividir es repartir en grupos iguales</li></li><li><li>División exacta: no sobra nada</li></li><li><li>División con resto: sobra algo</li></li><li><li>Dividir es lo contrario de multiplicar</li></li><li><li>¡Ya sabes dividir! 🎉</li></li>
+<li>Dividir es repartir en grupos iguales</li>
+<li>División exacta: no sobra nada (ej: 20 ÷ 4 = 5)</li>
+<li>División con resto: sobra algo (ej: 17 ÷ 5 = 3 resto 2)</li>
+<li>Dividir es lo contrario de multiplicar (operaciones inversas)</li>
+<li>Lo que se reparte va ARRIBA, los grupos van ABAJO</li>
+<li>La división está en la vida real: pizza, cartas, cuentas</li>
+<li>La división es la base de las fracciones</li>
+<li>Puedes completar, verificar y ordenar divisiones</li>
 </ul>
 </div>
 <div class="nav">
@@ -208,6 +225,44 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+function checkE2() {
+  const a = document.getElementById('e2-a').value.trim();
+  const b = document.getElementById('e2-b').value.trim();
+  const c = document.getElementById('e2-c').value.trim();
+  const res = document.getElementById('e2-result');
+  if(a === '18' && b === '6' && c === '3') {
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 18 ÷ 6 = 3. Cada amigo recibe 3 galletas.';
+  } else {
+    res.className = 'result fail';
+    res.textContent = '❌ Piensa: 18 galletas ÷ 6 amigos = 3 galletas cada uno. La ecuación es: 18 ÷ 6 = 3.';
+  }
+}
+
+function checkVF(btn, correct) {
+  const res = document.getElementById('e3-result');
+  if(correct) {
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Verdadero! 17 ÷ 5 = 3 con resto 2. Porque 3 × 5 = 15, y 17 - 15 = 2.';
+  } else {
+    res.className = 'result fail';
+    res.textContent = '❌ Era verdadero. Comprueba: 3 × 5 = 15, y 17 - 15 = 2. Correcto.';
+  }
+}
+
+function checkOrden() {
+  const val = document.getElementById('e4-input').value.trim().replace(/\s/g, '');
+  const res = document.getElementById('e4-result');
+  // 12÷3=4, 20÷4=5, 30÷5=6 → de mayor a menor: 30÷5, 20÷4, 12÷3
+  if(val === '30÷5,20÷4,12÷3' || val === '30/5,20/4,12/3') {
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 30÷5=6 > 20÷4=5 > 12÷3=4.';
+  } else {
+    res.className = 'result fail';
+    res.textContent = '❌ Calcula cada división primero: 12÷3=4, 20÷4=5, 30÷5=6. Ordena de mayor a menor.';
+  }
 }
 
 window.onscroll = function(){

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍕 S03.3: Introducción a las Fracciones — 3º Primaria — ¡Partes del todo!</title>
+<title>➗ S03.2: División Exacta y con Resto — 3º Primaria — ¡Repartir en grupos!</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,8 +57,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <header class="header">
-<h1>🍕 S03.3: Introducción a las Fracciones</h1>
-<p>3º Primaria — ¡Partes del todo!</p>
+<h1>➗ S03.2: División Exacta y con Resto</h1>
+<p>3º Primaria — ¡Repartir en grupos!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
@@ -66,46 +66,49 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Una fracción es una <b>parte de un todo</b>. Si cortas una pizza en 4 trozos, cada trozo es 1/4 (un cuarto).
+Dividir es <b>repartir en grupos iguales</b>. Si tienes 12 caramelos y 3 amigos, cada uno recibe 4.
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Entender qué es una fracción</li><li>Identificar mitad, tercio, cuarto</li><li>Representar fracciones visualmente</li><li>Leer y escribir fracciones</li>
+<li>Entender qué es dividir</li><li>División exacta (sin resto)</li><li>División con resto</li><li>Relación entre multiplicación y división</li>
 </ul>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ ¿Qué es una fracción?</h2>
+<h2 class="chapter-title">1️⃣ Dividir es repartir</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-Una fracción es <b>partes iguales de un todo</b>. Se escribe con dos números: el de arriba (numerador) dice cuántas partes tomamos, el de abajo (denominador) dice en cuántas partes dividimos el todo.
+Dividir significa <b>repartir en grupos iguales</b>. 12 ÷ 3 = 4 porque 12 caramelos repartidos entre 3 amigos = 4 caramelos cada uno.
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
-<b>1/2 (mitad):</b> El todo dividido en 2 partes iguales. Tomamos 1.<br>🍕🍕 = 1 pizza dividida en 2 → tomamos 1/2
+<b>División exacta:</b><br>12 ÷ 3 = 4 ✅<br>12 caramelos ÷ 3 amigos = 4 caramelos c/u
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 2</strong>
-<b>1/4 (un cuarto):</b> El todo dividido en 4 partes iguales. Tomamos 1.<br>🍕🍕🍕🍕 = 1 pizza dividida en 4 → tomamos 1/4
+<b>División con resto:</b><br>13 ÷ 3 = 4 resto 1<br>13 caramelos ÷ 3 amigos = 4 c/u, sobra 1
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
-<b>1/3 (un tercio):</b> El todo dividido en 3 partes iguales. Tomamos 1.<br>🍕🍕🍕 = 1 pizza dividida en 3 → tomamos 1/3
+<b>Relación con multiplicar:</b><br>4 × 3 = 12 → 12 ÷ 3 = 4<br>¡Son operaciones inversas!
 </div>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Corta las pizzas!</h2>
+<h2 class="chapter-title">2️⃣ ¡Reparte los objetos!</h2>
 <div class="interactive">
-<h3>Elige cuántas partes cortar la pizza:</h3>
+<h3>Mueve el slider para repartir objetos entre grupos:</h3>
 <div style="text-align:center;margin:1rem 0">
-<div style="display:flex;gap:.5rem;justify-content:center;margin:1rem 0">
-<button onclick="setParts(2)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">½</button>
-<button onclick="setParts(3)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">⅓</button>
-<button onclick="setParts(4)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">¼</button>
-<button onclick="setParts(6)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">⅙</button>
-<button onclick="setParts(8)" style="padding:.5rem 1rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-weight:600">⅛</button>
+<div style="display:flex;gap:1rem;justify-content:center;align-items:center;margin:1rem 0">
+<label style="font-weight:600">Objetos: </label>
+<input type="range" id="divObjects" min="2" max="20" value="12" oninput="updateDiv()" style="width:120px;accent-color:var(--azul)">
+<span id="divObjVal" style="font-size:1.3rem;font-weight:700;color:var(--azul)">12</span>
 </div>
-<canvas id="pizzaCanvas" width="200" height="200" style="border-radius:50%;margin:1rem auto;display:block"></canvas>
-<div id="fractionDisplay" style="font-size:1.5rem;font-weight:700;color:var(--azul);margin:1rem 0"></div>
+<div style="display:flex;gap:1rem;justify-content:center;align-items:center;margin:1rem 0">
+<label style="font-weight:600">Grupos: </label>
+<input type="range" id="divGroups" min="2" max="6" value="3" oninput="updateDiv()" style="width:120px;accent-color:var(--naranja)">
+<span id="divGrpVal" style="font-size:1.3rem;font-weight:700;color:var(--naranja)">3</span>
+</div>
+<div id="divVisual" style="margin:1rem 0;font-size:1.3rem"></div>
+<div id="divEquation" style="font-size:1.3rem;font-weight:700;color:var(--azul)"></div>
 </div>
 <div class="result" id="interactiveResult"></div>
 </div>
@@ -115,42 +118,43 @@ Una fracción es <b>partes iguales de un todo</b>. Se escribe con dos números: 
 <div class="exercises">
 
 <div class="exercise">
-<p>1. Si una pizza está dividida en 4 partes y te comes 1, ¿qué fracción comiste?</p>
+<p>1. ¿Cuánto es 20 ÷ 4?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/3</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
 </div>
 </div>
 <div class="exercise">
-<p>2. ¿Qué fracción es 1 de 3 partes iguales?</p>
+<p>2. ¿Cuánto es 15 ÷ 3?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/3</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/3</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
 </div>
 </div>
 <div class="exercise">
-<p>3. Si cortas un pastel en 2 partes iguales, ¿cómo se llama cada parte?</p>
+<p>3. ¿Cuánto es 17 ÷ 5? (resto)</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">Mitad</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Tercio</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Cuarto</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3 resto 2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">3 resto 1</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4 resto 1</button>
 </div>
 </div>
 <div class="exercise">
-<p>4. ¿Cuál es mayor: 1/2 o 1/4?</p>
+<p>4. ¿Cuánto es 18 ÷ 6?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
 </div>
 </div>
 <div class="exercise">
-<p>5. Si tienes 1/4 de pizza y te dan 2/4 más, ¿cuánta pizza tienes?</p>
+<p>5. ¿Cuánto es 23 ÷ 4? (resto)</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">3/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/4</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">5 resto 3</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5 resto 2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6 resto 1</button>
 </div>
 </div>
 
@@ -159,13 +163,13 @@ Una fracción es <b>partes iguales de un todo</b>. Se escribe con dos números: 
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Una fracción es una parte de un todo</li></li><li><li>El numerador (arriba) = partes que tomamos</li></li><li><li>El denominador (abajo) = partes totales</li></li><li><li>1/2 = mitad, 1/3 = tercio, 1/4 = cuarto</li></li><li><li>¡Ya sabes fracciones! 🎉</li></li>
+<li><li>Dividir es repartir en grupos iguales</li></li><li><li>División exacta: no sobra nada</li></li><li><li>División con resto: sobra algo</li></li><li><li>Dividir es lo contrario de multiplicar</li></li><li><li>¡Ya sabes dividir! 🎉</li></li>
 </ul>
 </div>
 <div class="nav">
-<a href="s03-2-division.html">← Anterior</a>
+<a href="s03-1-mult-dos-cifras.html">← Anterior</a>
   <a href="s03-3primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-<a href="s03-4-comparar-fracciones.html">Siguiente →</a>
+<a href="s03-3-intro-fracciones.html">Siguiente →</a>
 </div>
 </main>
 <footer class="footer">
@@ -173,55 +177,28 @@ Hecho con ❤️ por David Antizar
 </footer>
 <script>
 
-let parts = 2;
-let clickedParts = 0;
-const canvas = document.getElementById('pizzaCanvas');
-const ctx = canvas.getContext('2d');
-
-function drawPizza() {
-  ctx.clearRect(0, 0, 200, 200);
-  const cx = 100, cy = 100, r = 90;
-  ctx.beginPath();
-  ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.fillStyle = '#f97316';
-  ctx.fill();
-  ctx.strokeStyle = '#ea580c';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-  for(let i = 0; i < parts; i++) {
-    const angle = (i * 2 * Math.PI) / parts - Math.PI/2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + r * Math.cos(angle), cy + r * Math.sin(angle));
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 3;
-    ctx.stroke();
+function updateDiv() {
+  const objects = parseInt(document.getElementById('divObjects').value);
+  const groups = parseInt(document.getElementById('divGroups').value);
+  document.getElementById('divObjVal').textContent = objects;
+  document.getElementById('divGrpVal').textContent = groups;
+  const perGroup = Math.floor(objects / groups);
+  const remainder = objects % groups;
+  const visual = document.getElementById('divVisual');
+  visual.innerHTML = '';
+  for(let g = 0; g < groups; g++) {
+    const group = document.createElement('span');
+    group.style.cssText = 'margin:0 .5rem;padding:.3rem .5rem;background:var(--azul-claro);border-radius:6px;display:inline-block';
+    group.textContent = '🍎'.repeat(perGroup);
+    visual.appendChild(group);
   }
-  updateFractionDisplay();
-}
-
-function updateFractionDisplay() {
-  document.getElementById('fractionDisplay').textContent = clickedParts + '/' + parts + ' = ' + (clickedParts/parts).toFixed(2);
-}
-
-function setParts(n) {
-  parts = n;
-  clickedParts = 0;
-  drawPizza();
-}
-
-canvas.addEventListener('click', function(e) {
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const dx = x - 100, dy = y - 100;
-  if(Math.sqrt(dx*dx + dy*dy) <= 90) {
-    clickedParts = Math.min(clickedParts + 1, parts);
-    drawPizza();
+  if(remainder > 0) {
+    visual.innerHTML += '<span style="margin-left:.5rem;color:var(--rojo)">🍎×' + remainder + ' (sobra)</span>';
   }
-});
-
-setParts(4);
+  document.getElementById('divEquation').textContent =
+    objects + ' ÷ ' + groups + ' = ' + perGroup + (remainder > 0 ? ' resto ' + remainder : '');
+}
+updateDiv();
 
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
