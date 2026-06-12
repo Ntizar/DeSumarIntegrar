@@ -60,7 +60,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
 .difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
 .step-indicator{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:.5rem}
-.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}.connection-box strong{color:#166534}.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600;margin:.2rem}.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:#166534}
 </style>
 </head>
 <body>
@@ -179,61 +180,17 @@ Para evaluar $f(x) = 2x + 1$ con $x = 5$:
 </div>
 </section>
 
-<!-- CASO REAL 2 -->
-<section class="chapter">
-<h2 class="chapter-title">🚕 Caso real 2: El taxi</h2>
-<div class="box box-ejemplo">
-<strong>🚕 Tarifa de taxi: base 3€ + 1,50€/km</strong>
-<p>La función del precio es: <span class="real-world-badge">TRANSPORTE</span></p>
-<p style="font-size:1.2rem;font-weight:700;margin:.8rem 0">T(km) = 3 + 1,50 × km</p>
-<p><strong>Pregunta:</strong> ¿Cuánto cuesta un viaje de 10 km?</p>
-<div class="interactive" style="margin-top:1rem">
-<h3>Resuelve el caso:</h3>
-<div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
-<input type="number" id="taxiInput" placeholder="T(10) = ?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:6px;font-size:1rem;width:120px">
-<button onclick="checkTaxi()">Comprobar</button>
-</div>
-<div class="result" id="taxiResult"></div>
-</div>
-</div>
-</section>
-
-<!-- CASO REAL 3 -->
-<section class="chapter">
-<h2 class="chapter-title">🌡️ Caso real 3: La temperatura del día</h2>
-<div class="box box-ejemplo">
-<strong>🌡️ Temperatura que sube 2°C por hora hasta mediodía</strong>
-<p>A las 6:00 hace 8°C. La temperatura sube 2°C cada hora hasta las 12:00:</p>
-<p style="font-size:1.2rem;font-weight:700;margin:.8rem 0">T(h) = 8 + 2h &nbsp; (h = horas desde las 6:00)</p>
-<p><span class="real-world-badge">CLIMA</span></p>
-<p><strong>Pregunta:</strong> ¿A qué temperatura estará a las 10:00?</p>
-<div class="interactive" style="margin-top:1rem">
-<h3>Resuelve el caso:</h3>
-<div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
-<input type="number" id="tempInput" placeholder="T(4) = ?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:6px;font-size:1rem;width:120px">
-<button onclick="checkTemp()">Comprobar</button>
-</div>
-<div class="result" id="tempResult"></div>
-</div>
-</div>
-</section>
-
-<!-- CONEXIONES EXPANDIDAS -->
+<!-- CONEXIONES -->
 <section class="chapter">
 <h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
 <div class="connection-box">
 <strong>📚 ¿Dónde encontrarás funciones otra vez?</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li><strong>ESO1.5 — Intro Álgebra:</strong> Las funciones usan letras (x, y) como las ecuaciones</li>
-<li><strong>ESO2.1 — Ecuaciones 1º grado:</strong> Resolver f(x)=0 es encontrar la raíz</li>
-<li><strong>ESO2.3 — Teorema de Tales:</strong> Proporcionalidad = función lineal f(x)=kx</li>
+<li><strong>ESO2.3 — Teorema de Tales:</strong> La proporcionalidad es un tipo de función lineal $f(x) = kx$</li>
+<li><strong>ESO2.1 — Ecuaciones:</strong> Resolver $f(x) = 0$ es encontrar la raíz de la función</li>
 <li><strong>ESO2.5 — Funciones (este tema):</strong> ¡Estás aquí!</li>
-<li><strong>ESO2.7 — Circunferencia:</strong> Área del círculo A(r)=πr² es una función cuadrática</li>
-<li><strong>ESO2.9 — Probabilidad:</strong> Distribuciones de probabilidad son funciones</li>
 <li><strong>4º ESO — Funciones avanzadas:</strong> Cuadráticas, exponenciales, trigonométricas</li>
-<li><strong>Bachillerato — Derivadas:</strong> La derivada mide cómo cambia una función</li>
-<li><strong>Bachillerato — Integrales:</strong> La integral acumula el valor de una función</li>
-<li><strong>Física:</strong> Todas las leyes físicas son funciones (F=ma, v=d/t, E=mc²)</li>
+<li><strong>Bachillerato — Límites:</strong> Estudia el comportamiento de funciones cuando x crece mucho</li>
 </ul>
 </div>
 </section>
@@ -410,32 +367,6 @@ function checkTabla(btn, correct) {
     document.getElementById('f5').textContent = '5';
   } else {
     btn.classList.add('wrong');
-  }
-}
-
-function checkTaxi() {
-  const input = document.getElementById('taxiInput');
-  const result = document.getElementById('taxiResult');
-  const v = parseFloat(input.value);
-  if(v === 18) {
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! T(10) = 3 + 1,50×10 = 3 + 15 = 18€. Un viaje de 10 km cuesta 18€.';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ Recuerda: T(10) = 3 + 1,50×10 = 3 + 15 = 18€. Inténtalo de nuevo.';
-  }
-}
-
-function checkTemp() {
-  const input = document.getElementById('tempInput');
-  const result = document.getElementById('tempResult');
-  const v = parseInt(input.value);
-  if(v === 16) {
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! A las 10:00 han pasado 4h: T(4) = 8 + 2×4 = 8 + 8 = 16°C.';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ Recuerda: T(4) = 8 + 2×4 = 8 + 8 = 16°C. Inténtalo de nuevo.';
   }
 }
 
