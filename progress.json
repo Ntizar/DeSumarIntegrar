@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-5-bachiller-integrales-indefinidas.html",
+  "last_improved": "s02-7-dinero.html",
   "last_run": "2026-06-12",
-  "total_runs": 50,
+  "total_runs": 51,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1149,21 +1149,27 @@
       "improvement_count": 1
     },
     "s02-7-dinero.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 SVG monedas y billetes funcional, +2 casos reales (panadería, videojuegos), +1 caja conexiones (5 temas), +4 ejercicios nuevos variados (completar hueco, V/F, ordenar, emparejar), +1 decidir operación, +CSS: step-indicator, step-dot, connection-box, real-world-badge, svg-container, feedback.correct/incorrect, difficulty-badge, arreglado nested <li>"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 12,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s03-1-mult-dos-cifras.html": {
       "status": "improved_1",
@@ -2202,21 +2208,30 @@
       "improvement_count": 1
     },
     "s10-3-carrera-integrales-multiples.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        "4-step explanation (mira/fíjate/convierte/error común)",
+        "6 interactive exercises: input numérico, quiz botones, V/F, completar hueco, ordenar pasos, problema contextual",
+        "3D Plotly surface chart (4-x²-y² paraboloid)",
+        "3 real-world cases: masa placa metálica, volumen tanque paraboloides, probabilidad conjunta",
+        "Connection box linking to S10-1, S10-2, S10-4, coordenadas polares, física",
+        "CSS coherence: all required classes present",
+        "Common error box: orden de integración"
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 6,
+        "text": 8,
+        "visual": 10,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "improved_by": "dsi-mejora-s2"
     },
     "s10-4-carrera-edos-primer-orden.html": {
       "status": "improved_1",
@@ -2344,5 +2359,39 @@
       "improvement_count": 0
     }
   },
-  "total_temas": 87
+  "total_temas": 87,
+  "session_improvements": [
+    {
+      "file": "s10-3-carrera-integrales-multiples.html",
+      "title": "Integrales Múltiples",
+      "level": "universidad",
+      "improvements": "full rewrite: 4-step explanation, 3D Plotly surface, 3 real cases, 6 exercise types, CSS coherence",
+      "scores": {
+        "exercises": 6,
+        "text": 8,
+        "visual": 10,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 6
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s02-7-dinero.html",
+      "title": "Dinero - Compras y cambios",
+      "level": "2º Primaria",
+      "improvements": "full: 4-step explanation, SVG coins/bills, 2 real cases, 5 connections, 6 exercise types (quiz/fill/VF/order/pair/decide), CSS coherence",
+      "scores": {
+        "exercises": 12,
+        "text": 12,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    }
+  ]
 }

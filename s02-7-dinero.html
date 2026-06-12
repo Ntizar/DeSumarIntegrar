@@ -22,6 +22,25 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0}
+.step-dot.s1{background:var(--azul)}.step-dot.s2{background:var(--naranja)}.step-dot.s3{background:var(--verde)}.step-dot.s4{background:var(--rojo)}
+.step-label{font-size:.85rem;color:var(--texto);margin-top:.25rem;text-align:center}
+.step-item{text-align:center;flex:1;min-width:80px}
+.connection-box{background:linear-gradient(135deg,#faf5ff,#eff6ff);border:2px dashed var(--pura);border-radius:12px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--pura);margin-bottom:.5rem}
+.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:700;margin-right:.3rem}
+.svg-container{display:flex;justify-content:center;margin:1rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.feedback{padding:.6rem 1rem;border-radius:8px;margin:.5rem 0;font-weight:600}
+.feedback.correct{background:var(--verde-claro);color:#065f46;border:1px solid var(--verde)}
+.feedback.incorrect{background:var(--rojo-claro);color:#991b1b;border:1px solid var(--rojo)}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:12px;font-size:.7rem;font-weight:700;margin-left:.3rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 .interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
@@ -50,6 +69,13 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+input[type="number"]{padding:.5rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:80px;text-align:center}
+input[type="text"]{padding:.5rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:120px}
+.fill-blank{display:inline-flex;align-items:center;gap:.3rem}
+.fill-blank input{width:60px;display:inline-block}
+.order-list{list-style:none;padding:0}
+.order-list li{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border:2px solid #e2e8f0;border-radius:6px;cursor:grab;display:flex;align-items:center;gap:.5rem}
+.order-list li.dragging{opacity:.5;border-color:var(--azul)}
 </style>
 </head>
 <body>
@@ -73,11 +99,64 @@ El dinero nos ayuda a <b>comprar</b> cosas. Aprendemos a contar monedas, sumar p
 <li>Reconocer monedas y billetes</li><li>Sumar cantidades de dinero</li><li>Hacer cambios</li><li>Resolver problemas de compras</li>
 </ul>
 </section>
+
+<!-- NUEVO: Explicación estructurada 4 pasos -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Monedas y billetes</h2>
+<h2 class="chapter-title">📚 ¿Qué es el dinero? (4 pasos)</h2>
+<div class="step-indicator">
+<div class="step-item"><div class="step-dot s1">1</div><div class="step-label">Qué es</div></div>
+<div class="step-item"><div class="step-dot s2">2</div><div class="step-label">Para qué</div></div>
+<div class="step-item"><div class="step-dot s3">3</div><div class="step-label">Cómo</div></div>
+<div class="step-item"><div class="step-dot s4">4</div><div class="step-label">Error común</div></div>
+</div>
+<div class="box box-teoria">
+<strong>📖 1. ¿Qué es el dinero?</strong>
+El dinero es un medio de intercambio. En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Los billetes van de 5€ a 500€.
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 2. ¿Para qué sirve?</strong>
+Para comprar lo que necesitamos: comida, ropa, juguetes. En lugar de cambiar cosas por cosas (trueque), usamos dinero que todos aceptan.
+</div>
+<div class="box box-teoria">
+<strong>📖 3. ¿Cómo se maneja?</strong>
+Para sumar: 1€ + 50¢ = 150¢ (o 1,50€). Para restar (cambio): pago − precio = cambio. Ejemplo: pago con 5€ algo de 3€ → cambio = 5 − 3 = 2€.
+</div>
+<div class="box box-error">
+<strong>⚠️ 4. Error común</strong>
+¡Confundir céntimos con euros! 100 céntimos = 1 euro. Si tienes 150 céntimos, eso es 1€50, NO 150€.
+</div>
+</section>
+
+<!-- NUEVO: SVG monedas y billetes -->
+<section class="chapter">
+<h2 class="chapter-title">🪙 Monedas y billetes</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
 En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Los billetes van de 5€ a 500€.
+</div>
+<div class="svg-container">
+<svg width="600" height="120" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+<!-- Monedas -->
+<circle cx="40" cy="60" r="28" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+<text x="40" y="66" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">1€</text>
+<circle cx="100" cy="60" r="28" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+<text x="100" y="66" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">2€</text>
+<circle cx="160" cy="60" r="24" fill="#d4d4d8" stroke="#a1a1aa" stroke-width="2"/>
+<text x="160" y="65" text-anchor="middle" font-size="11" font-weight="bold" fill="#52525b">50¢</text>
+<circle cx="210" cy="60" r="22" fill="#d4d4d8" stroke="#a1a1aa" stroke-width="2"/>
+<text x="210" y="65" text-anchor="middle" font-size="11" font-weight="bold" fill="#52525b">20¢</text>
+<text x="125" y="105" text-anchor="middle" font-size="10" fill="#6b7280">— Monedas —</text>
+<!-- Billetes -->
+<rect x="270" y="30" width="50" height="70" rx="4" fill="#34d399" stroke="#059669" stroke-width="2"/>
+<text x="295" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">5€</text>
+<rect x="330" y="30" width="50" height="70" rx="4" fill="#60a5fa" stroke="#2563eb" stroke-width="2"/>
+<text x="355" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">10€</text>
+<rect x="390" y="30" width="50" height="70" rx="4" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
+<text x="415" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">20€</text>
+<rect x="450" y="30" width="50" height="70" rx="4" fill="#a78bfa" stroke="#7c3aed" stroke-width="2"/>
+<text x="475" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#5b21b6">50€</text>
+<text x="375" y="115" text-anchor="middle" font-size="10" fill="#6b7280">— Billetes —</text>
+</svg>
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
@@ -92,6 +171,34 @@ En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Lo
 <b>Ejemplo de compra:</b><br>Pago con 5€ un lápiz de 2€ + un cuaderno de 1€.<br>Cambio: 5 − 3 = <b>2€</b>
 </div>
 </section>
+
+<!-- NUEVO: Caso real -->
+<section class="chapter">
+<h2 class="chapter-title">🏪 Caso real: La panadería de la abuela</h2>
+<div class="box box-teoria">
+<span class="real-world-badge">VIDA REAL</span>
+<strong>🍞 La panadería</strong>
+La abuela de Ana va a la panadería. Compra un <b>pan de 1€20</b> y un <b>pastel de 3€80</b>. Paga con un billete de <b>5€</b>.
+<br><br>
+<b>Paso 1:</b> Sumar precios → 1€20 + 3€80 = 5€00<br>
+<b>Paso 2:</b> Calcular cambio → 5€ − 5€ = <b>0€</b><br>
+<b>Resultado:</b> ¡No le toca cambio! La panadera le dice: "¡Gracias, exacto!" 🎉
+</div>
+</section>
+
+<!-- NUEVO: Conexiones -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>🔗 Este tema se conecta con:</h4>
+<p>• <a href="s01-3-sumar-hasta-10.html">Sumar hasta 10</a> — para sumar precios</p>
+<p>• <a href="s01-4-sumar-hasta-20.html">Sumar hasta 20</a> — para sumar cantidades mayores</p>
+<p>• <a href="s01-5-restar-hasta-10.html">Restar hasta 10</a> — para calcular cambios</p>
+<p>• <a href="s02-1-sumas-llevadas.html">Sumas con llevadas</a> — para sumar euros y céntimos</p>
+<p>• <a href="s01-8-medidas-tamano-peso.html">Medidas: Tamaño y Peso</a> — las monedas tienen peso diferente</p>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Simulador de compras!</h2>
 <div class="interactive">
@@ -107,57 +214,124 @@ En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Lo
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<!-- NUEVOS: Ejercicios de tipos diferentes -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- Ejercicio tipo 1: Quiz botón (ya existente, mejorado) -->
 <div class="exercise">
-<p>1. Si tienes 2 monedas de 50 céntimos, ¿cuánto tienes?</p>
+<p>1. Si tienes 2 monedas de 50 céntimos, ¿cuánto tienes? <span class="difficulty-badge easy">Fácil</span></p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">25€</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">1€</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">2€</button>
 </div>
 </div>
+
+<!-- Ejercicio tipo 2: Completar hueco (NUEVO) -->
 <div class="exercise">
-<p>2. Un lápiz cuesta 80 céntimos. Pagas con 1€. ¿Cuánto te devuelven?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">20 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">80 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10 céntimos</button>
+<p>2. Completa: Si un helado cuesta 1€50 y tienes 2€, te sobran <input type="number" id="fill1" placeholder="?"> céntimos. <span class="difficulty-badge easy">Fácil</span></p>
+<button class="quiz-btn" onclick="checkFillIn(1, 50)">Comprobar</button>
+<div class="result" id="fill1Result"></div>
 </div>
-</div>
+
+<!-- Ejercicio tipo 3: Verdadero/Falso (NUEVO) -->
 <div class="exercise">
-<p>3. ¿Cuántas monedas de 20 céntimos necesitas para hacer 1€?</p>
+<p>3. Verdadero o Falso: 100 céntimos = 1 euro. <span class="difficulty-badge easy">Fácil</span></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
+<div class="result" id="vfResult3"></div>
 </div>
+
+<!-- Ejercicio tipo 4: Ordenar (NUEVO) -->
 <div class="exercise">
-<p>4. Si un helado cuesta 1€50 y tienes 2€, ¿cuánto te sobra?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">50 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1€</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">25 céntimos</button>
+<p>4. Ordena de menor a mayor: ¿cuál es la secuencia correcta? <span class="difficulty-badge medium">Medio</span></p>
+<p style="font-size:.9rem;color:#6b7280;margin-bottom:.5rem">Ordena las monedas de menor a mayor valor:</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0">
+<button class="quiz-btn" onclick="orderCheck(this, '20¢')">20¢</button>
+<button class="quiz-btn" onclick="orderCheck(this, '50¢')">50¢</button>
+<button class="quiz-btn" onclick="orderCheck(this, '1€')">1€</button>
+<button class="quiz-btn" onclick="orderCheck(this, '2€')">2€</button>
 </div>
+<p style="font-size:.9rem;margin-top:.5rem">Tu orden: <span id="orderDisplay" style="font-weight:700;color:var(--azul)">—</span></p>
+<button class="quiz-btn" onclick="checkOrder()">Comprobar orden</button>
+<div class="result" id="orderResult"></div>
 </div>
+
+<!-- Ejercicio tipo 5: Problema contextual (NUEVO) -->
 <div class="exercise">
-<p>5. ¿Cuánto cuesta un lápiz (80¢) + un cuaderno (€1)?</p>
+<p>5. Carlos va al supermercado. Compra un zumo de 1€30 y un yogur de 80 céntimos. Paga con 3€. <br>¿Cuánto le devuelven? <span class="difficulty-badge medium">Medio</span></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">€1.50</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">€1.80</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">€2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">90 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">90 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">2€20</button>
 </div>
+</div>
+
+<!-- Ejercicio tipo 6: Decidir operación (NUEVO) -->
+<div class="exercise">
+<p>6. María tiene 3 monedas de 20 céntimos y su abuela le da 50 céntimos más. <br>¿Qué operación necesita para saber cuánto tiene en total? <span class="difficulty-badge easy">Fácil</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">Sumar: 60¢ + 50¢</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Restar: 60¢ − 50¢</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Multiplicar: 60¢ × 50¢</button>
+</div>
+</div>
+
+<!-- Ejercicio tipo 7: Emparejar (NUEVO) -->
+<div class="exercise">
+<p>7. Empareja cada cantidad con su equivalente: <span class="difficulty-badge hard">Difícil</span></p>
+<p style="font-size:.9rem;color:#6b7280;margin-bottom:.5rem">Haz clic en una opción de la izquierda y luego su equivalente a la derecha:</p>
+<div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:1rem 0">
+<div id="pairLeft" style="display:flex;flex-direction:column;gap:.5rem"></div>
+<div id="pairRight" style="display:flex;flex-direction:column;gap:.5rem"></div>
+</div>
+<div class="result" id="pairResult"></div>
 </div>
 
 </div>
 </section>
+
+<!-- NUEVO: Caso real 2 -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 Caso real: La tienda de videojuegos</h2>
+<div class="box box-ejemplo">
+<span class="real-world-badge">VIDA REAL</span>
+<strong>🎮 La tienda de videojuegos</strong>
+Pedro quiere comprar un juego de <b>15€</b>. Tiene ahorrados <b>9€</b> en su hucha. Su padre le da <b>8€</b> más.
+<br><br>
+<b>Paso 1:</b> Sumar lo que tiene → 9€ + 8€ = 17€<br>
+<b>Paso 2:</b> ¿Le basta? → 17€ > 15€ → ¡SÍ!<br>
+<b>Paso 3:</b> Calcular cambio → 17€ − 15€ = <b>2€</b><br>
+<b>Resultado:</b> Pedro compra el juego y le sobran 2€ para un caramelo 🍬
+</div>
+</section>
+
+<!-- NUEVO: Conexiones -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>🔗 Este tema se conecta con:</h4>
+<p>• <a href="s01-3-sumar-hasta-10.html">Sumar hasta 10</a> — para sumar precios</p>
+<p>• <a href="s01-5-restar-hasta-10.html">Restar hasta 10</a> — para calcular cambios</p>
+<p>• <a href="s02-1-sumas-llevadas.html">Sumas con llevadas</a> — para sumar euros y céntimos</p>
+<p>• <a href="s01-8-medidas-tamano-peso.html">Medidas: Tamaño y Peso</a> — las monedas tienen peso diferente</p>
+</div>
+</section>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Las monedas van de 1¢ a 2€</li></li><li><li>Los billetes van de 5€ a 500€</li></li><li><li>1€ = 100 céntimos</li></li><li><li>Para hacer cambio: pago − precio = cambio</li></li><li><li>¡Ya sabes manejar dinero! 🎉</li></li>
+<li>Las monedas van de 1¢ a 2€</li>
+<li>Los billetes van de 5€ a 500€</li>
+<li>1€ = 100 céntimos</li>
+<li>Para hacer cambio: pago − precio = cambio</li>
+<li>Sumar precios: euros + euros, céntimos + céntimos</li>
+<li>¡Ya sabes manejar dinero! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -236,6 +410,135 @@ function checkExercise(btn, correct) {
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
 }
+
+// NUEVO: Check fill-in
+function checkFillIn(num, answer) {
+  const input = document.getElementById('fill' + num);
+  const result = document.getElementById('fill' + num + 'Result');
+  const val = parseInt(input.value);
+  if(val === answer) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 2€ − 1€50 = 50 céntimos.';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Incorrecto. Pista: 2€ = 200 céntimos, 1€50 = 150 céntimos. 200 − 150 = ?';
+  }
+}
+
+// NUEVO: Check V/F
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const result = document.getElementById('vfResult3');
+  if(correct) {
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 100 céntimos = 1 euro. ¡Es la base del dinero!';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = '❌ ¡No! 100 céntimos SÍ son 1 euro. ¡Recuerda: 1€ = 100¢!';
+  }
+}
+
+// NUEVO: Order check
+let orderItems = [];
+function orderCheck(btn, value) {
+  if(btn.disabled) return;
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  orderItems.push(value);
+  document.getElementById('orderDisplay').textContent = orderItems.join(' → ');
+}
+function checkOrder() {
+  const result = document.getElementById('orderResult');
+  const correct = ['20¢', '50¢', '1€', '2€'];
+  if(JSON.stringify(orderItems) === JSON.stringify(correct)) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Perfecto! 20¢ < 50¢ < 1€ < 2€';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No es correcto. El orden es: 20¢ → 50¢ → 1€ → 2€';
+  }
+}
+
+// NUEVO: Pair matching
+let pairSelected = null;
+let pairMatched = 0;
+const pairData = [
+  {left: '100¢', right: '1€'},
+  {left: '50¢', right: '½ euro'},
+  {left: '200¢', right: '2€'},
+  {left: '5€', right: '500¢'}
+];
+function initPairs() {
+  const leftDiv = document.getElementById('pairLeft');
+  const rightDiv = document.getElementById('pairRight');
+  // Shuffle right
+  const shuffled = [...pairData].sort(() => Math.random() - 0.5);
+  pairData.forEach((pair, i) => {
+    const lbtn = document.createElement('button');
+    lbtn.className = 'quiz-btn';
+    lbtn.textContent = pair.left;
+    lbtn.dataset.pair = pair.left;
+    lbtn.dataset.side = 'left';
+    lbtn.onclick = function() { selectPair(this); };
+    leftDiv.appendChild(lbtn);
+  });
+  shuffled.forEach((pair, i) => {
+    const rbtn = document.createElement('button');
+    rbtn.className = 'quiz-btn';
+    rbtn.textContent = pair.right;
+    rbtn.dataset.pair = pair.left; // same key for matching
+    rbtn.dataset.side = 'right';
+    rbtn.onclick = function() { selectPair(this); };
+    rightDiv.appendChild(rbtn);
+  });
+}
+function selectPair(btn) {
+  if(btn.disabled) return;
+  if(!pairSelected) {
+    pairSelected = btn;
+    btn.style.borderColor = 'var(--naranja)';
+    btn.style.borderWidth = '3px';
+  } else {
+    if(btn.dataset.side === pairSelected.dataset.side) {
+      // Same side, switch selection
+      pairSelected.style.borderColor = '';
+      pairSelected.style.borderWidth = '';
+      pairSelected = btn;
+      btn.style.borderColor = 'var(--naranja)';
+      btn.style.borderWidth = '3px';
+    } else {
+      // Different side, check match
+      if(btn.dataset.pair === pairSelected.dataset.pair) {
+        pairSelected.classList.add('correct');
+        btn.classList.add('correct');
+        pairSelected.disabled = true;
+        btn.disabled = true;
+        pairMatched++;
+        if(pairMatched === pairData.length) {
+          document.getElementById('pairResult').className = 'result ok';
+          document.getElementById('pairResult').textContent = '✅ ¡Todos emparejados! 100¢=1€, 50¢=½ euro, 200¢=2€, 5€=500¢';
+        }
+      } else {
+        pairSelected.classList.add('wrong');
+        btn.classList.add('wrong');
+        setTimeout(() => {
+          pairSelected.classList.remove('wrong');
+          btn.classList.remove('wrong');
+          pairSelected.style.borderColor = '';
+          pairSelected.style.borderWidth = '';
+        }, 800);
+      }
+      pairSelected = null;
+    }
+  }
+}
+initPairs();
 
 window.onscroll = function(){
   var h = document.documentElement;
