@@ -50,6 +50,33 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.step-indicator{display:flex;justify-content:center;gap:.5rem;margin:1.5rem 0}
+.step-dot{width:40px;height:40px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gris);cursor:pointer;transition:all .3s}
+.step-dot.active{background:var(--azul);color:#fff;transform:scale(1.15)}
+.step-dot.completed{background:var(--verde);color:#fff}
+.step-content{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:1rem 0;border-left:4px solid var(--azul);min-height:120px}
+.step-content h4{color:var(--azul);margin-bottom:.5rem}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:12px;padding:1.2rem;margin:1.5rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.svg-container{text-align:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.svg-container .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
+.input-group{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.input-group input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.input-group input:focus{outline:none;border-color:var(--azul)}
+.input-group button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.order-list{list-style:none;padding:0;margin:.8rem 0}
+.order-item{padding:.6rem 1rem;background:#fff;border:2px solid #e2e8f0;border-radius:8px;margin:.3rem 0;cursor:pointer;font-size:.95rem;display:flex;align-items:center;gap:.5rem;transition:all .2s}
+.order-item:hover{border-color:var(--azul)}
+.order-item.correct-order{border-color:var(--verde);background:var(--verde-claro)}
+.order-item.wrong-order{border-color:var(--rojo);background:var(--rojo-claro)}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+}
 </style>
 </head>
 <body>
@@ -62,6 +89,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- SECCIÓN: Explicación estructurada en 4 pasos -->
 <section class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
@@ -73,27 +102,152 @@ Ahora usamos <b>unidades reales</b>: centímetros (cm) para longitud y gramos/kg
 <li>Usar cm para medir longitud</li><li>Usar g y kg para medir peso</li><li>Convertir entre unidades simples</li><li>Medir objetos del día a día</li>
 </ul>
 </section>
+
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Unidades de medida</h2>
-<div class="box box-teoria">
-<strong>📖 Teoría</strong>
-<b>Longitud:</b> cm (centímetros) para cosas pequeñas, m (metros) para cosas grandes.<br><b>Peso:</b> g (gramos) para cosas ligeras, kg (kilogramos) para cosas pesadas. 1 kg = 1000 g.
+<h2 class="chapter-title">📚 Aprende en 4 pasos</h2>
+
+<div class="step-indicator">
+<div class="step-dot active" onclick="showStep(1)">1</div>
+<div class="step-dot" onclick="showStep(2)">2</div>
+<div class="step-dot" onclick="showStep(3)">3</div>
+<div class="step-dot" onclick="showStep(4)">4</div>
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-<b>Longitud:</b><br>📎 Grapadora = 3 cm<br>📏 Lápiz = 18 cm<br>🚪 Puerta = 2 m (200 cm)
+
+<div class="step-content" id="step1-content">
+<h4>👀 Mira — ¿Qué son las unidades de medida?</h4>
+<p>Las unidades de medida son como <b>reglas mágicas</b> que nos dicen lo grande o lo pequeño que es algo.</p>
+<p><b>Longitud</b> = cuánto mide algo de largo → usamos <span class="real-world-badge">cm</span> y <span class="real-world-badge">m</span></p>
+<p><b>Peso</b> = cuánto pesa algo → usamos <span class="real-world-badge">g</span> y <span class="real-world-badge">kg</span></p>
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-<b>Peso:</b><br>🍎 Manzana = 150 g<br>🐱 Gato = 4 kg<br>🐘 Elefante = 5000 kg
+
+<div class="step-content" id="step2-content" style="display:none">
+<h4>🔍 Fíjate — ¿Cuándo uso cm y cuándo m?</h4>
+<p>Usa <b>cm</b> para cosas que caben en tu mano: un lápiz (18 cm), un móvil (15 cm), una regla (30 cm).</p>
+<p>Usa <b>m</b> para cosas grandes: una puerta (2 m = 200 cm), una habitación (4 m), un campo de fútbol (100 m).</p>
+<p>Usa <b>g</b> para cosas ligeras: una manzana (150 g), una pluma (10 g).</p>
+<p>Usa <b>kg</b> para cosas pesadas: un gato (4 kg), una mochila llena (5 kg).</p>
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-<b>Conversiones:</b><br>1 m = 100 cm<br>1 kg = 1000 g<br>2 m = 200 cm<br>3 kg = 3000 g
+
+<div class="step-content" id="step3-content" style="display:none">
+<h4>🧠 Ahora ves — ¿Cómo convierto unidades?</h4>
+<p>Para convertir de <b>m a cm</b>: multiplica por 100 → 2 m = 2 × 100 = 200 cm</p>
+<p>Para convertir de <b>kg a g</b>: multiplica por 1000 → 3 kg = 3 × 1000 = 3000 g</p>
+<p>Para convertir de <b>cm a m</b>: divide entre 100 → 500 cm = 500 ÷ 100 = 5 m</p>
+<p>Para convertir de <b>g a kg</b>: divide entre 1000 → 2000 g = 2000 ÷ 1000 = 2 kg</p>
+</div>
+
+<div class="step-content" id="step4-content" style="display:none">
+<h4>⚠️ Error común — ¡No confundir cm con kg!</h4>
+<p>¡Los <b>cm</b> miden longitud (largo) y los <b>kg</b> miden peso (pesado)! Son cosas diferentes.</p>
+<p>❌ "La manzana mide 150 cm" → ¡Eso sería más grande que un niño!</p>
+<p>✅ "La manzana pesa 150 g" → ¡Así sí tiene sentido!</p>
+<p>Truco: <b>c</b>m = <b>c</b>orto (longitud) · <b>k</b>g = <b>k</b>g (peso)</p>
 </div>
 </section>
+
+<!-- SVG pedagógico: Balanza y regla visual -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Adivina la medida!</h2>
+<h2 class="chapter-title">📊 Visualiza las medidas</h2>
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">⚖️ Balanza mágica — Compara pesos</h3>
+<svg viewBox="0 0 500 250" width="500" height="250">
+<!-- Base de la balanza -->
+<rect x="230" y="180" width="40" height="60" rx="5" fill="#94a3b8"/>
+<line x1="250" y1="180" x2="250" y2="80" stroke="#94a3b8" stroke-width="4"/>
+<!-- Travesaño -->
+<line x1="60" y1="80" x2="440" y2="80" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+<!-- Platillo izquierdo -->
+<line x1="60" y1="80" x2="60" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="60" y1="80" x2="30" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="60" y1="80" x2="90" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<rect x="20" y="130" width="80" height="20" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<!-- Platillo derecho -->
+<line x1="440" y1="80" x2="440" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="440" y1="80" x2="410" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="440" y1="80" x2="470" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<rect x="400" y="130" width="80" height="20" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<!-- Objeto izquierdo: manzana -->
+<text x="60" y="118" text-anchor="middle" font-size="24">🍎</text>
+<text x="60" y="155" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">150 g</text>
+<!-- Objeto derecho: melón -->
+<text x="440" y="118" text-anchor="middle" font-size="24">🍈</text>
+<text x="440" y="155" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">2 kg</text>
+<!-- Etiqueta -->
+<text x="250" y="70" text-anchor="middle" font-size="13" fill="#64748b" font-weight="bold">¿Quién pesa más?</text>
+<!-- Flecha de respuesta -->
+<path d="M 250,200 Q 250,190 230,185" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+<text x="250" y="220" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">¡El melón! 2 kg = 2000 g > 150 g</text>
+<defs>
+<marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+</marker>
+</defs>
+</svg>
+<p class="svg-caption">⚖️ 2 kg = 2000 g, ¡mucho más que 150 g!</p>
+</div>
+
+<div class="svg-container" style="margin-top:2rem">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📏 Línea de medidas — De pequeño a grande</h3>
+<svg viewBox="0 0 500 120" width="500" height="120">
+<!-- Línea base -->
+<line x1="20" y1="80" x2="480" y2="80" stroke="#e2e8f0" stroke-width="2"/>
+<!-- Marcas de referencia -->
+<line x1="100" y1="70" x2="100" y2="90" stroke="#94a3b8" stroke-width="1"/>
+<line x1="200" y1="70" x2="200" y2="90" stroke="#94a3b8" stroke-width="1"/>
+<line x1="300" y1="70" x2="300" y2="90" stroke="#94a3b8" stroke-width="1"/>
+<line x1="400" y1="70" x2="400" y2="90" stroke="#94a3b8" stroke-width="1"/>
+<text x="100" y="105" text-anchor="middle" font-size="10" fill="#64748b">1 cm</text>
+<text x="200" y="105" text-anchor="middle" font-size="10" fill="#64748b">10 cm</text>
+<text x="300" y="105" text-anchor="middle" font-size="10" fill="#64748b">1 m</text>
+<text x="400" y="105" text-anchor="middle" font-size="10" fill="#64748b">10 m</text>
+<!-- Objetos en escala -->
+<text x="50" y="50" text-anchor="middle" font-size="20">📎</text>
+<text x="50" y="65" text-anchor="middle" font-size="9" fill="#2563eb">1 cm</text>
+<text x="120" y="40" text-anchor="middle" font-size="20">✏️</text>
+<text x="120" y="55" text-anchor="middle" font-size="9" fill="#2563eb">18 cm</text>
+<text x="200" y="30" text-anchor="middle" font-size="20">📏</text>
+<text x="200" y="45" text-anchor="middle" font-size="9" fill="#2563eb">30 cm</text>
+<text x="280" y="20" text-anchor="middle" font-size="20">🚪</text>
+<text x="280" y="35" text-anchor="middle" font-size="9" fill="#2563eb">2 m</text>
+<text x="370" y="10" text-anchor="middle" font-size="20">🏫</text>
+<text x="370" y="25" text-anchor="middle" font-size="9" fill="#2563eb">10 m</text>
+</svg>
+<p class="svg-caption">📏 Los objetos crecen en tamaño: desde un clip (1 cm) hasta un edificio (10 m)</p>
+</div>
+</section>
+
+<!-- Casos reales -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Casos reales</h2>
+
+<div class="box box-ejemplo">
+<strong>🛒 Caso real 1 — Supermercado</strong>
+<p>En el supermercado, las frutas se venden por <b>peso</b>. Si compras <span class="real-world-badge">3 kg</span> de manzanas, eso son <b>3000 g</b> de manzanas. ¡Y el carrito mide unos <span class="real-world-badge">60 cm</span> de largo!</p>
+</div>
+
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>🎒 Caso real 2 — Mochila del cole</strong>
+<p>Tu mochila vacía pesa <span class="real-world-badge">800 g</span>. Con los libros, pesa <span class="real-world-badge">3 kg</span>. ¡Los libros pesan <b>3000 − 800 = 2200 g</b>!</p>
+</div>
+
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>🏃 Caso real 3 — Carrera en el parque</strong>
+<p>En la carrera del cole, el circuito mide <span class="real-world-badge">200 m</span>. ¡Si das <b>5 vueltas</b>, recorres <b>200 × 5 = 1000 m = 1 km</b>!</p>
+</div>
+</section>
+
+<!-- Conexiones con otros temas -->
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p>· <b>S01.9 (Medidas — Longitud):</b> Ya aprendiste a usar cm y m, ahora profundizamos.</p>
+<p>· <b>S02.1 (Sumas con llevadas):</b> Para sumar 150 g + 250 g necesitas llevadas.</p>
+<p>· <b>S02.4 (Tablas del 1 al 5):</b> Para calcular 5 × 200 m = 1000 m = 1 km.</p>
+<p>· <b>S01.8 (Medidas — Tamaño y Peso):</b> Tema hermano, complementa lo aprendido aquí.</p>
+</div>
+
+<!-- Adivina la medida (juego existente mejorado) -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 ¡Adivina la medida!</h2>
 <div class="interactive">
 <h3>¿Cuánto crees que mide o pesa cada objeto?</h3>
 <div style="text-align:center;margin:1rem 0">
@@ -103,10 +257,13 @@ Ahora usamos <b>unidades reales</b>: centímetros (cm) para longitud y gramos/kg
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<!-- Ejercicios mejorados con 4 tipos diferentes -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
+<!-- Tipo 1: Quiz botones (existente, se mantiene) -->
 <div class="exercise">
 <p>1. ¿Cuántos cm tiene 1 metro?</p>
 <div class="quiz-options">
@@ -115,47 +272,62 @@ Ahora usamos <b>unidades reales</b>: centímetros (cm) para longitud y gramos/kg
 <button class="quiz-btn" onclick="checkExercise(this, false)">1000</button>
 </div>
 </div>
+
+<!-- Tipo 2: Completar hueco (input numérico) -->
 <div class="exercise">
-<p>2. ¿Cuántos kg es 2000 g?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">20</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">200</button>
+<p>2. Completa: 5 m = <input type="number" id="fill1" style="width:80px;padding:.3rem;border:2px solid #e2e8f0;border-radius:6px"> cm</p>
+<button onclick="checkFillIn(1, ['500'])">Comprobar</button>
+<div class="feedback" id="fill1-fb"></div>
 </div>
-</div>
+
+<!-- Tipo 3: Verdadero o Falso -->
 <div class="exercise">
-<p>3. ¿Qué unidad usarías para medir una regla?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">kg</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">l</button>
+<p>3. Verdadero o Falso: Una naranja pesa 150 kg</p>
+<div class="vf-options" style="display:flex;gap:.5rem;margin:.8rem 0">
+<button class="quiz-btn" onclick="checkVF(this, false)" style="background:var(--verde-claro);border-color:var(--verde)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)" style="background:var(--rojo-claro);border-color:var(--rojo)">❌ Falso</button>
 </div>
+<div class="feedback" id="vf1-fb"></div>
 </div>
+
+<!-- Tipo 4: Ordenar de menor a mayor -->
 <div class="exercise">
-<p>4. ¿Qué unidad usarías para medir el peso de un melón?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">cm</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">kg</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">m</button>
+<p>4. Ordena de menor a mayor (haz clic en el orden correcto):</p>
+<ul class="order-list" id="orderList1">
+<li class="order-item" data-pos="2" onclick="selectOrder(this, 1)">🍎 Manzana — 150 g</li>
+<li class="order-item" data-pos="1" onclick="selectOrder(this, 1)">📎 Grapadora — 3 cm</li>
+<li class="order-item" data-pos="3" onclick="selectOrder(this, 1)">🐱 Gato — 4 kg</li>
+</ul>
+<button onclick="checkOrder(1)">Comprobar orden</button>
+<div class="feedback" id="order1-fb"></div>
 </div>
-</div>
+
+<!-- Tipo 5: Problema contextual -->
 <div class="exercise">
-<p>5. ¿Cuántos cm tiene 3 metros?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">30</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">300</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">3000</button>
+<p>5. 🛒 Ana compra 2 kg de manzanas y 500 g de naranjas. ¿Cuántos gramos compra en total?</p>
+<div class="input-group">
+<input type="number" id="problem1" placeholder="gramos">
+<button onclick="checkProblem1()">Comprobar</button>
 </div>
+<div class="feedback" id="problem1-fb"></div>
 </div>
 
 </div>
 </section>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>1 m = 100 cm</li></li><li><li>1 kg = 1000 g</li></li><li><li>Usamos cm para cosas pequeñas, m para grandes</li></li><li><li>Usamos g para cosas ligeras, kg para pesadas</li></li><li><li>¡Ya sabes medir! 🎉</li></li>
+<li>1 m = 100 cm (multiplicar por 100 para ir de m a cm)</li>
+<li>1 kg = 1000 g (multiplicar por 1000 para ir de kg a g)</li>
+<li>Usamos cm para cosas pequeñas (lápiz, móvil), m para grandes (puerta, habitación)</li>
+<li>Usamos g para cosas ligeras (manzana, pluma), kg para pesadas (gato, mochila)</li>
+<li>¡No confundir unidades! cm = longitud, kg = peso</li>
+<li>Truco: c<m> = corto (longitud) · k<g> = kg (peso)</li>
+<li>En el supermercado todo se pesa y mide: ¡tú eres el experto!</li>
 </ul>
 </div>
+
 <div class="nav">
 <a href="s02-5-tablas-6-9.html">← Anterior</a>
   <a href="s02-2primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -166,7 +338,6 @@ Ahora usamos <b>unidades reales</b>: centímetros (cm) para longitud y gramos/kg
 Hecho con ❤️ por David Antizar
 </footer>
 <script>
-
 const items = [
   {emoji:'📏', name:'Regla', unit:'cm', answer:30, opts:[10,30,100]},
   {emoji:'🍎', name:'Manzana', unit:'g', answer:150, opts:[15,150,1500]},
@@ -219,6 +390,117 @@ function checkExercise(btn, correct) {
   });
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
+}
+
+// Paso a paso
+function showStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('step' + i + '-content');
+    const dot = document.querySelectorAll('.step-dot')[i-1];
+    if (i <= n) {
+      el.style.display = 'block';
+      dot.classList.add('completed');
+      dot.classList.remove('active');
+    } else {
+      el.style.display = 'none';
+      dot.classList.remove('completed', 'active');
+    }
+  }
+  document.querySelectorAll('.step-dot')[n-1].classList.add('active');
+}
+
+// Completar hueco
+function checkFillIn(num, correctAnswers) {
+  const input = document.getElementById('fill' + num);
+  const fb = document.getElementById('fill' + num + '-fb');
+  if (!input || !fb) return;
+  const val = input.value.trim();
+  if (correctAnswers.some(a => a === val)) {
+    fb.textContent = '✅ ¡Correcto!';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. La respuesta es ' + correctAnswers[0];
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Verdadero o Falso
+function checkVF(btn, isCorrect) {
+  const fb = document.getElementById('vf1-fb');
+  const allBtns = btn.parentElement.querySelectorAll('.quiz-btn');
+  allBtns.forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if (isCorrect) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Una naranja pesa 150 g, no 150 kg (eso sería como 3 niños).';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ ¡Falso! Una naranja pesa 150 g. 150 kg serían 3 niños juntos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ordenar
+let orderSelections = {};
+function selectOrder(el, listNum) {
+  if (el.classList.contains('correct-order') || el.classList.contains('wrong-order')) return;
+  if (!orderSelections[listNum]) orderSelections[listNum] = [];
+  // Toggle selection
+  const idx = orderSelections[listNum].indexOf(el);
+  if (idx >= 0) {
+    orderSelections[listNum].splice(idx, 1);
+    el.style.border = '2px solid #e2e8f0';
+  } else {
+    orderSelections[listNum].push(el);
+    el.style.border = '2px solid var(--azul)';
+  }
+}
+
+function checkOrder(listNum) {
+  const fb = document.getElementById('order' + listNum + '-fb');
+  const items = orderSelections[listNum];
+  if (!items || items.length < 3) {
+    fb.textContent = 'Selecciona los 3 objetos en orden.';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  // Check if in correct order: 3cm, 150g, 4kg
+  let correct = true;
+  for (let i = 0; i < items.length; i++) {
+    const pos = parseInt(items[i].getAttribute('data-pos'));
+    if (pos !== i + 1) { correct = false; break; }
+  }
+  items.forEach((el, i) => {
+    if (parseInt(el.getAttribute('data-pos')) === i + 1) {
+      el.classList.add('correct-order');
+      el.style.border = '2px solid var(--verde)';
+    } else {
+      el.classList.add('wrong-order');
+      el.style.border = '2px solid var(--rojo)';
+    }
+  });
+  if (correct) {
+    fb.textContent = '✅ ¡Correcto! De menor a mayor: grapa (3 cm) → manzana (150 g) → gato (4 kg).';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ El orden correcto es: grapa (3 cm) → manzana (150 g) → gato (4 kg).';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Problema contextual
+function checkProblem1() {
+  const input = document.getElementById('problem1');
+  const fb = document.getElementById('problem1-fb');
+  if (!input || !fb) return;
+  const val = parseInt(input.value);
+  if (val === 2500) {
+    fb.textContent = '✅ ¡Correcto! 2 kg = 2000 g + 500 g = 2500 g 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Recuerda: 2 kg = 2000 g. 2000 g + 500 g = 2500 g.';
+    fb.className = 'feedback incorrect';
+  }
 }
 
 window.onscroll = function(){

@@ -1,5 +1,5 @@
 {
-  "last_improved": "s04-8-problemas-1-paso.html",
+  "last_improved": "s02-6-longitud-peso.html",
   "last_run": "2026-06-12",
   "total_runs": 50,
   "topics": {
@@ -1130,17 +1130,23 @@
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 51,
+          "date": "2026-06-12",
+          "added": "4-step explanation (mira/fíjate/convierte/error común), SVG balanza comparativa, SVG línea de medidas, 3 casos reales (supermercado, mochila, carrera), 1 caja conexiones (4 temas), 5 ejercicios variados (quiz, completar hueco, VF, ordenar, problema contextual), CSS template completo (step-indicator, step-dot, connection-box, real-world-badge, svg-container, feedback.correct/incorrect), fix nested <li> en summary"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 10,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s02-7-dinero.html": {
       "status": "pending",
