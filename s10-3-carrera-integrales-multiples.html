@@ -6,7 +6,6 @@
 <title>∫ 1º Carrera — Sesión 3: Integrales Múltiples | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
@@ -58,12 +57,51 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .exercise-input input:focus{outline:none;border-color:#6366f1}
 .exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
 .feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
-.feedback.correct{color:var(--verde)}
-.feedback.incorrect{color:var(--rojo)}
+.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+/* Quiz styles */
+.quiz-options{display:flex;flex-direction:column;gap:.5rem;margin:.8rem 0}
+.quiz-btn{background:#f1f5f9;border:2px solid #e2e8f0;padding:.6rem 1rem;border-radius:8px;cursor:pointer;font-size:.95rem;text-align:left;transition:all .2s}
+.quiz-btn:hover{border-color:#6366f1;background:#e0e7ff}
+.quiz-btn.correct-answer{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.quiz-btn.wrong-answer{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
+/* Exercises section */
+.exercises{margin:1rem 0}
+/* SVG interactive */
+.svg-container{text-align:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.svg-container .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
+/* Step indicator */
+.step-indicator{display:flex;justify-content:center;gap:.5rem;margin:1.5rem 0}
+.step-dot{width:40px;height:40px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gris);cursor:pointer;transition:all .3s}
+.step-dot.active{background:#6366f1;color:#fff;transform:scale(1.15)}
+.step-dot.completed{background:var(--verde);color:#fff}
+.step-content{background:#e0e7ff;border-radius:12px;padding:1.5rem;margin:1rem 0;border-left:4px solid #6366f1;min-height:120px}
+.step-content h4{color:#6366f1;margin-bottom:.5rem}
+/* Connection box */
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:12px;padding:1.2rem;margin:1.5rem 0}
+.connection-box strong{color:var(--pura)}
+/* Real world badge */
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+/* Interactive */
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+/* Ordering exercise */
+.order-list{list-style:none;padding:0;margin:.8rem 0}
+.order-item{padding:.6rem 1rem;background:#fff;border:2px solid #e2e8f0;border-radius:8px;margin:.3rem 0;cursor:pointer;font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+.order-item:hover{border-color:#6366f1}
+.order-item.correct-order{border-color:var(--verde);background:var(--verde-claro)}
+.order-item.wrong-order{border-color:var(--rojo);background:var(--rojo-claro)}
+/* VF exercise */
+.vf-options{display:flex;gap:.5rem;margin:.8rem 0}
+.vf-btn{padding:.5rem 1.5rem;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;font-weight:600;font-size:.95rem;background:#fff;transition:all .2s}
+.vf-btn:hover{border-color:#6366f1}
+.vf-btn.selected-true{border-color:var(--verde);background:var(--verde-claro);color:var(--verde)}
+.vf-btn.selected-false{border-color:var(--rojo);background:var(--rojo-claro);color:var(--rojo)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -83,6 +121,48 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- SECCIÓN: Explicación estructurada en 4 pasos -->
+<div class="chapter">
+<h2 class="chapter-title">📚 Integrales múltiples en 4 pasos</h2>
+
+<div class="step-indicator">
+<div class="step-dot active" onclick="showStep(1)">1</div>
+<div class="step-dot" onclick="showStep(2)">2</div>
+<div class="step-dot" onclick="showStep(3)">3</div>
+<div class="step-dot" onclick="showStep(4)">4</div>
+</div>
+
+<div class="step-content" id="step1-content">
+<h4>👀 Mira — ¿Qué son las integrales múltiples?</h4>
+<p>Las integrales múltiples extienden la integral a <b>dos o tres dimensiones</b>. Donde la integral simple calcula <b>áreas</b>, la integral doble calcula <b>volúmenes</b>, y la triple calcula <b>masas</b>.</p>
+<p>$$\text{Integral simple} \to \text{Área} \qquad \text{Integral doble} \to \text{Volumen} \qquad \text{Integral triple} \to \text{Masa}$$</p>
+</div>
+
+<div class="step-content" id="step2-content" style="display:none">
+<h4>🔍 Fíjate — El teorema de Fubini</h4>
+<p>Fubini dice que una integral doble se puede calcular <b>integrando una variable a la vez</b>:</p>
+<p>$$\iint_D f(x,y)\,dA = \int_a^b \left( \int_c^d f(x,y)\,dy \right) dx$$</p>
+<p>Primero integras respecto a <b>y</b> (tratando x como constante), luego respecto a <b>x</b>. ¡Es como rebanar un queso y sumar las rebanadas!</p>
+</div>
+
+<div class="step-content" id="step3-content" style="display:none">
+<h4>🧠 Ahora ves — ¿Cómo se calcula?</h4>
+<p><b>Paso 1:</b> Identifica los límites de integración (a, b, c, d).</p>
+<p><b>Paso 2:</b> Integra la función interna respecto a la variable interna.</p>
+<p><b>Paso 3:</b> Sustituye los límites de la integral interna.</p>
+<p><b>Paso 4:</b> Integra el resultado respecto a la variable externa.</p>
+<p><b>Ejemplo:</b> $\int_0^1 \int_0^2 (x+y)\,dy\,dx = \int_0^1 [xy + y^2/2]_0^2\,dx = \int_0^1 (2x+2)\,dx = [x^2+2x]_0^1 = 3$</p>
+</div>
+
+<div class="step-content" id="step4-content" style="display:none">
+<h4>⚠️ Error común — ¡El orden importa!</h4>
+<p>En integrales dobles, el orden $dy\,dx$ no es lo mismo que $dx\,dy$ salvo que la región sea rectangular y la función sea continua.</p>
+<p>❌ $\int_0^1 \int_x^1 f(x,y)\,dy\,dx \neq \int_0^1 \int_0^y f(x,y)\,dx\,dy$</p>
+<p>✅ Los límites DEBEN coincidir con la variable de integración. Si integras respecto a y primero, los límites de y pueden depender de x, pero los de x NO pueden depender de y.</p>
+</div>
+</div>
+
+<!-- SECCIÓN: Objetivos -->
 <div class="chapter">
 <h2 class="chapter-title">🎯 Objetivos</h2>
 <div class="box box-teoria">
@@ -91,19 +171,44 @@ table tr:nth-child(even){background:#f8fafc}
 <li>Calcular integrales dobles y triples</li>
 <li>Interpretar la integral doble como un volumen</li>
 <li>Aplicar el teorema de Fubini</li>
+<li>Cambiar el orden de integración</li>
+<li>Aplicar integrales múltiples a problemas de física</li>
 </ul>
 </div>
 </div>
 
+<!-- SECCIÓN: Casos reales -->
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Dónde encuentro integrales múltiples?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Masa de una placa</strong>
-<p>Si una placa tiene densidad variable $\rho(x,y)$, su masa total es $M = \iint_D \rho(x,y)\,dA$.</p>
-<p>¡Es exactamente lo mismo que sumar todas las masas elementales!</p>
+<strong>💡 Caso real 1: Masa de una placa con densidad variable</strong>
+<p>Si una placa metálica tiene densidad $\rho(x,y) = x + y$ kg/m², su masa total es $M = \iint_D \rho(x,y)\,dA$. Si la placa es un cuadrado [0,1]×[0,1]:</p>
+<p>$$M = \int_0^1 \int_0^1 (x+y)\,dy\,dx = \int_0^1 [xy + y^2/2]_0^1\,dx = \int_0^1 (x + 1/2)\,dx = [x^2/2 + x/2]_0^1 = 1 \text{ kg}$$</p>
+<span class="real-world-badge">INGENIERÍA</span>
+</div>
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>💡 Caso real 2: Volumen de un tanque</strong>
+<p>Un tanque de agua tiene forma de paraboloides $z = 4 - x^2 - y^2$. Su volumen es $V = \iint_D (4-x^2-y^2)\,dA$ sobre el disco $x^2+y^2 \leq 4$. Usando coordenadas polares: $V = \int_0^{2\pi}\int_0^2 (4-r^2)r\,dr\,d\theta = 8\pi$ m³.</p>
+<span class="real-world-badge">FÍSICA</span>
+</div>
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>💡 Caso real 3: Probabilidad conjunta</strong>
+<p>En estadística, si X e Y son variables aleatorias continuas con densidad conjunta $f(x,y)$, la probabilidad de que $(X,Y)$ esté en una región D es $P((X,Y)\in D) = \iint_D f(x,y)\,dA$. ¡Las integrales dobles son la base de la probabilidad multivariable!</p>
+<span class="real-world-badge">ESTADÍSTICA</span>
 </div>
 </div>
 
+<!-- Conexiones con otros temas -->
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p>· <b>S10-2 (Derivadas parciales):</b> Las integrales múltiples son la operación inversa de derivar en varias variables.</p>
+<p>· <b>S10-1 (Límites multivariable):</b> Para usar Fubini, la función debe ser continua en la región.</p>
+<p>· <b>Coordenadas polares:</b> Para regiones circulares, $\iint f(x,y)\,dA = \iint f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta$.</p>
+<p>· <b>S10-4 (EDOs):</b> Las integrales múltiples aparecen al resolver ecuaciones en derivadas parciales.</p>
+<p>· <b>Física:</b> Momento de inercia $I = \iint r^2\,dm$, centro de masa, flujo de campos vectoriales.</p>
+</div>
+
+<!-- SECCIÓN: Integrales Dobles -->
 <div class="chapter">
 <h2 class="chapter-title">1️⃣ Integrales Dobles</h2>
 
@@ -114,14 +219,17 @@ $$\iint_D f(x,y)\,dA = \int_a^b \int_c^d f(x,y)\,dy\,dx$$
 <!-- GRÁFICO: Integral doble -->
 <div class="chart-container">
 <h3>📊 La integral doble calcula el volumen bajo una superficie</h3>
-<p class="chart-desc">Observa cómo el volumen bajo $z = x^2 + y^2$ sobre un cuadrado.</p>
+<p class="chart-desc">Observa cómo el volumen bajo $z = 4 - x^2 - y^2$ sobre un círculo.</p>
 <div id="plot-doble" class="chart-plot"></div>
 </div>
 </div>
 
+<!-- SECCIÓN: Ejercicios Interactivos mejorados -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">📝 Ejercicios Interactivos</h2>
+<div class="exercises">
 
+<!-- Ejercicio 1: Input numérico (existente, mejorado) -->
 <div class="exercise">
 <p><strong>Ejercicio 1:</strong> Calcula $\int_0^1 \int_0^2 (x + y)\,dy\,dx$</p>
 <div class="exercise-input">
@@ -130,15 +238,79 @@ $$\iint_D f(x,y)\,dA = \int_a^b \int_c^d f(x,y)\,dy\,dx$$
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Quiz botones — Fubini -->
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> ¿Qué dice el teorema de Fubini sobre las integrales dobles?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz2(this, true)">A) Se pueden calcular como integrales iteradas (una variable a la vez)</button>
+<button class="quiz-btn" onclick="checkQuiz2(this, false)">B) Solo funcionan para funciones constantes</button>
+<button class="quiz-btn" onclick="checkQuiz2(this, false)">C) Requieren coordenadas polares siempre</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- Ejercicio 3: V/F — Interpretación geométrica -->
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> Verdadero o Falso: La integral doble $\iint_D f(x,y)\,dA$ representa el volumen bajo la superficie $z = f(x,y)$ sobre la región D.</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF3(this, true)">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF3(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Completar hueco — Cálculo paso a paso -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Completa el cálculo: $\int_0^1 \int_0^1 (x + y)\,dy\,dx$. Primero integra respecto a y: $\int_0^1 (x + y)\,dy = [xy + y^2/2]_0^1 = $ <input type="text" id="e4" placeholder="expresión en x" style="width:150px">.</p>
+<button onclick="checkFillIn4()">Comprobar</button>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Ordenar pasos — Cómo calcular una integral doble -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> Ordena los pasos para calcular $\int_0^1 \int_0^2 (x+y)\,dy\,dx$ (haz clic en el orden correcto):</p>
+<ul class="order-list" id="orderList5">
+<li class="order-item" data-pos="3" onclick="selectOrder5(this, 1)">Integrar respecto a x: $\int_0^1 (2x+2)\,dx$</li>
+<li class="order-item" data-pos="1" onclick="selectOrder5(this, 1)">Integrar respecto a y: $\int_0^2 (x+y)\,dy$</li>
+<li class="order-item" data-pos="2" onclick="selectOrder5(this, 1)">Sustituir límites de y: $[xy+y^2/2]_0^2$</li>
+<li class="order-item" data-pos="4" onclick="selectOrder5(this, 1)">Sustituir límites de x y obtener resultado</li>
+</ul>
+<button onclick="checkOrder5()">Comprobar orden</button>
+<div class="feedback" id="order5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Problema contextual — Masa de una placa triangular -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Una placa triangular tiene densidad $\rho(x,y) = x + y$ sobre la región $D = \{(x,y) : 0 \leq x \leq 1, 0 \leq y \leq 1-x\}$. Calcula su masa: $M = \int_0^1 \int_0^{1-x} (x+y)\,dy\,dx$.</p>
+<div class="exercise-input">
+<input type="number" id="e6" placeholder="masa" step="any">
+<button onclick="checkExercise6()">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+</div>
+</div>
+
+<!-- Caja error común -->
+<div class="box box-error">
+<strong>⚠️ Error común: Confundir el orden de integración</strong>
+<p>El orden $dy\,dx$ significa: primero integra respecto a <b>y</b> (con x fijo), luego respecto a <b>x</b>. Los límites de y pueden depender de x, pero los límites de x deben ser <b>constantes</b>.</p>
+<p>❌ $\int_0^1 \int_x^1 f(x,y)\,dx\,dy$ → ¡Los límites de dx dependen de y, pero integras dx primero! Esto es incorrecto.</p>
+<p>✅ Si los límites internos dependen de la variable externa, cambia el orden de integración.</p>
 </div>
 
 <div class="summary">
-<h3>📋 Resumen</h3>
+<h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
 <li>La integral doble calcula volúmenes: $V = \iint_D f(x,y)\,dA$</li>
-<li>Fubini: integrar una variable a la vez</li>
+<li>Fubini: una integral doble = dos integrales simples encadenadas</li>
+<li>Primero integras la variable interna, luego la externa</li>
 <li>La integral triple calcula masas y volúmenes 3D</li>
-<li>Aplicaciones: física, ingeniería, probabilidad multivariable</li>
+<li>Aplicaciones: física (masa, momento de inercia), ingeniería (volúmenes), probabilidad (densidad conjunta)</li>
+<li>El orden de integración importa: los límites deben coincidir con las variables</li>
+<li>Para regiones circulares, usa coordenadas polares: $dA = r\,dr\,d\theta$</li>
 </ul>
 </div>
 
@@ -159,53 +331,179 @@ window.addEventListener('scroll', () => {
 });
 
 // Volumen bajo f(x,y) = 4 - x² - y²
-  const x = [], y = [], z = [];
-  for (let i = -1.5; i <= 1.5; i += 0.2) {
-    const row_x = [], row_y = [], row_z = [];
-    for (let j = -1.5; j <= 1.5; j += 0.2) {
-      row_x.push(i); row_y.push(j);
-      row_z.push(Math.max(0, 4 - i*i - j*j));
-    }
-    x.push(row_x); y.push(row_y); z.push(row_z);
+const x = [], y = [], z = [];
+for (let i = -1.5; i <= 1.5; i += 0.2) {
+  const row_x = [], row_y = [], row_z = [];
+  for (let j = -1.5; j <= 1.5; j += 0.2) {
+    row_x.push(i); row_y.push(j);
+    row_z.push(Math.max(0, 4 - i*i - j*j));
   }
-  Plotly.newPlot('plot-doble', [{
-    type: 'surface', x: x, y: y, z: z,
-    colorscale: 'Viridis'
-  }], {
-    title: 'Volumen: ∫∫ (4 - x² - y²) dA',
-    scene: {
-      xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'z'}
-    }
-  }, {responsive: true});
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+  x.push(row_x); y.push(row_y); z.push(row_z);
+}
+Plotly.newPlot('plot-doble', [{
+  type: 'surface', x: x, y: y, z: z,
+  colorscale: 'Viridis'
+}], {
+  title: 'Volumen: ∫∫ (4 - x² - y²) dA',
+  scene: {
+    xaxis: {title: 'x'}, yaxis: {title: 'y'}, zaxis: {title: 'z'}
+  }
+}, {responsive: true});
 
+renderMathInElement(document.body, {
+  delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '$', right: '$', display: false}
+  ],
+  throwOnError: false
+});
+
+// Paso a paso
+function showStep(n) {
+  for (let i = 1; i <= 4; i++) {
+    const el = document.getElementById('step' + i + '-content');
+    const dot = document.querySelectorAll('.step-dot')[i-1];
+    if (i <= n) {
+      el.style.display = 'block';
+      dot.classList.add('completed');
+      dot.classList.remove('active');
+    } else {
+      el.style.display = 'none';
+      dot.classList.remove('completed', 'active');
+    }
+  }
+  document.querySelectorAll('.step-dot')[n-1].classList.add('active');
+}
+
+// Ejercicio 1: Input numérico
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);
   const feedback = document.getElementById('e' + num + '-fb');
   const value = parseFloat(input.value);
-  
   if (isNaN(value)) {
     feedback.textContent = 'Introduce un número';
     feedback.className = 'feedback incorrect';
     return;
   }
-  
   if (Math.abs(value - correct) < 0.01) {
-    feedback.textContent = '¡Correcto! 🎉';
+    feedback.textContent = '¡Correcto! 🎉 ∫₀¹∫₀²(x+y)dydx = 3';
     feedback.className = 'feedback correct';
   } else {
-    feedback.textContent = 'Incorrecto. La respuesta es ' + correct;
+    feedback.textContent = 'Incorrecto. La respuesta es 3.';
     feedback.className = 'feedback incorrect';
   }
 }
 
+// Ejercicio 2: Quiz
+function checkQuiz2(btn, isCorrect) {
+  const fb = document.getElementById('e2-fb');
+  document.querySelectorAll('#e2-fb ~ .quiz-btn, .quiz-options .quiz-btn').forEach(b => {
+    b.classList.remove('correct-answer', 'wrong-answer', 'selected');
+  });
+  if (isCorrect) {
+    btn.classList.add('correct-answer');
+    fb.textContent = '¡Correcto! Fubini dice que puedes integrar una variable a la vez: primero y, luego x. 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong-answer');
+    fb.textContent = 'Incorrecto. Fubini dice que se pueden calcular como integrales iteradas (una variable a la vez).';
+    fb.className = 'feedback incorrect';
+  }
+}
 
+// Ejercicio 3: V/F
+function checkVF3(btn, isCorrect) {
+  const fb = document.getElementById('e3-fb');
+  document.querySelectorAll('.vf-btn').forEach(b => {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (isCorrect) {
+    btn.classList.add('selected-true');
+    fb.textContent = '¡Correcto! La integral doble representa el volumen bajo z=f(x,y) sobre D. 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('selected-false');
+    fb.textContent = 'Incorrecto. Es VERDADERO. La integral doble calcula el volumen bajo la superficie.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 4: Completar hueco
+function checkFillIn4() {
+  const input = document.getElementById('e4');
+  const fb = document.getElementById('e4-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v === '2x+2' || v === '2*x+2' || v === '2x+2.0') {
+    fb.textContent = '✅ ¡Correcto! ∫₀²(x+y)dy = [xy+y²/2]₀² = 2x+2';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. ∫₀²(x+y)dy = [xy+y²/2]₀² = 2x+2';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 5: Ordenar pasos
+let orderSelections5 = [];
+function selectOrder5(el, listNum) {
+  if (el.classList.contains('correct-order') || el.classList.contains('wrong-order')) return;
+  const idx = orderSelections5.indexOf(el);
+  if (idx >= 0) {
+    orderSelections5.splice(idx, 1);
+    el.style.border = '2px solid #e2e8f0';
+  } else {
+    orderSelections5.push(el);
+    el.style.border = '2px solid #6366f1';
+  }
+}
+
+function checkOrder5() {
+  const fb = document.getElementById('order5-fb');
+  if (orderSelections5.length < 4) {
+    fb.textContent = 'Selecciona los 4 pasos en orden.';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  let correct = true;
+  for (let i = 0; i < orderSelections5.length; i++) {
+    const pos = parseInt(orderSelections5[i].getAttribute('data-pos'));
+    if (pos !== i + 1) { correct = false; break; }
+  }
+  orderSelections5.forEach((el, i) => {
+    if (parseInt(el.getAttribute('data-pos')) === i + 1) {
+      el.classList.add('correct-order');
+      el.style.border = '2px solid var(--verde)';
+    } else {
+      el.classList.add('wrong-order');
+      el.style.border = '2px solid var(--rojo)';
+    }
+  });
+  if (correct) {
+    fb.textContent = '✅ ¡Correcto! 1) Integrar respecto a y → 2) Sustituir límites → 3) Integrar respecto a x → 4) Resultado = 3 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ El orden correcto es: 1) Integrar respecto a y → 2) Sustituir límites → 3) Integrar respecto a x → 4) Resultado.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 6: Problema contextual — masa placa triangular
+function checkExercise6() {
+  const input = document.getElementById('e6');
+  const fb = document.getElementById('e6-fb');
+  if (!input || !fb) return;
+  const val = parseFloat(input.value);
+  // ∫₀¹ ∫₀^(1-x) (x+y) dy dx = ∫₀¹ [xy + y²/2]₀^(1-x) dx = ∫₀¹ (x(1-x) + (1-x)²/2) dx
+  // = ∫₀¹ (x-x² + (1-2x+x²)/2) dx = ∫₀¹ (x-x²+1/2-x+x²/2) dx = ∫₀¹ (1/2 - x²/2) dx
+  // = [x/2 - x³/6]₀¹ = 1/2 - 1/6 = 3/6 - 1/6 = 2/6 = 1/3
+  if (Math.abs(val - 1/3) < 0.01) {
+    fb.textContent = '✅ ¡Correcto! M = 1/3 kg. ∫₀¹∫₀^(1-x)(x+y)dydx = 1/3 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. El resultado es 1/3 ≈ 0.333 kg.';
+    fb.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>
