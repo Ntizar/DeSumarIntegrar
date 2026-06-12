@@ -1634,21 +1634,27 @@
       "improvement_count": 0
     },
     "s06-3-fracciones-operar.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 SVG visual pedagógico (suma/multiplicación/división), +3 casos reales (cocina/receta, deporte/partido, arte/mural), +1 caja conexiones (6 temas), +4 ejercicios nuevos variados (completar hueco fracción, V/F error común, ordenar multiplicaciones, problema contextual), +1 decidir operación, +3 niveles dificultad (fácil/medio/difícil), +CSS: step-indicator, step-dot, connection-box, real-world-badge, svg-container, feedback.correct/incorrect, difficulty-badge, arreglado nested <li> en summary"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s06-5-proporcionalidad.html": {
       "status": "pending",
@@ -2582,6 +2588,22 @@
         "visual": 5,
         "real_world": 9,
         "connections": 5,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s06-3-fracciones-operar.html",
+      "title": "Operar con Fracciones",
+      "level": "primaria_6",
+      "improvements": "full: 4-step explanation, SVG visual pedagógico (suma/mult/div), 3 real cases (kitchen/sport/art), 6 connections, 4 new exercise types (fill-in/VF/order/contextual), CSS coherence 100%, nested <li> fixed",
+      "scores": {
+        "exercises": 10,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
         "difficulty_range": 7
       },
       "date": "2026-06-12",

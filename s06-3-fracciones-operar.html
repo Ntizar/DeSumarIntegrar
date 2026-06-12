@@ -22,6 +22,11 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff}
+.step-dot.s1{background:var(--azul)}.step-dot.s2{background:var(--naranja)}.step-dot.s3{background:var(--verde)}.step-dot.s4{background:var(--rojo)}
+.step-text{flex:1;min-width:150px;padding:.8rem;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0}
+.step-text strong{display:block;margin-bottom:.2rem}
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 .interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
@@ -29,141 +34,341 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
 .result.ok{background:var(--verde-claro);color:#065f46}
 .result.fail{background:var(--rojo-claro);color:#991b1b}
+.feedback{margin-top:.5rem;padding:.5rem;border-radius:6px;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.correct{background:var(--verde-claro);color:#065f46}
+.feedback.incorrect{background:var(--rojo-claro);color:#991b1b}
 .exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0;border-left:3px solid var(--azul)}
+.exercise h4{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
 .exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise input[type="number"], .exercise input[type="text"]{padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:700;color:#fff}
+.difficulty-badge.easy{background:var(--verde)}.difficulty-badge.medium{background:var(--naranja)}.difficulty-badge.hard{background:var(--rojo)}
 .solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
 .solution.show{display:block}
 .toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
-.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
 .summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:2px solid var(--verde);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--verde);margin-bottom:.5rem}
+.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;padding:.2rem .6rem;border-radius:6px;font-size:.75rem;font-weight:700;margin:.2rem}
+.real-world-badge.cocina{background:#fef3c7;color:#92400e}
+.real-world-badge.deporte{background:#d1fae5;color:#065f4e}
+.real-world-badge.arte{background:#fce7f3;color:#9d174d}
 .quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
 .quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.vf-options{display:flex;gap:1rem;justify-content:center;margin:1rem 0}
+.vf-btn{padding:.6rem 2rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.vf-btn:hover{background:var(--azul-claro)}
+.vf-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.vf-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.order-list{list-style:none;padding:0;margin:.5rem 0}
+.order-item{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border:2px solid #e2e8f0;border-radius:6px;cursor:pointer;transition:all .2s;font-weight:600}
+.order-item:hover{border-color:var(--azul);background:var(--azul-claro)}
+.order-item.selected{background:var(--azul);color:#fff;border-color:var(--azul)}
+.order-item.correct-pos{background:var(--verde-claro);border-color:var(--verde)}
+.order-item.wrong-pos{background:var(--rojo-claro);border-color:var(--rojo)}
+.svg-container{display:flex;justify-content:center;margin:1.5rem 0}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 .3rem;font-weight:700}
+.frac .num{border-bottom:2px solid var(--texto);padding:0 .3rem .1rem}
+.frac .den{padding:.1rem .3rem 0}
 </style>
 </head>
 <body>
   <div style="padding: 0.75rem 1.5rem;">
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
+
 <header class="header">
 <h1>➗ S06.3: Operar con Fracciones</h1>
 <p>6º Primaria — ¡Sumar, restar, multiplicar y dividir fracciones!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
+
 <main class="container">
+
 <section class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Para sumar/restar fracciones, buscamos denominador común. Para multiplicar, multiplicamos directo.
+Las fracciones se pueden sumar, restar, multiplicar y dividir. ¡Cada operación tiene su truco!
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Sumar fracciones</li><li>Multiplicar fracciones</li><li>Dividir fracciones</li>
+<li>Sumar y restar fracciones (mismo y distinto denominador)</li>
+<li>Multiplicar fracciones</li>
+<li>Dividir fracciones</li>
+<li>Aplicar fracciones en la vida real</li>
 </ul>
 </section>
+
+<!-- NUEVO: Explicación 4 pasos -->
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Operar con fracciones</h2>
+<h2 class="chapter-title">📚 Operar con fracciones: 4 pasos</h2>
+
+<div class="step-indicator">
+<div class="step-dot s1">1</div>
+<div class="step-dot s2">2</div>
+<div class="step-dot s3">3</div>
+<div class="step-dot s4">4</div>
+</div>
+
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Sumar: denominador común, sumamos numeradores. Multiplicar: num×num, den×den. Dividir: multiplicamos por la inversa.
+<strong>📖 Paso 1 — ¿Qué son las operaciones con fracciones?</strong>
+Una fracción representa una parte de un todo (½ = la mitad). Podemos <b>sumar</b> (juntar partes), <b>restar</b> (quitar partes), <b>multiplicar</b> (partes de partes) y <b>dividir</b> (repartir en partes iguales).
 </div>
+
 <div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2
+<strong>🎯 Paso 2 — ¿Para qué sirven?</strong>
+Las usamos todos los días: cuando repartimos una pizza entre amigos (suma), cuando medimos ingredientes para una receta (multiplicación), cuando calculamos cuánto terreno queda sin cultivar (resta). ¡Las fracciones están en todas partes!
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-2/3 × 3/4 = 6/12 = 1/2
+
+<div class="box box-teoria">
+<strong>🔧 Paso 3 — ¿Cómo se operan?</strong>
+<b>Suma/Resta:</b> Si tienen mismo denominador, sumamos/restamos numeradores. Si es distinto, buscamos denominador común.<br>
+<b>Multiplicación:</b> Multiplicamos numerador × numerador y denominador × denominador.<br>
+<b>División:</b> Multiplicamos por la fracción inversa (damos la vuelta a la segunda).
 </div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-1/2 ÷ 1/4 = 1/2 × 4/1 = 4/2 = 2
+
+<div class="box box-error">
+<strong>⚠️ Paso 4 — Error común</strong>
+Muchos suman numerador con numerador Y denominador con denominador: <b>¡NO!</b> 1/3 + 1/4 ≠ 2/7. Hay que buscar denominador común primero: 4/12 + 3/12 = 7/12. ¡El denominador NO se suma!
 </div>
 </section>
+
+<!-- NUEVO: Visual SVG -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Practica con fracciones!</h2>
-<div class="interactive">
-<h3>Selecciona la respuesta correcta:</h3>
-<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="fracOpDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="fracOpButtons"></div></div>
-<div class="result" id="interactiveResult"></div>
+<h2 class="chapter-title">🎨 Visualiza las fracciones</h2>
+
+<div class="svg-container">
+<svg width="400" height="160" viewBox="0 0 400 160">
+<!-- Suma: 1/2 + 1/4 -->
+<text x="10" y="20" font-size="14" font-weight="bold" fill="#2563eb">Suma: 1/2 + 1/4 = 3/4</text>
+<rect x="10" y="30" width="180" height="30" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+<rect x="10" y="30" width="90" height="30" fill="#2563eb" opacity="0.7"/>
+<rect x="100" y="30" width="90" height="30" fill="#2563eb" opacity="0.3"/>
+<text x="100" y="50" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">1/2</text>
+
+<rect x="10" y="70" width="180" height="30" rx="4" fill="#fff7ed" stroke="#f97316"/>
+<rect x="10" y="70" width="135" height="30" fill="#f97316" opacity="0.7"/>
+<text x="100" y="90" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">3/4 = 1/2 + 1/4</text>
+
+<!-- Multiplicación -->
+<text x="210" y="20" font-size="14" font-weight="bold" fill="#2563eb">Multiplicación: 2/3 × 3/4</text>
+<rect x="210" y="30" width="180" height="60" rx="4" fill="#eff6ff" stroke="#2563eb"/>
+<!-- Grid 3x4 = 12 celdas -->
+<rect x="210" y="30" width="60" height="60" fill="#2563eb" opacity="0.5"/>
+<rect x="270" y="30" width="60" height="60" fill="#2563eb" opacity="0.5"/>
+<rect x="330" y="30" width="60" height="60" fill="#2563eb" opacity="0.5"/>
+<rect x="210" y="50" width="60" height="40" fill="#2563eb" opacity="0.5"/>
+<rect x="270" y="50" width="60" height="40" fill="#2563eb" opacity="0.5"/>
+<rect x="330" y="50" width="60" height="40" fill="#2563eb" opacity="0.5"/>
+<text x="300" y="65" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">6/12 = 1/2</text>
+
+<!-- División -->
+<text x="210" y="110" font-size="14" font-weight="bold" fill="#2563eb">División: 1/2 ÷ 1/4 = 2</text>
+<rect x="210" y="120" width="180" height="30" rx="4" fill="#ecfdf5" stroke="#10b981"/>
+<rect x="210" y="120" width="90" height="30" fill="#10b981" opacity="0.7"/>
+<text x="255" y="140" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">1/2</text>
+<rect x="300" y="120" width="90" height="30" fill="#10b981" opacity="0.3"/>
+<text x="345" y="140" text-anchor="middle" font-size="11" fill="#065f46" font-weight="bold">1/4</text>
+<text x="300" y="165" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">¡Caben 2 cuartos en medio!</text>
+</svg>
 </div>
 </section>
+
+<!-- NUEVO: Casos reales -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Fracciones en la vida real</h2>
+
+<div class="box box-success">
+<strong>🍕 Caso real 1 — En la cocina</strong>
+<span class="real-world-badge cocina">COCINA</span><br>
+Una receta necesita <b>¾</b> de taza de azúcar. Si quieres hacer la mitad de la receta, ¿cuánta azúcar necesitas? <b>¾ × ½ = ¾/2 = ⅜</b> de taza. ¡Menos azúcar! 🥄
+</div>
+
+<div class="box box-success">
+<strong>⚽ Caso real 2 — En el deporte</strong>
+<span class="real-world-badge deporte">DEPORTE</span><br>
+Un partido de fútbol dura <b>90 minutos</b>. Si han pasado <b>⅔</b> del partido, ¿cuántos minutos han jugado? <b>90 × ⅔ = 180/3 = 60 minutos</b>. ¡Quedan 30! ⏱️
+</div>
+
+<div class="box box-success">
+<strong>🎨 Caso real 3 — En el arte</strong>
+<span class="real-world-badge arte">ARTE</span><br>
+Un mural tiene <b>⅝</b> de pintura azul y <b>¼</b> de pintura roja. ¿Qué fracción del mural ya tiene pintura? <b>⅝ + ¼ = 10/16 + 4/16 = 14/16 = 7/8</b>. ¡Casi terminada! 🖌️
+</div>
+</section>
+
+<!-- NUEVO: Conexiones -->
+<section class="chapter">
+<div class="connection-box">
+<h4>🔗 Conexiones con otros temas</h4>
+<p>Las fracciones están conectadas con:</p>
+<p>
+<a href="s03-3-intro-fracciones.html">🍕 Intro a las fracciones</a> · 
+<a href="s03-4-comparar-fracciones.html">🍕 Comparar fracciones</a> · 
+<a href="s04-1-fracciones-equivalentes.html">🔄 Fracciones equivalentes</a> · 
+<a href="s04-5-decimales-intro.html">🔢 Decimales</a> · 
+<a href="s06-1-operaciones-grandes.html">🔢 Operaciones grandes</a> · 
+<a href="s05-7-porcentajes.html">💯 Porcentajes</a>
+</p>
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">Las fracciones son la base de los <b>porcentajes</b> (¼ = 25%) y de los <b>decimales</b> (½ = 0.5). ¡Todo conectado!</p>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
-<div class="exercise">
-<p>1/2 + 1/4 =</p>
+
+<!-- Ejercicio 1: Quiz botones - Suma (fácil) -->
+<div class="exercise" id="ex1">
+<h4>Ejercicio 1 <span class="difficulty-badge easy">Fácil</span></h4>
+<p>¿Cuánto es 1/2 + 1/4?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">3/4</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2/6</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/6</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex1')">3/4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex1')">2/6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex1')">1/6</button>
 </div>
+<div class="feedback" id="ex1-fb"></div>
 </div>
-<div class="exercise">
-<p>2/3 × 3/4 =</p>
+
+<!-- Ejercicio 2: Quiz botones - Multiplicación (fácil) -->
+<div class="exercise" id="ex2">
+<h4>Ejercicio 2 <span class="difficulty-badge easy">Fácil</span></h4>
+<p>¿Cuánto es 2/3 × 3/4?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6/7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5/7</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex2')">1/2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex2')">6/7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex2')">5/7</button>
 </div>
+<div class="feedback" id="ex2-fb"></div>
 </div>
-<div class="exercise">
-<p>1/2 ÷ 1/4 =</p>
+
+<!-- NUEVO: Ejercicio 3 — Completar hueco (medio) -->
+<div class="exercise" id="ex3">
+<h4>Ejercicio 3 <span class="difficulty-badge medium">Medio</span></h4>
+<p>Completa: 2/5 + 3/5 = <input type="text" id="ex3-input" placeholder="?" style="width:60px"> (escribe la fracción simplificada)</p>
+<button class="toggle-btn" onclick="checkFillInFrac()">Comprobar</button>
+<div class="feedback" id="ex3-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 4 — V/F (medio) -->
+<div class="exercise" id="ex4">
+<h4>Ejercicio 4 <span class="difficulty-badge medium">Medio</span></h4>
+<p>¿Verdadero o falso? Para sumar 1/3 + 1/4, puedo sumar numeradores y denominadores directamente: 1/3 + 1/4 = 2/7</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF(this, false, 'ex4')">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF(this, true, 'ex4')">❌ Falso</button>
+</div>
+<div class="feedback" id="ex4-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 5 — Ordenar resultados (medio) -->
+<div class="exercise" id="ex5">
+<h4>Ejercicio 5 <span class="difficulty-badge medium">Medio</span></h4>
+<p>Ordena estas multiplicaciones de menor a mayor resultado:</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Haz clic en cada una en orden (la más pequeña primero):</p>
+<ul class="order-list" id="ex5-list">
+<li class="order-item" data-value="0.75" onclick="selectOrder(this, 'ex5')">3/4 × 1/2</li>
+<li class="order-item" data-value="0.5" onclick="selectOrder(this, 'ex5')">2/3 × 3/4</li>
+<li class="order-item" data-value="0.25" onclick="selectOrder(this, 'ex5')">1/2 × 1/2</li>
+<li class="order-item" data-value="0.6" onclick="selectOrder(this, 'ex5')">3/5 × 1</li>
+</ul>
+<button class="toggle-btn" onclick="checkOrder('ex5')">Comprobar orden</button>
+<div class="feedback" id="ex5-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 6 — Problema contextual (medio) -->
+<div class="exercise" id="ex6">
+<h4>Ejercicio 6 <span class="difficulty-badge medium">Medio</span></h4>
+<p>María tiene <b>⅔</b> de pizza. Se come <b>¼</b> de lo que tiene. ¿Cuánta pizza se come?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1/2</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex6')">1/6</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex6')">1/2</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex6')">5/12</button>
 </div>
+<div class="feedback" id="ex6-fb"></div>
 </div>
-<div class="exercise">
-<p>3/5 + 2/5 =</p>
+
+<!-- NUEVO: Ejercicio 7 — Decidir operación (difícil) -->
+<div class="exercise" id="ex7">
+<h4>Ejercicio 7 <span class="difficulty-badge hard">Difícil</span></h4>
+<p>Un tanque tiene <b>¾</b> de su capacidad. Sacamos <b>½</b> del agua que hay dentro. ¿Qué fracción de la capacidad total del tanque hemos sacado?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5/10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">6/25</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex7')">3/8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex7')">1/4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex7')">1/2</button>
 </div>
-</div>
-<div class="exercise">
-<p>4/7 × 7/8 =</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">11/15</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">28/56</button>
-</div>
+<div class="feedback" id="ex7-fb"></div>
 </div>
 
 </div>
 </section>
+
+<!-- Interactivo: Fracciones operadoras -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 ¡Practica con fracciones!</h2>
+<div class="interactive">
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="fracOpDisplay"></p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="fracOpButtons"></div>
+</div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Sumar: denominador común</li></li><li><li>Multiplicar: num×num, den×den</li></li><li><li>Dividir: multiplicar por inversa</li></li><li><li>¡Ya sabes operar con fracciones! 🎉</li>
+<li><b>Sumar/restar:</b> Mismo denominador → sumamos/restamos numeradores. Distinto → buscamos denominador común</li>
+<li><b>Multiplicar:</b> Numerador × numerador, denominador × denominador</li>
+<li><b>Dividir:</b> Multiplicamos por la inversa (damos la vuelta a la segunda fracción)</li>
+<li><b>Error común:</b> ¡No sumes denominadores! 1/3 + 1/4 ≠ 2/7</li>
+<li>Las fracciones están en la vida real: cocina, deporte, arte</li>
+<li>Las fracciones conectan con decimales, porcentajes y proporcionalidad</li>
+<li>¡Ya sabes operar con fracciones! 🎉</li>
 </ul>
 </div>
+
 <div class="nav">
 <a href="s06-1-operaciones-grandes.html">← Anterior</a>
   <a href="s06-6primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s06-5-proporcionalidad.html">Siguiente →</a>
 </div>
+
 </main>
+
 <footer class="footer">
 Hecho con ❤️ por David Antizar
 </footer>
+
 <script>
+// === INTERACTIVO FRACCIONES ===
 function newQuiz() {
-  const data = [{"q": "1/2 + 1/4 =", "opts": ["3/4", "2/6", "1/6"], "correct": 0}, {"q": "2/3 \u00d7 3/4 =", "opts": ["1/2", "6/7", "5/7"], "correct": 0}, {"q": "1/2 \u00f7 1/4 =", "opts": ["2", "1/8", "1/2"], "correct": 0}, {"q": "3/5 + 2/5 =", "opts": ["1", "5/10", "6/25"], "correct": 0}, {"q": "4/7 \u00d7 7/8 =", "opts": ["1/2", "11/15", "28/56"], "correct": 0}];
+  const data = [
+    {q: "1/2 + 1/4 =", opts: ["3/4", "2/6", "1/6"], correct: 0, explain: "1/2 = 2/4, luego 2/4 + 1/4 = 3/4"},
+    {q: "2/3 × 3/4 =", opts: ["1/2", "6/7", "5/7"], correct: 0, explain: "2×3=6, 3×4=12, 6/12 = 1/2"},
+    {q: "1/2 ÷ 1/4 =", opts: ["2", "1/8", "1/2"], correct: 0, explain: "1/2 × 4/1 = 4/2 = 2"},
+    {q: "3/5 + 2/5 =", opts: ["1", "5/10", "6/25"], correct: 0, explain: "Mismo denominador: 3+2=5, 5/5 = 1"},
+    {q: "4/7 × 7/8 =", opts: ["1/2", "11/15", "28/56"], correct: 0, explain: "4×7=28, 7×8=56, 28/56 = 1/2"},
+    {q: "3/4 - 1/4 =", opts: ["1/2", "2/4", "4/8"], correct: 0, explain: "3-1=2, 2/4 = 1/2"},
+    {q: "2/5 ÷ 1/5 =", opts: ["2", "1/2", "10/25"], correct: 0, explain: "2/5 × 5/1 = 10/5 = 2"}
+  ];
   const item = data[Math.floor(Math.random()*data.length)];
   document.getElementById('fracOpDisplay').textContent = item.q;
   const opts = item.opts;
@@ -181,7 +386,7 @@ function newQuiz() {
       } else {
         this.classList.add('wrong');
         document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct] + '. ' + (item.explain || '');
       }
     };
     buttons.appendChild(btn);
@@ -189,12 +394,104 @@ function newQuiz() {
   document.getElementById('interactiveResult').textContent = '';
 }
 newQuiz();
-function checkExercise(btn, correct) {
+
+// === EJERCICIOS ===
+function checkExercise(btn, correct, exId){
   const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById(exId + '-fb');
+  fb.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+  if(correct){
+    btn.classList.add('correct');
+    fb.textContent = '¡Correcto! 🎉';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '¡Inténtalo de nuevo! Piensa bien la operación. 😊';
+  }
 }
 
+// === COMPLETAR HUECO FRACCIÓN ===
+function checkFillInFrac(){
+  const input = document.getElementById('ex3-input').value.trim().toLowerCase();
+  const fb = document.getElementById('ex3-fb');
+  // 2/5 + 3/5 = 5/5 = 1
+  if(input === '1' || input === '5/5' || input === '1/1'){
+    fb.className = 'feedback show correct';
+    fb.textContent = '¡Correcto! 2/5 + 3/5 = 5/5 = 1 🎉';
+  } else {
+    fb.className = 'feedback show incorrect';
+    fb.textContent = 'No es correcto. Mismo denominador: sumamos numeradores 2+3=5, 5/5 = 1.';
+  }
+}
+
+// === V/F ===
+function checkVF(btn, isCorrect, exId){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById(exId + '-fb');
+  fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+  if(isCorrect){
+    btn.classList.add('correct');
+    fb.textContent = '¡Correcto! 1/3 + 1/4 ≠ 2/7. Hay que buscar denominador común: 4/12 + 3/12 = 7/12. 🎉';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '¡No! 1/3 + 1/4 ≠ 2/7. ¡Error común! Buscamos denominador común: 4/12 + 3/12 = 7/12.';
+  }
+}
+
+// === ORDENAR ===
+let orderSelection = [];
+function selectOrder(item, exId){
+  if(item.classList.contains('selected')){
+    item.classList.remove('selected');
+    orderSelection = orderSelection.filter(i => i !== item);
+  } else {
+    item.classList.add('selected');
+    orderSelection.push(item);
+  }
+}
+
+function checkOrder(exId){
+  const items = document.querySelectorAll('#ex5-list .order-item');
+  const fb = document.getElementById(exId + '-fb');
+  items.forEach(i => { i.classList.remove('correct-pos','wrong-pos'); });
+  
+  if(orderSelection.length < 4){
+    fb.className = 'feedback show incorrect';
+    fb.textContent = 'Selecciona todas las multiplicaciones antes de comprobar.';
+    return;
+  }
+  
+  // Valores: 3/4×1/2=0.375, 2/3×3/4=0.5, 1/2×1/2=0.25, 3/5×1=0.6
+  const correct = [0.25, 0.375, 0.5, 0.6];
+  const values = orderSelection.map(i => parseFloat(i.dataset.value));
+  
+  let allCorrect = true;
+  values.forEach((v, idx) => {
+    const el = orderSelection[idx];
+    if(Math.abs(v - correct[idx]) < 0.01){
+      el.classList.add('correct-pos');
+    } else {
+      el.classList.add('wrong-pos');
+      allCorrect = false;
+    }
+  });
+  
+  fb.className = 'feedback show ' + (allCorrect ? 'correct' : 'incorrect');
+  if(allCorrect){
+    fb.textContent = '¡Correcto! 1/2×1/2=0.25 < 3/4×1/2=0.375 < 2/3×3/4=0.5 < 3/5×1=0.6 🎉';
+  } else {
+    fb.textContent = 'El orden correcto es: 1/2×1/2(0.25), 3/4×1/2(0.375), 2/3×3/4(0.5), 3/5×1(0.6). ¡Los rojos están mal puestos!';
+  }
+}
+
+// === PROGRESO ===
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
