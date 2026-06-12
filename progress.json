@@ -1,5 +1,5 @@
 {
-  "last_improved": "s02-6-longitud-peso.html",
+  "last_improved": "s09-5-bachiller-integrales-indefinidas.html",
   "last_run": "2026-06-12",
   "total_runs": 50,
   "topics": {
@@ -1998,17 +1998,22 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+6 ejercicios variados (input texto x2, quiz botones, V/F, problema contextual economía, emparejar), +1 explicación estructurada 4 pasos, +2 casos reales (velocidad→distancia, coste marginal→coste total), +1 SVG interactivo (derivar/integrar operaciones inversas), +1 caja error común (indefinida vs definida), +1 caja conexión, resumen ampliado a 7 puntos"
+        },
+        {
+          "run": 51,
+          "date": "2026-06-12",
+          "added": "CSS missing classes (.real-world-badge, .step-indicator, .step-dot, .connection-box, .svg-container), +1 caso real (energía solar), +1 caja conexiones (6 temas: S09-2/3/4/6 + física + economía), +1 ejercicio ordenar pasos (4 pasos integración xⁿ), +1 error común mejorado (explicación +C), badge FÍSICA y ENERGÍA"
         }
       ],
       "scores": {
-        "exercises": 6,
+        "exercises": 7,
         "text": 12,
         "visual": 7,
-        "real_world": 8,
-        "connections": 3,
-        "difficulty_range": 5
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": "2026-06-11",
+      "last_improved": "2026-06-12",
       "improvement_count": 1
     },
     "s09-6-bachiller-integrales-definidas.html": {

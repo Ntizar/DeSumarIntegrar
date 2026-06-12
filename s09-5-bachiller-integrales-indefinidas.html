@@ -99,6 +99,20 @@ table tr:nth-child(even){background:#f8fafc}
 .order-item .drag-handle{color:var(--gris);font-size:1.2rem}
 .order-item.correct-order{border-color:var(--verde);background:var(--verde-claro)}
 .order-item.wrong-order{border-color:var(--rojo);background:var(--rojo-claro)}
+/* Step indicator */
+.step-indicator{display:flex;justify-content:center;gap:.5rem;margin:1.5rem 0}
+.step-dot{width:40px;height:40px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gris);cursor:pointer;transition:all .3s}
+.step-dot.active{background:var(--azul);color:#fff;transform:scale(1.15)}
+.step-dot.completed{background:var(--verde);color:#fff}
+/* Connection box */
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:12px;padding:1.2rem;margin:1.5rem 0}
+.connection-box strong{color:var(--pura)}
+/* Real world badge */
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+/* SVG container */
+.svg-container{text-align:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.svg-container .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -139,12 +153,29 @@ table tr:nth-child(even){background:#f8fafc}
 <p>Si sabes tu velocidad en cada instante $v(t)$, ¿cómo calculas la distancia recorrida?</p>
 <p>¡La distancia es la integral de la velocidad! $d = \int v(t)\,dt$</p>
 <p>Es exactamente lo contrario de derivar: si derivas la distancia obtienes la velocidad, y si integras la velocidad obtienes la distancia.</p>
+<span class="real-world-badge">FÍSICA</span>
 </div>
 <div class="box box-ejemplo" style="margin-top:1rem">
 <strong>💡 Caso real: Economía — Coste total</strong>
 <p>Si conoces el <strong>coste marginal</strong> (coste de producir una unidad más), ¿cómo calculas el coste total de producción?</p>
 <p>Integrando el coste marginal: $CT(Q) = \int C'(Q)\,dQ$. Así, si el coste marginal es $C'(Q) = 3Q^2 + 2$, el coste total es $Q^3 + 2Q + C$.</p>
 </div>
+<div class="box box-ejemplo" style="margin-top:1rem">
+<strong>💡 Caso real: Electricidad — Energía consumida</strong>
+<p>Si la potencia de un dispositivo varía con el tiempo $P(t)$, la energía total consumida es $E = \int P(t)\,dt$. Por ejemplo, un panel solar con potencia $P(t) = 2t$ vatios durante 5 horas consume $\int_0^5 2t\,dt = [t^2]_0^5 = 25$ vatios-hora.</p>
+<span class="real-world-badge">ENERGÍA</span>
+</div>
+</div>
+
+<!-- Conexiones con otros temas -->
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p>· <b>S09-4 (Aplicaciones de derivadas):</b> Las integrales son la operación inversa. Si derivar es "desmontar", integrar es "montar".</p>
+<p>· <b>S09-6 (Integrales definidas):</b> Aquí aprendimos la integral indefinida (con +C); en la siguiente sesión verás cómo se quita la +C con límites.</p>
+<p>· <b>S09-3 (Reglas de derivación):</b> Las reglas de integración son las inversas: si d/dx[xⁿ] = nxⁿ⁻¹, entonces ∫xⁿ dx = xⁿ⁺¹/(n+1).</p>
+<p>· <b>S09-2 (Continuidad y derivadas):</b> Una función continua siempre tiene primitiva (integral indefinida).</p>
+<p>· <b>Física:</b> Velocidad ↔ posición, aceleración ↔ velocidad, potencia ↔ energía.</p>
+<p>· <b>Economía:</b> Coste marginal ↔ coste total, ingreso marginal ↔ ingreso total.</p>
 </div>
 
 <div class="chapter">
@@ -295,10 +326,24 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 <div class="feedback" id="e6-fb"></div>
 </div>
 
-<!-- Caja error común -->
+<!-- Ejercicio 7: Ordenar pasos — Cómo integrar xⁿ — Dificultad medio -->
+<div class="exercise">
+<p><strong>Ejercicio 7:</strong> Ordena los pasos para integrar $\int x^4\,dx$ (haz clic en el orden correcto):</p>
+<ul class="order-list" id="orderList7">
+<li class="order-item" data-pos="3" onclick="selectOrder7(this, 1)">Sumar 1 al exponente: x⁴ → x⁵</li>
+<li class="order-item" data-pos="1" onclick="selectOrder7(this, 1)">Identificar n = 4</li>
+<li class="order-item" data-pos="2" onclick="selectOrder7(this, 1)">Dividir por el nuevo exponente: ÷ 5</li>
+<li class="order-item" data-pos="4" onclick="selectOrder7(this, 1)">Añadir + C</li>
+</ul>
+<button onclick="checkOrder7()">Comprobar orden</button>
+<div class="feedback" id="order7-fb"></div>
+</div>
+
+<!-- Caja error común mejorada -->
 <div class="box box-error">
-<strong>⚠️ Error común: Confundir integral indefinida con definida</strong>
+<strong>⚠️ Error común: Olvidar la +C en integrales indefinidas</strong>
 <p>La integral <strong>indefinida</strong> $\int f(x)\,dx = F(x) + C$ es una <strong>función</strong> (familia de funciones). La integral <strong>definida</strong> $\int_a^b f(x)\,dx$ es un <strong>número</strong> (el área bajo la curva). ¡No son lo mismo!</p>
+<p>Recuerda: si derivas $x^3 + 5$, $x^3 + 100$ o $x^3 - \pi$, ¡todas dan $3x^2$! Por eso la $+C$ representa TODAS las posibilidades.</p>
 </div>
 
 <!-- Caja conexión -->
@@ -464,6 +509,50 @@ function selectMatch(el) {
     }
     selectedLeft = null;
     selectedRight = null;
+  }
+}
+
+// Ordering exercise: pasos para integrar xⁿ
+let orderSelections7 = [];
+function selectOrder7(el, listNum) {
+  if (el.classList.contains('correct-order') || el.classList.contains('wrong-order')) return;
+  const idx = orderSelections7.indexOf(el);
+  if (idx >= 0) {
+    orderSelections7.splice(idx, 1);
+    el.style.border = '2px solid #e2e8f0';
+  } else {
+    orderSelections7.push(el);
+    el.style.border = '2px solid var(--azul)';
+  }
+}
+
+function checkOrder7() {
+  const fb = document.getElementById('order7-fb');
+  if (orderSelections7.length < 4) {
+    fb.textContent = 'Selecciona los 4 pasos en orden.';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  let correct = true;
+  for (let i = 0; i < orderSelections7.length; i++) {
+    const pos = parseInt(orderSelections7[i].getAttribute('data-pos'));
+    if (pos !== i + 1) { correct = false; break; }
+  }
+  orderSelections7.forEach((el, i) => {
+    if (parseInt(el.getAttribute('data-pos')) === i + 1) {
+      el.classList.add('correct-order');
+      el.style.border = '2px solid var(--verde)';
+    } else {
+      el.classList.add('wrong-order');
+      el.style.border = '2px solid var(--rojo)';
+    }
+  });
+  if (correct) {
+    fb.textContent = '✅ ¡Correcto! 1) Identificar n=4 → 2) Dividir por 5 → 3) x⁵ → 4) +C. Resultado: x⁵/5 + C 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ El orden correcto es: 1) Identificar n=4 → 2) Dividir por 5 → 3) Sumar 1 al exponente → 4) Añadir +C';
+    fb.className = 'feedback incorrect';
   }
 }
 </script>
