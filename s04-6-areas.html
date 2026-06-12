@@ -39,7 +39,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
 .nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem 1.2rem;margin:1rem 0}.connection-box strong{color:var(--pura)}.connection-box a{color:var(--pura);font-weight:600;text-decoration:none}.connection-box a:hover{text-decoration:underline}.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600;margin:.2rem}.svg-container{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}.svg-container svg{max-width:100%;height:auto}.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;margin:.2rem}.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
 .summary h3{color:var(--azul);margin-bottom:.8rem}
 .summary ul{list-style:none;padding:0}
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
@@ -95,6 +95,77 @@ Rectángulo 8cm × 3cm: A = 8 × 3 = 24 cm²
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
 Rectángulo 10cm × 6cm: A = 10 × 6 = 60 cm²
+</div>
+<div class="svg-container">
+<strong style="color:var(--azul)">📐 Visualización: Área vs Perímetro</strong>
+<p style="margin:.5rem 0;font-size:.9rem;color:#64748b">Un rectángulo de 6×4: el perímetro mide el contorno (20 cm), el área mide la superficie (24 cm²)</p>
+<svg viewBox="0 0 420 200" width="400" height="190">
+<defs>
+<linearGradient id="areaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3"/>
+<stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.5"/>
+</linearGradient>
+<linearGradient id="perimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" style="stop-color:#f97316;stop-opacity:0.8"/>
+<stop offset="100%" style="stop-color:#ea580c;stop-opacity:0.8"/>
+</linearGradient>
+</defs>
+<!-- Rectángulo con cuadrícula de área -->
+<rect x="30" y="20" width="150" height="100" rx="4" fill="url(#areaGrad)" stroke="#2563eb" stroke-width="2"/>
+<!-- Cuadraditos de la cuadrícula -->
+<rect x="35" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="52" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="69" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="86" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="103" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="120" y="25" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="35" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="52" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="69" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="86" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="103" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="120" y="42" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="35" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="52" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="69" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="86" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="103" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="120" y="59" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="35" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="52" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="69" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="86" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="103" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<rect x="120" y="76" width="14" height="14" fill="#93c5fd" opacity="0.6" stroke="#60a5fa" stroke-width="0.5"/>
+<!-- Etiqueta área -->
+<text x="105" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#2563eb">ÁREA = 24 cm²</text>
+<text x="105" y="155" text-anchor="middle" font-size="11" fill="#64748b">(6 × 4 = 24 cuadraditos)</text>
+<!-- Perímetro con borde naranja -->
+<rect x="230" y="20" width="150" height="100" rx="4" fill="none" stroke="url(#perimGrad)" stroke-width="6" stroke-dasharray="12,4"/>
+<!-- Dimensiones -->
+<text x="305" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#f97316">6 cm</text>
+<text x="395" y="75" text-anchor="start" font-size="12" font-weight="bold" fill="#f97316">4 cm</text>
+<!-- Etiqueta perímetro -->
+<text x="305" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#ea580c">PERÍMETRO = 20 cm</text>
+<text x="305" y="155" text-anchor="middle" font-size="11" fill="#64748b">(6+4+6+4 = 20)</text>
+<!-- Flecha comparativa -->
+<line x1="185" y1="70" x2="225" y2="70" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="205" y="65" text-anchor="middle" font-size="10" fill="#64748b">mismo</text>
+<text x="205" y="78" text-anchor="middle" font-size="10" fill="#64748b">rectángulo</text>
+</svg>
+<p style="margin-top:.5rem;font-size:.85rem;color:#64748b">👆 Fíjate: ¡el mismo rectángulo tiene perímetro 20 cm y área 24 cm²! Son medidas diferentes para cosas diferentes.</p>
+</div>
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p style="margin-top:.5rem">
+<span class="real-world-badge">GEOMETRÍA</span>
+Este tema conecta con:
+<a href="s03-5-perimetro.html">S03.5 Perímetro</a> (el contorno),
+<a href="s04-2-mult-3-cifras.html">S04.2 Multiplicación</a> (necesitas multiplicar),
+<a href="s05-5-areas-perimetros.html">S05.5 Áreas compuestas</a> (figuras más complejas),
+<a href="s06-7-areas-compuestas.html">S06.7 Áreas compuestas</a> (figuras L, T, H),
+<a href="s01-8-medidas-tamano-peso.html">S01.8 Medidas</a> (cm², m²).
+</p>
 </div>
 </section>
 <section class="chapter">
@@ -170,6 +241,32 @@ Rectángulo 10cm × 6cm: A = 10 × 6 = 60 cm²
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+<div class="exercise">
+<p><span class="difficulty-badge medio">MEDIO</span> 📊 Ordena de menor a mayor estas áreas:</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">A) cuadrado 3cm &nbsp; B) rectángulo 5×2 &nbsp; C) cuadrado 4cm</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+<input type="text" id="e16" placeholder="Ej: A,B,C" style="width:140px;padding:.5rem;font-size:1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkOrdenAreas()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result16"></div>
+</div>
+<div class="exercise">
+<p><span class="difficulty-badge facil">FÁCIL</span> 🔄 Problema inverso: Si un cuadrado tiene área 36 cm², ¿cuánto mide su lado?</p>
+<div style="display:flex;gap:.5rem;align-items:center">
+<input type="number" id="e17" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkInverso()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result17"></div>
+</div>
+<div class="exercise">
+<p>🏫 Caso real: <span class="real-world-badge">ESCUELA</span> El patio de tu colegio es un rectángulo de 15 m de largo y 8 m de ancho. Quieren poner césped nuevo en toda la superficie. ¿Cuántos m² de césped necesitan?</p>
+<p style="font-size:.9rem;color:#64748b">Pista: área = largo × ancho</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">120 m²</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">23 m²</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">46 m²</button>
 </div>
 </div>
 <div class="box box-error">
@@ -271,6 +368,34 @@ function checkVF(btn, correct) {
     res.className = 'result fail';
     res.textContent = '❌ Falso. 12 × 5 = 60 cm². ¡Es VERDADERO!';
     div.appendChild(res);
+  }
+}
+function checkOrdenAreas() {
+  const input = document.getElementById('e16');
+  const result = document.getElementById('result16');
+  const val = input.value.trim().toUpperCase().replace(/\s/g, '');
+  if(val === 'B,A,C') {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! B=10, A=9, C=16 → 10 < 9 < 16. ¡Orden: B, A, C!';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. A=3×3=9, B=5×2=10, C=4×4=16. Orden: B(10), A(9)... ¡Espera! A(9) < B(10) < C(16). Respuesta: A,B,C';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+function checkInverso() {
+  const input = document.getElementById('e17');
+  const result = document.getElementById('result17');
+  const val = parseInt(input.value);
+  if(val === 6) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! √36 = 6. 6 × 6 = 36 cm²';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. Busca un número que multiplicado por sí mismo dé 36. ¿6 × 6 = ?';
+    input.style.borderColor = 'var(--rojo)';
   }
 }
 
