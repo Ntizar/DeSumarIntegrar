@@ -69,6 +69,36 @@ table tr:nth-child(even){background:#f8fafc}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
 }
+
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center;border:1px solid #e2e8f0}
+.svg-container svg{max-width:100%;height:auto}
+.svg-container .svg-caption{font-size:.9rem;color:#64748b;margin-top:.8rem;font-style:italic}
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#94a3b8;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+.step-dot.active{background:var(--azul);box-shadow:0 0 0 3px rgba(37,99,235,.2)}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
 </style>
 </head>
 <body>
@@ -91,7 +121,75 @@ table tr:nth-child(even){background:#f8fafc}
 <li>Calcular probabilidades con la binomial, Poisson y normal</li>
 <li>Entender la relación entre las tres distribuciones</li>
 </ul>
+<div class="chapter">
+<h2 class="chapter-title">📚 ¿Qué son las distribuciones combinadas? — Explicación paso a paso</h2>
+
+<div class="box box-teoria">
+<strong>📖 Paso 1 — Mira 👀</strong>
+Imagina que lanzas una moneda 10 veces. La <strong>distribución binomial</strong> te dice la probabilidad de obtener exactamente k caras. Es como un mapa de probabilidades.
 </div>
+
+<div class="box box-ejemplo">
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+La <strong>Poisson</strong> es como la binomial pero para eventos raros: cuántos emails spam recibes por hora, cuántos accidentes hay en una intersección. Se modela con λ (lambda), la tasa promedio.
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+La <strong>normal</strong> (campana de Gauss) aparece cuando sumas muchas variables aleatorias. Por el Teorema Central del Límite, casi cualquier promedio se distribuye normalmente. ¡Es la más importante de todas!
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+Confundir Poisson con Binomial: usa Binomial cuando hay un número FIJO de ensayos (n), y Poisson cuando el número de ensayos es GRANDE y la probabilidad es PEQUEÑA (np ≈ λ).
+</div>
+</div>
+
+<!-- SVG: Visualización de las tres distribuciones -->
+<div class="chapter">
+<h2 class="chapter-title">📐 Visualización: Formas de las distribuciones</h2>
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">📊 Comparación visual: Binomial, Poisson y Normal</h3>
+<svg viewBox="0 0 700 280" width="100%" style="max-width:700px">
+<!-- Fondo -->
+<rect width="700" height="280" fill="#f8fafc" rx="12"/>
+<!-- Ejes -->
+<line x1="50" y1="240" x2="650" y2="240" stroke="#cbd5e1" stroke-width="2"/>
+<line x1="50" y1="20" x2="50" y2="240" stroke="#cbd5e1" stroke-width="2"/>
+<!-- Binomial B(10, 0.5) — barras azules -->
+<rect x="120" y="200" width="20" height="40" fill="#2563eb" rx="2" opacity="0.8"/>
+<rect x="145" y="140" width="20" height="100" fill="#2563eb" rx="2" opacity="0.8"/>
+<rect x="170" y="80" width="20" height="160" fill="#2563eb" rx="2" opacity="0.8"/>
+<rect x="195" y="50" width="20" height="190" fill="#2563eb" rx="2" opacity="0.8"/>
+<rect x="220" y="80" width="20" height="160" fill="#2563eb" rx="2" opacity="0.8"/>
+<rect x="245" y="140" width="20" height="100" fill="#2563eb" rx="2" opacity="0.8"/>
+<text x="182" y="260" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">B(10,0.5)</text>
+<!-- Poisson P(5) — barras naranjas -->
+<rect x="310" y="210" width="20" height="30" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="335" y="180" width="20" height="60" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="360" y="140" width="20" height="100" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="385" y="100" width="20" height="140" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="410" y="80" width="20" height="160" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="435" y="100" width="20" height="140" fill="#f97316" rx="2" opacity="0.8"/>
+<rect x="460" y="130" width="20" height="110" fill="#f97316" rx="2" opacity="0.8"/>
+<text x="390" y="260" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">P(5)</text>
+<!-- Normal N(5, 2.2) — curva morada -->
+<path d="M500,235 Q530,235 550,200 Q570,140 585,80 Q600,40 615,80 Q630,140 640,200 Q650,235 660,235" fill="none" stroke="#a855f7" stroke-width="3"/>
+<text x="585" y="260" text-anchor="middle" font-size="11" fill="#a8557" font-weight="bold">N(5, 2.2)</text>
+<!-- Etiquetas de ejes -->
+<text x="25" y="130" text-anchor="middle" font-size="12" fill="#64748b" transform="rotate(-90,25,130)">Prob.</text>
+<text x="350" y="275" text-anchor="middle" font-size="12" fill="#64748b">Valor (k)</text>
+<!-- Leyenda -->
+<rect x="50" y="10" width="12" height="12" fill="#2563eb" rx="2"/>
+<text x="68" y="20" font-size="11" fill="#1e293b">Binomial</text>
+<rect x="150" y="10" width="12" height="12" fill="#f97316" rx="2"/>
+<text x="168" y="20" font-size="11" fill="#1e293b">Poisson</text>
+<rect x="260" y="10" width="12" height="12" fill="#a855f7" rx="2"/>
+<text x="278" y="20" font-size="11" fill="#1e293b">Normal</text>
+</svg>
+<p class="svg-caption">📊 Las tres distribuciones tienen forma de campana, pero la Binomial es discreta (barras), la Poisson es asimétrica y la Normal es simétrica perfecta.</p>
+</div>
+</div></div>
 </div>
 
 <div class="chapter">
@@ -123,6 +221,43 @@ $$f(x) = \frac$\{1\}${\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 <h3>📊 Binomial, Poisson y Normal comparadas</h3>
 <p class="chart-desc">Observa cómo la normal se aproxima a la binomial cuando $n$ es grande.</p>
 <div id="plot-distribuciones" class="chart-plot"></div>
+
+<!-- CASOS REALES ADICIONALES -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Distribuciones en la vida real</h2>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Telecomunicaciones</span>
+<strong>📱 Llamadas a una centralita</strong>
+Una centralita recibe 3 llamadas por minuto en promedio. La probabilidad de recibir exactamente 5 en un minuto sigue una Poisson: P(X=5) = 5³e⁻⁵/5! ≈ 0.1008.
+</div>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Finanzas</span>
+<strong>📈 Rendimientos bursátiles</strong>
+Los rendimientos diarios del IBEX-35 se aproximan a una distribución normal. Si el rendimiento medio es 0.05% y la desviación es 1.2%, puedes calcular la probabilidad de que un día suba más del 2%.
+</div>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Medicina</span>
+<strong>💊 Ensayos clínicos</strong>
+Un fármaco funciona en el 70% de los pacientes. Si pruebas en 20 pacientes, la probabilidad de que funcione en exactamente 15 sigue una Binomial: P(X=15) = C(20,15) × 0.7¹⁵ × 0.3⁵ ≈ 0.179.
+</div>
+</div>
+
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>💡 Temas conectados</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Límites (Sesión 1):</strong> La binomial tiende a la Poisson cuando n→∞, p→0</li>
+<li><strong>Derivadas (Sesión 2):</strong> Se usan para encontrar máximos de funciones de densidad</li>
+<li><strong>Integrales (Sesión 5):</strong> La probabilidad normal se calcula integrando la campana</li>
+<li><strong>Probabilidad avanzada (Sesión 8):</strong> Esta sesión combina las 3 distribuciones clave</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -148,16 +283,54 @@ $$f(x) = \frac$\{1\}${\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 </div>
 <div class="feedback" id="e2-fb"></div>
 </div>
+
+<!-- NUEVO: Ejercicios variados -->
+<div class="chapter">
+<h2 class="chapter-title">📝 Ejercicios adicionales</h2>
+<div class="exercises">
+
+<div class="exercise">
+<p><span class="difficulty-badge easy">Fácil</span> <strong>✅ Verdadero o Falso:</strong> La distribución de Poisson se usa para eventos raros en un intervalo fijo.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+<div class="feedback" id="vf-bach-1"></div>
+</div>
+
+<div class="exercise">
+<p><span class="difficulty-badge medium">Medio</span> <strong>✏️ Completa:</strong> Si X ~ B(20, 0.3), la esperanza E[X] = n×p = ___</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
+<input type="number" id="fill-bach-1" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
+<button onclick="checkFillInBach(1)" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="fill-bach-1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><span class="difficulty-badge hard">Difícil</span> <strong>🧩 Problema:</strong> Un jugador acierta el 40% de sus tiros libres. Si tira 10 veces, ¿cuál es la probabilidad de acertar exactamente 5?</p>
+<p style="font-size:.85rem;color:#64748b">P(X=5) = C(10,5) × 0.4⁵ × 0.6⁵</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
+<input type="number" id="fill-bach-2" placeholder="?" step="0.001" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
+<button onclick="checkFillInBach(2)" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="fill-bach-2-fb"></div>
+</div>
+
+</div>
+</div>
 </div>
 
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
-<li>Binomial: éxitos en $n$ ensayos → $B(n,p)$</li>
-<li>Poisson: eventos raros en un intervalo → $P(\lambda)$</li>
-<li>Normal: la campana de Gauss → $N(\mu, \sigma)$</li>
-<li>La normal aproxima a la binomial cuando $n$ es grande</li>
-<li>Aplicaciones: control de calidad, telecomunicaciones, finanzas, ciencia</li>
+<li>Binomial: éxitos en $n$ ensayos → $B(n,p)$ — para eventos con éxito/fracaso</li>
+<li>Poisson: eventos raros en un intervalo → $P(\lambda)$ — cuando n es grande y p pequeña</li>
+<li>Normal: la campana de Gauss → $N(\mu, \sigma)$ — aparece por el Teorema Central del Límite</li>
+<li>La normal aproxima a la binomial cuando n es grande (np > 5 y n(1-p) > 5)</li>
+<li>Aplicaciones: control de calidad, telecomunicaciones, finanzas, medicina, ciencia</li>
+<li>Error común: confundir cuándo usar Poisson vs Binomial — revisa si n es fijo o no</li>
+<li>Conexión con derivadas: se usan para encontrar máximos de funciones de densidad</li>
 </ul>
 </div>
 
@@ -186,7 +359,36 @@ document.addEventListener('DOMContentLoaded', () => {
     throwOnError: false
   });
 
-function checkExercise(num, correct) {
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('vf-bach-1');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! La Poisson modela eventos raros en un intervalo fijo (tiempo, espacio, volumen).';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Falso. La Poisson SÍ se usa para eventos raros en un intervalo fijo.';
+  }
+}
+function checkFillInBach(exNum, correctAnswers) {
+  const input = document.getElementById('fill-bach-' + exNum);
+  const fb = document.getElementById('fill-bach-' + exNum + '-fb');
+  if (!input || !fb) return;
+  const val = parseFloat(input.value);
+  if (correctAnswers === val) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto!';
+  } else {
+    fb.className = 'feedback incorrect';
+    if (exNum === 1) fb.textContent = '❌ Incorrecto. E[X] = n×p = 20×0.3 = 6';
+    else fb.textContent = '❌ Incorrecto. P(X=5) = C(10,5) × 0.4⁵ × 0.6⁵ ≈ 0.201';
+  }
+}
+function checkExercise(num, correct) { {
   const input = document.getElementById('e' + num);
   const feedback = document.getElementById('e' + num + '-fb');
   if (!input || !feedback) return;

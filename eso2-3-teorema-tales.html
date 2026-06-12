@@ -56,6 +56,19 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1.5rem 0;text-align:center;border:1px solid #e2e8f0}
 .svg-container svg{max-width:100%;height:auto}
 .svg-container .svg-caption{font-size:.9rem;color:#64748b;margin-top:.8rem;font-style:italic}
+
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#94a3b8;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+.step-dot.active{background:var(--azul);box-shadow:0 0 0 3px rgba(37,99,235,.2)}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block;font-weight:600}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block;font-weight:600}
 </style>
 </head>
 <body>
@@ -172,7 +185,19 @@ Altura pirámide / 65 = 1.8 / 1.8 = 1
 <br><br>
 <strong>Total: ~67m</strong> — ¡Y lo hizo hace 2500 años sin escaleras!
 </div>
-</section>
+
+<!-- MÁS CASOS REALES -->
+<div class="box box-ejemplo">
+<span class="real-world-badge">Arquitectura</span>
+<strong>🏗️ Construcción de puentes</strong>
+Los ingenieros usan el teorema de Tales para calcular alturas de pilares sin tener que escalarlos. Si un cable de soporte forma una proporción 3:1 con el pilar, y el cable mide 30m, el pilar mide 10m.
+</div>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Fotografía</span>
+<strong>📷 Proporción en fotos</strong>
+Cuando haces zoom en una foto, las proporciones se mantienen. Si un objeto ocupa 1/3 del ancho de la foto a 1x, también ocupará 1/3 a 2x. ¡Tales vive en tu cámara!</div>
+</section></section>
 
 <!-- NUEVO: Conexión con fracciones -->
 <section class="chapter">

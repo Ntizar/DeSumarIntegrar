@@ -1,7 +1,7 @@
 {
-  "last_improved": "s10-1-carrera-limites-multivariable.html",
-  "last_run": "2026-06-11",
-  "total_runs": 48,
+  "last_improved": "s09-9-bachiller-distribuciones-combinadas.html",
+  "last_run": "2026-06-12",
+  "total_runs": 49,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -685,18 +685,23 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+1 SVG animado de rectas paralelas y transversales, +1 caso real pirámide de Keops (medición con sombras), +1 conexión con fracciones y proporcionalidad, +2 ejercicios nuevos (completar hueco, V/F), arreglado summary (nested <li><li>), añadida clase svg-container, +1 caja error común"
+        },
+        {
+          "run": 49,
+          "date": "2026-06-12",
+          "added": "CSS missing classes (.step-indicator, .step-dot, .connection-box, .real-world-badge, .feedback.correct/incorrect), 2 casos reales adicionales (arquitectura/fotografía), caja conexiones con otros temas"
         }
       ],
       "scores": {
-        "exercises": 10,
-        "text": 10,
+        "exercises": 8,
+        "text": 8,
         "visual": 8,
-        "real_world": 9,
-        "connections": 6,
+        "real_world": 8,
+        "connections": 7,
         "difficulty_range": 7
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 3
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "eso2-5-funciones-intro.html": {
       "status": "improved_1",
@@ -1602,17 +1607,23 @@
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 49,
+          "date": "2026-06-12",
+          "added": "Explicación 4 pasos (mira→fíjate→ahora ves→error común), SVG proporcionalidad con línea numérica, 3 casos reales (cocina/viajes/deportes), caja conexiones, ejercicios V/F + completar hueco, CSS missing classes (.step-indicator, .step-dot, .connection-box, .real-world-badge, .feedback.correct/incorrect), fix nested <li>"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 8,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s06-7-areas-compuestas.html": {
       "status": "pending",
@@ -2050,17 +2061,23 @@
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 49,
+          "date": "2026-06-12",
+          "added": "CSS missing classes (.interactive, .exercises, .quiz-options, .quiz-btn, .real-world-badge, .step-indicator, .step-dot, .connection-box), explicación 4 pasos, SVG comparativo 3 distribuciones, 3 casos reales (telecom/finanzas/medicina), caja conexiones, ejercicios V/F + 2 completar hueco, JS checkVF + checkFillInBach"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 8,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s09-10-bachiller-repaso.html": {
       "status": "pending",

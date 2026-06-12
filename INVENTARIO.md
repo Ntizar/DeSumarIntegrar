@@ -47,7 +47,7 @@
 | s06-1-operaciones-grandes.html | 🔢 S06.1: Operaciones con Números Grandes — 6º Primaria — ¡Números enormes! | ⬜ |
 | s06-10-repasos-primaria.html | 🎓 S06.10: Repaso de Primaria — 6º Primaria — ¡Todo lo aprendido! | ⬜ |
 | s06-3-fracciones-operar.html | ➗ S06.3: Operar con Fracciones — 6º Primaria — ¡Sumar, restar, multiplicar y dividir fracciones! | ⬜ |
-| s06-5-proporcionalidad.html | ⚖️ S06.5: Proporcionalidad — 6º Primaria — ¡Regla de tres! | ⬜ |
+| s06-5-proporcionalidad.html | ⚖️ S06.5: Proporcionalidad — 6º Primaria — ¡Regla de tres! | ✅ |
 | s06-7-areas-compuestas.html | 📐 S06.7: Áreas Compuestas — 6º Primaria — ¡Figuras complejas! | ⬜ |
 | s06-9-intro-algebra.html | 🔤 S06.9: Introducción al Álgebra — 6º Primaria — ¡Letras en matemáticas! | ⬜ |
 
@@ -58,7 +58,7 @@
 | eso1-3-proporcionalidad.html | ⚖️ ESO1.3: Proporcionalidad — 1º ESO — ¡Regla de tres! | ✅ |
 | eso1-5-intro-algebra.html | 🔤 ESO1.5: Introducción al Álgebra — 1º ESO — ¡Letras en matemáticas! | ✅ |
 | eso2-1-ecuaciones-1grado.html | 🔤 ESO2.1: Ecuaciones de 1º Grado — 2º ESO — ¡Ecuaciones más complejas! | ✅ |
-| eso2-3-teorema-tales.html | 📏 ESO2.3: Teorema de Tales — 2º ESO — ¡Proporcionalidad geométrica! | ⬜ |
+| eso2-3-teorema-tales.html | 📏 ESO2.3: Teorema de Tales — 2º ESO — ¡Proporcionalidad geométrica! | ✅ |
 | eso2-5-funciones-intro.html | 📈 ESO2.5: Introducción a las Funciones — 2º ESO — ¡Relaciones entre variables! | ⬜ |
 | eso2-7-circunferencia-circulo.html | ⭕ ESO2.7: Circunferencia y Círculo — 2º ESO — ¡Pi y sus secretos! | ⬜ |
 | eso2-9-probabilidad.html | 🎲 ESO2.9: Probabilidad — 2º ESO — ¡El arte de predecir! | ⬜ |
@@ -77,7 +77,7 @@
 | s09-6-bachiller-integrales-definidas.html | ∫ Bachillerato — Sesión 6: Integrales Definidas | Matemáticas | ⬜ |
 | s09-7-bachiller-aplicaciones-integrales.html | 📊 Bachillerato — Sesión 7: Aplicaciones de Integrales | Matemáticas | ⬜ |
 | s09-8-bachiller-probabilidad-avanzada.html | 🎲 Bachillerato — Sesión 8: Probabilidad Avanzada | Matemáticas | ⬜ |
-| s09-9-bachiller-distribuciones-combinadas.html | 📊 Bachillerato — Sesión 9: Distribuciones Combinadas | Matemáticas | ⬜ |
+| s09-9-bachiller-distribuciones-combinadas.html | 📊 Bachillerato — Sesión 9: Distribuciones Combinadas | Matemáticas | ✅ |
 
 ## Universidad/Carrera (10 temas)
 | Archivo | Título | Estado |

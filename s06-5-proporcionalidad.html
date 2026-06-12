@@ -50,6 +50,20 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#94a3b8;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+.step-dot.active{background:var(--azul);box-shadow:0 0 0 3px rgba(37,99,235,.2)}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center;border:1px solid #e2e8f0}
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block;font-weight:600}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block;font-weight:600}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
 </style>
 </head>
 <body>
@@ -72,6 +86,77 @@ Si 2 cuestan 6€, 4 cuestan 12€. La proporcionalidad mantiene la misma relaci
 <ul style="margin:.8rem 0 1rem 1.5rem">
 <li>Entender la proporcionalidad</li><li>Aplicar la regla de tres</li><li>Resolver problemas proporcionales</li>
 </ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📚 ¿Qué es la proporcionalidad? — Explicación paso a paso</h2>
+
+<div class="box box-teoria">
+<strong>📖 Paso 1 — Mira 👀</strong>
+Imagina que compras patatas. Si 1 kg cuestan 2€, 2 kg cuestan 4€, 3 kg cuestan 6€. Cuando dos cosas crecen al mismo ritmo, son <strong>proporcionales</strong>.
+</div>
+
+<div class="box box-ejemplo">
+<strong>📖 Paso 2 — Fíjate 👁️</strong>
+La clave es la <strong>razón constante</strong>: en cada caso, precio ÷ kg = 2€. Esa razón no cambia. Si la razón es siempre la misma → ¡es proporcional!
+</div>
+
+<div class="box box-idea">
+<strong>📖 Paso 3 — Ahora ves 💡</strong>
+La <strong>regla de tres</strong> es la herramienta: si a/b = c/x, entonces x = b×c/a. Solo necesitas 3 valores para encontrar el 4º.
+</div>
+
+<div class="box box-error">
+<strong>📖 Paso 4 — Error común ⚠️</strong>
+No todo es proporcional. Si un coche tarda 2h en recorrer 200km, NO tarda 4h en 400km si para a comer. La proporcionalidad solo vale cuando la relación se mantiene SIEMPRE igual.
+</div>
+</section>
+
+<!-- SVG: Visualización de proporcionalidad -->
+<section class="chapter">
+<h2 class="chapter-title">📐 Visualización: ¿Cómo se ve la proporcionalidad?</h2>
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">🧮 Línea numérica interactiva — Haz clic en los botones</h3>
+<svg viewBox="0 0 700 200" width="100%" style="max-width:700px" id="prop-svg">
+<!-- Fondo -->
+<rect width="700" height="200" fill="#f8fafc" rx="12"/>
+<!-- Línea numérica -->
+<line x1="50" y1="100" x2="650" y2="100" stroke="#cbd5e1" stroke-width="3"/>
+<!-- Marcas -->
+<line x1="100" y1="90" x2="100" y2="110" stroke="#64748b" stroke-width="2"/>
+<text x="100" y="130" text-anchor="middle" font-size="14" fill="#64748b">0</text>
+<line x1="250" y1="90" x2="250" y2="110" stroke="#64748b" stroke-width="2"/>
+<text x="250" y="130" text-anchor="middle" font-size="14" fill="#64748b">1</text>
+<line x1="400" y1="90" x2="400" y2="110" stroke="#64748b" stroke-width="2"/>
+<text x="400" y="130" text-anchor="middle" font-size="14" fill="#64748b">2</text>
+<line x1="550" y1="90" x2="550" y2="110" stroke="#64748b" stroke-width="2"/>
+<text x="550" y="130" text-anchor="middle" font-size="14" fill="#64748b">3</text>
+<!-- Bloques de patatas — estado 1 -->
+<g id="patatas-1">
+<rect x="100" y="30" width="150" height="50" fill="#f97316" rx="8" opacity="0.8"/>
+<text x="175" y="60" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">1 kg = 2€</text>
+</g>
+<g id="patatas-2">
+<rect x="250" y="30" width="150" height="50" fill="#f97316" rx="8" opacity="0.8"/>
+<text x="325" y="60" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">2 kg = 4€</text>
+</g>
+<g id="patatas-3">
+<rect x="400" y="30" width="150" height="50" fill="#f97316" rx="8" opacity="0.8"/>
+<text x="475" y="60" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold">3 kg = 6€</text>
+</g>
+<!-- Flechas de proporcionalidad -->
+<line x1="250" y1="85" x2="100" y2="85" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="400" y1="85" x2="250" y2="85" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+<!-- Definición de flecha -->
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+</marker>
+</defs>
+<!-- Razón constante -->
+<text x="350" y="175" text-anchor="middle" font-size="16" fill="#2563eb" font-weight="bold">Razón constante: 2€/kg → ¡Siempre igual!</text>
+</svg>
+<p class="svg-caption" style="font-size:.9rem;color:#64748b;margin-top:.8rem;font-style:italic">📐 Observa: cada paso avanza 1 kg y 2€. La proporción 2€/kg se mantiene siempre.</p>
+</div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Proporcionalidad directa</h2>
@@ -98,6 +183,44 @@ Un coche recorre 120 km en 2h. ¿Cuánto en 5h?<br>120/2 × 5 = 300 km
 <h3>Selecciona la respuesta correcta:</h3>
 <div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="propDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="propButtons"></div></div>
 <div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<!-- CASOS REALES -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Proporcionalidad en tu vida</h2>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Cocina</span>
+<strong>🍕 Receta para 4 personas → receta para 10</strong>
+Si una pizza para 4 necesita 200g de harina, ¿cuánta necesitas para 10 personas?<br>
+200/4 × 10 = 500g de harina. ¡La cocina es proporcionalidad pura!
+</div>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Viajes</span>
+<strong>⛽ Gasolina en el coche</strong>
+Si tu coche gasta 6L cada 100km, ¿cuánto gastará en 250km?<br>
+6/100 × 250 = 15L. ¡La proporcionalidad te ahorra dinero en la gasolinera!
+</div>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">Deportes</span>
+<strong>🏃 Entrenamiento progresivo</strong>
+Si corres 2km el lunes, 4km el miércoles y 6km el viernes, estás aplicando proporcionalidad: cada día +2km. ¡Tu cuerpo crece proporcionalmente al esfuerzo!
+</div>
+</section>
+
+<!-- CONEXIONES -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>💡 Temas conectados</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Fracciones (3º-4º Primaria):</strong> a/b = c/d son fracciones equivalentes</li>
+<li><strong>Porcentajes (5º Primaria):</strong> el % es una proporción sobre 100</li>
+<li><strong>Regla de tres inversa:</strong> si más personas trabajan, menos tiempo tardan (proporcionalidad inversa)</li>
+<li><strong>Geometría (ESO):</strong> el teorema de Tales es proporcionalidad geométrica</li>
+</ul>
 </div>
 </section>
 <section class="chapter">
@@ -144,12 +267,39 @@ Un coche recorre 120 km en 2h. ¿Cuánto en 5h?<br>120/2 × 5 = 300 km
 </div>
 </div>
 
+
+<!-- NUEVO: Tipos de ejercicio variados -->
+<div class="exercise">
+<p><span class="difficulty-badge easy">Fácil</span> <strong>✅ Verdadero o Falso:</strong> Si 3 libros cuestan 24€, ¿5 libros cuestan 40€?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
 </div>
+<div class="feedback" id="vf-prop-1"></div>
+</div>
+
+<div class="exercise">
+<p><span class="difficulty-badge easy">Fácil</span> <strong>✏️ Completa el hueco:</strong> Si 4 kg de manzanas cuestan 12€, 7 kg cuestan ___ €</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
+<input type="number" id="fill-prop-1" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
+<button onclick="checkFillInProp(1)" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="fill-prop-1-fb"></div>
+</div>
+
+<div class="exercise">
+<p><span class="difficulty-badge medium">Medio</span> <strong>🧩 Problema real:</strong> Una máquina escribe 12 páginas en 3 minutos. ¿Cuántas páginas escribe en 8 minutos?</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
+<input type="number" id="fill-prop-2" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
+<button onclick="checkFillInProp(2)" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="fill-prop-2-fb"></div>
+</div></div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Magnitudes proporcionales</li></li><li><li>Regla de tres: x = b×c/a</li></li><li><li>¡Ya sabes proporcionalidad! 🎉</li>
+<li>Proporcionalidad directa: dos magnitudes crecen al mismo ritmo</li><li>Regla de tres: x = b×c/a para encontrar el cuarto valor</li><li>Razón constante: si a/b = c/d, la proporción no cambia</li><li>Casos reales: cocina, viajes, deportes — ¡la proporcionalidad está en todas partes!</li><li>Error común: no todo es proporcional (hay que verificar que la relación se mantiene siempre)</li><li>Conexión con fracciones: a/b = c/d son fracciones equivalentes</li>
 </ul>
 </div>
 <div class="nav">
@@ -200,6 +350,34 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
-</script>
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('vf-prop-1');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 24/3 = 8€/libro → 8 × 5 = 40€. ¡Proporcional!';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Falso. 24/3 = 8€/libro → 8 × 5 = 40€. ¡Es verdadero!';
+  }
+}
+function checkFillInProp(exNum, correctAnswers) {
+  const input = document.getElementById('fill-prop-' + exNum);
+  const fb = document.getElementById('fill-prop-' + exNum + '-fb');
+  if (!input || ! fb) return;
+  const val = parseFloat(input.value);
+  if (correctAnswers === val) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto!';
+  } else {
+    fb.className = 'feedback incorrect';
+    if (exNum === 1) fb.textContent = '❌ Incorrecto. 12/4 × 7 = 21€';
+    else fb.textContent = '❌ Incorrecto. 12/3 × 8 = 32 páginas';
+  }
+}</script>
 </body>
 </html>
