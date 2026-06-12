@@ -64,12 +64,30 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #6366f1;background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-container{display:flex;justify-content:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.difficulty-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
+.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
+.step-indicator{display:inline-block;width:24px;height:24px;border-radius:50%;background:#6366f1;color:#fff;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}.connection-box strong{color:#166534}.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600;margin:.2rem}
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
 }
+
+/* Interactive zone */
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 </style>
 </head>
 <body>
@@ -95,51 +113,211 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- EXPLICACIÓN 4 PASOS -->
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro autovalores?</h2>
+<h2 class="chapter-title">1️⃣ ¿Qué son los autovalores?</h2>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">1</span>Paso 1: ¿QUÉ es un autovalor?</strong>
+Un autovalor λ es un número tal que existe un vector no nulo v con <strong>A·v = λ·v</strong>. Es decir, al aplicar la matriz A al vector v, solo se escala (no cambia de dirección). El vector v se llama autovector.
+</div>
+
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Google PageRank</strong>
-<p>PageRank usa autovalores para determinar la importancia de las páginas web. La página con el mayor autovector asociado al autovalor dominante es la más importante.</p>
-<p>¡Sin álgebra lineal, Google no existiría!</p>
+<strong><span class="step-indicator">2</span>Paso 2: ¿PARA QUÉ sirven los autovalores?</strong>
+Los autovalores revelan la "esencia" de una transformación lineal:
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>📊 <span class="real-world-badge">GOOGLE</span> PageRank: el autovector dominante da la importancia de páginas web</li>
+<li>🔬 Física: frecuencias naturales de vibración de estructuras</li>
+<li>🤖 Machine Learning: PCA (Análisis de Componentes Principales) usa autovalores para reducir dimensionalidad</li>
+<li>💾 Compresión de imágenes: SVD (descomposición en valores singulares)</li>
+</ul>
+</div>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">3</span>Paso 3: ¿CÓMO se calculan?</strong>
+<p><strong>Paso 1:</strong> Restar λI de A: (A − λI)</p>
+<p><strong>Paso 2:</strong> Calcular el determinante: det(A − λI) = 0</p>
+<p><strong>Paso 3:</strong> Resolver la ecuación característica para encontrar los autovalores λ</p>
+<p><strong>Paso 4:</strong> Para cada λ, resolver (A − λI)v = 0 para encontrar los autovectores</p>
+</div>
+
+<div class="box box-error">
+<strong><span class="step-indicator">4</span>Paso 4: Error común</strong>
+⚠️ <strong>Confundir autovalor con elemento de la diagonal.</strong> Solo para matrices DIAGONALES los autovalores son los de la diagonal. Para matrices generales, hay que resolver det(A − λI) = 0.
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">💡 Truco: La suma de autovalores = traza(A) (suma de la diagonal). Es una forma de verificar tu resultado.</p>
 </div>
 </div>
 
+<!-- SVG: Visualización geométrica de autovalores -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Autovalores y Autovectores</h2>
+<h2 class="chapter-title">2️⃣ Visualización geométrica</h2>
+<div class="svg-container">
+<svg viewBox="0 0 500 350" width="500" height="350" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid -->
+<defs>
+<marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6366f1"/></marker>
+<marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f97316"/></marker>
+</defs>
+<line x1="50" y1="300" x2="450" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="50" y1="300" x2="50" y2="30" stroke="#e2e8f0" stroke-width="1"/>
+<text x="460" y="305" fill="#94a3b8" font-size="10">x</text>
+<text x="45" y="35" fill="#94a3b8" font-size="10">y</text>
 
-<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid #6366f1">
-$$A\vec{v} = \lambda\vec{v}$$
+<!-- Autovector original (azul) -->
+<line x1="250" y1="300" x2="350" y2="150" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowBlue)"/>
+<text x="355" y="145" fill="#6366f1" font-size="12" font-weight="bold">v (autovector)</text>
+
+<!-- Autovector transformado (naranja, más largo) -->
+<line x1="250" y1="300" x2="430" y2="90" stroke="#f97316" stroke-width="3" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+<text x="435" y="85" fill="#f97316" font-size="12" font-weight="bold">A·v = 2v (doble de largo, misma dirección)</text>
+
+<!-- Círculo de transformación -->
+<circle cx="250" cy="300" r="120" fill="none" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+<!-- Etiquetas -->
+<text x="250" y="340" text-anchor="middle" fill="#6366f1" font-size="13" font-weight="bold">A·v = λv → el autovector mantiene su dirección</text>
+<text x="250" y="355" text-anchor="middle" fill="#64748b" font-size="10">λ = 2: el vector se duplica (mantiene dirección)</text>
+
+<!-- Info box -->
+<rect x="30" y="30" width="180" height="80" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="40" y="50" fill="#6366f1" font-size="11" font-weight="bold">Propiedad clave:</text>
+<text x="40" y="68" fill="#475569" font-size="10">Autovector = dirección fija</text>
+<text x="40" y="82" fill="#475569" font-size="10">Autovalor = cuánto se escala</text>
+<text x="40" y="96" fill="#475569" font-size="10">Si λ &gt; 1 → crece</text>
+<text x="40" y="110" fill="#475569" font-size="10">Si 0 &lt; λ &lt; 1 → se encoge</text>
+</svg>
+</div>
 </div>
 
-<p>Un autovector $\vec{v}$ es un vector que al ser multiplicado por $A$ solo se escala (no cambia de dirección).</p>
+<!-- CASO REAL: PageRank -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Caso real: Google PageRank</h2>
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">TECNOLOGÍA</span> Google PageRank</strong>
+<p>PageRank usa autovalores para determinar la importancia de las páginas web. Cada página web es un nodo, y cada enlace es una dirección. La matriz de enlaces tiene un autovector dominante cuyo mayor componente indica la página más importante.</p>
+<p style="margin-top:.5rem"><strong>¿Por qué funciona?</strong> El autovector propio dominante (el asociado al mayor autovalor) converge al estacionario del proceso aleatorio de "navegante aleatorio" que Google simula.</p>
+</div>
+</div>
 
-<!-- GRÁFICO: Autovalores -->
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📚 ¿Dónde encontrarás autovalores otra vez?</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>S10-7 — Espacios vectoriales:</strong> Los autovalores viven en espacios vectoriales</li>
+<li><strong>S10-9 — Transformaciones lineales:</strong> Los autovalores miden cómo una TL escala autovectores</li>
+<li><strong>S10-2 — Derivadas parciales:</strong> Hessianas tienen autovalores (concavidad)</li>
+<li><strong>S10-3 — Integrales múltiples:</strong> Cambios de variable con matrices propias</li>
+<li><strong>S09-2 — Derivadas:</strong> La Hessiana usa autovalores para clasificar puntos críticos</li>
+<li><strong>Física:</strong> Vibraciones de estructuras, modos normales</li>
+<li><strong>Machine Learning:</strong> PCA, SVD, análisis de componentes principales</li>
+<li><strong>Diagonalización:</strong> Si A = PDP⁻¹, calcular Aⁿ es trivial</li>
+</ul>
+</div>
+</div>
+
+<!-- INTERACTIVO: Plotly autovalores -->
+<div class="chapter">
+<h2 class="chapter-title">3️⃣ Visualización interactiva</h2>
 <div class="chart-container">
-<h3>📊 Visualización de autovalores y autovectores</h3>
-<p class="chart-desc">Observa cómo los autovectores mantienen su dirección al aplicar la transformación.</p>
+<h3>📊 Eigenvalues Explorer</h3>
+<p class="chart-desc">Selecciona un tipo de matriz y observa cómo cambian los autovalores.</p>
 <div id="plot-eigen" class="chart-plot"></div>
+<div class="chart-controls">
+<button onclick="updatePlot('diagonal')">Diagonal</button>
+<button onclick="updatePlot('rotation')">Rotación</button>
+<button onclick="updatePlot('shear')">Cizallamiento</button>
+</div>
 </div>
 </div>
 
+<!-- EJERCICIOS -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">4️⃣ Ejercicios Interactivos</h2>
 
+<!-- Ejercicio tipo 1: Input numérico (ya existe, mejorado) -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Si $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$, ¿cuáles son los autovalores?</p>
+<p><strong>Ejercicio 1</strong> <span class="difficulty-badge facil">Fácil</span> — Calcular autovalores de matriz diagonal</p>
+<p>Si $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$, ¿cuáles son los autovalores?</p>
 <div class="exercise-input">
 <input type="text" id="e1" placeholder="λ₁, λ₂ = " style="width:200px">
 <button onclick="checkE1()">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio tipo 2: V/F -->
+<div class="exercise">
+<p><strong>Ejercicio 2</strong> <span class="difficulty-badge facil">Fácil</span> — Verdadero o Falso</p>
+<p>Si A es una matriz diagonal, sus autovalores son los elementos de la diagonal principal.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- Ejercicio tipo 3: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 3</strong> <span class="difficulty-badge medio">Medio</span> — Completar hueco</p>
+<p>Si $A = \begin{pmatrix} 4 & 0 \\ 0 & 1 \end{pmatrix}$, la ecuación característica es det(A − λI) = (4 − λ)(1 − λ) = 0. Los autovalores son λ₁ = ___ y λ₂ = ___.</p>
+<div class="exercise-input">
+<input type="text" id="e3" placeholder="λ₁, λ₂" style="width:200px">
+<button onclick="checkE3()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio tipo 4: Ordenar -->
+<div class="exercise">
+<p><strong>Ejercicio 4</strong> <span class="difficulty-badge medio">Medio</span> — Ordenar autovalores</p>
+<p>Ordena de menor a mayor los autovalores de $A = \begin{pmatrix} 5 & 0 \\ 0 & 2 \\ 0 & 0 & 3 \end{pmatrix}$:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkOrden(this, true)">2, 3, 5</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">5, 3, 2</button>
+<button class="quiz-btn" onclick="checkOrden(this, false)">3, 2, 5</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio tipo 5: Quiz botón -->
+<div class="exercise">
+<p><strong>Ejercicio 5</strong> <span class="difficulty-badge dificil">Difícil</span> — Significado geométrico</p>
+<p>Si un autovector tiene autovalor λ = 0.5, ¿qué pasa al aplicar la matriz?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuiz(this, true)">Se reduce a la mitad, misma dirección</button>
+<button class="quiz-btn" onclick="checkQuiz(this, false)">Se duplica de tamaño</button>
+<button class="quiz-btn" onclick="checkQuiz(this, false)">Cambia de dirección</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio tipo 6: Problema contextual -->
+<div class="exercise">
+<p><strong>Ejercicio 6</strong> <span class="difficulty-badge dificil">Difícil</span> — Problema contextual</p>
+<p>La traza de una matriz 2×2 es 7 y el determinante es 12. ¿Cuáles son sus autovalores?</p>
+<p style="font-size:.9rem;color:#64748b">💡 Pista: traza = suma de autovalores, det = producto de autovalores</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkEj6(this, true)">3 y 4 (3+4=7, 3×4=12)</button>
+<button class="quiz-btn" onclick="checkEj6(this, false)">2 y 5 (2+5=7, 2×5=10)</button>
+<button class="quiz-btn" onclick="checkEj6(this, false)">1 y 6 (1+6=7, 1×6=6)</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
 </div>
 
 <div class="summary">
 <h3>📋 Resumen</h3>
 <ul>
 <li>Autovalor: $A\vec{v} = \lambda\vec{v}$ — la matriz solo escala el autovector</li>
-<li>Se calculan resolviendo $\det(A - \lambda I) = 0$</li>
-<li>Aplicaciones: PageRank, vibraciones, PCA, compresión de imágenes</li>
+<li>Se calculan resolviendo $\det(A - \lambda I) = 0$ (ecuación característica)</li>
+<li>Para matrices diagonales, los autovalores son los de la diagonal</li>
+<li>La traza = suma de autovalores, el determinante = producto de autovalores</li>
+<li>λ &gt; 1 → crece, 0 &lt; λ &lt; 1 → se encoge, λ = 0 → se anula</li>
+<li>Aplicaciones: PageRank, vibraciones, PCA, compresión de imágenes, diagonalización</li>
+<li>El autovector dominante (mayor |λ|) domina el comportamiento a largo plazo</li>
 </ul>
 </div>
 
@@ -159,38 +337,150 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-// Visualización de autovalores
-  const trace1 = {
-    x: [1, 2, 3, 4, 5], y: [3, 1, 4, 1, 5],
-    mode: 'markers+text', name: 'Autovalores',
-    marker: {size: 15, color: ['#2563eb', '#f97316', '#10b981', '#ef4444', '#a855f7']},
-    text: ['λ₁=3', 'λ₂=1', 'λ₃=4', 'λ₄=1', 'λ₅=5'],
-    textposition: 'top center'
-  };
-  Plotly.newPlot('plot-eigen', [trace1], {
-    title: 'Autovalores de una matriz',
-    xaxis: {title: 'Índice', gridcolor: '#e2e8f0'},
-    yaxis: {title: 'Valor', gridcolor: '#e2e8f0'},
-    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-  }, {responsive: true});
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+// Visualización de autovalores con Plotly
+const matrices = {
+  diagonal: {
+    labels: ['λ₁', 'λ₂', 'λ₃'],
+    values: [2, 3, 5],
+    colors: ['#6366f1', '#f97316', '#10b981']
+  },
+  rotation: {
+    labels: ['Re(λ)', 'Im(λ)', 'Módulo'],
+    values: [0, 1, 1],
+    colors: ['#a855f7', '#6366f1', '#f97316']
+  },
+  shear: {
+    labels: ['λ₁', 'λ₂'],
+    values: [1, 1],
+    colors: ['#10b981', '#6366f1']
+  }
+};
 
+function updatePlot(type) {
+  const m = matrices[type];
+  const data = [{
+    x: m.labels,
+    y: m.values,
+    type: 'bar',
+    marker: {
+      color: m.colors,
+      line: { color: '#e2e8f0', width: 1 }
+    }
+  }];
+  const layout = {
+    title: `Autovalores: ${type === 'diagonal' ? 'Matriz diagonal' : type === 'rotation' ? 'Rotación (complejos)' : 'Cizallamiento'}`,
+    xaxis: { title: '', gridcolor: '#e2e8f0' },
+    yaxis: { title: 'Valor', gridcolor: '#e2e8f0' },
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+    margin: { t: 50, b: 40, l: 50, r: 20 }
+  };
+  Plotly.react('plot-eigen', data, layout, {responsive: true});
+}
+
+updatePlot('diagonal');
+
+// Render KaTeX
+renderMathInElement(document.body, {
+  delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '$', right: '$', display: false}
+  ],
+  throwOnError: false
+});
+
+// Ejercicio 1: Input numérico
 function checkE1() {
   const input = document.getElementById('e1');
   const fb = document.getElementById('e1-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '');
-  if ((v.includes('2') && v.includes('3')) || v === '2,3' || v === '2 y 3' || v === '2, 3') { fb.textContent = '¡Correcto! Los autovalores son 2 y 3 (diagonal de la matriz diagonal) 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. Para una matriz diagonal, los autovalores son los elementos de la diagonal: 2 y 3'; fb.className = 'feedback incorrect'; }
+  if ((v.includes('2') && v.includes('3')) || v === '2,3' || v === '2 y 3' || v === '2, 3') {
+    fb.textContent = '¡Correcto! Los autovalores son 2 y 3 (diagonal de la matriz diagonal) 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Para una matriz diagonal, los autovalores son los elementos de la diagonal: 2 y 3';
+    fb.className = 'feedback incorrect';
+  }
 }
 
+// Ejercicio 2: V/F
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e2-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Para matrices diagonales, los autovalores son exactamente los elementos de la diagonal.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. SÍ es verdadero: para matrices diagonales, los autovalores son los elementos de la diagonal.';
+    fb.className = 'feedback incorrect';
+  }
+}
 
+// Ejercicio 3: Completar hueco
+function checkE3() {
+  const input = document.getElementById('e3');
+  const fb = document.getElementById('e3-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '');
+  if ((v.includes('4') && v.includes('1')) || v === '4,1' || v === '1,4' || v === '4 y 1' || v === '1 y 4') {
+    fb.textContent = '¡Correcto! Los autovalores son 4 y 1.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. det(A − λI) = (4−λ)(1−λ) = 0 → λ₁ = 4, λ₂ = 1.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 4: Ordenar
+function checkOrden(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e4-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Los autovalores son 2, 3, 5 → ordenados: 2 < 3 < 5.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Los autovalores de una matriz diagonal son sus elementos diagonales: 5, 2, 3. Ordenados: 2 < 3 < 5.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 5: Quiz botón
+function checkQuiz(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e5-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! λ = 0.5 significa que el autovector se reduce a la mitad (se encoge) pero mantiene su dirección.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. λ = 0.5 → el vector se reduce a la mitad de su tamaño, pero MANTIENE la misma dirección.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 6: Problema contextual
+function checkEj6(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e6-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! traza = λ₁ + λ₂ = 7, det = λ₁ × λ₂ = 12. Las soluciones son 3 y 4 (3+4=7, 3×4=12).';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. traza=7 → suma=7, det=12 → producto=12. Solo 3×4=12 y 3+4=7. Respuesta: 3 y 4.';
+    fb.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>

@@ -35,38 +35,7 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
 .back-link{display:inline-flex;align-items:center;gap:.5rem;color:#06b6d4;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--azul-claro);transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
-@media(max-width:640px){
-  .header h1{font-size:1.4rem}
-  .chapter-title{font-size:1.1rem}
-}.header h1{font-size:1.4rem}}
-
-/* Feedback para ejercicios */
-.feedback{display:inline-block;padding:.3rem .8rem;border-radius:6px;font-weight:600;margin-top:.5rem}
-.feedback.correct{color:#065f46;background:var(--verde-claro)}
-.feedback.incorrect{color:#991b1b;background:var(--rojo-claro)}
-
-/* Conexión con conocimiento previo */
-.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
-.connection-box strong{color:var(--pura)}
-
-/* Indicador de pasos */
-.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
-.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
-
-/* Badge de caso real */
-.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
-
-/* Contenedor SVG */
-.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
-
-/* Input de ejercicio */
-.exercise-input input:focus{outline:none;border-color:var(--azul)}
-
-/* Responsive mejorado */
-@media(max-width:640px){
-  .header h1{font-size:1.4rem}
-  .chapter-title{font-size:1.1rem}
-}
+@media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
 </style>
 </head>
 <body>
