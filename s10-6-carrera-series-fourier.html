@@ -58,17 +58,43 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .exercise-input input:focus{outline:none;border-color:#6366f1}
 .exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
 .feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
-.feedback.correct{color:var(--verde)}
-.feedback.incorrect{color:var(--rojo)}
+.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
+.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+/* CSS coherence template classes */
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.svg-container{text-align:center;margin:1rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.step-indicator{display:flex;gap:.5rem;justify-content:center;margin:1rem 0}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#94a3b8;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:600;font-size:.85rem;transition:all .2s}
+.step-dot.active{background:var(--azul);box-shadow:0 0 8px rgba(37,99,235,.4)}
+.step-dot:hover{transform:scale(1.1)}
+.connection-box{background:linear-gradient(135deg,#faf5ff,#ede9fe);border:1px solid #c4b5fd;border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:999px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
+  .quiz-options{flex-direction:column;align-items:center}
 }
 </style>
 </head>
@@ -83,72 +109,285 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- EXPLICACIÓN 4 PASOS -->
 <div class="chapter">
-<h2 class="chapter-title">🎯 Objetivos</h2>
-<div class="box box-teoria">
-<strong>Al final de esta sesión serás capaz de:</strong>
+<h2 class="chapter-title">📖 ¿Qué es una Serie de Fourier?</h2>
+
+<div class="interactive">
+<h3>🎬 Mira, fíjate, ahora ves — La idea central</h3>
+<div class="step-indicator">
+<div class="step-dot active" id="sd1" onclick="showStep(1)">1</div>
+<div class="step-dot" id="sd2" onclick="showStep(2)">2</div>
+<div class="step-dot" id="sd3" onclick="showStep(3)">3</div>
+<div class="step-dot" id="sd4" onclick="showStep(4)">4</div>
+</div>
+
+<div id="step-content">
+<!-- Paso 1: Qué es -->
+<div class="box box-teoria" id="step1">
+<strong>📍 Paso 1 — ¿Qué es?</strong>
+<p>Una <strong>serie de Fourier</strong> descompone cualquier función periódica en una suma infinita de senos y cosenos. Piensa en un cóctel: puedes identificar cada ingrediente individual. Fourier hace lo mismo con las ondas — separa una señal compleja en sus frecuencias componentes.</p>
+<div class="svg-container">
+<svg viewBox="0 0 500 140" width="500" height="140">
+<!-- Onda compleja -->
+<path d="M10,70 Q40,20 70,70 Q100,120 130,70 Q160,20 190,70 Q220,120 250,70 Q280,20 310,70 Q340,120 370,70 Q400,20 430,70 Q460,120 490,70" fill="none" stroke="#6366f1" stroke-width="2.5"/>
+<text x="250" y="15" text-anchor="middle" font-size="12" fill="#6366f1" font-weight="bold">Señal compleja (peródica)</text>
+<!-- Descomposición -->
+<text x="250" y="40" text-anchor="middle" font-size="16" fill="#94a3b8">↓ descomposición de Fourier ↓</text>
+<!-- Componente 1 -->
+<path d="M10,70 Q40,30 70,70 Q100,110 130,70 Q160,30 190,70 Q220,110 250,70 Q280,30 310,70 Q340,110 370,70 Q400,30 430,70 Q460,110 490,70" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="250" y="95" text-anchor="middle" font-size="11" fill="#2563eb">f₁(t) = sen(t) — frecuencia fundamental</text>
+<!-- Componente 2 -->
+<path d="M10,70 Q25,45 40,70 Q55,95 70,70 Q85,45 100,70 Q115,95 130,70 Q145,45 160,70 Q175,95 190,70 Q205,45 220,70 Q235,95 250,70 Q265,45 280,70 Q295,95 310,70 Q325,45 340,70 Q355,95 370,70 Q385,45 400,70 Q415,95 430,70 Q445,45 460,70 Q475,95 490,70" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2"/>
+<text x="250" y="120" text-anchor="middle" font-size="11" fill="#f97316">f₂(t) = sen(3t) — tercera armónica</text>
+<!-- Componente 3 -->
+<path d="M10,70 Q18,58 25,70 Q33,82 40,70 Q48,58 55,70 Q63,82 70,70 Q78,58 85,70 Q93,82 100,70 Q108,58 115,70 Q123,82 130,70 Q138,58 145,70 Q153,82 160,70 Q168,58 175,70 Q183,82 190,70 Q198,58 205,70 Q213,82 220,70 Q228,58 235,70 Q243,82 250,70 Q258,58 265,70 Q273,82 280,70 Q288,58 295,70 Q303,82 310,70 Q318,58 325,70 Q333,82 340,70 Q348,58 355,70 Q363,82 370,70 Q378,58 385,70 Q393,82 400,70 Q408,58 415,70 Q423,82 430,70 Q438,58 445,70 Q453,82 460,70 Q468,58 475,70 Q483,82 490,70" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2"/>
+<text x="250" y="138" text-anchor="middle" font-size="10" fill="#10b981">f₃(t) = sen(5t) — quinta armónica</text>
+</svg>
+</div>
+</div>
+
+<!-- Paso 2: Para qué sirve -->
+<div class="box box-teoria" id="step2" style="display:none">
+<strong>📍 Paso 2 — ¿Para qué sirve?</strong>
+<p>La serie de Fourier es la herramienta fundamental del <strong>análisis de frecuencias</strong>. Se usa en:</p>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Entender qué es una serie de Fourier</li>
-<li>Calcular los coeficientes de Fourier</li>
-<li>Interpretar la descomposición en frecuencias</li>
+<li><strong>Audio MP3:</strong> Identifica qué frecuencias hay en una canción y descarta las que el oído no percibe</li>
+<li><strong>Procesamiento de imágenes:</strong> El formato JPEG comprime imágenes usando una versión 2D de Fourier (DCT)</li>
+<li><strong>Electrónica:</strong> Analizar señales de radio, WiFi, Bluetooth — cada una en una frecuencia distinta</li>
+</ul>
+</div>
+
+<!-- Paso 3: Cómo se hace -->
+<div class="box box-teoria" id="step3" style="display:none">
+<strong>📍 Paso 3 — ¿Cómo se calcula?</strong>
+<p>Para una función periódica con período 2L, los coeficientes se calculan con integrales:</p>
+<div style="text-align:center;margin:1rem 0">
+<p style="font-size:1.05rem"><strong>a₀</strong> = (1/L) ∫<sub>-L</sub><sup>L</sup> f(x) dx</p>
+<p style="font-size:1.05rem"><strong>a<sub>n</sub></strong> = (1/L) ∫<sub>-L</sub><sup>L</sup> f(x)·cos(nπx/L) dx</p>
+<p style="font-size:1.05rem"><strong>b<sub>n</sub></strong> = (1/L) ∫<sub>-L</sub><sup>L</sup> f(x)·sin(nπx/L) dx</p>
+</div>
+<p>La idea clave: cada coeficiente <strong>proyecta</strong> la función sobre una frecuencia específica. Si el resultado es 0, esa frecuencia no está presente.</p>
+<div class="svg-container">
+<svg viewBox="0 0 500 100" width="500" height="100">
+<!-- Análogo de proyección -->
+<rect x="20" y="30" width="100" height="50" rx="8" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+<text x="70" y="60" text-anchor="middle" font-size="11" fill="#6366f1" font-weight="bold">Función f(x)</text>
+<!-- Flecha con "integral" -->
+<line x1="125" y1="55" x2="175" y2="55" stroke="#f97316" stroke-width="2" marker-end="url(#arrowOrange)"/>
+<defs><marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/></marker></defs>
+<text x="150" y="48" text-anchor="middle" font-size="9" fill="#f97316">∫ · cos/sin</text>
+<!-- Coeficiente -->
+<rect x="180" y="30" width="100" height="50" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="230" y="55" text-anchor="middle" font-size="12" fill="#f97316" font-weight="bold">a<sub>n</sub>, b<sub>n</sub></text>
+<text x="230" y="70" text-anchor="middle" font-size="9" fill="#f97316">coeficientes</text>
+<!-- Resultado -->
+<line x1="285" y1="55" x2="335" y2="55" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+<defs><marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/></marker></defs>
+<rect x="340" y="30" width="140" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+<text x="410" y="55" text-anchor="middle" font-size="11" fill="#10b981" font-weight="bold">Σ aₙcos + bₙsen</text>
+<text x="410" y="70" text-anchor="middle" font-size="9" fill="#10b981">serie reconstruida</text>
+</svg>
+</div>
+</div>
+
+<!-- Paso 4: Error común -->
+<div class="box box-teoria" id="step4" style="display:none">
+<strong>📍 Paso 4 — Error común</strong>
+<p>❌ <strong>"Fourier solo funciona para senos y cosenos puros"</strong></p>
+<p>✅ <strong>La verdad:</strong> Fourier funciona para <em>cualquier</em> función periódica (o incluso no periódica, con la transformada). La onda cuadrada, la diente de sierra, una señal de audio — todo se puede descomponer. Lo único que se requiere es que la función sea <strong>integrable</strong> en el período.</p>
+<p>El teorema de convergencia de Dirichlet dice que si f tiene un número finito de discontinuidades y máximos/mínimos en un período, la serie converge a f(x) en los puntos continuos.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CASOS REALES -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Casos Reales</h2>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">CASO REAL</span> Compresión de audio MP3</strong>
+<p>Un archivo WAV de 5 minutos puede ocupar 50 MB. Un MP3 de la misma canción ocupa 5 MB. ¿Cómo? El codec MP3 usa la <strong>Transformada Rápida de Fourier (FFT)</strong> para analizar cada fragmento de audio, identificar qué frecuencias son perceptibles por el oído humano y descartar las que no.</p>
+<p><strong>Dato:</strong> El oído humano percibe frecuencias entre 20 Hz y 20 kHz. La FFT identifica exactamente qué amplitudes hay en cada banda y comprime inteligentemente.</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">CASO REAL</span> WiFi y telecomunicaciones</strong>
+<p>Tu router WiFi transmite datos usando múltiples frecuencias simultáneamente (OFDM). Cada canal de datos usa una portadora senoidal diferente. Fourier te permite separar todas las señales que viajan por el aire al mismo tiempo sin interferirse.</p>
+<p><strong>Dato:</strong> WiFi 6 usa hasta 256 portadoras OFDM simultáneas en el rango de 2.4 GHz.</p>
+</div>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">CASO REAL</span> Diagnóstico médico (ECG)</strong>
+<p>Un electrocardiograma registra la actividad eléctrica del corazón. Las arritmias se detectan analizando el espectro de frecuencias del ECG con Fourier. Un patrón anormal en ciertas frecuencias puede indicar problemas cardíacos.</p>
+</div>
+</div>
+
+<!-- ERRORES COMUNES -->
+<div class="chapter">
+<h2 class="chapter-title">⚠️ Errores Comunes Frecuentes</h2>
+<div class="box box-error">
+<strong>🚫 Confundir serie de Fourier con transformada de Fourier</strong>
+<p>La <strong>serie</strong> de Fourier es para funciones <em>periódicas</em> (se repiten). La <strong>transformada</strong> de Fourier es para funciones <em>no periódicas</em> (una sola señal). Son herramientas complementarias: la serie descompone en frecuencias discretas, la transformada en un espectro continuo.</p>
+</div>
+<div class="box box-error">
+<strong>🚫 Pensar que la serie converge siempre uniformemente</strong>
+<p>En discontinuidades (como una onda cuadrada), la serie de Fourier presenta el <strong>fenómeno de Gibbs</strong>: un overshoot del ~9% que no desaparece aunque añadas infinitos términos. ¡Es uno de los contraejemplos más famosos del análisis!</p>
+</div>
+</div>
+
+<!-- CONEXIONES -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>🔗 Conecta con:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>S10-1 (Límites multivariable):</strong> La convergencia de Fourier usa límites de sumas parciales</li>
+<li><strong>S10-2 (Derivadas parciales):</strong> Las EDPs (calor, onda) se resuelven con series de Fourier</li>
+<li><strong>S10-3 (Integrales múltiples):</strong> Los coeficientes aₙ, bₙ son integrales — la generalización a 2D/3D lleva a Fourier en dominios complejos</li>
+<li><strong>S10-4 (EDOs primer orden):</strong> La ecuación del calor ∂u/∂t = k∂²u/∂x² se resuelve con Fourier</li>
+<li><strong>S09-5 (Integrales indefinidas):</strong> Calcular coeficientes requiere integrar f(x)·cos(nπx/L)</li>
+<li><strong>S09-6 (Integrales definidas):</strong> Los coeficientes son integrales definidas sobre [-L, L]</li>
+<li><strong>S09-2 (Continuidad y derivadas):</strong> La convergencia depende de la continuidad y suavidad de f</li>
 </ul>
 </div>
 </div>
 
+<!-- GRÁFICO INTERACTIVO -->
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro Fourier?</h2>
-<div class="box box-ejemplo">
-<strong>💡 Caso real: Compresión de audio MP3</strong>
-<p>Cualquier sonido puede descomponerse en una suma de senos y cosenos de diferentes frecuencias. ¡El MP3 usa la Transformada Rápida de Fourier para comprimir audio!</p>
-<p>La música que escuchas = suma de ondas sinusoidales. Fourier te dice qué frecuencias hay y cuánto contribuye cada una.</p>
-</div>
-</div>
-
-<div class="chapter">
-<h2 class="chapter-title">1️⃣ Series de Fourier</h2>
-
-<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid #6366f1">
-$$f(x) = \frac{a_0}$\{2\}$ + \sum_{n=1}^{\infty} \left[a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right)\right]$$
-</div>
-
-<!-- GRÁFICO: Fourier -->
+<h2 class="chapter-title">📊 Visualización: Aproximación de onda cuadrada</h2>
 <div class="chart-container">
-<h3>📊 Descomposición de Fourier: onda cuadrada $\approx$ suma de senos</h3>
-<p class="chart-desc">Observa cómo al sumar más términos, la aproximación se acerca más a la onda cuadrada.</p>
+<h3>📊 Cómo converge la serie de Fourier a una onda cuadrada</h3>
+<p class="chart-desc">Añade más términos a la serie y observa cómo la aproximación mejora. La serie de una onda cuadrada usa solo senos impares: f(x) = (4/π) Σ sin((2k-1)x)/(2k-1)</p>
 <div id="plot-fourier" class="chart-plot"></div>
+<div class="chart-controls">
+<button onclick="updateFourier(1)">1 término</button>
+<button onclick="updateFourier(3)">3 términos</button>
+<button onclick="updateFourier(5)">5 términos</button>
+<button onclick="updateFourier(11)">11 términos</button>
+<button onclick="updateFourier(21)">21 términos</button>
+<button onclick="updateFourier(51)">51 términos</button>
+</div>
 </div>
 </div>
 
+<!-- EJERCICIOS VARIADOS -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">📝 Ejercicios Interactivos</h2>
 
+<div class="exercises">
+
+<!-- Ejercicio 1: Quiz botones -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Qué tipo de función se puede descomponer en serie de Fourier?</p>
-<div class="exercise-input">
-<select id="e1" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
-<option value="">— Elige —</option>
-<option value="a">Funciones periódicas</option>
-<option value="b">Solo funciones polinómicas</option>
-<option value="c">Solo funciones exponenciales</option>
-</select>
-<button onclick="checkE1()">Comprobar</button>
+<p><strong>Ejercicio 1 (Quiz) <span class="difficulty-badge easy">Fácil</span></strong></p>
+<p>¿Qué tipo de funciones se pueden descomponer en serie de Fourier?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizE1(this, true)">Funciones periódicas</button>
+<button class="quiz-btn" onclick="checkQuizE1(this, false)">Solo funciones polinómicas</button>
+<button class="quiz-btn" onclick="checkQuizE1(this, false)">Solo funciones exponenciales</button>
+<button class="quiz-btn" onclick="checkQuizE1(this, false)">Solo funciones continuas</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 2 (Completa el hueco) <span class="difficulty-badge easy">Fácil</span></strong></p>
+<p>En la serie de Fourier, los coeficientes aₙ se calculan multiplicando f(x) por ___ e integrando.</p>
+<div class="exercise-input">
+<select id="e2" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
+<option value="">— Elige —</option>
+<option value="a">sin(nπx/L)</option>
+<option value="b">cos(nπx/L)</option>
+<option value="c">e^(inx)</option>
+</select>
+<button onclick="checkSelectE2()">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
 </div>
 
+<!-- Ejercicio 3: V/F -->
+<div class="exercise">
+<p><strong>Ejercicio 3 (Verdadero o Falso) <span class="difficulty-badge medium">Medio</span></strong></p>
+<p>La serie de Fourier de una onda cuadrada converge uniformemente a la función en todos los puntos.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 4 (Completa el hueco) <span class="difficulty-badge medium">Medio</span></strong></p>
+<p>Para una función par f(x) = f(-x), los coeficientes bₙ de su serie de Fourier son todos ___.</p>
+<div class="exercise-input">
+<input type="text" id="e4" placeholder="?">
+<button onclick="checkFillIn('e4', 'cero')">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Ordenar -->
+<div class="exercise">
+<p><strong>Ejercicio 5 (Ordenar) <span class="difficulty-badge hard">Difícil</span></strong></p>
+<p>Ordena de menor a mayor el número de términos necesarios para una buena aproximación de Fourier según la suavidad de la función:</p>
+<p style="font-size:.85rem;color:#64748b">1) Función discontinua (onda cuadrada)  2) Función continua con derivada discontinua  3) Función C∞ (suave)</p>
+<p style="font-size:.85rem;color:#64748b">Escribe: 1,2,3 si el orden correcto es el que indico, o corrígelo</p>
+<div class="exercise-input">
+<input type="text" id="e5" placeholder="tu orden">
+<button onclick="checkOrdenE5()">Comprobar</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Quiz botones -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (Quiz) <span class="difficulty-badge hard">Difícil</span></strong></p>
+<p>¿Qué fenómeno ocurre en las discontinuidades de una onda cuadrada cuando se aproxima con Fourier?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizE6(this, false)">Convergencia uniforme</button>
+<button class="quiz-btn" onclick="checkQuizE6(this, true)">Fenómeno de Gibbs (~9% overshoot)</button>
+<button class="quiz-btn" onclick="checkQuizE6(this, false)">Divergencia total</button>
+<button class="quiz-btn" onclick="checkQuizE6(this, false)">Oscilación infinita</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Ejercicio 7: Decidir operación -->
+<div class="exercise">
+<p><strong>Ejercicio 7 (Decidir) <span class="difficulty-badge hard">Difícil</span></strong></p>
+<p>Si f(x) es una función <strong>impar</strong> (f(-x) = -f(x)), ¿qué coeficientes de Fourier son necesariamente cero?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkQuizE7(this, false)">Los aₙ (cosenos)</button>
+<button class="quiz-btn" onclick="checkQuizE7(this, true)">Los bₙ (senos)</button>
+<button class="quiz-btn" onclick="checkQuizE7(this, false)">Todos los coeficientes</button>
+<button class="quiz-btn" onclick="checkQuizE7(this, false)">Ninguno</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+</div>
+</div>
+
+<!-- RESUMEN -->
 <div class="summary">
-<h3>📋 Resumen</h3>
+<h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Toda función periódica se puede descomponer en senos y cosenos</li>
-<li>Los coeficientes $a_n$ y $b_n$ se calculan con integrales</li>
-<li>Aplicaciones: audio, imágenes, procesamiento de señales, física cuántica</li>
+<li>Una serie de Fourier descompone funciones periódicas en suma de senos y cosenos</li>
+<li>Los coeficientes a₀, aₙ, bₙ se calculan con integrales de producto interno</li>
+<li>Funciones pares → solo cosenos (aₙ). Funciones impares → solo senos (bₙ)</li>
+<li>La convergencia no es uniforme en discontinuidades (fenómeno de Gibbs, ~9% overshoot)</li>
+<li>Aplicaciones: audio MP3, WiFi/OFDM, ECG médico, procesamiento de imágenes JPEG</li>
+<li>Diferencia clave: serie (periódicas, frecuencias discretas) vs transformada (no periódicas, espectro continuo)</li>
+<li>Conecta con integrales (S09-5/6), EDPs (S10-4), y análisis de convergencia (S09-2)</li>
 </ul>
 </div>
 
 <div class="nav">
 <a href="s10-5-carrera-edos-segundo-orden.html">← Anterior</a>
-  <a href="s10-1carrera.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s10-1carrera.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s10-7-carrera-espacios-vectoriales.html">Siguiente →</a>
 </div>
 </div>
@@ -162,12 +401,125 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-// Aproximación de onda cuadrada
-  const t = Array.from({length: 200}, (_, i) => (i - 100) * 0.03);
+// Step indicator
+function showStep(n) {
+  for(var i = 1; i <= 4; i++) {
+    var step = document.getElementById('step' + i);
+    var dot = document.getElementById('sd' + i);
+    if(step) step.style.display = (i === n) ? 'block' : 'none';
+    if(dot) {
+      if(i === n) {
+        dot.classList.add('active');
+        dot.style.background = 'var(--azul)';
+      } else {
+        dot.classList.remove('active');
+        dot.style.background = '#94a3b8';
+      }
+    }
+  }
+}
+
+// VF
+function checkVF(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+// Quiz
+function checkQuizE1(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); document.getElementById('e1-fb').textContent = '¡Correcto! Las funciones periódicas se descomponen en senos y cosenos 🎉'; document.getElementById('e1-fb').className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); document.getElementById('e1-fb').textContent = 'Incorrecto. La serie de Fourier descompone funciones periódicas en senos y cosenos.'; document.getElementById('e1-fb').className = 'feedback incorrect'; }
+}
+
+function checkQuizE6(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); document.getElementById('e6-fb').textContent = '¡Correcto! El fenómeno de Gibbs produce un overshoot del ~9% en las discontinuidades 🎉'; document.getElementById('e6-fb').className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); document.getElementById('e6-fb').textContent = 'Incorrecto. Es el fenómeno de Gibbs: un overshoot del ~9% que no desaparece con más términos.'; document.getElementById('e6-fb').className = 'feedback incorrect'; }
+}
+
+function checkQuizE7(btn, correct) {
+  var parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(function(b) {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if(correct) { btn.classList.add('correct'); document.getElementById('e7-fb').textContent = '¡Correcto! Para funciones impares, los coeficientes aₙ (cosenos) son cero porque el producto f(x)·cos(x) es impar y su integral es 0 🎉'; document.getElementById('e7-fb').className = 'feedback correct'; }
+  else { btn.classList.add('wrong'); document.getElementById('e7-fb').textContent = 'Incorrecto. Para funciones impares, los aₙ son cero (el producto con coseno es impar). Los bₙ son los que importan.'; document.getElementById('e7-fb').className = 'feedback incorrect'; }
+}
+
+// Fill in
+function checkFillIn(inputId, correctAnswer) {
+  var input = document.getElementById(inputId);
+  var fbId = inputId + '-fb';
+  var fb = document.getElementById(fbId);
+  if (!input || !fb) return;
+  var val = input.value.trim().toLowerCase();
+  if (val === correctAnswer.toLowerCase()) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. La respuesta es ' + correctAnswer;
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Select
+function checkSelectE2() {
+  var sel = document.getElementById('e2');
+  var fb = document.getElementById('e2-fb');
+  if (!sel || !fb) return;
+  if (sel.value === 'b') {
+    fb.textContent = '¡Correcto! aₙ se calcula con cos(nπx/L). Los bₙ usan sin 🎉';
+    fb.className = 'feedback correct';
+  } else if (sel.value) {
+    fb.textContent = 'Incorrecto. Los coeficientes aₙ se calculan multiplicando por cos(nπx/L) e integrando.';
+    fb.className = 'feedback incorrect';
+  } else {
+    fb.textContent = 'Elige una opción';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ordenar
+function checkOrdenE5() {
+  var input = document.getElementById('e5');
+  var fb = document.getElementById('e5-fb');
+  if (!input || !fb) return;
+  var val = input.value.replace(/\s/g, '').toLowerCase();
+  // 3 términos (suave) < 2 términos (continua) < 1 término (discontinua) — necesita más términos la menos suave
+  if (val === '3,2,1') {
+    fb.textContent = '¡Correcto! Las funciones más suaves convergen más rápido. La función C∞ necesita menos términos que la continua, y la discontinua necesita muchos más 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. El orden correcto es: 3 (C∞, más suave), 2 (continua), 1 (discontinua, más términos necesarios). La suavidad determina la velocidad de convergencia.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Fourier visualization
+var currentTerms = 5;
+
+function updateFourier(nTerms) {
+  currentTerms = nTerms;
+  const t = Array.from({length: 400}, (_, i) => (i - 200) * 0.03);
   const approx = t.map(x => {
     let sum = 0;
-    for (let n = 1; n <= 11; n += 2) {
-      sum += Math.sin(n * x) / n;
+    for (let k = 1; k <= nTerms; k += 2) {
+      sum += Math.sin(k * x) / k;
     }
     return (4 / Math.PI) * sum;
   });
@@ -176,32 +528,29 @@ window.addEventListener('scroll', () => {
     return mod < Math.PI ? 1 : -1;
   });
   Plotly.newPlot('plot-fourier', [
-    {x: t, y: square, mode: 'lines', name: 'Onda cuadrada', line: {color: '#94a3b8', width: 1}},
-    {x: t, y: approx, mode: 'lines', name: 'Fourier (5 términos)', line: {color: '#2563eb', width: 2}}
+    {x: t, y: square, mode: 'lines', name: 'Onda cuadrada', line: {color: '#94a3b8', width: 1, dash: 'dot'}},
+    {x: t, y: approx, mode: 'lines', name: 'Fourier (' + nTerms + ' términos)', line: {color: '#6366f1', width: 2.5}}
   ], {
-    title: 'Aproximación de Fourier',
-    xaxis: {title: 't', gridcolor: '#e2e8f0'},
-    yaxis: {title: 'f(t)', gridcolor: '#e2e8f0'},
-    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-  }, {responsive: true});
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
-
-function checkE1() {
-  const sel = document.getElementById('e1');
-  const fb = document.getElementById('e1-fb');
-  if (!sel || !fb) return;
-  if (sel.value === 'a') { fb.textContent = '¡Correcto! Las funciones periódicas (y muchas otras) se pueden descomponer en serie de Fourier 🎉'; fb.className = 'feedback correct'; }
-  else if (sel.value) { fb.textContent = 'Incorrecto. La serie de Fourier descompone funciones periódicas en senos y cosenos'; fb.className = 'feedback incorrect'; }
-  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
+    title: '',
+    xaxis: {title: 't', gridcolor: '#e2e8f0', zeroline: true},
+    yaxis: {title: 'f(t)', gridcolor: '#e2e8f0', range: [-1.5, 1.5], zeroline: true},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+    showlegend: true, legend: {x: 0.02, y: 0.98},
+    margin: {t: 20, r: 20, b: 40, l: 50}
+  }, {responsive: true, displayModeBar: false});
 }
 
+// Initial plot
+updateFourier(5);
 
+// KaTeX render
+renderMathInElement(document.body, {
+  delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '$', right: '$', display: false}
+  ],
+  throwOnError: false
+});
 </script>
 </body>
 </html>

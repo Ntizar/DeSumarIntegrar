@@ -5,52 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1º ESO — Curso de Matemáticas</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-function showProp(n) {
-  for(var i = 1; i <= 4; i++) {
-    var step = document.getElementById('prop' + i);
-    if(step) step.style.display = (i === n) ? 'block' : 'none';
-  }
-}
-
-function checkPropE1() {
-  var input = document.getElementById('prop-e1');
-  var fb = document.getElementById('prop-e1-fb');
-  if (!input || !fb) return;
-  var val = parseFloat(input.value);
-  if (Math.abs(val - 7) < 0.1) {
-    fb.textContent = '¡Correcto! 4L → 20m², así que 1L → 5m². Para 35m²: 35/5 = 7 litros 🎉';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = 'Incorrecto. 4L cubren 20m² → 1L cubre 5m² → 35m² necesitan 35/5 = 7 litros.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false}]})">
-function showProp(n) {
-  for(var i = 1; i <= 4; i++) {
-    var step = document.getElementById('prop' + i);
-    if(step) step.style.display = (i === n) ? 'block' : 'none';
-  }
-}
-
-function checkPropE1() {
-  var input = document.getElementById('prop-e1');
-  var fb = document.getElementById('prop-e1-fb');
-  if (!input || !fb) return;
-  var val = parseFloat(input.value);
-  if (Math.abs(val - 7) < 0.1) {
-    fb.textContent = '¡Correcto! 4L → 20m², así que 1L → 5m². Para 35m²: 35/5 = 7 litros 🎉';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = 'Incorrecto. 4L cubren 20m² → 1L cubre 5m² → 35m² necesitan 35/5 = 7 litros.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false}]})"></script>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -148,7 +104,7 @@ table tr:nth-child(even){background:#f8fafc}
 <h3>🎬 Mira, fíjate, ahora ves — Recta numérica interactiva</h3>
 <div class="step-indicator">
 <div class="step-dot active" id="sd1" onclick="showStep(1)">1</div>
-<div class="step-dot" id="sd2" onclick="showStep(2)">2</div>
+<div class="dot" id="sd2" onclick="showStep(2)">2</div>
 <div class="step-dot" id="sd3" onclick="showStep(3)">3</div>
 <div class="step-dot" id="sd4" onclick="showStep(4)">4</div>
 </div>
@@ -178,8 +134,6 @@ table tr:nth-child(even){background:#f8fafc}
 <!-- Flecha de dirección -->
 <text x="450" y="30" text-anchor="middle" font-size="10" fill="#10b981">positivos →</text>
 <text x="80" y="30" text-anchor="middle" font-size="10" fill="#ef4444">← negativos</text>
-
-</div>
 </svg>
 </div>
 </div>
@@ -243,85 +197,6 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="result" id="step4-result"></div>
 </div>
-</div>
-</div>
-</div>
-
-
-<!-- SECCIÓN 2: PROPORCIONALIDAD — Explicación 4 pasos -->
-<div class="chapter">
-<h2 class="chapter-title">2️⃣ Proporcionalidad: Razones y proporciones</h2>
-
-<div class="box box-teoria">
-<strong>📌 ¿Qué es la proporcionalidad?</strong>
-<p>Dos magnitudes son <strong>directamente proporcionales</strong> si al multiplicar una por un número, la otra se multiplica por el mismo número. Ejemplo: si 3 kg de manzanas cuestan 6€, 6 kg cuestan 12€.</p>
-</div>
-
-<div class="interactive">
-<h3>🎬 Mira, fíjate, ahora ves — La regla de tres</h3>
-<div class="step-indicator">
-<div class="step-dot active" onclick="showProp(1)">1</div>
-<div class="step-dot" onclick="showProp(2)">2</div>
-<div class="step-dot" onclick="showProp(3)">3</div>
-<div class="step-dot" onclick="showProp(4)">4</div>
-</div>
-
-<div class="box box-teoria" id="prop1">
-<strong>📍 Paso 1 — Mira:</strong>
-<p>Si 2 pizzas cuestan 16€, ¿cuánto cuestan 5 pizzas?</p>
-<div class="svg-container">
-<svg viewBox="0 0 500 120" width="500" height="120">
-<!-- 2 pizzas = 16€ -->
-<rect x="30" y="20" width="60" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-<text x="60" y="55" text-anchor="middle" font-size="24">🍕</text>
-<text x="60" y="95" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">2 pizzas</text>
-<text x="60" y="110" text-anchor="middle" font-size="11" fill="#f97316">= 16€</text>
-<!-- Flecha proporcional -->
-<line x1="100" y1="50" x2="180" y2="50" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowB)"/>
-<defs><marker id="arrowB" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker></defs>
-<text x="140" y="45" text-anchor="middle" font-size="10" fill="#2563eb">× 2.5</text>
-<!-- 5 pizzas -->
-<rect x="190" y="20" width="60" height="60" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
-<text x="220" y="55" text-anchor="middle" font-size="24">🍕</text>
-<text x="220" y="95" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">5 pizzas</text>
-<text x="220" y="110" text-anchor="middle" font-size="11" fill="#2563eb">= ???</text>
-<!-- Resultado -->
-<line x1="260" y1="50" x2="340" y2="50" stroke="#10b981" stroke-width="2" marker-end="url(#arrowG)"/>
-<defs><marker id="arrowG" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/></marker></defs>
-<text x="300" y="45" text-anchor="middle" font-size="10" fill="#10b981">Resultado</text>
-<rect x="350" y="20" width="60" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
-<text x="380" y="55" text-anchor="middle" font-size="24">💰</text>
-<text x="380" y="95" text-anchor="middle" font-size="11" fill="#10b981" font-weight="bold">40€</text>
-<!-- Regla -->
-<text x="250" y="115" text-anchor="middle" font-size="10" fill="#64748b">16 ÷ 2 = 8€/pizza → 8 × 5 = 40€</text>
-</svg>
-</div>
-</div>
-
-<div class="box box-teoria" id="prop2" style="display:none">
-<strong>📍 Paso 2 — Fíjate:</strong>
-<p>La <strong>razón constante</strong> es lo que importa. Si 3 kg cuestan 6€, la razón es 6/3 = 2€/kg. Esta razón NO cambia: 6 kg → 12€, 1.5 kg → 3€.</p>
-<p>Matemáticamente: si y = k·x, entonces k = y/x es constante. Eso es proporcionalidad directa.</p>
-</div>
-
-<div class="box box-teoria" id="prop3" style="display:none">
-<strong>📍 Paso 3 — Ahora ves:</strong>
-<p>La <strong>regla de tres</strong> es la herramienta práctica: si a → b, entonces c → x donde x = b·c/a.</p>
-<div style="text-align:center;margin:1rem 0">
-<p style="font-size:1.1rem;background:#f1f5f9;padding:1rem;border-radius:8px">
-<strong>x = (b × c) / a</strong></p>
-<p style="font-size:.9rem;color:#64748b">Si 2 → 16, entonces 5 → (16 × 5) / 2 = 40</p>
-</div>
-</div>
-
-<div class="box box-teoria" id="prop4" style="display:none">
-<strong>📍 Paso 4 — ¡Tú prueba!</strong>
-<p>Si 4 litros de pintura cubren 20 m², ¿cuántos litros necesitas para 35 m²?</p>
-<div class="exercise-input">
-<input type="number" id="prop-e1" placeholder="litros">
-<button onclick="checkPropE1()">Comprobar</button>
-</div>
-<div class="feedback" id="prop-e1-fb"></div>
 </div>
 </div>
 </div>
@@ -570,28 +445,6 @@ function checkQuizE5(btn, correct) {
   if(correct) { btn.classList.add('correct'); }
   else { btn.classList.add('wrong'); }
 }
-
-function showProp(n) {
-  for(var i = 1; i <= 4; i++) {
-    var step = document.getElementById('prop' + i);
-    if(step) step.style.display = (i === n) ? 'block' : 'none';
-  }
-}
-
-function checkPropE1() {
-  var input = document.getElementById('prop-e1');
-  var fb = document.getElementById('prop-e1-fb');
-  if (!input || !fb) return;
-  var val = parseFloat(input.value);
-  if (Math.abs(val - 7) < 0.1) {
-    fb.textContent = '¡Correcto! 4L → 20m², así que 1L → 5m². Para 35m²: 35/5 = 7 litros 🎉';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = 'Incorrecto. 4L cubren 20m² → 1L cubre 5m² → 35m² necesitan 35/5 = 7 litros.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
 </script>
 </body>
 </html>

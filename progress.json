@@ -1,7 +1,7 @@
 {
   "last_improved": "2026-06-12",
   "last_run": "2026-06-12",
-  "total_runs": 53,
+  "total_runs": 55,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -774,21 +774,27 @@
       "improvement_count": 1
     },
     "s07-1eso.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "ESO",
       "priority": 2,
       "category": "eso",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "full: 2nd content section (Proporcionalidad) with 4-step explanation, SVG proporcionalidad visual, regla de tres interactiva, 1 ejercicio nuevo (proporcionalidad input), CSS fixes: step-dot consistent, svg-container wrappers, showProp/checkPropE1 functions, nested <li> clean"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 7,
+        "text": 10,
+        "visual": 6,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 5
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s08-2-3eso.html": {
       "status": "pending",
@@ -1990,7 +1996,7 @@
       "improvement_count": 1
     },
     "s09-4-bachiller-aplicaciones-derivadas.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
@@ -2002,15 +2008,16 @@
         }
       ],
       "scores": {
-        "exercises": 10,
-        "text": 10,
-        "visual": 8,
-        "real_world": 8,
-        "connections": 5,
-        "difficulty_range": 7
+        "exercises": 11,
+        "text": 12,
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 9
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-12",
+      "improvement_count": 2,
+      "last_improvement": "connections(8) + 2 ejercicios nuevos + SVG concavidad Manim-style"
     },
     "s09-5-bachiller-integrales-indefinidas.html": {
       "status": "improved_1",
@@ -2303,21 +2310,27 @@
       "improvement_count": 1
     },
     "s10-6-carrera-series-fourier.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "full: 4-step explanation (qué/para qué/cómo/error), SVG descomposición de Fourier (3 componentes), SVG proyección coeficientes, 3 casos reales (MP3/WiFi/ECG), 2 cajas error común (serie vs transformada, Gibbs), 7 conexiones temáticas, 7 ejercicios variados (quiz x3, VF, completar x2, ordenar, select), 6 tipos diferentes, CSS coherence 100% (25 clases), 3 niveles dificultad, Plotly interactivo (6 niveles términos), resumen 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 7,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s10-7-carrera-espacios-vectoriales.html": {
       "status": "pending",
@@ -2498,6 +2511,38 @@
         "real_world": 8,
         "connections": 7,
         "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s10-6-carrera-series-fourier.html",
+      "title": "Series de Fourier",
+      "level": "universidad",
+      "improvements": "full: 4-step explanation, SVG Fourier decomposition, 3 real cases (MP3/WiFi/ECG), 7 exercises (6 types), CSS coherence 100%, Plotly interactive",
+      "scores": {
+        "exercises": 7,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s07-1eso.html",
+      "title": "1º ESO — Curso de Matemáticas",
+      "level": "eso",
+      "improvements": "full: 2nd content section (Proporcionalidad) with 4-step explanation, SVG proporcionalidad, regla de tres interactiva, CSS fixes (step-dot, svg-container)",
+      "scores": {
+        "exercises": 7,
+        "text": 10,
+        "visual": 6,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 5
       },
       "date": "2026-06-12",
       "improved_by": "dsi-mejora-s2"
