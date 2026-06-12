@@ -1,7 +1,7 @@
 {
   "last_improved": "2026-06-12",
   "last_run": "2026-06-12",
-  "total_runs": 55,
+  "total_runs": 56,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1748,21 +1748,27 @@
       "improvement_count": 0
     },
     "s04-3-estadistica-tendencia-central.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Estadística",
       "priority": 2,
       "category": "estadistica",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 SVG histograma con media/mediana/moda (distribución asimétrica), +1 caso real ingeniería de carreteras, +1 explicación 4 pasos (qué/para qué/cómo/error común), +3 ejercicios nuevos (completar hueco media ponderada, ordenar asimetría negativa, problema contextual elegir medida), +1 caja conexiones (6 temas), +CSS: connection-box, step-indicator, real-world-badge, difficulty-badge"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s04-4-estadistica-dispersion.html": {
       "status": "pending",
@@ -2150,21 +2156,27 @@
       "improvement_count": 1
     },
     "s09-10-bachiller-repaso.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Bachiller",
-      "priority": 3,
+      "priority": 2,
       "category": "bachiller",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 SVG animado de derivada como pendiente (secante→tangente), +3 casos reales (física cohete, economía beneficios, biología bacterias), +1 caja conexiones (6 temas), +3 ejercicios nuevos (VF, ordenar, problema contextual), +1 explicación 4 pasos, +CSS: connection-box, step-indicator, real-world-badge, difficulty-badge, quiz-options, quiz-btn"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s10-1carrera.html": {
       "status": "index",
@@ -2333,21 +2345,27 @@
       "improvement_count": 1
     },
     "s10-7-carrera-espacios-vectoriales.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
-      "priority": 3,
+      "priority": 2,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 SVG combinación lineal (paralelogramo visual), +2 casos reales (Netflix ML, robot 6 articulaciones), +1 explicación 4 pasos (qué/para qué/cómo/error común), +3 ejercicios nuevos (VF polinomios, completar base canónica, problema subespacio), +1 caja conexiones (6 temas), +CSS: connection-box, step-indicator, real-world-badge, difficulty-badge, quiz-options, quiz-btn"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 7,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 7,
+        "difficulty_range": 6
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s10-8-carrera-autovalores.html": {
       "status": "pending",

@@ -64,6 +64,28 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+
+/* Clases nuevas v2 */
+.connection-box{background:linear-gradient(135deg,#faf5ff,#e0e7ff);border:2px solid #6366f1;border-radius:12px;padding:1.2rem;margin:1.5rem 0}
+.connection-box h4{color:#4f46e5;margin-bottom:.5rem}
+.connection-box ul{list-style:none;padding:0}
+.connection-box li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.connection-box li::before{content:"🔗";position:absolute;left:0}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:36px;height:36px;border-radius:50%;background:#6366f1;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.step-dot.active{background:var(--naranja)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.5rem}
+.svg-container{text-align:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:700;margin-left:.5rem;vertical-align:middle}
+.difficulty-badge.easy{background:#ecfdf5;color:#065f46}
+.difficulty-badge.medium{background:#fff7ed;color:#9a3412}
+.difficulty-badge.hard{background:#fef2f2;color:#991b1b}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid #6366f1;background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:#e0e7ff}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -83,6 +105,129 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- SECCIÓN NUEVA: Explicación 4 pasos -->
+<div class="chapter">
+<h2 class="chapter-title">📖 ¿Qué es un espacio vectorial y por qué importa?</h2>
+<div class="box box-teoria">
+<strong>📖 CONCEPTO: Espacios Vectoriales</strong>
+<div class="step-indicator">
+<div class="step-dot active">1</div>
+<div class="step-dot active">2</div>
+<div class="step-dot active">3</div>
+<div class="step-dot active">4</div>
+</div>
+<ol style="padding-left:1.2rem;margin-top:.8rem">
+<li><strong>¿Qué es?</strong> Un espacio vectorial es un conjunto de objetos (vectores) donde puedes sumarlos y multiplicarlos por números (escalares) sin salirte del conjunto.</li>
+<li><strong>¿Para qué sirve?</strong> Todo en ciencia se puede modelar como vectores: fuerzas en física, datos en ML, estados en mecánica cuántica, colores en gráficos 3D.</li>
+<li><strong>¿Cómo se hace?</strong> Verifica los 8 axiomas: asociatividad, conmutatividad, elemento neutro, inverso, distributividad del escalar sobre la suma de vectores y viceversa, y el escalar 1.</li>
+<li><strong>¿Qué error comete la gente?</strong> Pensar que los vectores son solo flechas en R² o R³. ¡Una función puede ser un vector! El conjunto de todas las funciones continuas es un espacio vectorial infinito-dimensional.</li>
+</ol>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: 2 casos reales adicionales -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Casos Reales: Espacios Vectoriales en Acción</h2>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">MACHINE LEARNING</span>
+<strong>💡 Caso 1: Recomendaciones de Netflix</strong>
+<p>Cada película es un vector en un espacio de 1000 dimensiones (género, duración, actores, etc.). Netflix encuentra tu vector de preferencias y calcula la distancia a cada película. ¡Todo es álgebra lineal!</p>
+</div>
+
+<div class="box box-success">
+<span class="real-world-badge">ROBÓTICA</span>
+<strong>💡 Caso 2: Brazo robótico</strong>
+<p>Un brazo robótico de 6 articulaciones tiene su posición descrita por un vector en R⁶. Para moverlo a otra posición, sumas vectores y escalas por ángulos. ¡Las transformaciones lineales mueven robots!</p>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: Visual SVG — Combinación lineal -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización: Combinación Lineal y Bases</h2>
+<p class="chart-desc">Arrastra mentalmente los vectores base (rojo y azul) y combínalos: cualquier punto del plano se alcanza como a·v₁ + b·v₂. Eso es lo que significa "generar el espacio".</p>
+<div class="svg-container">
+<svg width="500" height="380" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+<polygon points="0 0, 8 3, 0 6" fill="#6366f1"/>
+</marker>
+<marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+<polygon points="0 0, 8 3, 0 6" fill="#ef4444"/>
+</marker>
+<marker id="arrowB" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+<polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+</marker>
+</defs>
+<!-- Grid -->
+<line x1="50" y1="340" x2="470" y2="340" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="50" y1="340" x2="50" y2="20" stroke="#e2e8f0" stroke-width="1"/>
+<!-- Grid lines -->
+<line x1="150" y1="340" x2="150" y2="30" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="250" y1="340" x2="250" y2="30" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="350" y1="340" x2="350" y2="30" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="50" y1="240" x2="480" y2="240" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="50" y1="140" x2="480" y2="140" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="50" y1="240" x2="480" y2="240" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="50" y1="140" x2="480" y2="140" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="50" y1="40" x2="480" y2="40" stroke="#f1f5f9" stroke-width="1"/>
+<!-- Ejes -->
+<line x1="50" y1="340" x2="470" y2="340" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowG)"/>
+<line x1="50" y1="340" x2="50" y2="20" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowG)"/>
+<text x="465" y="358" fill="#64748b" font-size="13">x</text>
+<text x="30" y="25" fill="#64748b" font-size="13">y</text>
+
+<!-- v₁ = (2, 1) — vector base rojo -->
+<line x1="50" y1="340" x2="150" y2="290" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowR)"/>
+<circle cx="150" cy="290" r="4" fill="#ef4444"/>
+<text x="155" y="285" fill="#ef4444" font-size="12" font-weight="bold">v₁=(2,1)</text>
+
+<!-- v₂ = (-1, 2) — vector base azul -->
+<line x1="50" y1="340" x2="0" y2="240" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowB)"/>
+<circle cx="0" cy="240" r="4" fill="#2563eb"/>
+<text x="5" y="235" fill="#2563eb" font-size="12" font-weight="bold">v₂=(-1,2)</text>
+
+<!-- Punto P = 2v₁ + 1v₂ = (3, 4) → (110, 140) -->
+<line x1="50" y1="340" x2="110" y2="140" stroke="#f97316" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#arrowG)"/>
+<circle cx="110" cy="140" r="5" fill="#f97316"/>
+<text x="118" y="135" fill="#f97316" font-size="12" font-weight="bold">P=2v₁+v₂</text>
+
+<!-- Paralelogramo -->
+<line x1="150" y1="290" x2="110" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+<line x1="0" y1="240" x2="110" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+<!-- Leyenda -->
+<rect x="280" y="30" width="190" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+<line x1="290" y1="50" x2="310" y2="50" stroke="#ef4444" stroke-width="3"/>
+<text x="315" y="54" fill="#334155" font-size="11">v₁ = (2, 1)</text>
+<line x1="290" y1="70" x2="310" y2="70" stroke="#2563eb" stroke-width="3"/>
+<text x="315" y="74" fill="#334155" font-size="11">v₂ = (-1, 2)</text>
+<line x1="290" y1="90" x2="310" y2="90" stroke="#f97316" stroke-width="2.5" stroke-dasharray="6,3"/>
+<text x="315" y="94" fill="#334155" font-size="11">P = 2v₁ + 1v₂ = (3, 4)</text>
+<text x="295" y="112" fill="#64748b" font-size="10">Cualquier punto = av₁ + bv₂</text>
+
+<!-- Título -->
+<text x="250" y="370" fill="#64748b" font-size="12" text-anchor="middle">Combinación lineal: P = 2v₁ + 1v₂</text>
+</svg>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: Conexiones con otros temas -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con Otros Temas</h2>
+<div class="connection-box">
+<h4>Los espacios vectoriales conectan todo el currículum:</h4>
+<ul>
+<li><strong>Álgebra lineal → EDOs:</strong> Las soluciones de una EDO lineal forman un espacio vectorial</li>
+<li><strong>Espacios vectoriales → Autovalores:</strong> Los autovalores solo existen porque hay un espacio vectorial donde actúan las transformaciones</li>
+<li><strong>Espacios vectoriales → Series de Fourier:</strong> Las funciones sen/cos son una base del espacio de funciones periódicas</li>
+<li><strong>Espacios vectoriales → Transformaciones lineales:</strong> Las TL son "morfismos" entre espacios vectoriales</li>
+<li><strong>Espacios vectoriales → ML:</strong> Cada dataset es un subespacio en Rⁿ; PCA encuentra la mejor base</li>
+<li><strong>Espacios vectoriales → Física:</strong> El espacio de Hilbert de la mecánica cuántica es un espacio vectorial complejo</li>
+</ul>
+</div>
+</div>
+
 <div class="chapter">
 <h2 class="chapter-title">🎯 Objetivos</h2>
 <div class="box box-teoria">
@@ -91,6 +236,7 @@ table tr:nth-child(even){background:#f8fafc}
 <li>Entender qué es un espacio vectorial</li>
 <li>Identificar bases y dimensión</li>
 <li>Trabajar con subespacios</li>
+<li>Comprobar si un conjunto es espacio vectorial</li>
 </ul>
 </div>
 </div>
@@ -127,13 +273,46 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="chapter">
 <h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
 
+<!-- E1: Dimensión de R³ (input numérico — existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Cuál es la dimensión de $R^3$?</p>
+<p><strong>Ejercicio 1:</strong> ¿Cuál es la dimensión de $R^3$? <span class="difficulty-badge easy">fácil</span></p>
 <div class="exercise-input">
 <input type="number" id="e1" placeholder="?">
 <button onclick="checkExercise(1, 3)">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
+</div>
+
+<!-- E2 NUEVO: VF — Verificar axioma -->
+<div class="exercise">
+<p><strong>Ejercicio 2 (VF):</strong> "El conjunto de polinomios de grado ≤ 2 con coeficientes reales es un espacio vectorial." <span class="difficulty-badge medium">medio</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- E3 NUEVO: Completar hueco — Base -->
+<div class="exercise">
+<p><strong>Ejercicio 3 (Completar hueco):</strong> La base canónica de $R^2$ es {(1,0), (___, ___)}. <span class="difficulty-badge easy">fácil</span></p>
+<div class="exercise-input">
+<input type="number" id="e3a" placeholder="x" style="width:70px">
+<input type="number" id="e3b" placeholder="y" style="width:70px">
+<button onclick="checkE3()">Comprobar</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- E4 NUEVO: Problema — Verificar subespacio -->
+<div class="exercise">
+<p><strong>Ejercicio 4 (Problema):</strong> ¿El conjunto S = {(x,y,z) ∈ R³ : x + y + z = 0} es un subespacio de R³? Si sí, ¿cuál es su dimensión? <span class="difficulty-badge hard">difícil</span></p>
+<p style="font-size:.85rem;color:#64748b">Pista: Un subespacio debe contener el origen, ser cerrado bajo suma y multiplicación escalar. Verifica x+y+z=0 para (0,0,0).</p>
+<div class="exercise-input">
+<input type="number" id="e4" placeholder="dim" style="width:80px">
+<button onclick="checkE4()">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
 </div>
 </div>
 
@@ -144,6 +323,9 @@ table tr:nth-child(even){background:#f8fafc}
 <li>Una base es un conjunto de vectores linealmente independientes que generan el espacio</li>
 <li>La dimensión es el número de vectores en cualquier base</li>
 <li>Aplicaciones: machine learning, gráficos 3D, física, ingeniería</li>
+<li>Los polinomios, las funciones continuas y las matrices son espacios vectoriales</li>
+<li>Un subespacio es un subconjunto que también es espacio vectorial</li>
+<li>La combinación lineal a₁v₁ + a₂v₂ + ... + aₙvₙ genera todo el espacio si {vᵢ} es base</li>
 </ul>
 </div>
 
@@ -191,8 +373,6 @@ window.addEventListener('scroll', () => {
     throwOnError: false
   });
 
-
-
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);
   const feedback = document.getElementById('e' + num + '-fb');
@@ -210,6 +390,67 @@ function checkExercise(num, correct) {
   } else {
     feedback.textContent = 'Incorrecto. La respuesta es ' + correct;
     feedback.className = 'feedback incorrect';
+  }
+}
+
+// E2: VF — Polinomios son espacio vectorial
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById('e2-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '¡Correcto! P₂ es espacio vectorial: suma de dos polinomios de grado ≤2 tiene grado ≤2, y multiplicar por escalar también. ✅';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = 'Incorrecto. P₂ (polinomios grado ≤2) SÍ es espacio vectorial. La suma y producto escalar preservan el grado.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// E3: Completar hueco — Base canónica
+function checkE3() {
+  const a = document.getElementById('e3a');
+  const b = document.getElementById('e3b');
+  const fb = document.getElementById('e3-fb');
+  if (!a || !b || !fb) return;
+  const va = parseInt(a.value);
+  const vb = parseInt(b.value);
+  if (isNaN(va) || isNaN(vb)) {
+    fb.textContent = 'Introduce ambos números';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (va === 0 && vb === 1) {
+    fb.textContent = '¡Correcto! La base canónica de R² es {(1,0), (0,1)} 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. La base canónica de R² es {(1,0), (0,1)}';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// E4: Subespacio — dimensión
+function checkE4() {
+  const input = document.getElementById('e4');
+  const fb = document.getElementById('e4-fb');
+  if (!input || !fb) return;
+  const value = parseFloat(input.value);
+  if (isNaN(value)) {
+    fb.textContent = 'Introduce un número';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (Math.abs(value - 2) < 0.5) {
+    fb.textContent = '¡Correcto! S es un subespacio (contiene origen, cerrado bajo + y ·esc). Dimensión = 2 (una restricción lineal en R³ → 3-1 = 2). 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. S es un subespacio de dimensión 2 (plano en R³ definido por x+y+z=0).';
+    fb.className = 'feedback incorrect';
   }
 }
 </script>

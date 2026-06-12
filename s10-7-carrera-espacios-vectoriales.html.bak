@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔔 1º Carrera — Sesión 6: Series de Fourier | Matemáticas</title>
+<title>📐 1º Carrera — Sesión 7: Espacios Vectoriales | Matemáticas</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
@@ -77,8 +77,8 @@ table tr:nth-child(even){background:#f8fafc}
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #6366f1; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <div class="header">
-  <h1>🔔 1º Carrera — Sesión 6: Series de Fourier</h1>
-  <p>Descomponer funciones periódicas en senos y cosenos</p>
+  <h1>📐 1º Carrera — Sesión 7: Espacios Vectoriales</h1>
+  <p>Vectores, bases, dimensión y subespacios</p>
   <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </div>
 <div class="container">
@@ -88,34 +88,39 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="box box-teoria">
 <strong>Al final de esta sesión serás capaz de:</strong>
 <ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Entender qué es una serie de Fourier</li>
-<li>Calcular los coeficientes de Fourier</li>
-<li>Interpretar la descomposición en frecuencias</li>
+<li>Entender qué es un espacio vectorial</li>
+<li>Identificar bases y dimensión</li>
+<li>Trabajar con subespacios</li>
 </ul>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro Fourier?</h2>
+<h2 class="chapter-title">🌍 ¿Dónde encuentro espacios vectoriales?</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Compresión de audio MP3</strong>
-<p>Cualquier sonido puede descomponerse en una suma de senos y cosenos de diferentes frecuencias. ¡El MP3 usa la Transformada Rápida de Fourier para comprimir audio!</p>
-<p>La música que escuchas = suma de ondas sinusoidales. Fourier te dice qué frecuencias hay y cuánto contribuye cada una.</p>
+<strong>💡 Caso real: Machine Learning</strong>
+<p>En machine learning, cada dato es un vector en un espacio de muchas dimensiones. Clasificar datos es encontrar un plano (hiperplano) que los separe.</p>
+<p>¡Google Maps usa espacios vectoriales para encontrar rutas!</p>
 </div>
 </div>
 
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Series de Fourier</h2>
+<h2 class="chapter-title">1️⃣ Espacios Vectoriales</h2>
 
-<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid #6366f1">
-$$f(x) = \frac{a_0}$\{2\}$ + \sum_{n=1}^{\infty} \left[a_n \cos\left(\frac{n\pi x}{L}\right) + b_n \sin\left(\frac{n\pi x}{L}\right)\right]$$
+<div class="box box-teoria">
+<strong>📌 Un espacio vectorial es un conjunto donde puedes:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Sumar vectores</li>
+<li>Multiplicar por escalares</li>
+<li>Y se cumplen 8 axiomas (asociatividad, conmutatividad, elemento neutro, etc.)</li>
+</ul>
 </div>
 
-<!-- GRÁFICO: Fourier -->
+<!-- GRÁFICO: Espacio vectorial -->
 <div class="chart-container">
-<h3>📊 Descomposición de Fourier: onda cuadrada $\approx$ suma de senos</h3>
-<p class="chart-desc">Observa cómo al sumar más términos, la aproximación se acerca más a la onda cuadrada.</p>
-<div id="plot-fourier" class="chart-plot"></div>
+<h3>📊 Bases en $R^2$: $\{(1,0), (0,1)\}$ vs $\{(1,1), (1,-1)\}$</h3>
+<p class="chart-desc">Observa cómo diferentes bases generan el mismo espacio.</p>
+<div id="plot-base" class="chart-plot"></div>
 </div>
 </div>
 
@@ -123,15 +128,10 @@ $$f(x) = \frac{a_0}$\{2\}$ + \sum_{n=1}^{\infty} \left[a_n \cos\left(\frac{n\pi 
 <h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
 
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Qué tipo de función se puede descomponer en serie de Fourier?</p>
+<p><strong>Ejercicio 1:</strong> ¿Cuál es la dimensión de $R^3$?</p>
 <div class="exercise-input">
-<select id="e1" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
-<option value="">— Elige —</option>
-<option value="a">Funciones periódicas</option>
-<option value="b">Solo funciones polinómicas</option>
-<option value="c">Solo funciones exponenciales</option>
-</select>
-<button onclick="checkE1()">Comprobar</button>
+<input type="number" id="e1" placeholder="?">
+<button onclick="checkExercise(1, 3)">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
@@ -140,16 +140,17 @@ $$f(x) = \frac{a_0}$\{2\}$ + \sum_{n=1}^{\infty} \left[a_n \cos\left(\frac{n\pi 
 <div class="summary">
 <h3>📋 Resumen</h3>
 <ul>
-<li>Toda función periódica se puede descomponer en senos y cosenos</li>
-<li>Los coeficientes $a_n$ y $b_n$ se calculan con integrales</li>
-<li>Aplicaciones: audio, imágenes, procesamiento de señales, física cuántica</li>
+<li>Un espacio vectorial permite sumar vectores y multiplicar por escalares</li>
+<li>Una base es un conjunto de vectores linealmente independientes que generan el espacio</li>
+<li>La dimensión es el número de vectores en cualquier base</li>
+<li>Aplicaciones: machine learning, gráficos 3D, física, ingeniería</li>
 </ul>
 </div>
 
 <div class="nav">
-<a href="s10-5-carrera-edos-segundo-orden.html">← Anterior</a>
+<a href="s10-6-carrera-series-fourier.html">← Anterior</a>
   <a href="s10-1carrera.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-<a href="s10-7-carrera-espacios-vectoriales.html">Siguiente →</a>
+<a href="s10-8-carrera-autovalores.html">Siguiente →</a>
 </div>
 </div>
 <div class="footer">Hecho con ❤️ por David Antizar</div>
@@ -162,27 +163,25 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-// Aproximación de onda cuadrada
-  const t = Array.from({length: 200}, (_, i) => (i - 100) * 0.03);
-  const approx = t.map(x => {
-    let sum = 0;
-    for (let n = 1; n <= 11; n += 2) {
-      sum += Math.sin(n * x) / n;
-    }
-    return (4 / Math.PI) * sum;
-  });
-  const square = t.map(x => {
-    const mod = ((x % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
-    return mod < Math.PI ? 1 : -1;
-  });
-  Plotly.newPlot('plot-fourier', [
-    {x: t, y: square, mode: 'lines', name: 'Onda cuadrada', line: {color: '#94a3b8', width: 1}},
-    {x: t, y: approx, mode: 'lines', name: 'Fourier (5 términos)', line: {color: '#2563eb', width: 2}}
-  ], {
-    title: 'Aproximación de Fourier',
-    xaxis: {title: 't', gridcolor: '#e2e8f0'},
-    yaxis: {title: 'f(t)', gridcolor: '#e2e8f0'},
-    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+// Gráfico de bases en R²
+  const trace1 = {
+    x: [0, 1, 0, 0], y: [0, 0, 1, 0],
+    mode: 'lines+markers', name: 'Base canónica {(1,0), (0,1)}',
+    line: {color: '#2563eb', width: 3},
+    marker: {size: 10}
+  };
+  const trace2 = {
+    x: [0, 1, 1, 0], y: [0, 1, -1, 0],
+    mode: 'lines+markers', name: 'Base alternativa {(1,1), (1,-1)}',
+    line: {color: '#f97316', width: 3},
+    marker: {size: 10}
+  };
+  Plotly.newPlot('plot-base', [trace1, trace2], {
+    title: 'Dos bases que generan R²',
+    xaxis: {title: 'x', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+    yaxis: {title: 'y', range: [-1.5, 2], gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+    legend: {x: 0.02, y: 0.98}
   }, {responsive: true});
   renderMathInElement(document.body, {
     delimiters: [
@@ -192,16 +191,27 @@ window.addEventListener('scroll', () => {
     throwOnError: false
   });
 
-function checkE1() {
-  const sel = document.getElementById('e1');
-  const fb = document.getElementById('e1-fb');
-  if (!sel || !fb) return;
-  if (sel.value === 'a') { fb.textContent = '¡Correcto! Las funciones periódicas (y muchas otras) se pueden descomponer en serie de Fourier 🎉'; fb.className = 'feedback correct'; }
-  else if (sel.value) { fb.textContent = 'Incorrecto. La serie de Fourier descompone funciones periódicas en senos y cosenos'; fb.className = 'feedback incorrect'; }
-  else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
+
+
+function checkExercise(num, correct) {
+  const input = document.getElementById('e' + num);
+  const feedback = document.getElementById('e' + num + '-fb');
+  const value = parseFloat(input.value);
+  
+  if (isNaN(value)) {
+    feedback.textContent = 'Introduce un número';
+    feedback.className = 'feedback incorrect';
+    return;
+  }
+  
+  if (Math.abs(value - correct) < 0.01) {
+    feedback.textContent = '¡Correcto! 🎉';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = 'Incorrecto. La respuesta es ' + correct;
+    feedback.className = 'feedback incorrect';
+  }
 }
-
-
 </script>
 </body>
 </html>

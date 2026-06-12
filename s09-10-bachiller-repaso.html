@@ -59,10 +59,37 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
 .feedback.correct{color:var(--verde)}
 .feedback.incorrect{color:var(--rojo)}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:var(--azul-claro);font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+
+/* Clases nuevas para v2 */
+.connection-box{background:linear-gradient(135deg,#faf5ff,#eff6ff);border:2px solid #a855f7;border-radius:12px;padding:1.2rem;margin:1.5rem 0}
+.connection-box h4{color:#7c3aed;margin-bottom:.5rem}
+.connection-box ul{list-style:none;padding:0}
+.connection-box li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.connection-box li::before{content:"🔗";position:absolute;left:0}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+.step-dot.active{background:var(--naranja)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:.5rem}
+.svg-container{text-align:center;margin:1.5rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:700;margin-left:.5rem;vertical-align:middle}
+.difficulty-badge.easy{background:#ecfdf5;color:#065f46}
+.difficulty-badge.medium{background:#fff7ed;color:#9a3412}
+.difficulty-badge.hard{background:#fef2f2;color:#991b1b}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -82,17 +109,109 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- SECCIÓN NUEVA: Explicación 4 pasos -->
 <div class="chapter">
-<h2 class="chapter-title">🎯 Este es el repaso final de Bachillerato</h2>
+<h2 class="chapter-title">📖 ¿Qué es un repaso integrador y para qué sirve?</h2>
 <div class="box box-teoria">
-<strong>Resumen de todo el curso:</strong>
-<ul style="padding-left:1.2rem;margin-top:.5rem">
-<li><strong>Límites:</strong> Hacia dónde va una función cuando x se acerca a un valor</li>
-<li><strong>Continuidad:</strong> Funciones sin saltos ni huecos</li>
-<li><strong>Derivadas:</strong> Tasa de cambio instantánea, pendiente de la tangente</li>
-<li><strong>Optimización:</strong> Máximos y mínimos con derivadas</li>
-<li><strong>Integrales:</strong> Área bajo la curva, operación inversa de derivar</li>
-<li><strong>Probabilidad:</strong> Bayes, combinaciones, distribuciones</li>
+<strong>📖 CONCEPTO: Repaso Integrador</strong>
+<div class="step-indicator">
+<div class="step-dot active">1</div>
+<div class="step-dot active">2</div>
+<div class="step-dot active">3</div>
+<div class="step-dot active">4</div>
+</div>
+<ol style="padding-left:1.2rem;margin-top:.8rem">
+<li><strong>¿Qué es?</strong> Un repaso integrador conecta todos los temas del curso en un solo documento, mostrando cómo límites → derivadas → integrales están relacionados.</li>
+<li><strong>¿Para qué sirve?</strong> Para que veas el "panorama completo": el cálculo no es un montón de temas sueltos, es una herramienta unificada que describe el mundo.</li>
+<li><strong>¿Cómo se hace?</strong> Repasando cada tema con ejercicios que combinan conceptos: límites para derivadas, derivadas para integrales, probabilidad para modelar incertidumbre.</li>
+<li><strong>¿Qué error comete la gente?</strong> Estudiar cada tema de forma aislada. El truco es ver las conexiones: la derivada es el límite de una razón de cambios, la integral es el límite de una suma.</li>
+</ol>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: 3 Casos Reales -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Casos Reales: Matemáticas en Acción</h2>
+
+<div class="box box-ejemplo">
+<span class="real-world-badge">FÍSICA</span>
+<strong>💡 Caso 1: La velocidad de un cohete</strong>
+<p>Un cohete despega y su altura (km) viene dada por h(t) = 4.9t². Su velocidad en cada instante es la <strong>derivada</strong>: v(t) = h'(t) = 9.8t. A los 5 segundos, v(5) = 49 km/s. La <strong>integral</strong> de la velocidad te devuelve la altura: ∫₀⁵ 9.8t dt = 122.5 km. ¡Derivadas e integrales son inversas!</p>
+</div>
+
+<div class="box box-teoria">
+<span class="real-world-badge">ECONOMÍA</span>
+<strong>💡 Caso 2: Maximizar beneficios</strong>
+<p>Una fábrica produce x unidades. Su beneficio es B(x) = -0.01x² + 10x - 500. Para maximizar, derivamos: B'(x) = -0.02x + 10. Igualamos a cero: x = 500 unidades. ¡Las derivadas te dicen exactamente cuántas unidades producir para ganar más!</p>
+</div>
+
+<div class="box box-success">
+<span class="real-world-badge">BIOLOGÍA</span>
+<strong>💡 Caso 3: Crecimiento bacteriano</strong>
+<p>Una colonia de bacterias crece según N(t) = 1000 · e^(0.5t). La <strong>tasa de crecimiento</strong> en cualquier instante es N'(t) = 500 · e^(0.5t). A t=0 hay 500 bacterias/s creciendo. A t=10, ¡ya son 164 millones bacterias/s! Los límites te dicen qué pasa cuando t → ∞.</p>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: Visual SVG — Derivada como pendiente -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización: La Derivada como Pendiente</h2>
+<p class="chart-desc">Observa cómo la recta secante (verde) se convierte en tangente (roja) cuando el punto B se acerca a A. Eso es exactamente la derivada: el límite de la pendiente cuando Δx → 0.</p>
+<div class="svg-container">
+<svg width="500" height="350" viewBox="0 0 500 350" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid -->
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+<polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+</marker>
+</defs>
+<line x1="50" y1="300" x2="480" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="50" y1="300" x2="50" y2="30" stroke="#e2e8f0" stroke-width="1"/>
+<!-- Ejes -->
+<line x1="50" y1="300" x2="480" y2="300" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="50" y1="300" x2="50" y2="30" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="475" y="320" fill="#64748b" font-size="13">x</text>
+<text x="30" y="25" fill="#64748b" font-size="13">y</text>
+<!-- Curva y = x²/50 + 2 -->
+<path d="M 50 298 Q 150 270 200 230 Q 250 180 300 130 Q 350 80 400 55" fill="none" stroke="#2563eb" stroke-width="3"/>
+<!-- Punto A -->
+<circle cx="150" cy="250" r="5" fill="#ef4444"/>
+<text x="130" y="270" fill="#ef4444" font-size="12" font-weight="bold">A</text>
+<!-- Punto B (secante) -->
+<circle cx="280" cy="145" r="5" fill="#10b981"/>
+<text x="265" y="135" fill="#10b981" font-size="12" font-weight="bold">B</text>
+<!-- Secante (verde) -->
+<line x1="130" y1="260" x2="310" y2="120" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3"/>
+<!-- Tangente (roja) — línea que pasa por A con pendiente de la curva -->
+<line x1="80" y1="280" x2="220" y2="180" stroke="#f97316" stroke-width="2.5"/>
+<text x="225" y="175" fill="#f97316" font-size="11" font-weight="bold">Tangente (derivada)</text>
+<text x="310" y="115" fill="#10b981" font-size="11" font-weight="bold">Secante (Δy/Δx)</text>
+<!-- Δx y Δy -->
+<line x1="150" y1="250" x2="280" y2="250" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="195" y="265" fill="#64748b" font-size="11">Δx</text>
+<line x1="280" y1="250" x2="280" y2="145" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="285" y="200" fill="#64748b" font-size="11">Δy</text>
+<!-- Leyenda -->
+<rect x="300" y="280" width="180" height="55" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+<line x1="310" y1="295" x2="330" y2="295" stroke="#f97316" stroke-width="2.5"/>
+<text x="335" y="299" fill="#334155" font-size="10">Derivada = lim(Δx→0) Δy/Δx</text>
+<line x1="310" y1="315" x2="330" y2="315" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3"/>
+<text x="335" y="319" fill="#334155" font-size="10">Secante = Δy/Δx (aproximación)</text>
+</svg>
+</div>
+</div>
+
+<!-- SECCIÓN NUEVA: Conexiones con otros temas -->
+<div class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con Otros Temas</h2>
+<div class="connection-box">
+<h4>Todo está conectado en el cálculo:</h4>
+<ul>
+<li><strong>Límites → Derivadas:</strong> La derivada es un límite: f'(x) = lim[h→0] (f(x+h)-f(x))/h</li>
+<li><strong>Derivadas → Integrales:</strong> Son operaciones inversas (Teorema Fundamental del Cálculo)</li>
+<li><strong>Derivadas → Optimización:</strong> Para encontrar máximos y mínimos, derivamos e igualamos a 0</li>
+<li><strong>Probabilidad → Límites:</strong> La función de densidad se integra (límite de sumas) para obtener probabilidades</li>
+<li><strong>Todo → Física:</strong> Velocidad = derivada de posición, aceleración = derivada de velocidad, distancia = integral de velocidad</li>
+<li><strong>Todo → Economía:</strong> Coste marginal = derivada del coste, beneficio total = integral del beneficio marginal</li>
 </ul>
 </div>
 </div>
@@ -100,8 +219,9 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="chapter">
 <h2 class="chapter-title">🧠 Ejercicios Integradores</h2>
 
+<!-- E1: Límites (input numérico — existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 1 (Límites):</strong> Calcula $\lim_{x \to 0} \frac{\sin(3x)}{x}$</p>
+<p><strong>Ejercicio 1 (Límites):</strong> Calcula <span style="font-size:1.1em">lim<sub>x→0</sub> sin(3x)/x</span> <span class="difficulty-badge easy">fácil</span></p>
 <div class="exercise-input">
 <input type="number" id="e1" placeholder="?" step="any">
 <button onclick="checkExercise(1, 3)">Comprobar</button>
@@ -109,9 +229,10 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="feedback" id="e1-fb"></div>
 </div>
 
+<!-- E2: Derivadas (input texto — existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 2 (Derivadas):</strong> Deriva $f(x) = x^3 \cdot e^x$ usando la regla del producto.</p>
-<p style="font-size:.85rem;color:#64748b">$(fg)' = f'g + fg'$</p>
+<p><strong>Ejercicio 2 (Derivadas):</strong> Deriva f(x) = x³ · e<sup>x</sup> usando la regla del producto. <span style="font-size:.85rem;color:#64748b">(fg)' = f'g + fg'</span></p>
+<p style="font-size:.85rem;color:#64748b">Pista: f'=3x², g'=e<sup>x</sup>. Resultado: 3x²·e<sup>x</sup> + x³·e<sup>x</sup> = e<sup>x</sup>(3x² + x³)</p>
 <div class="exercise-input">
 <input type="text" id="e2" placeholder="f'(x) = " style="width:250px">
 <button onclick="checkE2()">Comprobar</button>
@@ -119,8 +240,9 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="feedback" id="e2-fb"></div>
 </div>
 
+<!-- E3: Integrales (input numérico — existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 3 (Integrales):</strong> Calcula $\int_0^1 (3x^2 + 2x)\,dx$</p>
+<p><strong>Ejercicio 3 (Integrales):</strong> Calcula <span style="font-size:1.1em">∫₀¹ (3x² + 2x) dx</span> <span class="difficulty-badge easy">fácil</span></p>
 <div class="exercise-input">
 <input type="number" id="e3" placeholder="?" step="any">
 <button onclick="checkExercise(3, 2)">Comprobar</button>
@@ -128,14 +250,46 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="feedback" id="e3-fb"></div>
 </div>
 
+<!-- E4: Probabilidad (input numérico — existente) -->
 <div class="exercise">
-<p><strong>Ejercicio 4 (Probabilidad):</strong> Si $X \sim B(20, 0.3)$, ¿cuál es $E[X]$?</p>
-<p style="font-size:.85rem;color:#64748b">Esperanza de una binomial: $E[X] = np$</p>
+<p><strong>Ejercicio 4 (Probabilidad):</strong> Si X ~ B(20, 0.3), ¿cuál es E[X]? <span style="font-size:.85rem;color:#64748b">Esperanza: E[X] = np</span></p>
 <div class="exercise-input">
 <input type="number" id="e4" placeholder="?" step="any">
 <button onclick="checkExercise(4, 6)">Comprobar</button>
 </div>
 <div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- E5 NUEVO: Verdadero/Falso — Conexión límites-derivadas -->
+<div class="exercise">
+<p><strong>Ejercicio 5 (VF):</strong> "Si una función es continua en x=0, entonces es derivable en x=0." <span class="difficulty-badge medium">medio</span></p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- E6 NUEVO: Ordenar — Relacionar conceptos -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (Ordenar):</strong> Ordena de MENOR a MAYOR complejidad: (A) Límite de sin(x)/x, (B) Derivada de x³, (C) Integral definida ∫₀¹ x²dx <span class="difficulty-badge medium">medio</span></p>
+<p style="font-size:.85rem;color:#64748b">Introduce las letras en orden, separadas por comas. Ejemplo: A,B,C</p>
+<div class="exercise-input">
+<input type="text" id="e6" placeholder="Ej: A,B,C" style="width:150px">
+<button onclick="checkE6()">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- E7 NUEVO: Problema contextual — Integrar todo -->
+<div class="exercise">
+<p><strong>Ejercicio 7 (Problema):</strong> Un tanque de agua se vacía a razón de V'(t) = -2t litros/segundo. Si a t=0 hay 100 litros, ¿cuántos litros quedan a t=5? <span class="difficulty-badge hard">difícil</span></p>
+<p style="font-size:.85rem;color:#64748b">Pista: V(t) = ∫ V'(t) dt + C. Primero integra, luego usa V(0)=100 para hallar C.</p>
+<div class="exercise-input">
+<input type="number" id="e7" placeholder="litros" step="any" style="width:100px">
+<button onclick="checkE7()">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
 </div>
 </div>
 
@@ -148,6 +302,9 @@ table tr:nth-child(even){background:#f8fafc}
 <li>La probabilidad modela la incertidumbre y los datos aleatorios</li>
 <li>¡Todo está conectado! El cálculo es la herramienta más poderosa de las matemáticas</li>
 <li>¡Estás preparado para la universidad!</li>
+<li>La derivada es el límite de la pendiente de la secante cuando Δx → 0</li>
+<li>En física: velocidad = derivada de posición, distancia = integral de velocidad</li>
+<li>En economía: coste marginal = derivada del coste total</li>
 </ul>
 </div>
 
@@ -174,6 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     throwOnError: false
   });
+});
 
 function checkExercise(num, correct) {
   const input = document.getElementById('e' + num);
@@ -190,10 +348,62 @@ function checkE2() {
   const fb = document.getElementById('e2-fb');
   if (!input || !fb) return;
   const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v === 'e^x' || v === 'ex' || v === 'eˣ') { fb.textContent = '¡Correcto! La integral de eˣ es eˣ + C 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. ∫eˣ dx = eˣ + C'; fb.className = 'feedback incorrect'; }
+  if (v === 'e^x(3x^2+x^3)' || v === 'ex(3x2+x3)' || v === 'eˣ(3x²+x³)' || v === '(3x^2+x^3)*e^x') { fb.textContent = '¡Correcto! f\'(x) = eˣ(3x² + x³) 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. f\'(x) = eˣ(3x² + x³)'; fb.className = 'feedback incorrect'; }
 }
-});
+
+// E5: Verdadero/Falso
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '¡Correcto! La función |x| es continua en 0 pero no derivable (pico). La continuidad NO implica derivabilidad.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = 'Incorrecto. Contraejemplo: f(x)=|x| es continua en 0 pero no derivable.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// E6: Ordenar
+function checkE6() {
+  const input = document.getElementById('e6');
+  const fb = document.getElementById('e6-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  // C=∫₀¹x²dx=1/3 (más simple, resultado numérico), A=lim=1 (resultado numérico), B=derivada=x² (función, más abstracta)
+  // Orden de menor a mayor complejidad: C, A, B
+  if (v === 'c,a,b' || v === 'C,A,B' || v === 'c,a,b') {
+    fb.textContent = '¡Correcto! C (integral → número) < A (límite → número) < B (derivada → nueva función) 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Orden: C, A, B (de menor a mayor complejidad conceptual)';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// E7: Problema contextual
+function checkE7() {
+  const input = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (!input || !fb) return;
+  const value = parseFloat(input.value);
+  if (isNaN(value)) { fb.textContent = 'Introduce un número'; fb.className = 'feedback incorrect'; return; }
+  // V(t) = ∫-2t dt = -t² + C. V(0)=100 → C=100. V(5) = -25 + 100 = 75
+  if (Math.abs(value - 75) < 0.5) {
+    fb.textContent = '¡Correcto! V(t) = -t² + 100. V(5) = -25 + 100 = 75 litros 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. V(t) = -t² + 100, V(5) = 75 litros';
+    fb.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>
