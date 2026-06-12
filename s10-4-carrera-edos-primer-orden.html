@@ -7,9 +7,270 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+function checkVF(btn, correct) {
+  const fb = btn.parentElement.nextElementSibling;
+  if (correct) {
+    fb.textContent = '¡Correcto! 🎉 Es lineal: está en la forma dy/dx + P(x)y = Q(x)';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Sí es lineal: dy/dx + 2xy = x cumple la forma estándar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkFillIn(num, correctAnswers) {
+  const input = document.getElementById('e' + num);
+  const fb = document.getElementById('e' + num + '-fb');
+  const val = input.value.trim();
+  if (!val) {
+    fb.textContent = 'Introduce un número';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (correctAnswers.some(a => a.toLowerCase() === val.toLowerCase())) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Revisa tus cálculos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden() {
+  const input = document.getElementById('e4-order');
+  const fb = document.getElementById('e4-fb');
+  const val = input.value.replace(/\s/g, '').toLowerCase();
+  const correct = ['3,1,4,2', '3142'];
+  if (correct.includes(val)) {
+    fb.textContent = '¡Correcto! 🎉 1)Separar → 2)Integrar → 3)Hallar C → 4)Verificar';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Recuerda: separar variables, integrar, hallar C, verificar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkExerciseOp(btn, correct) {
+  const fb = document.getElementById('e6-fb');
+  // dy/dx = y/x + x² → dy/dx - (1/x)y = x² → lineal
+  if (correct === 'lineal') {
+    fb.textContent = '¡Correcto! 🎉 Reescribiendo: dy/dx - (1/x)y = x² — es lineal en y.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Reescribe: dy/dx - (1/x)y = x² — ¡es lineal!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function showPhaseDirection(event) {
+  const svg = document.getElementById('phase-svg');
+  const rect = svg.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const info = document.getElementById('phase-info');
+  
+  // Map SVG coords to math coords
+  const mathX = (x - 300) / 100;
+  const mathY = (150 - y) / 100;
+  
+  // dy/dx = ky for different k values
+  const k1 = 1;  // growth
+  const k2 = -1; // decay
+  const k3 = 0.5;
+  const k4 = -0.5;
+  
+  // Show direction arrows for each k
+  let arrows = '<svg viewBox="0 0 600 300" width="100%" style="max-width:600px;position:absolute;top:0;left:0">';
+  
+  // Arrow for k=1 (growth): y' = y, direction points away from axis
+  arrows += '<line x1="' + (300 + mathX*100) + '" y1="' + (150 - mathY*100) + '" x2="' + (300 + mathX*100 + 20) + '" y2="' + (150 - mathY*100 + mathY*40) + '" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowhead)"/>';
+  
+  arrows += '</svg>';
+  
+  info.innerHTML = '<strong>Punto (' + mathX.toFixed(1) + ', ' + mathY.toFixed(1) + ')</strong><br>' +
+    'Para dy/dx = y: pendiente = ' + mathY.toFixed(2) + ' → ' + 
+    (mathY > 0 ? 'crece ↑' : mathY < 0 ? 'decrece ↓' : 'equilibrio =') +
+    '<br><span style="font-size:.85rem;color:#64748b">En y>0 la solución crece exponencialmente; en y<0 decrece hacia -∞</span>';
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
+function checkVF(btn, correct) {
+  const fb = btn.parentElement.nextElementSibling;
+  if (correct) {
+    fb.textContent = '¡Correcto! 🎉 Es lineal: está en la forma dy/dx + P(x)y = Q(x)';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Sí es lineal: dy/dx + 2xy = x cumple la forma estándar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkFillIn(num, correctAnswers) {
+  const input = document.getElementById('e' + num);
+  const fb = document.getElementById('e' + num + '-fb');
+  const val = input.value.trim();
+  if (!val) {
+    fb.textContent = 'Introduce un número';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (correctAnswers.some(a => a.toLowerCase() === val.toLowerCase())) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Revisa tus cálculos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden() {
+  const input = document.getElementById('e4-order');
+  const fb = document.getElementById('e4-fb');
+  const val = input.value.replace(/\s/g, '').toLowerCase();
+  const correct = ['3,1,4,2', '3142'];
+  if (correct.includes(val)) {
+    fb.textContent = '¡Correcto! 🎉 1)Separar → 2)Integrar → 3)Hallar C → 4)Verificar';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Recuerda: separar variables, integrar, hallar C, verificar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkExerciseOp(btn, correct) {
+  const fb = document.getElementById('e6-fb');
+  // dy/dx = y/x + x² → dy/dx - (1/x)y = x² → lineal
+  if (correct === 'lineal') {
+    fb.textContent = '¡Correcto! 🎉 Reescribiendo: dy/dx - (1/x)y = x² — es lineal en y.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Reescribe: dy/dx - (1/x)y = x² — ¡es lineal!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function showPhaseDirection(event) {
+  const svg = document.getElementById('phase-svg');
+  const rect = svg.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const info = document.getElementById('phase-info');
+  
+  // Map SVG coords to math coords
+  const mathX = (x - 300) / 100;
+  const mathY = (150 - y) / 100;
+  
+  // dy/dx = ky for different k values
+  const k1 = 1;  // growth
+  const k2 = -1; // decay
+  const k3 = 0.5;
+  const k4 = -0.5;
+  
+  // Show direction arrows for each k
+  let arrows = '<svg viewBox="0 0 600 300" width="100%" style="max-width:600px;position:absolute;top:0;left:0">';
+  
+  // Arrow for k=1 (growth): y' = y, direction points away from axis
+  arrows += '<line x1="' + (300 + mathX*100) + '" y1="' + (150 - mathY*100) + '" x2="' + (300 + mathX*100 + 20) + '" y2="' + (150 - mathY*100 + mathY*40) + '" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowhead)"/>';
+  
+  arrows += '</svg>';
+  
+  info.innerHTML = '<strong>Punto (' + mathX.toFixed(1) + ', ' + mathY.toFixed(1) + ')</strong><br>' +
+    'Para dy/dx = y: pendiente = ' + mathY.toFixed(2) + ' → ' + 
+    (mathY > 0 ? 'crece ↑' : mathY < 0 ? 'decrece ↓' : 'equilibrio =') +
+    '<br><span style="font-size:.85rem;color:#64748b">En y>0 la solución crece exponencialmente; en y<0 decrece hacia -∞</span>';
+}
+
+</script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js">
+function checkVF(btn, correct) {
+  const fb = btn.parentElement.nextElementSibling;
+  if (correct) {
+    fb.textContent = '¡Correcto! 🎉 Es lineal: está en la forma dy/dx + P(x)y = Q(x)';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Sí es lineal: dy/dx + 2xy = x cumple la forma estándar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkFillIn(num, correctAnswers) {
+  const input = document.getElementById('e' + num);
+  const fb = document.getElementById('e' + num + '-fb');
+  const val = input.value.trim();
+  if (!val) {
+    fb.textContent = 'Introduce un número';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (correctAnswers.some(a => a.toLowerCase() === val.toLowerCase())) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Revisa tus cálculos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden() {
+  const input = document.getElementById('e4-order');
+  const fb = document.getElementById('e4-fb');
+  const val = input.value.replace(/\s/g, '').toLowerCase();
+  const correct = ['3,1,4,2', '3142'];
+  if (correct.includes(val)) {
+    fb.textContent = '¡Correcto! 🎉 1)Separar → 2)Integrar → 3)Hallar C → 4)Verificar';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Recuerda: separar variables, integrar, hallar C, verificar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkExerciseOp(btn, correct) {
+  const fb = document.getElementById('e6-fb');
+  // dy/dx = y/x + x² → dy/dx - (1/x)y = x² → lineal
+  if (correct === 'lineal') {
+    fb.textContent = '¡Correcto! 🎉 Reescribiendo: dy/dx - (1/x)y = x² — es lineal en y.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Reescribe: dy/dx - (1/x)y = x² — ¡es lineal!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function showPhaseDirection(event) {
+  const svg = document.getElementById('phase-svg');
+  const rect = svg.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const info = document.getElementById('phase-info');
+  
+  // Map SVG coords to math coords
+  const mathX = (x - 300) / 100;
+  const mathY = (150 - y) / 100;
+  
+  // dy/dx = ky for different k values
+  const k1 = 1;  // growth
+  const k2 = -1; // decay
+  const k3 = 0.5;
+  const k4 = -0.5;
+  
+  // Show direction arrows for each k
+  let arrows = '<svg viewBox="0 0 600 300" width="100%" style="max-width:600px;position:absolute;top:0;left:0">';
+  
+  // Arrow for k=1 (growth): y' = y, direction points away from axis
+  arrows += '<line x1="' + (300 + mathX*100) + '" y1="' + (150 - mathY*100) + '" x2="' + (300 + mathX*100 + 20) + '" y2="' + (150 - mathY*100 + mathY*40) + '" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowhead)"/>';
+  
+  arrows += '</svg>';
+  
+  info.innerHTML = '<strong>Punto (' + mathX.toFixed(1) + ', ' + mathY.toFixed(1) + ')</strong><br>' +
+    'Para dy/dx = y: pendiente = ' + mathY.toFixed(2) + ' → ' + 
+    (mathY > 0 ? 'crece ↑' : mathY < 0 ? 'decrece ↓' : 'equilibrio =') +
+    '<br><span style="font-size:.85rem;color:#64748b">En y>0 la solución crece exponencialmente; en y<0 decrece hacia -∞</span>';
+}
+
+</script>
 
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
@@ -70,6 +331,25 @@ table tr:nth-child(even){background:#f8fafc}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
 }
+
+/* Clases adicionales para coherencia */
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:#6366f1;margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center;border:1px solid #e2e8f0}
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.3rem .8rem;border-radius:6px;display:inline-block;font-weight:600}
 </style>
 </head>
 <body>
@@ -134,12 +414,28 @@ $$\frac{dy}{dx} = f(x)g(y) \implies \frac{dy}{g(y)} = f(x)\,dx \implies \int \fr
 </div>
 </div>
 
+
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>EDO segundo orden:</strong> s10-5 — muelles, circuitos RLC, oscilaciones</li>
+<li><strong>Series de Taylor:</strong> aproximar soluciones cuando no hay forma cerrada</li>
+<li><strong>Sistemas de EDOs:</strong> múltiples ecuaciones acopladas (matrices, autovalores)</li>
+<li><strong>Análisis numérico:</strong> método de Euler y Runge-Kutta para soluciones aproximadas</li>
+<li><strong>Física:</strong> leyes de Newton, termodinámica, mecánica cuántica (ecuación de Schrödinger)</li>
+</ul>
+</div>
+
 <div class="summary">
 <h3>📋 Resumen</h3>
 <ul>
-<li>EDO separable: $\frac{dy}{dx} = f(x)g(y)$ → separar e integrar</li>
-<li>EDO lineal: $\frac{dy}{dx} + P(x)y = Q(x)$ → factor integrante $\mu(x) = e^{\int P(x)dx}$</li>
-<li>Aplicaciones: crecimiento poblacional, enfriamiento de Newton, circuitos RC</li>
+<li>EDO separable: $\frac{dy}{dx} = f(x)g(y)$ → separar variables e integrar ambos lados</li>
+<li>EDO lineal: $\frac{dy}{dx} + P(x)y = Q(x)$ → factor integrante $\mu(x) = e^{\int P(x)\,dx}$, solución: $y = \frac{1}{\mu}\int \mu Q\,dx$</li>
+<li>EDO exacta: $M\,dx + N\,dy = 0$ con $M_y = N_x$ → función potencial $\psi(x,y) = C$</li>
+<li>Condición inicial: siempre necesaria para obtener la solución particular (elimina la constante C)</li>
+<li>Aplicaciones: crecimiento poblacional, enfriamiento de Newton, circuitos RC, desintegración radiactiva</li>
+<li>Retrato de fases: visualiza el comportamiento cualitativo sin resolver la EDO</li>
+<li>Métodos numéricos: Euler y Runge-Kutta cuando no hay solución analítica</li>
 </ul>
 </div>
 
@@ -200,6 +496,93 @@ function checkExercise(num, correct) {
   }
 }
 
+
+
+function checkVF(btn, correct) {
+  const fb = btn.parentElement.nextElementSibling;
+  if (correct) {
+    fb.textContent = '¡Correcto! 🎉 Es lineal: está en la forma dy/dx + P(x)y = Q(x)';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Sí es lineal: dy/dx + 2xy = x cumple la forma estándar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkFillIn(num, correctAnswers) {
+  const input = document.getElementById('e' + num);
+  const fb = document.getElementById('e' + num + '-fb');
+  const val = input.value.trim();
+  if (!val) {
+    fb.textContent = 'Introduce un número';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  if (correctAnswers.some(a => a.toLowerCase() === val.toLowerCase())) {
+    fb.textContent = '¡Correcto! 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Revisa tus cálculos.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkOrden() {
+  const input = document.getElementById('e4-order');
+  const fb = document.getElementById('e4-fb');
+  const val = input.value.replace(/\s/g, '').toLowerCase();
+  const correct = ['3,1,4,2', '3142'];
+  if (correct.includes(val)) {
+    fb.textContent = '¡Correcto! 🎉 1)Separar → 2)Integrar → 3)Hallar C → 4)Verificar';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Recuerda: separar variables, integrar, hallar C, verificar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkExerciseOp(btn, correct) {
+  const fb = document.getElementById('e6-fb');
+  // dy/dx = y/x + x² → dy/dx - (1/x)y = x² → lineal
+  if (correct === 'lineal') {
+    fb.textContent = '¡Correcto! 🎉 Reescribiendo: dy/dx - (1/x)y = x² — es lineal en y.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Reescribe: dy/dx - (1/x)y = x² — ¡es lineal!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function showPhaseDirection(event) {
+  const svg = document.getElementById('phase-svg');
+  const rect = svg.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  const info = document.getElementById('phase-info');
+  
+  // Map SVG coords to math coords
+  const mathX = (x - 300) / 100;
+  const mathY = (150 - y) / 100;
+  
+  // dy/dx = ky for different k values
+  const k1 = 1;  // growth
+  const k2 = -1; // decay
+  const k3 = 0.5;
+  const k4 = -0.5;
+  
+  // Show direction arrows for each k
+  let arrows = '<svg viewBox="0 0 600 300" width="100%" style="max-width:600px;position:absolute;top:0;left:0">';
+  
+  // Arrow for k=1 (growth): y' = y, direction points away from axis
+  arrows += '<line x1="' + (300 + mathX*100) + '" y1="' + (150 - mathY*100) + '" x2="' + (300 + mathX*100 + 20) + '" y2="' + (150 - mathY*100 + mathY*40) + '" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowhead)"/>';
+  
+  arrows += '</svg>';
+  
+  info.innerHTML = '<strong>Punto (' + mathX.toFixed(1) + ', ' + mathY.toFixed(1) + ')</strong><br>' +
+    'Para dy/dx = y: pendiente = ' + mathY.toFixed(2) + ' → ' + 
+    (mathY > 0 ? 'crece ↑' : mathY < 0 ? 'decrece ↓' : 'equilibrio =') +
+    '<br><span style="font-size:.85rem;color:#64748b">En y>0 la solución crece exponencialmente; en y<0 decrece hacia -∞</span>';
+}
 
 </script>
 </body>

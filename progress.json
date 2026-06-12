@@ -2203,21 +2203,27 @@
       "improvement_count": 0
     },
     "s10-4-carrera-edos-primer-orden.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 51,
+          "date": "2026-06-12",
+          "added": "+CSS: .interactive/.exercises/.quiz-options/.quiz-btn/.svg-container/.step-indicator/.connection-box/.real-world-badge/.feedback.correct/incorrect, +4-step explanation (qué/para qué/cómo/error), +SVG phase portrait interactivo, +5 ejercicios variados (VF, completar hueco x2, ordenar pasos, problema contextual, decidir tipo EDO), +2 casos reales (enfriamiento Newton, circuitos RC), +caja conexiones (EDO2, series Taylor, sistemas, métodos numéricos, física), +1 error común (condición inicial), +1 error común (verificar en EDO), resumen ampliado a 7 puntos"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 9,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s10-5-carrera-edos-segundo-orden.html": {
       "status": "pending",
