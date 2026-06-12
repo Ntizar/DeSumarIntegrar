@@ -79,6 +79,48 @@ El perímetro es la <b>distancia alrededor</b> de una figura. Se calcula sumando
 <strong>📖 Teoría</strong>
 El perímetro es la <b>suma de todos los lados</b> de una figura. Es como dar una vuelta completa alrededor de algo.
 </div>
+
+<!-- Explicación estructurada 4 pasos -->
+<div class="box box-teoria">
+<strong>📖 Cómo calcular el perímetro (4 pasos)</strong>
+<div style="margin-top:.5rem">
+<b>1. ¿Qué es?</b> El perímetro es la distancia total alrededor de una figura cerrada. Imagina que caminas por el borde de un parque.<br><br>
+<b>2. ¿Para qué sirve?</b> Para saber cuánto cercado necesitas, cuánto borde de tela para un cuadro, o cuánto camino das alrededor de una plaza.<br><br>
+<b>3. ¿Cómo se hace?</b> Paso A: Identifica todos los lados. Paso B: Mide cada lado. Paso C: Súmalos todos. Paso D: ¡Añade las unidades (cm, m, mm)!<br><br>
+<b>4. ¿Qué error comete la gente?</b> Olvidar un lado o confundir perímetro con área. El perímetro es solo el contorno, no lo de dentro.
+</div>
+</div>
+
+<!-- Visual SVG: figuras con lados etiquetados -->
+<div class="box box-ejemplo">
+<strong>🔍 Visual: Figuras con lados etiquetados</strong>
+<svg width="500" height="160" style="margin:1rem auto;display:block" viewBox="0 0 500 160">
+<!-- Cuadrado -->
+<rect x="20" y="20" width="80" height="80" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="60" y="15" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">5 cm</text>
+<text x="108" y="65" text-anchor="start" font-size="11" fill="#2563eb" font-weight="bold">5 cm</text>
+<text x="60" y="110" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">5 cm</text>
+<text x="12" y="65" text-anchor="end" font-size="11" fill="#2563eb" font-weight="bold">5 cm</text>
+<text x="60" y="145" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">P = 20 cm</text>
+
+<!-- Rectángulo -->
+<rect x="150" y="30" width="120" height="60" fill="#fff7ed" stroke="#f97316" stroke-width="3"/>
+<text x="210" y="25" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">8 cm</text>
+<text x="278" y="65" text-anchor="start" font-size="11" fill="#f97316" font-weight="bold">3 cm</text>
+<text x="210" y="100" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">8 cm</text>
+<text x="142" y="65" text-anchor="end" font-size="11" fill="#f97316" font-weight="bold">3 cm</text>
+<text x="210" y="130" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">P = 22 cm</text>
+
+<!-- Triángulo -->
+<polygon points="370,100 340,30 400,30" fill="#ecfdf5" stroke="#10b981" stroke-width="3"/>
+<text x="330" y="70" text-anchor="end" font-size="11" fill="#10b981" font-weight="bold">4 cm</text>
+<text x="390" y="70" text-anchor="start" font-size="11" fill="#10b981" font-weight="bold">5 cm</text>
+<text x="370" y="110" text-anchor="middle" font-size="11" fill="#10b981" font-weight="bold">6 cm</text>
+<text x="370" y="135" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">P = 15 cm</text>
+</svg>
+<b>Observa:</b> Cada lado está etiquetado. El perímetro es la suma de TODOS.
+</div>
+
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
 <b>Cuadrado de lado 5 cm:</b><br>P = 5 + 5 + 5 + 5 = 20 cm<br>O P = 4 × 5 = 20 cm
@@ -90,6 +132,19 @@ El perímetro es la <b>suma de todos los lados</b> de una figura. Es como dar un
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
 <b>Triángulo 4cm, 5cm, 6cm:</b><br>P = 4 + 5 + 6 = 15 cm
+</div>
+</section>
+
+<!-- Caso real -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde veo el perímetro en la vida real?</h2>
+<div class="box box-ejemplo">
+<strong>🏡 Caso real: El jardín de la abuela</strong>
+El jardín de la abuela es un rectángulo de 10 m de largo y 5 m de ancho. Necesita poner una valla alrededor. ¿Cuántos metros de valla necesita? P = 2 × (10 + 5) = 30 m. ¡Y si cada tabla de valla cuesta 12€, gastará 360€ en valla!
+</div>
+<div class="box box-ejemplo">
+<strong>🖼️ Caso real: El marco del cuadro</strong>
+Quieres poner un marco a un cuadro de 40 cm × 30 cm. ¿Cuánto cordón dorado necesitas? P = 2 × (40 + 30) = 140 cm = 1,4 metros.
 </div>
 </section>
 <section class="chapter">
@@ -111,6 +166,44 @@ El perímetro es la <b>suma de todos los lados</b> de una figura. Es como dar un
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- Ejercicio tipo 1: Completar hueco -->
+<div class="exercise">
+<p>6. Completa: Un cuadrado de lado 7 cm tiene P = 4 × ___ = ___ cm</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
+<input type="number" id="e6a" placeholder="lado" style="width:70px;padding:.4rem;border:2px solid var(--azul);border-radius:6px">
+<span>×</span>
+<input type="number" id="e6b" placeholder="resultado" style="width:70px;padding:.4rem;border:2px solid var(--azul);border-radius:6px">
+<span>cm</span>
+<button onclick="checkPerimComplete()" style="padding:.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-size:.9rem">Comprobar</button>
+</div>
+<div class="solution" id="s6">✅ ¡Correcto! 4 × 7 = 28 cm. ¡Un cuadrado tiene 4 lados iguales!</div>
+</div>
+
+<!-- Ejercicio tipo 2: Ordenar -->
+<div class="exercise">
+<p>7. Ordena de menor a mayor estos perímetros: 30 cm, 12 cm, 24 cm, 8 cm</p>
+<div style="display:flex;gap:.3rem;flex-wrap:wrap;margin:.5rem 0" id="sortContainer">
+<button class="quiz-btn" onclick="sortPick(this, 30)" style="font-size:.9rem">30 cm</button>
+<button class="quiz-btn" onclick="sortPick(this, 12)" style="font-size:.9rem">12 cm</button>
+<button class="quiz-btn" onclick="sortPick(this, 24)" style="font-size:.9rem">24 cm</button>
+<button class="quiz-btn" onclick="sortPick(this, 8)" style="font-size:.9rem">8 cm</button>
+</div>
+<div style="margin-top:.5rem;padding:.5rem;background:#f1f5f9;border-radius:6px">
+Tu orden: <span id="sortResult" style="font-weight:600">—</span>
+</div>
+<div class="solution" id="s7">✅ ¡Correcto! 8 cm < 12 cm < 24 cm < 30 cm. ¡Siempre menor primero!</div>
+</div>
+
+<!-- Ejercicio tipo 3: Problema inverso -->
+<div class="exercise">
+<p>8. El perímetro de un cuadrado es 48 cm. ¿Cuánto mide cada lado?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">12 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12 cm</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">16 cm</button>
+</div>
+</div>
 
 <div class="exercise">
 <p>1. ¿Cuál es el perímetro de un cuadrado de lado 6 cm?</p>
@@ -155,10 +248,28 @@ El perímetro es la <b>suma de todos los lados</b> de una figura. Es como dar un
 
 </div>
 </section>
+
+<!-- Caja error común -->
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Confundir perímetro con área. El perímetro se mide en cm (longitud), el área en cm² (superficie). ¡El perímetro es el contorno, no lo de dentro!
+</div>
+
+<!-- Conexión -->
+<div class="box box-idea">
+<strong>🔗 Conexión con multiplicación</strong>
+Calcular el perímetro de un cuadrado es multiplicar: P = 4 × lado. ¡Ya sabes multiplicar, así que ya sabes calcular perímetros de cuadrados!
+</div>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>El perímetro es la suma de todos los lados</li></li><li><li>Cuadrado: P = 4 × lado</li></li><li><li>Rectángulo: P = 2 × (largo + ancho)</li></li><li><li>Triángulo: P = lado1 + lado2 + lado3</li></li><li><li>¡Ya sabes calcular perímetros! 🎉</li></li>
+<li>El perímetro es la suma de todos los lados de una figura</li>
+<li>Cuadrado: P = 4 × lado (ej: lado 5 → P = 20 cm)</li>
+<li>Rectángulo: P = 2 × (largo + ancho) (ej: 8×3 → P = 22 cm)</li>
+<li>Triángulo: P = lado1 + lado2 + lado3 (ej: 4+5+6 → P = 15 cm)</li>
+<li>Perímetro = contorno, no superficie (no confundir con área)</li>
+<li>Se mide en unidades de longitud: cm, m, mm, km</li>
+<li>¡Ya sabes calcular perímetros de cualquier figura! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -207,6 +318,52 @@ function selectShape(type) {
   }
 }
 selectShape('square');
+
+let sortOrder = [];
+let sortExpected = [8, 12, 24, 30];
+let sortDone = false;
+
+function sortPick(btn, value) {
+  if(sortDone) return;
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  sortOrder.push(value);
+  document.getElementById('sortResult').textContent = sortOrder.join(' → ');
+  if(sortOrder.length === 4) {
+    sortDone = true;
+    const solution = document.getElementById('s7');
+    if(JSON.stringify(sortOrder) === JSON.stringify(sortExpected)) {
+      solution.classList.add('show');
+    } else {
+      solution.classList.add('show');
+      solution.textContent = '❌ El orden correcto es: 8 < 12 < 24 < 30. ¡Intenta de nuevo!';
+      solution.style.background = 'var(--rojo-claro)';
+      setTimeout(() => {
+        sortOrder = [];
+        sortDone = false;
+        document.getElementById('sortResult').textContent = '—';
+        document.querySelectorAll('#sortContainer .quiz-btn').forEach(b => {
+          b.disabled = false;
+          b.style.opacity = '1';
+        });
+      }, 3000);
+    }
+  }
+}
+
+function checkPerimComplete() {
+  const lado = parseInt(document.getElementById('e6a').value);
+  const resultado = parseInt(document.getElementById('e6b').value);
+  const solution = document.getElementById('s6');
+  if(lado === 4 && resultado === 28) {
+    solution.classList.add('show');
+    solution.textContent = '✅ ¡Correcto! 4 × 7 = 28 cm. ¡Un cuadrado tiene 4 lados iguales!';
+  } else {
+    solution.classList.add('show');
+    solution.textContent = '❌ El lado es 4 (siempre) y el resultado es 4 × 7 = 28 cm. ¡Piensa: 4 lados de 7 cm cada uno!';
+    solution.style.background = 'var(--rojo-claro)';
+  }
+}
 
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;

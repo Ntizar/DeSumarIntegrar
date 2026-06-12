@@ -1,7 +1,7 @@
 {
-  "last_improved": "s09-9-bachiller-distribuciones-combinadas.html",
+  "last_improved": "s04-8-problemas-1-paso.html",
   "last_run": "2026-06-12",
-  "total_runs": 49,
+  "total_runs": 50,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1103,21 +1103,27 @@
       "improvement_count": 1
     },
     "s02-5-tablas-6-9.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "exercises(+3 tipos), text(4 pasos), visual(SVG dedos), real_world, connections"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 1,
+        "visual": 2,
+        "real_world": 2,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s02-6-longitud-peso.html": {
       "status": "pending",
@@ -1247,21 +1253,27 @@
       }
     },
     "s03-5-perimetro.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "exercises(+3 tipos), text(4 pasos), visual(SVG lados), real_world(+2 casos), connections"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 1,
+        "visual": 2,
+        "real_world": 2,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s03-6-estadistica.html": {
       "status": "pending",
@@ -1443,21 +1455,27 @@
       "improvement_count": 2
     },
     "s04-8-problemas-1-paso.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "exercises(+3 tipos), text(4 pasos), visual(SVG diagrama), real_world(+2 casos), connections"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
+        "exercises": 2,
+        "text": 1,
+        "visual": 2,
+        "real_world": 2,
+        "connections": 2,
         "difficulty_range": 0
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s05-1-sumar-decimales.html": {
       "status": "improved_1",

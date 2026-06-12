@@ -79,6 +79,72 @@ Para resolver un problema: leer, entender, elegir la operación, calcular y comp
 <strong>📖 Teoría</strong>
 Paso 1: Leer el problema. Paso 2: Identificar datos y lo que pide. Paso 3: Elegir operación (suma, resta, mult, div). Paso 4: Calcular. Paso 5: Comprobar.
 </div>
+
+<!-- Explicación estructurada 4 pasos -->
+<div class="box box-teoria">
+<strong>📖 Método para resolver problemas (4 pasos)</strong>
+<div style="margin-top:.5rem">
+<b>1. ¿Qué me preguntan?</b> Subraya la pregunta. ¿Cuántos? ¿Cuánto cuesta? ¿Cuántos quedan?<br><br>
+<b>2. ¿Qué datos tengo?</b> Anota todos los números del enunciado. ¿Hay más datos de los que necesito? A veces hay datos que no sirven.<br><br>
+<b>3. ¿Qué operación uso?</b> Piensa en la situación: juntar → suma. Quitar → resta. Repartir igual → división. Grupos iguales → multiplicación.<br><br>
+<b>4. ¿Tiene sentido?</b> Comprueba: si la respuesta es mayor que todos los datos, revisa. Si es negativa en un problema de manzanas, algo va mal.
+</div>
+</div>
+
+<!-- Visual: diagrama de flujo para elegir operación -->
+<div class="box box-ejemplo">
+<strong>🔍 Visual: ¿Qué operación elijo?</strong>
+<svg width="480" height="240" style="margin:1rem auto;display:block" viewBox="0 0 480 240">
+<!-- Título -->
+<text x="240" y="20" text-anchor="middle" font-size="13" fill="#2563eb" font-weight="bold">¿Qué operación uso?</text>
+
+<!-- ¿Grupos iguales? -->
+<rect x="160" y="30" width="160" height="30" rx="15" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="240" y="50" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">¿Grupos iguales?</text>
+
+<!-- SÍ → Multiplicación -->
+<line x1="240" y1="60" x2="240" y2="80" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="245" y="73" font-size="10" fill="#10b981" font-weight="bold">SÍ</text>
+<rect x="170" y="80" width="140" height="30" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+<text x="240" y="100" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">✖️ MULTIPLICACIÓN</text>
+<text x="240" y="118" text-anchor="middle" font-size="9" fill="#64748b">3 grupos de 5 = 3×5</text>
+
+<!-- NO → ¿Juntar o quitar? -->
+<line x1="320" y1="45" x2="400" y2="45" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="400" y1="45" x2="400" y2="80" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="360" y="40" font-size="10" fill="#ef4444" font-weight="bold">NO</text>
+
+<!-- Juntar -->
+<rect x="340" y="80" width="120" height="28" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+<text x="400" y="99" text-anchor="middle" font-size="11" fill="#f97316" font-weight="bold">¿Juntar?</text>
+<line x1="400" y1="108" x2="400" y2="120" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="405" y="116" font-size="10" fill="#10b981" font-weight="bold">SÍ</text>
+<rect x="340" y="120" width="120" height="28" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+<text x="400" y="139" text-anchor="middle" font-size="11" fill="#10b981" font-weight="bold">➕ SUMA</text>
+
+<!-- Quitar -->
+<line x1="460" y1="94" x2="460" y2="134" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="465" y="116" font-size="10" fill="#ef4444" font-weight="bold">NO</text>
+<rect x="340" y="134" width="120" height="28" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+<text x="400" y="153" text-anchor="middle" font-size="11" fill="#ef4444" font-weight="bold">➖ RESTA</text>
+
+<!-- ¿Repartir? -->
+<line x1="400" y1="108" x2="400" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="405" y="145" font-size="10" fill="#a855f7" font-weight="bold">¿Repartir?</text>
+<line x1="400" y1="155" x2="400" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="405" y="166" font-size="10" fill="#10b981" font-weight="bold">SÍ</text>
+<rect x="340" y="170" width="120" height="28" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+<text x="400" y="189" text-anchor="middle" font-size="11" fill="#a855f7" font-weight="bold">➗ DIVISIÓN</text>
+
+<!-- Ejemplo -->
+<rect x="10" y="160" width="140" height="70" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="80" y="178" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">Ejemplo:</text>
+<text x="80" y="195" text-anchor="middle" font-size="9" fill="#2563eb">5 cajas × 12 botellas</text>
+<text x="80" y="210" text-anchor="middle" font-size="9" fill="#2563eb">= grupos iguales → ✖️</text>
+<text x="80" y="225" text-anchor="middle" font-size="10" fill="#10b981" font-weight="bold">5 × 12 = 60</text>
+</svg>
+</div>
+
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
 Tengo 24 caramelos y reparto 3 a cada amigo. ¿Cuántos amigos?<br>24 ÷ 3 = 8 amigos ✅
@@ -92,6 +158,19 @@ Cada cuaderno cuesta 3€. Si compro 7, ¿cuánto pago?<br>7 × 3 = 21€ ✅
 Una caja tiene 12 botellas. Si tengo 5 cajas, ¿cuántas botellas?<br>5 × 12 = 60 botellas ✅
 </div>
 </section>
+
+<!-- Caso real -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde veo problemas de 1 paso en la vida real?</h2>
+<div class="box box-ejemplo">
+<strong>🛒 Caso real: La compra del supermercado</strong>
+Tu mamá te manda a comprar 3 packs de yogures. Cada pack tiene 6 yogures. ¿Cuántos yogures llevarás? 3 × 6 = 18 yogures. ¡Y si cada pack cuesta 2,40€, gastas 7,20€!
+</div>
+<div class="box box-ejemplo">
+<strong>🚌 Caso real: El autobús escolar</strong>
+Hay 4 autobuses para el colegio. En cada autobús viajan 28 alumnos. ¿Cuántos alumnos hay en total? 4 × 28 = 112 alumnos. ¡Y si el billete cuesta 1,50€, la empresa gasta 168€ al día!
+</div>
+</section>
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Resuelve problemas!</h2>
 <div class="interactive">
@@ -103,6 +182,35 @@ Una caja tiene 12 botellas. Si tengo 5 cajas, ¿cuántas botellas?<br>5 × 12 = 
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- Ejercicio tipo 1: Identificar operación (V/F) -->
+<div class="exercise">
+<p>6. Ana tiene 45 stickers y regala 12 a su hermana. ¿Qué operación uso?</p>
+<button class="quiz-btn" onclick="checkOpSelect(this, 'resta')" style="margin:.2rem">➕ Suma</button>
+<button class="quiz-btn" onclick="checkOpSelect(this, 'resta')" style="margin:.2rem">➖ Resta</button>
+<button class="quiz-btn" onclick="checkOpSelect(this, 'resta')" style="margin:.2rem">✖️ Multiplicación</button>
+<button class="quiz-btn" onclick="checkOpSelect(this, 'resta')" style="margin:.2rem">➗ División</button>
+<div class="solution" id="s6">✅ ¡Correcto! Es RESTA. Tiene 45, regala 12 → 45 - 12 = 33 stickers le quedan.</div>
+</div>
+
+<!-- Ejercicio tipo 2: Completar hueco (datos faltantes) -->
+<div class="exercise">
+<p>7. Completa los datos: Tengo ___ cajas con 8 galletas cada una. En total tengo 56 galletas. ¿Cuántas cajas tengo?</p>
+<input type="number" id="e7" style="width:80px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem">
+<button onclick="checkProblemComplete()" style="padding:.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-size:.9rem">Comprobar</button>
+<div class="solution" id="s7">✅ ¡Correcto! 56 ÷ 8 = 7 cajas. Dividimos el total entre lo que hay en cada caja.</div>
+</div>
+
+<!-- Ejercicio tipo 3: Problema con dato sobredante -->
+<div class="exercise">
+<p>8. Pedro tiene 8 años. Su madre tiene 35 años. Su padre tiene el doble de edad que su madre. ¿Cuántos años tiene su padre?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">43 años</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">70 años</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">16 años</button>
+</div>
+</div>
+
 <div class="exercise">
 <p>Tengo 36 cromos y pego 6 por página. ¿Cuántas páginas necesito?</p>
 <div class="quiz-options">
@@ -146,10 +254,28 @@ Una caja tiene 12 botellas. Si tengo 5 cajas, ¿cuántas botellas?<br>5 × 12 = 
 
 </div>
 </section>
+
+<!-- Caja error común -->
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Leer rápido y elegir la operación incorrecta. Truco: lee el problema dos veces. La primera para entender, la segunda para elegir la operación.
+</div>
+
+<!-- Conexión -->
+<div class="box box-idea">
+<strong>🔗 Conexión con las tablas</strong>
+Resolver problemas de multiplicación es usar las tablas en la vida real. Si sabes la tabla del 8, el problema del tren (80 km/h × 3h) es fácil: 8×3=24, así que 80×3=240.
+</div>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Leer y entender el problema</li></li><li><li>Elegir la operación</li></li><li><li>Calcular y comprobar</li></li><li><li>¡Ya sabes resolver problemas! 🎉</li>
+<li>Paso 1: Leer y entender el problema (subrayar datos y pregunta)</li>
+<li>Paso 2: Elegir la operación: juntar=+, quitar=-, grupos iguales=×, repartir=÷</li>
+<li>Paso 3: Calcular con cuidado</li>
+<li>Paso 4: Comprobar que la respuesta tiene sentido</li>
+<li>Algunos problemas tienen datos que NO necesitas (datos sobran)</li>
+<li>Los problemas de la vida real usan las mismas operaciones que los ejercicios</li>
+<li>¡Ya sabes resolver problemas de 1 paso! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -199,6 +325,32 @@ function newProb() {
   document.getElementById('interactiveResult').textContent = '';
 }
 newProb();
+
+function checkOpSelect(btn, correctOp) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const solution = parent.parentElement.querySelector('.solution');
+  btn.classList.add('correct');
+  solution.classList.add('show');
+}
+
+function checkProblemComplete() {
+  const input = document.getElementById('e7');
+  const solution = document.getElementById('s7');
+  if(parseInt(input.value) === 7) {
+    solution.classList.add('show');
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    solution.classList.add('show');
+    solution.textContent = '❌ No. 56 ÷ 8 = 7 cajas. ¿Cuántos grupos de 8 caben en 56?';
+    solution.style.background = 'var(--rojo-claro)';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
