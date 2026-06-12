@@ -22,6 +22,11 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff}
+.step-dot.s1{background:var(--azul)}.step-dot.s2{background:var(--naranja)}.step-dot.s3{background:var(--verde)}.step-dot.s4{background:var(--rojo)}
+.step-text{flex:1;min-width:150px;padding:.8rem;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0}
+.step-text strong{display:block;margin-bottom:.2rem}
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 .interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
@@ -29,9 +34,17 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
 .result.ok{background:var(--verde-claro);color:#065f46}
 .result.fail{background:var(--rojo-claro);color:#991b1b}
+.feedback{margin-top:.5rem;padding:.5rem;border-radius:6px;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.correct{background:var(--verde-claro);color:#065f46}
+.feedback.incorrect{background:var(--rojo-claro);color:#991b1b}
 .exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0;border-left:3px solid var(--azul)}
+.exercise h4{margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
 .exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise input[type="number"]{width:80px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:700;color:#fff}
+.difficulty-badge.easy{background:var(--verde)}.difficulty-badge.medium{background:var(--naranja)}.difficulty-badge.hard{background:var(--rojo)}
 .solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
 .solution.show{display:block}
 .toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
@@ -44,15 +57,14 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
 .summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
 .footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-.sum-visual{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1.5rem 0;flex-wrap:wrap;font-size:1.5rem}
-.sum-visual .group{display:flex;gap:2px;flex-wrap:wrap;justify-content:center}
-.sum-visual .op{font-size:2rem;font-weight:800;color:var(--azul)}
-.sum-visual .eq{font-size:2rem;font-weight:800;color:var(--naranja)}
-.sum-visual .result-box{background:var(--naranja-claro);border:3px solid var(--naranja);border-radius:10px;padding:.5rem 1rem;font-size:1.5rem;font-weight:800;min-width:3ch;text-align:center}
-.numbers-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
-.num-btn{width:48px;height:48px;border-radius:10px;border:2px solid var(--azul);background:#fff;font-size:1.2rem;font-weight:700;color:var(--azul);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
-.num-btn:hover{background:var(--azul);color:#fff;transform:scale(1.1)}
-.num-btn.highlight{background:var(--naranja);border-color:var(--naranja);color:#fff}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:2px solid var(--verde);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--verde);margin-bottom:.5rem}
+.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;padding:.2rem .6rem;border-radius:6px;font-size:.75rem;font-weight:700;margin:.2rem}
+.real-world-badge.cocina{background:#fef3c7;color:#92400e}
+.real-world-badge.fiesta{background:#fce7f3;color:#9d174d}
+.real-world-badge.parc{background:#d1fae5;color:#065f46}
 .quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
 .quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
 .quiz-btn:hover{background:var(--azul-claro)}
@@ -62,6 +74,23 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .combo-cell{text-align:center;padding:.6rem;border-radius:8px;background:#fff;border:2px solid #e2e8f0;font-weight:700;cursor:pointer;transition:all .2s}
 .combo-cell:hover{border-color:var(--azul);transform:scale(1.05)}
 .combo-cell.found{background:var(--verde-claro);border-color:var(--verde)}
+.sum-visual{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1.5rem 0;flex-wrap:wrap;font-size:1.5rem}
+.sum-visual .group{display:flex;gap:2px;flex-wrap:wrap;justify-content:center}
+.sum-visual .op{font-size:2rem;font-weight:800;color:var(--azul)}
+.sum-visual .eq{font-size:2rem;font-weight:800;color:var(--naranja)}
+.sum-visual .result-box{background:var(--naranja-claro);border:3px solid var(--naranja);border-radius:10px;padding:.5rem 1rem;font-size:1.5rem;font-weight:800;min-width:3ch;text-align:center}
+.vf-options{display:flex;gap:1rem;justify-content:center;margin:1rem 0}
+.vf-btn{padding:.6rem 2rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.vf-btn:hover{background:var(--azul-claro)}
+.vf-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.vf-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.order-list{list-style:none;padding:0;margin:.5rem 0}
+.order-item{padding:.5rem .8rem;margin:.3rem 0;background:#fff;border:2px solid #e2e8f0;border-radius:6px;cursor:pointer;transition:all .2s;font-weight:600}
+.order-item:hover{border-color:var(--azul);background:var(--azul-claro)}
+.order-item.selected{background:var(--azul);color:#fff;border-color:var(--azul)}
+.order-item.correct-pos{background:var(--verde-claro);border-color:var(--verde)}
+.order-item.wrong-pos{background:var(--rojo-claro);border-color:var(--rojo)}
+.svg-container{display:flex;justify-content:center;margin:1.5rem 0}
 </style>
 </head>
 <body>
@@ -184,53 +213,163 @@ Hay muchas formas de sumar para llegar a 10. ¡Descúbrelas todas!
 </div>
 </section>
 
+<!-- NUEVO: Explicación estructurada 4 pasos -->
+<section class="chapter">
+<h2 class="chapter-title">📚 Aprender a sumar: 4 pasos</h2>
+
+<div class="step-indicator">
+<div class="step-dot s1">1</div>
+<div class="step-dot s2">2</div>
+<div class="step-dot s3">3</div>
+<div class="step-dot s4">4</div>
+</div>
+
+<div class="box box-teoria">
+<strong>📖 Paso 1 — ¿Qué es sumar?</strong>
+Sumar es <b>juntar</b> dos grupos de cosas para saber cuántos hay en total. Si tienes 2 manzanas y te dan 3 más, juntas todas las manzanas y cuentas: 1, 2, 3, 4, 5. ¡Son 5 manzanas!
+</div>
+
+<div class="box box-ejemplo">
+<strong>🎯 Paso 2 — ¿Para qué sirve sumar?</strong>
+Sumamos todos los días sin darnos cuenta: cuando juntas juguetes, cuando repartes galletas entre amigos, cuando sumas puntos en un videojuego. ¡Sumar te ayuda a saber cuántas cosas tienes!
+</div>
+
+<div class="box box-teoria">
+<strong>🔧 Paso 3 — ¿Cómo se suma?</strong>
+1) Mira el primer número (ej: 4)<br>
+2) Mira el segundo número (ej: 3)<br>
+3) Cuenta hacia adelante desde el primero: 4... 5, 6, 7<br>
+4) El último número que contaste es la respuesta: <b>4 + 3 = 7</b>
+</div>
+
+<div class="box box-error">
+<strong>⚠️ Paso 4 — Error común</strong>
+Muchos niños cuentan desde el 1 en vez de desde el primer número. ¡Recuerda! Si es <b>4 + 3</b>, empiezas en 4 y cuentas 3 más: 5, 6, 7. No empieces desde 1.
+</div>
+</section>
+
+<!-- NUEVO: Casos reales -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Sumar en la vida real</h2>
+
+<div class="box box-success">
+<strong>🍕 Caso real 1 — En la cocina</strong>
+<span class="real-world-badge cocina">COCINA</span><br>
+Tu mamá está haciendo pizzas. Pone <b>3</b> rodajas de pepperoni en una pizza y <b>4</b> en otra. ¿Cuántas rodajas de pepperoni usa en total? <b>3 + 4 = 7</b> 🍕
+</div>
+
+<div class="box box-success">
+<strong>🎂 Caso real 2 — En una fiesta</strong>
+<span class="real-world-badge fiesta">FIESTA</span><br>
+En tu cumpleaños hay <b>5</b> globos rojos y <b>3</b> azules. ¿Cuántos globos hay en total? <b>5 + 3 = 8</b> 🎈
+</div>
+
+<div class="box box-success">
+<strong>⚽ Caso real 3 — En el parque</strong>
+<span class="real-world-badge parc">PARQUE</span><br>
+En el parque juegan <b>2</b> niños en el tobogán y llegan <b>4</b> más. ¿Cuántos niños hay ahora en el tobogán? <b>2 + 4 = 6</b> 🎢
+</div>
+</section>
+
+<!-- NUEVO: Conexiones con otros temas -->
+<section class="chapter">
+<div class="connection-box">
+<h4>🔗 Conexiones con otros temas</h4>
+<p>Sumar está conectado con:</p>
+<p>
+<a href="s01-2-contar-10-100.html">🔢 Contar del 10 al 100</a> · 
+<a href="s01-4-sumar-hasta-20.html">➕ Sumar hasta 20</a> · 
+<a href="s01-5-restar-hasta-10.html">➖ Restar hasta 10</a> · 
+<a href="s01-10-patrones.html">🔁 Patrones y secuencias</a>
+</p>
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">La suma y la resta son <b>operaciones inversas</b>: si 3 + 4 = 7, entonces 7 - 4 = 3. ¡Son como espejos!</p>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
-<div class="exercise">
-<p>1. ¿Cuánto es 4 + 3?</p>
+<!-- Ejercicio 1: Quiz botones (fácil) — existente pero mejorado -->
+<div class="exercise" id="ex1">
+<h4>Ejercicio 1 <span class="difficulty-badge easy">Fácil</span></h4>
+<p>¿Cuánto es 4 + 3?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex1')">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex1')">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex1')">8</button>
 </div>
+<div class="feedback" id="ex1-fb"></div>
 </div>
 
-<div class="exercise">
-<p>2. ¿Cuánto es 5 + 5?</p>
+<!-- Ejercicio 2: Quiz botones (fácil) — existente pero mejorado -->
+<div class="exercise" id="ex2">
+<h4>Ejercicio 2 <span class="difficulty-badge easy">Fácil</span></h4>
+<p>¿Cuánto es 5 + 5?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">10</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex2')">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex2')">9</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex2')">11</button>
 </div>
+<div class="feedback" id="ex2-fb"></div>
 </div>
 
-<div class="exercise">
-<p>3. ¿Cuánto es 0 + 8?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">0</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">80</button>
-</div>
-</div>
-
-<div class="exercise">
-<p>4. ¿Cuánto es 6 + 4?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">11</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">10</button>
-</div>
+<!-- NUEVO: Ejercicio 3 — Completar hueco (medio) -->
+<div class="exercise" id="ex3">
+<h4>Ejercicio 3 <span class="difficulty-badge medium">Medio</span></h4>
+<p>Completa el hueco: 6 + <input type="number" id="ex3-input" min="0" max="10"> = 10</p>
+<button class="toggle-btn" onclick="checkFillIn()">Comprobar</button>
+<div class="feedback" id="ex3-fb"></div>
 </div>
 
-<div class="exercise">
-<p>5. Si tienes 3 pelotas y encuentras 4 más... ¿cuántas tienes?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">4</button>
+<!-- NUEVO: Ejercicio 4 — V/F (fácil) -->
+<div class="exercise" id="ex4">
+<h4>Ejercicio 4 <span class="difficulty-badge easy">Fácil</span></h4>
+<p>¿Verdadero o falso? 3 + 5 = 9</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF(this, false, 'ex4')">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF(this, true, 'ex4')">❌ Falso</button>
 </div>
+<div class="feedback" id="ex4-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 5 — Ordenar resultados (medio) -->
+<div class="exercise" id="ex5">
+<h4>Ejercicio 5 <span class="difficulty-badge medium">Medio</span></h4>
+<p>Ordena estas sumas de menor a mayor resultado:</p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Haz clic en cada una en orden (la más pequeña primero):</p>
+<ul class="order-list" id="ex5-list">
+<li class="order-item" data-value="8" onclick="selectOrder(this, 'ex5')">2 + 6</li>
+<li class="order-item" data-value="10" onclick="selectOrder(this, 'ex5')">5 + 5</li>
+<li class="order-item" data-value="6" onclick="selectOrder(this, 'ex5')">3 + 3</li>
+<li class="order-item" data-value="9" onclick="selectOrder(this, 'ex5')">4 + 5</li>
+</ul>
+<button class="toggle-btn" onclick="checkOrder('ex5')">Comprobar orden</button>
+<div class="feedback" id="ex5-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 6 — Problema contextual (medio) -->
+<div class="exercise" id="ex6">
+<h4>Ejercicio 6 <span class="difficulty-badge medium">Medio</span></h4>
+<p>En la clase hay <b>4</b> niños con perro y <b>3</b> niños con gato. ¿Cuántos niños tienen mascota en total?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex6')">6</button>
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex6')">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex6')">8</button>
+</div>
+<div class="feedback" id="ex6-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 7 — Decidir operación (difícil) -->
+<div class="exercise" id="ex7">
+<h4>Ejercicio 7 <span class="difficulty-badge hard">Difícil</span></h4>
+<p>María tenía <b>8</b> cromos. Le dieron <b>3</b> más. ¿Qué operación usamos para saber cuántos tiene ahora?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true, 'ex7')">➕ Sumar (8 + 3)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex7')">➖ Restar (8 - 3)</button>
+<button class="quiz-btn" onclick="checkExercise(this, false, 'ex7')">➕ Sumar (3 + 3)</button>
+</div>
+<div class="feedback" id="ex7-fb"></div>
 </div>
 
 </div>
@@ -239,10 +378,13 @@ Hay muchas formas de sumar para llegar a 10. ¡Descúbrelas todas!
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li>Sumar es juntar dos grupos</li>
-<li>El signo + significa "más"</li>
-<li>El signo = significa "es igual a"</li>
-<li>Hay muchas combinaciones que suman 10</li>
+<li>Sumar es juntar dos grupos de cosas</li>
+<li>El signo + significa "más" y el signo = significa "es igual a"</li>
+<li>Para sumar, cuentas hacia adelante desde el primer número</li>
+<li>¡Error común! No empieces a contar desde 1, empieza desde el primer número</li>
+<li>Hay muchas combinaciones que suman 10 (0+10, 1+9, 2+8, 3+7, 4+6, 5+5)</li>
+<li>Sumamos todos los días: en la cocina, en fiestas, en el parque</li>
+<li>La suma y la resta son operaciones inversas (como espejos)</li>
 <li>¡Ya sabes sumar hasta 10! 🎉</li>
 </ul>
 </div>
@@ -304,16 +446,98 @@ combos.forEach((c,i) => {
 });
 
 // === EJERCICIOS ===
-function checkExercise(btn, correct){
+function checkExercise(btn, correct, exId){
   const parent = btn.parentElement;
   parent.querySelectorAll('.quiz-btn').forEach(b => {
     b.disabled = true;
     b.style.pointerEvents = 'none';
   });
+  const fb = document.getElementById(exId + '-fb');
+  fb.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+  fb.textContent = correct ? '¡Correcto! 🎉' : '¡Inténtalo de nuevo! La respuesta era la otra. 😊';
   if(correct){
     btn.classList.add('correct');
   } else {
     btn.classList.add('wrong');
+  }
+}
+
+// === COMPLETAR HUECO ===
+function checkFillIn(){
+  const input = document.getElementById('ex3-input');
+  const val = parseInt(input.value);
+  const fb = document.getElementById('ex3-fb');
+  if(val === 4){
+    fb.className = 'feedback show correct';
+    fb.textContent = '¡Correcto! 6 + 4 = 10 🎉';
+  } else {
+    fb.className = 'feedback show incorrect';
+    fb.textContent = 'No es correcto. Piensa: 6 + ___ = 10. ¿Cuánto falta para llegar a 10?';
+  }
+}
+
+// === V/F ===
+function checkVF(btn, isCorrect, exId){
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.vf-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const fb = document.getElementById(exId + '-fb');
+  fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+  if(isCorrect){
+    btn.classList.add('correct');
+    fb.textContent = '¡Correcto! 3 + 5 = 8, no 9. Falso. 🎉';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '¡No! 3 + 5 = 8, no 9. Era Falso. 😊';
+  }
+}
+
+// === ORDENAR ===
+let orderSelection = [];
+function selectOrder(item, exId){
+  if(item.classList.contains('selected')){
+    item.classList.remove('selected');
+    orderSelection = orderSelection.filter(i => i !== item);
+  } else {
+    item.classList.add('selected');
+    orderSelection.push(item);
+  }
+}
+
+function checkOrder(exId){
+  const items = document.querySelectorAll('#ex5-list .order-item');
+  const fb = document.getElementById(exId + '-fb');
+  
+  // Reset previous
+  items.forEach(i => { i.classList.remove('correct-pos','wrong-pos'); });
+  
+  if(orderSelection.length < 4){
+    fb.className = 'feedback show incorrect';
+    fb.textContent = 'Selecciona todas las sumas antes de comprobar.';
+    return;
+  }
+  
+  const values = orderSelection.map(i => parseInt(i.dataset.value));
+  const correct = [6, 8, 9, 10];
+  
+  let allCorrect = true;
+  values.forEach((v, idx) => {
+    const el = orderSelection[idx];
+    if(v === correct[idx]){
+      el.classList.add('correct-pos');
+    } else {
+      el.classList.add('wrong-pos');
+      allCorrect = false;
+    }
+  });
+  
+  fb.className = 'feedback show ' + (allCorrect ? 'correct' : 'incorrect');
+  if(allCorrect){
+    fb.textContent = '¡Correcto! 3+3=6 < 2+6=8 < 4+5=9 < 5+5=10 🎉';
+  } else {
+    fb.textContent = 'No del todo. El orden correcto es: 3+3(6), 2+6(8), 4+5(9), 5+5(10). ¡Los rojos están mal puestos!';
   }
 }
 

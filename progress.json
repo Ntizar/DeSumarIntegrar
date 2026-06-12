@@ -854,21 +854,27 @@
       "improvement_count": 0
     },
     "s01-3-sumar-hasta-10.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +3 casos reales (cocina/pizza, fiesta/globos, parque/tobogán), +3 ejercicios variados (completar hueco, V/F, ordenar resultados), +1 decidir operación, +1 caja conexiones (4 temas), +3 niveles dificultad (fácil/medio/difícil), +CSS: step-indicator, step-dot, connection-box, real-world-badge, svg-container, feedback.correct/incorrect, difficulty-badge, arreglado nested <li>"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s01-4-sumar-hasta-20.html": {
       "status": "pending",
@@ -2561,6 +2567,22 @@
         "real_world": 9,
         "connections": 5,
         "difficulty_range": 5
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s01-3-sumar-hasta-10.html",
+      "title": "Sumar hasta 10",
+      "level": "primaria_1",
+      "improvements": "full: 4-step explanation, 3 real cases (kitchen/party/park), 3 new exercise types (fill-in/VF/order), connection box, difficulty badges, CSS coherence",
+      "scores": {
+        "exercises": 10,
+        "text": 12,
+        "visual": 5,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
       },
       "date": "2026-06-12",
       "improved_by": "dsi-mejora-s2"
