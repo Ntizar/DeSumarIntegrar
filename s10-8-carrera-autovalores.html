@@ -88,6 +88,7 @@ table tr:nth-child(even){background:#f8fafc}
 /* Interactive zone */
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.exercises{margin:1.5rem 0}
 </style>
 </head>
 <body>
@@ -199,6 +200,26 @@ Los autovalores revelan la "esencia" de una transformación lineal:
 </div>
 </div>
 
+<!-- CASO REAL: Física -->
+<div class="chapter">
+<h2 class="chapter-title">🔬 Caso real: Vibraciones estructurales</h2>
+<div class="box box-teoria">
+<strong><span class="real-world-badge">INGENIERÍA</span> Puentes y edificios</strong>
+<p>Los ingenieros calculan los autovalores de la matriz de rigidez de un puente para encontrar sus frecuencias naturales de vibración. Si el viento sopla a una frecuencia que coincide con un autovalor, el puente entra en resonancia. El famoso colapso del puente de Tacoma Narrows (1940) fue causado por resonancia con el viento.</p>
+<p style="margin-top:.5rem"><strong>¿Por qué importa?</strong> Cada autovalor representa una frecuencia de vibración. Los autovectores muestran el "modo" en que vibra la estructura. Si todos los autovalores son positivos, la estructura es estable.</p>
+</div>
+</div>
+
+<!-- CASO REAL: Machine Learning -->
+<div class="chapter">
+<h2 class="chapter-title">🤖 Caso real: PCA en Machine Learning</h2>
+<div class="box box-idea">
+<strong><span class="real-world-badge">IA</span> Reducción de dimensionalidad</strong>
+<p>El Análisis de Componentes Principales (PCA) es una técnica fundamental en Machine Learning. PCA calcula los autovalores de la matriz de covarianza de los datos. Los autovectores con mayor autovalor capturan la mayor variación de los datos y se usan como las "nuevas dimensiones" más informativas.</p>
+<p style="margin-top:.5rem"><strong>¿Para qué sirve?</strong> Si tienes datos con 1000 características, PCA puede reducirlas a 10 componentes principales que capturan el 95% de la variación. ¡Esto se usa en reconocimiento facial, compresión de datos y detección de anomalías!</p>
+</div>
+</div>
+
 <!-- CONEXIONES -->
 <div class="chapter">
 <h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
@@ -235,6 +256,7 @@ Los autovalores revelan la "esencia" de una transformación lineal:
 <!-- EJERCICIOS -->
 <div class="chapter">
 <h2 class="chapter-title">4️⃣ Ejercicios Interactivos</h2>
+<div class="exercises">
 
 <!-- Ejercicio tipo 1: Input numérico (ya existe, mejorado) -->
 <div class="exercise">
@@ -306,6 +328,28 @@ Los autovalores revelan la "esencia" de una transformación lineal:
 <div class="feedback" id="e6-fb"></div>
 </div>
 
+<!-- NUEVO: Ejercicio tipo 7 — Emparejar — Dificultad difícil -->
+<div class="exercise">
+<p><strong>Ejercicio 7</strong> <span class="difficulty-badge dificil">Difícil</span> — Emparejar: relaciona cada matriz con sus autovalores</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkMatch7(this, true)">A) [[2,0],[0,3]] → λ = 2, 3</button>
+<button class="quiz-btn" onclick="checkMatch7(this, false)">A) [[2,0],[0,3]] → λ = 5, 0</button>
+<button class="quiz-btn" onclick="checkMatch7(this, false)">A) [[2,0],[0,3]] → λ = 1, 6</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio tipo 8 — Completar con explicación — Dificultad difícil -->
+<div class="exercise">
+<p><strong>Ejercicio 8</strong> <span class="difficulty-badge dificil">Difícil</span> — Completar: Si det(A − λI) = (3 − λ)(1 − λ), los autovalores son λ₁ = ___ y λ₂ = ___. Además, traza(A) = ___ y det(A) = ___.</p>
+<div class="exercise-input">
+<input type="text" id="e8" placeholder="λ₁, λ₂, traza, det" style="width:280px">
+<button onclick="checkE8()">Comprobar</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
+</div>
+
+</div>
 </div>
 
 <div class="summary">
@@ -478,6 +522,40 @@ function checkEj6(btn, correct) {
   } else {
     btn.classList.add('wrong');
     fb.textContent = '❌ Incorrecto. traza=7 → suma=7, det=12 → producto=12. Solo 3×4=12 y 3+4=7. Respuesta: 3 y 4.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 7: Emparejar
+function checkMatch7(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('e7-fb');
+  if(correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Para una matriz diagonal, los autovalores son los elementos de la diagonal: 2 y 3.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Para [[2,0],[0,3]], los autovalores son los de la diagonal: λ₁ = 2, λ₂ = 3.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 8: Completar con explicación
+function checkE8() {
+  const input = document.getElementById('e8');
+  const fb = document.getElementById('e8-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  // Espera: 3,1,4,3 o similar
+  if ((v.includes('3') && v.includes('1') && v.includes('4') && v.includes('3')) ||
+      v.includes('3,1,4,3') || v.includes('3, 1, 4, 3') ||
+      v.includes('3,4') && v.includes('1,3') || v.includes('1,3,4,3')) {
+    fb.textContent = '✅ ¡Correcto! λ₁ = 3, λ₂ = 1, traza = 3+1 = 4, det = 3×1 = 3.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. De (3−λ)(1−λ) = 0 → λ₁ = 3, λ₂ = 1. Traza = 3+1 = 4. Det = 3×1 = 3.';
     fb.className = 'feedback incorrect';
   }
 }

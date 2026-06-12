@@ -113,6 +113,11 @@ table tr:nth-child(even){background:#f8fafc}
 .svg-container{text-align:center;margin:1.5rem 0}
 .svg-container svg{max-width:100%;height:auto}
 .svg-container .svg-caption{font-size:.85rem;color:#64748b;margin-top:.5rem}
+/* Difficulty badge */
+.difficulty-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
+.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -259,7 +264,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 1: Completar hueco (input texto) — Dificultad fácil -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Calcula $\int 4x^3\,dx$</p>
+<p><strong>Ejercicio 1:</strong> <span class="difficulty-badge facil">Fácil</span> Calcula $\int 4x^3\,dx$</p>
 <div class="exercise-input">
 <input type="text" id="e1" placeholder="F(x) = " style="width:200px">
 <button onclick="checkE1()">Comprobar</button>
@@ -269,7 +274,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 2: Completar hueco (input texto) — trigonométrica, Dificultad fácil -->
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> Calcula $\int \cos(x)\,dx$</p>
+<p><strong>Ejercicio 2:</strong> <span class="difficulty-badge facil">Fácil</span> Calcula $\int \cos(x)\,dx$</p>
 <div class="exercise-input">
 <input type="text" id="e2" placeholder="F(x) = " style="width:200px">
 <button onclick="checkE2()">Comprobar</button>
@@ -279,7 +284,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 3: Quiz botones — ¿Por qué +C? — Dificultad fácil -->
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> ¿Por qué siempre se añade $+C$ en las integrales indefinidas?</p>
+<p><strong>Ejercicio 3:</strong> <span class="difficulty-badge facil">Fácil</span> ¿Por qué siempre se añade $+C$ en las integrales indefinidas?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkQuiz3(this, true)">A) Porque la derivada de una constante es 0</button>
 <button class="quiz-btn" onclick="checkQuiz3(this, false)">B) Porque es un requisito matemático</button>
@@ -290,7 +295,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 4: V/F — Regla de potencias — Dificultad medio -->
 <div class="exercise">
-<p><strong>Ejercicio 4:</strong> Verdadero o Falso: $\int x^5\,dx = \frac{x^6}{6} + C$</p>
+<p><strong>Ejercicio 4:</strong> <span class="difficulty-badge medio">Medio</span> Verdadero o Falso: $\int x^5\,dx = \frac{x^6}{6} + C$</p>
 <div class="vf-options">
 <button class="vf-btn" onclick="checkVF4(this, true)">✅ Verdadero</button>
 <button class="vf-btn" onclick="checkVF4(this, false)">❌ Falso</button>
@@ -300,7 +305,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 5: Problema contextual — Economía — Dificultad medio -->
 <div class="exercise">
-<p><strong>Ejercicio 5:</strong> El coste marginal de producir $Q$ unidades es $C'(Q) = 6Q + 10$. Si el coste fijo es 50 (es decir, $C(0) = 50$), ¿cuál es la función de coste total $C(Q)$?</p>
+<p><strong>Ejercicio 5:</strong> <span class="difficulty-badge medio">Medio</span> El coste marginal de producir $Q$ unidades es $C'(Q) = 6Q + 10$. Si el coste fijo es 50 (es decir, $C(0) = 50$), ¿cuál es la función de coste total $C(Q)$?</p>
 <div class="exercise-input">
 <input type="text" id="e5" placeholder="C(Q) = " style="width:220px">
 <button onclick="checkE5()">Comprobar</button>
@@ -310,7 +315,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 6: Emparejar — Reglas de integración — Dificultad medio -->
 <div class="exercise">
-<p><strong>Ejercicio 6:</strong> Empareja cada integral con su resultado correcto (haz clic en una integral y luego en su resultado):</p>
+<p><strong>Ejercicio 6:</strong> <span class="difficulty-badge medio">Medio</span> Empareja cada integral con su resultado correcto (haz clic en una integral y luego en su resultado):</p>
 <div class="match-container">
 <div class="match-column" id="match-left">
 <div class="match-item" data-pair="a" data-side="left" onclick="selectMatch(this)">∫ 2x dx</div>
@@ -328,7 +333,7 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 
 <!-- Ejercicio 7: Ordenar pasos — Cómo integrar xⁿ — Dificultad medio -->
 <div class="exercise">
-<p><strong>Ejercicio 7:</strong> Ordena los pasos para integrar $\int x^4\,dx$ (haz clic en el orden correcto):</p>
+<p><strong>Ejercicio 7:</strong> <span class="difficulty-badge medio">Medio</span> Ordena los pasos para integrar $\int x^4\,dx$ (haz clic en el orden correcto):</p>
 <ul class="order-list" id="orderList7">
 <li class="order-item" data-pos="3" onclick="selectOrder7(this, 1)">Sumar 1 al exponente: x⁴ → x⁵</li>
 <li class="order-item" data-pos="1" onclick="selectOrder7(this, 1)">Identificar n = 4</li>
@@ -337,6 +342,17 @@ $$\int f(x)\,dx = F(x) + C \quad \text{donde } F'(x) = f(x)$$
 </ul>
 <button onclick="checkOrder7()">Comprobar orden</button>
 <div class="feedback" id="order7-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 8 — VF con explicación — Dificultad difícil -->
+<div class="exercise">
+<p><strong>Ejercicio 8:</strong> <span class="difficulty-badge dificil">Difícil</span> — Verdadero o Falso: $\int \frac{1}{x^2}\,dx = \ln|x| + C$</p>
+<p style="font-size:.9rem;color:#64748b">💡 Pista: $\frac{1}{x^2} = x^{-2}$, aplica la regla de potencias</p>
+<div class="vf-options">
+<button class="vf-btn" onclick="checkVF8(this, true)">✅ Verdadero</button>
+<button class="vf-btn" onclick="checkVF8(this, false)">❌ Falso</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
 </div>
 
 <!-- Caja error común mejorada -->
@@ -552,6 +568,22 @@ function checkOrder7() {
     fb.className = 'feedback correct';
   } else {
     fb.textContent = '❌ El orden correcto es: 1) Identificar n=4 → 2) Dividir por 5 → 3) Sumar 1 al exponente → 4) Añadir +C';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkVF8(btn, isCorrect) {
+  const fb = document.getElementById('e8-fb');
+  document.querySelectorAll('.vf-btn').forEach(b => {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (!isCorrect) {
+    btn.classList.add('selected-false');
+    fb.textContent = '✅ ¡Correcto! Es FALSO. ∫1/x² dx = ∫x⁻² dx = x⁻¹/(-1) + C = -1/x + C. La regla de potencias aplica: sube exponente y divide. ln|x| solo es para ∫1/x dx.';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('selected-true');
+    fb.textContent = '❌ Incorrecto. Es FALSO. ∫1/x² dx = ∫x⁻² dx = -1/x + C. La función ln|x| solo aparece con ∫1/x dx, no con ∫1/x² dx.';
     fb.className = 'feedback incorrect';
   }
 }

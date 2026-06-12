@@ -61,6 +61,13 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.difficulty-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medio{background:var(--naranja-claro);color:#9a3412}
+.difficulty-badge.dificil{background:var(--rojo-claro);color:#991b1b}
+.step-indicator{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--azul);color:#fff;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:.5rem}
+.connection-box{background:linear-gradient(135deg,#f0fdf4,#eff6ff);border:1px solid #bbf7d0;border-radius:8px;padding:1rem;margin:1rem 0}.connection-box strong{color:#166534}.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600;margin:.2rem}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}.feedback.correct{color:var(--verde);background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}.feedback.incorrect{color:var(--rojo);background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block}
 </style>
 </head>
 <body>
@@ -89,6 +96,112 @@ Los números no se paran en el 10. ¡Hay muchos más! Hoy vamos a contar de 10 e
 <li>Leer números de dos cifras</li>
 <li>Entender las decenas y las unidades</li>
 </ul>
+</section>
+
+<!-- EXPLICACIÓN 4 PASOS -->
+<section class="chapter">
+<h2 class="chapter-title">🧠 ¿Cómo contamos del 10 al 100?</h2>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">1</span>Paso 1: ¿QUÉ son los números grandes?</strong>
+Los números no se paran en 10. ¡Hay muchos más! Cuando contamos más de 10 cosas, necesitamos números de dos cifras. El 10 es el primer número "grande": tiene una decena. El 100 es el más grande de esta sesión: ¡diez decenas!
+</div>
+
+<div class="box box-ejemplo">
+<strong><span class="step-indicator">2</span>Paso 2: ¿PARA QUÉ sirven?</strong>
+Contar hasta 100 nos ayuda en la vida real:
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>🍬 <span class="real-world-badge">COCINA</span> Contar caramelos para repartir en la fiesta</li>
+<li>🎨 <span class="real-world-badge">PINTURA</span> Contar lápices de colores en tu estuche</li>
+<li>🏫 <span class="real-world-badge">COLEGIO</span> Contar niños en el recreo</li>
+</ul>
+</div>
+
+<div class="box box-teoria">
+<strong><span class="step-indicator">3</span>Paso 3: ¿CÓMO se cuentan?</strong>
+<p><strong>Paso 1:</strong> Empieza en 10 y suma 10 cada vez: 10, 20, 30...</p>
+<p><strong>Paso 2:</strong> Entre decenas, cuenta de 1 en 1: entre 20 y 30 va 21, 22, 23...</p>
+<p><strong>Paso 3:</strong> Fíjate en las cifras: el primero es decenas, el segundo unidades</p>
+<p><strong>Paso 4:</strong> Practica con objetos: 3 cajas de 10 caramelos = 30 caramelos</p>
+</div>
+
+<div class="box box-error">
+<strong><span class="step-indicator">4</span>Paso 4: Error común</strong>
+⚠️ <strong>Confundir decenas con unidades.</strong> En el número 47, el 4 NO son 4 unidades, ¡son 4 decenas (40)! El 7 sí son 7 unidades. Piensa: 47 = 40 + 7.
+<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">💡 Truco: Tapa la primera cifra → te queda solo las unidades. Tapa la segunda → te quedan las decenas.</p>
+</div>
+</section>
+
+<!-- SVG: Visualización de decenas y unidades -->
+<section class="chapter">
+<h2 class="chapter-title">👁️ Visualización: Decenas y unidades</h2>
+<div class="svg-container" style="display:flex;justify-content:center;margin:1.5rem 0">
+<svg viewBox="0 0 500 200" width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+<!-- Título -->
+<text x="250" y="20" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">El número 34 = 3 decenas + 4 unidades</text>
+<!-- 3 cajas de decenas -->
+<rect x="30" y="40" width="50" height="50" rx="4" fill="#2563eb" opacity="0.8"/>
+<text x="55" y="70" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">10</text>
+<rect x="90" y="40" width="50" height="50" rx="4" fill="#2563eb" opacity="0.8"/>
+<text x="115" y="70" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">10</text>
+<rect x="150" y="40" width="50" height="50" rx="4" fill="#2563eb" opacity="0.8"/>
+<text x="175" y="70" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">10</text>
+<!-- Etiqueta decenas -->
+<text x="115" y="110" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">3 decenas = 30</text>
+<!-- 4 unidades -->
+<circle cx="300" cy="55" r="12" fill="#f97316"/>
+<text x="300" y="59" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+<circle cx="330" cy="55" r="12" fill="#f97316"/>
+<text x="330" y="59" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+<circle cx="360" cy="55" r="12" fill="#f97316"/>
+<text x="360" y="59" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+<circle cx="390" cy="55" r="12" fill="#f97316"/>
+<text x="390" y="59" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">1</text>
+<!-- Etiqueta unidades -->
+<text x="345" y="110" text-anchor="middle" fill="#f97316" font-size="12" font-weight="bold">4 unidades = 4</text>
+<!-- Suma -->
+<text x="250" y="150" text-anchor="middle" fill="#1e293b" font-size="18" font-weight="bold">30 + 4 = 34</text>
+<!-- Flechas -->
+<polygon points="115,112 115,125 105,120" fill="#2563eb" opacity="0.5"/>
+<polygon points="345,112 345,125 335,120" fill="#f97316" opacity="0.5"/>
+</svg>
+</div>
+<p style="text-align:center;font-size:.9rem;color:#64748b;margin-top:.5rem">Cada caja azul vale 10. Cada círculo naranja vale 1. ¡Juntos forman el número!</p>
+</section>
+
+<!-- CASOS REALES -->
+<section class="chapter">
+<h2 class="chapter-title">🌍 Contar en la vida real</h2>
+
+<div class="box box-ejemplo">
+<strong><span class="real-world-badge">FIESTA</span> 🎂 La fiesta de cumpleaños</strong>
+Mamá ha comprado 3 paquetes de 10 velas y 4 sueltas. ¿Cuántas velas tiene? ¡34 velas! 3 decenas (30) + 4 unidades = 34. Si las velas son para tu hermano que cumple 34 años, ¡ya sabes contarlas todas!
+</div>
+
+<div class="box box-teoria">
+<strong><span class="real-world-badge">TIENDA</span> 🛒 Contar en el supermercado</strong>
+En la tienda hay estanterías con 10 galletas cada una. Si hay 5 estanterías llenas y una con 7 galletas, ¿cuántas galletas hay en total? 5 × 10 = 50, más 7 = 57 galletas. ¡Los números de dos cifras están en todas partes!
+</div>
+
+<div class="box box-idea">
+<strong><span class="real-world-badge">DEPORTES</span> ⚽ El marcador del fútbol</strong>
+En un partido de fútbol, el marcador puede llegar hasta 100 goles (aunque no suele pasar 😄). Si tu equipo lleva 23 goles y el rival 18, ¿quién gana? ¡Tu equipo! Porque 23 es mayor que 18. El primer número (2) nos dice que hay 2 decenas, y el 3 las unidades.
+</div>
+</section>
+
+<!-- CONEXIONES -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<strong>📚 ¿Dónde encontrarás contar del 10 al 100 otra vez?</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>S01.1 — Contar del 0 al 10:</strong> Esto es la base. Ahora que sabes contar hasta 10, lo amplías a 100</li>
+<li><strong>S01.3 — Sumar hasta 10:</strong> Sumar números grandes es como sumar números pequeños, ¡pero con decenas!</li>
+<li><strong>S06.1 — Introducción a las operaciones:</strong> Contar es la base de sumar y restar</li>
+<li><strong>S06.2 — Sumar hasta 99:</strong> ¡Ya puedes contar, ahora vas a sumar esos números!</li>
+<li><strong>Matemáticas del futuro:</strong> Contar hasta 100 es el primer paso para contar hasta un millón</li>
+</ul>
+</div>
 </section>
 
 <section class="chapter">
@@ -188,7 +301,7 @@ Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
 <div class="exercises">
 
 <div class="exercise">
-<p>1. ¿Qué número viene después del 50? (de 10 en 10)</p>
+<p>1. <span class="difficulty-badge facil">Fácil</span> ¿Qué número viene después del 50? (de 10 en 10)</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">40</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">60</button>
@@ -197,7 +310,7 @@ Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
 </div>
 
 <div class="exercise">
-<p>2. ¿Cuántas decenas tiene el 73?</p>
+<p>2. <span class="difficulty-badge facil">Fácil</span> ¿Cuántas decenas tiene el 73?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
@@ -206,7 +319,7 @@ Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
 </div>
 
 <div class="exercise">
-<p>3. ¿Cuántas unidades tiene el 85?</p>
+<p>3. <span class="difficulty-badge facil">Fácil</span> ¿Cuántas unidades tiene el 85?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
@@ -215,7 +328,7 @@ Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
 </div>
 
 <div class="exercise">
-<p>4. Completa: 20, 30, 40, ___, 60</p>
+<p>4. <span class="difficulty-badge facil">Fácil</span> Completa: 20, 30, 40, ___, 60</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">50</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">45</button>
@@ -224,12 +337,45 @@ Ejemplo: <b>45</b> = 4 decenas + 5 unidades = 40 + 5
 </div>
 
 <div class="exercise">
-<p>5. ¿Qué número es 6 decenas + 2 unidades?</p>
+<p>5. <span class="difficulty-badge facil">Fácil</span> ¿Qué número es 6 decenas + 2 unidades?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">26</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">62</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">602</button>
 </div>
+</div>
+
+<!-- NUEVO: Ejercicio tipo 6 — Verdadero o Falso -->
+<div class="exercise">
+<p>6. <span class="difficulty-badge medio">Medio</span> — Verdadero o Falso: El número 48 tiene 8 decenas y 4 unidades.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, false)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">❌ Falso</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio tipo 7 — Ordenar -->
+<div class="exercise">
+<p>7. <span class="difficulty-badge medio">Medio</span> — Ordena estos números de menor a mayor: 67, 23, 91, 45</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">23, 45, 67, 91</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">91, 67, 45, 23</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">23, 67, 45, 91</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio tipo 8 — Problema contextual -->
+<div class="exercise">
+<p>8. <span class="difficulty-badge dificil">Difícil</span> — Problema: En una clase hay 3 filas de 10 alumnos y 2 filas de 8 alumnos. ¿Cuántos alumnos hay en total?</p>
+<p style="font-size:.9rem;color:#64748b">💡 Pista: 3 filas × 10 = ? Y 2 filas × 8 = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">46</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">50</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">38</button>
+</div>
+<div class="feedback" id="e8-fb"></div>
 </div>
 
 </div>

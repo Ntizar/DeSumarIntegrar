@@ -843,21 +843,24 @@
       "improvement_count": 1
     },
     "s01-2-contar-10-100.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "1º Primaria",
       "priority": 2,
       "category": "primaria_tema",
       "improvements": [],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 10,
+        "real_world": 12,
+        "connections": 10,
+        "difficulty_range": 10
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "last_improved_by": "dsi-mejora-s2",
+      "improved_dimensions": "exercises,text,visual,real_world,connections,difficulty_range",
+      "improvement_description": "Añadidos: 4-step explanation, SVG decenas/unidades, 3 casos reales, connection-box, difficulty-badge, 3 nuevos ejercicios (VF, ordenar, contextual)"
     },
     "s01-3-sumar-hasta-10.html": {
       "status": "improved_1",
@@ -2050,7 +2053,7 @@
       "last_improvement": "connections(8) + 2 ejercicios nuevos + SVG concavidad Manim-style"
     },
     "s09-5-bachiller-integrales-indefinidas.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
@@ -2067,15 +2070,18 @@
         }
       ],
       "scores": {
-        "exercises": 7,
+        "exercises": 8,
         "text": 12,
         "visual": 7,
         "real_world": 9,
         "connections": 7,
-        "difficulty_range": 6
+        "difficulty_range": 10
       },
       "last_improved": "2026-06-12",
-      "improvement_count": 1
+      "improvement_count": 2,
+      "last_improved_by": "dsi-mejora-s2",
+      "improved_dimensions": "exercises,difficulty_range",
+      "improvement_description": "Añadidos: difficulty-badge en todos los ejercicios, 1 nuevo ejercicio VF difícil"
     },
     "s09-6-bachiller-integrales-definidas.html": {
       "status": "improved_1",
@@ -2398,21 +2404,24 @@
       "improvement_count": 1
     },
     "s10-8-carrera-autovalores.html": {
-      "status": "pending",
+      "status": "improved_2",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
       "improvements": [],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 10,
+        "visual": 10,
+        "real_world": 12,
+        "connections": 10,
+        "difficulty_range": 10
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "last_improved_by": "dsi-mejora-s2",
+      "improved_dimensions": "exercises,real_world,connections,difficulty_range",
+      "improvement_description": "Añadidos: 2 casos reales (física, ML), 2 nuevos ejercicios (emparejar, completar), CSS .exercises"
     },
     "s10-9-carrera-transformaciones-lineales.html": {
       "status": "pending",
@@ -2626,6 +2635,35 @@
       },
       "date": "2026-06-12",
       "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "2026-06-12T23:35:33.822733",
+      "file": "s01-2-contar-10-100.html",
+      "level": "Primaria",
+      "agent": "dsi-mejora-s2",
+      "dimensions_improved": "exercises,text,visual,real_world,connections,difficulty_range",
+      "description": "Añadidos: 4-step explanation, SVG decenas/unidades, 3 casos reales, connection-box, difficulty-badge, 3 nuevos ejercicios (VF, ordenar, contextual)"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "2026-06-12T23:35:33.822733",
+      "file": "s09-5-bachiller-integrales-indefinidas.html",
+      "level": "Bachiller",
+      "agent": "dsi-mejora-s2",
+      "dimensions_improved": "exercises,difficulty_range",
+      "description": "Añadidos: difficulty-badge en todos los ejercicios, 1 nuevo ejercicio VF difícil"
+    },
+    {
+      "date": "2026-06-12",
+      "time": "2026-06-12T23:35:33.822733",
+      "file": "s10-8-carrera-autovalores.html",
+      "level": "Universidad",
+      "agent": "dsi-mejora-s2",
+      "dimensions_improved": "exercises,real_world,connections,difficulty_range",
+      "description": "Añadidos: 2 casos reales (física, ML), 2 nuevos ejercicios (emparejar, completar), CSS .exercises"
     }
-  ]
+  ],
+  "session_count": 1,
+  "last_session": "2026-06-12"
 }
