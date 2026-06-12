@@ -22,6 +22,25 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0}
+.step-dot.s1{background:var(--azul)}.step-dot.s2{background:var(--naranja)}.step-dot.s3{background:var(--verde)}.step-dot.s4{background:var(--rojo)}
+.step-label{font-size:.85rem;color:var(--texto);margin-top:.25rem;text-align:center}
+.step-item{text-align:center;flex:1;min-width:80px}
+.connection-box{background:linear-gradient(135deg,#faf5ff,#eff6ff);border:2px dashed var(--pura);border-radius:12px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--pura);margin-bottom:.5rem}
+.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:700;margin-right:.3rem}
+.svg-container{display:flex;justify-content:center;margin:1rem 0}
+.svg-container svg{max-width:100%;height:auto}
+.feedback{padding:.6rem 1rem;border-radius:8px;margin:.5rem 0;font-weight:600}
+.feedback.correct{background:var(--verde-claro);color:#065f46;border:1px solid var(--verde)}
+.feedback.incorrect{background:var(--rojo-claro);color:#991b1b;border:1px solid var(--rojo)}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:12px;font-size:.7rem;font-weight:700;margin-left:.3rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
 .interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
@@ -50,6 +69,13 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+input[type="number"]{padding:.5rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:80px;text-align:center}
+input[type="text"]{padding:.5rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;width:120px}
+.balance-scale{display:flex;align-items:center;justify-content:center;gap:2rem;margin:1rem 0}
+.scale-pan{text-align:center;padding:1rem 2rem;background:#fff;border:3px solid var(--azul);border-radius:12px;min-width:120px}
+.scale-pan .value{font-size:1.5rem;font-weight:700;color:var(--azul)}
+.scale-bar{width:60px;height:4px;background:var(--naranja);border-radius:2px}
+.scale-pivot{width:20px;height:20px;background:var(--rojo);border-radius:50%;margin:0 auto}
 </style>
 </head>
 <body>
@@ -73,6 +99,78 @@ Las letras representan números desconocidos. x + 3 = 7 significa que x = 4.
 <li>Entender qué es una ecuación</li><li>Resolver ecuaciones simples</li><li>Usar letras como incógnitas</li>
 </ul>
 </section>
+
+<!-- NUEVO: Explicación estructurada 4 pasos -->
+<section class="chapter">
+<h2 class="chapter-title">📚 ¿Qué es el álgebra? (4 pasos)</h2>
+<div class="step-indicator">
+<div class="step-item"><div class="step-dot s1">1</div><div class="step-label">Qué es</div></div>
+<div class="step-item"><div class="step-dot s2">2</div><div class="step-label">Para qué</div></div>
+<div class="step-item"><div class="step-dot s3">3</div><div class="step-label">Cómo</div></div>
+<div class="step-item"><div class="step-dot s4">4</div><div class="step-label">Error común</div></div>
+</div>
+<div class="box box-teoria">
+<strong>📖 1. ¿Qué es el álgebra?</strong>
+El álgebra usa <b>letras</b> (como x, y, a) para representar <b>números que no conocemos</b>. Una ecuación es una igualdad que tiene un número escondido. Ejemplo: x + 3 = 7 quiere decir "un número más 3 es 7".
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 2. ¿Para qué sirve?</strong>
+Para resolver misterios numéricos. Si tu amigo te dice "piensa un número, súmale 5 y el resultado es 12", puedes usar álgebra: x + 5 = 12 → x = 7. ¡Ya encontraste el número!
+</div>
+<div class="box box-teoria">
+<strong>📖 3. ¿Cómo se resuelve?</strong>
+La regla de oro: <b>hacer lo contrario</b>. Si el número está sumando, restamos. Si está restando, sumamos. Si está multiplicando, dividimos. Siempre hacemos lo mismo en ambos lados de la igualdad.
+<br><br>
+x + 3 = 7 → x = 7 − 3 → <b>x = 4</b>
+</div>
+<div class="box box-error">
+<strong>⚠️ 4. Error común</strong>
+¡Cambiar solo un lado! Si x + 3 = 7, NO puedes restar 3 solo a la izquierda. Tienes que restar 3 a AMBOS lados: x + 3 − 3 = 7 − 3. Así se mantiene la igualdad.
+</div>
+</section>
+
+<!-- NUEVO: SVG balanza algebraica -->
+<section class="chapter">
+<h2 class="chapter-title">⚖️ Visualiza la ecuación</h2>
+<div class="svg-container">
+<svg width="500" height="180" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+<!-- Balanza -->
+<line x1="250" y1="170" x2="250" y2="140" stroke="#94a3b8" stroke-width="4"/>
+<polygon points="230,170 270,170 250,140" fill="#94a3b8"/>
+<!-- Barra -->
+<line x1="100" y1="100" x2="400" y2="100" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+<!-- Cadenas izquierda -->
+<line x1="100" y1="100" x2="100" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="140" y1="100" x2="140" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<!-- Platillo izquierda -->
+<rect x="80" y="130" width="80" height="15" rx="5" fill="#2563eb"/>
+<!-- Cadenas derecha -->
+<line x1="360" y1="100" x2="360" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<line x1="400" y1="100" x2="400" y2="130" stroke="#94a3b8" stroke-width="2"/>
+<!-- Platillo derecha -->
+<rect x="340" y="130" width="80" height="15" rx="5" fill="#2563eb"/>
+<!-- Contenido izquierda: x + 3 -->
+<rect x="90" y="108" width="30" height="20" rx="4" fill="#a855f7"/>
+<text x="105" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">x</text>
+<rect x="125" y="108" width="25" height="20" rx="4" fill="#10b981"/>
+<text x="137" y="123" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">+3</text>
+<!-- Contenido derecha: 7 -->
+<rect x="355" y="108" width="50" height="20" rx="4" fill="#f97316"/>
+<text x="380" y="123" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">7</text>
+<!-- Ecuación -->
+<text x="250" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e293b">x + 3 = 7</text>
+<!-- Flecha resultado -->
+<text x="250" y="165" text-anchor="middle" font-size="14" fill="#6b7280">→ x = 4</text>
+<rect x="210" y="150" width="80" height="24" rx="12" fill="#10b981"/>
+<text x="250" y="167" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">x = 4 ✓</text>
+</svg>
+</div>
+<div class="box box-teoria">
+<strong>📖 La balanza siempre equilibrada</strong>
+Una ecuación es como una <b>balanza</b>: ambos lados deben pesar lo mismo. Si quitas algo de un lado, tienes que quitar lo mismo del otro para que siga equilibrada.
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ ¿Qué es el álgebra?</h2>
 <div class="box box-teoria">
@@ -92,6 +190,35 @@ x + 5 = 12 → x = 12 - 5 = 7
 x - 4 = 9 → x = 9 + 4 = 13
 </div>
 </section>
+
+<!-- NUEVO: Caso real -->
+<section class="chapter">
+<h2 class="chapter-title">🎮 Caso real: El videojuego misterioso</h2>
+<div class="box box-ejemplo">
+<span class="real-world-badge">VIDA REAL</span>
+<strong>🎮 Puntos en el videojuego</strong>
+Tu personaje tiene <b>15 puntos</b> al empezar la misión. Al terminar, tiene <b>28 puntos</b>.
+<br><br>
+<b>Pregunta:</b> ¿Cuántos puntos ganó en la misión?<br>
+<b>Ecuación:</b> 15 + x = 28<br>
+<b>Resolución:</b> x = 28 − 15 = <b>13 puntos</b><br>
+<b>Resultado:</b> ¡Ganaste 13 puntos! 🎉
+</div>
+</section>
+
+<!-- NUEVO: Conexiones -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>🔗 Este tema se conecta con:</h4>
+<p>• <a href="s06-5-proporcionalidad.html">Proporcionalidad</a> — ecuaciones de proporcionalidad</p>
+<p>• <a href="eso1-5-intro-algebra.html">ESO1.5: Introducción al Álgebra</a> — ecuaciones más complejas</p>
+<p>• <a href="s01-3-sumar-hasta-10.html">Sumar hasta 10</a> — operaciones básicas para despejar</p>
+<p>• <a href="s01-4-sumar-hasta-20.html">Sumar hasta 20</a> — operaciones con números mayores</p>
+<p>• <a href="s04-1-fracciones-equivalentes.html">Fracciones equivalentes</a> — ecuaciones con fracciones</p>
+</div>
+</section>
+
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Resuelve ecuaciones!</h2>
 <div class="interactive">
@@ -100,56 +227,114 @@ x - 4 = 9 → x = 9 + 4 = 13
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<!-- NUEVOS: Ejercicios de tipos diferentes -->
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
+
+<!-- Ejercicio tipo 1: Quiz botón (ya existente) -->
 <div class="exercise">
-<p>x + 5 = 12, x = ?</p>
+<p>x + 5 = 12, x = ? <span class="difficulty-badge easy">Fácil</span></p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">17</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
 </div>
 </div>
+
+<!-- Ejercicio tipo 2: Completar hueco (NUEVO) -->
 <div class="exercise">
-<p>3x = 15, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">18</button>
+<p>2. Completa: Si x + 8 = 20, entonces x = <input type="number" id="fill1" placeholder="?"> <span class="difficulty-badge easy">Fácil</span></p>
+<button class="quiz-btn" onclick="checkFillIn(1, 12)">Comprobar</button>
+<div class="result" id="fill1Result"></div>
 </div>
-</div>
+
+<!-- Ejercicio tipo 3: Verdadero/Falso (NUEVO) -->
 <div class="exercise">
-<p>x - 4 = 9, x = ?</p>
+<p>3. Verdadero o Falso: Si 2x = 10, entonces x = 5. <span class="difficulty-badge easy">Fácil</span></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">13</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
+<div class="result" id="vfResult3"></div>
 </div>
+
+<!-- Ejercicio tipo 4: Ordenar pasos (NUEVO) -->
 <div class="exercise">
-<p>x + 8 = 20, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">28</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<p>4. Ordena los pasos para resolver x + 6 = 15. <span class="difficulty-badge medium">Medio</span></p>
+<p style="font-size:.9rem;color:#6b7280;margin-bottom:.5rem">Haz clic en los pasos en orden:</p>
+<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0" id="stepButtons">
+<button class="quiz-btn" onclick="stepOrder(this, 2)">Restar 6 a ambos lados</button>
+<button class="quiz-btn" onclick="stepOrder(this, 1)">Escribir la ecuación: x + 6 = 15</button>
+<button class="quiz-btn" onclick="stepOrder(this, 3)">Simplificar: x = 15 − 6</button>
+<button class="quiz-btn" onclick="stepOrder(this, 4)">Resultado: x = 9</button>
 </div>
+<p style="font-size:.9rem;margin-top:.5rem">Tu orden: <span id="stepDisplay" style="font-weight:700;color:var(--azul)">—</span></p>
+<button class="quiz-btn" onclick="checkSteps()">Comprobar orden</button>
+<div class="result" id="stepResult"></div>
 </div>
+
+<!-- Ejercicio tipo 5: Decidir operación (NUEVO) -->
 <div class="exercise">
-<p>4x = 20, x = ?</p>
+<p>5. Ana tiene algunas canicas. Si le das 4 más, tendrá 12 en total. <br>¿Qué operación necesitas para saber cuántas tenía? <span class="difficulty-badge easy">Fácil</span></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">Restar: 12 − 4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Sumar: 12 + 4</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">Multiplicar: 12 × 4</button>
 </div>
+</div>
+
+<!-- Ejercicio tipo 6: Emparejar (NUEVO) -->
+<div class="exercise">
+<p>6. Empareja cada ecuación con su solución: <span class="difficulty-badge medium">Medio</span></p>
+<p style="font-size:.9rem;color:#6b7280;margin-bottom:.5rem">Haz clic en una ecuación y luego su respuesta:</p>
+<div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:1rem 0">
+<div id="pairLeft" style="display:flex;flex-direction:column;gap:.5rem"></div>
+<div id="pairRight" style="display:flex;flex-direction:column;gap:.5rem"></div>
+</div>
+<div class="result" id="pairResult"></div>
 </div>
 
 </div>
 </section>
+
+<!-- NUEVO: Caso real 2 -->
+<section class="chapter">
+<h2 class="chapter-title">🍕 Caso real: La pizzería</h2>
+<div class="box box-teoria">
+<span class="real-world-badge">VIDA REAL</span>
+<strong>🍕 La pizzería</strong>
+En una pizzería, cada pizza cuesta <b>8€</b>. La familia paga <b>24€</b> en total.
+<br><br>
+<b>Pregunta:</b> ¿Cuántas pizzas compraron?<br>
+<b>Ecuación:</b> 8x = 24 (donde x = número de pizzas)<br>
+<b>Resolución:</b> x = 24 ÷ 8 = <b>3 pizzas</b><br>
+<b>Resultado:</b> ¡La familia compró 3 pizzas! 🍕
+</div>
+</section>
+
+<!-- NUEVO: Conexiones -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>🔗 Este tema se conecta con:</h4>
+<p>• <a href="s06-5-proporcionalidad.html">Proporcionalidad</a> — ecuaciones de proporcionalidad</p>
+<p>• <a href="eso1-5-intro-algebra.html">ESO1.5: Introducción al Álgebra</a> — ecuaciones más complejas</p>
+<p>• <a href="s01-3-sumar-hasta-10.html">Sumar hasta 10</a> — operaciones básicas para despejar</p>
+<p>• <a href="s01-4-sumar-hasta-20.html">Sumar hasta 20</a> — operaciones con números mayores</p>
+<p>• <a href="s04-1-fracciones-equivalentes.html">Fracciones equivalentes</a> — ecuaciones con fracciones</p>
+</div>
+</section>
+
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Las letras son números desconocidos</li></li><li><li>Hacer lo contrario para resolver</li></li><li><li>¡Ya sabes álgebra básica! 🎉</li>
+<li>Las letras son números desconocidos</li>
+<li>Hacer lo contrario para resolver ecuaciones</li>
+<li>Si suma, restamos; si multiplica, dividimos</li>
+<li>Siempre hacer lo mismo en ambos lados de la igualdad</li>
+<li>¡Ya sabes álgebra básica! 🎉</li>
 </ul>
 </div>
 <div class="nav">
@@ -194,6 +379,133 @@ function checkExercise(btn, correct) {
   parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
   if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
 }
+
+// NUEVO: Check fill-in
+function checkFillIn(num, answer) {
+  const input = document.getElementById('fill' + num);
+  const result = document.getElementById('fill' + num + 'Result');
+  const val = parseInt(input.value);
+  if(val === answer) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! x + 8 = 20 → x = 20 − 8 = 12';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Incorrecto. x + 8 = 20 → x = 20 − 8 = ?';
+  }
+}
+
+// NUEVO: Check V/F
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  const result = document.getElementById('vfResult3');
+  if(correct) {
+    btn.classList.add('correct');
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 2x = 10 → x = 10 ÷ 2 = 5';
+  } else {
+    btn.classList.add('wrong');
+    result.className = 'result fail';
+    result.textContent = '❌ ¡No! 2x = 10 → x = 10 ÷ 2 = 5. ¡Es VERDADERO!';
+  }
+}
+
+// NUEVO: Step order
+let stepItems = [];
+function stepOrder(btn, step) {
+  if(btn.disabled) return;
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  stepItems.push(step);
+  document.getElementById('stepDisplay').textContent = stepItems.join(' → ');
+}
+function checkSteps() {
+  const result = document.getElementById('stepResult');
+  const correct = [1, 2, 3, 4];
+  if(JSON.stringify(stepItems) === JSON.stringify(correct)) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Perfecto! 1) Ecuación → 2) Restar 6 → 3) Simplificar → 4) x = 9';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ Orden incorrecto. El orden es: Ecuación → Restar 6 → Simplificar → x = 9';
+  }
+}
+
+// NUEVO: Pair matching
+let pairSelected = null;
+let pairMatched = 0;
+const pairData = [
+  {left: 'x + 3 = 10', right: 'x = 7'},
+  {left: '2x = 14', right: 'x = 7'},
+  {left: 'x - 5 = 8', right: 'x = 13'},
+  {left: 'x/2 = 4', right: 'x = 8'}
+];
+function initPairs() {
+  const leftDiv = document.getElementById('pairLeft');
+  const rightDiv = document.getElementById('pairRight');
+  // Shuffle right
+  const shuffled = [...pairData].sort(() => Math.random() - 0.5);
+  pairData.forEach((pair, i) => {
+    const lbtn = document.createElement('button');
+    lbtn.className = 'quiz-btn';
+    lbtn.textContent = pair.left;
+    lbtn.dataset.pair = pair.left;
+    lbtn.dataset.side = 'left';
+    lbtn.onclick = function() { selectPair(this); };
+    leftDiv.appendChild(lbtn);
+  });
+  shuffled.forEach((pair, i) => {
+    const rbtn = document.createElement('button');
+    rbtn.className = 'quiz-btn';
+    rbtn.textContent = pair.right;
+    rbtn.dataset.pair = pair.left;
+    rbtn.dataset.side = 'right';
+    rbtn.onclick = function() { selectPair(this); };
+    rightDiv.appendChild(rbtn);
+  });
+}
+function selectPair(btn) {
+  if(btn.disabled) return;
+  if(!pairSelected) {
+    pairSelected = btn;
+    btn.style.borderColor = 'var(--naranja)';
+    btn.style.borderWidth = '3px';
+  } else {
+    if(btn.dataset.side === pairSelected.dataset.side) {
+      pairSelected.style.borderColor = '';
+      pairSelected.style.borderWidth = '';
+      pairSelected = btn;
+      btn.style.borderColor = 'var(--naranja)';
+      btn.style.borderWidth = '3px';
+    } else {
+      if(btn.dataset.pair === pairSelected.dataset.pair) {
+        pairSelected.classList.add('correct');
+        btn.classList.add('correct');
+        pairSelected.disabled = true;
+        btn.disabled = true;
+        pairMatched++;
+        if(pairMatched === pairData.length) {
+          document.getElementById('pairResult').className = 'result ok';
+          document.getElementById('pairResult').textContent = '✅ ¡Todos emparejados!';
+        }
+      } else {
+        pairSelected.classList.add('wrong');
+        btn.classList.add('wrong');
+        setTimeout(() => {
+          pairSelected.classList.remove('wrong');
+          btn.classList.remove('wrong');
+          pairSelected.style.borderColor = '';
+          pairSelected.style.borderWidth = '';
+        }, 800);
+      }
+      pairSelected = null;
+    }
+  }
+}
+initPairs();
 
 window.onscroll = function(){
   var h = document.documentElement;

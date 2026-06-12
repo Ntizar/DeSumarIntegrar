@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💰 S02.7: Dinero — 2º Primaria — ¡Compras y cambios!</title>
+<title>🔤 S06.9: Introducción al Álgebra — 6º Primaria — ¡Letras en matemáticas!</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,8 +57,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <header class="header">
-<h1>💰 S02.7: Dinero</h1>
-<p>2º Primaria — ¡Compras y cambios!</p>
+<h1>🔤 S06.9: Introducción al Álgebra</h1>
+<p>6º Primaria — ¡Letras en matemáticas!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
@@ -66,89 +66,81 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-El dinero nos ayuda a <b>comprar</b> cosas. Aprendemos a contar monedas, sumar precios y hacer cambios.
+Las letras representan números desconocidos. x + 3 = 7 significa que x = 4.
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Reconocer monedas y billetes</li><li>Sumar cantidades de dinero</li><li>Hacer cambios</li><li>Resolver problemas de compras</li>
+<li>Entender qué es una ecuación</li><li>Resolver ecuaciones simples</li><li>Usar letras como incógnitas</li>
 </ul>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ Monedas y billetes</h2>
+<h2 class="chapter-title">1️⃣ ¿Qué es el álgebra?</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Los billetes van de 5€ a 500€.
+Una ecuación es una igualdad con un número desconocido (x). Para resolverla, hacemos lo contrario: si suma, restamos. Si x + 3 = 7, entonces x = 7 - 3 = 4.
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
-<b>Monedas:</b><br>1¢, 2¢, 5¢, 10¢, 20¢, 50¢, 1€, 2€
+x + 5 = 12 → x = 12 - 5 = 7
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 2</strong>
-<b>Billetes:</b><br>5€, 10€, 20€, 50€, 100€, 200€
+3x = 15 → x = 15 ÷ 3 = 5
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
-<b>Ejemplo de compra:</b><br>Pago con 5€ un lápiz de 2€ + un cuaderno de 1€.<br>Cambio: 5 − 3 = <b>2€</b>
+x - 4 = 9 → x = 9 + 4 = 13
 </div>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Simulador de compras!</h2>
+<h2 class="chapter-title">2️⃣ ¡Resuelve ecuaciones!</h2>
 <div class="interactive">
-<h3>Compra los objetos y calcula el cambio:</h3>
-<div style="text-align:center;margin:1rem 0">
-<div id="shopItems" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:1rem 0"></div>
-<p style="font-size:1.2rem;font-weight:700;margin:1rem 0" id="totalDisplay">Total: 0€</p>
-<div id="paymentSection" style="margin:1rem 0">
-<p style="font-weight:600;margin-bottom:.5rem">¿Con cuánto pagas?</p>
-<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="payButtons"></div>
-</div>
-</div>
+<h3>Selecciona el valor de x:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="algDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="algButtons"></div></div>
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
-
 <div class="exercise">
-<p>1. Si tienes 2 monedas de 50 céntimos, ¿cuánto tienes?</p>
+<p>x + 5 = 12, x = ?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">25€</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">1€</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">2€</button>
-</div>
-</div>
-<div class="exercise">
-<p>2. Un lápiz cuesta 80 céntimos. Pagas con 1€. ¿Cuánto te devuelven?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">20 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">80 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10 céntimos</button>
-</div>
-</div>
-<div class="exercise">
-<p>3. ¿Cuántas monedas de 20 céntimos necesitas para hacer 1€?</p>
-<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">17</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+</div>
+</div>
+<div class="exercise">
+<p>3x = 15, x = ?</p>
+<div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18</button>
 </div>
 </div>
 <div class="exercise">
-<p>4. Si un helado cuesta 1€50 y tienes 2€, ¿cuánto te sobra?</p>
+<p>x - 4 = 9, x = ?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">50 céntimos</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">1€</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">25 céntimos</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">13</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
 </div>
 </div>
 <div class="exercise">
-<p>5. ¿Cuánto cuesta un lápiz (80¢) + un cuaderno (€1)?</p>
+<p>x + 8 = 20, x = ?</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, false)">€1.50</button>
-<button class="quiz-btn" onclick="checkExercise(this, true)">€1.80</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">€2</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">28</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+</div>
+</div>
+<div class="exercise">
+<p>4x = 20, x = ?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
 </div>
 </div>
 
@@ -157,84 +149,50 @@ En España usamos el <b>euro (€)</b>. Las monedas van de 1 céntimo a 2€. Lo
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Las monedas van de 1¢ a 2€</li></li><li><li>Los billetes van de 5€ a 500€</li></li><li><li>1€ = 100 céntimos</li></li><li><li>Para hacer cambio: pago − precio = cambio</li></li><li><li>¡Ya sabes manejar dinero! 🎉</li></li>
+<li><li>Las letras son números desconocidos</li></li><li><li>Hacer lo contrario para resolver</li></li><li><li>¡Ya sabes álgebra básica! 🎉</li>
 </ul>
 </div>
 <div class="nav">
-<a href="s02-6-longitud-peso.html">← Anterior</a>
-<a href="s02-2primaria-index.html">Volver al índice →</a>
+<a href="s06-7-areas-compuestas.html">← Anterior</a>
+  <a href="s06-6primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s06-10-repasos-primaria.html">Siguiente →</a>
 </div>
 </main>
 <footer class="footer">
 Hecho con ❤️ por David Antizar
 </footer>
 <script>
-
-const items = [
-  {emoji:'✏️', name:'Lápiz', price:0.80},
-  {emoji:'📓', name:'Cuaderno', price:1.50},
-  {emoji:'🎒', name:'Mochila', price:15},
-  {emoji:'🖍️', name:'Caja lápices', price:3.50},
-  {emoji:'📐', name:'Escuadra', price:1.20}
-];
-let selectedItems = [];
-let total = 0;
-
-function initShop() {
-  const shop = document.getElementById('shopItems');
-  items.forEach((item, i) => {
-    const div = document.createElement('div');
-    div.style.cssText = 'text-align:center;padding:.8rem;border:2px solid #e2e8f0;border-radius:10px;cursor:pointer;transition:all .2s';
-    div.innerHTML = '<p style="font-size:2rem">' + item.emoji + '</p><p style="font-weight:600">' + item.name + '</p><p style="color:var(--azul);font-weight:700">€' + item.price.toFixed(2) + '</p>';
-    div.onclick = function() {
-      if(selectedItems.includes(i)) {
-        selectedItems = selectedItems.filter(x => x !== i);
-        this.style.borderColor = '#e2e8f0';
-      } else {
-        selectedItems.push(i);
-        this.style.borderColor = 'var(--azul)';
-      }
-      total = selectedItems.reduce((sum, idx) => sum + items[idx].price, 0);
-      document.getElementById('totalDisplay').textContent = 'Total: €' + total.toFixed(2);
-    };
-    shop.appendChild(div);
-  });
-  const payBtns = document.getElementById('payButtons');
-  [1, 2, 5, 10, 20].forEach(amount => {
+function newQuiz() {
+  const data = [{"q": "x + 5 = 12, x = ?", "opts": ["7", "17", "5"], "correct": 0}, {"q": "3x = 15, x = ?", "opts": ["5", "12", "18"], "correct": 0}, {"q": "x - 4 = 9, x = ?", "opts": ["13", "5", "9"], "correct": 0}, {"q": "x + 8 = 20, x = ?", "opts": ["12", "28", "8"], "correct": 0}, {"q": "4x = 20, x = ?", "opts": ["5", "16", "24"], "correct": 0}];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('algDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('algButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'quiz-btn';
-    btn.textContent = '€' + amount;
+    btn.textContent = opt;
     btn.onclick = function() {
-      if(total === 0) {
-        document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ Primero selecciona algo para comprar.';
-        return;
-      }
-      const change = amount - total;
-      if(change < 0) {
-        document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ No tienes suficiente dinero. Te faltan €' + Math.abs(change).toFixed(2);
-      } else if(change === 0) {
+      if(i === item.correct) {
+        this.classList.add('correct');
         document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Exacto! No te sobra nada.';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
       } else {
-        document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! Tu cambio es €' + change.toFixed(2);
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
       }
     };
-    payBtns.appendChild(btn);
+    buttons.appendChild(btn);
   });
+  document.getElementById('interactiveResult').textContent = '';
 }
-initShop();
-
+newQuiz();
 function checkExercise(btn, correct) {
   const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  if(correct) { btn.classList.add('correct'); }
-  else { btn.classList.add('wrong'); }
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
 }
 
 window.onscroll = function(){

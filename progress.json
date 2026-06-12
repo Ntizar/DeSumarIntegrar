@@ -1,7 +1,7 @@
 {
-  "last_improved": "s02-7-dinero.html",
+  "last_improved": "s06-9-intro-algebra.html",
   "last_run": "2026-06-12",
-  "total_runs": 51,
+  "total_runs": 52,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1673,21 +1673,27 @@
       "improvement_count": 0
     },
     "s06-9-intro-algebra.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "+1 explicación estructurada 4 pasos (qué es/para qué/cómo/error común), +1 SVG balanza algebraica funcional, +2 casos reales (videojuego, pizzería), +1 caja conexiones (5 temas), +4 ejercicios nuevos variados (completar hueco, V/F, ordenar pasos, emparejar), +1 decidir operación, +CSS: step-indicator, step-dot, connection-box, real-world-badge, svg-container, feedback.correct/incorrect, difficulty-badge, arreglado nested <li>"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 12,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s04-1-estadistica-conceptos-basicos.html": {
       "status": "pending",
@@ -2386,6 +2392,22 @@
         "exercises": 12,
         "text": 12,
         "visual": 7,
+        "real_world": 9,
+        "connections": 5,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s06-9-intro-algebra.html",
+      "title": "Introducción al Álgebra",
+      "level": "6º Primaria",
+      "improvements": "full: 4-step explanation, SVG balance scale, 2 real cases, 5 connections, 6 exercise types (quiz/fill/VF/order/pair/decide), CSS coherence",
+      "scores": {
+        "exercises": 12,
+        "text": 12,
+        "visual": 8,
         "real_world": 9,
         "connections": 5,
         "difficulty_range": 7
