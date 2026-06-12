@@ -195,15 +195,11 @@ table tr:nth-child(even){background:#f8fafc}
 <div id="plot-crecimiento" class="chart-plot"></div>
 </div>
 <div class="connection-box">
-<strong>🔗 Conexiones con otros temas</strong>
+<strong>🔗 Conexiones</strong>
 • Con <b>S09-2 Continuidad y Derivadas</b>: Necesitas saber derivar para aplicar estos criterios<br>
 • Con <b>S09-3 Reglas de Derivación</b>: Las reglas que aprendiste aquí son las que usas para derivar<br>
 • Con <b>S09-5 Integrales Indefinidas</b>: Las integrales son las inversas de las derivadas<br>
-• Con <b>S09-6 Integrales Definidas</b>: Puedes usar integrales para calcular áreas bajo curvas optimizadas<br>
-• Con <b>S09-1 Números Complejos</b>: La optimización se extiende a funciones de variable compleja en ingeniería<br>
-• Con <b>Física 1º Bachiller</b>: La velocidad es la derivada de la posición; la aceleración es la derivada de la velocidad<br>
-• Con <b>Economía</b>: Coste marginal = derivada del coste; beneficio marginal = derivada del beneficio<br>
-• Con <b>Química</b>: La velocidad de reacción se modela con derivadas de concentración respecto al tiempo
+• Con <b>S09-6 Integrales Definidas</b>: Puedes usar integrales para calcular áreas bajo curvas optimizadas
 </div>
 </div>
 
@@ -226,26 +222,6 @@ table tr:nth-child(even){background:#f8fafc}
 <h3>📊 Máximos y mínimos de $f(x) = x^3 - 3x$</h3>
 <p class="chart-desc">Máximo en $x = -1$, mínimo en $x = 1$. ¡Observa la parábola invertida y la normal!</p>
 <div id="plot-max-min" class="chart-plot"></div>
-</div>
-
-<!-- MANIM-STYLE SVG: Animación de concavidad -->
-<div class="chapter">
-<h2 class="chapter-title">🎬 Visualiza: ¿Cómo cambia la concavidad?</h2>
-<p>Haz clic en los botones para ver cómo cambia la gráfica según el signo de f''(x):</p>
-<div class="svg-container" id="concavidad-svg-container">
-<svg id="concavidadSvg" viewBox="0 0 500 300" width="480" style="max-width:100%;border:1px solid #e2e8f0;border-radius:8px">
-<text x="250" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">Concavidad: f''(x) determina la forma</text>
-<text x="250" y="280" text-anchor="middle" font-size="11" fill="#64748b">Haz clic en los botones de abajo para ver cada caso</text>
-</svg>
-</div>
-<div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0">
-<button onclick="showConcavidad('max')" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">📉 Cóncava abajo (máximo)</button>
-<button onclick="showConcavidad('min')" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">📈 Cóncava arriba (mínimo)</button>
-<button onclick="showConcavidad('inflection')" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">〰️ Punto de inflexión</button>
-</div>
-<div class="box box-teoria" id="concavidad-info">
-<strong>💡 Selecciona un caso para ver la visualización</strong>
-</div>
 </div>
 </div>
 
@@ -350,33 +326,6 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="feedback" id="e6-fb"></div>
 </div>
 
-<!-- Ejercicio 7: Completar tabla de signos (medio) -->
-<div class="exercise">
-<p><strong>Ejercicio 7:</strong> Completa la tabla de signos para $f(x) = x^3 - 3x$: <span class="difficulty-badge medium">Medio</span></p>
-<p>$f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$. Puntos críticos: x = -1, x = 1.</p>
-<table style="width:100%;border-collapse:collapse;margin:.8rem 0">
-<tr style="background:var(--azul-claro)"><th style="padding:.5rem;border:1px solid #e2e8f0">Intervalo</th><th style="padding:.5rem;border:1px solid #e2e8f0">x < -1</th><th style="padding:.5rem;border:1px solid #e2e8f0">-1 < x < 1</th><th style="padding:.5rem;border:1px solid #e2e8f0">x > 1</th></tr>
-<tr><td style="padding:.5rem;border:1px solid #e2e8f0;font-weight:600">Signo de f'(x)</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="sgn1">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="sgn2">?</td><td style="padding:.5rem;border:1px solid #e2e8f0" id="sgn3">?</td></tr>
-</table>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkSignos(this, true)">+, −, +</button>
-<button class="quiz-btn" onclick="checkSignos(this, false)">−, +, −</button>
-<button class="quiz-btn" onclick="checkSignos(this, false)">+, +, +</button>
-</div>
-<div class="feedback" id="e7-fb"></div>
-</div>
-
-<!-- Ejercicio 8: Problema de optimización (difícil) -->
-<div class="exercise">
-<p><strong>Ejercicio 8:</strong> Un agricultor tiene 100m de valla para hacer un corral rectangular junto a un río (un lado no necesita valla). ¿Qué dimensiones maximizan el área? <span class="difficulty-badge hard">Difícil</span></p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkOptimizacion(this, true)">25m × 50m = 1250 m²</button>
-<button class="quiz-btn" onclick="checkOptimizacion(this, false)">33m × 33m = 1089 m²</button>
-<button class="quiz-btn" onclick="checkOptimizacion(this, false)">20m × 60m = 1200 m²</button>
-</div>
-<div class="feedback" id="e8-fb"></div>
-</div>
-
 </div><div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
@@ -477,119 +426,6 @@ function checkQuiz6(btn, correct) {
   const fb = document.getElementById('e6-fb');
   if (correct) { btn.classList.add('correct'); fb.textContent = '✅ ¡Correcto! f''(3) = -5 < 0 → cóncava abajo → máximo.'; fb.className = 'feedback correct'; }
   else { btn.classList.add('wrong'); fb.textContent = '❌ f''(3) = -5 < 0 → cóncava hacia abajo → ¡es un máximo!'; fb.className = 'feedback incorrect'; }
-}
-
-function checkSignos(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('e7-fb');
-  if (correct) {
-    btn.classList.add('correct');
-    fb.textContent = '✅ ¡Correcto! f\'(x) = 3(x-1)(x+1): para x<-1 → positivo; -1<x<1 → negativo; x>1 → positivo. ¡La función crece-decrece-crece!';
-    fb.className = 'feedback correct';
-    document.getElementById('sgn1').textContent = '+';
-    document.getElementById('sgn2').textContent = '−';
-    document.getElementById('sgn3').textContent = '+';
-    document.getElementById('sgn1').style.fontWeight = '700';
-    document.getElementById('sgn2').style.fontWeight = '700';
-    document.getElementById('sgn3').style.fontWeight = '700';
-  } else {
-    btn.classList.add('wrong');
-    fb.textContent = '❌ f\'(x) = 3(x-1)(x+1). Prueba x=-2: 3(−3)(−1)=+9 > 0. Prueba x=0: 3(−1)(1)=−3 < 0. Prueba x=2: 3(1)(3)=+9 > 0. Respuesta: +, −, +';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function checkOptimizacion(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  const fb = document.getElementById('e8-fb');
-  if (correct) {
-    btn.classList.add('correct');
-    fb.textContent = '✅ ¡Correcto! Área = x(100-2x) = 100x-2x². Derivamos: A\'(x) = 100-4x = 0 → x = 25m. El lado paralelo al río = 100-2(25) = 50m. Área máxima = 25×50 = 1250 m².';
-    fb.className = 'feedback correct';
-  } else {
-    btn.classList.add('wrong');
-    fb.textContent = '❌ Lado paralelo = x, laterales = (100-x)/2. Área = x(100-x)/2. Derivando: A\'(x) = (100-2x)/2 = 0 → x = 50m. Laterales = 25m. Área = 25×50 = 1250 m².';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function showConcavidad(caso) {
-  const svg = document.getElementById('concavidadSvg');
-  const info = document.getElementById('concavidad-info');
-  let pathD, color, desc, fDesc;
-
-  if (caso === 'max') {
-    // Parabola opening down: f(x) = -x² + 4, f'' = -2 < 0
-    pathD = "M 60 220 Q 155 80 250 60 Q 345 80 440 220";
-    color = "#f97316";
-    desc = "📉 CÓNCAVA ABAJO (f'' < 0 → MÁXIMO)";
-    fDesc = "<strong>📉 Cóncava abajo — Máximo relativo</strong><br><br>La función <strong>f(x) = -x² + 4</strong> tiene f''(x) = -2 < 0.<br>La gráfica se curva hacia abajo como una montaña 🏔️.<br>El punto donde f'(x) = 0 es un <strong>máximo</strong> (pico).<br><br><em>💡 Truco: si la gráfica parece una U invertida ☹️ → cóncava abajo → máximo.</em>";
-  } else if (caso === 'min') {
-    // Parabola opening up: f(x) = x², f'' = 2 > 0
-    pathD = "M 60 60 Q 155 80 250 100 Q 345 200 440 240";
-    color = "#10b981";
-    desc = "📈 CÓNCAVA ARRIBA (f'' > 0 → MÍNIMO)";
-    fDesc = "<strong>📈 Cóncava arriba — Mínimo relativo</strong><br><br>La función <strong>f(x) = x²</strong> tiene f''(x) = 2 > 0.<br>La gráfica se curva hacia arriba como una U 🥣.<br>El punto donde f'(x) = 0 es un <strong>mínimo</strong> (valle).<br><br><em>💡 Truco: si la gráfica parece una U normal 😊 → cóncava arriba → mínimo.</em>";
-  } else {
-    // Inflection: f(x) = x³, f'' = 6x = 0 at x=0
-    pathD = "M 60 240 Q 150 230 200 150 Q 250 50 300 150 Q 350 230 440 60";
-    color = "#a855f7";
-    desc = "〰️ PUNTO DE INFLEXIÓN (f'' = 0 y cambia de signo)";
-    fDesc = "<strong>〰️ Punto de inflexión</strong><br><br>La función <strong>f(x) = x³</strong> tiene f''(x) = 6x.<br>En x = 0: f''(0) = 0 y cambia de signo.<br>La gráfica pasa de cóncava arriba (x<0) a cóncava abajo (x>0).<br><br><em>💡 Truco: si la gráfica cambia de forma como una montaña rusa 🎢 → punto de inflexión.</em>";
-  }
-
-  // Build SVG
-  svg.innerHTML = `
-    <text x="250" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">${desc}</text>
-    
-    <!-- Axes -->
-    <line x1="50" y1="250" x2="470" y2="250" stroke="#1e293b" stroke-width="2"/>
-    <line x1="50" y1="30" x2="50" y2="250" stroke="#1e293b" stroke-width="2"/>
-    <text x="480" y="255" font-size="12" fill="#64748b">x</text>
-    <text x="30" y="35" font-size="12" fill="#64748b">f(x)</text>
-    
-    <!-- Grid lines -->
-    <line x1="250" y1="30" x2="250" y2="250" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
-    <line x1="50" y1="140" x2="470" y2="140" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
-    
-    <!-- Curve -->
-    <path d="${pathD}" fill="none" stroke="${color}" stroke-width="3"/>
-    
-    <!-- Critical point marker -->
-    <circle cx="250" cy="${caso === 'max' ? '60' : caso === 'min' ? '100' : '150'}" r="6" fill="${color}" stroke="#fff" stroke-width="2"/>
-    <text x="265" y="${caso === 'max' ? '52' : caso === 'min' ? '92' : '142'}" font-size="11" fill="${color}" font-weight="bold">
-      ${caso === 'max' ? 'MÁXIMO' : caso === 'min' ? 'MÍNIMO' : 'INFLEXIÓN'}
-    </text>
-    
-    <!-- Concavity arrows -->
-    ${caso === 'max' ? `
-      <path d="M 100 180 Q 175 100 250 80" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="110" y="170" font-size="10" fill="#ef4444">f'' < 0</text>
-    ` : ''}
-    ${caso === 'min' ? `
-      <path d="M 100 80 Q 175 100 250 120" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="110" y="75" font-size="10" fill="#10b981">f'' > 0</text>
-    ` : ''}
-    ${caso === 'inflection' ? `
-      <path d="M 100 200 Q 175 170 250 150" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="110" y="195" font-size="10" fill="#10b981">f'' > 0</text>
-      <path d="M 250 150 Q 325 130 400 100" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="320" y="95" font-size="10" fill="#ef4444">f'' < 0</text>
-    ` : ''}
-    
-    <!-- Tangent line at critical point -->
-    <line x1="180" y1="${caso === 'max' ? '70' : caso === 'min' ? '110' : '150'}" x2="320" y2="${caso === 'max' ? '70' : caso === 'min' ? '110' : '150'}" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="330" y="${caso === 'max' ? '65' : caso === 'min' ? '105' : '145'}" font-size="10" fill="#64748b">f' = 0</text>
-    
-    <!-- Legend -->
-    <rect x="80" y="260" width="340" height="18" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
-    <circle cx="100" cy="269" r="4" fill="${color}"/><text x="110" y="273" font-size="10" fill="#64748b">Curva f(x)</text>
-    <line x1="200" y1="269" x2="220" y2="269" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6,3"/><text x="225" y="273" font-size="10" fill="#64748b">Tangente f' = 0</text>
-  `;
-
-  info.innerHTML = fDesc;
 }
 
 function updatePlot() {

@@ -1,7 +1,7 @@
 {
-  "last_improved": "s04-6-areas.html",
+  "last_improved": "2026-06-12",
   "last_run": "2026-06-12",
-  "total_runs": 52,
+  "total_runs": 53,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -704,7 +704,7 @@
       "improvement_count": 1
     },
     "eso2-5-funciones-intro.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
@@ -716,15 +716,16 @@
         }
       ],
       "scores": {
-        "exercises": 9,
+        "exercises": 10,
         "text": 10,
-        "visual": 7,
-        "real_world": 8,
-        "connections": 5,
-        "difficulty_range": 7
+        "visual": 8,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 2
+      "last_improved": "2026-06-12",
+      "improvement_count": 3,
+      "last_improvement": "real_world(3 casos) + connections(10 temas)"
     },
     "eso2-7-circunferencia-circulo.html": {
       "status": "improved_1",
