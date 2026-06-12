@@ -99,6 +99,17 @@ table tr:nth-child(even){background:#f8fafc}
 
 /* Contenedor SVG */
 .svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
+
+/* Difficulty badge */
+.difficulty-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase;margin-left:.5rem}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
+
+/* Feedback */
+.feedback{margin-top:.5rem;padding:.5rem .8rem;border-radius:8px;font-size:.9rem}
+.feedback.correct{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.feedback.incorrect{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
 </style>
 </head>
 <body>
@@ -116,14 +127,11 @@ table tr:nth-child(even){background:#f8fafc}
 <div class="chapter">
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-teoria">
-<strong>📖 ¿Qué es una derivada parcial?</strong><br>
-Cuando una función depende de varias variables (como f(x,y)), la derivada parcial mide cómo cambia f si solo modificas UNA variable, manteniendo las demás constantes. Es como "cortar" la superficie en una dirección y ver la pendiente.<br><br>
-<strong>🔧 ¿Para qué sirve?</strong><br>
-En física: calcular el gradiente de temperatura. En machine learning: el gradiente descendente entrena redes neuronales. En economía: optimizar beneficios respecto a precio y cantidad.<br><br>
-<strong>🧮 ¿Cómo se calcula?</strong><br>
-Para ∂f/∂x: trata y como constante y deriva respecto a x. Ejemplo: si f(x,y) = x²y + 3xy², entonces ∂f/∂x = 2xy + 3y² (tratas y como número fijo).<br><br>
-<strong>⚠️ Error común:</strong><br>
-Al calcular ∂f/∂x, muchos olvidan que y es una CONSTANTE. Si f = x²y, entonces ∂f/∂x = 2xy (NO 2xy² ni x²). Y desaparece porque se trata como coeficiente.
+<strong>📖 Explicación en 4 pasos</strong>
+<p><span class="step-indicator"><span class="step-dot"></span>Paso 1</span> <b>¿Qué es?</b> Cuando una función depende de varias variables (como f(x,y)), la derivada parcial mide cómo cambia f si solo modificas UNA variable, manteniendo las demás constantes. Es como "cortar" la superficie en una dirección y ver la pendiente.</p>
+<p><span class="step-indicator"><span class="step-dot"></span>Paso 2</span> <b>¿Para qué sirve?</b> En física: calcular el gradiente de temperatura. En machine learning: el gradiente descendente entrena redes neuronales. En economía: optimizar beneficios respecto a precio y cantidad.</p>
+<p><span class="step-indicator"><span class="step-dot"></span>Paso 3</span> <b>¿Cómo se calcula?</b> Para ∂f/∂x: trata y como constante y deriva respecto a x. Ejemplo: si f(x,y) = x²y + 3xy², entonces ∂f/∂x = 2xy + 3y² (tratas y como número fijo).</p>
+<p><span class="step-indicator"><span class="step-dot"></span>Paso 4</span> <b>⚠️ Error común:</b> Al calcular ∂f/∂x, muchos olvidan que y es una CONSTANTE. Si f = x²y, entonces ∂f/∂x = 2xy (NO 2xy² ni x²). Y desaparece porque se trata como coeficiente.</p>
 </div>
 </div>
 
@@ -283,12 +291,37 @@ La notación importa. d/dx significa derivada ordinaria (una variable). ∂/∂x
 
 <!-- Ejercicio 1 original mejorado -->
 <div class="exercise">
-<p><strong>Ejercicio 4:</strong> Si f(x,y) = x²y + 3xy², calcula ∂f/∂x</p>
+<p><strong>Ejercicio 4:</strong> Si f(x,y) = x²y + 3xy², calcula ∂f/∂x <span class="difficulty-badge medium">MEDIO</span></p>
 <div class="exercise-input">
 <input type="text" id="e1" placeholder="∂f/∂x = " style="width:250px">
 <button onclick="checkE1()">Comprobar</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 6: Ordenar pasos -->
+<div class="exercise">
+<p><strong>Ejercicio 6 (Ordenar pasos):</strong> Ordena los pasos para calcular ∂f/∂x de f(x,y) = x³ + 2xy + y² <span class="difficulty-badge hard">DIFÍCIL</span></p>
+<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">Pasa los números a los pasos correctos:</p>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0" id="e6-pasos">
+<input type="number" id="e6p1" placeholder="Paso 1" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<input type="number" id="e6p2" placeholder="Paso 2" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<input type="number" id="e6p3" placeholder="Paso 3" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<button onclick="checkE6Orden()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+<p style="font-size:.85rem;color:#64748b">Pista: (1) Identificar f, (2) Derivar término a término respecto a x, (3) Simplificar</p>
+</div>
+
+<!-- NUEVO: Ejercicio 7: Problema contextual con dificultad -->
+<div class="exercise">
+<p><strong>Ejercicio 7 (Problema):</strong> La temperatura en una placa metálica es T(x,y) = x² + 3xy + y. ¿Cuál es ∂T/∂x en el punto (2,1)? <span class="difficulty-badge hard">DIFÍCIL</span></p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0;flex-wrap:wrap">
+<span>∂T/∂x(2,1) = </span>
+<input type="number" id="e7-val" placeholder="resultado" step="0.1" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<button onclick="checkE7()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
 </div>
 
 <!-- NUEVO: Ejercicio 5: Problema de gradiente -->
@@ -431,10 +464,53 @@ function checkE5() {
   // ∂f/∂x = 2x + 2y, ∂f/∂y = 2x + 2y
   // ∇f(1,2) = (2+4, 2+4) = (6, 6)
   if (vx === 6 && vy === 6) {
-    fb.textContent = '¡Correcto! ∇f(1,2) = (6, 6). ∂f/∂x = 2x+2y = 6, ∂f/∂y = 2x+2y = 6 🎉';
+    fb.textContent = '¡Correcto! ∇f(1,2) = (6, 6). ∂f/∂x = 2x+2y = 2(1)+2(2) = 6, ∂f/∂y = 2x+2y = 2(1)+2(2) = 6 🎉';
     fb.className = 'feedback correct';
   } else {
     fb.textContent = 'Incorrecto. ∂f/∂x = 2x+2y = 2(1)+2(2) = 6, ∂f/∂y = 2x+2y = 2(1)+2(2) = 6. ∇f(1,2) = (6, 6)';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// NUEVO: Ejercicio 6 - Ordenar pasos
+function checkE6Orden() {
+  const p1 = parseInt(document.getElementById('e6p1').value);
+  const p2 = parseInt(document.getElementById('e6p2').value);
+  const p3 = parseInt(document.getElementById('e6p3').value);
+  const fb = document.getElementById('e6-fb');
+  if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
+    fb.textContent = 'Rellena los 3 pasos.';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  // Pasos correctos: 1) Identificar f, 2) Derivar término a término, 3) Simplificar
+  // Pero en realidad el orden correcto es: 1→2→3 (los números 1,2,3 en orden)
+  if (p1 === 1 && p2 === 2 && p3 === 3) {
+    fb.textContent = '¡Correcto! 1) Identificar f, 2) Derivar término a término respecto a x, 3) Simplificar. ∂f/∂x = 3x² + 2y 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Orden correcto: 1) Identificar f, 2) Derivar término a término, 3) Simplificar.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// NUEVO: Ejercicio 7 - Problema contextual
+function checkE7() {
+  const val = parseFloat(document.getElementById('e7-val').value);
+  const fb = document.getElementById('e7-fb');
+  if (isNaN(val)) {
+    fb.textContent = 'Introduce un número.';
+    fb.className = 'feedback incorrect';
+    return;
+  }
+  // T(x,y) = x² + 3xy + y
+  // ∂T/∂x = 2x + 3y
+  // ∂T/∂x(2,1) = 2(2) + 3(1) = 4 + 3 = 7
+  if (Math.abs(val - 7) < 0.5) {
+    fb.textContent = '¡Correcto! ∂T/∂x = 2x + 3y = 2(2) + 3(1) = 4 + 3 = 7 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. ∂T/∂x = 2x + 3y = 2(2) + 3(1) = 7.';
     fb.className = 'feedback incorrect';
   }
 }

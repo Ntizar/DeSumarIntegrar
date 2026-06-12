@@ -50,6 +50,31 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+/* SVG container */
+.svg-container{background:#f0f9ff;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center;border:2px solid #bfdbfe}
+
+/* Connection box */
+.connection-box{background:#faf5ff;border-left:4px solid #a855f7;padding:1rem;border-radius:0 8px 8px 0;margin:1rem 0}
+.connection-box strong{color:#a855f7}
+
+/* Feedback */
+.feedback{margin-top:.5rem;padding:.5rem .8rem;border-radius:8px;font-size:.9rem}
+.feedback.correct{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.feedback.incorrect{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+
+/* Real world badge */
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+
+/* Step indicator */
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+
+/* Difficulty badge */
+.difficulty-badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:#dcfce7;color:#166534}
+.difficulty-badge.medium{background:#fef3c7;color:#92400e}
+.difficulty-badge.hard{background:#fee2e2;color:#991b1b}
 </style>
 </head>
 <body>
@@ -95,6 +120,34 @@ Una fracción es una <b>parte de un todo</b>. Si cortas una pizza en 4 trozos, c
 <strong>🔍 Ejemplo 3</strong>
 <b>1/3 (un tercio):</b> El todo dividido en 3 partes iguales. Tomamos 1.<br>🍕🍕🍕 = 1 pizza dividida en 3 → tomamos 1/3
 </div>
+
+<!-- NUEVO: Visual SVG numerator/denominator -->
+<div class="svg-container">
+<h3 style="color:var(--azul);margin-bottom:.8rem">🔢 Anatomía de una fracción</h3>
+<svg viewBox="0 0 400 200" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+<!-- Fracción 3/4 grande -->
+<text x="170" y="80" font-size="56" font-weight="bold" fill="#2563eb">3</text>
+<line x1="140" y1="90" x2="260" y2="90" stroke="#1e293b" stroke-width="4"/>
+<text x="170" y="130" font-size="56" font-weight="bold" fill="#f97316">4</text>
+<!-- Flecha numerador -->
+<line x1="100" y1="70" x2="130" y2="70" stroke="#2563eb" stroke-width="2"/>
+<text x="30" y="75" font-size="14" fill="#2563eb" font-weight="bold">Numerador</text>
+<text x="30" y="92" font-size="11" fill="#64748b">(partes que cogemos)</text>
+<!-- Flecha denominador -->
+<line x1="300" y1="115" x2="330" y2="115" stroke="#f97316" stroke-width="2"/>
+<text x="305" y="120" font-size="14" fill="#f97316" font-weight="bold">Denominador</text>
+<text x="305" y="137" font-size="11" fill="#64748b">(partes totales)</text>
+<!-- Pizza visual 3/4 -->
+<circle cx="80" cy="170" r="30" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
+<line x1="80" y1="140" x2="80" y2="200" stroke="#fff" stroke-width="2"/>
+<line x1="50" y1="170" x2="110" y2="170" stroke="#fff" stroke-width="2"/>
+<line x1="59" y1="149" x2="101" y2="191" stroke="#fff" stroke-width="2"/>
+<!-- Pizza visual: 3 cuartos coloreados, 1 sin colorear -->
+<rect x="140" y="145" width="120" height="50" rx="6" fill="#f0f9ff" stroke="#2563eb" stroke-width="2"/>
+<text x="148" y="165" font-size="12" fill="#2563eb">🟧 🟧 🟧 ⬜</text>
+<text x="148" y="185" font-size="10" fill="#64748b">3 cogidos de 4</text>
+</svg>
+</div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Corta las pizzas!</h2>
@@ -124,9 +177,21 @@ Tienes una tableta de chocolate de 8 cuadraditos. Si te comes 3, ¿qué fracció
 <strong>🧁 Caso 2: La receta de magdalenas</strong>
 Una receta pide <b>1/2 vaso de aceite</b> y <b>3/4 de taza de harina</b>. Si solo tienes un vaso de 1/4, necesitas usarlo 2 veces para el aceite y 3 veces para la harina.
 </div>
+<div class="box box-ejemplo">
+<strong>🎬 Caso 3: El cine</strong>
+En el cine hay 20 asientos. Si están ocupados 12, la sala está llena <b>12/20 = 6/10 = 3/5</b>. ¡Más de la mitad! 🎬
+</div>
+<div class="box box-ejemplo">
+<strong>🏃 Caso 4: El deporte</strong>
+Un partido de fútbol dura 90 minutos. Si llevan jugados 45 minutos, han completado <b>45/90 = 1/2</b> del partido. ¡Es el descanso! ⚽
+</div>
 <div class="box box-idea">
 <strong>🔗 Conexión</strong>
 Las fracciones que estás aprendiendo ahora se usan en <a href="s03-4-comparar-fracciones.html">S03.4: Comparar Fracciones</a> para saber cuál es más grande, y en <a href="s06-3-fracciones-operar.html">S06.3: Operar con Fracciones</a> para sumarlas y restarlas. ¡Son la base de las matemáticas!
+</div>
+<div class="box box-teoria">
+<strong>🔗 Conexión con ciencias</strong>
+Las fracciones aparecen en <b>ciencias</b>: si un experimento necesita 1/4 de litro de agua y 3/4 de litro de alcohol, estás usando fracciones. También en <b>geografía</b>: si 1/3 de la Tierra es tierra y 2/3 es agua, ¡las fracciones describen nuestro planeta! 🌍
 </div>
 </section>
 <section class="chapter">
@@ -160,6 +225,26 @@ Las fracciones que estás aprendiendo ahora se usan en <a href="s03-4-comparar-f
 <input type="text" id="e4-input" placeholder="Tu respuesta" style="width:200px;padding:0.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem;text-align:center">
 <button onclick="checkOrden()" style="padding:0.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-weight:600">Comprobar</button>
 <div class="result" id="e4-result"></div>
+</div>
+
+<!-- NUEVO: Ejercicio 5 — Emparejar -->
+<div class="exercise">
+<p><b>🔗 Emparejar — Tipo 5:</b> Haz clic en la fracción correcta para cada descripción</p>
+<div style="display:flex;flex-direction:column;gap:.5rem;margin:.5rem 0">
+<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+<span style="font-weight:600;min-width:180px">"Un tercio de pizza" →</span>
+<button class="quiz-btn" onclick="checkMatch(this, true)" style="font-size:.9rem;padding:.4rem 1rem">1/3</button>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="font-size:.9rem;padding:.4rem 1rem">1/4</button>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="font-size:.9rem;padding:.4rem 1rem">1/2</button>
+</div>
+<div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap">
+<span style="font-weight:600;min-width:180px">"Dos cuartos de chocolate" →</span>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="font-size:.9rem;padding:.4rem 1rem">1/4</button>
+<button class="quiz-btn" onclick="checkMatch(this, true)" style="font-size:.9rem;padding:.4rem 1rem">2/4</button>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="font-size:.9rem;padding:.4rem 1rem">1/3</button>
+</div>
+</div>
+<div class="result" id="e5-result"></div>
 </div>
 
 </div>
@@ -284,6 +369,24 @@ function checkOrden() {
   } else {
     res.className = 'result fail';
     res.textContent = '❌ Recuerda: cuanto mayor el denominador, más pequeña la parte. Pista: 1/8 < 1/4 < 1/2.';
+  }
+}
+
+// NUEVO: Ejercicio 5 — Emparejar
+function checkMatch(btn, correct) {
+  const res = document.getElementById('e5-result');
+  if(correct) {
+    btn.style.background = 'var(--verde)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--verde)';
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 1/3 = un tercio. 2/4 = dos cuartos (que es igual a 1/2).';
+  } else {
+    btn.style.background = 'var(--rojo)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--rojo)';
+    res.className = 'result fail';
+    res.textContent = '❌ Piensa: "un tercio" = 1 de 3 partes → 1/3. "Dos cuartos" = 2 de 4 partes → 2/4.';
   }
 }
 

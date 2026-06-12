@@ -740,15 +740,21 @@
         }
       ],
       "scores": {
-        "exercises": 6,
+        "exercises": 9,
         "text": 12,
         "visual": 7,
-        "real_world": 6,
-        "connections": 3,
-        "difficulty_range": 5
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "improvement_history": [
+        {
+          "date": "2026-06-12",
+          "dimensions": "real_world,connections,exercises,difficulty_range"
+        }
+      ]
     },
     "eso2-9-probabilidad.html": {
       "status": "improved_1",
@@ -1244,16 +1250,22 @@
         }
       ],
       "scores": {
-        "exercises": 8,
+        "exercises": 10,
         "text": 9,
-        "visual": 5,
-        "real_world": 7,
-        "connections": 5,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 8,
         "difficulty_range": 6,
         "css_coherence": 10
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "improvement_history": [
+        {
+          "date": "2026-06-12",
+          "dimensions": "visual,real_world,connections,exercises"
+        }
+      ]
     },
     "s03-4-comparar-fracciones.html": {
       "status": "improved_1",
@@ -2250,16 +2262,22 @@
         }
       ],
       "scores": {
-        "exercises": 8,
-        "text": 0,
+        "exercises": 10,
+        "text": 10,
         "visual": 8,
         "real_world": 8,
         "connections": 5,
-        "difficulty_range": 0,
+        "difficulty_range": 8,
         "css_coherence": 10
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-12",
+      "improvement_count": 1,
+      "improvement_history": [
+        {
+          "date": "2026-06-12",
+          "dimensions": "text,difficulty_range,exercises"
+        }
+      ]
     },
     "s10-3-carrera-integrales-multiples.html": {
       "status": "improved_1",

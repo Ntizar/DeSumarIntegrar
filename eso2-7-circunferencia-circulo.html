@@ -74,6 +74,12 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 /* Badge de caso real */
 .real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
 
+/* Badge de dificultad */
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:8px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.easy{background:#ecfdf5;color:#065f46}
+.difficulty-badge.medium{background:#fff7ed;color:#c2410c}
+.difficulty-badge.hard{background:#fef2f2;color:#991b1b}
+
 /* Contenedor SVG */
 .svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
 
@@ -188,13 +194,40 @@ La circunferencia se mide con C = 2πr. El área del círculo es A = πr².
 </div>
 </section>
 
-<!-- NUEVO: Conexión con geometría -->
+<!-- NUEVO: Caso real 2 -->
 <section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Círculo ↔ Cuadrado</h2>
-<div class="box box-success">
-<strong>💡 Conexión clave</strong>
-<p>Si tienes un cuadrado de lado r, su área es r². El círculo de radio r tiene área πr², que es <b>π veces más grande</b> que el cuadrado. ¡Por eso aparece π en la fórmula del área!</p>
-<p>Esto conecta con el tema de áreas de figuras que ya estudiaste en primaria.</p>
+<h2 class="chapter-title">🏟️ Caso real 2: La pista de atletismo</h2>
+<div class="box box-teoria">
+<span class="real-world-badge">🏟️ DEPORTES</span>
+<h4>¿Cuánto mide una vuelta en una pista circular?</h4>
+<p>Una pista circular de atletismo tiene radio de 36.5 m. La longitud de una vuelta es la circunferencia:</p>
+<p><b>C = 2 × π × 36.5 ≈ 2 × 3.14 × 36.5 = 229.3 m</b></p>
+<p>¡Una vuelta completa son casi 230 metros! Una carrera de 400 m son casi 2 vueltas.</p>
+</div>
+</section>
+
+<!-- NUEVO: Caso real 3 -->
+<section class="chapter">
+<h2 class="chapter-title">🍕 Caso real 3: La pizza perfecta</h2>
+<div class="box box-teoria">
+<span class="real-world-badge">🍕 COMIDA</span>
+<h4>¿Cuánto queso para cubrir tu pizza?</h4>
+<p>Si tu pizza tiene diámetro 30 cm, el radio es 15 cm. El área (la superficie que cubre el queso) es:</p>
+<p><b>A = π × 15² = 3.14 × 225 = 706.5 cm²</b></p>
+<p>¡Esa es la zona que cubre el queso! Si pides una pizza de 40 cm (r=20), el área es 3.14 × 400 = 1256 cm² — ¡casi el doble de queso!</p>
+</div>
+</section>
+
+<!-- NUEVO: Conexión ampliada -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexión: Círculo ↔ Múltiples temas</h2>
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p>📐 <b>Áreas de figuras</b> (s04-6): El área del círculo es πr², similar al área del cuadrado (l²).</p>
+<p>📏 <b>Medidas de longitud</b> (s01-9, s02-6): La circunferencia es una medida de longitud.</p>
+<p>🔤 <b>Introducción al álgebra</b> (s06-9): Las fórmulas C=2πr y A=πr² son expresiones algebraicas.</p>
+<p>📈 <b>Funciones</b> (eso2-5): La circunferencia es función del radio: C(r) = 2πr — ¡una función lineal!</p>
+<p>🔢 <b>Operaciones con decimales</b> (s04-5, s05-1): Calcular con π ≈ 3.14 requiere sumar y multiplicar decimales.</p>
 </div>
 </section>
 
@@ -274,6 +307,46 @@ La circunferencia se mide con C = 2πr. El área del círculo es A = πr².
 <button class="quiz-btn" onclick="checkExercise(this, true)">125.6 cm</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">314 cm</button>
 </div>
+</div>
+
+<!-- Decidir operación (tipo 7) -->
+<div class="exercise">
+<p>7. 🤔 ¿Qué fórmula usas? Un reloj de pared tiene radio 15 cm. ¿Qué calculas si quieres saber cuánto mide el borde?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkDecidirOp(this, true)">C = 2πr (circunferencia)</button>
+<button class="quiz-btn" onclick="checkDecidirOp(this, false)">A = πr² (área)</button>
+<button class="quiz-btn" onclick="checkDecidirOp(this, false)">d = 2r (diámetro)</button>
+</div>
+<div class="result" id="e7-fb" style="display:none"></div>
+</div>
+
+<!-- Problema inverso (tipo 8) -->
+<div class="exercise">
+<p>8. 🔙 Problema inverso: La circunferencia de una mesa redonda es 314 cm. ¿Cuál es su radio? (π ≈ 3.14)</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap">
+<span>r = C ÷ 2π = 314 ÷ (2 × 3.14) = 314 ÷ 6.28 = </span>
+<input type="number" id="e8-r" placeholder="radio" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>cm</span>
+<button onclick="checkE8()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="result" id="e8-fb" style="display:none"></div>
+</div>
+
+<!-- Ordenar resultados (tipo 9) -->
+<div class="exercise">
+<p>9. 📊 Ordena de menor a mayor las circunferencias: r=1, r=3, r=2, r=5 (usa π ≈ 3.14)</p>
+<div style="display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap">
+<input type="number" id="e9a" placeholder="r=1" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>,</span>
+<input type="number" id="e9b" placeholder="r=3" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>,</span>
+<input type="number" id="e9c" placeholder="r=2" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>,</span>
+<input type="number" id="e9d" placeholder="r=5" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:80px">
+<span>cm</span>
+<button onclick="checkE9Orden()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
+</div>
+<div class="result" id="e9-fb" style="display:none"></div>
 </div>
 
 </div>
@@ -382,6 +455,60 @@ function checkEmparejar(btn, correct) {
     btn.classList.add('wrong');
     fb.className = 'result fail';
     fb.textContent = '❌ C = 2πr es la circunferencia (borde), A = πr² es el área (interior).';
+  }
+}
+
+// Decidir operación ejercicio 7
+function checkDecidirOp(btn, correct) {
+  const fb = document.getElementById('e7-fb');
+  fb.style.display = 'block';
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => {
+    b.disabled = true;
+    b.style.pointerEvents = 'none';
+  });
+  if (correct) {
+    btn.classList.add('correct');
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! Para saber cuánto mide el borde, usamos C = 2πr = 2 × 3.14 × 15 = 94.2 cm.';
+  } else {
+    btn.classList.add('wrong');
+    fb.className = 'result fail';
+    fb.textContent = '❌ El borde es la circunferencia: C = 2πr = 2 × 3.14 × 15 = 94.2 cm.';
+  }
+}
+
+// Problema inverso ejercicio 8
+function checkE8() {
+  const r = document.getElementById('e8-r');
+  const fb = document.getElementById('e8-fb');
+  if (!r || !fb) return;
+  const val = parseFloat(r.value);
+  fb.style.display = 'block';
+  if (Math.abs(val - 50) < 0.5) {
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! r = 314 ÷ 6.28 = 50 cm.';
+  } else {
+    fb.className = 'result fail';
+    fb.textContent = '❌ r = C ÷ 2π = 314 ÷ (2 × 3.14) = 314 ÷ 6.28 = 50 cm.';
+  }
+}
+
+// Ordenar ejercicio 9
+function checkE9Orden() {
+  const a = parseFloat(document.getElementById('e9a').value);
+  const b = parseFloat(document.getElementById('e9b').value);
+  const c = parseFloat(document.getElementById('e9c').value);
+  const d = parseFloat(document.getElementById('e9d').value);
+  const fb = document.getElementById('e9-fb');
+  fb.style.display = 'block';
+  // C = 2πr, ordenar por r: 1 < 2 < 3 < 5 → C: 6.28 < 12.56 < 18.84 < 31.4
+  if (a === 6.28 && b === 12.56 && c === 18.84 && d === 31.4) {
+    fb.className = 'result ok';
+    fb.textContent = '✅ ¡Correcto! C(1)=6.28 < C(2)=12.56 < C(3)=18.84 < C(5)=31.4';
+  } else {
+    fb.className = 'result fail';
+    fb.textContent = '❌ Calcula cada C = 2πr: C(1)=6.28, C(2)=12.56, C(3)=18.84, C(5)=31.4. Ordena de menor a mayor.';
   }
 }
 
