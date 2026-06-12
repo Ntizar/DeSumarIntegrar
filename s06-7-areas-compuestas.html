@@ -22,19 +22,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .box-error{background:var(--rojo-claro);border-color:var(--rojo)}
 .box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
 .box strong{display:block;margin-bottom:.3rem}
-.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-.interactive button:hover{background:#1d4ed8}
-.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-.result.ok{background:var(--verde-claro);color:#065f46}
-.result.fail{background:var(--rojo-claro);color:#991b1b}
-.exercises{margin:1.5rem 0}
-.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-.exercise p{font-weight:600;margin-bottom:.5rem}
-.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-.solution.show{display:block}
-.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
 .nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
 .nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 .nav a:hover{background:var(--azul-claro)}
@@ -50,6 +37,38 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:var(--azul)}
+.exercise-input button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
+/* Template base classes */
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#dbeafe;color:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+.step-dot.active{background:var(--azul);color:#fff}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--pura);margin-bottom:.5rem}
+.connection-box a{color:var(--pura);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;background:var(--verde-claro);color:#059669;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:700;margin-bottom:.5rem}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0;text-align:center}
+.svg-container svg{max-width:100%;height:auto}
+.svg-container svg text{font-family:Inter,system-ui,sans-serif}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;margin-left:.5rem}
+.difficulty-badge.facil{background:#ecfdf5;color:#059669}
+.difficulty-badge.medio{background:#fff7ed;color:#ea580c}
+.difficulty-badge.dificil{background:#fef2f2;color:#dc2626}
+.interactive{cursor:pointer;transition:all .2s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+}
 </style>
 </head>
 <body>
@@ -62,96 +81,177 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
+
+<!-- === CONCEPTO 4 PASOS === -->
 <section class="chapter">
-<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-<div class="box box-idea">
-<strong>💡 Idea clave</strong>
-Las figuras compuestas se descomponen en figuras simples para calcular su área total.
+<h2 class="chapter-title">📖 ¿Qué son las áreas compuestas?</h2>
+<div class="step-indicator">
+  <div class="step-dot active">1</div>
+  <div class="step-dot">2</div>
+  <div class="step-dot">3</div>
+  <div class="step-dot">4</div>
 </div>
-<p>En esta sesión aprenderás a:</p>
-<ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Calcular área de figuras compuestas</li><li>Descomponer figuras complejas</li><li>Calcular áreas de figuras irregulares</li>
-</ul>
-</section>
-<section class="chapter">
-<h2 class="chapter-title">1️⃣ Áreas de figuras compuestas</h2>
 <div class="box box-teoria">
-<strong>📖 Teoría</strong>
-Una figura compuesta se divide en figuras simples (cuadrados, rectángulos, triángulos). Área total = suma de áreas.
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 1</strong>
-L forma: cuadrado 4×4 + rectángulo 2×4 = 16 + 8 = 24 cm²
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 2</strong>
-Rectángulo 10×6 con triángulo recortado: 60 - (6×2)/2 = 60 - 6 = 54 cm²
-</div>
-<div class="box box-ejemplo">
-<strong>🔍 Ejemplo 3</strong>
-Círculo en cuadrado: 10² - π×5² = 100 - 78.5 = 21.5 cm²
+<strong>📖 Áreas Compuestas en 4 pasos:</strong>
+<p><strong>1. ¿Qué es?</strong> Una figura compuesta es una forma que se puede dividir en figuras más simples (cuadrados, rectángulos, triángulos, círculos). ¡Como un puzzle!</p>
+<p><strong>2. ¿Para qué sirve?</strong> Para calcular el área de formas que no son simples. Si tu habitación tiene forma de L, no puedes usar una sola fórmula. ¡Pero si la divides en dos rectángulos, sí!</p>
+<p><strong>3. ¿Cómo se hace?</strong> (a) Divide la figura en figuras simples. (b) Calcula el área de cada una. (c) Súmalas (si la figura se compone) o réstalas (si hay huecos recortados).</p>
+<p><strong>4. Error común:</strong> Sumar todo sin pensar. Si hay un hueco recortado (como un círculo dentro de un cuadrado), ¡hay que RESTAR el área del hueco!</p>
 </div>
 </section>
+
+<!-- === SVG FIGURA COMPUESTA === -->
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Calcula áreas compuestas!</h2>
-<div class="interactive">
-<h3>Selecciona la respuesta correcta:</h3>
-<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="compArea6Display"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="compArea6Buttons"></div></div>
-<div class="result" id="interactiveResult"></div>
+<h2 class="chapter-title">📊 Visualización: Descomponer figuras</h2>
+<div class="svg-container">
+<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Figura L -->
+  <text x="250" y="20" text-anchor="middle" fill="#2563eb" font-weight="bold" font-size="14">Figura en L → Descomposición</text>
+  <!-- Figura L completa -->
+  <rect x="30" y="40" width="180" height="180" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <rect x="30" y="40" width="120" height="120" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="90" y="105" text-anchor="middle" fill="#2563eb" font-size="12">12×12=144</text>
+  <rect x="30" y="160" width="180" height="60" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="120" y="198" text-anchor="middle" fill="#2563eb" font-size="12">180×6=108</text>
+  <text x="120" y="240" text-anchor="middle" fill="#059669" font-weight="bold" font-size="13">Total = 144+108 = 252 cm²</text>
+  <!-- Flecha -->
+  <line x1="230" y1="130" x2="270" y2="130" stroke="#f97316" stroke-width="3" marker-end="url(#arrow)"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/></marker></defs>
+  <!-- Figura con hueco -->
+  <rect x="290" y="40" width="180" height="180" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="380" cy="130" r="50" fill="#fff" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="380" y="125" text-anchor="middle" fill="#ef4444" font-size="11">hueco</text>
+  <text x="380" y="140" text-anchor="middle" fill="#ef4444" font-size="11">r=50</text>
+  <text x="380" y="240" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="13">Total = cuadrado − hueco</text>
+</svg>
+<p style="font-size:.85rem;color:#64748b;margin-top:.5rem">📐 La figura en L se divide en dos rectángulos. La figura con hueco resta el círculo al cuadrado.</p>
 </div>
 </section>
+
+<!-- === CASOS REALES === -->
 <section class="chapter">
-<h2 class="chapter-title">📝 Ejercicios</h2>
+<h2 class="chapter-title">🌍 Casos Reales</h2>
+<div class="box box-ejemplo">
+<span class="real-world-badge">HOGAR</span>
+<strong>💡 Pisos con forma de L</strong>
+<p>¡Muchas casas tienen forma de L! Para saber cuántos azulejos necesitas, divides el piso en dos rectángulos, calculas cada área y los sumas. Si tu salón mide 5×4 m y el dormitorio 3×4 m, el área total es 20+12=32 m².</p>
+</div>
+<div class="box box-ejemplo">
+<span class="real-world-badge">JARDÍN</span>
+<strong>💡 Jardín con fuente circular</strong>
+<p>Tienes un jardín cuadrado de 6×6 m, pero en el centro hay una fuente circular de radio 1 m. El área de césped es: 36 − π×1² = 36 − 3.14 ≈ 32.86 m². ¡Necesitas césped para 32.86 m²!</p>
+</div>
+<div class="box box-ejemplo">
+<span class="real-world-badge">CONSTRUCCIÓN</span>
+<strong>💡 Pintar una pared con ventana</strong>
+<p>Una pared de 4×3 m = 12 m². Una ventana de 1.5×1 m = 1.5 m². Área a pintar: 12 − 1.5 = 10.5 m². ¡Así calculas cuánta pintura comprar!</p>
+</div>
+</section>
+
+<!-- === CONEXIONES === -->
+<section class="chapter">
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>📚 Temas conectados:</h4>
+<p>• <a href="s04-6-areas.html">Áreas de Figuras (4º)</a> → Ya sabes área de rectángulos y triángulos. ¡Ahora los combinas!</p>
+<p>• <a href="s05-5-areas-perimetros.html">Áreas y Perímetros (5º)</a> → Figuras compuestas son el siguiente nivel de complejidad</p>
+<p>• <a href="s06-5-proporcionalidad.html">Proporcionalidad (6º)</a> → Si duplicas las medidas, el área se multiplica por 4</p>
+<p>• <a href="s06-9-intro-algebra.html">Introducción al Álgebra (6º)</a> → Si el lado del cuadrado es x, el área es x² — ¡álgebra!</p>
+</div>
+</section>
+
+<!-- === EJERCICIOS === -->
+<section class="chapter">
+<h2 class="chapter-title">✏️ Ejercicios Interactivos</h2>
 <div class="exercises">
+
+<!-- Ejercicio 1: Quiz (completar) -->
 <div class="exercise">
-<p>Cuadrado 6×6 + rectángulo 4×6:</p>
+<p><strong>Ejercicio 1:</strong> Rectángulo 8×5 + triángulo (base 6, alt 4): ¿cuál es el área total? <span class="difficulty-badge facil">Fácil</span></p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">60</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">36</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'a')">A) 44</button>
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'b')">B) 52</button>
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'c')">C) 38</button>
 </div>
+<div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Completar hueco -->
 <div class="exercise">
-<p>Rectángulo 8×5 con triángulo (base 4, alt 3) recortado:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">34</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">40</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">37</button>
+<p><strong>Ejercicio 2:</strong> Cuadrado 6×6 con círculo radio 3 (π≈3.14) recortado. Área = ___ − ___ = ___ cm² <span class="difficulty-badge facil">Fácil</span></p>
+<div class="exercise-input">
+<input type="text" id="e2a" placeholder="Cuadrado" style="width:80px">
+<input type="text" id="e2b" placeholder="Círculo" style="width:80px">
+<input type="text" id="e2c" placeholder="Total" style="width:80px">
+<button onclick="checkE2()">Comprobar</button>
 </div>
+<div class="feedback" id="e2-fb"></div>
 </div>
+
+<!-- Ejercicio 3: Verdadero/Falso -->
 <div class="exercise">
-<p>Cuadrado 10×10 con círculo radio 5 (π$\approx$3.14):</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">21.5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">78.5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">100</button>
+<p><strong>Ejercicio 3:</strong> Verdadero o Falso: Para una figura en L formada por dos rectángulos de 3×4 y 2×4, el área total es 20 <span class="difficulty-badge medio">Medio</span></p>
+<div class="exercise-input">
+<button class="quiz-btn" onclick="checkVF3(this, true)" style="background:var(--verde-claro);border-color:var(--verde)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF3(this, false)" style="background:var(--rojo-claro);border-color:var(--rojo)">❌ Falso</button>
 </div>
+<div class="feedback" id="e3-fb"></div>
 </div>
+
+<!-- Ejercicio 4: Ordenar pasos -->
 <div class="exercise">
-<p>Triángulo base 8 altura 6:</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">24</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">48</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
+<p><strong>Ejercicio 4:</strong> Ordena los pasos para calcular el área de una figura en L <span class="difficulty-badge medio">Medio</span></p>
+<p style="font-size:.85rem;color:#64748b;margin-bottom:.5rem">Selecciona el orden correcto:</p>
+<div class="exercise-input">
+<select id="e4-p1" onchange="checkOrden4()" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px">
+  <option value="">Paso 1...</option>
+  <option value="1">Dividir en dos rectángulos</option>
+  <option value="2">Calcular área de cada rectángulo</option>
+  <option value="3">Sumar las dos áreas</option>
+</select>
+<button onclick="checkOrden4()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer">Comprobar</button>
 </div>
+<div class="feedback" id="e4-fb"></div>
 </div>
+
+<!-- Ejercicio 5: Problema contextual -->
 <div class="exercise">
-<p>Círculo radio 3 (π$\approx$3.14):</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">28.26</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">18.84</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9.42</button>
+<p><strong>Ejercicio 5:</strong> Quieres poner un suelo de madera en tu habitación. La habitación es un rectángulo de 4×5 m, pero hay un armario empotrado de 2×1 m que NO lleva suelo. ¿Cuántos m² de suelo necesitas? <span class="difficulty-badge medio">Medio</span></p>
+<div class="exercise-input">
+<input type="text" id="e5" placeholder="m²" style="width:100px">
+<button onclick="checkE5()">Comprobar</button>
 </div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Decidir operación -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Un cuadrado de lado 10 cm tiene un triángulo recortado (base 6, alt 4). ¿Qué operación usas? <span class="difficulty-badge dificil">Difícil</span></p>
+<div class="quiz-options">
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'a')">A) Sumar: 100 + 12</button>
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'b')">B) Restar: 100 − 12</button>
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'c')">C) Multiplicar: 100 × 12</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
 </div>
 
 </div>
 </section>
+
+<!-- === RESUMEN === -->
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Descomponer en figuras simples</li></li><li><li>Sumar áreas</li></li><li><li>¡Ya sabes áreas compuestas! 🎉</li>
+<li>Una figura compuesta se divide en figuras simples (cuadrados, rectángulos, triángulos)</li>
+<li>Área total = suma de áreas (si se compone) o resta de áreas (si hay huecos)</li>
+<li>Paso 1: Dividir la figura. Paso 2: Calcular cada área. Paso 3: Sumar o restar.</li>
+<li>Error común: no restar el área de huecos recortados</li>
+<li>Aplicaciones: pisos, jardines, paredes con ventanas, cualquier forma irregular</li>
+<li>Si duplicas las medidas, el área se multiplica por 4 (no por 2)</li>
+<li>Las áreas compuestas conectan con el álgebra: si el lado es x, el área es x²</li>
 </ul>
 </div>
+
 <div class="nav">
 <a href="s06-5-proporcionalidad.html">← Anterior</a>
   <a href="s06-6primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -162,44 +262,98 @@ Círculo en cuadrado: 10² - π×5² = 100 - 78.5 = 21.5 cm²
 Hecho con ❤️ por David Antizar
 </footer>
 <script>
-function newQuiz() {
-  const data = [{"q": "Cuadrado 6\u00d76 + rect\u00e1ngulo 4\u00d76:", "opts": ["60", "36", "24"], "correct": 0}, {"q": "Rect\u00e1ngulo 8\u00d75 con tri\u00e1ngulo (base 4, alt 3) recortado:", "opts": ["34", "40", "37"], "correct": 0}, {"q": "Cuadrado 10\u00d710 con c\u00edrculo radio 5 (\u03c0\u22483.14):", "opts": ["21.5", "78.5", "100"], "correct": 0}, {"q": "Tri\u00e1ngulo base 8 altura 6:", "opts": ["24", "48", "14"], "correct": 0}, {"q": "C\u00edrculo radio 3 (\u03c0\u22483.14):", "opts": ["28.26", "18.84", "9.42"], "correct": 0}];
-  const item = data[Math.floor(Math.random()*data.length)];
-  document.getElementById('compArea6Display').textContent = item.q;
-  const opts = item.opts;
-  const buttons = document.getElementById('compArea6Buttons');
-  buttons.innerHTML = '';
-  opts.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-btn';
-    btn.textContent = opt;
-    btn.onclick = function() {
-      if(i === item.correct) {
-        this.classList.add('correct');
-        document.getElementById('interactiveResult').className = 'result ok';
-        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-      } else {
-        this.classList.add('wrong');
-        document.getElementById('interactiveResult').className = 'result fail';
-        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-      }
-    };
-    buttons.appendChild(btn);
-  });
-  document.getElementById('interactiveResult').textContent = '';
-}
-newQuiz();
-function checkExercise(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-}
-
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
+
+// Ejercicio 1: Quiz
+function checkQuiz1(btn, selected) {
+  const fb = document.getElementById('e1-fb');
+  // 8×5=40 + 6×4/2=12 → 40+12=52
+  if (selected === 'b') {
+    fb.textContent = '¡Correcto! 8×5=40 + 6×4/2=12 → 40+12=52 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. 8×5=40 + 6×4/2=12 → 40+12=52. Respuesta: B) 52';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 2: Completar hueco
+function checkE2() {
+  const a = document.getElementById('e2a').value.trim();
+  const b = document.getElementById('e2b').value.trim();
+  const c = document.getElementById('e2c').value.trim();
+  const fb = document.getElementById('e2-fb');
+  // 6×6=36, π×3²≈28.26, 36-28.26≈7.74
+  const numA = parseFloat(a.replace(',', '.'));
+  const numB = parseFloat(b.replace(',', '.'));
+  const numC = parseFloat(c.replace(',', '.'));
+  if (numA === 36 && Math.abs(numB - 28.26) < 0.5 && Math.abs(numC - 7.74) < 0.5) {
+    fb.textContent = '¡Correcto! 36 − 28.26 ≈ 7.74 cm² 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Cuadrado: 6×6=36. Círculo: π×3²≈28.26. Total: 36−28.26≈7.74 cm²';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 3: VF
+function checkVF3(btn, isCorrect) {
+  const fb = document.getElementById('e3-fb');
+  // 3×4=12 + 2×4=8 → 12+8=20 → Verdadero
+  if (isCorrect) {
+    fb.textContent = '¡Correcto! 3×4=12 + 2×4=8 → 12+8=20 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Es VERDADERO: 3×4=12 + 2×4=8 → 12+8=20';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 4: Ordenar
+function checkOrden4() {
+  const fb = document.getElementById('e4-fb');
+  const p1 = document.getElementById('e4-p1');
+  if (!p1 || !fb) return;
+  if (p1.value === '1') {
+    fb.textContent = '¡Bien! Paso 1: Dividir en dos rectángulos. Ahora selecciona los pasos 2 y 3.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'El primer paso siempre es DIVIDIR la figura en rectángulos simples.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 5: Problema contextual
+function checkE5() {
+  const input = document.getElementById('e5');
+  const fb = document.getElementById('e5-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(',', '.').trim();
+  if (v === '18') {
+    fb.textContent = '¡Correcto! 4×5=20 − 2×1=2 → 20−2=18 m² 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. 4×5=20 m² − 2×1=2 m² → 20−2=18 m²';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 6: Decidir operación
+function checkQuiz6(btn, selected) {
+  const fb = document.getElementById('e6-fb');
+  // 10²=100 − 6×4/2=12 → 100−12=88
+  if (selected === 'b') {
+    fb.textContent = '¡Correcto! 10²=100 − 6×4/2=12 → 100−12=88 cm² 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Es RESTAR: 10²=100 − 6×4/2=12 → 100−12=88 cm². Respuesta: B';
+    fb.className = 'feedback incorrect';
+  }
+}
 </script>
 </body>
 </html>

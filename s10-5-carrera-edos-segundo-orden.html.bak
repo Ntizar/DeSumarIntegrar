@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔢 1º Carrera — Sesión 5: EDOs de Segundo Orden | Matemáticas</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.3rem;color:#6366f1;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid #e0e7ff}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:#e0e7ff;border-color:#6366f1}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}
+.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:#e0e7ff;border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#6366f1;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.katex{font-size:1.1em !important}
+.katex-display{margin:1.2rem 0;overflow-x:auto;padding:.8rem 0}
+.katex-display>.katex{font-size:1.2em !important}
+.chart-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0}
+.chart-container h3{color:#6366f1;margin-bottom:.8rem;font-size:1.05rem}
+.chart-container .chart-desc{font-size:.85rem;color:#64748b;margin-bottom:.8rem}
+.chart-plot{width:100%;height:350px;border-radius:8px}
+.chart-controls{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.chart-controls button{background:#6366f1;color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
+.chart-controls button:hover{background:#4f46e5}
+.chart-controls button.active{background:var(--naranja)}
+.exercise{background:#f1f5f9;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.exercise-input{display:flex;gap:.5rem;align-items:center;margin:.8rem 0;flex-wrap:wrap}
+.exercise-input input{padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:120px}
+.exercise-input input:focus{outline:none;border-color:#6366f1}
+.exercise-input button{background:#6366f1;color:#fff;border:none;padding:.5rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:600}
+.feedback{font-size:.95rem;font-weight:600;margin:.5rem 0;min-height:1.5rem}
+.feedback.correct{color:var(--verde)}
+.feedback.incorrect{color:var(--rojo)}
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
+table th{background:#e0e7ff;font-weight:600}
+table tr:nth-child(even){background:#f8fafc}
+@media(max-width:640px){
+  .header h1{font-size:1.4rem}
+  .chapter-title{font-size:1.1rem}
+  .katex-display>.katex{font-size:1em !important}
+  .chart-plot{height:280px}
+}
+</style>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #6366f1; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<div class="header">
+  <h1>🔢 1º Carrera — Sesión 5: EDOs de Segundo Orden</h1>
+  <p>Ecuaciones lineales con coeficientes constantes</p>
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</div>
+<div class="container">
+
+<div class="chapter">
+<h2 class="chapter-title">🎯 Objetivos</h2>
+<div class="box box-teoria">
+<strong>Al final de esta sesión serás capaz de:</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li>Resolver EDOs lineales de segundo orden con coeficientes constantes</li>
+<li>Clasificar soluciones según las raíces de la ecuación característica</li>
+<li>Aplicar a problemas de oscilaciones y resortes</li>
+</ul>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">🌍 ¿Dónde encuentro EDOs de segundo orden?</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Un resorte que oscila</strong>
+<p>La ecuación del movimiento de un resorte es $mx'' + cx' + kx = 0$.</p>
+<p>Si no hay amortiguación ($c = 0$): $mx'' + kx = 0$ → $x(t) = A\cos(\omega t) + B\sin(\omega t)$ donde $\omega = \sqrt{k/m}$.</p>
+<p>¡Esto describe todo: puentes que se balancean, circuitos RLC, átomos vibrando!</p>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">1️⃣ Ecuación Característica</h2>
+
+<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
+$$ay'' + by' + cy = 0 \implies ar^2 + br + c = 0$$
+</div>
+
+<!-- GRÁFICO: Oscilación -->
+<div class="chart-container">
+<h3>📊 Oscilación de un resorte: $x(t) = \cos(2t)$</h3>
+<p class="chart-desc">Observa cómo el resorte oscila sinusoidalmente.</p>
+<div id="plot-oscilacion" class="chart-plot"></div>
+</div>
+</div>
+
+<div class="chapter">
+<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+
+<div class="exercise">
+<p><strong>Ejercicio 1:</strong> Resuelve $y'' - 4y = 0$</p>
+<p style="font-size:.85rem;color:#64748b">Ecuación característica: $r^2 - 4 = 0$ → $r = \pm 2$</p>
+<div class="exercise-input">
+<input type="text" id="e1" placeholder="y = " style="width:250px">
+<button onclick="checkE1()">Comprobar</button>
+</div>
+<div class="feedback" id="e1-fb"></div>
+</div>
+</div>
+
+<div class="summary">
+<h3>📋 Resumen</h3>
+<ul>
+<li>EDO 2º orden: $ay'' + by' + cy = 0$ → ecuación característica $ar^2 + br + c = 0$</li>
+<li>Raíces reales distintas: $y = C_1e^{r_1x} + C_2e^{r_2x}$</li>
+<li>Raíces repetidas: $y = (C_1 + C_2x)e^{rx}$</li>
+<li>Raíces complejas: $y = e^{\alpha x}(C_1\cos(\beta x) + C_2\sin(\beta x))$</li>
+<li>Aplicaciones: resortes, circuitos RLC, ondas, puentes</li>
+</ul>
+</div>
+
+<div class="nav">
+<a href="s10-4-carrera-edos-primer-orden.html">← Anterior</a>
+  <a href="s10-1carrera.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
+<a href="s10-6-carrera-series-fourier.html">Siguiente →</a>
+</div>
+</div>
+<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+// Oscilador armónico: x'' + ω²x = 0
+  const t = Array.from({length: 200}, (_, i) => i * 0.05);
+  const omega = 2;
+  const trace1 = {
+    x: t, y: t.map(x => Math.cos(omega*x)),
+    mode: 'lines', name: 'cos(2t)',
+    line: {color: '#2563eb', width: 2}
+  };
+  const trace2 = {
+    x: t, y: t.map(x => Math.exp(-0.3*x) * Math.cos(omega*x)),
+    mode: 'lines', name: 'Amortiguada',
+    line: {color: '#f97316', width: 2, dash: 'dash'}
+  };
+  Plotly.newPlot('plot-oscilacion', [trace1, trace2], {
+    title: 'Oscilador armónico vs amortiguado',
+    xaxis: {title: 't', gridcolor: '#e2e8f0'},
+    yaxis: {title: 'x(t)', gridcolor: '#e2e8f0'},
+    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
+  }, {responsive: true});
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });
+
+function checkE1() {
+  const input = document.getElementById('e1');
+  const fb = document.getElementById('e1-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v.includes('c1') && v.includes('e') && v.includes('2x') && v.includes('c2') && v.includes('-2x')) { fb.textContent = '¡Correcto! y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
+  else if (v.includes('c1') && v.includes('c2') && v.includes('e')) { fb.textContent = '¡Correcto! La forma general es y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
+  else { fb.textContent = 'Incorrecto. Ecuación característica: r²-4=0 → r=±2. Solución: y = C₁e²ˣ + C₂e⁻²ˣ'; fb.className = 'feedback incorrect'; }
+}
+
+
+</script>
+</body>
+</html>

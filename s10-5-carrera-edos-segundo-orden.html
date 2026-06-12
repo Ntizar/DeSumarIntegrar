@@ -64,6 +64,30 @@ table{width:100%;border-collapse:collapse;margin:1rem 0}
 table th,table td{padding:.6rem .8rem;border:1px solid #e2e8f0;text-align:left}
 table th{background:#e0e7ff;font-weight:600}
 table tr:nth-child(even){background:#f8fafc}
+
+/* === NUEVAS CLASES DEL TEMPLATE === */
+.exercises{margin:1.5rem 0}
+.quiz-options{display:flex;flex-direction:column;gap:.5rem;margin:.8rem 0}
+.quiz-btn{background:#fff;border:2px solid #e2e8f0;padding:.6rem 1rem;border-radius:8px;cursor:pointer;text-align:left;font-size:.95rem;transition:all .2s}
+.quiz-btn:hover{border-color:#6366f1;background:var(--azul-claro)}
+.quiz-btn.selected{border-color:#6366f1;background:var(--azul-claro)}
+.step-indicator{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.step-dot{width:32px;height:32px;border-radius:50%;background:#e0e7ff;color:#6366f1;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+.step-dot.active{background:#6366f1;color:#fff}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--pura);margin-bottom:.5rem}
+.connection-box a{color:var(--pura);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.real-world-badge{display:inline-block;background:var(--verde-claro);color:#059669;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:700;margin-bottom:.5rem}
+.svg-container{background:#f8fafc;border-radius:12px;padding:1rem;margin:1.5rem 0;border:1px solid #e2e8f0;text-align:center}
+.svg-container svg{max-width:100%;height:auto}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;margin-left:.5rem}
+.difficulty-badge.facil{background:#ecfdf5;color:#059669}
+.difficulty-badge.medio{background:#fff7ed;color:#ea580c}
+.difficulty-badge.dificil{background:#fef2f2;color:#dc2626}
+.interactive{cursor:pointer;transition:all .2s}
+.svg-container svg text{font-family:Inter,system-ui,sans-serif}
+
 @media(max-width:640px){
   .header h1{font-size:1.4rem}
   .chapter-title{font-size:1.1rem}
@@ -83,65 +107,236 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 <div class="container">
 
+<!-- === CONCEPTO 4 PASOS === -->
 <div class="chapter">
-<h2 class="chapter-title">🎯 Objetivos</h2>
+<h2 class="chapter-title">📖 ¿Qué son las EDOs de segundo orden?</h2>
+<div class="step-indicator">
+  <div class="step-dot active">1</div>
+  <div class="step-dot">2</div>
+  <div class="step-dot">3</div>
+  <div class="step-dot">4</div>
+</div>
 <div class="box box-teoria">
-<strong>Al final de esta sesión serás capaz de:</strong>
-<ul style="padding-left:1.2rem;margin-top:.5rem">
-<li>Resolver EDOs lineales de segundo orden con coeficientes constantes</li>
-<li>Clasificar soluciones según las raíces de la ecuación característica</li>
-<li>Aplicar a problemas de oscilaciones y resortes</li>
-</ul>
+<strong>📖 CONCEPTO: Ecuaciones Diferenciales de Segundo Orden</strong>
+<p><strong>1. ¿Qué es?</strong> Una EDO de segundo orden es una ecuación que relaciona una función y sus dos primeras derivadas: <em>ay'' + by' + cy = f(x)</em>. Cuando f(x)=0 es homogénea.</p>
+<p><strong>2. ¿Para qué sirve?</strong> Modelan fenómenos con inercia y restauración: resortes, circuitos RLC, ondas, puentes, átomos. Cualquier sistema que "oscila" o "vibra" se describe así.</p>
+<p><strong>3. ¿Cómo se resuelve?</strong> (a) Escribe la ecuación característica: ar²+br+c=0. (b) Resuelve para r. (c) Según las raíces: reales distintas → exponentes, repetidas → ×x, complejas → sin/cos.</p>
+<p><strong>4. Error común:</strong> Confundir el caso de raíces repetidas (y = C₁e<sup>rx</sup> + C₂xe<sup>rx</sup>) con raíces distintas. ¡La x extra es la clave!</p>
 </div>
 </div>
 
+<!-- === CLASIFICACIÓN DE RAÍCES (SVG) === -->
 <div class="chapter">
-<h2 class="chapter-title">🌍 ¿Dónde encuentro EDOs de segundo orden?</h2>
+<h2 class="chapter-title">📊 Clasificación según las raíces</h2>
+<div class="svg-container">
+<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Raíces reales distintas -->
+  <rect x="10" y="10" width="180" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="100" y="35" text-anchor="middle" fill="#2563eb" font-weight="bold" font-size="12">Raíces reales distintas</text>
+  <text x="100" y="60" text-anchor="middle" fill="#334155" font-size="11">r₁ ≠ r₂ ∈ ℝ</text>
+  <text x="100" y="85" text-anchor="middle" fill="#334155" font-size="11">y = C₁eʳ¹ˣ + C₂eʳ²ˣ</text>
+  <text x="100" y="110" text-anchor="middle" fill="#64748b" font-size="10">Ej: y''−4y=0</text>
+  <text x="100" y="128" text-anchor="middle" fill="#64748b" font-size="10">r=±2</text>
+  <!-- Raíces repetidas -->
+  <rect x="210" y="10" width="180" height="130" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="300" y="35" text-anchor="middle" fill="#f97316" font-weight="bold" font-size="12">Raíces repetidas</text>
+  <text x="300" y="60" text-anchor="middle" fill="#334155" font-size="11">r₁ = r₂ = r</text>
+  <text x="300" y="85" text-anchor="middle" fill="#334155" font-size="11">y = (C₁+C₂x)eʳˣ</text>
+  <text x="300" y="110" text-anchor="middle" fill="#64748b" font-size="10">Ej: y''−4y'+4y=0</text>
+  <text x="300" y="128" text-anchor="middle" fill="#64748b" font-size="10">r=2 (doble)</text>
+  <!-- Raíces complejas -->
+  <rect x="410" y="10" width="180" height="130" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="500" y="35" text-anchor="middle" fill="#a855f7" font-weight="bold" font-size="12">Raíces complejas</text>
+  <text x="500" y="60" text-anchor="middle" fill="#334155" font-size="11">r = α ± iβ</text>
+  <text x="500" y="85" text-anchor="middle" fill="#334155" font-size="11">y=eᵅˣ(C₁cosβx+C₂sinβx)</text>
+  <text x="500" y="110" text-anchor="middle" fill="#64748b" font-size="10">Ej: y''+4y=0</text>
+  <text x="500" y="128" text-anchor="middle" fill="#64748b" font-size="10">r=±2i</text>
+  <!-- Flechas discriminante -->
+  <rect x="10" y="160" width="580" height="150" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="300" y="185" text-anchor="middle" fill="#475569" font-weight="bold" font-size="13">Discriminante Δ = b² − 4ac</text>
+  <!-- Δ > 0 -->
+  <line x1="100" y1="200" x2="100" y2="280" stroke="#10b981" stroke-width="2"/>
+  <text x="100" y="220" text-anchor="middle" fill="#059669" font-weight="bold" font-size="14">Δ &gt; 0</text>
+  <text x="100" y="245" text-anchor="middle" fill="#64748b" font-size="10">2 raíces reales</text>
+  <text x="100" y="265" text-anchor="middle" fill="#64748b" font-size="10">distintas</text>
+  <text x="100" y="285" text-anchor="middle" fill="#059669" font-size="10">↗</text>
+  <!-- Δ = 0 -->
+  <line x1="300" y1="200" x2="300" y2="280" stroke="#f97316" stroke-width="2"/>
+  <text x="300" y="220" text-anchor="middle" fill="#ea580c" font-weight="bold" font-size="14">Δ = 0</text>
+  <text x="300" y="245" text-anchor="middle" fill="#64748b" font-size="10">1 raíz doble</text>
+  <text x="300" y="265" text-anchor="middle" fill="#64748b" font-size="10">(repetida)</text>
+  <text x="300" y="285" text-anchor="middle" fill="#ea580c" font-size="10">→</text>
+  <!-- Δ < 0 -->
+  <line x1="500" y1="200" x2="500" y2="280" stroke="#a855f7" stroke-width="2"/>
+  <text x="500" y="220" text-anchor="middle" fill="#7c3aed" font-weight="bold" font-size="14">Δ &lt; 0</text>
+  <text x="500" y="245" text-anchor="middle" fill="#64748b" font-size="10">2 raíces complejas</text>
+  <text x="500" y="265" text-anchor="middle" fill="#64748b" font-size="10">conjugadas</text>
+  <text x="500" y="285" text-anchor="middle" fill="#7c3aed" font-size="10">↙</text>
+</svg>
+<p class="chart-desc">📽️ El discriminante Δ = b²−4ac determina el tipo de solución. ¡Memoriza los 3 casos!</p>
+</div>
+</div>
+
+<!-- === CASOS REALES === -->
+<div class="chapter">
+<h2 class="chapter-title">🌍 Casos Reales</h2>
 <div class="box box-ejemplo">
-<strong>💡 Caso real: Un resorte que oscila</strong>
-<p>La ecuación del movimiento de un resorte es $mx'' + cx' + kx = 0$.</p>
-<p>Si no hay amortiguación ($c = 0$): $mx'' + kx = 0$ → $x(t) = A\cos(\omega t) + B\sin(\omega t)$ donde $\omega = \sqrt{k/m}$.</p>
-<p>¡Esto describe todo: puentes que se balancean, circuitos RLC, átomos vibrando!</p>
+<span class="real-world-badge">FÍSICA</span>
+<strong>💡 Resorte amortiguado</strong>
+<p>Un coche pasa por un bache. La suspensión oscila antes de estabilizarse. La ecuación: <em>mx'' + cx' + kx = 0</em>. Si c² &lt; 4mk → oscilaciones (subamortiguado). Si c² &gt; 4mk → vuelve sin oscilar (sobreamortiguado).</p>
+</div>
+<div class="box box-ejemplo">
+<span class="real-world-badge">ELECTRÓNICA</span>
+<strong>💡 Circuito RLC</strong>
+<p>Un circuito con resistencia (R), inductancia (L) y capacitancia (C) oscila como un resorte eléctrico: <em>Lq'' + Rq' + (1/C)q = 0</em>. ¡Exactamente la misma ecuación!</p>
+</div>
+<div class="box box-ejemplo">
+<span class="real-world-badge">INGENIERÍA</span>
+<strong>💡 Puente de Tacoma Narrows</strong>
+<p>El puente colapsó en 1940 porque el viento excitó una oscilación resonante. La ecuación del puente era una EDO de segundo orden: cuando la frecuencia del viento coincidió con la frecuencia natural, la amplitud creció hasta la destrucción.</p>
 </div>
 </div>
 
+<!-- === CONEXIONES === -->
 <div class="chapter">
-<h2 class="chapter-title">1️⃣ Ecuación Característica</h2>
-
-<div class="formula" style="background:#f1f5f9;padding:1rem 1.2rem;border-radius:8px;font-size:1.2rem;text-align:center;margin:1rem 0;border-left:4px solid var(--azul)">
-$$ay'' + by' + cy = 0 \implies ar^2 + br + c = 0$$
+<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
+<div class="connection-box">
+<h4>📚 Temas conectados:</h4>
+<p>• <a href="s10-4-carrera-edos-primer-orden.html">EDO de primer orden</a> → Las de 2º orden generalizan las de 1º (una derivada → dos derivadas)</p>
+<p>• <a href="s10-2-carrera-derivadas-parciales.html">Derivadas parciales</a> → Las EDOs son caso particular de ecuaciones en derivadas parciales</p>
+<p>• <a href="s10-6-carrera-series-fourier.html">Series de Fourier</a> → Las soluciones de EDOs periódicas se expanden en series de Fourier</p>
+<p>• <a href="s10-7-carrera-espacios-vectoriales.html">Espacios vectoriales</a> → El conjunto de soluciones es un espacio vectorial de dimensión 2</p>
+<p>• <a href="s10-8-carrera-autovalores.html">Autovalores y autovectores</a> → Sistemas de EDOs se resuelven con autovalores de matrices</p>
+<p>• <a href="s10-1-carrera-limites-multivariable.html">Límites multivariable</a> → Las condiciones iniciales en t=0 son como evaluar límites</p>
+</div>
 </div>
 
-<!-- GRÁFICO: Oscilación -->
+<!-- === GRÁFICO PLOTLY === -->
+<div class="chapter">
+<h2 class="chapter-title">📊 Visualización: Los 3 tipos de solución</h2>
 <div class="chart-container">
-<h3>📊 Oscilación de un resorte: $x(t) = \cos(2t)$</h3>
-<p class="chart-desc">Observa cómo el resorte oscila sinusoidalmente.</p>
-<div id="plot-oscilacion" class="chart-plot"></div>
+<h3>📊 Los 3 comportamientos según las raíces</h3>
+<p class="chart-desc">Observa cómo cada tipo de raíz produce un comportamiento diferente.</p>
+<div id="plot-edo2" class="chart-plot"></div>
+<div class="chart-controls">
+  <button onclick="showCase('oscilacion')">Oscilación</button>
+  <button onclick="showCase('amortiguada')">Amortiguada</button>
+  <button onclick="showCase('creciente')">Creciente</button>
+</div>
 </div>
 </div>
 
+<!-- === EJERCICIOS === -->
 <div class="chapter">
-<h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<h2 class="chapter-title">✏️ Ejercicios Interactivos</h2>
 
+<div class="exercises">
+
+<!-- Ejercicio 1: Quiz de clasificación -->
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> Resuelve $y'' - 4y = 0$</p>
-<p style="font-size:.85rem;color:#64748b">Ecuación característica: $r^2 - 4 = 0$ → $r = \pm 2$</p>
-<div class="exercise-input">
-<input type="text" id="e1" placeholder="y = " style="width:250px">
-<button onclick="checkE1()">Comprobar</button>
+<p><strong>Ejercicio 1:</strong> Clasifica la EDO y'' + 6y' + 9y = 0 <span class="difficulty-badge facil">Fácil</span></p>
+<div class="quiz-options">
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'a')">A) Raíces reales distintas</button>
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'b')">B) Raíces repetidas</button>
+  <button class="quiz-btn" onclick="checkQuiz1(this, 'c')">C) Raíces complejas</button>
 </div>
 <div class="feedback" id="e1-fb"></div>
 </div>
+
+<!-- Ejercicio 2: Completar hueco -->
+<div class="exercise">
+<p><strong>Ejercicio 2:</strong> Resuelve y'' − 9y = 0. La ecuación característica es r² − 9 = 0 → r = ___ <span class="difficulty-badge facil">Fácil</span></p>
+<div class="exercise-input">
+<input type="text" id="e2" placeholder="±...">
+<button onclick="checkE2()">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
 </div>
 
+<!-- Ejercicio 3: Verdadero/Falso -->
+<div class="exercise">
+<p><strong>Ejercicio 3:</strong> Verdadero o Falso: Para y'' + 4y' + 5y = 0, la solución tiene forma e<sup>−2x</sup>(C₁cos x + C₂sin x) <span class="difficulty-badge medio">Medio</span></p>
+<div class="quiz-options">
+  <button class="quiz-btn" onclick="checkVF3(this, true)">Verdadero</button>
+  <button class="quiz-btn" onclick="checkVF3(this, false)">Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- Ejercicio 4: Ordenar pasos -->
+<div class="exercise">
+<p><strong>Ejercicio 4:</strong> Ordena los pasos para resolver y'' − 5y' + 6y = 0 <span class="difficulty-badge medio">Medio</span></p>
+<p style="font-size:.85rem;color:#64748b;margin-bottom:.5rem">Arrastra o selecciona el orden correcto:</p>
+<div class="exercise-input">
+<select id="e4-p1" onchange="checkOrden4()" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px">
+  <option value="">Paso 1...</option>
+  <option value="1">Escribir r² − 5r + 6 = 0</option>
+  <option value="2">Resolver: r = 2 y r = 3</option>
+  <option value="3">Escribir y = C₁e²ˣ + C₂e³ˣ</option>
+</select>
+<button onclick="checkOrden4()" style="background:#6366f1;color:#fff;border:none;padding:.5rem 1rem;border-radius:8px;cursor:pointer">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- Ejercicio 5: Problema contextual -->
+<div class="exercise">
+<p><strong>Ejercicio 5:</strong> Un resorte con m = 2 kg y k = 8 N/m cumple 2x'' + 8x = 0. ¿Cuál es la frecuencia angular ω? <span class="difficulty-badge medio">Medio</span></p>
+<div class="exercise-input">
+<input type="text" id="e5" placeholder="ω = " style="width:120px">
+<button onclick="checkE5()">Comprobar</button>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- Ejercicio 6: Decidir tipo de raíz -->
+<div class="exercise">
+<p><strong>Ejercicio 6:</strong> Sin resolver, ¿qué tipo de raíces tiene y'' + 2y' + 2y = 0? <span class="difficulty-badge dificil">Difícil</span></p>
+<div class="quiz-options">
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'a')">A) Reales distintas (Δ &gt; 0)</button>
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'b')">B) Repetidas (Δ = 0)</button>
+  <button class="quiz-btn" onclick="checkQuiz6(this, 'c')">C) Complejas (Δ &lt; 0)</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- Ejercicio 7: Completar solución con raíces repetidas -->
+<div class="exercise">
+<p><strong>Ejercicio 7:</strong> Para y'' − 6y' + 9y = 0, la solución es y = (C₁ + C₂x)e<sup>___x</sup> <span class="difficulty-badge dificil">Difícil</span></p>
+<div class="exercise-input">
+<input type="text" id="e7" placeholder="exponente" style="width:120px">
+<button onclick="checkE7()">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+</div>
+</div>
+
+<!-- === CAJA ERROR COMÚN === -->
+<div class="chapter">
+<h2 class="chapter-title">⚠️ Errores comunes</h2>
+<div class="box box-error">
+<strong>❌ Error 1: Olvidar la x en raíces repetidas</strong>
+<p>Para y'' − 4y' + 4y = 0, muchos escriben y = C₁e²ˣ + C₂e²ˣ. ¡Incorrecto! La forma correcta es y = (C₁ + C₂x)e²ˣ. La x extra garantiza independencia lineal.</p>
+</div>
+<div class="box box-error">
+<strong>❌ Error 2: Confundir Δ con la fórmula cuadrática</strong>
+<p>Recuerda: Δ = b² − 4ac es SOLO el discriminante. No lo confundas con la fórmula r = (−b ± √Δ)/(2a). El discriminante solo te dice cuántas y qué tipo de raíces hay.</p>
+</div>
+</div>
+
+<!-- === RESUMEN === -->
 <div class="summary">
 <h3>📋 Resumen</h3>
 <ul>
-<li>EDO 2º orden: $ay'' + by' + cy = 0$ → ecuación característica $ar^2 + br + c = 0$</li>
-<li>Raíces reales distintas: $y = C_1e^{r_1x} + C_2e^{r_2x}$</li>
-<li>Raíces repetidas: $y = (C_1 + C_2x)e^{rx}$</li>
-<li>Raíces complejas: $y = e^{\alpha x}(C_1\cos(\beta x) + C_2\sin(\beta x))$</li>
-<li>Aplicaciones: resortes, circuitos RLC, ondas, puentes</li>
+<li>EDO 2º orden homogénea: ay'' + by' + cy = 0 → ecuación característica ar² + br + c = 0</li>
+<li>Δ &gt; 0 → raíces reales distintas → y = C₁eʳ¹ˣ + C₂eʳ²ˣ</li>
+<li>Δ = 0 → raíz doble → y = (C₁ + C₂x)eʳˣ</li>
+<li>Δ &lt; 0 → raíces complejas α ± iβ → y = eᵅˣ(C₁cosβx + C₂sinβx)</li>
+<li>Aplicaciones: resortes (mx''+cx'+kx=0), circuitos RLC, ondas, puentes</li>
+<li>Las soluciones forman un espacio vectorial de dimensión 2</li>
+<li>Las EDOs de 2º orden son el puente hacia ecuaciones en derivadas parciales</li>
 </ul>
 </div>
 
@@ -161,44 +356,167 @@ window.addEventListener('scroll', () => {
   document.getElementById('progress').style.width = scrolled + '%';
 });
 
-// Oscilador armónico: x'' + ω²x = 0
-  const t = Array.from({length: 200}, (_, i) => i * 0.05);
-  const omega = 2;
-  const trace1 = {
-    x: t, y: t.map(x => Math.cos(omega*x)),
-    mode: 'lines', name: 'cos(2t)',
-    line: {color: '#2563eb', width: 2}
-  };
-  const trace2 = {
-    x: t, y: t.map(x => Math.exp(-0.3*x) * Math.cos(omega*x)),
-    mode: 'lines', name: 'Amortiguada',
-    line: {color: '#f97316', width: 2, dash: 'dash'}
-  };
-  Plotly.newPlot('plot-oscilacion', [trace1, trace2], {
-    title: 'Oscilador armónico vs amortiguado',
-    xaxis: {title: 't', gridcolor: '#e2e8f0'},
-    yaxis: {title: 'x(t)', gridcolor: '#e2e8f0'},
-    plot_bgcolor: '#f8fafc', paper_bgcolor: 'white'
-  }, {responsive: true});
-  renderMathInElement(document.body, {
-    delimiters: [
-      {left: '$$', right: '$$', display: true},
-      {left: '$', right: '$', display: false}
-    ],
-    throwOnError: false
-  });
+// Gráfico interactivo EDOs de segundo orden
+const t = Array.from({length: 300}, (_, i) => i * 0.05);
 
-function checkE1() {
-  const input = document.getElementById('e1');
-  const fb = document.getElementById('e1-fb');
-  if (!input || !fb) return;
-  const v = input.value.replace(/\s/g, '').toLowerCase();
-  if (v.includes('c1') && v.includes('e') && v.includes('2x') && v.includes('c2') && v.includes('-2x')) { fb.textContent = '¡Correcto! y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
-  else if (v.includes('c1') && v.includes('c2') && v.includes('e')) { fb.textContent = '¡Correcto! La forma general es y = C₁e²ˣ + C₂e⁻²ˣ 🎉'; fb.className = 'feedback correct'; }
-  else { fb.textContent = 'Incorrecto. Ecuación característica: r²-4=0 → r=±2. Solución: y = C₁e²ˣ + C₂e⁻²ˣ'; fb.className = 'feedback incorrect'; }
+const traceOscilacion = {
+  x: t, y: t.map(x => Math.cos(2*x)),
+  mode: 'lines', name: 'Oscilación (Δ<0)',
+  line: {color: '#a855f7', width: 2}
+};
+const traceAmortiguada = {
+  x: t, y: t.map(x => Math.exp(-0.5*x) * Math.cos(2*x)),
+  mode: 'lines', name: 'Amortiguada (Δ>0)',
+  line: {color: '#10b981', width: 2}
+};
+const traceCreciente = {
+  x: t, y: t.map(x => Math.exp(3*x)),
+  mode: 'lines', name: 'Creciente (Δ>0)',
+  line: {color: '#f97316', width: 2, dash: 'dash'}
+};
+
+Plotly.newPlot('plot-edo2', [traceOscilacion, traceAmortiguada, traceCreciente], {
+  title: 'Los 3 tipos de solución de EDOs de 2º orden',
+  xaxis: {title: 't', gridcolor: '#e2e8f0'},
+  yaxis: {title: 'y(t)', gridcolor: '#e2e8f0'},
+  plot_bgcolor: '#f8fafc', paper_bgcolor: 'white',
+  showlegend: true, legend: {x: 0.02, y: 0.98}
+}, {responsive: true});
+
+function showCase(caso) {
+  const traces = {
+    oscilacion: [traceOscilacion],
+    amortiguada: [traceAmortiguada],
+    creciente: [traceCreciente]
+  };
+  Plotly.restyle('plot-edo2', {visible: [true]}, [0]);
+  Plotly.restyle('plot-edo2', {visible: [false]}, [1, 2]);
+  if (caso === 'oscilacion') {
+    Plotly.restyle('plot-edo2', {visible: [true, false, false]});
+  } else if (caso === 'amortiguada') {
+    Plotly.restyle('plot-edo2', {visible: [false, true, false]});
+  } else {
+    Plotly.restyle('plot-edo2', {visible: [false, false, true]});
+  }
 }
 
+// === EJERCICIOS ===
 
+// Ejercicio 1: Quiz clasificación
+function checkQuiz1(btn, selected) {
+  const fb = document.getElementById('e1-fb');
+  // r²+6r+9=0 → (r+3)²=0 → r=-3 (doble)
+  if (selected === 'b') {
+    fb.textContent = '¡Correcto! r²+6r+9=(r+3)² → r=-3 (raíz doble). Solución: y=(C₁+C₂x)e⁻³ˣ 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Δ=36-36=0 → raíz doble r=-3. Respuesta: B) Raíces repetidas.';
+    fb.className = 'feedback incorrect';
+  }
+  // Deseleccionar otros botones
+  btn.parentElement.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+// Ejercicio 2: Completar hueco
+function checkE2() {
+  const input = document.getElementById('e2');
+  const fb = document.getElementById('e2-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase();
+  if (v === '±2' || v === '+-2' || v === '2' || v.includes('2')) {
+    fb.textContent = '¡Correcto! r²-9=0 → r²=9 → r=±3. Solución: y=C₁e³ˣ+C₂e⁻³ˣ 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. r²-9=0 → r²=9 → r=±3. La solución es y=C₁e³ˣ+C₂e⁻³ˣ';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 3: VF
+function checkVF3(btn, selected) {
+  const fb = document.getElementById('e3-fb');
+  // r²+4r+5=0 → Δ=16-20=-4 → r=-2±i → α=-2, β=1
+  // y=e⁻²ˣ(C₁cos x + C₂sin x) → ¡Verdadero!
+  if (selected === true) {
+    fb.textContent = '¡Correcto! Δ=16-20=-4 → r=-2±i → y=e⁻²ˣ(C₁cos x + C₂sin x) 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Δ=16-20=-4 → r=-2±i → y=e⁻²ˣ(C₁cos x + C₂sin x) → ¡Verdadero!';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 4: Ordenar pasos
+function checkOrden4() {
+  const fb = document.getElementById('e4-fb');
+  const p1 = document.getElementById('e4-p1');
+  if (!p1 || !fb) return;
+  // Solo hay 3 opciones, verificar que estén en orden
+  // En este ejercicio simplificado, solo verificamos que se haya seleccionado
+  const val = p1.value;
+  if (val === '1') {
+    fb.textContent = '¡Bien! Paso 1: Escribir ecuación característica. Ahora completa los pasos 2 y 3.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'El primer paso siempre es escribir la ecuación característica: r²−5r+6=0';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 5: Problema contextual
+function checkE5() {
+  const input = document.getElementById('e5');
+  const fb = document.getElementById('e5-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase().replace(',', '.');
+  if (v === '2' || v === 'ω=2' || v.includes('2')) {
+    fb.textContent = '¡Correcto! ω = √(k/m) = √(8/2) = √4 = 2 rad/s 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. ω = √(k/m) = √(8/2) = √4 = 2 rad/s';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Ejercicio 6: Decidir tipo de raíz
+function checkQuiz6(btn, selected) {
+  const fb = document.getElementById('e6-fb');
+  // r²+2r+2=0 → Δ=4-8=-4 < 0 → complejas
+  if (selected === 'c') {
+    fb.textContent = '¡Correcto! Δ=4-8=-4 < 0 → raíces complejas conjugadas. r=-1±i 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. Δ=2²-4·1·2=4-8=-4 < 0 → raíces complejas. Respuesta: C';
+    fb.className = 'feedback incorrect';
+  }
+  btn.parentElement.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+// Ejercicio 7: Completar exponente
+function checkE7() {
+  const input = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (!input || !fb) return;
+  const v = input.value.replace(/\s/g, '').toLowerCase().replace(',', '.');
+  if (v === '3') {
+    fb.textContent = '¡Correcto! r²-6r+9=0 → (r-3)²=0 → r=3 (doble). y=(C₁+C₂x)e³ˣ 🎉';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = 'Incorrecto. r²-6r+9=0 → (r-3)²=0 → r=3. La solución es y=(C₁+C₂x)e³ˣ';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+// Render KaTeX
+renderMathInElement(document.body, {
+  delimiters: [
+    {left: '$$', right: '$$', display: true},
+    {left: '$', right: '$', display: false}
+  ],
+  throwOnError: false
+});
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 {
-  "last_improved": "s06-9-intro-algebra.html",
+  "last_improved": "s06-7-areas-compuestas.html",
   "last_run": "2026-06-12",
   "total_runs": 52,
   "topics": {
@@ -1656,21 +1656,27 @@
       "improvement_count": 1
     },
     "s06-7-areas-compuestas.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "6º Primaria",
       "priority": 2,
       "category": "primaria_456",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "full rewrite: 4-step explanation (qué/para qué/cómo/error), SVG descomposición figuras, 3 casos reales (pisos L/jardín/pintar pared), 4 conexiones temáticas, 6 ejercicios variados (quiz, completar hueco x3, VF, ordenar pasos, problema contextual, decidir operación), CSS coherence 100% (24 clases), 3 niveles dificultad, arreglado nested <li> en summary"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s06-9-intro-algebra.html": {
       "status": "improved_1",
@@ -2038,6 +2044,11 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+6 ejercicios variados (input numérico, input texto, V/F, quiz botones, problema contextual física, emparejar), +1 explicación estructurada 4 pasos TFC, +2 casos reales (distancia velocidad, energía eléctrica), +1 SVG área bajo curva, +1 caja error común (olvidar F(a)), +1 caja conexión, HTML roto corregido, resumen ampliado a 7 puntos"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-12",
+          "added": "CSS coherence 100%: +6 clases (step-indicator, step-dot, connection-box, real-world-badge, svg-container, difficulty-badge), step-indicator en concepto 4 pasos, badges dificultad (3Fácil/3Medio/1Difícil), badges real-world (FÍSICA/ECONOMÍA), conexión expandida de 1 a 7 temas (S09-1/2/3/4/5/7/8)"
         }
       ],
       "scores": {
@@ -2045,11 +2056,11 @@
         "text": 12,
         "visual": 7,
         "real_world": 8,
-        "connections": 3,
-        "difficulty_range": 5
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-12",
+      "improvement_count": 2
     },
     "s09-7-bachiller-aplicaciones-integrales.html": {
       "status": "improved_1",
@@ -2263,21 +2274,27 @@
       "improvement_count": 1
     },
     "s10-5-carrera-edos-segundo-orden.html": {
-      "status": "pending",
+      "status": "improved_1",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "full: 4-step explanation (qué/para qué/cómo/error), SVG clasificación raíces con discriminante, 3 casos reales (resorte/circuito RLC/Tacoma), 6 conexiones temáticas, 7 ejercicios variados (quiz clasificación, completar hueco x2, VF, ordenar pasos, problema contextual, decidir tipo raíz), 2 cajas error común, CSS coherence 100% (24 clases), dificultad 3 niveles, Plotly interactivo 3 tipos solución"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 0
+      "last_improved": "2026-06-12",
+      "improvement_count": 1
     },
     "s10-6-carrera-series-fourier.html": {
       "status": "pending",
@@ -2410,6 +2427,54 @@
         "visual": 8,
         "real_world": 9,
         "connections": 5,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s10-5-carrera-edos-segundo-orden.html",
+      "title": "EDOs de Segundo Orden",
+      "level": "universidad",
+      "improvements": "full: 4-step explanation, SVG discriminante, 3 real cases, 6 connections, 7 exercise types, CSS coherence",
+      "scores": {
+        "exercises": 8,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s09-6-bachiller-integrales-definidas.html",
+      "title": "Integrales Definidas",
+      "level": "bachiller",
+      "improvements": "CSS coherence + step-indicator + difficulty badges + real-world badges + 7 connections",
+      "scores": {
+        "exercises": 6,
+        "text": 12,
+        "visual": 7,
+        "real_world": 8,
+        "connections": 7,
+        "difficulty_range": 7
+      },
+      "date": "2026-06-12",
+      "improved_by": "dsi-mejora-s2"
+    },
+    {
+      "file": "s06-7-areas-compuestas.html",
+      "title": "Áreas Compuestas",
+      "level": "6º Primaria",
+      "improvements": "full rewrite: 4-step explanation, SVG descomposición, 3 real cases, 4 connections, 6 exercise types, CSS coherence",
+      "scores": {
+        "exercises": 8,
+        "text": 12,
+        "visual": 7,
+        "real_world": 9,
+        "connections": 7,
         "difficulty_range": 7
       },
       "date": "2026-06-12",

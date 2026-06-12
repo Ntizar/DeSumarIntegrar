@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔤 S06.9: Introducción al Álgebra — 6º Primaria — ¡Letras en matemáticas!</title>
+<title>📐 S06.7: Áreas Compuestas — 6º Primaria — ¡Figuras complejas!</title>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,8 +57,8 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
 <header class="header">
-<h1>🔤 S06.9: Introducción al Álgebra</h1>
-<p>6º Primaria — ¡Letras en matemáticas!</p>
+<h1>📐 S06.7: Áreas Compuestas</h1>
+<p>6º Primaria — ¡Figuras complejas!</p>
 <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
 </header>
 <main class="container">
@@ -66,37 +66,37 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 <h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
 <div class="box box-idea">
 <strong>💡 Idea clave</strong>
-Las letras representan números desconocidos. x + 3 = 7 significa que x = 4.
+Las figuras compuestas se descomponen en figuras simples para calcular su área total.
 </div>
 <p>En esta sesión aprenderás a:</p>
 <ul style="margin:.8rem 0 1rem 1.5rem">
-<li>Entender qué es una ecuación</li><li>Resolver ecuaciones simples</li><li>Usar letras como incógnitas</li>
+<li>Calcular área de figuras compuestas</li><li>Descomponer figuras complejas</li><li>Calcular áreas de figuras irregulares</li>
 </ul>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">1️⃣ ¿Qué es el álgebra?</h2>
+<h2 class="chapter-title">1️⃣ Áreas de figuras compuestas</h2>
 <div class="box box-teoria">
 <strong>📖 Teoría</strong>
-Una ecuación es una igualdad con un número desconocido (x). Para resolverla, hacemos lo contrario: si suma, restamos. Si x + 3 = 7, entonces x = 7 - 3 = 4.
+Una figura compuesta se divide en figuras simples (cuadrados, rectángulos, triángulos). Área total = suma de áreas.
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
-x + 5 = 12 → x = 12 - 5 = 7
+L forma: cuadrado 4×4 + rectángulo 2×4 = 16 + 8 = 24 cm²
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 2</strong>
-3x = 15 → x = 15 ÷ 3 = 5
+Rectángulo 10×6 con triángulo recortado: 60 - (6×2)/2 = 60 - 6 = 54 cm²
 </div>
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 3</strong>
-x - 4 = 9 → x = 9 + 4 = 13
+Círculo en cuadrado: 10² - π×5² = 100 - 78.5 = 21.5 cm²
 </div>
 </section>
 <section class="chapter">
-<h2 class="chapter-title">2️⃣ ¡Resuelve ecuaciones!</h2>
+<h2 class="chapter-title">2️⃣ ¡Calcula áreas compuestas!</h2>
 <div class="interactive">
-<h3>Selecciona el valor de x:</h3>
-<div style="text-align:center;margin:1rem 0"><p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem" id="algDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="algButtons"></div></div>
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="compArea6Display"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="compArea6Buttons"></div></div>
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
@@ -104,43 +104,43 @@ x - 4 = 9 → x = 9 + 4 = 13
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 <div class="exercise">
-<p>x + 5 = 12, x = ?</p>
+<p>Cuadrado 6×6 + rectángulo 4×6:</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">7</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">17</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-</div>
-</div>
-<div class="exercise">
-<p>3x = 15, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">18</button>
-</div>
-</div>
-<div class="exercise">
-<p>x - 4 = 9, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">13</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">9</button>
-</div>
-</div>
-<div class="exercise">
-<p>x + 8 = 20, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">28</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-</div>
-</div>
-<div class="exercise">
-<p>4x = 20, x = ?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">16</button>
+<button class="quiz-btn" onclick="checkExercise(this, true)">60</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">36</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+</div>
+</div>
+<div class="exercise">
+<p>Rectángulo 8×5 con triángulo (base 4, alt 3) recortado:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">34</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">40</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">37</button>
+</div>
+</div>
+<div class="exercise">
+<p>Cuadrado 10×10 con círculo radio 5 (π$\approx$3.14):</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">21.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">78.5</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">100</button>
+</div>
+</div>
+<div class="exercise">
+<p>Triángulo base 8 altura 6:</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">24</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">48</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">14</button>
+</div>
+</div>
+<div class="exercise">
+<p>Círculo radio 3 (π$\approx$3.14):</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">28.26</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">18.84</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">9.42</button>
 </div>
 </div>
 
@@ -149,13 +149,13 @@ x - 4 = 9 → x = 9 + 4 = 13
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
 <ul>
-<li><li>Las letras son números desconocidos</li></li><li><li>Hacer lo contrario para resolver</li></li><li><li>¡Ya sabes álgebra básica! 🎉</li>
+<li><li>Descomponer en figuras simples</li></li><li><li>Sumar áreas</li></li><li><li>¡Ya sabes áreas compuestas! 🎉</li>
 </ul>
 </div>
 <div class="nav">
-<a href="s06-7-areas-compuestas.html">← Anterior</a>
+<a href="s06-5-proporcionalidad.html">← Anterior</a>
   <a href="s06-6primaria.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-<a href="s06-10-repasos-primaria.html">Siguiente →</a>
+<a href="s06-9-intro-algebra.html">Siguiente →</a>
 </div>
 </main>
 <footer class="footer">
@@ -163,11 +163,11 @@ Hecho con ❤️ por David Antizar
 </footer>
 <script>
 function newQuiz() {
-  const data = [{"q": "x + 5 = 12, x = ?", "opts": ["7", "17", "5"], "correct": 0}, {"q": "3x = 15, x = ?", "opts": ["5", "12", "18"], "correct": 0}, {"q": "x - 4 = 9, x = ?", "opts": ["13", "5", "9"], "correct": 0}, {"q": "x + 8 = 20, x = ?", "opts": ["12", "28", "8"], "correct": 0}, {"q": "4x = 20, x = ?", "opts": ["5", "16", "24"], "correct": 0}];
+  const data = [{"q": "Cuadrado 6\u00d76 + rect\u00e1ngulo 4\u00d76:", "opts": ["60", "36", "24"], "correct": 0}, {"q": "Rect\u00e1ngulo 8\u00d75 con tri\u00e1ngulo (base 4, alt 3) recortado:", "opts": ["34", "40", "37"], "correct": 0}, {"q": "Cuadrado 10\u00d710 con c\u00edrculo radio 5 (\u03c0\u22483.14):", "opts": ["21.5", "78.5", "100"], "correct": 0}, {"q": "Tri\u00e1ngulo base 8 altura 6:", "opts": ["24", "48", "14"], "correct": 0}, {"q": "C\u00edrculo radio 3 (\u03c0\u22483.14):", "opts": ["28.26", "18.84", "9.42"], "correct": 0}];
   const item = data[Math.floor(Math.random()*data.length)];
-  document.getElementById('algDisplay').textContent = item.q;
+  document.getElementById('compArea6Display').textContent = item.q;
   const opts = item.opts;
-  const buttons = document.getElementById('algButtons');
+  const buttons = document.getElementById('compArea6Buttons');
   buttons.innerHTML = '';
   opts.forEach((opt, i) => {
     const btn = document.createElement('button');
