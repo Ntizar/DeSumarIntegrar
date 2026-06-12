@@ -80,6 +80,17 @@ table tr:nth-child(even){background:#f8fafc}
   .katex-display>.katex{font-size:1em !important}
   .chart-plot{height:280px}
 }
+
+.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center;border:1px solid #e2e8f0}
+.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
+.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box strong{color:var(--pura)}
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}
+.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}
+.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
 </style>
 </head>
 <body>
@@ -125,6 +136,7 @@ table tr:nth-child(even){background:#f8fafc}
 <strong>💡 Caso real: Diseñar una botella</strong>
 <p>Las botellas de vidrio se fabrican girando un perfil alrededor de un eje. El volumen de la botella se calcula con integrales de revolución.</p>
 <p>Si el perfil de la botella sigue $y = f(x)$, el volumen es $V = \pi \int_a^b [f(x)]^2\,dx$.</p>
+<span class="real-world-badge">Diseño Industrial</span>
 </div>
 </div>
 
@@ -136,6 +148,18 @@ table tr:nth-child(even){background:#f8fafc}
 <p>La fuerza de un resorte es $F(x) = kx$ (Ley de Hooke). El trabajo para estirarlo de 0 a $x$ es:</p>
 <p>$W = \int_0^x kx\,dx = \frac{1}{2}kx^2$</p>
 <p>Si $k = 200$ N/m y estiras 0.1 m: $W = \frac{1}{2}(200)(0.01) = 1$ J. ¡Solo 1 julio!</p>
+<span class="real-world-badge">Física / Ingeniería</span>
+</div>
+</div>
+
+<!-- NUEVO: Caso real 3 — Bomba de agua -->
+<div class="chapter">
+<h2 class="chapter-title">💧 Caso real: Bomba de agua</h2>
+<div class="box box-ejemplo">
+<strong>💡 Caso real: Bombear agua de un pozo</strong>
+<p>Una bomba debe elevar agua desde 20m de profundidad. El trabajo depende de la densidad del agua: $W = \int_0^{20} \rho g A \cdot y\,dy$, donde $\rho = 1000\,\text{kg/m}^3$, $g = 9.8\,\text{m/s}^2$.</p>
+<p>Para un cilindro de base $A = 1\,\text{m}^2$: $W = 1000 \cdot 9.8 \cdot 1 \cdot \frac{20^2}{2} = 1.96 \times 10^6$ J ≈ 1.96 MJ.</p>
+<span class="real-world-badge">Ingeniería Civil</span>
 </div>
 </div>
 
@@ -289,6 +313,19 @@ $V = \pi \int_0^1 (x^2)^2\,dx = \pi \int_0^1 x^{\,___}\,dx = \pi \left[\frac{x^{
 
 </div>
 
+
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><strong>Integrales definidas (Sesión 6):</strong> base teórica — TFC conecta derivación e integración</li>
+<li><strong>Probabilidad avanzada (Sesión 8):</strong> funciones de densidad usan integrales continuas</li>
+<li><strong>Física:</strong> trabajo, energía cinética, centro de masa, momento de inercia</li>
+<li><strong>Química:</strong> concentración promedio, ley de Fick (difusión)</li>
+<li><strong>Economía:</strong> excedente del consumidor, costo total a partir de costo marginal</li>
+<li><strong>EDO segundo orden:</strong> volúmenes de revolución aparecen en problemas de simetría esférica</li>
+</ul>
+</div>
+
 <div class="summary">
 <h3>📋 Resumen de lo que aprendiste</h3>
 <ul>
@@ -299,6 +336,11 @@ $V = \pi \int_0^1 (x^2)^2\,dx = \pi \int_0^1 x^{\,___}\,dx = \pi \left[\frac{x^{
 <li>El método de discos usa rebanadas circulares (πr²·dx)</li>
 <li>El método de arcos usa cilindros huecos (2πx·f(x)·dx)</li>
 <li>¡Las integrales no son solo áreas: también calculan volúmenes y trabajo!</li>
+<li>Método de discos: rebanadas circulares perpendiculares al eje de giro</li>
+<li>Método de arcos: cilindros concéntricos paralelos al eje de giro</li>
+<li>Trabajo de fuerza variable: $W = \int F(x)\,dx$ — la integral acumula trabajo incremental</li>
+<li>Caso bomba de agua: $W = \rho g A \int_0^h y\,dy = \rho g A \frac{h^2}{2}$</li>
+<li>Aplicaciones interdisciplinares: física, ingeniería, economía, química</li>
 </ul>
 </div>
 
@@ -432,6 +474,22 @@ function checkMatch(el, formula, app) {
       });
       matchResults = {match1: null, match2: null, match3: null};
     }
+  }
+}
+
+// Ejercicio 6: Ordenar pasos para y = sqrt(x) de 0 a 4
+function checkOrden6() {
+  const input = document.getElementById('e6-order');
+  const fb = document.getElementById('e6-fb');
+  const val = input.value.replace(/\s/g, '').toLowerCase();
+  // Pasos correctos: 1)y²=x → 2)V=π∫₀⁴ x dx → 3)=[πx²/2]₀⁴ → 4)=8π
+  const correct = ['1,2,3,4', '1234'];
+  if (correct.includes(val)) {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 1)Elevamos al cuadrado → 2)Aplicamos fórmula discos → 3)Integramos → 4)Evaluar = 8π';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ Orden: 1)y²=x → 2)V=π∫₀⁴ x dx → 3)=[πx²/2]₀⁴ → 4)=8π';
   }
 }
 });

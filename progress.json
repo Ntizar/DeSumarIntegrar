@@ -2038,17 +2038,22 @@
           "run": 48,
           "date": "2026-06-11",
           "added": "+4 ejercicios variados (input numérico ×2, completar hueco pasos, V/F, emparejar fórmula), +2 casos reales (diseño botella vidrio, trabajo resorte Hooke), +1 visualización SVG método de discos (rebanadas), +1 explicación estructurada 4 pasos, +1 caja error común (olvidar π), +1 caja conexión (integrales definidas↔volúmenes), resumen ampliado a 8 puntos"
+        },
+        {
+          "run": 49,
+          "date": "2026-06-12",
+          "added": "CSS missing classes (.svg-container, .step-indicator, .step-dot, .connection-box, .real-world-badge, .difficulty-badge), +1 caso real bomba de agua con .real-world-badge, +1 caja conexiones (6 temas conectados), +1 ejercicio ordenar pasos (y=√x), +2 puntos resumen, +3 funciones JS nuevas (checkOrden6)"
         }
       ],
       "scores": {
-        "exercises": 5,
+        "exercises": 6,
         "text": 12,
         "visual": 7,
         "real_world": 8,
-        "connections": 3,
+        "connections": 7,
         "difficulty_range": 6
       },
-      "last_improved": "2026-06-11",
+      "last_improved": "2026-06-12",
       "improvement_count": 1
     },
     "s09-8-bachiller-probabilidad-avanzada.html": {
