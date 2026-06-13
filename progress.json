@@ -556,7 +556,7 @@
       "improvement_count": 0
     },
     "eso1-1-numeros-enteros.html": {
-      "status": "improved_1",
+      "status": "improved",
       "level": "1º ESO",
       "priority": 2,
       "category": "eso",
@@ -565,17 +565,23 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+8 ejercicios variados (quiz botones, valor absoluto input, ordenar de menor a mayor, V/F x2, problema ascensor, temperatura input, altitud input), +4 explicaciones estructuradas (qué son, para qué sirven, cómo se ordenan, error común), +2 casos reales (ascensor/sótanos, temperatura), +1 recta numérica SVG interactiva, +1 caja error común, +1 caja conexión vida real, resumen ampliado a 8 puntos"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-12",
+          "added": "+16 difficulty badges (4 facil, 8 medio, 4 dificil), +2 casos reales (termómetro Madrid, cuenta banco), +1 SVG visual -3>-5, +2 conexiones extra (proporcionalidad, ecuaciones), +2 ejercicios nuevos (V/F visual SVG, emparejar), +CSS difficulty-badge, +corregido </head>/<body>, +div balance 60/60"
         }
       ],
       "scores": {
-        "exercises": 8,
+        "exercises": 10,
         "text": 9,
-        "visual": 2,
-        "real_world": 3,
-        "connections": 2,
-        "difficulty_range": 5
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 8,
+        "css_coherence": 10
       },
-      "last_improved": "2026-06-10",
+      "last_improved": "2026-06-12",
       "improvement_count": 1
     },
     "eso1-3-proporcionalidad.html": {
@@ -2668,8 +2674,20 @@
       "agent": "dsi-mejora-s2",
       "dimensions_improved": "exercises,real_world,connections,difficulty_range",
       "description": "Añadidos: 2 casos reales (física, ML), 2 nuevos ejercicios (emparejar, completar), CSS .exercises"
+    },
+    {
+      "date": "2026-06-12",
+      "file": "eso1-1-numeros-enteros.html",
+      "level": "ESO",
+      "dimensions_improved": "exercises,visual,real_world,connections,difficulty_range,css_coherence",
+      "description": "Añadidos: 16 difficulty badges, 2 casos reales (termómetro/cuenta), SVG visual -3>-5, 2 conexiones extra, 2 ejercicios nuevos (VF visual, emparejar), CSS difficulty-badge, corregido </head>/<body>"
     }
   ],
   "session_count": 1,
-  "last_session": "2026-06-12"
+  "last_session": "2026-06-12",
+  "rotation": {
+    "last_improved_level": "ESO",
+    "last_improved_file": "eso1-1-numeros-enteros.html",
+    "improvement_count": 1
+  }
 }

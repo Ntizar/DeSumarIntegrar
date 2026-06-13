@@ -5,38 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🔢 ESO1.1: Números Enteros — 1º ESO — ¡Más allá del cero!</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-function checkMatch(btn, correct) {
-  const result = document.getElementById('matchResult');
-  result.style.display = 'block';
-  if(correct) {
-    btn.classList.add('correct');
-    result.className = 'feedback correct';
-    result.textContent = '✅ ¡Correcto! 7 grados bajo cero = -7, y una deuda de 50€ = -50.';
-  } else {
-    btn.classList.add('wrong');
-    result.className = 'feedback incorrect';
-    result.textContent = '❌ Incorrecto. Recuerda: bajo cero = negativo, deuda = negativo.';
-  }
-}
-
-</script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})">
-function checkMatch(btn, correct) {
-  const result = document.getElementById('matchResult');
-  result.style.display = 'block';
-  if(correct) {
-    btn.classList.add('correct');
-    result.className = 'feedback correct';
-    result.textContent = '✅ ¡Correcto! 7 grados bajo cero = -7, y una deuda de 50€ = -50.';
-  } else {
-    btn.classList.add('wrong');
-    result.className = 'feedback incorrect';
-    result.textContent = '❌ Incorrecto. Recuerda: bajo cero = negativo, deuda = negativo.';
-  }
-}
-
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -138,32 +108,9 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
 .chart-controls button:hover{background:#1d4ed8}
 .chart-controls button.active{background:var(--naranja)}
-
-/* Difficulty badge */
-.difficulty-badge {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-.difficulty-badge.facil {
-  background: #dcfce7;
-  color: #166534;
-}
-.difficulty-badge.medio {
-  background: #fef3c7;
-  color: #92400e;
-}
-.difficulty-badge.dificil {
-  background: #fee2e2;
-  color: #991b1b;
-}
 </style>
-</head>
-<body>
+
+
   <div style="padding: 0.75rem 1.5rem;">
     <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
   </div>
@@ -195,14 +142,6 @@ Los números enteros (\(\mathbb{Z}\)) van más allá de los naturales: incluyen 
 <div class="connection-box">
 <strong>🔗 Conexión con lo que ya sabes</strong>
 <p>En Primaria trabajaste los <strong>números naturales</strong> (\(\mathbb{N} = \{1, 2, 3, \ldots\}\)) y aprendiste a sumarlos, restarlos y ordenarlos. Los números enteros amplían ese conjunto: añadimos los <strong>negativos</strong> y el <strong>cero</strong>. Es como si tuvieras un "modo inverso" de los naturales. Piensa en un termómetro: los grados positivos suben, los negativos bajan. ¡Ya conoces la idea, ahora la vamos a formalizar!</p>
-
-<div class="connection-box">
-<strong>🔗 Conexiones con próximos temas</strong>
-<p>• <a href="eso1-3-proporcionalidad.html">ESO1.3: Proporcionalidad</a> — Las proporciones usan enteros en ratios y escalas</p>
-<p>• <a href="eso2-1-ecuaciones-1grado.html">ESO2.1: Ecuaciones de 1º Grado</a> — Las ecuaciones tienen soluciones que pueden ser enteros negativos</p>
-<p>• <a href="s06-9-intro-algebra.html">S06.9: Intro al Álgebra</a> — Las variables pueden tomar valores enteros negativos</p>
-<p>• <a href="s03-6-estadistica.html">S03.6: Estadística</a> — Los datos pueden ser negativos (temperaturas, balances)</p>
-</div>
 </div>
 
 <!-- TEORÍA ESTRUCTURADA EN 4 PASOS -->
@@ -287,21 +226,6 @@ De izquierda a derecha en la recta: siempre crecen.</p>
 </div>
 </section>
 
-
-<section class="chapter">
-<h2 class="chapter-title">🌍 Más casos reales de enteros</h2>
-<div class="box box-ejemplo">
-<strong>🌡️ Caso 2: El termómetro de Madrid</strong>
-<span class="real-world-badge">Clima</span><br>
-Un día de invierno en Madrid, la temperatura a mediodía es de <b>5°C</b>. A medianoche baja <b>12 grados</b>. La nueva temperatura es: \(5 + (-12) = -7°\text{C}\). ¡Siete grados bajo cero! Los enteros nos dicen cuándo congelarse. ❄️
-</div>
-<div class="box box-ejemplo">
-<strong>💰 Caso 3: La cuenta del banco</strong>
-<span class="real-world-badge">Finanzas</span><br>
-Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El banco registra: \(200 + (-350) = -150\). Ahora debes <b>€150</b> al banco. El saldo negativo es un número entero. Para volver a cero, necesitas ingresar €150. 🏦
-</div>
-</section>
-
 <!-- RECTA NUMÉRICA VISUAL -->
 <section class="chapter">
 <h2 class="chapter-title">📏 Recta numérica interactiva</h2>
@@ -341,43 +265,13 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 </section>
 
 <!-- EJERCICIOS VARIADOS -->
-
-<section class="chapter">
-<h2 class="chapter-title">📊 Visualiza: ¿Por qué -3 > -5?</h2>
-<div class="svg-container">
-<svg width="500" height="200" viewBox="0 0 500 200">
-<line x1="50" y1="100" x2="450" y2="100" stroke="#94a3b8" stroke-width="3"/>
-<polygon points="50,100 62,94 62,106" fill="#94a3b8"/>
-<polygon points="450,100 438,94 438,106" fill="#94a3b8"/>
-<line x1="100" y1="90" x2="100" y2="110" stroke="#94a3b8" stroke-width="2"/>
-<text x="100" y="130" text-anchor="middle" font-size="14" fill="#64748b">-5</text>
-<line x1="180" y1="90" x2="180" y2="110" stroke="#94a3b8" stroke-width="2"/>
-<text x="180" y="130" text-anchor="middle" font-size="14" fill="#64748b">-3</text>
-<line x1="250" y1="85" x2="250" y2="115" stroke="#2563eb" stroke-width="3"/>
-<text x="250" y="130" text-anchor="middle" font-size="14" fill="#2563eb" font-weight="bold">0</text>
-<circle cx="100" cy="100" r="18" fill="#ef4444" opacity="0.2"/>
-<circle cx="100" cy="100" r="12" fill="#ef4444"/>
-<text x="100" y="105" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">-5</text>
-<circle cx="180" cy="100" r="18" fill="#10b981" opacity="0.2"/>
-<circle cx="180" cy="100" r="12" fill="#10b981"/>
-<text x="180" y="105" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">-3</text>
-<line x1="118" y1="70" x2="162" y2="70" stroke="#f97316" stroke-width="2"/>
-<text x="140" y="62" text-anchor="middle" font-size="12" fill="#f97316" font-weight="bold">-3 &gt; -5</text>
-<text x="250" y="170" text-anchor="middle" font-size="13" fill="#1e293b">-3 está más a la derecha → -3 es MAYOR que -5</text>
-</svg>
-</div>
-<div class="box box-teoria">
-<strong>🧠 Piensa así:</strong>
-<p>En la recta, <b>todo lo que está a la derecha es mayor</b>. El -3 está más cerca del 0 que el -5, así que está más a la derecha. ¡Por eso -3 > -5!</p>
-</div>
-</section>
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
 <!-- TIPO 1: QUIZ — Comparar enteros -->
 <div class="exercise">
-<p>🔢 <strong>Ejercicio 1</strong> <span class="difficulty-badge facil">Fácil</span> (Quiz): ¿Cuál de estas comparaciones es <strong>correcta</strong>?</p>
+<p>🔢 <strong>Ejercicio 1</strong> (Quiz): ¿Cuál de estas comparaciones es <strong>correcta</strong>?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkQuizMulti(this, false, '', '❌ Incorrecto. -3 está a la derecha de -1 en la recta, así que -3 < -1. Entre negativos, el de menor valor absoluto es MAYOR.')">\\(-3 > -1\\)</button>
 <button class="quiz-btn" onclick="checkQuizMulti(this, true, '✅ ¡Correcto! -8 está más a la izquierda que -2 en la recta numérica. Entre negativos, -8 tiene mayor valor absoluto (8) y por eso es MENOR: -8 < -2.', '')">\\(-8 < -2\\)</button>
@@ -388,7 +282,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 2: COMPLETAR HUECO — Valor absoluto -->
 <div class="exercise">
-<p>📏 <strong>Ejercicio 2</strong> <span class="difficulty-badge facil">Fácil</span> (Completar hueco): El valor absoluto de \(-12\) es \(|-12| = \) ___</p>
+<p>📏 <strong>Ejercicio 2</strong> (Completar hueco): El valor absoluto de \(-12\) es \(|-12| = \) ___</p>
 <input type="number" id="absInput" placeholder="?">
 <button class="check-btn" onclick="checkAbs()">Comprobar</button>
 <div class="result" id="absResult" style="display:none"></div>
@@ -396,7 +290,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 3: VERDADERO/FALSO — Propiedades del cero -->
 <div class="exercise">
-<p>✅❌ <strong>Ejercicio 3</strong> <span class="difficulty-badge facil">Fácil</span> (Verdadero o Falso): "El cero es un número positivo porque es mayor que todos los negativos."</p>
+<p>✅❌ <strong>Ejercicio 3</strong> (Verdadero o Falso): "El cero es un número positivo porque es mayor que todos los negativos."</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
@@ -405,7 +299,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 4: PROBLEMA — Temperatura -->
 <div class="exercise">
-<p>🌡️ <strong>Ejercicio 4</strong> <span class="difficulty-badge medio">Medio</span> (Problema): En una ciudad, la temperatura a las 6:00 es \(3°\text{C}\). A medianoche baja \(8\) grados. ¿Cuál es la temperatura a medianoche?</p>
+<p>🌡️ <strong>Ejercicio 4</strong> (Problema): En una ciudad, la temperatura a las 6:00 es \(3°\text{C}\). A medianoche baja \(8\) grados. ¿Cuál es la temperatura a medianoche?</p>
 <input type="number" id="tempInput" placeholder="°C">
 <button class="check-btn" onclick="checkTemp()">Comprobar</button>
 <div class="result" id="tempResult" style="display:none"></div>
@@ -413,7 +307,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 5: QUIZ — Ordenar en la recta -->
 <div class="exercise">
-<p>📊 <strong>Ejercicio 5</strong> <span class="difficulty-badge medio">Medio</span> (Quiz): ¿Qué número está más a la izquierda en la recta numérica?</p>
+<p>📊 <strong>Ejercicio 5</strong> (Quiz): ¿Qué número está más a la izquierda en la recta numérica?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkQuizMulti(this, false, '', '❌ Incorrecto. El 0 está en el centro de la recta, no a la izquierda. Busca el número más negativo.')">\\(0\\)</button>
 <button class="quiz-btn" onclick="checkQuizMulti(this, true, '✅ ¡Correcto! -15 es el más a la izquierda porque es el menor: -15 < -3 < 0 < 5. Entre todos estos, -15 tiene mayor valor absoluto y es más negativo.', '')">\\(-15\\)</button>
@@ -424,7 +318,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 6: COMPLETAR HUECO — Altitud -->
 <div class="exercise">
-<p>🏔️ <strong>Ejercicio 6</strong> <span class="difficulty-badge medio">Medio</span> (Completar hueco): El Mar Muerto está a \(-430\) m y el Everest a \(+8849\) m. La diferencia de altitud es \(8849 - (-430) = 8849 + 430 = \) ___ metros.</p>
+<p>🏔️ <strong>Ejercicio 6</strong> (Completar hueco): El Mar Muerto está a \(-430\) m y el Everest a \(+8849\) m. La diferencia de altitud es \(8849 - (-430) = 8849 + 430 = \) ___ metros.</p>
 <input type="number" id="altitudeInput" placeholder="metros">
 <button class="check-btn" onclick="checkAltitude()">Comprobar</button>
 <div class="result" id="altitudeResult" style="display:none"></div>
@@ -432,7 +326,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 7: VERDADERO/FALSO — Error común -->
 <div class="exercise">
-<p>✅❌ <strong>Ejercicio 7</strong> <span class="difficulty-badge medio">Medio</span> (Verdadero o Falso): "El número \(-1\) es el entero negativo más grande."</p>
+<p>✅❌ <strong>Ejercicio 7</strong> (Verdadero o Falso): "El número \(-1\) es el entero negativo más grande."</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
@@ -441,7 +335,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 8: PROBLEMA — Parking -->
 <div class="exercise">
-<p>🏢 <strong>Ejercicio 8</strong> <span class="difficulty-badge dificil">Difícil</span> (Problema): Estás en la planta \(3\) de un parking. Bajas \(5\) plantas. ¿En qué planta quedas?</p>
+<p>🏢 <strong>Ejercicio 8</strong> (Problema): Estás en la planta \(3\) de un parking. Bajas \(5\) plantas. ¿En qué planta quedas?</p>
 <p style="font-size:.9rem;color:var(--gris);margin-bottom:.5rem">Pista: La planta \(-2\) es el sótano 2. La operación es \(3 + (-5)\)</p>
 <input type="number" id="elevatorInput" placeholder="Tu respuesta">
 <button class="check-btn" onclick="checkElevator()">Comprobar</button>
@@ -450,7 +344,7 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 9: QUIZ — Valor absoluto -->
 <div class="exercise">
-<p>📐 <strong>Ejercicio 9</strong> <span class="difficulty-badge dificil">Difícil</span> (Quiz): ¿Cuál de estos números tiene el <strong>mayor valor absoluto</strong>?</p>
+<p>📐 <strong>Ejercicio 9</strong> (Quiz): ¿Cuál de estos números tiene el <strong>mayor valor absoluto</strong>?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkQuizMulti(this, false)">\(-4\)</button>
 <button class="quiz-btn" onclick="checkQuizMulti(this, true)">\(-9\)</button>
@@ -461,55 +355,11 @@ Tu cuenta bancaria tiene <b>€200</b>. Haces una compra de <b>€350</b>. El ba
 
 <!-- TIPO 10: COMPLETAR HUECO — Ordenar -->
 <div class="exercise">
-<p>📊 <strong>Ejercicio 10</strong> <span class="difficulty-badge dificil">Difícil</span> (Completar hueco): Ordena de menor a mayor: \(2, \;-6, \;0, \;-1, \;4\).<br>
+<p>📊 <strong>Ejercicio 10</strong> (Completar hueco): Ordena de menor a mayor: \(2, \;-6, \;0, \;-1, \;4\).<br>
 El segundo número de la lista ordenada es: ___</p>
 <input type="number" id="sortInput" placeholder="nº2">
 <button class="check-btn" onclick="checkSort()">Comprobar</button>
 <div class="result" id="sortResult" style="display:none"></div>
-
-<!-- TIPO 11: V/F VISUAL (SVG) — Comparación negativa -->
-<div class="exercise">
-<p>🖼️ <strong>Ejercicio 11</strong> <span class="difficulty-badge medio">Medio</span> (Visual): En la recta numérica, ¿el número -8 está a la izquierda o a la derecha del -2?</p>
-<div class="svg-container">
-<svg width="400" height="80" viewBox="0 0 400 80">
-<line x1="30" y1="40" x2="370" y2="40" stroke="#94a3b8" stroke-width="2"/>
-<polygon points="30,40 40,36 40,44" fill="#94a3b8"/>
-<polygon points="370,40 360,36 360,44" fill="#94a3b8"/>
-<line x1="80" y1="30" x2="80" y2="50" stroke="#ef4444" stroke-width="2"/>
-<text x="80" y="68" text-anchor="middle" font-size="13" fill="#ef4444" font-weight="bold">-8</text>
-<line x1="280" y1="30" x2="280" y2="50" stroke="#10b981" stroke-width="2"/>
-<text x="280" y="68" text-anchor="middle" font-size="13" fill="#10b981" font-weight="bold">-2</text>
-<text x="200" y="25" text-anchor="middle" font-size="12" fill="#64748b">← menor ............ mayor →</text>
-</svg>
-</div>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkVF(this, true)">A la izquierda (es menor)</button>
-<button class="quiz-btn" onclick="checkVF(this, false)">A la derecha (es mayor)</button>
-</div>
-</div>
-
-<!-- TIPO 12: EMPAREJAR — Entero con situación real -->
-<div class="exercise">
-<p>🔗 <strong>Ejercicio 12</strong> <span class="difficulty-badge dificil">Difícil</span> (Emparejar): Relaciona cada situación con su número entero correcto:</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
-<div style="background:var(--azul-claro);padding:.8rem;border-radius:8px">
-<p style="font-weight:600;margin-bottom:.5rem">Situación</p>
-<p>🌡️ 7 grados bajo cero</p>
-<p style="margin-top:.5rem">🏔️ 200m sobre el nivel del mar</p>
-<p style="margin-top:.5rem">💰 Deuda de 50€</p>
-</div>
-<div style="background:var(--naranja-claro);padding:.8rem;border-radius:8px">
-<p style="font-weight:600;margin-bottom:.5rem">Elige el entero:</p>
-<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0">+7</button>
-<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0">-200</button>
-<button class="quiz-btn" onclick="checkMatch(this, true)" style="width:100%;margin:.3rem 0">-7</button>
-<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0">+200</button>
-<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0">+50</button>
-<button class="quiz-btn" onclick="checkMatch(this, true)" style="width:100%;margin:.3rem 0">-50</button>
-</div>
-</div>
-<div id="matchResult" style="display:none"></div>
-</div>
 </div>
 
 </div>
@@ -799,21 +649,6 @@ window.onscroll = function(){
 // === INIT ===
 drawNumberLine();
 newQuiz();
-
-function checkMatch(btn, correct) {
-  const result = document.getElementById('matchResult');
-  result.style.display = 'block';
-  if(correct) {
-    btn.classList.add('correct');
-    result.className = 'feedback correct';
-    result.textContent = '✅ ¡Correcto! 7 grados bajo cero = -7, y una deuda de 50€ = -50.';
-  } else {
-    btn.classList.add('wrong');
-    result.className = 'feedback incorrect';
-    result.textContent = '❌ Incorrecto. Recuerda: bajo cero = negativo, deuda = negativo.';
-  }
-}
-
 </script>
 </body>
 </html>
