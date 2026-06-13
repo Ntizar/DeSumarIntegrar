@@ -193,9 +193,6 @@ Un jugador profesional calcula P(tiene par alto|apuesta fuerte) usando Bayes. Ca
 <p>• Con <strong>estadística</strong>: Bayes es la base del aprendizaje automático bayesiano</p>
 <p>• Con <strong>funciones</strong>: P(A|B) es una función que depende de P(B)</p>
 <p>• Con <strong>derivadas</strong>: En machine learning, se optimiza la verosimilitud con derivadas</p>
-<p>• Con <strong>sucesiones</strong>: Los factoriales son sucesiones crecientes</p>
-<p>• Con <strong>lógica</strong>: P(A∩B) = P(A)×P(B) si A y B son independientes</p>
-<p>• Con <strong>informática</strong>: Los algoritmos de búsqueda usan probabilidad condicional</p>
 </div>
 </div>
 
@@ -303,6 +300,7 @@ Muchos usan permutaciones cuando deberían usar combinaciones. Recuerda: si inte
 <a href="s09-bachiller.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s09-9-bachiller-distribuciones-combinadas.html">Siguiente →</a>
 </div>
+</div>
 <div class="footer">Hecho con ❤️ por David Antizar</div>
 
 <script>
@@ -371,38 +369,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fb.textContent = '✅ ¡Correcto!'; fb.className = 'feedback correct';
     } else {
       fb.textContent = '❌ Incorrecto. La respuesta es: ' + correctAnswers[0];
-      fb.className = 'feedback incorrect';
-    }
-  }
-
-  function moveUp(btn) {
-    const prev = btn.previousElementSibling;
-    if (prev) {
-      btn.parentElement.insertBefore(btn, prev);
-    }
-  }
-  function moveDown(btn) {
-    const next = btn.nextElementSibling;
-    if (next) {
-      btn.parentElement.insertBefore(next, btn);
-    }
-  }
-  function checkOrder() {
-    const items = document.querySelectorAll('#bayesOrder button');
-    const correct = ['①', '②', '③', '④'];
-    let allCorrect = true;
-    items.forEach((btn, i) => {
-      const text = btn.textContent.trim();
-      if (!text.startsWith(correct[i])) {
-        allCorrect = false;
-      }
-    });
-    const fb = document.getElementById('order-fb');
-    if (allCorrect) {
-      fb.textContent = '✅ ¡Correcto! El orden es: identificar datos → calcular P(B) → aplicar fórmula → sustituir.';
-      fb.className = 'feedback correct';
-    } else {
-      fb.textContent = '❌ Orden incorrecto. Recuerda: primero identificas los datos, luego calculas P(B), aplicas la fórmula y sustituyes.';
       fb.className = 'feedback incorrect';
     }
   }
