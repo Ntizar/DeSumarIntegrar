@@ -1,7 +1,7 @@
 {
-  "last_improved": "2026-06-12",
+  "last_improved": "2026-06-13",
   "last_run": "2026-06-13",
-  "total_runs": 57,
+  "total_runs": 58,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -645,18 +645,23 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+1 SVG gráfico de barras (deportes favoritos), +2 casos reales (notas del trimestre, lotería Euromillones), +1 conexión estadística↔probabilidad, +2 ejercicios nuevos (completar hueco, V/F), arreglado summary (nested <li><li>), añadida clase svg-container, +1 caja error común (falacia del jugador)"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+3 guías de 4 pasos (media, moda, probabilidad), +4 connection-box (álgebra, geometría, fracciones), +SVG interactivo dados con visualización en tiempo real, +ejercicio emparejar conceptos, +difficulty badges (fácil/medio/difícil), +box-success dato curioso"
         }
       ],
       "scores": {
-        "exercises": 7,
-        "text": 0,
-        "visual": 7,
-        "real_world": 8,
-        "connections": 5,
-        "difficulty_range": 0
+        "exercises": 9,
+        "text": 9,
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "eso2-1-ecuaciones-1grado.html": {
       "status": "improved",
@@ -1150,18 +1155,23 @@
           "run": 1,
           "date": "2026-06-12",
           "added": "exercises(+3 tipos), text(4 pasos), visual(SVG dedos), real_world, connections"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+1 div balance fixed, +SVG grid interactivo tablas 6-9, +difficulty badges (facil/medio/dificil), +3 casos reales (panadería, videojuegos, música), +connection-box multi-link, +CSS coherence fix"
         }
       ],
       "scores": {
-        "exercises": 2,
-        "text": 1,
-        "visual": 2,
-        "real_world": 2,
-        "connections": 2,
-        "difficulty_range": 0
+        "exercises": 8,
+        "text": 7,
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-12",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "s02-6-longitud-peso.html": {
       "status": "pending",
@@ -1210,7 +1220,7 @@
       "improvement_count": 1
     },
     "s03-1-mult-dos-cifras.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -1219,18 +1229,23 @@
           "run": 48,
           "date": "2026-06-11",
           "added": "+6 ejercicios variados (quiz ×2, completar hueco, V/F, ordenar resultados, problema contextual cine), +1 caso real panadería (8 cajas ×12 galletas), +1 visualización SVG (3 filas de 12 galletas), +1 explicación estructurada 4 pasos, +1 caja error común (× vs +), +1 caja conexión (multiplicación↔suma), resumen ampliado a 7 puntos"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+CSS coherence 100% (27 clases: svg-container, step-indicator, step-dot, connection-box, real-world-badge, difficulty-badge, feedback.correct/incorrect), +2 casos reales (videojuego, autobús), +3 connection-box (división, sumas llevadas, tablas), difficulty badges (3Fácil/2Medio/1Difícil), +1 ejercicio emparejar (7 tipos diferentes), +svg-container wrapper, resumen ampliado a 9 puntos"
         }
       ],
       "scores": {
-        "exercises": 6,
+        "exercises": 8,
         "text": 12,
-        "visual": 6,
-        "real_world": 6,
-        "connections": 3,
-        "difficulty_range": 5
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "s03-2-division.html": {
       "status": "improved_1",
@@ -1989,18 +2004,23 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+2 ejercicios nuevos (V/F sobre definición límite, completar hueco factorización), +1 caja error común (límite vs valor función), +3 funciones JS nuevas (checkVF, checkExercise6)"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+5 connection-box (derivadas, integrales, continuidad, racionales, física), +SVG animado concepto límite, +ejercicio emparejar indeterminaciones, +difficulty badges (fácil/medio/difícil), +CSS quiz-options/quiz-btn añadidos, +div balance fixed"
         }
       ],
       "scores": {
         "exercises": 10,
         "text": 12,
-        "visual": 8,
+        "visual": 10,
         "real_world": 10,
-        "connections": 4,
+        "connections": 9,
         "difficulty_range": 8
       },
-      "last_improved": "2026-06-10",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "s09-2-bachiller-continuidad-derivadas.html": {
       "status": "improved_1",
@@ -2705,9 +2725,32 @@
       "level": "Universidad",
       "dimensions_improved": "exercises,text,visual,real_world,connections,difficulty_range,css_coherence",
       "description": "Full improvement: 4-step theory, 3 real cases (GPU/SVD/ML), SVG visual 4 tipos, 7 ejercicios (6 tipos), 11 difficulty badges, 5 conexiones, CSS 100%"
+    },
+    {
+      "file": "s02-5-tablas-6-9.html",
+      "title": "Tablas del 6 al 9",
+      "level": "Primaria 2º"
+    },
+    {
+      "file": "eso1-7-estadistica-probabilidad.html",
+      "title": "Estadística y Probabilidad",
+      "level": "ESO 1º"
+    },
+    {
+      "file": "s09-1-bachiller-limites.html",
+      "title": "Límites de funciones",
+      "level": "Bachiller"
+    },
+    {
+      "date": "2026-06-13",
+      "file": "s03-1-mult-dos-cifras.html",
+      "title": "Multiplicación de Dos Cifras",
+      "level": "3º Primaria",
+      "dimensions_improved": "exercises,visual,real_world,connections,difficulty_range",
+      "description": "CSS coherence 100%, +2 casos reales, +3 conexiones, difficulty badges, ejercicio emparejar (7 tipos)"
     }
   ],
-  "session_count": 1,
+  "session_count": 2,
   "last_session": "2026-06-12",
   "rotation": {
     "last_improved_level": "Universidad",
