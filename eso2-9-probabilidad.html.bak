@@ -179,48 +179,11 @@ Si un boss tiene 5% de drop de una espada rara, significa que de media, necesita
 <section class="chapter">
 <h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
 <div class="connection-box">
-<strong>📌 Conexión con fracciones y porcentajes</strong>
-<p>P = fracción de casos favorables. P = 0.75 equivale al 75%. ¡Son la misma idea con distinta forma!</p>
-</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Probabilidad ↔ Álgebra</h2>
-<div class="connection-box">
-<strong>📌 Conexión con álgebra</strong>
-<p>La fórmula P(A ∪ B) = P(A) + P(B) − P(A ∩ B) usa álgebra para combinar probabilidades. ¡Las ecuaciones te ayudan a resolver problemas de probabilidad!</p>
-</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Probabilidad ↔ Estadística</h2>
-<div class="connection-box">
-<strong>📌 Conexión con estadística</strong>
-<p>La probabilidad predice lo que la estadística mide. Si lanzas una moneda 1000 veces, la estadística te dirá cuántas caras salieron — la probabilidad te dice cuántas DEBERÍAN salir (~500).</p>
-</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Probabilidad ↔ Geometría</h2>
-<div class="connection-box">
-<strong>📌 Conexión con geometría</strong>
-<p>La probabilidad geométrica usa áreas y longitudes. Si lanzas una diana, la probabilidad de dar en un sector depende del área de ese sector. ¡El área determina la probabilidad!</p>
-</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Probabilidad ↔ Funciones</h2>
-<div class="connection-box">
-<strong>📌 Conexión con funciones (ESO2.5)</strong>
-<p>La función de distribución de probabilidad asigna a cada resultado su probabilidad. Es una función que mapea resultados → números entre 0 y 1. ¡Como f(x) = P(x)!</p>
-</div>
-</section>
-
-<section class="chapter">
-<h2 class="chapter-title">🔗 Conexión: Probabilidad ↔ Combinatoria</h2>
-<div class="connection-box">
-<strong>📌 Conexión con combinatoria</strong>
-<p>Para contar casos favorables y posibles, necesitas combinatoria: permutaciones, variaciones, combinaciones. ¡Sin combinatoria no puedes calcular probabilidades en problemas complejos!</p>
+<strong>📌 Conexiones:</strong>
+<p>• Con <strong>fracciones</strong>: P = fracción de casos favorables</p>
+<p>• Con <strong>porcentajes</strong>: P = 0.75 equivale al 75%</p>
+<p>• Con <strong>estadística</strong>: La probabilidad predice lo que la estadística mide</p>
+<p>• Con <strong>álgebra</strong>: P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</p>
 </div>
 </section>
 
@@ -289,36 +252,6 @@ Si un boss tiene 5% de drop de una espada rara, significa que de media, necesita
 <p><span class="difficulty-badge hard">Difícil</span> <strong>Completar:</strong> Si P(sacar cara) = 1/2 y P(sacar cruz) = 1/2, entonces P(cara o cruz) = <input type="number" id="eso2fi2" placeholder="?" style="width:60px;padding:.4rem;border:2px solid #e2e8f0;border-radius:6px"> / 2</p>
 <button class="toggle-btn" onclick="checkFillIn(2, ['2'])">Comprobar</button>
 <div class="feedback" id="eso2fi2-fb"></div>
-</div>
-
-<!-- Ejercicio 7: Ordenar por probabilidad (tipo 5 nuevo) -->
-<div class="exercise">
-<p><span class="difficulty-badge hard">Difícil</span> <strong>Ordenar</strong> de menor a mayor probabilidad:</p>
-<p style="font-size:.9rem;color:#64748b;margin-bottom:.5rem">A: sacar 6 en dado &nbsp; B: sacar par en dado &nbsp; C: sacar número positivo en dado</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkOrdenProb(this, false)">B, A, C</button>
-<button class="quiz-btn" onclick="checkOrdenProb(this, true)">A, B, C</button>
-<button class="quiz-btn" onclick="checkOrdenProb(this, false)">C, B, A</button>
-</div>
-<div class="result" id="e7-fb" style="display:none"></div>
-</div>
-
-<!-- Ejercicio 8: Emparejar (tipo 6 nuevo) -->
-<div class="exercise">
-<p><span class="difficulty-badge hard">Difícil</span> <strong>Empareja</strong> cada situación con su probabilidad:</p>
-<div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin:1rem 0" id="probMatchContainer">
-<div id="probMatchLeft" style="display:flex;flex-direction:column;gap:.5rem">
-<button class="quiz-btn" onclick="selectProbMatch('left', this, 'p1')" id="pml1">Sacar 7 en dado</button>
-<button class="quiz-btn" onclick="selectProbMatch('left', this, 'p2')" id="pml2">Sacar cara en moneda</button>
-<button class="quiz-btn" onclick="selectProbMatch('left', this, 'p3')" id="pml3">Sacar 3 en dado</button>
-</div>
-<div id="probMatchRight" style="display:flex;flex-direction:column;gap:.5rem">
-<button class="quiz-btn" onclick="selectProbMatch('right', this, '1/3')" id="pmr1">0</button>
-<button class="quiz-btn" onclick="selectProbMatch('right', this, '1/2')" id="pmr2">1/3</button>
-<button class="quiz-btn" onclick="selectProbMatch('right', this, '0')" id="pmr3">1/2</button>
-</div>
-</div>
-<div class="result" id="e8-fb" style="display:none"></div>
 </div>
 
 </div>
@@ -407,50 +340,6 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
-
-// Ordenar probabilidad (ejercicio 7)
-function checkOrdenProb(btn, correct) {
-  const fb = document.getElementById('e7-fb');
-  fb.style.display = 'block';
-  if (correct) {
-    fb.innerHTML = '<span style="color:#22c55e">✅ ¡Correcto! 6 (1/6) < par (3/6=1/2) < positivo (6/6=1)</span>';
-    btn.style.background = '#22c55e';
-    btn.style.color = '#fff';
-  } else {
-    fb.innerHTML = '<span style="color:#ef4444">❌ Incorrecto. Recuerda: 6→1/6, par→3/6=1/2, positivo→6/6=1</span>';
-    btn.style.background = '#ef4444';
-    setTimeout(() => { btn.style.background = ''; }, 1000);
-  }
-}
-
-// Emparejar probabilidad (ejercicio 8)
-let probMatchLeft = null;
-function selectProbMatch(side, btn, val) {
-  if (side === 'left') {
-    document.querySelectorAll('#probMatchLeft button').forEach(b => b.style.outline = 'none');
-    btn.style.outline = '3px solid #3b82f6';
-    probMatchLeft = {btn: btn, val: val};
-  } else {
-    if (!probMatchLeft) return;
-    const pairs = {'p1':'0','p2':'1/2','p3':'1/3'};
-    if (pairs[probMatchLeft.val] === val) {
-      probMatchLeft.btn.style.background = '#22c55e';
-      probMatchLeft.btn.style.color = '#fff';
-      btn.style.background = '#22c55e';
-      btn.style.color = '#fff';
-      btn.disabled = true;
-      probMatchLeft = null;
-      const remaining = document.querySelectorAll('#probMatchRight button:not([disabled])');
-      if (remaining.length === 0) {
-        document.getElementById('e8-fb').style.display = 'block';
-        document.getElementById('e8-fb').innerHTML = '<span style="color:#22c55e">✅ ¡Perfecto! Todos los pares correctos.</span>';
-      }
-    } else {
-      btn.style.background = '#ef4444';
-      setTimeout(() => { btn.style.background = ''; }, 800);
-    }
-  }
-}
 </script>
 </body>
 </html>

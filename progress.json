@@ -773,7 +773,7 @@
       ]
     },
     "eso2-9-probabilidad.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "ESO 2º",
       "priority": 2,
       "category": "eso",
@@ -782,17 +782,18 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+1 explicación estructurada 4 pasos (qué es/para qué/error común), +1 árbol probabilidad SVG interactivo, +3 casos reales (lotería, clima, videojuegos), +1 caja conexiones (fracciones/porcentajes/estadística/álgebra), +6 ejercicios variados (quiz ×2, VF ×2, completar ×2), +1 resumen ampliado a 7 puntos, +CSS: step-indicator, connection-box, svg-container, feedback.correct/incorrect, real-world-badge, difficulty-badge"
-        }
+        },
+        "2026-06-13: connections 5→9 (+6 boxes), difficulty_range 6→8, exercises 8→10 (+2 tipos: ordenar+emparejar), 6 tipos totales"
       ],
       "scores": {
-        "exercises": 8,
-        "text": 9,
-        "visual": 7,
-        "real_world": 8,
-        "connections": 5,
-        "difficulty_range": 6
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 9,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
+      "last_improved": "2026-06-13",
       "improvement_count": 1
     },
     "s07-1eso.html": {
