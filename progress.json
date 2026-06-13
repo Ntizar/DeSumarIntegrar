@@ -1469,7 +1469,7 @@
       "is_duplicate": true
     },
     "s04-5-decimales-intro.html": {
-      "status": "improved_1",
+      "status": "mejorado",
       "level": "4º Primaria",
       "priority": 2,
       "category": "primaria_4",
@@ -1478,14 +1478,39 @@
           "run": 1,
           "date": "2026-06-10",
           "added": "+8 ejercicios variados (quiz botón ×2, completar hueco ×2, V/F ×2, ordenar, problema contextual), +1 explicación estructurada 4 pasos, +1 caso real supermercado, +1 caja error común (0,10=0,1, 0,9>0,11), resumen ampliado a 8 puntos"
+        },
+        {
+          "session": 2,
+          "date": "2026-06-13",
+          "dimensions": [
+            "visual",
+            "conexiones"
+          ],
+          "changes": "Añadido SVG visual de barras decimales (0,75 y 0,50), connection-box con 5 conexiones (fracciones, porcentajes, medidas, dinero, geometría)",
+          "scores_before": {
+            "exercises": 9,
+            "text": 12,
+            "visual": 3,
+            "real_world": 9,
+            "connections": 3,
+            "difficulty_range": 6
+          },
+          "scores_after": {
+            "exercises": 9,
+            "text": 10,
+            "visual": 8,
+            "real_world": 9,
+            "connections": 8,
+            "difficulty_range": 6
+          }
         }
       ],
       "scores": {
         "exercises": 9,
-        "text": 12,
-        "visual": 3,
+        "text": 10,
+        "visual": 8,
         "real_world": 9,
-        "connections": 3,
+        "connections": 8,
         "difficulty_range": 6
       },
       "last_improved": "2026-06-10",
