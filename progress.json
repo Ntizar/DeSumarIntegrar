@@ -1,6 +1,6 @@
 {
   "last_improved": "2026-06-13",
-  "last_run": "2026-06-13",
+  "last_run": "2026-06-13T01:36:00",
   "total_runs": 59,
   "topics": {
     "s01-1primaria.html": {
@@ -2819,9 +2819,60 @@
         "connections": 8,
         "difficulty_range": 7
       }
+    },
+    {
+      "date": "2026-06-13",
+      "time": "2026-06-13T01:36:00",
+      "file": "eso2-1-ecuaciones-1grado.html",
+      "title": "Ecuaciones de 1º Grado",
+      "level": "ESO 2º",
+      "dimensions_improved": "text,visual,real_world,connections,difficulty_range,exercises",
+      "description": "4-step explanation + SVG balanza, 3 real cases, 2 error boxes, 5 connections, 4 new exercise types (VF/fill-in/order/decide), difficulty badges",
+      "scores": {
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 7
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "time": "2026-06-13T01:36:00",
+      "file": "s09-8-bachiller-probabilidad-avanzada.html",
+      "title": "Probabilidad Avanzada",
+      "level": "Bachiller",
+      "dimensions_improved": "ejercicios,conexiones",
+      "description": "Añadido ejercicio de ordenar pasos de Bayes, 3 nuevas conexiones (sucesiones, lógica, informática), fix div balance",
+      "scores": {
+        "exercises": 10,
+        "text": 10,
+        "visual": 8,
+        "real_world": 8,
+        "connections": 8,
+        "difficulty_range": 7
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "time": "2026-06-13T01:36:00",
+      "file": "s04-5-decimales-intro.html",
+      "title": "Introducción a los Decimales",
+      "level": "Primaria 4º",
+      "dimensions_improved": "visual,conexiones",
+      "description": "Añadido SVG visual de barras decimales (0,75 y 0,50), connection-box con 5 conexiones (fracciones, porcentajes, medidas, dinero, geometría), CSS coherence 100%",
+      "scores": {
+        "exercises": 9,
+        "text": 10,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 6
+      }
     }
   ],
-  "session_count": 2,
+  "session_count": 3,
   "last_session": "2026-06-12",
   "rotation": {
     "last_improved_level": "ESO",
