@@ -100,13 +100,6 @@ table tr:nth-child(even){background:#f8fafc}
 /* Interactive zone */
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-
-/* Quiz options */
-.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-.quiz-btn:hover{background:var(--azul-claro)}
-.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
 </style>
 </head>
 <body>
@@ -317,7 +310,7 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 <h2 class="chapter-title">🧠 Ejercicios Interactivos</h2>
 
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> <strong>Ejercicio 1:</strong> Calcula $\lim_{x \to 3} (x^2 + 2x)$</p>
+<p><strong>Ejercicio 1:</strong> Calcula $\lim_{x \to 3} (x^2 + 2x)$</p>
 <p style="font-size:.85rem;color:#64748b">Sustituye $x = 3$ directamente.</p>
 <div class="exercise-input">
 <input type="number" id="e1" placeholder="?" step="any">
@@ -327,7 +320,7 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 </div>
 
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> <strong>Ejercicio 2:</strong> Calcula $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$</p>
+<p><strong>Ejercicio 2:</strong> Calcula $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$</p>
 <p style="font-size:.85rem;color:#64748b">Factoriza el numerador: $x^2 - 4 = (x+2)(x-2)$</p>
 <div class="exercise-input">
 <input type="number" id="e2" placeholder="?" step="any">
@@ -337,7 +330,7 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 </div>
 
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Medio</span> <strong>Ejercicio 3:</strong> Calcula $\lim_{x \to \infty} \frac{5x^2 + 3x}{2x^2 - 1}$</p>
+<p><strong>Ejercicio 3:</strong> Calcula $\lim_{x \to \infty} \frac{5x^2 + 3x}{2x^2 - 1}$</p>
 <p style="font-size:.85rem;color:#64748b">Divide por $x^2$: $\frac{5 + 3/x}{2 - 1/x^2}$</p>
 <div class="exercise-input">
 <input type="text" id="e3" placeholder="fracción o decimal">
@@ -347,25 +340,23 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 </div>
 
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> <strong>Ejercicio 4:</strong> ¿Cuál es el valor de $e$ (número de Euler) redondeado a 3 decimales?</p>
+<p><strong>Ejercicio 4:</strong> ¿Cuál es el valor de $e$ (número de Euler) redondeado a 3 decimales?</p>
 <div class="exercise-input">
 <input type="number" id="e4" placeholder="?" step="0.001">
 <button onclick="checkExercise4()">Comprobar</button>
 </div>
 <div class="feedback" id="e4-fb"></div>
 </div>
-
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Medio</span> <strong>Ejercicio 5 (V/F):</strong> Si $\lim_{x \to a} f(x)$ existe, entonces $f(a)$ está necesariamente definida.</p>
+<p><strong>Ejercicio 5 (V/F):</strong> Si $\lim_{x \to a} f(x)$ existe, entonces $f(a)$ está necesariamente definida.</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkVF(this, false)">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, true)">Falso</button>
 </div>
 <div class="feedback" id="e5-fb"></div>
 </div>
-
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Medio</span> <strong>Ejercicio 6 (Completar):</strong> $\lim_{x \to 3} \frac{x^2 - 9}{x - 3} =$ ___</p>
+<p><strong>Ejercicio 6 (Completar):</strong> $\lim_{x \to 3} \frac{x^2 - 9}{x - 3} =$ ___</p>
 <p style="font-size:.85rem;color:#64748b">Pista: factoriza $x^2-9 = (x+3)(x-3)$ y simplifica</p>
 <div class="exercise-input">
 <input type="number" id="e6" placeholder="?" step="any">
@@ -373,104 +364,9 @@ $$\lim_{x \to a} f(x) \text{ existe } \iff \lim_{x \to a^-} f(x) = \lim_{x \to a
 </div>
 <div class="feedback" id="e6-fb"></div>
 </div>
-
-<!-- NUEVO: Emparejar conceptos — Difícil -->
-<div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Difícil</span> <strong>Ejercicio 7:</strong> Empareja cada tipo de indeterminación con su método de resolución:</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
-<div>
-<p style="font-weight:600;margin-bottom:.5rem">Indeterminaciones:</p>
-<button class="quiz-btn" id="pair-lim" onclick="pairLimSelect('l','fact')" style="width:100%;margin:.3rem 0">0/0</button>
-<button class="quiz-btn" id="pair-lim2" onclick="pairLimSelect('l2','div')" style="width:100%;margin:.3rem 0">∞/∞</button>
-<button class="quiz-btn" id="pair-lim3" onclick="pairLimSelect('l3','reescr')" style="width:100%;margin:.3rem 0">0 · ∞</button>
-</div>
-<div>
-<p style="font-weight:600;margin-bottom:.5rem">Métodos:</p>
-<button class="quiz-btn" id="pair-lim4" onclick="pairLimSelect('l4','reescr')" style="width:100%;margin:.3rem 0">Reescribir como fracción</button>
-<button class="quiz-btn" id="pair-lim5" onclick="pairLimSelect('l5','fact')" style="width:100%;margin:.3rem 0">Factorizar y simplificar</button>
-<button class="quiz-btn" id="pair-lim6" onclick="pairLimSelect('l6','div')" style="width:100%;margin:.3rem 0">Dividir por mayor potencia</button>
-</div>
-</div>
-<div class="feedback" id="pair-lim-fb"></div>
-</div>
 <div class="box box-error">
 <strong>⚠️ Error común</strong>
 Confundir límite con valor de la función. Que $\lim_{x \to a} f(x) = L$ NO significa que $f(a) = L$. De hecho, $f(a)$ podría ni estar definida. El límite es hacia dónde VA la función, no dónde ESTÁ. El hueco en $(2,4)$ de $\frac{x^2-4}{x-2}$ es el ejemplo perfecto: el límite existe pero la función no está definida en $x=2$.
-</div>
-
-<!-- NUEVO: Conexiones con otros temas -->
-<div class="chapter">
-<h2 class="chapter-title">🔗 Conexiones con otros temas</h2>
-<div class="connection-box">
-<strong>🔗 Conexión 1: Límites ↔ Derivadas</strong>
-La derivada de una función en un punto se define usando límites: $f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$. ¡Los límites son la base de toda la derivación! Sin límites, no hay derivadas.
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 2: Límites ↔ Integrales</strong>
-La integral definida también se construye con límites: $\int_a^b f(x)dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i) \Delta x$. Las sumas de Riemann convergen a la integral cuando el número de rectángulos tiende a infinito. ¡Los límites unen derivadas e integrales!
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 3: Límites ↔ Continuidad</strong>
-Una función es continua en $x=a$ si y solo si: (1) $f(a)$ está definida, (2) $\lim_{x \to a} f(x)$ existe, y (3) $\lim_{x \to a} f(x) = f(a)$. ¡Los tres requisitos! Si falla alguno, la función tiene un "salto" o "hueco" en ese punto.
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 4: Límites ↔ Funciones racionales</strong>
-Las funciones racionales (fracciones de polinomios) son donde más aparecen los límites. Cuando el denominador se hace cero, obtenemos asíntotas verticales. Cuando $x \to \infty$, obtenemos asíntotas horizontales. ¡Los límites te dicen el comportamiento de la función en los extremos!
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 5: Límites ↔ Física</strong>
-La velocidad instantánea, la aceleración, la potencia eléctrica en un instante... todas son derivadas, y todas se calculan con límites. Cuando dices "mi coche va a 100 km/h", en realidad estás diciendo "el límite de la distancia entre dos puntos dividido entre el tiempo, cuando esos puntos se acercan infinitamente".
-</div>
-<div class="box box-success">
-<strong>✅ Dato curioso</strong>
-Zeno de Elea (siglo V a.C.) propuso la paradoja de Aquiles y la tortuga: Aquiles nunca alcanzaría a la tortuga porque cada vez que llega al punto donde estaba la tortuga, esta ha avanzado un poco más. La solución: los límites infinitos convergen. ¡Los griegos ya intuían los límites hace 2500 años!
-</div>
-</div>
-
-<!-- NUEVO: SVG animado — Visualización del concepto de límite -->
-<div class="chapter">
-<h2 class="chapter-title">🎮 Visualizador SVG: El concepto de límite</h2>
-<p style="margin-bottom:1rem;color:#64748b">Este SVG animado muestra cómo $f(x) = \frac{x^2-4}{x-2}$ se acerca a 4 cuando $x \to 2$. Haz clic en "Animar" para ver el punto acercarse al hueco.</p>
-<div class="svg-container">
-<svg viewBox="0 0 500 300" width="500" height="300" id="limiteSvg">
-<!-- Fondo -->
-<rect width="500" height="300" fill="#f8fafc" rx="8"/>
-<!-- Ejes -->
-<line x1="50" y1="250" x2="470" y2="250" stroke="#2563eb" stroke-width="2"/>
-<line x1="50" y1="250" x2="50" y2="20" stroke="#2563eb" stroke-width="2"/>
-<!-- Etiquetas eje X -->
-<text x="50" y="270" text-anchor="middle" font-size="10" fill="#64748b">-2</text>
-<text x="150" y="270" text-anchor="middle" font-size="10" fill="#64748b">0</text>
-<text x="250" y="270" text-anchor="middle" font-size="10" fill="#64748b">2</text>
-<text x="350" y="270" text-anchor="middle" font-size="10" fill="#64748b">4</text>
-<text x="450" y="270" text-anchor="middle" font-size="10" fill="#64748b">6</text>
-<!-- Etiquetas eje Y -->
-<text x="40" y="255" text-anchor="end" font-size="10" fill="#64748b">0</text>
-<text x="40" y="155" text-anchor="end" font-size="10" fill="#64748b">5</text>
-<text x="40" y="55" text-anchor="end" font-size="10" fill="#64748b">10</text>
-<!-- Gráfico: f(x) = x+2 (simplificado) -->
-<path d="M50,150 L150,110 L250,70 L350,30" stroke="#2563eb" stroke-width="2.5" fill="none"/>
-<!-- Hueco en (2, 4) → x=250, y=70 -->
-<circle cx="250" cy="70" r="6" fill="white" stroke="#ef4444" stroke-width="2"/>
-<text x="250" y="58" text-anchor="middle" font-size="9" fill="#ef4444">hueco (2,4)</text>
-<!-- Punto móvil que se acerca -->
-<circle cx="150" cy="110" r="5" fill="#f97316" id="movilPoint">
-<animate attributeName="cx" values="150;200;225;237;243;246;248;249;249.5;249.8;249.9;250" dur="4s" fill="freeze" id="animPoint"/>
-</circle>
-<!-- Línea punteada de aproximación -->
-<line x1="150" y1="250" x2="150" y2="110" stroke="#f97316" stroke-width="1" stroke-dasharray="4" id="dottedLine"/>
-<!-- Flecha de aproximación -->
-<path d="M160,110 Q200,90 245,72" stroke="#a855f7" stroke-width="1.5" fill="none" stroke-dasharray="3" marker-end="url(#arrowhead)"/>
-<defs>
-<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-<polygon points="0 0, 10 3.5, 0 7" fill="#a855f7"/>
-</marker>
-</defs>
-<!-- Texto explicativo -->
-<text x="250" y="295" text-anchor="middle" font-size="11" fill="#64748b">Al acercarte a x=2, f(x) se acerca a 4</text>
-</svg>
-<button onclick="replayLimite()" style="margin-top:.8rem;background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:600">🔄 Repetir animación</button>
-</div>
 </div>
 </div>
 
@@ -779,42 +675,6 @@ document.addEventListener('DOMContentLoaded', () => {
   plotAsintota();
   plotSin();
 });
-
-// NUEVO: Repetir animación SVG del límite
-function replayLimite() {
-  const svg = document.getElementById('limiteSvg');
-  if (!svg) return;
-  const anim = svg.querySelector('#animPoint');
-  if (anim) {
-    anim.beginElement();
-  }
-}
-
-// NUEVO: Emparejar indeterminaciones
-let pairLimState = {};
-function pairLimSelect(id, pairId) {
-  const correctPairs = {'l':'fact', 'l2':'div', 'l3':'reescr', 'l4':'reescr', 'l5':'fact', 'l6':'div'};
-  const fb = document.getElementById('pair-lim-fb');
-  if (!pairLimState[id]) {
-    pairLimState[id] = pairId;
-    document.getElementById(id).style.background = 'var(--azul-claro)';
-    document.getElementById(id).style.borderColor = 'var(--azul)';
-  } else {
-    // Check if the pair is correct
-    if (pairLimState[id] === pairId) {
-      fb.className = 'feedback correct';
-      fb.textContent = '✅ ¡Correcto! Las parejas coinciden.';
-    } else {
-      fb.className = 'feedback incorrect';
-      fb.textContent = '❌ No es la pareja correcta. Intenta de nuevo.';
-    }
-    pairLimState = {};
-    document.querySelectorAll('#pair-lim, #pair-lim2, #pair-lim3, #pair-lim4, #pair-lim5, #pair-lim6').forEach(b => {
-      b.style.background = '';
-      b.style.borderColor = '';
-    });
-  }
-}
 </script>
 </body>
 </html>
