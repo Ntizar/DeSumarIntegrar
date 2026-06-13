@@ -93,7 +93,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .chart-controls button{background:var(--azul);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600}
 .chart-controls button:hover{background:#1d4ed8}
 .chart-controls button.active{background:var(--naranja)}
-.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase}.difficulty-badge.easy{background:var(--verde-claro);color:#065f46}.difficulty-badge.medium{background:var(--naranja-claro);color:#c2410c}.difficulty-badge.hard{background:var(--rojo-claro);color:#991b1b}
 </style>
 </head>
 <body>
@@ -152,79 +151,6 @@ Imagina que ahorraste dinero: si añades 5€ a lo que tenías y ahora tienes 12
 <div class="box box-error">
 <strong>⚠️ Error común</strong>
 Si ves x + 5 = 12, NO hagas x = 12 + 5. ¡Hay que RESTAR 5! x = 12 - 5 = 7. Siempre hacemos lo CONTRARIO.
-</div>
-
-<!-- CONEXIÓN CON OTROS TEMAS -->
-<div class="connection-box">
-<strong>🔗 Conexiones</strong>
-<p>• Conecta con <b>S01.5: Restar hasta 10</b> — resolver ecuaciones es como encontrar el número perdido en una resta.</p>
-<p>• Conecta con <b>ESO1.3: Proporcionalidad</b> — las ecuaciones nos ayudan a calcular proporciones.</p>
-<p>• Conecta con <b>ESO2.1: Ecuaciones de 1º Grado</b> — aquí aprendes lo básico, más adelante ecuaciones con paréntesis.</p>
-<p>• Conecta con <b>S06.9: Introducción al Álgebra (6º)</b> — en primaria ya viste letras en matemáticas, aquí profundizamos.</p>
-</div>
-
-<!-- CASOS REALES ADICIONALES -->
-<div class="box box-success">
-<strong>🔗 Caso real — La cuenta del cine</strong>
-<span class="real-world-badge">Vida real</span><br>
-Entraste al cine con x€ y gastaste 5€ en palomitas. Te quedaron 12€. ¿Cuánto dinero tenías? x - 5 = 12 → x = 17€. ¡Álgebra en el cine!
-</div>
-
-<div class="box box-success">
-<strong>🔗 Caso real — El gimnasio</strong>
-<span class="real-world-badge">Vida real</span><br>
-Un gimnasio cobra 10€ de inscripción más 3€ por clase. Si fuiste a x clases y pagaste 25€ en total: 3x + 10 = 25 → 3x = 15 → x = 5 clases. ¡El álgebra te ahorra dinero!
-</div>
-
-<!-- SVG: RECTA NUMÉRICA INTERACTIVA -->
-<div class="svg-container">
-<h3 style="color:var(--azul);margin-bottom:.8rem">📏 Recta numérica: x + 3 = 7</h3>
-<p style="margin-bottom:1rem;color:var(--gris)">Haz clic en el número correcto para x:</p>
-<svg viewBox="0 0 500 120" width="100%" style="max-width:500px">
-<!-- Recta numérica -->
-<line x1="30" y1="60" x2="470" y2="60" stroke="#2563eb" stroke-width="2"/>
-<!-- Marcas -->
-<line x1="50" y1="55" x2="50" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="110" y1="55" x2="110" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="170" y1="55" x2="170" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="230" y1="55" x2="230" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="290" y1="55" x2="290" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="350" y1="55" x2="350" y2="65" stroke="#2563eb" stroke-width="2"/>
-<line x1="410" y1="55" x2="410" y2="65" stroke="#2563eb" stroke-width="2"/>
-<!-- Números -->
-<text x="50" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">0</text>
-<text x="110" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">1</text>
-<text x="170" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">2</text>
-<text x="230" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">3</text>
-<text x="290" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">4</text>
-<text x="350" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">5</text>
-<text x="410" y="90" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">6</text>
-<!-- Flecha x+3=7 -->
-<text x="230" y="35" text-anchor="middle" fill="#f97316" font-size="12">x+3</text>
-<line x1="230" y1="38" x2="290" y2="38" stroke="#f97316" stroke-width="2" marker-end="url(#arrow)"/>
-<defs>
-<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-<path d="M0,0 L8,3 L0,6" fill="#f97316"/>
-</marker>
-</defs>
-<!-- Botones interactivos -->
-<circle cx="50" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 0, 4)" style="cursor:pointer"/>
-<text x="50" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">0</text>
-<circle cx="110" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 1, 4)" style="cursor:pointer"/>
-<text x="110" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">1</text>
-<circle cx="170" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 2, 4)" style="cursor:pointer"/>
-<text x="170" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">2</text>
-<circle cx="230" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 3, 4)" style="cursor:pointer"/>
-<text x="230" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">3</text>
-<circle cx="290" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 4, 4)" style="cursor:pointer"/>
-<text x="290" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">4</text>
-<circle cx="350" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 5, 4)" style="cursor:pointer"/>
-<text x="350" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">5</text>
-<circle cx="410" cy="60" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2" class="number-btn" onclick="checkNumber(this, 6, 4)" style="cursor:pointer"/>
-<text x="410" y="64" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="bold">6</text>
-<!-- Resultado -->
-<text x="250" y="115" text-anchor="middle" fill="#1e293b" font-size="13" id="svgResult">¿Cuánto vale x en x + 3 = 7?</text>
-</svg>
 </div>
 
 <section class="chapter">
@@ -303,42 +229,8 @@ Un gimnasio cobra 10€ de inscripción más 3€ por clase. Si fuiste a x clase
 <div class="result" id="eso1algInputResult" style="display:inline-block;margin-left:.5rem"></div>
 </div>
 
-<!-- EMPIEZA SECCIÓN NUEVA: Ejercicios variados -->
-<h3 style="color:var(--azul);margin:1.5rem 0 .8rem">🧠 Ejercicios extra variados</h3>
-
-<!-- ORDENAR -->
-<div class="exercise">
-<p><span class="difficulty-badge easy" style="background:var(--verde-claro);color:#065f46">Fácil</span> <b>Ordenar:</b> Ordena estas ecuaciones de menor a mayor según el valor de x: A) 2x=10, B) x+3=5, C) x-2=8</p>
-<p style="font-size:.85rem;color:var(--gris)">Escribe las letras separadas por comas (ej: B, A, C)</p>
-<div style="margin:.5rem 0">
-<input type="text" id="eso1algOrden" placeholder="ej: A, B, C" style="padding:.5rem;font-size:1rem;border:2px solid var(--azul);border-radius:6px;width:220px">
-<button onclick="checkOrdenEso1()" style="padding:.5rem 1rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
-</div>
-<div class="feedback" id="eso1algOrdenFB"></div>
 </div>
 
-<!-- EMPAREJAR -->
-<div class="exercise">
-<p><span class="difficulty-badge medium" style="background:var(--naranja-claro);color:#c2410c">Medio</span> <b>Emparejar:</b> Une cada ecuación con su solución correcta</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:1rem 0">
-<div id="eso1algLeft" style="display:flex;flex-direction:column;gap:.5rem"></div>
-<div id="eso1algRight" style="display:flex;flex-direction:column;gap:.5rem"></div>
-</div>
-<div class="result" id="eso1algMatchResult" style="display:none"></div>
-</div>
-
-<!-- PROBLEMA NARRATIVO -->
-<div class="exercise">
-<p><span class="difficulty-badge hard" style="background:var(--rojo-claro);color:#991b1b">Difícil</span> <b>Problema:</b> Luis piensa un número. Lo multiplica por 3, le resta 4 y el resultado es 11. ¿Qué número pensó? (3x - 4 = 11)</p>
-<div style="margin:.5rem 0">
-<input type="number" id="eso1algProblema" placeholder="x = ?" style="padding:.5rem 1rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;width:80px;text-align:center">
-<button class="quiz-btn" onclick="checkProblemaEso1()" style="margin-left:.5rem">Comprobar</button>
-</div>
-<div class="result" id="eso1algProblemaResult" style="display:inline-block;margin-left:.5rem"></div>
-</div>
-
-</div>
-</section>
 </section>
 </section>
 <div class="summary">
@@ -417,119 +309,6 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
-
-/* SVG recta numérica interactiva */
-function checkNumber(circle, value, correct) {
-  const svgResult = document.getElementById('svgResult');
-  if(value === correct) {
-    circle.setAttribute('fill', '#ecfdf5');
-    circle.setAttribute('stroke', '#10b981');
-    svgResult.textContent = '✅ ¡Correcto! x + 3 = 7 → x = 4';
-    svgResult.setAttribute('fill', '#065f46');
-  } else {
-    circle.setAttribute('fill', '#fef2f2');
-    circle.setAttribute('stroke', '#ef4444');
-    svgResult.textContent = '❌ No. x + 3 = 7 → x = 7 - 3 = 4';
-    svgResult.setAttribute('fill', '#991b1b');
-  }
-}
-
-/* Ordenar ecuaciones */
-function checkOrdenEso1() {
-  const input = document.getElementById('eso1algOrden').value.trim().toLowerCase().replace(/\s/g, '');
-  const fb = document.getElementById('eso1algOrdenFB');
-  if(input === 'B,A,C') {
-    fb.className = 'feedback correct';
-    fb.textContent = '✅ ¡Perfecto! B: x=2, A: x=5, C: x=10 → Orden: B, A, C';
-  } else {
-    fb.className = 'feedback incorrect';
-    fb.textContent = '❌ El orden correcto es B (x=2), A (x=5), C (x=10)';
-  }
-}
-
-/* Emparejar ecuaciones */
-function initMatchEso1() {
-  const left = [
-    {eq: 'x + 4 = 9', sol: '5'},
-    {eq: '2x = 10', sol: '5'},
-    {eq: 'x - 3 = 7', sol: '10'},
-    {eq: '3x = 12', sol: '4'}
-  ];
-  const right = [
-    {sol: '4', label: 'x = 4'},
-    {sol: '5', label: 'x = 5'},
-    {sol: '10', label: 'x = 10'},
-    {sol: '7', label: 'x = 7'}
-  ];
-  // Shuffle right
-  for(let i = right.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [right[i], right[j]] = [right[j], right[i]];
-  }
-  const leftDiv = document.getElementById('eso1algLeft');
-  const rightDiv = document.getElementById('eso1algRight');
-  leftDiv.innerHTML = '';
-  rightDiv.innerHTML = '';
-  let matched = 0;
-  left.forEach((item, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-btn';
-    btn.style.fontSize = '.85rem';
-    btn.textContent = item.eq;
-    btn.dataset.sol = item.sol;
-    btn.onclick = function() {
-      this.style.background = '#eff6ff';
-      this.style.borderColor = '#2563eb';
-      for(let j = 0; j < rightDiv.children.length; j++) {
-        rightDiv.children[j].onclick = function() {
-          if(this.dataset.sol === this.textContent.replace('x = ', '')) {
-            this.style.background = '#ecfdf5';
-            this.style.borderColor = '#10b981';
-            this.style.pointerEvents = 'none';
-            btn.style.background = '#ecfdf5';
-            btn.style.borderColor = '#10b981';
-            btn.style.pointerEvents = 'none';
-            matched++;
-            if(matched === left.length) {
-              const mr = document.getElementById('eso1algMatchResult');
-              mr.style.display = 'block';
-              mr.className = 'result ok';
-              mr.textContent = '🎉 ¡Todas emparejadas correctamente!';
-            }
-          } else {
-            this.style.background = '#fef2f2';
-            this.style.borderColor = '#ef4444';
-            setTimeout(() => { this.style.background = '#fff'; this.style.borderColor = '#2563eb'; }, 800);
-          }
-        };
-      }
-    };
-    leftDiv.appendChild(btn);
-  });
-  right.forEach((item, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'quiz-btn';
-    btn.style.fontSize = '.85rem';
-    btn.textContent = item.label;
-    btn.dataset.sol = item.sol;
-    rightDiv.appendChild(btn);
-  });
-}
-initMatchEso1();
-
-/* Problema narrativo */
-function checkProblemaEso1() {
-  const input = document.getElementById('eso1algProblema');
-  const result = document.getElementById('eso1algProblemaResult');
-  const val = parseInt(input.value);
-  if(val === 5) {
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! 3x - 4 = 11 → 3x = 15 → x = 5';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ 3x - 4 = 11 → 3x = 15 → x = 5';
-  }
-}
 </script>
 </body>
 </html>
