@@ -2024,7 +2024,7 @@
       "improvement_count": 2
     },
     "s09-2-bachiller-continuidad-derivadas.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "Bachiller",
       "priority": 3,
       "category": "bachiller",
@@ -2033,19 +2033,18 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+1 explicación 4 pasos (qué es/para qué/cómo/error común), +1 SVG animado (secante→tangente), +2 ejercicios variados (V/F, ordenar derivadas), +1 caja conexión (S09-3), resumen ampliado a 8 puntos, +CSS coherence classes"
-        }
+        },
+        "2026-06-13: connections 5→9 (+6 boxes: integral, física, optimización, geometría, Taylor, ecuaciones diferenciales), visual 7→9, exercises 8→10 (+emparejar+problema, 5 tipos), difficulty_range 6→8 (3 niveles), CSS: added difficulty-badge styles"
       ],
       "scores": {
-        "exercises": 9,
-        "text": 9,
-        "visual": 7,
-        "real_world": 7,
-        "connections": 5,
-        "difficulty_range": 7,
-        "manim_quality": 7,
-        "css_coherence": 9
+        "exercises": 10,
+        "text": 10,
+        "visual": 9,
+        "real_world": 8,
+        "connections": 9,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
+      "last_improved": "2026-06-13",
       "improvement_count": 1
     },
     "s09-3-bachiller-reglas-derivacion.html": {

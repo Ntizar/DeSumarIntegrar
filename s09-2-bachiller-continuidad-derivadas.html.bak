@@ -184,12 +184,6 @@ table tr:nth-child(even){background:#f8fafc}
 /* Badge de caso real */
 .real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
 
-/* Badge de dificultad */
-.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.75rem;font-weight:600}
-.difficulty-badge.facil{background:#dcfce7;color:#166534}
-.difficulty-badge.medio{background:#fef3c7;color:#92400e}
-.difficulty-badge.dificil{background:#fef2f2;color:#991b1b}
-
 /* Contenedor SVG */
 .svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
 </style>
@@ -426,71 +420,11 @@ La continuidad es requisito para la derivabilidad. Si una función es derivable 
 </div>
 <div class="feedback" id="e7-fb"></div>
 </div>
-
-<!-- Ejercicio 8: Emparejar (tipo 6 nuevo) -->
-<div class="exercise">
-<p><strong>Ejercicio 8 — Emparejar:</strong> <span class="difficulty-badge medio">Medio</span> Conecta cada función con su tipo de continuidad</p>
-<div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin:1rem 0" id="bachMatchContainer">
-<div id="bachMatchLeft" style="display:flex;flex-direction:column;gap:.5rem">
-<button class="quiz-btn" onclick="selectBachMatch('left', this, 'f1')" id="bml1">f(x) = x²</button>
-<button class="quiz-btn" onclick="selectBachMatch('left', this, 'f2')" id="bml2">f(x) = 1/x</button>
-<button class="quiz-btn" onclick="selectBachMatch('left', this, 'f3')" id="bml3">f(x) = |x|</button>
-</div>
-<div id="bachMatchRight" style="display:flex;flex-direction:column;gap:.5rem">
-<button class="quiz-btn" onclick="selectBachMatch('right', this, 'c1')" id="bmr1">Continua en ℝ, no derivable en 0</button>
-<button class="quiz-btn" onclick="selectBachMatch('right', this, 'c2')" id="bmr2">Continua en todos ℝ</button>
-<button class="quiz-btn" onclick="selectBachMatch('right', this, 'c3')" id="bmr3">Discontinua infinita en x=0</button>
-</div>
-</div>
-<div class="result" id="e8-fb" style="display:none"></div>
-</div>
-
-<!-- Ejercicio 9: Problema contextual (tipo 7 nuevo) -->
-<div class="exercise">
-<p><strong>Ejercicio 9 — Problema:</strong> <span class="difficulty-badge dificil">Difícil</span> Un fabricante quiere minimizar el coste de una lata cilíndrica de 330ml. El coste es proporcional al área de la superficie. Si el radio es r, el coste es C(r) = 2πr² + 660/r. Demuestra que C(r) es continua para r > 0 y calcula C(5).</p>
-<div class="exercise-input">
-<input type="number" id="e9" placeholder="C(5)=" step="any" style="width:150px">
-<button onclick="checkE9()">Comprobar</button>
-</div>
-<div class="feedback" id="e9-fb"></div>
-</div>
-
 </div>
 
 <div class="box box-idea">
 <strong>🔗 Conexión</strong>
 La continuidad es requisito para la derivabilidad: si una función es derivable en $x=a$, entonces es continua en $x=a$. Pero lo contrario NO siempre es cierto (ej: $|x|$ es continua en 0 pero no derivable). Esto se explora en <a href="s09-3-bachiller-reglas-derivacion.html">Sesión 3: Reglas de Derivación</a>.
-</div>
-
-<!-- CONEXIONES AMPLIADAS -->
-<div class="connection-box">
-<strong>📌 Conexión con Cálculo Integral (Sesión 4)</strong>
-<p>El Teorema Fundamental del Cálculo conecta derivadas e integrales. Si $F$ es continua en $[a,b]$, entonces $\int_a^b f(x)dx = F(b) - F(a)$. ¡La continuidad es el puente entre derivación e integración!</p>
-</div>
-
-<div class="connection-box">
-<strong>📌 Conexión con Física</strong>
-<p>En física, la posición $s(t)$ es continua → la velocidad $v(t) = s'(t)$ existe. Si un coche está en el km 0 a las 8:00 y en el km 100 a las 10:00, por el TVI hubo un momento a exactamente 50 km/h. ¡El TVI en acción!</p>
-</div>
-
-<div class="connection-box">
-<strong>📌 Conexión con Optimización</strong>
-<p>Para encontrar máximos y mínimos, buscamos puntos donde $f'(x) = 0$. Pero primero la función DEBE ser continua. ¡Si la función tiene saltos, el máximo podría estar en cualquier lado!</p>
-</div>
-
-<div class="connection-box">
-<strong>📌 Conexión con Geometría Analítica</strong>
-<p>Las funciones polinómicas son continuas en TODOS los reales. Las racionales (fracciones con polinomios) son continuas excepto donde el denominador es cero. ¡La geometría de la función te dice dónde es continua!</p>
-</div>
-
-<div class="connection-box">
-<strong>📌 Conexión con Series de Taylor</strong>
-<p>Las series de Taylor aproximan funciones con polinomios. Pero solo funcionan si la función es continua (y derivable infinitas veces). ¡La continuidad es la puerta de entrada al análisis!</p>
-</div>
-
-<div class="connection-box">
-<strong>📌 Conexión con Ecuaciones Diferenciales</strong>
-<p>Las ecuaciones diferenciales modelan cambios continuos: $y' = f(x,y)$. Para que exista solución, $f$ debe ser continua (teorema de existencia de Picard-Lindelöf). ¡La continuidad garantiza que el modelo tiene sentido!</p>
 </div>
 </div>
 
@@ -636,48 +570,6 @@ function checkE7() {
   }
 }
 
-// Emparejar bachiller (ejercicio 8)
-let bachMatchLeft = null;
-function selectBachMatch(side, btn, val) {
-  if (side === 'left') {
-    document.querySelectorAll('#bachMatchLeft button').forEach(b => b.style.outline = 'none');
-    btn.style.outline = '3px solid #3b82f6';
-    bachMatchLeft = {btn: btn, val: val};
-  } else {
-    if (!bachMatchLeft) return;
-    const pairs = {'f1':'c2','f2':'c3','f3':'c1'};
-    if (pairs[bachMatchLeft.val] === val) {
-      bachMatchLeft.btn.style.background = '#22c55e';
-      bachMatchLeft.btn.style.color = '#fff';
-      btn.style.background = '#22c55e';
-      btn.style.color = '#fff';
-      btn.disabled = true;
-      bachMatchLeft = null;
-      const remaining = document.querySelectorAll('#bachMatchRight button:not([disabled])');
-      if (remaining.length === 0) {
-        document.getElementById('e8-fb').style.display = 'block';
-        document.getElementById('e8-fb').innerHTML = '<span style="color:#22c55e">✅ ¡Perfecto! x²→continua en ℝ, 1/x→discontinua infinita, |x|→continua pero no derivable en 0.</span>';
-      }
-    } else {
-      btn.style.background = '#ef4444';
-      setTimeout(() => { btn.style.background = ''; }, 800);
-    }
-  }
-}
-
-// Problema lata (ejercicio 9)
-function checkE9() {
-  const val = parseFloat(document.getElementById('e9').value);
-  const fb = document.getElementById('e9-fb');
-  // C(5) = 2π(25) + 660/5 = 50π + 132 ≈ 157.08 + 132 = 289.08
-  if (val >= 289 && val <= 290) {
-    fb.textContent = '✅ ¡Correcto! C(5) = 2π(25) + 660/5 = 50π + 132 ≈ 289.08. La función es continua para r>0 porque es suma de funciones continuas.';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ C(5) = 2π(5²) + 660/5 = 50π + 132 ≈ 289.08. La función es continua para r>0 porque es suma de funciones continuas (polinomio + racional con denominador ≠ 0).';
-    fb.className = 'feedback incorrect';
-  }
-}
 </script>
 </body>
 </html>
