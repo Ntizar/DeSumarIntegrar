@@ -183,63 +183,6 @@ Muchos confunden media con moda. La media es el PROMEDIO, la moda es lo que MÁS
 <strong>📖 Teoría</strong>
 Media = suma ÷ cantidad. Moda = dato más frecuente. Probabilidad = casos favorables / casos posibles.
 </div>
-
-<!-- NUEVO: Explicación de 4 pasos para calcular la media -->
-<div class="box box-teoria">
-<strong>📝 ¿Cómo se calcula la media? — Guía en 4 pasos</strong>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 1</span> <strong>Recopila todos los datos</strong><br>
-Escribe cada valor que quieras analizar. Por ejemplo, las notas del trimestre: 6, 8, 7, 9, 6, 8, 7</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 2</span> <strong>Añade todos los valores</strong><br>
-Suma cada número: 6 + 8 + 7 + 9 + 6 + 8 + 7 = 51</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 3</span> <strong>Cuenta cuántos datos hay</strong><br>
-Cuenta los valores: hay 7 notas</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 4</span> <strong>Divide la suma entre la cantidad</strong><br>
-Media = 51 ÷ 7 ≈ 7.3 → Tu nota media es 7.3</p>
-
-<div class="box box-idea" style="margin-top:.8rem">
-<strong>💡 Truco para recordarlo</strong>
-"Media" suena a "medio" → es el valor que está en el medio de todos los datos. Imagina que repartes dulces por igual: si tienes 51 dulces para 7 amigos, cada uno recibe ~7.3 dulces. ¡Esa es la media!
-</div>
-</div>
-
-<!-- NUEVO: Explicación de 4 pasos para encontrar la moda -->
-<div class="box box-teoria">
-<strong>📝 ¿Cómo se encuentra la moda? — Guía en 4 pasos</strong>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 1</span> <strong>Ordena los datos de menor a mayor</strong><br>
-Ejemplo: colores favoritos → azul, azul, verde, rojo, rojo, rojo, rojo</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 2</span> <strong>Cuenta cuántas veces aparece cada dato</strong><br>
-azul: 2 veces, verde: 1 vez, rojo: 4 veces</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 3</span> <strong>Busca el dato con más repeticiones</strong><br>
-Rojo aparece 4 veces → ¡es el más frecuente!</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 4</span> <strong>Verifica si hay empates</strong><br>
-Si dos datos tienen la misma frecuencia máxima, hay varias modas (bimodal, trimodal...). Si ninguno se repite, no hay moda.</p>
-</div>
-
-<!-- NUEVO: Explicación de 4 pasos para calcular probabilidad -->
-<div class="box box-teoria">
-<strong>📝 ¿Cómo se calcula la probabilidad? — Guía en 4 pasos</strong>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 1</span> <strong>Identifica todos los resultados posibles</strong><br>
-Lanzar un dado: {1, 2, 3, 4, 5, 6} → 6 resultados posibles</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 2</span> <strong>Identifica los resultados favorables</strong><br>
-¿Queremos sacar un número par? {2, 4, 6} → 3 resultados favorables</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 3</span> <strong>Divide favorables entre posibles</strong><br>
-P(par) = 3/6 = 1/2 = 0.5 = 50%</p>
-
-<p style="margin:.8rem 0"><span class="step-indicator"><span class="step-dot"></span> Paso 4</span> <strong>Comprueba que está entre 0 y 1</strong><br>
-Si el resultado es mayor que 1 o menor que 0, algo va mal. La probabilidad SIEMPRE está entre 0 (imposible) y 1 (seguro).</p>
-</div>
-
 <div class="box box-ejemplo">
 <strong>🔍 Ejemplo 1</strong>
 Notas: 7, 8, 6, 9, 5 → Media = 35÷5 = 7
@@ -289,73 +232,13 @@ Es decir, 0.0000007%. ¡Más probable te cae un rayo! ⚡ Pero alguien... algún
 <!-- NUEVO: Conexión con otros temas -->
 <section class="chapter">
 <h2 class="chapter-title">🔗 Conexión: Estadística y Probabilidad</h2>
-<div class="connection-box">
-<strong>🔗 Conexión 1: Estadística ↔ Probabilidad</strong>
-La probabilidad es la base de la estadística inferencial. Si la estadística descriptiva resume datos que YA TIENES, la probabilidad te permite PREDECIR datos que AÚN NO TIENES. ¡Son dos caras de la misma moneda!
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 2: Estadística ↔ Álgebra</strong>
-Para calcular la media necesitas sumar y dividir: ¡eso es álgebra básica! La fórmula Media = Σxᵢ/n usa la sigma (Σ) que significa "suma de todos". ¡Ya conoces las operaciones, solo las aplicas de forma diferente!
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 3: Estadística ↔ Geometría</strong>
-Los gráficos de barras que ves aquí son similares a los gráficos de áreas que verás en geometría. Ambos usan la altura de las barras para representar cantidades. ¡La estadística te da datos, la geometría te da formas!
-</div>
-<div class="connection-box">
-<strong>🔗 Conexión 4: Estadística ↔ Fracciones</strong>
-La probabilidad se expresa como fracción: P = favorables/posibles. ¡Ya sabes que 3/6 = 1/2! Eso es exactamente lo que haces al calcular probabilidades. Las fracciones son el lenguaje de la probabilidad.
+<div class="box box-idea">
+<strong>💡 Conexión con otros temas</strong>
+La probabilidad es la base de la estadística inferencial. Si la estadística descriptiva resume datos que YA TIENES, la probabilidad te permite PREDECIR datos que AÚNA TIENES. ¡Son dos caras de la misma moneda!
 </div>
 <div class="box box-error">
 <strong>⚠️ Error común: La falacia del jugador</strong>
 Si lanzas una moneda 5 veces y sale cara cada vez, ¿la siguiente será cruz? NO. Cada lanzamiento es independiente. P(cara) sigue siendo 1/2. ¡El dado no tiene memoria!
-</div>
-<div class="box box-success">
-<strong>✅ Dato curioso</strong>
-Los seguros de coche usan estadística y probabilidad todos los días. Calculan la probabilidad de que un conductor tenga un accidente basándose en datos de miles de conductores. ¡Sin estadística, no existirían los seguros!
-</div>
-</section>
-
-<!-- NUEVO: SVG interactivo — Visualizador de media y moda -->
-<section class="chapter">
-<h2 class="chapter-title">🎮 Visualizador interactivo: Media y Moda</h2>
-<p style="margin-bottom:1rem;color:#64748b">Haz clic en los botones para añadir dados y ver cómo cambian la media y la moda en tiempo real.</p>
-<div class="interactive">
-<h3>🎲 Lanza dados virtuales</h3>
-<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0">
-<button onclick="rollDie(1)" style="background:var(--azul);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600">🎲 Lanzar dado 1</button>
-<button onclick="rollDie(3)" style="background:var(--naranja);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600">🎲🎲🎲 Lanzar 3 dados</button>
-<button onclick="rollDie(10)" style="background:var(--pura);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600">🎲×10 Lanzar 10</button>
-<button onclick="resetDice()" style="background:var(--rojo);color:#fff;border:none;padding:.6rem 1.2rem;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:600">🗑️ Reset</button>
-</div>
-<div class="svg-container" style="margin:1rem 0">
-<svg viewBox="0 0 500 250" width="500" height="250" id="diceSvg">
-<!-- Fondo -->
-<rect width="500" height="250" fill="#f8fafc" rx="8"/>
-<!-- Título -->
-<text x="250" y="20" text-anchor="middle" font-size="12" fill="#64748b">Lanza dados para ver las estadísticas</text>
-<!-- Área de resultados -->
-<text x="250" y="45" text-anchor="middle" font-size="14" fill="#1e293b" font-weight="bold" id="diceResults">Sin dados aún</text>
-<!-- Estadísticas -->
-<text x="250" y="70" text-anchor="middle" font-size="11" fill="#2563eb" id="diceMean">Media: --</text>
-<text x="250" y="88" text-anchor="middle" font-size="11" fill="#f97316" id="diceMode">Moda: --</text>
-<text x="250" y="106" text-anchor="middle" font-size="11" fill="#10b981" id="diceCount">Dados: 0</text>
-<!-- Gráfico de barras -->
-<rect x="30" y="130" width="440" height="100" fill="#fff" stroke="#e2e8f0" rx="4"/>
-<!-- Barras para cada cara del dado (1-6) -->
-<rect x="50" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar1"/>
-<text x="75" y="245" text-anchor="middle" font-size="10" fill="#64748b">1</text>
-<rect x="120" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar2"/>
-<text x="145" y="245" text-anchor="middle" font-size="10" fill="#64748b">2</text>
-<rect x="190" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar3"/>
-<text x="215" y="245" text-anchor="middle" font-size="10" fill="#64748b">3</text>
-<rect x="260" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar4"/>
-<text x="285" y="245" text-anchor="middle" font-size="10" fill="#64748b">4</text>
-<rect x="330" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar5"/>
-<text x="355" y="245" text-anchor="middle" font-size="10" fill="#64748b">5</text>
-<rect x="400" y="200" width="50" height="30" fill="#2563eb" rx="3" opacity="0.7" id="bar6"/>
-<text x="425" y="245" text-anchor="middle" font-size="10" fill="#64748b">6</text>
-</svg>
-</div>
 </div>
 </section>
 
@@ -371,78 +254,50 @@ Los seguros de coche usan estadística y probabilidad todos los días. Calculan 
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
-<!-- Quiz 1: Media — Fácil -->
+<!-- Quiz 1: Media -->
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> Media de 4, 6, 8, 10, 12:</p>
+<p>Media de 4, 6, 8, 10, 12:</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">8</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">10</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">6</button>
 </div>
 </div>
-<!-- Quiz 2: Moda — Fácil -->
+<!-- Quiz 2: Moda -->
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> Moda de 2, 3, 3, 4, 5, 5, 5:</p>
+<p>Moda de 2, 3, 3, 4, 5, 5, 5:</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">5</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">3</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">2</button>
 </div>
 </div>
-<!-- Quiz 3: Probabilidad moneda — Fácil -->
+<!-- Quiz 3: Probabilidad moneda -->
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Fácil</span> P(sacar cara en moneda):</p>
+<p>P(sacar cara en moneda):</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">1/2</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">1/3</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">1/4</button>
 </div>
 </div>
-<!-- QUIZ 4: Completar hueco — Medio -->
+<!-- QUIZ 4: Completar hueco -->
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Medio</span> Media de 10, 20, 30, 40: Media = ?</p>
+<p>Media de 10, 20, 30, 40: Media = ?</p>
 <div style="display:flex;gap:.5rem;align-items:center;margin:.5rem 0">
 <input type="number" id="stats-input-1" placeholder="?" style="padding:.5rem .8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
 <button onclick="checkStatsInput1()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-weight:600">Comprobar</button>
 </div>
 <div class="result" id="stats-fb-1"></div>
 </div>
-<!-- QUIZ 5: Verdadero/Falso — Medio -->
+<!-- QUIZ 5: Verdadero/Falso -->
 <div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Medio</span> Si lanzo un dado, P(sacar un número par) = 1/2. ¿Verdadero o Falso?</p>
+<p>Si lanzo un dado, P(sacar un número par) = 1/2. ¿Verdadero o Falso?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
 </div>
 <div class="result" id="stats-vf-result"></div>
-</div>
-<!-- QUIZ 6: Emparejar — Dificil -->
-<div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Difícil</span> Empareja cada concepto con su definición correcta:</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
-<div>
-<p style="font-weight:600;margin-bottom:.5rem">Conceptos:</p>
-<button class="quiz-btn" id="pair-a" onclick="pairSelect('a','media')" style="width:100%;margin:.3rem 0">Media</button>
-<button class="quiz-btn" id="pair-b" onclick="pairSelect('b','moda')" style="width:100%;margin:.3rem 0">Moda</button>
-<button class="quiz-btn" id="pair-c" onclick="pairSelect('c','prob')" style="width:100%;margin:.3rem 0">Probabilidad</button>
-</div>
-<div>
-<p style="font-weight:600;margin-bottom:.5rem">Definiciones:</p>
-<button class="quiz-btn" id="pair-1" onclick="pairSelect('1','prob')" style="width:100%;margin:.3rem 0">Casos favorables / posibles</button>
-<button class="quiz-btn" id="pair-2" onclick="pairSelect('2','media')" style="width:100%;margin:.3rem 0">Suma ÷ cantidad</button>
-<button class="quiz-btn" id="pair-3" onclick="pairSelect('3','moda')" style="width:100%;margin:.3rem 0">Dato más frecuente</button>
-</div>
-</div>
-<div class="result" id="pair-result"></div>
-</div>
-<!-- QUIZ 7: Problema real — Dificil -->
-<div class="exercise">
-<p><span class="step-indicator"><span class="step-dot"></span> Difícil</span> En una encuesta a 20 alumnos sobre deporte favorito: Fútbol=8, Basket=6, Natación=4, Tenis=2. ¿Cuál es la moda y la media de votos por deporte?</p>
-<div class="quiz-options">
-<button class="quiz-btn" onclick="checkExercise(this, true)">Moda=Fútbol, Media=5</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Moda=Basket, Media=8</button>
-<button class="quiz-btn" onclick="checkExercise(this, false)">Moda=Fútbol, Media=20</button>
-</div>
 </div>
 </div>
 </section>
@@ -528,90 +383,6 @@ function checkVF(btn, correct) {
     fb.textContent = '❌ Falso. Números pares en un dado: 2, 4, 6 → P = 3/6 = 1/2';
   }
 }
-
-// NUEVO: Visualizador de dados interactivo
-let diceRolls = [];
-function rollDie(count) {
-  for(let i = 0; i < count; i++) {
-    diceRolls.push(Math.floor(Math.random() * 6) + 1);
-  }
-  updateDiceDisplay();
-}
-function resetDice() {
-  diceRolls = [];
-  updateDiceDisplay();
-}
-function updateDiceDisplay() {
-  // Results text
-  const resultsEl = document.getElementById('diceResults');
-  if (diceRolls.length === 0) {
-    resultsEl.textContent = 'Sin dados aún';
-  } else {
-    resultsEl.textContent = 'Resultados: ' + diceRolls.join(', ');
-  }
-  // Count
-  document.getElementById('diceCount').textContent = 'Dados: ' + diceRolls.length;
-  // Mean
-  const meanEl = document.getElementById('diceMean');
-  const modeEl = document.getElementById('diceMode');
-  if (diceRolls.length > 0) {
-    const sum = diceRolls.reduce((a, b) => a + b, 0);
-    const mean = (sum / diceRolls.length).toFixed(2);
-    meanEl.textContent = 'Media: ' + mean;
-    // Mode
-    const freq = {};
-    diceRolls.forEach(r => freq[r] = (freq[r] || 0) + 1);
-    const maxFreq = Math.max(...Object.values(freq));
-    const modes = Object.keys(freq).filter(k => freq[k] === maxFreq).map(Number);
-    modeEl.textContent = 'Moda: ' + modes.join(', ');
-  } else {
-    meanEl.textContent = 'Media: --';
-    modeEl.textContent = 'Moda: --';
-  }
-  // Update bar chart
-  const freq = {};
-  for (let i = 1; i <= 6; i++) freq[i] = 0;
-  diceRolls.forEach(r => freq[r]++);
-  const maxF = Math.max(...Object.values(freq), 1);
-  for (let i = 1; i <= 6; i++) {
-    const bar = document.getElementById('bar' + i);
-    const h = (freq[i] / maxF) * 60;
-    bar.setAttribute('y', 200 - h);
-    bar.setAttribute('height', h);
-    if (freq[i] === maxFreq && diceRolls.length > 0) {
-      bar.setAttribute('fill', '#f97316');
-    } else {
-      bar.setAttribute('fill', '#2563eb');
-    }
-  }
-}
-
-// NUEVO: Emparejar conceptos
-let pairState = {};
-function pairSelect(id, pairId) {
-  if (!pairState[id]) {
-    pairState[id] = pairId;
-    document.getElementById(id).style.background = 'var(--azul-claro)';
-    document.getElementById(id).style.borderColor = 'var(--azul)';
-  } else {
-    // Check if this is a valid pair
-    const correctPairs = {'a':'2', 'b':'3', 'c':'1', '1':'c', '2':'a', '3':'b'};
-    const fb = document.getElementById('pair-result');
-    if (pairState[id] === pairId || correctPairs[pairState[id]] === pairId) {
-      fb.className = 'result ok';
-      fb.textContent = '✅ ¡Correcto!';
-    } else {
-      fb.className = 'result fail';
-      fb.textContent = '❌ No es la pareja correcta. ¡Intenta de nuevo!';
-    }
-    pairState = {};
-    document.querySelectorAll('.quiz-btn').forEach(b => {
-      b.style.background = '';
-      b.style.borderColor = '';
-    });
-  }
-}
-
 window.onscroll = function(){
   var h = document.documentElement;
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
