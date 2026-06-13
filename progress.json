@@ -1275,17 +1275,23 @@
       "level": "3º Primaria",
       "priority": 2,
       "category": "primaria_tema",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 2,
+          "date": "2026-06-12",
+          "added": "+4-step explanation (qué es/para qué/cómo/error común), +3 casos reales (pizza/galletas/tiempo), +1 connection-box (4 temas), +3 ejercicios nuevos (V/F visual SVG, completar input, ordenar), +difficulty badges (12), +CSS: step-indicator/step-dot/connection-box/real-world-badge/feedback/difficulty-badge/svg-container"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 9,
+        "visual": 8,
+        "real_world": 9,
+        "connections": 7,
+        "difficulty_range": 7
       },
-      "last_improved": null,
-      "improvement_count": 1,
+      "last_improved": "2026-06-12",
+      "improvement_count": 2,
       "score": {
         "exercises": 8,
         "types": 3,

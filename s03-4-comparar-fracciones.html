@@ -50,6 +50,22 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
+.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600;margin:.2rem}
+.step-indicator{display:flex;justify-content:center;gap:.5rem;margin:1rem 0}
+.step-dot{width:12px;height:12px;border-radius:50%;background:var(--gris);transition:all .3s}
+.step-dot.active{background:var(--azul);transform:scale(1.3)}
+.connection-box{background:var(--pura-claro);border:2px solid var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
+.connection-box h4{color:var(--pura);margin-bottom:.5rem}
+.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
+.connection-box a:hover{text-decoration:underline}
+.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
+.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
+.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:8px;font-size:.7rem;font-weight:700;margin-left:.5rem}
+.difficulty-badge.facil{background:#d1fae5;color:#065f46}
+.difficulty-badge.medio{background:#fef3c7;color:#92400e}
+.difficulty-badge.dificil{background:#fee2e2;color:#991b1b}
+.svg-container{text-align:center;margin:1rem 0}
 </style>
 </head>
 <body>
@@ -72,6 +88,29 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 <ul style="margin:.8rem 0 1rem 1.5rem">
 <li>Comparar fracciones con mismo denominador</li><li>Comparar fracciones con mismo numerador</li><li>Usar visualizaciones para comparar</li><li>Ordenar fracciones de menor a mayor</li>
 </ul>
+
+<section class="chapter">
+<h2 class="chapter-title">📚 ¿Qué son las fracciones comparables?</h2>
+<div class="box box-teoria">
+<strong>👀 Qué es</strong>
+Comparar fracciones es como decidir <b>cuál porción es más grande</b> cuando repartimos algo entre personas. Piensa en una pizza: si te dan 1/2 y yo 1/4, ¿quién tiene más?
+</div>
+<div class="box box-teoria">
+<strong>🎯 Para qué sirve</strong>
+Sabemos comparar fracciones para <b>tomar decisiones justas</b>: repartir comida, medir ingredientes, decidir quién tiene más tiempo libre. ¡Es matemáticas de la vida real!
+</div>
+<div class="box box-teoria">
+<strong>🔧 Cómo se hace</strong>
+Hay dos reglas de oro:<br>
+<b>Regla 1:</b> Mismo denominador → gana el mayor numerador (más trozos iguales)<br>
+<b>Regla 2:</b> Mismo numerador → gana el menor denominador (trozos más grandes)<br>
+<p style="margin-top:.5rem"><i>Truco: piensa siempre en trozos de pizza 🍕</i></p>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+¡Cuidado! Muchos piensan que 1/5 > 1/2 porque 5 es mayor que 2. ¡FALSO! Cuando el numerador es el mismo, el MENOR denominador gana (trozos más grandes). 1/2 > 1/5 porque medio trozo es más grande que un quinto.
+</div>
+</section>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Comparar fracciones</h2>
@@ -112,13 +151,32 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 <div class="result" id="interactiveResult"></div>
 </div>
 </section>
+
+<section class="chapter">
+<h2 class="chapter-title">🌍 Fracciones en la vida real</h2>
+<div class="box box-ejemplo">
+<strong>🍕 Caso 1: La pizza del viernes</strong>
+<span class="real-world-badge">Cocina</span><br>
+Pedro pidió una pizza y comió <b>3/8</b>. María pidió la misma pizza y comió <b>5/8</b>. Como ambas tienen el mismo denominador (8), comió más María: 5/8 > 3/8. ¡Dos rebanadas de diferencia!
+</div>
+<div class="box box-ejemplo">
+<strong>🧪 Caso 2: La receta de galletas</strong>
+<span class="real-world-badge">Repostería</span><br>
+La receta pide <b>1/2</b> taza de azúcar. Tú solo tienes un medidor de <b>1/4</b>. ¿Cuántos medidores necesitas? ¡Dos! Porque 1/2 = 2/4, así que 1/2 > 1/4. Necesitas el doble.
+</div>
+<div class="box box-ejemplo">
+<strong>⏰ Caso 3: Tiempo de estudio</strong>
+<span class="real-world-badge">Tiempo</span><br>
+Ana estudió <b>2/3</b> de hora y Luis <b>2/6</b> de hora. Mismo numerador (2): gana el menor denominador. 2/3 > 2/6 porque 3 < 6. ¡Ana estudió el doble de tiempo!
+</div>
+</section>
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
 
 <!-- Ejercicio 1: COMPLETAR HUECO -->
 <div class="exercise">
-<p>1. Completa el hueco: 2/5 ___ 4/5</p>
+<p>1. <span class="difficulty-badge facil">Fácil</span> Completa el hueco: 2/5 ___ 4/5</p>
 <p style="font-size:0.9rem;color:#64748b;margin-bottom:.5rem">(Mismo denominador: gana el mayor numerador)</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">></button>
@@ -129,7 +187,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 2: VERDADERO/FALSO -->
 <div class="exercise">
-<p>2. Verdadero o Falso: 1/2 > 1/8 porque los trozos son más grandes</p>
+<p>2. <span class="difficulty-badge facil">Fácil</span> Verdadero o Falso: 1/2 > 1/8 porque los trozos son más grandes</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">Verdadero</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">Falso</button>
@@ -138,7 +196,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 3: PROBLEMA CONTEXTUALIZADO -->
 <div class="exercise">
-<p>3. 🍕 Problema: Ana comió 2/8 de una pizza y Luis comió 5/8 de la misma pizza. ¿Quién comió más?</p>
+<p>3. <span class="difficulty-badge medio">Medio</span> 🍕 Problema: Ana comió 2/8 de una pizza y Luis comió 5/8 de la misma pizza. ¿Quién comió más?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">Ana</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">Luis</button>
@@ -148,7 +206,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 4: VERDADERO/FALSO (trampa común) -->
 <div class="exercise">
-<p>4. Verdadero o Falso: 1/3 > 1/5 porque 3 es mayor que 5</p>
+<p>4. <span class="difficulty-badge medio">Medio</span> Verdadero o Falso: 1/3 > 1/5 porque 3 es mayor que 5</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">Verdadero</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">Falso</button>
@@ -158,7 +216,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 5: COMPLETAR HUECO (mismo numerador) -->
 <div class="exercise">
-<p>5. Completa: 3/7 ___ 3/2</p>
+<p>5. <span class="difficulty-badge medio">Medio</span> Completa: 3/7 ___ 3/2</p>
 <p style="font-size:0.9rem;color:#64748b;margin-bottom:.5rem">(Mismo numerador: gana el menor denominador)</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)"><</button>
@@ -169,7 +227,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 6: PROBLEMA CONTEXTUALIZADO (dinero) -->
 <div class="exercise">
-<p>6. 💰 Problema: María tiene 1/4 de euro y Pedro tiene 1/2 de euro. ¿Quién tiene más dinero?</p>
+<p>6. <span class="difficulty-badge medio">Medio</span> 💰 Problema: María tiene 1/4 de euro y Pedro tiene 1/2 de euro. ¿Quién tiene más dinero?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">María</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">Pedro</button>
@@ -179,7 +237,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 7: COMPLETAR HUECO (trampa) -->
 <div class="exercise">
-<p>7. Completa: 4/6 ___ 4/9</p>
+<p>7. <span class="difficulty-badge dificil">Difícil</span> Completa: 4/6 ___ 4/9</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)"><</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">></button>
@@ -189,14 +247,22 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 
 <!-- Ejercicio 8: VERDADERO/FALSO (equivalente) -->
 <div class="exercise">
-<p>8. Verdadero o Falso: 1/2 y 2/4 son equivalentes, así que 1/2 = 2/4</p>
+<p>8. <span class="difficulty-badge dificil">Difícil</span> Verdadero o Falso: 1/2 y 2/4 son equivalentes, así que 1/2 = 2/4</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">Verdadero</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">Falso</button>
 </div>
 </div>
 
-</div></div>
+<div class="connection-box">
+<h4>🔗 Conexiones con otros temas</h4>
+<p>• <a href="s03-3-intro-fracciones.html">S03.3: Introducción a las Fracciones</a> — Antes de comparar, hay que saber qué son</p>
+<p>• <a href="s03-5-perimetro.html">S03.5: Perímetro</a> — Los perímetros usan medidas fraccionarias</p>
+<p>• <a href="s04-1-fracciones-equivalentes.html">S04.1: Fracciones Equivalentes</a> — 1/2 = 2/4 = 4/8, ¡todas son la misma cantidad!</p>
+<p>• <a href="s03-6-estadistica.html">S03.6: Estadística</a> — Los datos se expresan en fracciones y porcentajes</p>
+</div>
+
+</div>
 </section>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
@@ -207,7 +273,7 @@ Para comparar fracciones, miramos si tienen el <b>mismo denominador</b> (más f�
 <li>2/5 < 4/5 → 4 trozos > 2 trozos, mismos trozos</li>
 <li>¡Ya sabes comparar fracciones! 🎉</li>
 </ul>
-</div></div>
+</div>
 <div class="nav">
 <a href="s03-3-intro-fracciones.html">← Anterior</a>
   <a href="s03-3primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
@@ -318,6 +384,66 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
+
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  const fb = document.getElementById('fb_' + parent.closest('.exercise').querySelector('p').textContent.trim().substring(0,10).replace(/[^a-zA-Z0-9]/g,''));
+  if(correct) { btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+}
+
+function checkFillIn10() {
+  const val = document.getElementById('input10').value.trim().toLowerCase();
+  const fb = document.getElementById('feedback10');
+  fb.style.display = 'block';
+  if(val === '>') {
+    fb.className = 'feedback correct';
+    fb.textContent = '✅ ¡Correcto! 5/8 > 3/8 (mismo denominador, 5 > 3)';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.textContent = '❌ La respuesta es >. 5/8 > 3/8 porque 5 > 3 (mismo denominador)';
+  }
+}
+
+let orderSelection = [];
+function orderClick(btn, val) {
+  orderSelection.push(val);
+  btn.disabled = true;
+  btn.style.opacity = '0.5';
+  const result = document.getElementById('orderResult');
+  const selected = orderSelection.map(v => {
+    return btn.parentElement.querySelector('[data-val]') ? btn.parentElement.querySelector('[data-val]').textContent : v;
+  });
+  // Build the order string from clicked buttons
+  const allBtns = btn.parentElement.querySelectorAll('.quiz-btn');
+  let orderStr = '';
+  let correctOrder = true;
+  let idx = 0;
+  for(let b of allBtns) {
+    if(!b.disabled) { orderStr += (orderStr ? ' → ' : '') + b.textContent; }
+  }
+  // Check if the order is correct: 1/8 < 1/4 < 1/2
+  const correctVals = [1, 2, 3];
+  if(orderSelection.length === 3) {
+    let isCorrect = true;
+    for(let i = 0; i < 3; i++) {
+      if(orderSelection[i] !== correctVals[i]) { isCorrect = false; break; }
+    }
+    if(isCorrect) {
+      result.innerHTML = '<span class="feedback correct">✅ ¡Correcto! 1/8 < 1/4 < 1/2 (mismo numerador, menor denominador = trozo más grande)</span>';
+    } else {
+      result.innerHTML = '<span class="feedback incorrect">❌ El orden correcto es: 1/8 < 1/4 < 1/2</span>';
+    }
+    // Reset after 3s
+    setTimeout(() => {
+      orderSelection = [];
+      for(let b of allBtns) { b.disabled = false; b.style.opacity = '1'; }
+      result.textContent = '';
+    }, 3000);
+  }
+}
+
 </script>
 </body>
 </html>
