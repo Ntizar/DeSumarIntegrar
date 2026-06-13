@@ -1,39 +1,39 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>Bachiller — Curso de Matemáticas</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bachiller — Curso de Matemáticas</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.container{max-width:900px;margin:0 auto;padding:1.5rem}
-    15|.intro-box{background:linear-gradient(135deg,var(--verde-claro),var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #10b981}
-    16|.intro-box h2{color:#10b981;margin-bottom:.8rem}
-    17|.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
-    18|.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-    19|.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#10b981}
-    20|.session-card .num{font-size:.8rem;color:#10b981;font-weight:700;margin-bottom:.3rem}
-    21|.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
-    22|.session-card p{font-size:.85rem;color:#64748b}
-    23|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    24|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    25|.nav a:hover{background:var(--azul-claro)}
-    26|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    27|.summary{background:var(--verde-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    28|.summary h3{color:#10b981;margin-bottom:.8rem}
-    29|.summary ul{list-style:none;padding:0}
-    30|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    31|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    32|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    33|.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#10b981;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--verde-claro);transition:all .2s}
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+.intro-box{background:linear-gradient(135deg,var(--verde-claro),var(--azul-claro));border-radius:16px;padding:1.5rem;margin:1.5rem 0;border-left:4px solid #10b981}
+.intro-box h2{color:#10b981;margin-bottom:.8rem}
+.sessions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin:2rem 0}
+.session-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;transition:all .2s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.session-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:#10b981}
+.session-card .num{font-size:.8rem;color:#10b981;font-weight:700;margin-bottom:.3rem}
+.session-card h3{font-size:1.05rem;margin-bottom:.4rem}
+.session-card p{font-size:.85rem;color:#64748b}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--verde-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:#10b981;margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.5rem;color:#10b981;text-decoration:none;font-weight:600;margin-bottom:1.5rem;padding:.5rem 1rem;border-radius:10px;background:var(--verde-claro);transition:all .2s}
 .back-link:hover{transform:translateX(-4px)}
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:#10b981;margin-bottom:1rem;font-size:1.1rem}
@@ -46,7 +46,7 @@
 .result.ok{background:#ecfdf5;color:#065f46}
 .result.fail{background:#fef2f2;color:#991b1b}
 @media(max-width:640px){.sessions-grid{grid-template-columns:1fr}.header h1{font-size:1.4rem}}
-    36|
+
 /* Conexión con conocimiento previo */
 .connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
 .connection-box strong{color:var(--pura)}
@@ -61,93 +61,93 @@
 /* Contenedor SVG */
 .svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
 </style>
-    37|</head>
-    38|<body>
-    39|<div class="container">
-    40|<a class="back-link" href="INDEX.html">← Volver al índice general</a>
-    41|
-    42|<div class="header">
-    43|<h1>🎓 Bachillerato</h1>
-    44|<p>Límites, derivadas, integrales y probabilidad avanzada</p>
-    45|</div>
-    46|
-    47|<div class="intro-box">
-    48|<h2>¿Qué vamos a aprender en Bachillerato?</h2>
-    49|<p>El bachillerato es donde las matemáticas se convierten en una herramienta poderosa. Los límites nos dicen qué pasa cuando algo crece sin parar. Las derivadas miden cómo cambian las cosas. Las integrales calculan áreas y volúmenes. Y la probabilidad nos ayuda a entender la incertidumbre.</p>
-    50|<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
-    51|<ul style="padding-left:1.5rem;margin-top:.5rem">
-    52|<li>Entender y calcular límites de funciones</li>
-    53|<li>Derivar funciones: reglas de derivación y aplicaciones</li>
-    54|<li>Integrar funciones: integrales indefinidas y definidas</li>
-    55|<li>Aplicaciones: optimización, áreas, volúmenes</li>
-    56|<li>Probabilidad avanzada: Bayes, distribuciones, combinaciones</li>
-    57|</ul>
-    58|</div>
-    59|
-    60|<h2 style="margin:2rem 0 1rem;color:#10b981">📚 10 Sesiones de Bachillerato</h2>
-    61|
-    62|<div class="sessions-grid">
-    63|<a class="session-card" href="s09-1-bachiller-limites.html">
-    64|<div class="num">Sesión 1</div>
-    65|<h3>📐 Límites de Funciones</h3>
-    66|<p>¿Qué pasa cuando x se acerca a un valor? Límites laterales, continuos y notables.</p>
-    67|</a>
-    68|
-    69|<a class="session-card" href="s09-2-bachiller-continuidad-derivadas.html">
-    70|<div class="num">Sesión 2</div>
-    71|<h3>📈 Continuidad y Derivadas</h3>
-    72|<p>¿Cuándo es continua una función? El concepto de derivada como tasa de cambio.</p>
-    73|</a>
-    74|
-    75|<a class="session-card" href="s09-3-bachiller-reglas-derivacion.html">
-    76|<div class="num">Sesión 3</div>
-    77|<h3>📝 Reglas de Derivación</h3>
-    78|<p>Derivar sumas, productos, cocientes y funciones compuestas. ¡La cadena!</p>
-    79|</a>
-    80|
-    81|<a class="session-card" href="s09-4-bachiller-aplicaciones-derivadas.html">
-    82|<div class="num">Sesión 4</div>
-    83|<h3>🔍 Aplicaciones de Derivadas</h3>
-    84|<p>Máximos, mínimos, crecimiento, concavidad y optimización.</p>
-    85|</a>
-    86|
-    87|<a class="session-card" href="s09-5-bachiller-integrales-indefinidas.html">
-    88|<div class="num">Sesión 5</div>
-    89|<h3>∫ Integrales Indefinidas</h3>
-    90|<p>La operación inversa de derivar. Técnicas de integración básicas.</p>
-    91|</a>
-    92|
-    93|<a class="session-card" href="s09-6-bachiller-integrales-definidas.html">
-    94|<div class="num">Sesión 6</div>
-    95|<h3>∫ Integrales Definidas</h3>
-    96|<p>Calcular áreas bajo la curva. Teorema fundamental del cálculo.</p>
-    97|</a>
-    98|
-    99|<a class="session-card" href="s09-7-bachiller-aplicaciones-integrales.html">
-   100|<div class="num">Sesión 7</div>
-   101|<h3>📊 Aplicaciones de Integrales</h3>
-   102|<p>Áreas, volúmenes de revolución y trabajo.</p>
-   103|</a>
-   104|
-   105|<a class="session-card" href="s09-8-bachiller-probabilidad-avanzada.html">
-   106|<div class="num">Sesión 8</div>
-   107|<h3>🎲 Probabilidad Avanzada</h3>
-   108|<p>Combinatoria, probabilidad condicionada y teorema de Bayes.</p>
-   109|</a>
-   110|
-   111|<a class="session-card" href="s09-9-bachiller-distribuciones-combinadas.html">
-   112|<div class="num">Sesión 9</div>
-   113|<h3>📊 Distribuciones Combinadas</h3>
-   114|<p>Binomial, Poisson y normal. ¿Cuándo usar cada una?</p>
-   115|</a>
-   116|
-   117|<a class="session-card" href="s09-10-bachiller-repaso.html">
-   118|<div class="num">Sesión 10</div>
-   119|<h3>🎓 Repaso Integrador</h3>
-   120|<p>Problemas que combinan todo: límites, derivadas, integrales y probabilidad.</p>
-   121|</a>
-   122|</div>
-   123|
+</head>
+<body>
+<div class="container">
+<a class="back-link" href="INDEX.html">← Volver al índice general</a>
+
+<div class="header">
+<h1>🎓 Bachillerato</h1>
+<p>Límites, derivadas, integrales y probabilidad avanzada</p>
+</div>
+
+<div class="intro-box">
+<h2>¿Qué vamos a aprender en Bachillerato?</h2>
+<p>El bachillerato es donde las matemáticas se convierten en una herramienta poderosa. Los límites nos dicen qué pasa cuando algo crece sin parar. Las derivadas miden cómo cambian las cosas. Las integrales calculan áreas y volúmenes. Y la probabilidad nos ayuda a entender la incertidumbre.</p>
+<p style="margin-top:.8rem"><strong>Objetivos de esta unidad:</strong></p>
+<ul style="padding-left:1.5rem;margin-top:.5rem">
+<li>Entender y calcular límites de funciones</li>
+<li>Derivar funciones: reglas de derivación y aplicaciones</li>
+<li>Integrar funciones: integrales indefinidas y definidas</li>
+<li>Aplicaciones: optimización, áreas, volúmenes</li>
+<li>Probabilidad avanzada: Bayes, distribuciones, combinaciones</li>
+</ul>
+</div>
+
+<h2 style="margin:2rem 0 1rem;color:#10b981">📚 10 Sesiones de Bachillerato</h2>
+
+<div class="sessions-grid">
+<a class="session-card" href="s09-1-bachiller-limites.html">
+<div class="num">Sesión 1</div>
+<h3>📐 Límites de Funciones</h3>
+<p>¿Qué pasa cuando x se acerca a un valor? Límites laterales, continuos y notables.</p>
+</a>
+
+<a class="session-card" href="s09-2-bachiller-continuidad-derivadas.html">
+<div class="num">Sesión 2</div>
+<h3>📈 Continuidad y Derivadas</h3>
+<p>¿Cuándo es continua una función? El concepto de derivada como tasa de cambio.</p>
+</a>
+
+<a class="session-card" href="s09-3-bachiller-reglas-derivacion.html">
+<div class="num">Sesión 3</div>
+<h3>📝 Reglas de Derivación</h3>
+<p>Derivar sumas, productos, cocientes y funciones compuestas. ¡La cadena!</p>
+</a>
+
+<a class="session-card" href="s09-4-bachiller-aplicaciones-derivadas.html">
+<div class="num">Sesión 4</div>
+<h3>🔍 Aplicaciones de Derivadas</h3>
+<p>Máximos, mínimos, crecimiento, concavidad y optimización.</p>
+</a>
+
+<a class="session-card" href="s09-5-bachiller-integrales-indefinidas.html">
+<div class="num">Sesión 5</div>
+<h3>∫ Integrales Indefinidas</h3>
+<p>La operación inversa de derivar. Técnicas de integración básicas.</p>
+</a>
+
+<a class="session-card" href="s09-6-bachiller-integrales-definidas.html">
+<div class="num">Sesión 6</div>
+<h3>∫ Integrales Definidas</h3>
+<p>Calcular áreas bajo la curva. Teorema fundamental del cálculo.</p>
+</a>
+
+<a class="session-card" href="s09-7-bachiller-aplicaciones-integrales.html">
+<div class="num">Sesión 7</div>
+<h3>📊 Aplicaciones de Integrales</h3>
+<p>Áreas, volúmenes de revolución y trabajo.</p>
+</a>
+
+<a class="session-card" href="s09-8-bachiller-probabilidad-avanzada.html">
+<div class="num">Sesión 8</div>
+<h3>🎲 Probabilidad Avanzada</h3>
+<p>Combinatoria, probabilidad condicionada y teorema de Bayes.</p>
+</a>
+
+<a class="session-card" href="s09-9-bachiller-distribuciones-combinadas.html">
+<div class="num">Sesión 9</div>
+<h3>📊 Distribuciones Combinadas</h3>
+<p>Binomial, Poisson y normal. ¿Cuándo usar cada una?</p>
+</a>
+
+<a class="session-card" href="s09-10-bachiller-repaso.html">
+<div class="num">Sesión 10</div>
+<h3>🎓 Repaso Integrador</h3>
+<p>Problemas que combinan todo: límites, derivadas, integrales y probabilidad.</p>
+</a>
+</div>
+
 <div class="summary">
 <h3>📋 Resumen de lo que vas a aprender</h3>
 <ul>
@@ -179,14 +179,14 @@
 <div class="result" id="bachillerQuizResult"></div>
 <p style="margin-top:1rem;font-size:.85rem;color:#64748b">Haz clic en la respuesta correcta. ¡No pasa nada si fallas!</p>
 </div>
-   137|
-   138|<div class="nav">
-   139|<a href="s08-2-3eso.html">← 2º-3º ESO</a>
-   140|<a href="s10-1carrera.html">1º Carrera →</a>
-   141|</div>
-   142|</div>
-   143|
-   144|<div class="footer">Hecho con ❤️ por David Antizar</div>
+
+<div class="nav">
+<a href="s08-2-3eso.html">← 2º-3º ESO</a>
+<a href="s10-1carrera.html">1º Carrera →</a>
+</div>
+</div>
+
+<div class="footer">Hecho con ❤️ por David Antizar</div>
 <script>
 (function(){
   const quizData = [
@@ -225,5 +225,5 @@
   showQuiz();
 })();
 </script>
-   145|</body>
-   146|</html>
+</body>
+</html>

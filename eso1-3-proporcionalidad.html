@@ -1,59 +1,59 @@
-     1|<!DOCTYPE html>
-     2|<html lang="es">
-     3|<head>
-     4|<meta charset="UTF-8">
-     5|<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|<title>⚖️ ESO1.3: Proporcionalidad — 1º ESO — ¡Regla de tres!</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚖️ ESO1.3: Proporcionalidad — 1º ESO — ¡Regla de tres!</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\\(',right:'\\)',display:false}]})"></script>
-     7|<style>
-     8|:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
-     9|*{margin:0;padding:0;box-sizing:border-box}
-    10|body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
-    11|.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
-    12|.header h1{font-size:1.8rem;margin-bottom:.5rem}
-    13|.header p{opacity:.9;font-size:1rem}
-    14|.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
-    15|.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
-    16|.container{max-width:850px;margin:0 auto;padding:1.5rem}
-    17|.chapter{margin-bottom:2.5rem}
-    18|.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
-    19|.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-    20|.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
-    21|.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
-    22|.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
-    23|.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
-    24|.box strong{display:block;margin-bottom:.3rem}
-    25|.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
-    26|.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
-    27|.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
-    28|.interactive button:hover{background:#1d4ed8}
-    29|.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
-    30|.result.ok{background:var(--verde-claro);color:#065f46}
-    31|.result.fail{background:var(--rojo-claro);color:#991b1b}
-    32|.exercises{margin:1.5rem 0}
-    33|.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
-    34|.exercise p{font-weight:600;margin-bottom:.5rem}
-    35|.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
-    36|.solution.show{display:block}
-    37|.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
-    38|.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
-    39|.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-    40|.nav a:hover{background:var(--azul-claro)}
-    41|.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
-    42|.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
-    43|.summary h3{color:var(--azul);margin-bottom:.8rem}
-    44|.summary ul{list-style:none;padding:0}
-    45|.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
-    46|.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
-    47|.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
-    48|.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
-    49|.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
-    50|.quiz-btn:hover{background:var(--azul-claro)}
-    51|.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
-    52|.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-    53|
+<style>
+:root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#f8faff 0%,#fffaf5 100%);color:var(--texto);line-height:1.7}
+.header{background:linear-gradient(135deg,var(--azul),#1d4ed8);color:#fff;padding:2rem 1.5rem;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:.5rem}
+.header p{opacity:.9;font-size:1rem}
+.progress-bar{height:4px;background:rgba(255,255,255,.3);border-radius:2px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:2px;width:0%;transition:width .3s}
+.container{max-width:850px;margin:0 auto;padding:1.5rem}
+.chapter{margin-bottom:2.5rem}
+.chapter-title{font-size:1.4rem;color:var(--azul);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--azul-claro)}
+.box{padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.box-teoria{background:var(--azul-claro);border-color:var(--azul)}
+.box-ejemplo{background:var(--naranja-claro);border-color:var(--naranja)}
+.box-error{background:var(--rojo-claro);border-color:var(--rojo)}
+.box-idea{background:var(--pura-claro);border-color:var(--pura)}.box-success{background:var(--verde-claro);border-color:var(--verde)}
+.box strong{display:block;margin-bottom:.3rem}
+.interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+.interactive button{background:var(--azul);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:6px;cursor:pointer;font-size:.95rem;margin:.3rem}
+.interactive button:hover{background:#1d4ed8}
+.result{margin-top:.8rem;padding:.8rem;border-radius:6px;font-weight:600;min-height:2rem}
+.result.ok{background:var(--verde-claro);color:#065f46}
+.result.fail{background:var(--rojo-claro);color:#991b1b}
+.exercises{margin:1.5rem 0}
+.exercise{background:#f1f5f9;border-radius:8px;padding:1rem;margin:.8rem 0}
+.exercise p{font-weight:600;margin-bottom:.5rem}
+.solution{background:var(--verde-claro);border-radius:6px;padding:.8rem;margin-top:.5rem;display:none;border-left:3px solid var(--verde)}
+.solution.show{display:block}
+.toggle-btn{background:none;border:none;color:var(--azul);cursor:pointer;font-size:.9rem;text-decoration:underline;padding:0}
+.nav{display:flex;justify-content:space-between;margin:2rem 0;padding:1rem 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.nav a{color:var(--azul);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+.nav a:hover{background:var(--azul-claro)}
+.nav .disabled{color:var(--gris);cursor:default;pointer-events:none}
+.summary{background:var(--azul-claro);border-radius:12px;padding:1.5rem;margin:2rem 0}
+.summary h3{color:var(--azul);margin-bottom:.8rem}
+.summary ul{list-style:none;padding:0}
+.summary li{padding:.3rem 0;padding-left:1.5rem;position:relative}
+.summary li::before{content:"✓";color:var(--verde);font-weight:bold;position:absolute;left:0}
+.footer{text-align:center;padding:2rem 1rem;color:var(--gris);font-size:.85rem;border-top:1px solid #e2e8f0;margin-top:2rem}
+.quiz-options{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:1rem 0}
+.quiz-btn{padding:.6rem 1.5rem;border-radius:8px;border:2px solid var(--azul);background:#fff;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .2s}
+.quiz-btn:hover{background:var(--azul-claro)}
+.quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
+.quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
+
 /* Feedback para ejercicios */
 .feedback{display:inline-block;padding:.3rem .8rem;border-radius:6px;font-weight:600;margin-top:.5rem}
 .feedback.correct{color:#065f46;background:var(--verde-claro)}
@@ -94,226 +94,226 @@
 .chart-controls button:hover{background:#1d4ed8}
 .chart-controls button.active{background:var(--naranja)}
 </style>
-    54|</head>
-    55|<body>
-    56|  <div style="padding: 0.75rem 1.5rem;">
-    57|    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
-    58|  </div>
-    59|<header class="header">
-    60|<h1>⚖️ ESO1.3: Proporcionalidad</h1>
-    61|<p>1º ESO — ¡Regla de tres!</p>
-    62|<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-    63|</header>
-    64|<main class="container">
-    65|<section class="chapter">
-    66|<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
-    67|<div class="box box-idea">
-    68|<strong>💡 Idea clave</strong>
-    69|Si 2 cuestan 6€, 4 cuestan 12€. La proporcionalidad mantiene la misma relación.
-    70|</div>
-    71|<p>En esta sesión aprenderás a:</p>
-    72|<ul style="margin:.8rem 0 1rem 1.5rem">
-    73|<li>Entender proporcionalidad</li><li>Aplicar regla de tres</li><li>Resolver problemas</li>
-    74|</ul>
-    75|</section>
-    76|<section class="chapter">
-    77|<h2 class="chapter-title">1️⃣ Proporcionalidad directa</h2>
-    78|<div class="box box-teoria">
-    79|<strong>📖 Teoría</strong>
-    80|<div style="margin-top:.5rem">
-    81|<strong>1. ¿Qué es?</strong> Dos magnitudes son directamente proporcionales si al multiplicar una, la otra se multiplica por el mismo factor.<br>
-    82|<strong>2. ¿Para qué sirve?</strong> Para calcular precios, velocidades, recetas, escalas de mapas, y cualquier situación de "si esto aumenta, aquello también".<br>
-    83|<strong>3. ¿Cómo se hace?</strong> Paso 1: Identifica las magnitudes. Paso 2: Calcula la unidad (cuánto vale 1). Paso 3: Multiplica por lo que necesitas. O usa la regla de tres: x = b×c/a.<br>
-    84|<strong>4. Error común:</strong> Sumar en vez de multiplicar. Si 2 kg cuestan 8€, NO sumas 4€ por kg — multiplicas: 8€ ÷ 2 = 4€/kg, luego 4€ × 5 = 20€.
-    85|</div>
-    86|</div>
-    82|<div class="box box-ejemplo">
-    83|<strong>🔍 Ejemplo 1</strong>
-    84|3 kg cuestan 12€. ¿Cuánto 5 kg? 12/3 × 5 = 20€
-    85|</div>
-    86|<div class="box box-ejemplo">
-    87|<strong>🔍 Ejemplo 2</strong>
-    88|Un coche 120km en 2h. ¿Cuánto en 5h? 120/2 × 5 = 300 km
-    89|</div>
-    90|<div class="box box-ejemplo">
-    91|<strong>🔍 Ejemplo 3</strong>
-    92|5 libros = 40€. ¿Cuántos con 64€? 5/40 × 64 = 8 libros
-    93|</div>
-    94|</section>
-    95|<section class="chapter">
-    96|<h2 class="chapter-title">2️⃣ ¡Practica regla de tres!</h2>
-    97|<div class="interactive">
-    98|<h3>Selecciona la respuesta correcta:</h3>
-    99|<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="eso1propDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso1propButtons"></div></div>
-   100|<div class="result" id="interactiveResult"></div>
-   101|</div>
-   102|</section>
-   103|<section class="chapter">
-   104|<h2 class="chapter-title">📝 Ejercicios</h2>
-   105|<div class="exercises">
-   106|<div class="exercise">
-   107|<p>2 kg cuestan 8€. ¿Cuánto 5 kg?</p>
-   108|<div class="quiz-options">
-   109|<button class="quiz-btn" onclick="checkExercise(this, true)">20€</button>
-   110|<button class="quiz-btn" onclick="checkExercise(this, false)">16€</button>
-   111|<button class="quiz-btn" onclick="checkExercise(this, false)">40€</button>
-   112|</div>
-   113|</div>
-   114|<div class="exercise">
-   115|<p>3 pinturas = 15€. ¿Cuánto 7?</p>
-   116|<div class="quiz-options">
-   117|<button class="quiz-btn" onclick="checkExercise(this, true)">35€</button>
-   118|<button class="quiz-btn" onclick="checkExercise(this, false)">30€</button>
-   119|<button class="quiz-btn" onclick="checkExercise(this, false)">45€</button>
-   120|</div>
-   121|</div>
-   122|<div class="exercise">
-   123|<p>4 páginas en 2 min. ¿Cuántas en 6 min?</p>
-   124|<div class="quiz-options">
-   125|<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
-   126|<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
-   127|<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
-   128|</div>
-   129|</div>
-   130|<div class="exercise">
-   131|<p>5 kg = 10€. ¿Cuánto 8 kg?</p>
-   132|<div class="quiz-options">
-   133|<button class="quiz-btn" onclick="checkExercise(this, true)">16€</button>
-   134|<button class="quiz-btn" onclick="checkExercise(this, false)">20€</button>
-   135|<button class="quiz-btn" onclick="checkExercise(this, false)">12€</button>
-   136|</div>
-   137|</div>
-   138|<div class="exercise">
-   139|<p>6 manzanas = 3€. ¿Cuánto 10?</p>
-   140|<div class="quiz-options">
-   141|<button class="quiz-btn" onclick="checkExercise(this, true)">5€</button>
-   142|<button class="quiz-btn" onclick="checkExercise(this, false)">6€</button>
-   143|<button class="quiz-btn" onclick="checkExercise(this, false)">20€</button>
-   144|</div>
-   145|</div>
-   146|<div class="exercise">
-   147|<p>🏃 Caso real: Un corredor recorre 10 km en 50 minutos. ¿Cuántos kilómetros recorrerá en 2 horas (120 min) manteniendo el mismo ritmo?</p>
-   148|<p style="font-size:.9rem;color:#64748b">Pista: 10/50 = x/120 → x = 50×120/10</p>
-   149|<div class="quiz-options">
-   150|<button class="quiz-btn" onclick="checkExercise(this, true)">24 km</button>
-   151|<button class="quiz-btn" onclick="checkExercise(this, false)">20 km</button>
-   152|<button class="quiz-btn" onclick="checkExercise(this, false)">30 km</button>
-   153|</div>
-   154|</div>
-   155|<div class="exercise">
-   156|<p>📝 Completa: Si 4 camisetas cuestan 60€, 7 camisetas cuestan ___ €</p>
-   157|<div style="display:flex;gap:.5rem;align-items:center">
-   158|<input type="number" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
-   159|<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
-   160|</div>
-   161|<div class="result" id="result14"></div>
-   162|</div>
-   163|<div class="exercise">
-   164|<p>✅❓ ¿Verdadero o Falso? Si 5 metros de tela cuestan 15€, 20 metros cuestan 60€</p>
-   165|<div class="quiz-options">
-   166|<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
-   167|<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
-   168|</div>
-   169|</div>
-   170|<div class="box box-error">
-   171|<strong>⚠️ Error común</strong>
-   172|Confundir proporcionalidad directa con inversa. En proporcionalidad DIRECTA, si una magnitud se triplica, la otra también se triplica. Ejemplo: más manzanas = más dinero. Pero en la INVERSA: más obreros = menos tiempo. ¡Fíjate bien en el problema!
-   173|</div>
-   148|</section>
-   149|<div class="summary">
-   150|<h3>📋 Resumen de lo aprendido</h3>
-   151|<ul>
-   151|<ul>
-   152|<li>Proporcionalidad directa: si una magnitud se multiplica por k, la otra también</li>
-   153|<li>Regla de tres: x = b×c/a es tu herramienta principal</li>
-   154|<li>Calcula siempre el valor de la unidad primero</li>
-   155|<li>Los casos reales (precios, velocidad, recetas) usan proporcionalidad constantemente</li>
-   156|<li>Error común: confundir directa con inversa, o sumar en vez de multiplicar</li>
-   157|<li>Completar huecos te ayuda a pensar al revés</li>
-   158|<li>¡Ya sabes proporcionalidad! 🎉</li>
-   159|</ul>
-   154|</div>
-   155|<div class="nav">
-   156|<a href="eso1-1-numeros-enteros.html">← Anterior</a>
+</head>
+<body>
+  <div style="padding: 0.75rem 1.5rem;">
+    <a href="INDEX.html" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #2563eb; text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 10px; background: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;">← Volver al índice</a>
+  </div>
+<header class="header">
+<h1>⚖️ ESO1.3: Proporcionalidad</h1>
+<p>1º ESO — ¡Regla de tres!</p>
+<div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+</header>
+<main class="container">
+<section class="chapter">
+<h2 class="chapter-title">🎯 ¿Qué vamos a aprender?</h2>
+<div class="box box-idea">
+<strong>💡 Idea clave</strong>
+Si 2 cuestan 6€, 4 cuestan 12€. La proporcionalidad mantiene la misma relación.
+</div>
+<p>En esta sesión aprenderás a:</p>
+<ul style="margin:.8rem 0 1rem 1.5rem">
+<li>Entender proporcionalidad</li><li>Aplicar regla de tres</li><li>Resolver problemas</li>
+</ul>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">1️⃣ Proporcionalidad directa</h2>
+<div class="box box-teoria">
+<strong>📖 Teoría</strong>
+<div style="margin-top:.5rem">
+<strong>1. ¿Qué es?</strong> Dos magnitudes son directamente proporcionales si al multiplicar una, la otra se multiplica por el mismo factor.<br>
+<strong>2. ¿Para qué sirve?</strong> Para calcular precios, velocidades, recetas, escalas de mapas, y cualquier situación de "si esto aumenta, aquello también".<br>
+<strong>3. ¿Cómo se hace?</strong> Paso 1: Identifica las magnitudes. Paso 2: Calcula la unidad (cuánto vale 1). Paso 3: Multiplica por lo que necesitas. O usa la regla de tres: x = b×c/a.<br>
+<strong>4. Error común:</strong> Sumar en vez de multiplicar. Si 2 kg cuestan 8€, NO sumas 4€ por kg — multiplicas: 8€ ÷ 2 = 4€/kg, luego 4€ × 5 = 20€.
+</div>
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 1</strong>
+3 kg cuestan 12€. ¿Cuánto 5 kg? 12/3 × 5 = 20€
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 2</strong>
+Un coche 120km en 2h. ¿Cuánto en 5h? 120/2 × 5 = 300 km
+</div>
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo 3</strong>
+5 libros = 40€. ¿Cuántos con 64€? 5/40 × 64 = 8 libros
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">2️⃣ ¡Practica regla de tres!</h2>
+<div class="interactive">
+<h3>Selecciona la respuesta correcta:</h3>
+<div style="text-align:center;margin:1rem 0"><p style="font-size:1.2rem;font-weight:600;margin-bottom:1rem" id="eso1propDisplay"></p><div style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap" id="eso1propButtons"></div></div>
+<div class="result" id="interactiveResult"></div>
+</div>
+</section>
+<section class="chapter">
+<h2 class="chapter-title">📝 Ejercicios</h2>
+<div class="exercises">
+<div class="exercise">
+<p>2 kg cuestan 8€. ¿Cuánto 5 kg?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">20€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">16€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">40€</button>
+</div>
+</div>
+<div class="exercise">
+<p>3 pinturas = 15€. ¿Cuánto 7?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">35€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">30€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">45€</button>
+</div>
+</div>
+<div class="exercise">
+<p>4 páginas en 2 min. ¿Cuántas en 6 min?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">12</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">8</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">24</button>
+</div>
+</div>
+<div class="exercise">
+<p>5 kg = 10€. ¿Cuánto 8 kg?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">16€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">12€</button>
+</div>
+</div>
+<div class="exercise">
+<p>6 manzanas = 3€. ¿Cuánto 10?</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">5€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">6€</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20€</button>
+</div>
+</div>
+<div class="exercise">
+<p>🏃 Caso real: Un corredor recorre 10 km en 50 minutos. ¿Cuántos kilómetros recorrerá en 2 horas (120 min) manteniendo el mismo ritmo?</p>
+<p style="font-size:.9rem;color:#64748b">Pista: 10/50 = x/120 → x = 50×120/10</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkExercise(this, true)">24 km</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">20 km</button>
+<button class="quiz-btn" onclick="checkExercise(this, false)">30 km</button>
+</div>
+</div>
+<div class="exercise">
+<p>📝 Completa: Si 4 camisetas cuestan 60€, 7 camisetas cuestan ___ €</p>
+<div style="display:flex;gap:.5rem;align-items:center">
+<input type="number" id="e14" placeholder="?" style="width:100px;padding:.5rem;font-size:1.1rem;border:2px solid var(--azul);border-radius:6px">
+<button onclick="checkCompleta()" style="background:var(--azul);color:#fff;border:none;padding:.5rem 1rem;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
+</div>
+<div class="result" id="result14"></div>
+</div>
+<div class="exercise">
+<p>✅❓ ¿Verdadero o Falso? Si 5 metros de tela cuestan 15€, 20 metros cuestan 60€</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+</div>
+<div class="box box-error">
+<strong>⚠️ Error común</strong>
+Confundir proporcionalidad directa con inversa. En proporcionalidad DIRECTA, si una magnitud se triplica, la otra también se triplica. Ejemplo: más manzanas = más dinero. Pero en la INVERSA: más obreros = menos tiempo. ¡Fíjate bien en el problema!
+</div>
+</section>
+<div class="summary">
+<h3>📋 Resumen de lo aprendido</h3>
+<ul>
+<ul>
+<li>Proporcionalidad directa: si una magnitud se multiplica por k, la otra también</li>
+<li>Regla de tres: x = b×c/a es tu herramienta principal</li>
+<li>Calcula siempre el valor de la unidad primero</li>
+<li>Los casos reales (precios, velocidad, recetas) usan proporcionalidad constantemente</li>
+<li>Error común: confundir directa con inversa, o sumar en vez de multiplicar</li>
+<li>Completar huecos te ayuda a pensar al revés</li>
+<li>¡Ya sabes proporcionalidad! 🎉</li>
+</ul>
+</div>
+<div class="nav">
+<a href="eso1-1-numeros-enteros.html">← Anterior</a>
   <a href="s07-1eso.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
-   157|<a href="eso1-5-intro-algebra.html">Siguiente: Intro álgebra →</a>
-   158|</div>
-   159|</main>
-   160|<footer class="footer">
-   161|Hecho con ❤️ por David Antizar
-   162|</footer>
-   163|<script>
-   164|function newQuiz() {
-   165|  const data = [{"q": "2 kg cuestan 8\u20ac. \u00bfCu\u00e1nto 5 kg?", "opts": ["20\u20ac", "16\u20ac", "40\u20ac"], "correct": 0}, {"q": "3 pinturas = 15\u20ac. \u00bfCu\u00e1nto 7?", "opts": ["35\u20ac", "30\u20ac", "45\u20ac"], "correct": 0}, {"q": "4 p\u00e1ginas en 2 min. \u00bfCu\u00e1ntas en 6 min?", "opts": ["12", "8", "24"], "correct": 0}, {"q": "5 kg = 10\u20ac. \u00bfCu\u00e1nto 8 kg?", "opts": ["16\u20ac", "20\u20ac", "12\u20ac"], "correct": 0}, {"q": "6 manzanas = 3\u20ac. \u00bfCu\u00e1nto 10?", "opts": ["5\u20ac", "6\u20ac", "20\u20ac"], "correct": 0}];
-   166|  const item = data[Math.floor(Math.random()*data.length)];
-   167|  document.getElementById('eso1propDisplay').textContent = item.q;
-   168|  const opts = item.opts;
-   169|  const buttons = document.getElementById('eso1propButtons');
-   170|  buttons.innerHTML = '';
-   171|  opts.forEach((opt, i) => {
-   172|    const btn = document.createElement('button');
-   173|    btn.className = 'quiz-btn';
-   174|    btn.textContent = opt;
-   175|    btn.onclick = function() {
-   176|      if(i === item.correct) {
-   177|        this.classList.add('correct');
-   178|        document.getElementById('interactiveResult').className = 'result ok';
-   179|        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
-   180|      } else {
-   181|        this.classList.add('wrong');
-   182|        document.getElementById('interactiveResult').className = 'result fail';
-   183|        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
-   184|      }
-   185|    };
-   186|    buttons.appendChild(btn);
-   187|  });
-   188|  document.getElementById('interactiveResult').textContent = '';
-   189|}
-   190|newQuiz();
-   195|function checkExercise(btn, correct) {
-   196|  const parent = btn.parentElement;
-   197|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   198|  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
-   199|}
-   200|function checkCompleta() {
-   201|  const input = document.getElementById('e14');
-   202|  const result = document.getElementById('result14');
-   203|  const val = parseInt(input.value);
-   204|  if(val === 105) {
-   205|    result.className = 'result ok';
-   206|    result.textContent = '✅ ¡Correcto! 60€/4 = 15€/camiseta → 15€ × 7 = 105€';
-   207|    input.style.borderColor = 'var(--verde)';
-   208|  } else {
-   209|    result.className = 'result fail';
-   210|    result.textContent = '❌ No exactamente. Pista: 60€ ÷ 4 = 15€/camiseta. ¿Cuánto 15€ × 7?';
-   211|    input.style.borderColor = 'var(--rojo)';
-   212|  }
-   213|}
-   214|function checkVF(btn, correct) {
-   215|  const parent = btn.parentElement;
-   216|  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
-   217|  if(correct) {
-   218|    btn.classList.add('correct');
-   219|    const div = btn.closest('.exercise');
-   220|    const res = document.createElement('div');
-   221|    res.className = 'result ok';
-   222|    res.textContent = '✅ ¡Correcto! 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es proporcional!';
-   223|    div.appendChild(res);
-   224|  } else {
-   225|    btn.classList.add('wrong');
-   226|    const div = btn.closest('.exercise');
-   227|    const res = document.createElement('div');
-   228|    res.className = 'result fail';
-   229|    res.textContent = '❌ Falso. 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es VERDADERO!';
-   230|    div.appendChild(res);
-   231|  }
+<a href="eso1-5-intro-algebra.html">Siguiente: Intro álgebra →</a>
+</div>
+</main>
+<footer class="footer">
+Hecho con ❤️ por David Antizar
+</footer>
+<script>
+function newQuiz() {
+  const data = [{"q": "2 kg cuestan 8\u20ac. \u00bfCu\u00e1nto 5 kg?", "opts": ["20\u20ac", "16\u20ac", "40\u20ac"], "correct": 0}, {"q": "3 pinturas = 15\u20ac. \u00bfCu\u00e1nto 7?", "opts": ["35\u20ac", "30\u20ac", "45\u20ac"], "correct": 0}, {"q": "4 p\u00e1ginas en 2 min. \u00bfCu\u00e1ntas en 6 min?", "opts": ["12", "8", "24"], "correct": 0}, {"q": "5 kg = 10\u20ac. \u00bfCu\u00e1nto 8 kg?", "opts": ["16\u20ac", "20\u20ac", "12\u20ac"], "correct": 0}, {"q": "6 manzanas = 3\u20ac. \u00bfCu\u00e1nto 10?", "opts": ["5\u20ac", "6\u20ac", "20\u20ac"], "correct": 0}];
+  const item = data[Math.floor(Math.random()*data.length)];
+  document.getElementById('eso1propDisplay').textContent = item.q;
+  const opts = item.opts;
+  const buttons = document.getElementById('eso1propButtons');
+  buttons.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-btn';
+    btn.textContent = opt;
+    btn.onclick = function() {
+      if(i === item.correct) {
+        this.classList.add('correct');
+        document.getElementById('interactiveResult').className = 'result ok';
+        document.getElementById('interactiveResult').textContent = '✅ ¡Correcto! ' + (item.explain || '');
+      } else {
+        this.classList.add('wrong');
+        document.getElementById('interactiveResult').className = 'result fail';
+        document.getElementById('interactiveResult').textContent = '❌ La respuesta es ' + opts[item.correct];
+      }
+    };
+    buttons.appendChild(btn);
+  });
+  document.getElementById('interactiveResult').textContent = '';
 }
-   196|
-   197|window.onscroll = function(){
-   198|  var h = document.documentElement;
-   199|  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
-   200|  document.getElementById('progress').style.width = p+'%';
-   201|};
-   202|</script>
-   203|</body>
-   204|</html>
+newQuiz();
+function checkExercise(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) { btn.classList.add('correct'); } else { btn.classList.add('wrong'); }
+}
+function checkCompleta() {
+  const input = document.getElementById('e14');
+  const result = document.getElementById('result14');
+  const val = parseInt(input.value);
+  if(val === 105) {
+    result.className = 'result ok';
+    result.textContent = '✅ ¡Correcto! 60€/4 = 15€/camiseta → 15€ × 7 = 105€';
+    input.style.borderColor = 'var(--verde)';
+  } else {
+    result.className = 'result fail';
+    result.textContent = '❌ No exactamente. Pista: 60€ ÷ 4 = 15€/camiseta. ¿Cuánto 15€ × 7?';
+    input.style.borderColor = 'var(--rojo)';
+  }
+}
+function checkVF(btn, correct) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-btn').forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+  if(correct) {
+    btn.classList.add('correct');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result ok';
+    res.textContent = '✅ ¡Correcto! 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es proporcional!';
+    div.appendChild(res);
+  } else {
+    btn.classList.add('wrong');
+    const div = btn.closest('.exercise');
+    const res = document.createElement('div');
+    res.className = 'result fail';
+    res.textContent = '❌ Falso. 15€ ÷ 5m = 3€/m → 3€ × 20m = 60€. ¡Es VERDADERO!';
+    div.appendChild(res);
+  }
+}
+
+window.onscroll = function(){
+  var h = document.documentElement;
+  var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress').style.width = p+'%';
+};
+</script>
+</body>
+</html>
