@@ -1,7 +1,7 @@
 {
   "last_improved": "2026-06-12",
-  "last_run": "2026-06-12",
-  "total_runs": 56,
+  "last_run": "2026-06-13",
+  "total_runs": 57,
   "topics": {
     "s01-1primaria.html": {
       "status": "index",
@@ -1113,7 +1113,7 @@
       "improvement_count": 2
     },
     "s02-4-tablas-1-5.html": {
-      "status": "improved_1",
+      "status": "improved_2",
       "level": "2º Primaria",
       "priority": 2,
       "category": "primaria_tema",
@@ -1122,18 +1122,23 @@
           "run": 1,
           "date": "2026-06-11",
           "added": "+1 explicación estructurada 4 pasos (mira/fíjate/ahora ves/error común), +1 SVG agrupación visual (3×4), +3 casos reales (supermercado, videojuego, repostería), +8 ejercicios variados (quiz x2, VF x2, completar x2, ordenar, problema, decidir operación), +1 caja conexiones, arreglado nested <li>, +CSS: step-indicator, connection-box, svg-container, feedback, real-world-badge, difficulty-badge"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+1 SVG animado tabla del 5 (círculos crecientes, flechas animadas, grupos de puntos), +1 ejercicio completar patrón (nuevo tipo), eliminados V/F consecutivos (insertado patrón entre ellos), corregido V/F inverso (ej4)"
         }
       ],
       "scores": {
-        "exercises": 8,
-        "text": 7,
-        "visual": 6,
-        "real_world": 7,
+        "exercises": 10,
+        "text": 12,
+        "visual": 8,
+        "real_world": 9,
         "connections": 5,
-        "difficulty_range": 5
+        "difficulty_range": 7
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "s02-5-tablas-6-9.html": {
       "status": "improved_1",

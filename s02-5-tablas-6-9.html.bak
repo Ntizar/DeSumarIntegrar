@@ -50,23 +50,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-.step-indicator{display:flex;justify-content:center;gap:.5rem;margin:1rem 0}
-.step-dot{width:12px;height:12px;border-radius:50%;background:var(--gris);transition:all .3s}
-.step-dot.active{background:var(--azul);transform:scale(1.3)}
-.connection-box{background:linear-gradient(135deg,var(--pura-claro),var(--azul-claro));border:1px solid var(--pura);border-radius:10px;padding:1.2rem;margin:1rem 0}
-.connection-box h4{color:var(--pura);margin-bottom:.5rem}
-.connection-box a{color:var(--azul);text-decoration:none;font-weight:600}
-.connection-box a:hover{text-decoration:underline}
-.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
-.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:.5rem}
-.difficulty-badge.facil{background:#d1fae5;color:#065f46}
-.difficulty-badge.medio{background:#fef3c7;color:#92400e}
-.difficulty-badge.dificil{background:#fecaca;color:#991b1b}
-.feedback.correct{color:#065f46;background:var(--verde-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
-.feedback.incorrect{color:#991b1b;background:var(--rojo-claro);padding:.4rem .8rem;border-radius:4px;display:inline-block;font-weight:600}
-.svg-container{text-align:center;margin:1rem 0}
-.clickable{cursor:pointer;transition:transform .2s}
-.clickable:hover{transform:scale(1.05)}
 </style>
 </head>
 <body>
@@ -109,7 +92,8 @@ Cada tabla tiene sus patrones. La del 9 es especial: ¡la suma de los dígitos s
 </div>
 
 <!-- Visual: SVG del truco de los dedos para 9×4 -->
-<div class="svg-container">
+<div class="box box-ejemplo">
+<strong>🔍 Ejemplo visual: 9 × 4 con los dedos</strong>
 <svg width="400" height="80" style="margin:1rem auto;display:block" viewBox="0 0 400 80">
 <text x="200" y="15" text-anchor="middle" font-size="13" fill="#2563eb" font-weight="bold">9 × 4 = ?</text>
 <!-- 10 fingers -->
@@ -143,91 +127,7 @@ Cada tabla tiene sus patrones. La del 9 es especial: ¡la suma de los dígitos s
 <text x="300" y="77" text-anchor="middle" font-size="12" fill="#10b981" font-weight="bold">6 unidades</text>
 <text x="200" y="77" text-anchor="middle" font-size="14" fill="#2563eb" font-weight="bold">= 36</text>
 </svg>
-</div>
-
-<!-- Visual: SVG animado patrón tablas 6-9 -->
-<div class="svg-container">
-<h3 style="color:var(--azul);margin:.5rem 0">🔢 Patrón visual: Tablas del 6 al 9</h3>
-<svg width="420" height="200" viewBox="0 0 420 200" id="tablaSvg" class="clickable" onclick="cambiarTabla()">
-<!-- Grid de multiplicación 6-9 × 1-10 -->
-<rect x="5" y="5" width="410" height="190" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-<text x="210" y="22" text-anchor="middle" font-size="11" fill="#94a3b8">Haz clic para cambiar vista</text>
-<!-- Column headers -->
-<text x="40" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×1</text>
-<text x="80" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×2</text>
-<text x="120" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×3</text>
-<text x="160" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×4</text>
-<text x="200" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×5</text>
-<text x="240" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×6</text>
-<text x="280" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×7</text>
-<text x="320" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×8</text>
-<text x="360" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×9</text>
-<text x="400" y="42" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">×10</text>
-<!-- Row labels -->
-<text x="15" y="62" text-anchor="middle" font-size="10" fill="#2563eb" font-weight="bold">6</text>
-<text x="15" y="82" text-anchor="middle" font-size="10" fill="#2563eb" font-weight="bold">7</text>
-<text x="15" y="102" text-anchor="middle" font-size="10" fill="#2563eb" font-weight="bold">8</text>
-<text x="15" y="122" text-anchor="middle" font-size="10" fill="#2563eb" font-weight="bold">9</text>
-<!-- Values - Table 6 -->
-<text x="40" y="62" text-anchor="middle" font-size="9" fill="#1e293b">6</text>
-<text x="80" y="62" text-anchor="middle" font-size="9" fill="#1e293b">12</text>
-<text x="120" y="62" text-anchor="middle" font-size="9" fill="#1e293b">18</text>
-<text x="160" y="62" text-anchor="middle" font-size="9" fill="#1e293b">24</text>
-<text x="200" y="62" text-anchor="middle" font-size="9" fill="#1e293b">30</text>
-<text x="240" y="62" text-anchor="middle" font-size="9" fill="#1e293b">36</text>
-<text x="280" y="62" text-anchor="middle" font-size="9" fill="#1e293b">42</text>
-<text x="320" y="62" text-anchor="middle" font-size="9" fill="#1e293b">48</text>
-<text x="360" y="62" text-anchor="middle" font-size="9" fill="#1e293b">54</text>
-<text x="400" y="62" text-anchor="middle" font-size="9" fill="#1e293b">60</text>
-<!-- Values - Table 7 -->
-<text x="40" y="82" text-anchor="middle" font-size="9" fill="#1e293b">7</text>
-<text x="80" y="82" text-anchor="middle" font-size="9" fill="#1e293b">14</text>
-<text x="120" y="82" text-anchor="middle" font-size="9" fill="#1e293b">21</text>
-<text x="160" y="82" text-anchor="middle" font-size="9" fill="#1e293b">28</text>
-<text x="200" y="82" text-anchor="middle" font-size="9" fill="#1e293b">35</text>
-<text x="240" y="82" text-anchor="middle" font-size="9" fill="#1e293b">42</text>
-<text x="280" y="82" text-anchor="middle" font-size="9" fill="#1e293b">49</text>
-<text x="320" y="82" text-anchor="middle" font-size="9" fill="#1e293b">56</text>
-<text x="360" y="82" text-anchor="middle" font-size="9" fill="#1e293b">63</text>
-<text x="400" y="82" text-anchor="middle" font-size="9" fill="#1e293b">70</text>
-<!-- Values - Table 8 -->
-<text x="40" y="102" text-anchor="middle" font-size="9" fill="#1e293b">8</text>
-<text x="80" y="102" text-anchor="middle" font-size="9" fill="#1e293b">16</text>
-<text x="120" y="102" text-anchor="middle" font-size="9" fill="#1e293b">24</text>
-<text x="160" y="102" text-anchor="middle" font-size="9" fill="#1e293b">32</text>
-<text x="200" y="102" text-anchor="middle" font-size="9" fill="#1e293b">40</text>
-<text x="240" y="102" text-anchor="middle" font-size="9" fill="#1e293b">48</text>
-<text x="280" y="102" text-anchor="middle" font-size="9" fill="#1e293b">56</text>
-<text x="320" y="102" text-anchor="middle" font-size="9" fill="#1e293b">64</text>
-<text x="360" y="102" text-anchor="middle" font-size="9" fill="#1e293b">72</text>
-<text x="400" y="102" text-anchor="middle" font-size="9" fill="#1e293b">80</text>
-<!-- Values - Table 9 -->
-<text x="40" y="122" text-anchor="middle" font-size="9" fill="#1e293b">9</text>
-<text x="80" y="122" text-anchor="middle" font-size="9" fill="#1e293b">18</text>
-<text x="120" y="122" text-anchor="middle" font-size="9" fill="#1e293b">27</text>
-<text x="160" y="122" text-anchor="middle" font-size="9" fill="#1e293b">36</text>
-<text x="200" y="122" text-anchor="middle" font-size="9" fill="#1e293b">45</text>
-<text x="240" y="122" text-anchor="middle" font-size="9" fill="#1e293b">54</text>
-<text x="280" y="122" text-anchor="middle" font-size="9" fill="#1e293b">63</text>
-<text x="320" y="122" text-anchor="middle" font-size="9" fill="#1e293b">72</text>
-<text x="360" y="122" text-anchor="middle" font-size="9" fill="#1e293b">81</text>
-<text x="400" y="122" text-anchor="middle" font-size="9" fill="#1e293b">90</text>
-<!-- Highlight pattern: units digit for table 9 -->
-<circle cx="40" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="80" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="120" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="160" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="200" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="240" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="280" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="320" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="360" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<circle cx="400" cy="122" r="10" fill="none" stroke="#f97316" stroke-width="1.5" opacity="0.5"/>
-<text x="210" y="155" text-anchor="middle" font-size="10" fill="#f97316" font-weight="bold">Los círculos naranjas: patrón de unidades 9→8→7→6→5→4→3→2→1→0</text>
-<!-- Pattern legend -->
-<text x="210" y="175" text-anchor="middle" font-size="10" fill="#10b981" font-weight="bold">Suma de dígitos siempre = 9: 9+0=9, 1+8=9, 2+7=9...</text>
-<text x="210" y="192" text-anchor="middle" font-size="10" fill="#a855f7" font-weight="bold">💡 ¡Haz clic para ver el patrón de decenas!</text>
-</svg>
+<b>Resultado: 9 × 4 = 36</b> (2 decenas + 6 unidades = 36)
 </div>
 
 <div class="box box-ejemplo">
@@ -248,16 +148,8 @@ Cada tabla tiene sus patrones. La del 9 es especial: ¡la suma de los dígitos s
 <section class="chapter">
 <h2 class="chapter-title">🌍 ¿Dónde veo las tablas en la vida real?</h2>
 <div class="box box-ejemplo">
-<strong><span class="real-world-badge">🛒 COMIDAS</span> Caso real: La panadería</strong>
+<strong>🛒 Caso real: La panadería</strong>
 La panadería vende cajas con 9 magdalenas cada una. Si compras 4 cajas, ¿cuántas magdalenas llevas? Piensa: 9 × 4 = ? Usa el truco de los dedos → <b>36 magdalenas</b>. ¡Y si te sobran, puedes repartirlas en 6 bolsas de 6!
-</div>
-<div class="box box-ejemplo">
-<strong><span class="real-world-badge">🎮 VIDEOJUEOS</span> Caso real: Puntos en el videojuego</strong>
-En un videojuego, cada nivel te da 8 puntos. Si completas 7 niveles, ¿cuántos puntos tienes? 8 × 7 = ? ¡Piensa: 8×7 es 2 más que 8×6=48, así que 48+8=56! Tienes <b>56 puntos</b>.
-</div>
-<div class="box box-ejemplo">
-<strong><span class="real-world-badge">🎵 MÚSICA</span> Caso real: Compases musicales</strong>
-En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos tiempos son en total? 6 × 9 = ? Usa la tabla del 9: <b>54 tiempos</b>. ¡Esa es la duración total de tu canción!
 </div>
 </section>
 <section class="chapter">
@@ -283,7 +175,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 
 <!-- Ejercicio tipo 1: Completar hueco -->
 <div class="exercise">
-<p>6. Completa: 7 × ___ = 49 <span class="difficulty-badge facil">Fácil</span></p>
+<p>6. Completa: 7 × ___ = 49</p>
 <input type="number" id="e6" style="width:80px;padding:.4rem;border:2px solid var(--azul);border-radius:6px;font-size:1rem">
 <button onclick="checkComplete(6, 7)" style="padding:.4rem 1rem;border-radius:6px;border:none;background:var(--azul);color:#fff;cursor:pointer;font-size:.9rem">Comprobar</button>
 <div class="solution" id="s6">✅ ¡Correcto! 7 × 7 = 49. El 7 se multiplica por sí mismo.</div>
@@ -291,7 +183,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 
 <!-- Ejercicio tipo 2: Verdadero/Falso -->
 <div class="exercise">
-<p>7. Verdadero o Falso: 8 × 6 = 54 <span class="difficulty-badge facil">Fácil</span></p>
+<p>7. Verdadero o Falso: 8 × 6 = 54</p>
 <button class="quiz-btn" onclick="checkVF(this, false)" style="margin:.2rem">Verdadero</button>
 <button class="quiz-btn" onclick="checkVF(this, true)" style="margin:.2rem">Falso</button>
 <div class="solution" id="s7">✅ ¡Correcto! Es Falso. 8 × 6 = 48, no 54. ¡El 48 está entre 42 (7×6) y 54 (9×6)!</div>
@@ -299,7 +191,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 
 <!-- Ejercicio tipo 3: Emparejar -->
 <div class="exercise">
-<p>8. Empareja cada multiplicación con su resultado correcto: <span class="difficulty-badge medio">Medio</span></p>
+<p>8. Empareja cada multiplicación con su resultado correcto:</p>
 <div style="display:flex;gap:2rem;flex-wrap:wrap;margin:1rem 0">
 <div>
 <p style="font-weight:600;margin-bottom:.5rem">Multiplicación</p>
@@ -318,7 +210,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 </div>
 
 <div class="exercise">
-<p>9. ¿Cuánto es 6 × 7? <span class="difficulty-badge facil">Fácil</span></p>
+<p>9. ¿Cuánto es 6 × 7?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">42</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">42</button>
@@ -326,7 +218,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 </div>
 </div>
 <div class="exercise">
-<p>10. ¿Cuánto es 8 × 5? <span class="difficulty-badge facil">Fácil</span></p>
+<p>10. ¿Cuánto es 8 × 5?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">40</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">35</button>
@@ -334,7 +226,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 </div>
 </div>
 <div class="exercise">
-<p>11. ¿Cuánto es 9 × 4? <span class="difficulty-badge facil">Fácil</span></p>
+<p>11. ¿Cuánto es 9 × 4?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">32</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">36</button>
@@ -342,7 +234,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 </div>
 </div>
 <div class="exercise">
-<p>12. ¿Cuánto es 7 × 8? <span class="difficulty-badge medio">Medio</span></p>
+<p>12. ¿Cuánto es 7 × 8?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, false)">54</button>
 <button class="quiz-btn" onclick="checkExercise(this, true)">56</button>
@@ -350,7 +242,7 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 </div>
 </div>
 <div class="exercise">
-<p>13. ¿Cuánto es 9 × 9? <span class="difficulty-badge dificil">Difícil</span></p>
+<p>13. ¿Cuánto es 9 × 9?</p>
 <div class="quiz-options">
 <button class="quiz-btn" onclick="checkExercise(this, true)">81</button>
 <button class="quiz-btn" onclick="checkExercise(this, false)">72</button>
@@ -367,14 +259,10 @@ En música, un compás de 6/8 tiene 6 tiempos. Si tocas 9 compases, ¿cuántos t
 Confundir 7 × 8 = 56 con 6 × 9 = 54. ¡Ambos son cercanos! Truco: 7×8 es 2 más que 7×7=49, así que 49+7=56.
 </div>
 
-<!-- Conexión con otros temas -->
-<div class="connection-box">
-<h4>🔗 Conexiones con otros temas</h4>
-<p><a href="s02-3-intro-multiplicacion.html">📌 Tablas del 1 al 5</a> — Las tablas del 6-9 son las "hermanas mayores" de las que ya sabes.</p>
-<p><a href="s02-1-sumas-llevadas.html">➕ Sumas con llevadas</a> — Cada tabla es una suma repetida: 7×5 = 7+7+7+7+7</p>
-<p><a href="s03-1-mult-dos-cifras.html">✖️ Multiplicación de dos cifras</a> — Dominar las tablas básicas es la base para multiplicaciones grandes.</p>
-<p><a href="s03-2-division.html">➗ División</a> — La división es la inversa: si 7×8=56, entonces 56÷7=8.</p>
-<p><a href="s02-5-tablas-6-9.html">🔄 Propiedad conmutativa</a> — 6×9 = 9×6 = 54. ¡No importa el orden!</p>
+<!-- Conexión con tabla del 6 -->
+<div class="box box-idea">
+<strong>🔗 Conexión con la tabla del 6</strong>
+Si sabes la tabla del 6, la del 7 es solo +1 grupo más. Ejemplo: 6×5=30, entonces 7×5=30+5=35. ¡La tabla del 7 es la del 6 más los mismos números!
 </div>
 <div class="summary">
 <h3>📋 Resumen de lo aprendido</h3>
@@ -502,26 +390,6 @@ function matchSelect(id, pairId) {
       b.style.background = '';
       b.style.borderColor = '';
     });
-  }
-}
-
-let tablaView = 0;
-function cambiarTabla() {
-  tablaView = (tablaView + 1) % 3;
-  const svg = document.getElementById('tablaSvg');
-  const texts = svg.querySelectorAll('text');
-  // Toggle highlighting based on view
-  if(tablaView === 0) {
-    // Normal view
-    svg.innerHTML = svg.innerHTML.replace(/stroke="#f97316"/g, 'stroke="#94a3b8"');
-    document.querySelector('#tablaSvg + p, #tablaSvg text:nth-last-child(3)').textContent = '💡 ¡Haz clic para ver el patrón de unidades!';
-  } else if(tablaView === 1) {
-    // Highlight table 6
-    document.querySelector('#tablaSvg text:nth-child(21)').setAttribute('fill', '#f97316');
-    document.querySelector('#tablaSvg text:nth-child(21)').setAttribute('font-weight', 'bold');
-  } else {
-    // Highlight table 9 pattern
-    document.querySelector('#tablaSvg text:nth-last-child(3)').textContent = '💡 ¡Haz clic para ver el patrón de decenas!';
   }
 }
 
