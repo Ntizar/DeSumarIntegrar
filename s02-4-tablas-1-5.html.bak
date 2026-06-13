@@ -165,100 +165,6 @@ Cada tabla es una <b>secuencia</b>. La tabla del 2: 2, 4, 6, 8, 10... ¡cada vez
 <strong>🔍 Ejemplo 3</strong>
 <b>Tabla del 5:</b> 5, 10, 15, 20, 25, 30, 35, 40, 45, 50<br>¡Siempre termina en 0 o 5! ¡Fácil de recordar!
 </div>
-
-<!-- SVG ANIMADO: Patrón de la tabla del 5 -->
-<div class="svg-container">
-<h3 style="color:var(--azul);margin-bottom:.8rem">🔢 Patrón animado: Tabla del 5</h3>
-<p style="margin-bottom:1rem;color:var(--gris)">Observa cómo los números crecen de 5 en 5 y siempre terminan en 0 o 5:</p>
-<svg viewBox="0 0 400 280" width="100%" style="max-width:400px">
-<!-- Fondo -->
-<rect x="0" y="0" width="400" height="280" rx="12" fill="#f8fafc"/>
-<!-- Título -->
-<text x="200" y="25" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">Tabla del 5 — Patrón</text>
-<!-- Círculos animados -->
-<circle cx="50" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2" opacity="0">
-<animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.2s" fill="freeze"/>
-</circle>
-<text x="50" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold" opacity="0">5</text>
-<animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.5s" fill="freeze" for="text"/>
-<!-- Mejor: usar múltiples animaciones -->
-<circle cx="50" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2">
-<animate attributeName="r" from="0" to="22" dur="0.5s" begin="0.2s" fill="freeze"/>
-</circle>
-<text x="50" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">5</text>
-
-<circle cx="120" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2">
-<animate attributeName="r" from="0" to="22" dur="0.5s" begin="0.7s" fill="freeze"/>
-</circle>
-<text x="120" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">10</text>
-
-<circle cx="190" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2">
-<animate attributeName="r" from="0" to="22" dur="0.5s" begin="1.2s" fill="freeze"/>
-</circle>
-<text x="190" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">15</text>
-
-<circle cx="260" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2">
-<animate attributeName="r" from="0" to="22" dur="0.5s" begin="1.7s" fill="freeze"/>
-</circle>
-<text x="260" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">20</text>
-
-<circle cx="330" cy="60" r="22" fill="#eff6ff" stroke="#2563eb" stroke-width="2">
-<animate attributeName="r" from="0" to="22" dur="0.5s" begin="2.2s" fill="freeze"/>
-</circle>
-<text x="330" y="65" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">25</text>
-
-<!-- Flechas entre círculos -->
-<line x1="72" y1="60" x2="98" y2="60" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2">
-<animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
-</line>
-<line x1="142" y1="60" x2="168" y2="60" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2">
-<animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
-</line>
-<line x1="212" y1="60" x2="238" y2="60" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2">
-<animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
-</line>
-<line x1="282" y1="60" x2="308" y2="60" stroke="#f97316" stroke-width="2" stroke-dasharray="4,2">
-<animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite"/>
-</line>
-
-<!-- Patrón de terminación -->
-<text x="200" y="120" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">¿Qué observas?</text>
-
-<!-- Caja terminaciones -->
-<rect x="60" y="135" width="130" height="50" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
-<text x="125" y="155" text-anchor="middle" fill="#065f46" font-size="12">Termina en 0:</text>
-<text x="125" y="172" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">10, 20, 30, 40, 50</text>
-
-<rect x="210" y="135" width="130" height="50" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-<text x="275" y="155" text-anchor="middle" fill="#c2410c" font-size="12">Termina en 5:</text>
-<text x="275" y="172" text-anchor="middle" fill="#c2410c" font-size="12" font-weight="bold">5, 15, 25, 35, 45</text>
-
-<!-- Visualización de grupos -->
-<text x="200" y="220" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">5 × 4 = ? → 4 grupos de 5</text>
-<!-- 4 grupos de 5 puntos -->
-<rect x="60" y="230" width="60" height="40" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<circle cx="75" cy="242" r="4" fill="#f97316"/><circle cx="90" cy="242" r="4" fill="#f97316"/>
-<circle cx="105" cy="242" r="4" fill="#f97316"/><circle cx="75" cy="258" r="4" fill="#f97316"/>
-<circle cx="90" cy="258" r="4" fill="#f97316"/>
-
-<rect x="135" y="230" width="60" height="40" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<circle cx="150" cy="242" r="4" fill="#f97316"/><circle cx="165" cy="242" r="4" fill="#f97316"/>
-<circle cx="180" cy="242" r="4" fill="#f97316"/><circle cx="150" cy="258" r="4" fill="#f97316"/>
-<circle cx="165" cy="258" r="4" fill="#f97316"/>
-
-<rect x="210" y="230" width="60" height="40" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<circle cx="225" cy="242" r="4" fill="#f97316"/><circle cx="240" cy="242" r="4" fill="#f97316"/>
-<circle cx="255" cy="242" r="4" fill="#f97316"/><circle cx="225" cy="258" r="4" fill="#f97316"/>
-<circle cx="240" cy="258" r="4" fill="#f97316"/>
-
-<rect x="285" y="230" width="60" height="40" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<circle cx="300" cy="242" r="4" fill="#f97316"/><circle cx="315" cy="242" r="4" fill="#f97316"/>
-<circle cx="330" cy="242" r="4" fill="#f97316"/><circle cx="300" cy="258" r="4" fill="#f97316"/>
-<circle cx="315" cy="258" r="4" fill="#f97316"/>
-
-<text x="200" y="275" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">4 × 5 = 20 puntos</text>
-</svg>
-</div>
 </section>
 <section class="chapter">
 <h2 class="chapter-title">2️⃣ ¡Practica las tablas!</h2>
@@ -325,24 +231,14 @@ Tu abuela hace 6 galletas por bandeja. Si prepara 3 bandejas, ¿cuántas galleta
 <div class="feedback" id="vf2"></div>
 </div>
 
-<!-- COMPLETAR PATRÓN (nuevo tipo) -->
+<!-- V/F -->
 <div class="exercise">
-<p>3. <span class="difficulty-badge medium">Medio</span> <b>Completar patrón:</b> La tabla del 5: 5, 10, 15, ___, 25, 30. ¿Qué número falta?</p>
-<div style="margin:.5rem 0">
-<input type="number" id="fill3patron" min="1" max="100" style="width:60px;padding:.5rem;font-size:1.2rem;text-align:center;border:2px solid var(--azul);border-radius:6px">
-<button onclick="checkFillInPatron()" style="padding:.5rem 1rem;background:var(--azul);color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.95rem">Comprobar</button>
-</div>
-<div class="feedback" id="fill3patronfb"></div>
-</div>
-
-<!-- V/F original pasa a 4 -->
-<div class="exercise">
-<p>4. <span class="difficulty-badge easy">Fácil</span> <b>V/F:</b> 2 × 8 = 18</p>
+<p>3. <span class="difficulty-badge easy">Fácil</span> <b>V/F:</b> 2 × 8 = 18</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="checkVF(this, false)">✅ Verdadero</button>
-<button class="quiz-btn" onclick="checkVF(this, true)">❌ Falso</button>
+<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
 </div>
-<div class="feedback" id="vf4"></div>
+<div class="feedback" id="vf3"></div>
 </div>
 
 <!-- Fill-in -->
@@ -495,21 +391,6 @@ function checkVF(btn, correct) {
     btn.classList.add('wrong');
     fb.className = 'feedback incorrect';
     fb.textContent = '❌ Incorrecto. ¡Recuerda: 2 × 8 = 16!';
-  }
-}
-
-function checkFillInPatron() {
-  const input = document.getElementById('fill3patron');
-  const answer = input.value.trim();
-  const fb = document.getElementById('fill3patronfb');
-  if(answer === '20') {
-    fb.className = 'feedback correct';
-    fb.textContent = '✅ ¡Correcto! 5, 10, 15, 20, 25, 30 — ¡siempre sumamos 5!';
-    input.style.borderColor = 'var(--verde)';
-  } else {
-    fb.className = 'feedback incorrect';
-    fb.textContent = '❌ Faltan 20. La tabla del 5: 5, 10, 15, 20, 25, 30';
-    input.style.borderColor = 'var(--rojo)';
   }
 }
 

@@ -608,7 +608,7 @@
       "improvement_count": 1
     },
     "eso1-5-intro-algebra.html": {
-      "status": "improved",
+      "status": "improved_2",
       "level": "ESO 1º",
       "priority": 2,
       "category": "eso",
@@ -617,18 +617,23 @@
           "run": 39,
           "date": "2026-06-11",
           "added": "+1 explicación 4 pasos para resolver ecuaciones, +1 caso real dinero ahorrado, +1 caja error común, +3 ejercicios nuevos (problema caramelos V/F, input numérico x-7=10), +1 punto resumen, +2 funciones JS nuevas (checkVF, checkInputEso1)"
+        },
+        {
+          "run": 2,
+          "date": "2026-06-13",
+          "added": "+1 SVG recta numérica interactiva, +1 caja conexiones (4 temas), +2 casos reales (cine/gimnasio), +3 ejercicios nuevos (ordenar, emparejar, problema narrativo), +CSS difficulty-badge, +3 niveles dificultad (fácil/medio/difícil), +4 funciones JS nuevas"
         }
       ],
       "scores": {
-        "exercises": 2,
-        "text": 2,
-        "visual": 1,
-        "real_world": 3,
-        "connections": 2,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 12,
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 8
       },
-      "last_improved": "2026-06-11",
-      "improvement_count": 1
+      "last_improved": "2026-06-13",
+      "improvement_count": 2
     },
     "eso1-7-estadistica-probabilidad.html": {
       "status": "improved_1",
