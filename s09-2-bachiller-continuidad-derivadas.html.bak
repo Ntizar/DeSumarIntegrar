@@ -7,104 +7,11 @@
 
 <!-- KaTeX -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
-function checkVF2(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  const fb = document.getElementById('e6-fb');
-  if (correct) {
-    fb.textContent = '✅ ¡Correcto! |x| tiene un "pico" en x=0: es continua (no se levanta el lápiz) pero no tiene derivada (no hay tangente única).';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ Era verdadero. |x| es continua en 0 pero no derivable (tiene un pico).';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function checkE7() {
-  const a = document.getElementById('e7a').value.trim().toLowerCase().replace(/\s/g, '');
-  const b = parseFloat(document.getElementById('e7b').value);
-  const fb = document.getElementById('e7-fb');
-  // f'(x) = 3x², f'(2) = 12
-  if ((a === '3x\u00b2' || a === '3x2' || a === '3*x\u00b2' || a === '3*x2') && b === 12) {
-    fb.textContent = '✅ ¡Perfecto! f\'(x) = 3x², f\'(2) = 3·4 = 12';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ f\'(x) = 3x² (regla de potencia: n·xⁿ⁻¹). f\'(2) = 3·2² = 12.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-</script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
-function checkVF2(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  const fb = document.getElementById('e6-fb');
-  if (correct) {
-    fb.textContent = '✅ ¡Correcto! |x| tiene un "pico" en x=0: es continua (no se levanta el lápiz) pero no tiene derivada (no hay tangente única).';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ Era verdadero. |x| es continua en 0 pero no derivable (tiene un pico).';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function checkE7() {
-  const a = document.getElementById('e7a').value.trim().toLowerCase().replace(/\s/g, '');
-  const b = parseFloat(document.getElementById('e7b').value);
-  const fb = document.getElementById('e7-fb');
-  // f'(x) = 3x², f'(2) = 12
-  if ((a === '3x\u00b2' || a === '3x2' || a === '3*x\u00b2' || a === '3*x2') && b === 12) {
-    fb.textContent = '✅ ¡Perfecto! f\'(x) = 3x², f\'(2) = 3·4 = 12';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ f\'(x) = 3x² (regla de potencia: n·xⁿ⁻¹). f\'(2) = 3·2² = 12.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
 <!-- Plotly.js -->
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js">
-function checkVF2(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  const fb = document.getElementById('e6-fb');
-  if (correct) {
-    fb.textContent = '✅ ¡Correcto! |x| tiene un "pico" en x=0: es continua (no se levanta el lápiz) pero no tiene derivada (no hay tangente única).';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ Era verdadero. |x| es continua en 0 pero no derivable (tiene un pico).';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function checkE7() {
-  const a = document.getElementById('e7a').value.trim().toLowerCase().replace(/\s/g, '');
-  const b = parseFloat(document.getElementById('e7b').value);
-  const fb = document.getElementById('e7-fb');
-  // f'(x) = 3x², f'(2) = 12
-  if ((a === '3x\u00b2' || a === '3x2' || a === '3*x\u00b2' || a === '3*x2') && b === 12) {
-    fb.textContent = '✅ ¡Perfecto! f\'(x) = 3x², f\'(2) = 3·4 = 12';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ f\'(x) = 3x² (regla de potencia: n·xⁿ⁻¹). f\'(2) = 3·2² = 12.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-</script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7;--morado-claro:#f3e8ff}
@@ -332,29 +239,10 @@ $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
 </div>
 
 <div class="chapter">
-
-<div class="box box-ejemplo">
-<strong>💡 Caso real 2: 🏗️ Construcción de puentes</strong>
-<span class="real-world-badge">Ingeniería</span><br>
-Los ingenieros usan la continuidad para diseñar puentes. Si el peso de un puente cambia de forma continua de un extremo al otro, la derivada (la tasa de cambio del peso) les dice dónde poner los soportes. ¡Un puente discontinuo se caería!
-</div>
-
-<div class="box box-ejemplo">
-<strong>💡 Caso real 3: 📱 Velocímetro del coche</strong>
-<span class="real-world-badge">Física</span><br>
-El velocímetro de tu coche muestra la velocidad instantánea — ¡que es exactamente la derivada de la posición! Cuando aceleras suavemente, la velocidad cambia de forma continua. Si el velocímetro diera saltos de 0 a 100 km/h de golpe, ¡la función no sería continua!
-</div>
-
-<div class="connection-box">
-<strong>🔗 Conexión</strong>
-La continuidad es requisito para la derivabilidad. Si una función es derivable en x=a, entonces es continua en x=a. Pero lo contrario NO siempre es cierto (ej: |x| es continua en 0 pero no derivable). Esto se explora en <a href="s09-3-bachiller-reglas-derivacion.html">Sesión 3: Reglas de Derivación</a>.
-</div>
-
-
 <h2 class="chapter-title">3️⃣ Ejercicios Interactivos</h2>
 
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Es <span class="difficulty-badge facil">Fácil</span> $f(x) = \frac{x^2 - 1}{x - 1}$ continua en $x = 1$?</p>
+<p><strong>Ejercicio 1:</strong> ¿Es $f(x) = \frac{x^2 - 1}{x - 1}$ continua en $x = 1$?</p>
 <p style="font-size:.85rem;color:#64748b">Piensa: ¿está definida la función en $x = 1$?</p>
 <div class="exercise-input">
 <select id="e1" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
@@ -368,7 +256,7 @@ La continuidad es requisito para la derivabilidad. Si una función es derivable 
 </div>
 
 <div class="exercise">
-<p><strong>Ejercicio 2:</strong> Si <span class="difficulty-badge medio">Medio</span> $f(x) = x^2$, ¿cuál es $f'(2)$?</p>
+<p><strong>Ejercicio 2:</strong> Si $f(x) = x^2$, ¿cuál es $f'(2)$?</p>
 <p style="font-size:.85rem;color:#64748b">Usa la definición: $f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$</p>
 <div class="exercise-input">
 <input type="number" id="e2" placeholder="?" step="any">
@@ -378,7 +266,7 @@ La continuidad es requisito para la derivabilidad. Si una función es derivable 
 </div>
 
 <div class="exercise">
-<p><strong>Ejercicio 3:</strong> La temperatura <span class="difficulty-badge facil">Fácil</span> a las 6am es 5°C y a las 6pm es 25°C. ¿Pudo haber sido exactamente 15°C durante el día?</p>
+<p><strong>Ejercicio 3:</strong> La temperatura a las 6am es 5°C y a las 6pm es 25°C. ¿Pudo haber sido exactamente 15°C durante el día?</p>
 <div class="exercise-input">
 <select id="e3" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
 <option value="">— Elige —</option>
@@ -391,35 +279,17 @@ La continuidad es requisito para la derivabilidad. Si una función es derivable 
 </div>
 
 <div class="exercise">
-<p><strong>Ejercicio 4 — V/F:</strong> <span class="difficulty-badge facil">Fácil</span> "Si $f(x) = \frac{1}{x}$, la función es continua en $x = 0$."</p>
+<p><strong>Ejercicio 4 — V/F:</strong> "Si $f(x) = \frac{1}{x}$, la función es continua en $x = 0$."</p>
 <button onclick="checkVF(this, false)" style="padding:0.5rem 1.5rem;border-radius:6px;border:2px solid var(--azul);background:#fff;cursor:pointer;font-size:1rem;font-weight:600;margin:0.3rem">✅ Verdadero</button>
 <button onclick="checkVF(this, true)" style="padding:0.5rem 1.5rem;border-radius:6px;border:2px solid var(--rojo);background:#fff;cursor:pointer;font-size:1rem;font-weight:600;margin:0.3rem">❌ Falso</button>
 <div class="feedback" id="e4-fb"></div>
 </div>
 
 <div class="exercise">
-<p><strong>Ejercicio 5 — Ordenar:</strong> <span class="difficulty-badge dificil">Difícil</span> Ordena de mayor a menor derivada en $x=1$: $f(x)=x^2$, $g(x)=x^3$, $h(x)=\sqrt{x}$. Escribe las letras en orden (ej: b,a,c).</p>
+<p><strong>Ejercicio 5 — Ordenar:</strong> Ordena de mayor a menor derivada en $x=1$: $f(x)=x^2$, $g(x)=x^3$, $h(x)=\sqrt{x}$. Escribe las letras en orden (ej: b,a,c).</p>
 <input type="text" id="e5" placeholder="Tu respuesta" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:150px">
 <button onclick="checkE5()">Comprobar</button>
 <div class="feedback" id="e5-fb"></div>
-
-<div class="exercise">
-<p><strong>Ejercicio 6 — V/F Visual:</strong> La función f(x) = |x| es continua en x = 0 pero NO derivable. <span class="difficulty-badge medio">Medio</span></p>
-<button class="quiz-btn" onclick="checkVF2(this, true)">✅ Verdadero</button>
-<button class="quiz-btn" onclick="checkVF2(this, false)">❌ Falso</button>
-<div class="feedback" id="e6-fb"></div>
-</div>
-
-<div class="exercise">
-<p><strong>Ejercicio 7 — Completar:</strong> Si f(x) = x³, entonces f'(x) = ___ y f'(2) = ___ <span class="difficulty-badge dificil">Difícil</span></p>
-<p style="font-size:.85rem;color:#64748b">Pista: la derivada de xⁿ es n·xⁿ⁻¹</p>
-<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0">
-<input type="text" id="e7a" placeholder="f'(x)=?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:150px">
-<input type="number" id="e7b" placeholder="f'(2)=?" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;width:100px">
-<button onclick="checkE7()" style="padding:.5rem 1.2rem;background:var(--azul);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600">Comprobar</button>
-</div>
-<div class="feedback" id="e7-fb"></div>
-</div>
 </div>
 
 <div class="box box-idea">
@@ -439,9 +309,6 @@ La continuidad es requisito para la derivabilidad: si una función es derivable 
 <li>La derivada tiene múltiples interpretaciones: pendiente, velocidad, coste marginal, tasa de crecimiento</li>
 <li>La continuidad es requisito para la derivabilidad (pero no al revés)</li>
 <li>La animación secante→tangente muestra visualmente el concepto de derivada</li>
-<li>|x| es continua pero no derivable en 0 (pico)</li>
-<li>La derivada de xⁿ es n·xⁿ⁻¹ (regla de potencia)</li>
-<li>Continuidad → derivabilidad, pero no al revés</li>
 </ul>
 </div>
 
@@ -539,37 +406,6 @@ function setDerivPoint(x) {
   }
 }
 });
-
-function checkVF2(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  const fb = document.getElementById('e6-fb');
-  if (correct) {
-    fb.textContent = '✅ ¡Correcto! |x| tiene un "pico" en x=0: es continua (no se levanta el lápiz) pero no tiene derivada (no hay tangente única).';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ Era verdadero. |x| es continua en 0 pero no derivable (tiene un pico).';
-    fb.className = 'feedback incorrect';
-  }
-}
-
-function checkE7() {
-  const a = document.getElementById('e7a').value.trim().toLowerCase().replace(/\s/g, '');
-  const b = parseFloat(document.getElementById('e7b').value);
-  const fb = document.getElementById('e7-fb');
-  // f'(x) = 3x², f'(2) = 12
-  if ((a === '3x\u00b2' || a === '3x2' || a === '3*x\u00b2' || a === '3*x2') && b === 12) {
-    fb.textContent = '✅ ¡Perfecto! f\'(x) = 3x², f\'(2) = 3·4 = 12';
-    fb.className = 'feedback correct';
-  } else {
-    fb.textContent = '❌ f\'(x) = 3x² (regla de potencia: n·xⁿ⁻¹). f\'(2) = 3·2² = 12.';
-    fb.className = 'feedback incorrect';
-  }
-}
-
 </script>
 </body>
 </html>

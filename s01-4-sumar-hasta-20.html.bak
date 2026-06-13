@@ -57,26 +57,6 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;background:linear-grad
 .quiz-btn:hover{background:var(--azul-claro)}
 .quiz-btn.correct{background:var(--verde);color:#fff;border-color:var(--verde)}
 .quiz-btn.wrong{background:var(--rojo);color:#fff;border-color:var(--rojo)}
-
-/* Badge de dificultad */
-.difficulty-badge{display:inline-block;padding:.15rem .5rem;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:.5rem}
-.difficulty-badge.facil{background:#d1fae5;color:#065f46}
-.difficulty-badge.medio{background:#fef3c7;color:#92400e}
-.difficulty-badge.dificil{background:#fee2e2;color:#991b1b}
-
-/* Indicador de pasos */
-.step-indicator{display:inline-flex;align-items:center;gap:.3rem;background:var(--azul-claro);padding:.2rem .6rem;border-radius:12px;font-size:.8rem;font-weight:600;color:var(--azul);margin:.2rem}
-.step-dot{width:8px;height:8px;border-radius:50%;background:var(--azul);display:inline-block}
-
-/* Conexión con conocimiento previo */
-.connection-box{background:var(--pura-claro);border:2px dashed var(--pura);border-radius:10px;padding:1rem;margin:1rem 0}
-.connection-box strong{color:var(--pura)}
-
-/* Badge de caso real */
-.real-world-badge{display:inline-block;background:var(--naranja);color:#fff;padding:.2rem .6rem;border-radius:12px;font-size:.75rem;font-weight:600}
-
-/* Contenedor SVG */
-.svg-container{background:#f8fafc;border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
 </style>
 </head>
 <body>
@@ -104,69 +84,7 @@ Ya sabes sumar hasta 10. ¡Ahora vamos a sumar hasta 20! El truco es <b>contar a
 <li>Usar la estrategia de "contar a partir"</li>
 <li>Practicar con juegos interactivos</li>
 </ul>
-
-<section class="chapter">
-<h2 class="chapter-title">🧠 El Truco de los 4 Pasos</h2>
-
-<div class="box box-teoria">
-<strong>📖 ¿Qué es sumar hasta 20?</strong>
-Es sumar números que dan un resultado mayor que 10. Por ejemplo, 8+5=13. ¡Parece difícil pero tiene un truco!
-</div>
-
-<div class="box box-ejemplo">
-<strong>🔍 ¿Para qué sirve?</strong>
-Para resolver problemas de la vida real: si tienes 8 caramelos y te dan 5 más, ¿cuántos tienes? ¡13! O si un autobús tiene 12 personas y suben 7 más...
-</div>
-
-<div class="box box-ejemplo">
-<strong>🛠️ ¿Cómo se hace?</strong>
-<strong>Paso 1:</strong> Mira los dos números. <strong>Paso 2:</strong> Elige el más grande. <strong>Paso 3:</strong> Cuenta hacia arriba el número más pequeño. <strong>Paso 4:</strong> ¡Ese es el resultado!
-</div>
-
-<div class="box box-error">
-<strong>⚠️ Error común</strong>
-¡No empieces por el número más pequeño! Si haces 5+8 empezando en 5, te confundes más. Siempre empieza por el MAYOR: 8+5 es más fácil porque 8, 9, 10, 11, 12, 13.
-</div>
 </section>
-
-<section class="chapter">
-<h2 class="chapter-title">📐 Visualiza: Contar a partir del mayor</h2>
-
-<div class="svg-container">
-<svg viewBox="0 0 600 200" style="width:100%;max-width:550px">
-<!-- Línea numérica -->
-<line x1="40" y1="100" x2="560" y2="100" stroke="#cbd5e1" stroke-width="3"/>
-<!-- Marcas -->
-<text x="40" y="130" text-anchor="middle" font-size="14" fill="#475569">0</text>
-<text x="80" y="130" text-anchor="middle" font-size="14" fill="#475569">2</text>
-<text x="120" y="130" text-anchor="middle" font-size="14" fill="#475569">4</text>
-<text x="160" y="130" text-anchor="middle" font-size="14" fill="#475569">6</text>
-<text x="200" y="130" text-anchor="middle" font-size="14" fill="#475569">8</text>
-<text x="240" y="130" text-anchor="middle" font-size="14" fill="#475569">10</text>
-<text x="280" y="130" text-anchor="middle" font-size="14" fill="#475569">12</text>
-<text x="320" y="130" text-anchor="middle" font-size="14" fill="#475569">14</text>
-<text x="360" y="130" text-anchor="middle" font-size="14" fill="#475569">16</text>
-<text x="400" y="130" text-anchor="middle" font-size="14" fill="#475569">18</text>
-<text x="440" y="130" text-anchor="middle" font-size="14" fill="#475569">20</text>
-<!-- Flecha de 8 a 13 -->
-<path d="M 200 70 L 200 55 Q 200 45 210 45 L 300 45 Q 310 45 310 55 L 310 70" fill="none" stroke="#f97316" stroke-width="3"/>
-<text x="255" y="40" text-anchor="middle" font-size="13" fill="#f97316" font-weight="bold">+5</text>
-<!-- Punto de inicio -->
-<circle cx="200" cy="100" r="8" fill="#2563eb"/>
-<text x="200" y="95" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">8</text>
-<!-- Punto final -->
-<circle cx="310" cy="100" r="8" fill="#10b981"/>
-<text x="310" y="95" text-anchor="middle" font-size="12" fill="#fff" font-weight="bold">13</text>
-<!-- Flechas de conteo -->
-<text x="215" y="85" text-anchor="middle" font-size="10" fill="#64748b">9</text>
-<text x="240" y="85" text-anchor="middle" font-size="10" fill="#64748b">10</text>
-<text x="265" y="85" text-anchor="middle" font-size="10" fill="#64748b">11</text>
-<text x="290" y="85" text-anchor="middle" font-size="10" fill="#64748b">12</text>
-</svg>
-<p style="margin-top:.5rem;font-size:.9rem;color:#64748b">👆 Empieza en 8 (azul) y cuenta 5 pasos (naranja) → llegas a 13 (verde)</p>
-</div>
-</section>
-
 
 <section class="chapter">
 <h2 class="chapter-title">1️⃣ Sumar y pasar de 10</h2>
@@ -224,31 +142,6 @@ Empezamos en 9 y contamos 9 más: 10, 11, 12, 13, 14, 15, 16, 17, 18<br>
 </div>
 </section>
 
-
-<div class="box box-teoria" style="background:var(--naranja-claro);border-color:var(--naranja)">
-<strong>🌍 Caso real 1: 🍕 La pizzería</strong>
-<span class="real-world-badge">Vida real</span><br>
-En una pizzería hay 8 pizzas pepperoni y 5 pizzas margarita. ¿Cuántas pizzas hay en total? 8 + 5 = <b>13 pizzas</b>. ¡El truco: empiezas en 8 y cuentas 5 más!
-</div>
-
-<div class="box box-teoria" style="background:var(--verde-claro);border-color:var(--verde)">
-<strong>🌍 Caso real 2: 🎮 Videojuegos</strong>
-<span class="real-world-badge">Vida real</span><br>
-En tu videojuego tienes 11 vidas y encuentras un power-up que te da 6 vidas más. ¿Cuántas vidas tienes ahora? 11 + 6 = <b>17 vidas</b>. ¡Ya sabes sumar hasta 20!
-</div>
-
-<div class="box box-teoria" style="background:var(--pura-claro);border-color:var(--pura)">
-<strong>🌍 Caso real 3: 🚌 El autobús escolar</strong>
-<span class="real-world-badge">Vida real</span><br>
-En el autobús hay 14 niños y en la parada suben 4 más. ¿Cuántos niños hay ahora? 14 + 4 = <b>18 niños</b>. ¡Cuenta a partir de 14: 15, 16, 17, 18!
-</div>
-
-<div class="connection-box">
-<strong>🔗 Conexión</strong>
-Sumar hasta 20 es como sumar hasta 10, pero con números más grandes. El truco es el mismo: <b>empieza por el número más grande y cuenta hacia arriba</b>. Ya lo sabías de la sesión anterior (S01.3: Sumar hasta 10). ¡Ahora solo amplía el rango!
-</div>
-
-
 <section class="chapter">
 <h2 class="chapter-title">📝 Ejercicios</h2>
 <div class="exercises">
@@ -298,28 +191,6 @@ Sumar hasta 20 es como sumar hasta 10, pero con números más grandes. El truco 
 </div>
 </div>
 
-
-<div class="exercise">
-<p>6. <strong>Verdadero o Falso:</strong> 9 + 4 = 13 <span class="difficulty-badge facil">Fácil</span></p>
-<button class="quiz-btn" onclick="checkVF(this, true)">✅ Verdadero</button>
-<button class="quiz-btn" onclick="checkVF(this, false)">❌ Falso</button>
-<div class="result" id="vf1" style="display:none;margin-top:.5rem"></div>
-</div>
-
-<div class="exercise">
-<p>7. <strong>Completa el hueco:</strong> 7 + ___ = 15 <span class="difficulty-badge medio">Medio</span></p>
-<input type="number" id="fill1" placeholder="?" style="padding:.5rem 1rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;width:80px;text-align:center">
-<button class="quiz-btn" onclick="checkFillIn1()" style="margin-left:.5rem">Comprobar</button>
-<div class="result" id="fill1-result" style="display:inline-block;margin-left:.5rem"></div>
-</div>
-
-<div class="exercise">
-<p>8. <strong>Ordena de menor a mayor:</strong> 8+5, 6+6, 10+7, 9+4 <span class="difficulty-badge dificil">Difícil</span></p>
-<p style="font-size:.85rem;color:#64748b">Escribe los resultados separados por coma (ej: 12,13,13,17)</p>
-<input type="text" id="orden1" placeholder="Tu respuesta" style="padding:.5rem 1rem;border:2px solid var(--azul);border-radius:6px;font-size:1.1rem;width:200px">
-<button class="quiz-btn" onclick="checkOrden1()" style="margin-left:.5rem">Comprobar</button>
-<div class="result" id="orden1-result" style="display:inline-block;margin-left:.5rem"></div>
-</div>
 </div>
 </section>
 
@@ -330,9 +201,6 @@ Sumar hasta 20 es como sumar hasta 10, pero con números más grandes. El truco 
 <li>Cuenta hacia arriba el número que te pide sumar</li>
 <li>8 + 5 = 13, 9 + 4 = 13, 10 + 7 = 17</li>
 <li>¡Ya sabes sumar hasta 20! 🎉</li>
-<li>El truco: siempre empieza por el número más grande</li>
-<li>8+5=13 (fácil), 7+8=15 (medio), ordenar sumas (difícil)</li>
-<li>Sumar hasta 20 es como sumar hasta 10, pero con números más grandes</li>
 </ul>
 </div>
 
@@ -341,10 +209,6 @@ Sumar hasta 20 es como sumar hasta 10, pero con números más grandes. El truco 
   <a href="s01-1primaria-index.html" style="color:#94a3b8;font-size:0.85rem">📋 Índice del nivel</a>
 <a href="s01-5-restar-hasta-10.html">Siguiente →</a>
 </div>
-
-
-
-</section>
 
 </main>
 
@@ -393,53 +257,6 @@ window.onscroll = function(){
   var p = (window.scrollY/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('progress').style.width = p+'%';
 };
-
-function checkVF(btn, correct) {
-  const parent = btn.parentElement;
-  parent.querySelectorAll('.quiz-btn').forEach(b => {
-    b.disabled = true;
-    b.style.pointerEvents = 'none';
-  });
-  const resultDiv = parent.parentElement.querySelector('.result');
-  if (correct) {
-    btn.classList.add('correct');
-    resultDiv.style.display = 'block';
-    resultDiv.className = 'result ok';
-    resultDiv.textContent = '✅ ¡Correcto! 9 + 4 = 13';
-  } else {
-    btn.classList.add('wrong');
-    resultDiv.style.display = 'block';
-    resultDiv.className = 'result fail';
-    resultDiv.textContent = '❌ ¡Era verdadero! 9 + 4 = 13';
-  }
-}
-
-function checkFillIn1() {
-  const input = document.getElementById('fill1');
-  const result = document.getElementById('fill1-result');
-  const val = parseInt(input.value);
-  if (val === 8) {
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! 7 + 8 = 15. Empieza en 7 y cuenta 8 más.';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ La respuesta es 8. 7 + 8 = 15. Empieza en 7 y cuenta 8 más.';
-  }
-}
-
-function checkOrden1() {
-  const input = document.getElementById('orden1');
-  const result = document.getElementById('orden1-result');
-  const val = input.value.replace(/\s/g, '').toLowerCase();
-  if (val === '12,13,13,17' || val === '12,13,13,17') {
-    result.className = 'result ok';
-    result.textContent = '✅ ¡Correcto! 6+6=12, 8+5=13, 9+4=13, 10+7=17';
-  } else {
-    result.className = 'result fail';
-    result.textContent = '❌ El orden correcto es: 12, 13, 13, 17. Calcula cada suma primero.';
-  }
-}
-
 </script>
 </body>
 </html>
