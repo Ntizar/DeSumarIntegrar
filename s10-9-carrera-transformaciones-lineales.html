@@ -7,9 +7,174 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+function checkE2() {
+  const a = document.getElementById('e2a').value.trim();
+  const b = document.getElementById('e2b').value.trim();
+  const c = document.getElementById('e2c').value.trim();
+  const d = document.getElementById('e2d').value.trim();
+  const fb = document.getElementById('e2-fb');
+  if (a === '0' && b === '-1' && c === '1' && d === '0') {
+    fb.textContent = '✅ ¡Correcto! cos(90°)=0, sin(90°)=1, cos(90°)=0';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Recuerda: cos(90°)=0, sin(90°)=1 → R = [[0,-1],[1,0]]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE4() {
+  const x = document.getElementById('e4x').value.trim();
+  const y = document.getElementById('e4y').value.trim();
+  const fb = document.getElementById('e4-fb');
+  // [1,2;3,4] * [1,-1] = [1*1+2*(-1), 3*1+4*(-1)] = [-1, -1]
+  if (x === '-1' && y === '-1') {
+    fb.textContent = '✅ ¡Correcto! [1,2;3,4] × [1,-1] = [-1,-1]';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Calcula: [1·1+2·(-1), 3·1+4·(-1)] = [-1, -1]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE7() {
+  const sel = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (sel.value === 'no') {
+    fb.textContent = '✅ ¡Correcto! T(x,y)=(x²,y) no es lineal porque (a+b)² ≠ a²+b². No cumple aditividad.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. T(x,y)=(x²,y) no es lineal: la elevación al cuadrado rompe la aditividad.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkMatch(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Proyección sobre eje Y = [[0,0],[0,1]]. La reflexión sobre X = [[1,0],[0,-1]].';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Reflexión sobre X cambia el signo de Y: [[1,0],[0,-1]].';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js">
+function checkE2() {
+  const a = document.getElementById('e2a').value.trim();
+  const b = document.getElementById('e2b').value.trim();
+  const c = document.getElementById('e2c').value.trim();
+  const d = document.getElementById('e2d').value.trim();
+  const fb = document.getElementById('e2-fb');
+  if (a === '0' && b === '-1' && c === '1' && d === '0') {
+    fb.textContent = '✅ ¡Correcto! cos(90°)=0, sin(90°)=1, cos(90°)=0';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Recuerda: cos(90°)=0, sin(90°)=1 → R = [[0,-1],[1,0]]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE4() {
+  const x = document.getElementById('e4x').value.trim();
+  const y = document.getElementById('e4y').value.trim();
+  const fb = document.getElementById('e4-fb');
+  // [1,2;3,4] * [1,-1] = [1*1+2*(-1), 3*1+4*(-1)] = [-1, -1]
+  if (x === '-1' && y === '-1') {
+    fb.textContent = '✅ ¡Correcto! [1,2;3,4] × [1,-1] = [-1,-1]';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Calcula: [1·1+2·(-1), 3·1+4·(-1)] = [-1, -1]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE7() {
+  const sel = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (sel.value === 'no') {
+    fb.textContent = '✅ ¡Correcto! T(x,y)=(x²,y) no es lineal porque (a+b)² ≠ a²+b². No cumple aditividad.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. T(x,y)=(x²,y) no es lineal: la elevación al cuadrado rompe la aditividad.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkMatch(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Proyección sobre eje Y = [[0,0],[0,1]]. La reflexión sobre X = [[1,0],[0,-1]].';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Reflexión sobre X cambia el signo de Y: [[1,0],[0,-1]].';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+</script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js">
+function checkE2() {
+  const a = document.getElementById('e2a').value.trim();
+  const b = document.getElementById('e2b').value.trim();
+  const c = document.getElementById('e2c').value.trim();
+  const d = document.getElementById('e2d').value.trim();
+  const fb = document.getElementById('e2-fb');
+  if (a === '0' && b === '-1' && c === '1' && d === '0') {
+    fb.textContent = '✅ ¡Correcto! cos(90°)=0, sin(90°)=1, cos(90°)=0';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Recuerda: cos(90°)=0, sin(90°)=1 → R = [[0,-1],[1,0]]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE4() {
+  const x = document.getElementById('e4x').value.trim();
+  const y = document.getElementById('e4y').value.trim();
+  const fb = document.getElementById('e4-fb');
+  // [1,2;3,4] * [1,-1] = [1*1+2*(-1), 3*1+4*(-1)] = [-1, -1]
+  if (x === '-1' && y === '-1') {
+    fb.textContent = '✅ ¡Correcto! [1,2;3,4] × [1,-1] = [-1,-1]';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Calcula: [1·1+2·(-1), 3·1+4·(-1)] = [-1, -1]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE7() {
+  const sel = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (sel.value === 'no') {
+    fb.textContent = '✅ ¡Correcto! T(x,y)=(x²,y) no es lineal porque (a+b)² ≠ a²+b². No cumple aditividad.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. T(x,y)=(x²,y) no es lineal: la elevación al cuadrado rompe la aditividad.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkMatch(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Proyección sobre eje Y = [[0,0],[0,1]]. La reflexión sobre X = [[1,0],[0,-1]].';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Reflexión sobre X cambia el signo de Y: [[1,0],[0,-1]].';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+</script>
 
 <style>
 :root{--azul:#2563eb;--naranja:#f97316;--verde:#10b981;--rojo:#ef4444;--fondo:#fff;--texto:#1e293b;--gris:#94a3b8;--azul-claro:#eff6ff;--naranja-claro:#fff7ed;--verde-claro:#ecfdf5;--rojo-claro:#fef2f2;--pura-claro:#faf5ff;--pura:#a855f7}
@@ -88,6 +253,66 @@ table tr:nth-child(even){background:#f8fafc}
 /* Interactive zone */
 .interactive{background:#f1f5f9;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
 .interactive h3{color:var(--azul);margin-bottom:1rem;font-size:1.1rem}
+
+/* Difficulty badge */
+.difficulty-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.difficulty-badge.facil {
+  background: #dcfce7;
+  color: #166534;
+}
+.difficulty-badge.medio {
+  background: #fef3c7;
+  color: #92400e;
+}
+.difficulty-badge.dificil {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Quiz buttons */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+.quiz-btn {
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+  transition: all 0.2s;
+}
+.quiz-btn:hover {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+.quiz-btn.correct {
+  background: #dcfce7;
+  border-color: #10b981;
+  color: #166534;
+}
+.quiz-btn.wrong {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* Exercises container */
+.exercises {
+  margin: 1.5rem 0;
+}
 </style>
 </head>
 <body>
@@ -113,12 +338,66 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+<!-- TEORÍA ESTRUCTURADA EN 4 PASOS -->
+<section class="chapter">
+<h2 class="chapter-title">📖 Teoría en 4 pasos</h2>
+
+<div class="box box-teoria">
+<span class="step-indicator"><span class="step-dot"></span> Paso 1</span>
+<strong>🤔 ¿QUÉ ES una transformación lineal?</strong>
+<p>Una transformación lineal es una regla que mapea vectores a vectores <em>respetando dos propiedades fundamentales</em>:</p>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><b>Aditividad:</b> $T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})$ — transformar la suma es igual a sumar las transformaciones</li>
+<li><b>Homogeneidad:</b> $T(c\vec{v}) = c \cdot T(\vec{v})$ — escalar antes o después da lo mismo</li>
+</ul>
+<p>En términos simples: una transformación lineal <b>no mezcla términos cruzados</b> ni <b>desplaza el origen</b>. El origen siempre queda en el origen.</p>
+</div>
+
+<div class="box box-ejemplo">
+<span class="step-indicator"><span class="step-dot"></span> Paso 2</span>
+<strong>🎯 ¿PARA QUÉ sirven?</strong>
+<p>Las transformaciones lineales son el <b>lenguaje de la geometría computacional</b>:</p>
+<ul style="padding-left:1.2rem;margin-top:.5rem">
+<li><b>Gráficos 3D:</b> Cada vértice de un modelo se rota, escala o proyecta con una matriz</li>
+<li><b>Compresión de imágenes:</b> La descomposición SVD (valor singular) es una transformación lineal que reduce dimensiones</li>
+<li><b>Machine Learning:</b> Las capas densas de redes neuronales son transformaciones lineales + no linealidad</li>
+<li><b>Física:</b> Rotaciones de referencia, cambios de base en mecánica cuántica</li>
+</ul>
+</div>
+
+<div class="box box-teoria">
+<span class="step-indicator"><span class="step-dot"></span> Paso 3</span>
+<strong>🔧 ¿CÓMO se representan?</strong>
+<p>Cada transformación lineal $T: \mathbb{R}^n \to \mathbb{R}^m$ se representa como una <b>matriz $m \times n$</b>. La matriz se construye aplicando $T$ a los vectores de la base canónica:</p>
+$$T(\vec{e}_1) = \begin{bmatrix} t_{11} \\ t_{21} \end{bmatrix}, \quad T(\vec{e}_2) = \begin{bmatrix} t_{12} \\ t_{22} \end{bmatrix} \implies A = \begin{bmatrix} t_{11} & t_{12} \\ t_{21} & t_{22} \end{bmatrix}$$
+<p>Para cualquier vector $\vec{x}$: $T(\vec{x}) = A\vec{x}$ — ¡una multiplicación de matriz!</p>
+</div>
+
+<div class="box box-error">
+<span class="step-indicator"><span class="step-dot"></span> Paso 4</span>
+<strong>⚠️ Error común: confundir lineal con afín</strong>
+<p>Una <b>traslación</b> (sumar un vector) NO es lineal porque $T(\vec{0}) \neq \vec{0}$. Por ejemplo, $T(\vec{x}) = \vec{x} + \vec{b}$ no cumple $T(\vec{0}) = \vec{0}$ a menos que $\vec{b} = \vec{0}$.</p>
+<p><b>Truco para recordar:</b> Si la transformación mueve el origen, NO es lineal. Las transformaciones lineales siempre dejan el origen fijo.</p>
+</div>
+</section>
+
 <div class="chapter">
 <h2 class="chapter-title">🌍 ¿Dónde encuentro transformaciones lineales?</h2>
 <div class="box box-ejemplo">
 <strong>💡 Caso real: Gráficos por ordenador</strong>
 <p>Cada frame de un videojuego es el resultado de aplicar transformaciones lineales a los vértices de los modelos 3D: rotar, escalar, proyectar.</p>
 <p>¡La GPU es esencialmente una máquina de multiplicar matrices!</p>
+
+<div class="box box-ejemplo">
+<strong>🎬 Caso 2: Compresión de imágenes (SVD)</strong>
+<span class="real-world-badge">IA/Compresión</span><br>
+La descomposición en valores singulares (SVD) descompone una imagen en transformaciones lineales. Al conservar solo los primeros valores singulares, se reduce el tamaño del archivo manteniendo la calidad. ¡Una foto de 2MB puede reducirse a 200KB con SVD!
+</div>
+<div class="box box-ejemplo">
+<strong>🤖 Caso 3: Redes neuronales</strong>
+<span class="real-world-badge">Machine Learning</span><br>
+Una capa densa de una red neuronal aplica: $\vec{y} = \sigma(W\vec{x} + \vec{b})$. La parte $W\vec{x}$ es una transformación lineal (multiplicación por matriz). La no linealidad $\sigma$ se añade después. ¡Las redes profundas son cadenas de transformaciones lineales con activaciones!
+</div>
 </div>
 </div>
 
@@ -141,11 +420,61 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
+
+<section class="chapter">
+<h2 class="chapter-title">📐 Visualización SVG: Los 4 tipos fundamentales</h2>
+<div class="svg-container">
+<svg width="600" height="300" viewBox="0 0 600 300">
+<!-- Identity -->
+<text x="75" y="20" text-anchor="middle" font-size="13" fill="#6366f1" font-weight="bold">Identidad</text>
+<line x1="30" y1="150" x2="120" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="75" y1="100" x2="75" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="55" y="110" width="20" height="20" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2"/>
+<line x1="75" y1="120" x2="95" y2="120" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="75" y="220" text-anchor="middle" font-size="10" fill="#64748b">I = [[1,0],[0,1]]</text>
+
+<!-- Rotation 90° -->
+<text x="225" y="20" text-anchor="middle" font-size="13" fill="#6366f1" font-weight="bold">Rotación 90°</text>
+<line x1="180" y1="150" x2="270" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="225" y1="100" x2="225" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="205" y="130" width="20" height="20" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2"/>
+<rect x="230" y="110" width="20" height="20" fill="rgba(249,115,22,0.2)" stroke="#f97316" stroke-width="2"/>
+<text x="225" y="220" text-anchor="middle" font-size="10" fill="#64748b">R = [[0,-1],[1,0]]</text>
+
+<!-- Scaling -->
+<text x="375" y="20" text-anchor="middle" font-size="13" fill="#6366f1" font-weight="bold">Escalado 2×</text>
+<line x1="330" y1="150" x2="420" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="375" y1="100" x2="375" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="355" y="110" width="20" height="20" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2"/>
+<rect x="345" y="90" width="40" height="40" fill="rgba(249,115,22,0.2)" stroke="#f97316" stroke-width="2"/>
+<text x="375" y="220" text-anchor="middle" font-size="10" fill="#64748b">S = [[2,0],[0,2]]</text>
+
+<!-- Projection -->
+<text x="525" y="20" text-anchor="middle" font-size="13" fill="#6366f1" font-weight="bold">Proyección X</text>
+<line x1="480" y1="150" x2="570" y2="150" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="525" y1="100" x2="525" y2="200" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="505" y="110" width="20" height="20" fill="rgba(37,99,235,0.2)" stroke="#2563eb" stroke-width="2"/>
+<line x1="505" y1="150" x2="525" y2="150" stroke="#f97316" stroke-width="2"/>
+<text x="525" y="220" text-anchor="middle" font-size="10" fill="#64748b">P = [[1,0],[0,0]]</text>
+
+<!-- Arrow marker -->
+<defs>
+<marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/>
+</marker>
+</defs>
+
+<!-- Legend -->
+<text x="300" y="280" text-anchor="middle" font-size="11" fill="#64748b">Cada transformación mapea el cuadrado azul al naranja</text>
+</svg>
+</div>
+</section>
 <div class="chapter">
 <h2 class="chapter-title">2️⃣ Ejercicios Interactivos</h2>
+<div class="exercises">
 
 <div class="exercise">
-<p><strong>Ejercicio 1:</strong> ¿Cuál de estas es una transformación lineal?</p>
+<p><strong>Ejercicio 1</strong> <span class="difficulty-badge facil">Fácil</span> — ¿Cuál de estas es una transformación lineal?</p>
 <div class="exercise-input">
 <select id="e1" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
 <option value="">— Elige —</option>
@@ -159,7 +488,98 @@ table tr:nth-child(even){background:#f8fafc}
 </div>
 </div>
 
-<div class="summary">
+
+<!-- EJERCICIO 2: Completar matriz de rotación -->
+<div class="exercise">
+<p><strong>Ejercicio 2</strong> <span class="difficulty-badge facil">Fácil</span> — Completa la matriz de rotación de 90° en sentido antihorario:</p>
+$$R_{90°} = \begin{bmatrix} \cos(90°) & -\sin(90°) \\ \sin(90°) & \cos(90°) \end{bmatrix} = \begin{bmatrix} \_ & \_ \\ \_ & \_ \end{bmatrix}$$
+<div class="exercise-input">
+<input id="e2a" placeholder="a₁₁" style="width:70px">
+<input id="e2b" placeholder="a₁₂" style="width:70px">
+<input id="e2c" placeholder="a₂₁" style="width:70px">
+<input id="e2d" placeholder="a₂₂" style="width:70px">
+<button onclick="checkE2()">Comprobar</button>
+</div>
+<div class="feedback" id="e2-fb"></div>
+</div>
+
+<!-- EJERCICIO 3: V/F — Verificar linealidad -->
+<div class="exercise">
+<p><strong>Ejercicio 3</strong> <span class="difficulty-badge medio">Medio</span> (Verdadero o Falso): $T(\vec{x}) = \begin{bmatrix} 2 & 1 \\ 0 & -3 \end{bmatrix}\vec{x}$ es una transformación lineal.</p>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso</button>
+</div>
+<div class="feedback" id="e3-fb"></div>
+</div>
+
+<!-- EJERCICIO 4: Problema — Comprobar propiedades -->
+<div class="exercise">
+<p><strong>Ejercicio 4</strong> <span class="difficulty-badge medio">Medio</span> — Sea $T(\vec{x}) = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\vec{x}$. Calcula $T\left(\begin{bmatrix} 1 \\ -1 \end{bmatrix}\right)$.</p>
+<div class="exercise-input">
+<input id="e4x" placeholder="x₁" style="width:80px">
+<input id="e4y" placeholder="y₁" style="width:80px">
+<button onclick="checkE4()">Comprobar</button>
+</div>
+<div class="feedback" id="e4-fb"></div>
+</div>
+
+<!-- EJERCICIO 5: Emparejar transformación con matriz -->
+<div class="exercise">
+<p><strong>Ejercicio 5</strong> <span class="difficulty-badge dificil">Difícil</span> (Emparejar): Relaciona cada transformación con su matriz correcta:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
+<div style="background:var(--azul-claro);padding:.8rem;border-radius:8px">
+<p style="font-weight:600;margin-bottom:.5rem">Transformación</p>
+<p>1. Reflexión sobre eje X</p>
+<p>2. Proyección sobre eje Y</p>
+</div>
+<div style="background:var(--naranja-claro);padding:.8rem;border-radius:8px">
+<p style="font-weight:600;margin-bottom:.5rem">Elige la matriz:</p>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0;font-size:.8rem">[[1,0],[0,-1]]</button>
+<button class="quiz-btn" onclick="checkMatch(this, true)" style="width:100%;margin:.3rem 0;font-size:.8rem">[[0,0],[0,1]]</button>
+<button class="quiz-btn" onclick="checkMatch(this, false)" style="width:100%;margin:.3rem 0;font-size:.8rem">[[0,1],[1,0]]</button>
+</div>
+</div>
+<div class="feedback" id="e5-fb"></div>
+</div>
+
+<!-- EJERCICIO 6: Problema — Composición -->
+<div class="exercise">
+<p><strong>Ejercicio 6</strong> <span class="difficulty-badge dificil">Difícil</span> — Si $R$ es rotación 90° y $S$ es escalado 2×, calcula la matriz $SR$ (primero rotar, luego escalar).</p>
+<div class="box box-teoria">
+<strong>💡 Pista:</strong> La composición $SR$ se calcula como multiplicación de matrices: $SR = \begin{bmatrix} 0 & -2 \\ 2 & 0 \end{bmatrix}$
+</div>
+<div class="quiz-options">
+<button class="quiz-btn" onclick="checkVF(this, true)">Verdadero: $SR = \begin{bmatrix} 0 & -2 \\ 2 & 0 \end{bmatrix}$</button>
+<button class="quiz-btn" onclick="checkVF(this, false)">Falso: el orden no importa</button>
+</div>
+<div class="feedback" id="e6-fb"></div>
+</div>
+
+<!-- EJERCICIO 7: Contextual — ¿Es lineal? -->
+<div class="exercise">
+<p><strong>Ejercicio 7</strong> <span class="difficulty-badge dificil">Difícil</span> — ¿Es $T(x, y) = (x^2, y)$ una transformación lineal? Justifica tu respuesta.</p>
+<div class="exercise-input">
+<select id="e7" style="padding:.5rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem">
+<option value="">— Elige —</option>
+<option value="si">Sí, es lineal</option>
+<option value="no">No, no es lineal</option>
+</select>
+<button onclick="checkE7()">Comprobar</button>
+</div>
+<div class="feedback" id="e7-fb"></div>
+</div>
+
+
+<div class="connection-box">
+<strong>🔗 Conexiones con otros temas</strong>
+<p>• <a href="s10-7-carrera-matrix-operations.html">Sesión 7: Operaciones con Matrices</a> — Las transformaciones se componen multiplicando matrices</p>
+<p>• <a href="s10-8-carrera-autovalores.html">Sesión 8: Autovalores y Autovectores</a> — Los autovalores revelan cómo escala una transformación en direcciones propias</p>
+<p>• <a href="s10-5-carrera-edos-segundo-orden.html">Sesión 5: EDOs de Segundo Orden</a> — Los sistemas dinámicos se resuelven con transformaciones lineales</p>
+<p>• <a href="s10-6-carrera-series-fourier.html">Sesión 6: Series de Fourier</a> — La proyección en subespacios es una transformación lineal</p>
+<p>• <a href="s10-3-carrera-integrales-multiples.html">Sesión 3: Integrales Múltiples</a> — El cambio de variable es una transformación lineal (jacobiano)</p>
+</div>
+</div><div class="summary">
 <h3>📋 Resumen</h3>
 <ul>
 <li>Una transformación lineal preserva suma y producto por escalar</li>
@@ -221,6 +641,61 @@ function checkE1() {
   else { fb.textContent = 'Elige una opción'; fb.className = 'feedback incorrect'; }
 }
 
+
+
+function checkE2() {
+  const a = document.getElementById('e2a').value.trim();
+  const b = document.getElementById('e2b').value.trim();
+  const c = document.getElementById('e2c').value.trim();
+  const d = document.getElementById('e2d').value.trim();
+  const fb = document.getElementById('e2-fb');
+  if (a === '0' && b === '-1' && c === '1' && d === '0') {
+    fb.textContent = '✅ ¡Correcto! cos(90°)=0, sin(90°)=1, cos(90°)=0';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Recuerda: cos(90°)=0, sin(90°)=1 → R = [[0,-1],[1,0]]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE4() {
+  const x = document.getElementById('e4x').value.trim();
+  const y = document.getElementById('e4y').value.trim();
+  const fb = document.getElementById('e4-fb');
+  // [1,2;3,4] * [1,-1] = [1*1+2*(-1), 3*1+4*(-1)] = [-1, -1]
+  if (x === '-1' && y === '-1') {
+    fb.textContent = '✅ ¡Correcto! [1,2;3,4] × [1,-1] = [-1,-1]';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Calcula: [1·1+2·(-1), 3·1+4·(-1)] = [-1, -1]';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkE7() {
+  const sel = document.getElementById('e7');
+  const fb = document.getElementById('e7-fb');
+  if (sel.value === 'no') {
+    fb.textContent = '✅ ¡Correcto! T(x,y)=(x²,y) no es lineal porque (a+b)² ≠ a²+b². No cumple aditividad.';
+    fb.className = 'feedback correct';
+  } else {
+    fb.textContent = '❌ Incorrecto. T(x,y)=(x²,y) no es lineal: la elevación al cuadrado rompe la aditividad.';
+    fb.className = 'feedback incorrect';
+  }
+}
+
+function checkMatch(btn, correct) {
+  const fb = document.getElementById('e5-fb');
+  if (correct) {
+    btn.classList.add('correct');
+    fb.textContent = '✅ ¡Correcto! Proyección sobre eje Y = [[0,0],[0,1]]. La reflexión sobre X = [[1,0],[0,-1]].';
+    fb.className = 'feedback correct';
+  } else {
+    btn.classList.add('wrong');
+    fb.textContent = '❌ Incorrecto. Reflexión sobre X cambia el signo de Y: [[1,0],[0,-1]].';
+    fb.className = 'feedback incorrect';
+  }
+}
 
 </script>
 </body>

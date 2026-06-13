@@ -2436,20 +2436,27 @@
       "improvement_description": "Añadidos: 2 casos reales (física, ML), 2 nuevos ejercicios (emparejar, completar), CSS .exercises"
     },
     "s10-9-carrera-transformaciones-lineales.html": {
-      "status": "pending",
+      "status": "improved",
       "level": "Universidad",
       "priority": 3,
       "category": "universidad",
-      "improvements": [],
+      "improvements": [
+        {
+          "run": 1,
+          "date": "2026-06-12",
+          "added": "FULL IMPROVEMENT: 4-step theory (qué es/para qué/cómo/error), 3 real-world cases (GPU/SVD/ML), SVG visual 4 transformations, 7 exercises (6 types: select/completar/VF/problema/emparejar/contextual), difficulty badges (11), connection-box (5 temas), step-indicators, CSS coherence 100%"
+        }
+      ],
       "scores": {
-        "exercises": 0,
-        "text": 0,
-        "visual": 0,
-        "real_world": 0,
-        "connections": 0,
-        "difficulty_range": 0
+        "exercises": 10,
+        "text": 10,
+        "visual": 9,
+        "real_world": 9,
+        "connections": 8,
+        "difficulty_range": 8,
+        "css_coherence": 10
       },
-      "last_improved": null,
+      "last_improved": "2026-06-12",
       "improvement_count": 0
     },
     "s10-10-carrera-repaso.html": {
@@ -2681,13 +2688,20 @@
       "level": "ESO",
       "dimensions_improved": "exercises,visual,real_world,connections,difficulty_range,css_coherence",
       "description": "Añadidos: 16 difficulty badges, 2 casos reales (termómetro/cuenta), SVG visual -3>-5, 2 conexiones extra, 2 ejercicios nuevos (VF visual, emparejar), CSS difficulty-badge, corregido </head>/<body>"
+    },
+    {
+      "date": "2026-06-12",
+      "file": "s10-9-carrera-transformaciones-lineales.html",
+      "level": "Universidad",
+      "dimensions_improved": "exercises,text,visual,real_world,connections,difficulty_range,css_coherence",
+      "description": "Full improvement: 4-step theory, 3 real cases (GPU/SVD/ML), SVG visual 4 tipos, 7 ejercicios (6 tipos), 11 difficulty badges, 5 conexiones, CSS 100%"
     }
   ],
   "session_count": 1,
   "last_session": "2026-06-12",
   "rotation": {
-    "last_improved_level": "ESO",
-    "last_improved_file": "eso1-1-numeros-enteros.html",
-    "improvement_count": 1
+    "last_improved_level": "Universidad",
+    "last_improved_file": "s10-9-carrera-transformaciones-lineales.html",
+    "improvement_count": 2
   }
 }
